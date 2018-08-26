@@ -1,0 +1,10 @@
+global Productportfolio products;
+ 
+rule "children"
+when
+	Profile( age <= 15 )
+then
+	products.recommend( "PRODUCT_A", 5 );
+	products.recommend( "PRODUCT_B", 0 );
+	products.recommend( "ANOTHER_PRODUCT", 3 );
+end

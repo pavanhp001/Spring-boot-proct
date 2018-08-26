@@ -1,0 +1,26 @@
+ 
+Ensure the property files are placed in the root directory of the jar that uses the CM 
+======================================================================================
+pricing.properties
+
+Ensure the application.xml for the EAR acknowledges the jar that uses the CM 
+======================================================================================
+ <module>
+    <ejb>lib/cm-ejb.jar</ejb>
+  </module>
+  
+Ensure the META-INF/MANIFEST.MF for the EAR has the class-path to the jar that uses the CM
+======================================================================================
+Manifest-Version: 1.0
+Class-Path: lib/ lib/cm-ejb.jar
+
+
+Ensure that META-INF/MANIFEST.MF for the JAR that use the CM can see the CM JAR
+======================================================================================
+Manifest-Version: 1.0
+Class-Path: lib/cm-core-1.0.8.jar
+
+
+  
+  
+  

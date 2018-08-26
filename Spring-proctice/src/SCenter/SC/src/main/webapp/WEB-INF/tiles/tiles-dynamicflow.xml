@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+     <definition
+        name="dynamicFlow.base.definition.nonav.basicinfo"
+        template="/WEB-INF/flows/jsp/layout/layout_nonav_basicInfo.jsp" >
+        <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+    </definition>
+	
+	
+	<definition name="dynamicFlow.base.definition.realtimestatus" template="/WEB-INF/flows/jsp/layout/layout_sales_realtime.jsp">
+		 <put-attribute name="sales_summary_content" value="/WEB-INF/flows/jsp/common/sales_customer_summary_quick.jsp" />
+		 <put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+		 <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+	</definition>
+	<definition name="dynamicFlow.view" extends="dynamicFlow.base.definition.nonav.basicinfo">
+		<put-attribute name="discovery_notepad"
+			value="/WEB-INF/jsp/sales/empty_notepad.jsp" />
+		<put-attribute name="main_content"
+			value="/WEB-INF/flows/jsp/common/greeting.jsp" />
+	</definition>
+	
+	<definition name="homeserve.greeting" extends="dynamicFlow.base.definition.nonav.basicinfo">
+		<put-attribute name="discovery_notepad"
+			value="/WEB-INF/jsp/sales/empty_notepad.jsp" />
+		<put-attribute name="main_content"
+			value="/WEB-INF/flows/jsp/common/homeserve_greeting.jsp" />
+	</definition>
+	
+	<definition name="mdu.greeting" extends="dynamicFlow.base.definition.nonav.basicinfo">
+		<put-attribute name="discovery_notepad"
+			value="/WEB-INF/jsp/sales/empty_notepad.jsp" />
+		<put-attribute name="main_content"
+			value="/WEB-INF/flows/jsp/common/greeting_mdu.jsp" />
+	</definition>
+	
+	<definition name="customerLookup.greeting" extends="dynamicFlow.base.definition.nonav.basicinfo">
+		<put-attribute name="discovery_notepad"
+			value="/WEB-INF/jsp/sales/empty_notepad.jsp" />
+		<put-attribute name="main_content"
+			value="/WEB-INF/flows/customerLookup/common/greeting.jsp" />
+	</definition>	
+	<definition
+        name="dynamicFlow.base.definition.nav.basicinfo"
+        template="/WEB-INF/jsp/common/layout/layout_nav_basicInfo.jsp" >
+        <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+    </definition>
+
+	<definition name="dynamicFlow.basic_information_usaa" extends="dynamicFlow.base.definition.nonav.basicinfo">
+    	<put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/flows/usaa/common/basic_information.jsp" />
+	</definition>
+	
+	<definition name="dynamicFlow.basic_information" extends="dynamicFlow.base.definition.nonav.basicinfo">
+    	<put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/basic_information.jsp" />
+	</definition>
+	
+    <definition name="dynamicFlow.isValidAddress" extends="dynamicFlow.base.definition.nonav.basicinfo">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/addressFound.jsp" />
+	</definition>
+	
+	<definition name="dynamicFlow.isInvalidAddress" extends="dynamicFlow.base.definition.nonav.basicinfo">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/addressNotFound.jsp" />
+	</definition>
+	
+	<definition name="dynamicFlow.isMultipleAddress" extends="dynamicFlow.base.definition.nonav.basicinfo">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/multipleAddress.jsp" />
+	</definition>
+	
+	<definition name="dynamicFlow.base.definition.realtimestatusforconfirmation" template="/WEB-INF/flows/jsp/layout/layout_sales_realtime_confirmation.jsp">
+		 <put-attribute name="sales_cust_summary_content" value="/WEB-INF/flows/jsp/common/sales_customer_summary_quick.jsp" />
+		 <put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+		 <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+	</definition>
+		
+	<definition name="dynamicFlow.confirmation" extends="dynamicFlow.base.definition.realtimestatusforconfirmation">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/confirmation.jsp" />
+	</definition>
+	
+	<definition name="dynamicFlow.offer" extends="dynamicFlow.base.definition.realtimestatus">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/dynamic_offer.jsp" />
+	</definition>
+			
+	<definition name="dynamicFlow.qualification" extends="dynamicFlow.base.definition.realtimestatus">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/qualification.jsp" />
+	</definition>
+	
+	<definition name="dynamicFlow.discoveryA" extends="dynamicFlow.base.definition.realtimestatus">
+	 	<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/discoveryNew.jsp" />  
+	</definition>
+	
+	<definition name="dynamicFlow.discoveryB" extends="dynamicFlow.base.definition.realtimestatus">
+        <put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/discoveryTransfer.jsp" />
+	</definition>
+	
+	<definition name="dynamicFlow.base.definition.realtimestatus" template="/WEB-INF/flows/jsp/layout/layout_sales_realtime.jsp">
+		 <put-attribute name="sales_summary_content" value="/WEB-INF/flows/jsp/common/sales_customer_summary_quick.jsp" />
+		  <put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+		  <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+	</definition>
+	
+   <definition name="dynamicFlow.base.definition.lineItem" template="/WEB-INF/flows/jsp/layout/layoutnav_lineitem.jsp">
+   		<put-attribute name="product_menu_content"	value="/WEB-INF/flows/jsp/common/product_menu_content.jsp" />
+	</definition>
+	
+
+    <definition name="dynamicFlow.recommendations" extends="dynamicFlow.base.definition.lineItem">
+	 	<put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+        <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/recommendations.jsp" />
+       <put-attribute name="cust_summary_content"
+			value="/WEB-INF/flows/jsp/common/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />   
+	</definition>
+	
+	<definition name="dynamicFlow.syntheticBundles" extends="dynamicFlow.base.definition.lineItem">
+	 	<put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+         <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/syntheticBundles.jsp" />
+        <put-attribute name="cust_summary_content" value="/WEB-INF/flows/jsp/common/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />   
+	</definition>
+	
+	<definition name="dynamicFlow.recommendationsbyCategory" extends="dynamicFlow.base.definition.lineItem">
+	 	<put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+         <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/recommendationsbyCategory.jsp" />
+        <put-attribute name="cust_summary_content" value="/WEB-INF/flows/jsp/common/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />   
+	</definition>
+	
+	<definition name="dynamicFlow.orderSummary" extends="dynamicFlow.base.definition.summary">
+		<put-attribute name="main_content"
+			value="/WEB-INF/flows/jsp/common/order_summary.jsp" />
+		<put-attribute name="cust_summary_content"
+			value="/WEB-INF/flows/jsp/common/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />
+	</definition>
+	
+	<definition name="dynamicFlow.base.definition.orderquick"
+		template="/WEB-INF/flows/jsp/layout/layout_orderquick.jsp">
+		<put-attribute name="product_menu_content"
+			value="/WEB-INF/flows/jsp/common/product_menu_content.jsp" />
+		<put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />	
+	</definition>
+	
+	<!-- Order Recap Page -->
+	<definition name="dynamicFlow.orderRecap" extends="dynamicFlow.base.definition.orderquick">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/order_recap.jsp" />
+		<put-attribute name="product_menu_content"
+			value="/WEB-INF/flows/jsp/common/product_menu_content.jsp" />		
+		<put-attribute name="cust_summary_content"
+			value="/WEB-INF/flows/jsp/common/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />
+	</definition>
+	
+	<definition name="dynamicFlow.base.definition.closeCallSale"
+		template="/WEB-INF/flows/jsp/layout/layout_closeCallSale.jsp">
+	</definition>
+	
+	<!-- Close Call Sale Page -->
+	<definition name="dynamicFlow.closeCallSale" extends="dynamicFlow.base.definition.closeCallSale">
+		<put-attribute name="main_content"	value="/WEB-INF/jsp/cart/order_conclusion.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />  
+	</definition>
+	
+ 	<definition name="dynamicFlow.closingcallnosale" extends="dynamicFlow.base.definition.nav.basicinfo">
+        <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/empty_notepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/closingCall.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />  
+	</definition> 
+	
+	<definition name="dynamicFlow.warmTransfer" extends="dynamicFlow.base.definition.nav.basicinfo">
+        <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/empty_notepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/warmTransfer.jsp" />  
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />  
+	</definition>
+	
+	<definition
+        name="dynamicFlow.base.definition.nonav.dispostions"
+        template="/WEB-INF/flows/jsp/layout/layout_nonav_dispostions.jsp" >
+        <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+    </definition>
+    
+	<definition name="dynamicFlow.dispositions" extends="dynamicFlow.base.definition.nonav.dispostions">
+	    <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/empty_notepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/jsp/sales/dispositions.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />  		
+	</definition>
+	
+	<definition name="dynamicFlow.base.definition.summary"
+		template="/WEB-INF/flows/jsp/layout/layout_summary.jsp">
+		<put-attribute name="product_menu_content"
+			value="/WEB-INF/flows/jsp/common/product_menu_content.jsp" />
+		<put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+	</definition>
+	
+	<definition name="dynamicFlow.CKO_start" extends="dynamicFlow.base.definition.summary">
+		<put-attribute name="main_content"
+			value="/WEB-INF/flows/jsp/common/CKO_container.jsp" />
+		<put-attribute name="cust_summary_content"
+		value="/WEB-INF/flows/jsp/common/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />	
+	</definition>
+	
+</tiles-definitions>

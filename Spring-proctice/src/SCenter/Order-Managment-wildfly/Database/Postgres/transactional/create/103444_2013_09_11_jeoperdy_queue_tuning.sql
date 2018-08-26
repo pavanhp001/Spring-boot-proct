@@ -1,0 +1,1 @@
+CREATE INDEX concurrently om_li_providerid_idx01 ON V_tx.om_line_item(provider_ext_id);

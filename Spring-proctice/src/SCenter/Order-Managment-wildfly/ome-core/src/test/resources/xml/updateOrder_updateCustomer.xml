@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<v4:orderManagementRequestResponse xmlns:v4="http://xml.AL.com/v4">
+         <!--<v4:correlationId>12345</v4:correlationId>-->
+         <v4:transactionType>updateOrder</v4:transactionType>
+         <v4:request xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <v4:salesContext/>
+            <v4:agentId>User1</v4:agentId>
+            <v4:orderId>10718</v4:orderId>
+            <v4:updateOrderInfo>
+               <v4:externalId>8548</v4:externalId>
+               <v4:agentId>User2</v4:agentId>
+               <v4:associatedWithMove>0</v4:associatedWithMove>
+               <v4:moveDate>2012-05-21</v4:moveDate>
+               <v4:source>web</v4:source>
+               <v4:whenToCallBack>2012-04-21T12:00:00</v4:whenToCallBack>
+               <v4:customerInformation>
+                  <v4:action>updateCustomer</v4:action>
+                  <v4:customer>
+                     <v4:externalId>17664</v4:externalId>
+                     <v4:agentId>User1</v4:agentId>
+                     <v4:firstName>ptemp</v4:firstName>
+                     <v4:lastName>Plastname</v4:lastName>
+                     <v4:middleName>P</v4:middleName>
+                     <v4:homePhoneNumber>
+                        <v4:value>999-999-9999</v4:value>
+                        <v4:order>1</v4:order>
+                        <v4:desc>Home Phone</v4:desc>
+                     </v4:homePhoneNumber>
+                     <v4:cellPhoneNumber>
+                        <v4:value>111-222-2222</v4:value>
+                        <v4:order>2</v4:order>
+                        <v4:desc>Cell Phone</v4:desc>
+                     </v4:cellPhoneNumber>
+                  </v4:customer>
+               </v4:customerInformation>
+            </v4:updateOrderInfo>
+         </v4:request>
+      </v4:orderManagementRequestResponse>

@@ -1,0 +1,183 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.A.V:ome-core:jar:1.0.8
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: ac-eap:ejb-api:jar -> duplicate declaration of version 5.0.1 @ com.A.V:ome-parent:1.0.8, C:\projects\ome-trunk\pom.xml, line 328, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.xmlbeans:xbean:jar -> version ${xmlbean.version} vs 2.4.0 @ com.A.V:ome-parent:1.0.8, C:\projects\ome-trunk\pom.xml, line 559, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: javax.validation:validation-api:jar -> duplicate declaration of version 1.0.0.GA @ com.A.V:ome-parent:1.0.8, C:\projects\ome-trunk\pom.xml, line 628, column 15
+[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-compiler-plugin @ com.A.V:ome-parent:1.0.8, C:\projects\ome-trunk\pom.xml, line 78, column 12
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-pmd-plugin is missing. @ com.A.V:ome-parent:1.0.8, C:\projects\ome-trunk\pom.xml, line 53, column 12
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ com.A.V:ome-parent:1.0.8, C:\projects\ome-trunk\pom.xml, line 78, column 12
+[WARNING] 'build.plugins.plugin.version' for org.codehaus.mojo:build-helper-maven-plugin is missing. @ line 32, column 12
+[WARNING] 'build.plugins.plugin.version' for org.codehaus.mojo:findbugs-maven-plugin is missing. @ com.A.V:ome-parent:1.0.8, C:\projects\ome-trunk\pom.xml, line 28, column 12
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-eclipse-plugin is missing. @ com.A.V:ome-parent:1.0.8, C:\projects\ome-trunk\pom.xml, line 45, column 12
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-checkstyle-plugin is missing. @ com.A.V:ome-parent:1.0.8, C:\projects\ome-trunk\pom.xml, line 21, column 12
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Order Management Library 1.0.8
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.1:tree (default-cli) @ ome-core ---
+[INFO] com.A.V:ome-core:jar:1.0.8
+[INFO] +- com.A.V:ome-common:jar:1.0.8:compile
+[INFO] |  +- ac-eap:jboss-seam:jar:5.0.1:compile
+[INFO] |  +- javax.xml.soap:saaj-api:jar:1.3:runtime
+[INFO] |  |  \- javax.activation:activation:jar:1.0.2:runtime
+[INFO] |  +- com.sun.xml.messaging.saaj:saaj-impl:jar:1.3:runtime
+[INFO] |  \- log4j:log4j:jar:1.2.15:compile
+[INFO] +- com.A.V:ome-customer:jar:1.0.8:provided
+[INFO] +- com.A.V:AXMLBeans:jar:1.0.8:compile
+[INFO] +- json-lib:json-lib:jar:jdk15:2.3:compile
+[INFO] +- javax.jms:jms:jar:1.1:compile
+[INFO] +- com.A.V:cm-core:jar:1.0.8:compile
+[INFO] |  \- org.apache.activemq:activemq-core:jar:5.2.0:compile
+[INFO] |     +- commons-logging:commons-logging-api:jar:1.1:compile
+[INFO] |     +- org.apache.camel:camel-core:jar:1.5.0:compile
+[INFO] |     +- org.apache.geronimo.specs:geronimo-jms_1.1_spec:jar:1.1.1:compile
+[INFO] |     \- org.apache.geronimo.specs:geronimo-j2ee-management_1.0_spec:jar:1.0:compile
+[INFO] +- oracle:ojdbc14:jar:ojdbc14:compile
+[INFO] +- org.springframework.ws:spring-oxm-tiger:jar:1.5.0-m2:compile
+[INFO] |  +- org.springframework.ws:spring-xml:jar:1.5.0-m2:compile
+[INFO] |  +- org.springframework.ws:spring-oxm:jar:1.5.0-m2:compile
+[INFO] |  \- commons-logging:commons-logging:jar:1.1.1:compile
+[INFO] +- com.A.V:ALogicalModel:jar:1.0.8:compile
+[INFO] |  +- ac-eap:FastInfoset:jar:5.0.1:compile
+[INFO] |  +- ac-eap:ant:jar:5.0.1:compile
+[INFO] |  +- ac-eap:ant-antlr:jar:5.0.1:compile
+[INFO] |  +- ac-eap:ant-launcher:jar:5.0.1:compile
+[INFO] |  +- ac-eap:bsh:jar:5.0.1:compile
+[INFO] |  +- ac-eap:cglib:jar:5.0.1:compile
+[INFO] |  +- ac-eap:concurrent:jar:5.0.1:compile
+[INFO] |  +- ac-eap:dbunit:jar:5.0.1:compile
+[INFO] |  +- ac-eap:drools-decisiontables:jar:5.0.1:compile
+[INFO] |  +- ac-eap:drools-templates:jar:5.0.1:compile
+[INFO] |  +- ac-eap:el-api:jar:5.0.1:compile
+[INFO] |  +- ac-eap:emma:jar:5.0.1:compile
+[INFO] |  +- ac-eap:groovy-all:jar:5.0.1:compile
+[INFO] |  +- ac-eap:gwt-servlet:jar:5.0.1:compile
+[INFO] |  +- ac-eap:hibernate-search:jar:5.0.1:compile
+[INFO] |  +- ac-eap:hsqldb:jar:5.0.1:compile
+[INFO] |  +- ac-eap:htmlparser:jar:5.0.1:compile
+[INFO] |  +- ac-eap:itext:jar:5.0.1:compile
+[INFO] |  +- ac-eap:itext-rtf:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jaxws-api:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jboss-cache:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jboss-deployers-client-spi:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jboss-deployers-core-spi:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jboss-embedded-api:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jboss-jmx:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jboss-logging-spi:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jboss-seam-debug:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jboss-seam-excel:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jboss-seam-ioc:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jboss-seam-mail:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jboss-seam-pdf:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jboss-seam-remoting:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jboss-seam-resteasy:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jboss-seam-ui:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jboss-vfs:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jbosscache-core:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jcl-over-slf4j:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jcommon:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jfreechart:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jgroups:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jms:jar:5.0.1:compile
+[INFO] |  +- ac-eap:joda-time:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jsf-api:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jsf-impl:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jsp-api:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jsr181-api:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jsr250-api:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jta:jar:5.0.1:compile
+[INFO] |  +- ac-eap:junit:jar:5.0.1:compile
+[INFO] |  +- ac-eap:jxl:jar:5.0.1:compile
+[INFO] |  +- ac-eap:lucene-core:jar:5.0.1:compile
+[INFO] |  +- ac-eap:mail:jar:5.0.1:compile
+[INFO] |  +- ac-eap:openid4java:jar:5.0.1:compile
+[INFO] |  +- ac-eap:openxri-client:jar:5.0.1:compile
+[INFO] |  +- ac-eap:openxri-syntax:jar:5.0.1:compile
+[INFO] |  +- ac-eap:persistence-api:jar:5.0.1:compile
+[INFO] |  +- ac-eap:portlet-api:jar:5.0.1:compile
+[INFO] |  +- ac-eap:quartz:jar:5.0.1:compile
+[INFO] |  +- ac-eap:resteasy-atom-provider:jar:5.0.1:compile
+[INFO] |  +- ac-eap:resteasy-jaxb-provider:jar:5.0.1:compile
+[INFO] |  +- ac-eap:saaj-api:jar:5.0.1:compile
+[INFO] |  +- ac-eap:servlet-api:jar:5.0.1:compile
+[INFO] |  +- ac-eap:spring:jar:5.0.1:compile
+[INFO] |  +- ac-eap:testng-jdk15:jar:5.0.1:compile
+[INFO] |  +- ac-eap:urlrewritefilter:jar:5.0.1:compile
+[INFO] |  \- org.ietf.ldap:jldap:jar:4.3:compile
+[INFO] +- com.A.V:AReferenceModel:jar:1.0.8:compile
+[INFO] +- javax.validation:validation-api:jar:1.0.0.GA:provided
+[INFO] +- ac-eap:ejb-api:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- ac-eap:jboss-common-core:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- ac-eap:jboss-system:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- org.xmlbeans:xbean:jar:2.4.0:provided (scope not updated to compile)
+[INFO] +- junit:junit:jar:4.8.1:provided
+[INFO] +- org.springframework:spring-test:jar:3.0.2.RELEASE:compile
+[INFO] +- org.springframework:spring-aop:jar:3.0.2.RELEASE:provided
+[INFO] |  \- aopalliance:aopalliance:jar:1.0:provided
+[INFO] +- org.springframework:spring-asm:jar:3.0.2.RELEASE:provided
+[INFO] +- org.springframework:spring-aspects:jar:3.0.1.RELEASE:provided
+[INFO] +- org.springframework:spring-beans:jar:3.0.2.RELEASE:provided (scope not updated to compile)
+[INFO] +- org.springframework:spring-context:jar:3.0.2.RELEASE:provided
+[INFO] +- org.springframework:spring-context-support:jar:3.0.2.RELEASE:provided
+[INFO] +- org.springframework:spring-core:jar:3.0.2.RELEASE:provided (scope not updated to compile)
+[INFO] +- org.springframework:spring-expression:jar:3.0.2.RELEASE:provided
+[INFO] +- org.springframework:spring-jdbc:jar:3.0.1.RELEASE:provided
+[INFO] +- org.springframework:spring-jms:jar:3.0.2.RELEASE:provided
+[INFO] +- org.springframework:spring-orm:jar:3.0.2.RELEASE:provided
+[INFO] +- org.springframework:spring-oxm:jar:3.0.0.RELEASE:provided
+[INFO] +- org.springframework:spring-tx:jar:3.0.2.RELEASE:provided
+[INFO] +- ac-eap:log4j:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- commons-lang:commons-lang:jar:2.4:provided
+[INFO] +- ac-eap:dom4j:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- ac-eap:slf4j-api:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- ac-eap:slf4j-log4j12:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- ac-eap:javassist:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- ac-eap:ehcache:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- ac-eap:commons-collections:jar:5.0.1:provided
+[INFO] +- ac-eap:commons-beanutils:jar:5.0.1:provided
+[INFO] +- ac-eap:commons-digester:jar:5.0.1:provided
+[INFO] +- ac-eap:commons-httpclient:pom:5.0.1:provided
+[INFO] +- ac-eap:commons-logging:jar:5.0.1:provided
+[INFO] +- ac-eap:antlr:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- ac-eap:antlr-runtime:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- ac-eap:mvel2:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- ac-eap:richfaces-api:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- ac-eap:richfaces-impl:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- ac-eap:richfaces-ui:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- ac-eap:drools-core:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- ac-eap:drools-api:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- ac-eap:jaxrs-api:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- ac-eap:jbpm-jpdl:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- ac-eap:janino:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- ac-eap:jsf-facelets:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- ac-eap:drools-compiler:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- ac-eap:jboss-el:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- ac-eap:resteasy-jaxrs:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- ac-eap:saxon9:jar:5.0.1:provided
+[INFO] +- org.apache.xmlbeans:xbean_xpath:jar:2.4.0:provided
+[INFO] +- ac-eap:xom:jar:5.0.1:provided
+[INFO] +- ac-eap:core:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- net.sourceforge.saxon:saxon9-dom:jar:b9.1.0.1:provided
+[INFO] +- com.A.geocoder:A-Geocoder:jar:1.0.6:provided (scope not updated to compile)
+[INFO] |  \- org.apache.commons:commons-lang:jar:2.4:provided
+[INFO] +- javax.transaction:jta:jar:1.1:provided
+[INFO] +- ac-eap:hibernate-core:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- ac-eap:hibernate-validator:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- ac-eap:hibernate-annotations:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- ac-eap:hibernate-commons-annotations:jar:5.0.1:provided (scope not updated to compile)
+[INFO] +- ac-eap:ejb3-persistence:jar:5.0.1:provided (scope not updated to compile)
+[INFO] \- ac-eap:hibernate-entitymanager:jar:5.0.1:provided (scope not updated to compile)
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3.188s
+[INFO] Finished at: Mon Mar 21 09:46:05 EDT 2011
+[INFO] Final Memory: 8M/20M
+[INFO] ------------------------------------------------------------------------

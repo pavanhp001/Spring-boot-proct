@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+    <definition
+        name="base.definition"
+        template="/WEB-INF/jsp/common/layout/layout.jsp" >
+    </definition>
+    
+     <definition
+        name="base.definition.empty"
+        template="/WEB-INF/jsp/common/layout/layout_empty.jsp" >
+    </definition>
+    
+    <definition
+        name="base.definition.exception.layout"
+        template="/WEB-INF/jsp/common/layout/layout_nonav_basicInfo.jsp" >
+        <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+    </definition>
+    
+    <definition name="base.definition.signup" template="/WEB-INF/jsp/common/layout/layout_signup.jsp"></definition>    
+
+    <!-- LAYOUT END. VIEW DEFINITION START -->
+
+    <definition  name="version"  extends="base.definition" > 
+        <put-attribute  name="main_content"  value="/WEB-INF/jsp/common/version_content.jsp" />
+    </definition>
+
+    
+     <definition name="concert.recoverable" extends="base.definition.exception.layout">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/recoverable.jsp" />
+	 </definition>
+	 
+	 <definition name="concert.Unrecoverable" extends="base.definition.exception.layout">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/unrecoverable.jsp" />
+	 </definition>
+	 
+	 <definition name="concert.error" extends="base.definition.exception.layout">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/error.jsp" />
+	 </definition>
+	 
+	  <definition name="webflow.recoverable" extends="base.definition.exception.layout">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/recoverable.jsp" />
+	 </definition>
+	 
+	 <definition name="webflow.Unrecoverable" extends="base.definition.exception.layout">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/unrecoverable.jsp" />
+	 </definition>
+	 
+	 <definition name="webflow.error" extends="base.definition.exception.layout">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/error.jsp" />
+	 </definition>
+		<definition name="clearCacheResponseView" extends="base.definition.empty">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/clearCacheResponse.jsp" />
+	 </definition>
+	
+</tiles-definitions>

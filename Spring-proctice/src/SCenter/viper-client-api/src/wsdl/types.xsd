@@ -1,0 +1,1332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" targetNamespace="http://xml.A.com/v4"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ac="http://xml.A.com/v4">
+
+	<xs:include schemaLocation="payment.xsd" />
+	<xs:include schemaLocation="address.xsd" />
+	<xs:include schemaLocation="baseTypes.xsd" />
+
+	<xs:complexType name="statusType">
+		<xs:sequence>
+			<xs:element name="statusCode" type="xs:int" minOccurs="0"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A value that represents the high-level outcome of
+						the request
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice>
+				<xs:element name="processingMessages">
+					<xs:annotation>
+						<xs:documentation>
+							A set of message elements that each contain a
+							code and related
+							explanation text.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="message" type="ac:processingMessage"
+								minOccurs="0" maxOccurs="unbounded" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="statusMsg" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>
+							A message describing in text the same
+							information encoded in the
+							status code.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="processingMessage">
+		<xs:sequence>
+			<xs:element name="code" type="xs:double" />
+			<xs:element name="text" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="orderStatusHistoryType">
+		<xs:sequence>
+			<xs:element name="previousStatus" type="ac:orderStatusWithTypeType"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="orderStatusWithTypeType">
+		<xs:sequence>
+			<xs:element name="status" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="reason" type="xs:int" minOccurs="1"
+				maxOccurs="unbounded" />
+			<xs:element name="dateTimeStamp" type="xs:dateTime"
+				minOccurs="1" maxOccurs="1" />
+
+			<xs:element name="agentId" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="notificationEventCollectionType">
+		<xs:sequence>
+			<xs:element name="event" type="ac:notificationEventType"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="notificationEventType">
+		<xs:sequence>
+			<xs:element name="code" type="xs:int" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="reason" type="xs:int" minOccurs="1"
+				maxOccurs="unbounded" />
+			<xs:element name="comment" type="xs:string" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="acknowledged" type="xs:boolean" default="false"
+				minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="uniqueId" type="xs:string" />
+		<xs:attribute name="dateTimeStamp" type="xs:dateTime" />
+		<xs:attribute name="source" type="xs:string" />
+	</xs:complexType>
+
+	<xs:complexType name="lineItemStatusType">
+
+		<xs:sequence>
+			<xs:element name="reason" type="xs:int" minOccurs="1"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="statusCode" type="ac:lineItemStatusCodesType" />
+		<xs:attribute name="statusCodeDescription" />
+		<xs:attribute name="dateTimeStamp" type="xs:dateTime" />
+		<xs:attribute name="agentId" type="xs:string" />
+	</xs:complexType>
+
+	<xs:simpleType name="lineItemStatusCodesType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="cancelled_removed" />
+			<xs:enumeration value="hold_authorization_pending" />
+			<xs:enumeration value="hold_customer_action" />
+			<xs:enumeration value="hold_order" />
+			<xs:enumeration value="hold_order_pending_problem" />
+			<xs:enumeration value="hold_provider" />
+			<xs:enumeration value="processing_aged" />
+			<xs:enumeration value="processing_schedule_pending" />
+			<xs:enumeration value="processing_schedule_confirmed" />
+			<xs:enumeration value="processing_cancelled" />
+			<xs:enumeration value="processing_connected" />
+			<xs:enumeration value="processing_disconnected" />
+			<xs:enumeration value="processing_problem_ordered_vru_failed" />
+			<xs:enumeration value="sales_new_order" />
+			<xs:enumeration value="sales_pre_order" />
+			<xs:enumeration value="sales_submitted" />
+			<xs:enumeration value="provision_ready" />
+			<xs:enumeration value="provision_problem" />
+			<xs:enumeration value="test_order" />
+			<xs:enumeration value="sales_defer" />
+			<xs:enumeration value="submit_failed" />
+			<xs:enumeration value="reverse_processing_aged" />
+			<xs:enumeration value="reverse_processing_schedule_pending" />
+			<xs:enumeration value="reverse_processing_schedule_confirmed" />
+			<xs:enumeration value="reverse_processing_connected" />
+			<xs:enumeration value="reverse_processing_disconnected" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="lineItemStatusHistoryType">
+		<xs:sequence>
+			<xs:element name="previousStatus" type="ac:lineItemStatusType"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ccpCommunicationEventsType">
+		<xs:sequence>
+			<xs:element name="communicationEvent" type="ac:ccpCommunicationEventType" minOccurs="0"
+						maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ccpCommunicationEventType">
+		<xs:sequence>
+			<xs:element name="id" type="xs:long" minOccurs="1" maxOccurs="1" />
+			<xs:element name="communicationAddress" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="communicationDate" type="xs:dateTime" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="communicationType" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="communicationStatus" minOccurs="1" maxOccurs="1" >
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:enumeration value="successful" />
+						<xs:enumeration value="failed" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ccpEventNotificationType">
+		<xs:sequence>
+			<xs:element name="updateEmailInfo" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="orderID" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="bounceDate" type="xs:date" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="bounceType" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:enumeration value="hardBounce" />
+						<xs:enumeration value="softBounce" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="clickDate" type="xs:date" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="clickUrl" type="xs:string" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="emailID" type="xs:int" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="emailStatus" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:enumeration value="emailStatus1" />
+						<xs:enumeration value="emailStatus2" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="emailType" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<!-- ORDER_SUMM - 1 -->
+						<xs:enumeration value="1" />
+
+						<!-- STAT - 2 -->
+						<xs:enumeration value="2" />
+
+						<!-- ORP - 3 -->
+						<xs:enumeration value="3" />
+
+						<!-- PROVISIONING - 4 -->
+						<xs:enumeration value="4" />
+
+						<!-- ADHOC - 5 -->
+						<xs:enumeration value="5" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="emailSegmentID" type="xs:int" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="emailStatusIDEncrypt" type="xs:string" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="openDate" type="xs:date" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="returnCode" type="xs:int" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="returnMsg" type="xs:string" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="sendDate" type="xs:date" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="custExternalID" type="xs:long" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="custExternalIDEncrypt" type="xs:string" minOccurs="0"
+				maxOccurs="1" />
+
+		</xs:sequence>
+
+	</xs:complexType>
+
+	<xs:complexType name="coreMarketItemType">
+		<xs:sequence>
+			<xs:element name="externalId" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="channels" type="ac:channelType"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="accordChangeStamp" type="xs:long"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="accordPlanId" type="xs:int" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="serviceabilitySource" minOccurs="0"
+				maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:enumeration value="internal" />
+						<xs:enumeration value="realtime" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="providerId" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="providerName" type="xs:string"
+				minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The name of the provider of the marketItem. This
+						is separate from the name in the associated item,
+						since some
+						vendors have different names depending
+						on the market they are
+						offering services in.
+						This mostly happens in
+						relation to a parent
+						provider
+						and its subsidiaries, i.e. AT&amp;T and BellSouth.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="priceInfo" type="ac:priceInfoType"
+				minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="marketItemType">
+		<xs:complexContent>
+			<xs:extension base="ac:coreMarketItemType">
+				<xs:sequence>
+					<xs:element name="item" type="ac:itemType" minOccurs="1"
+						maxOccurs="1" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="marketItemWithCapabilitiesType">
+		<xs:complexContent>
+			<xs:extension base="ac:coreMarketItemType">
+				<xs:sequence>
+					<xs:element name="item" type="ac:externalItemType"
+						minOccurs="1" maxOccurs="1" />
+					<xs:element name="capabilityList">
+						<xs:annotation>
+							<xs:documentation>
+								A list of elements which have a name attribute
+								that describes
+								which capability of the service that the market
+								item offers.
+							</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="capability" type="ac:capabilityType"
+									minOccurs="0" maxOccurs="unbounded" />
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="itemType">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="1"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The name of the Item. Ex:
+						<B>AT&amp;T Extreme 6.0 DSL</B>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="providerId" type="xs:string" minOccurs="1"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The external id of the provider.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="providerName" type="xs:string"
+				minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The business name of the provider of the item. Ex:
+						<B>AT&amp;T</B>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="itemCategory" type="ac:itemCategory"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="priceInfo" type="ac:priceInfoType"
+				minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+
+
+
+	<xs:complexType name="itemCategory">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:annotation>
+					<xs:documentation>
+						Current possible values are:
+						<OL>
+							<LI>Bundles</LI>
+							<LI>Electricity</LI>
+							<LI>Local Phone</LI>
+							<LI>Long Distance Phone</LI>
+							<LI>Home Wire Protection</LI>
+							<LI>Wireless Phone</LI>
+							<LI>Cable TV</LI>
+							<LI>Satellite TV</LI>
+							<LI>High Speed Internet</LI>
+							<LI>Dial Up Internet</LI>
+							<LI>Local News Paper</LI>
+							<LI>National News Paper</LI>
+							<LI>Personal Checks</LI>
+							<LI>Washer / Dryer Rental</LI>
+							<LI>Warranty</LI>
+							<LI>Home Security</LI>
+							<LI>Waste Removal</LI>
+							<LI>Natural Gas</LI>
+							<LI>Energy Conservation</LI>
+							<LI>Offers</LI>
+							<LI>Second Call</LI>
+							<LI>Water</LI>
+							<LI>Appliance Protection</LI>
+						</OL>
+					</xs:documentation>
+				</xs:annotation>
+				<xs:attribute name="displayName" type="xs:string" use="optional">
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:complexType name="externalItemType">
+		<xs:complexContent>
+			<xs:extension base="ac:itemType">
+				<xs:sequence>
+					<xs:element name="externalId" type="xs:string"
+						minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The external id of the item.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+
+					<xs:element name="marketingHighlight" type="xs:string"
+						minOccurs="0" maxOccurs="10">
+						<xs:annotation>
+							<xs:documentation>
+								Textual bullet points that highlight aspects of the item that
+								the service provider
+								has chosen for marketing purposes.
+								Ex:
+								<B>"Blazing Download Speeds"</B>
+								, or
+								<B>"Static IP address included"</B>
+								.
+								Up to 10 instances of this element are possible in one item.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+
+	<xs:complexType name="capabilityType">
+		<xs:attribute name="name" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>
+					Current possible values are:
+					<OL>
+						<LI>satellite</LI>
+						<LI>analogCable</LI>
+						<LI>digitalCable</LI>
+						<LI>hdtv</LI>
+						<LI>fiberDataDownSpeed</LI>
+						<LI>fiberDataUpSpeed</LI>
+						<LI>wiredDataUpSpeed</LI>
+						<LI>wiredDataDownSpeed</LI>
+						<LI>ipDslamVoip</LI>
+						<LI>ipDslamIptv</LI>
+						<LI>ipDslamDataDownSpeed</LI>
+						<LI>ipDslamDataUpSpeed</LI>
+						<LI>dialUpInternet</LI>
+						<LI>electricity</LI>
+						<LI>naturalGas</LI>
+						<LI>localPhone</LI>
+						<LI>longDistancePhone</LI>
+						<LI>homeWireProtection</LI>
+						<LI>wirelessPhone</LI>
+						<LI>wasteRemoval</LI>
+						<LI>localNewspaper</LI>
+						<LI>nationalNewspaper</LI>
+						<LI>homeSecurity</LI>
+						<LI>water</LI>
+						<LI>offers</LI>
+						<LI>voip</LI>
+						<LI>iptv</LI>
+						<LI>warranty</LI>
+						<LI>energyManagement</LI>
+					</OL>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="channelType">
+		<xs:sequence>
+			<xs:element name="channel" type="xs:string" minOccurs="1"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="referrer" type="ac:businessPartyType" />
+
+
+
+
+	<xs:complexType name="businessPartyType">
+
+		<xs:all>
+			<xs:element name="name" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="externalId" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+		</xs:all>
+
+	</xs:complexType>
+
+	<xs:complexType name="selectedFeaturesType">
+		<xs:sequence>
+			<xs:element name="features" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="featureValue" type="ac:featureValueType"
+							minOccurs="0" maxOccurs="unbounded" />
+					</xs:sequence>
+
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="featureGroup" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="featureValue" type="ac:featureValueType"
+							minOccurs="0" maxOccurs="unbounded" />
+					</xs:sequence>
+					<xs:attribute name="externalId" type="xs:string" />
+					<xs:attribute name="groupType" default="0" type="xs:int">
+						<xs:annotation>
+							<xs:documentation>
+								Represents the feature container type:
+								-1 :
+								PickAll
+								0 : Unused
+								1 : Pick One,
+								N : PickN or PickUpToN
+							</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="selectedDialogsType">
+		<xs:sequence>
+			<xs:element name="dialogs" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="dialog" type="ac:dialogValueType"
+							minOccurs="0" maxOccurs="unbounded" />
+					</xs:sequence>
+
+				</xs:complexType>
+			</xs:element>
+
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="dialog" type="ac:selectedDialogsType" />
+
+	<xs:complexType name="dialogValueType">
+		<xs:sequence>
+			<xs:element name="externalId" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="dialogueDate" type="xs:dateTime"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="value" minOccurs="1" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="type">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="integer" />
+										<xs:enumeration value="string" />
+										<xs:enumeration value="boolean" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+							<xs:attribute name="selected" type="xs:boolean"
+								default="true" />
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
+<xs:complexType name="featureValueType">
+		<xs:sequence>
+			<xs:element name="price" type="ac:priceInfoType" minOccurs="0" maxOccurs="1" />
+
+			<xs:element name="included" type="ac:emptyElementType"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="required" type="xs:boolean" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="available" type="xs:boolean" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="doNotDisplay" type="ac:emptyElementType"
+				minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="externalId" type="xs:string" />
+		<xs:attribute name="value" type="xs:string" />
+		<xs:attribute name="type">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="integer" />
+					<xs:enumeration value="string" />
+					<xs:enumeration value="boolean" />
+					<xs:enumeration value="group" />
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="description" type="xs:string" use="optional" />
+		<xs:attribute name="tags" type="xs:string" use="optional" />
+	</xs:complexType>
+
+
+
+
+	<xs:element name="price" type="ac:priceInfoType" />
+	<xs:element name="priceTierList" type="ac:priceTierListType" />
+
+	<xs:complexType name="priceTierListType">
+		<xs:sequence>
+			<xs:element name="priceTier" type="ac:priceTierType"
+				minOccurs="1" maxOccurs="10" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="priceTierType">
+		<xs:sequence>
+			<xs:element name="price" type="ac:priceInfoType" />
+			<xs:element name="rangeStart" type="xs:int" />
+			<xs:element name="rangeEnd" type="xs:int" minOccurs="0"
+				maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="priceInfoType">
+		<xs:annotation>
+			<xs:documentation>
+				This container contains all of the pricing
+				information used by various
+				entities.
+				each contains a dollar amount
+				representing the one-time price and the
+				(typically monthly) recurring
+				price of the service.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="baseNonRecurringPrice" type="xs:double"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The dollar amount representing the one-time
+						price.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="baseNonRecurringPriceUnits" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The units representing any multiplier for the
+						non-recurring price for
+						the service,
+						i.e. install change per number
+						of outlets, etc.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="baseRecurringPrice" type="xs:double"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The dollar amount representing the recurring
+						charges for the service.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="baseRecurringPriceUnits" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The units representing any multiplier for the
+						non-recurring price for
+						the service,
+						i.e. per month, per quarter,
+						etc.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="includeInTotalPrice" type="ac:emptyElementType"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Flag to indicate whether or not to include this
+						pricing information
+						into any total price calculations.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="energyPriceInfo" type="ac:energyPriceInfoType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Energy integration from whitefence HYBRIS to V backend
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="energyPriceInfoType">
+		<xs:sequence>
+			<xs:element name="rate" minOccurs="1" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:double">
+							<xs:attribute name="tier" type="xs:string" />
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="energyUnit" type="ac:energyUnitType" />
+	</xs:complexType>
+	<xs:simpleType name="energyUnitType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="therm" />
+			<xs:enumeration value="kwh" />
+			<xs:enumeration value="ccf" />
+			<xs:enumeration value="mcf" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="rateType">
+		<xs:attribute name="tier" type="xs:string"/>
+	</xs:complexType>
+	
+	<xs:complexType name="dataConstraintType">
+		<xs:sequence>
+			<xs:choice minOccurs="1" maxOccurs="1">
+				<xs:element name="booleanConstraint">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="value" minOccurs="0" maxOccurs="1">
+								<xs:simpleType>
+									<xs:restriction base="xs:token">
+										<xs:enumeration value="T" />
+										<xs:enumeration value="F" />
+										<xs:enumeration value="true" />
+										<xs:enumeration value="false" />
+										<xs:enumeration value="True" />
+										<xs:enumeration value="False" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="default" minOccurs="0" maxOccurs="1"
+								type="xs:boolean" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="stringConstraint">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="length" type="xs:integer" minOccurs="0"
+								maxOccurs="1" />
+							<xs:choice minOccurs="0" maxOccurs="1">
+								<xs:sequence>
+									<xs:element name="listOfValues" minOccurs="1"
+										maxOccurs="1">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="value" type="xs:string"
+													minOccurs="1" maxOccurs="unbounded" />
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+								<xs:element name="value" type="xs:string" minOccurs="1"
+									maxOccurs="1" />
+							</xs:choice>
+							<xs:element name="default" type="xs:string" minOccurs="0"
+								maxOccurs="1" />
+						</xs:sequence>
+						<xs:attribute name="comparableValue" type="xs:float"
+							use="optional" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="integerConstraint">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:choice minOccurs="0" maxOccurs="1">
+								<xs:sequence>
+									<xs:element name="listOfValues" minOccurs="1"
+										maxOccurs="1">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="value" type="xs:integer"
+													minOccurs="1" maxOccurs="unbounded" />
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+								<xs:element name="value" type="xs:integer" minOccurs="1"
+									maxOccurs="1" />
+								<xs:sequence>
+									<xs:element name="minValue" type="xs:integer"
+										minOccurs="0" maxOccurs="1" />
+									<xs:element name="maxValue" type="xs:integer"
+										minOccurs="0" maxOccurs="1" />
+								</xs:sequence>
+							</xs:choice>
+							<xs:element name="default" type="xs:integer"
+								minOccurs="0" maxOccurs="1" />
+						</xs:sequence>
+						<xs:attribute name="unlimited" type="xs:boolean" use="optional" />
+						<xs:attribute name="unit" type="xs:string" use="optional" />
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="customerContextType">
+		<xs:sequence>
+			<xs:element name="entity" type="ac:customerContextEntityType"
+				minOccurs="1" maxOccurs="unbounded">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="customerContextEntityType">
+		<xs:sequence>
+			<xs:element name="attribute" type="ac:nameValuePairType"
+				minOccurs="1" maxOccurs="unbounded" nillable="true" />
+		</xs:sequence>
+		<xs:attribute name="name" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:pattern value="[\w\d\\.]+"></xs:pattern>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="salesContextType">
+		<xs:sequence>
+			<xs:element name="orderSource" type="xs:int" minOccurs="0"
+				maxOccurs="1">
+			</xs:element>
+
+			<xs:element name="entity" type="ac:salesContextEntityType"
+				minOccurs="1" maxOccurs="unbounded">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="salesContextEntityType">
+		<xs:sequence>
+			<xs:element name="attribute" type="ac:nameValuePairType"
+				minOccurs="1" maxOccurs="unbounded" nillable="true" />
+		</xs:sequence>
+		<xs:attribute name="name" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:pattern value="[\w\d\\.]+"></xs:pattern>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="nameValuePairType">
+		<xs:attribute name="name" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:pattern value="[\w\d\\.]+"></xs:pattern>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="value" type="xs:string" use="optional" />
+	</xs:complexType>
+
+
+	<xs:complexType name="abstractRequestType" abstract="true" />
+	<xs:complexType name="abstractResponseType" abstract="true" />
+	<xs:complexType name="abstractTransactionTypeType"
+		abstract="true" />
+
+	<xs:element name="transactionType" type="ac:abstractTransactionTypeType" />
+	<xs:element name="request" type="ac:abstractRequestType" />
+	<xs:element name="response" type="ac:abstractResponseType" />
+
+	<xs:complexType name="enterpriseRequestDocumentType">
+		<xs:sequence>
+			<xs:element name="GUID" type="xs:string"></xs:element>
+			<xs:element ref="ac:transactionType" />
+			<xs:element name="salesContext" type="ac:salesContextType"
+				maxOccurs="1" minOccurs="0">
+			</xs:element>
+			<xs:element ref="ac:request" maxOccurs="1" minOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="debug" type="xs:boolean" use="optional" />
+	</xs:complexType>
+
+	<xs:complexType name="enterpriseResponseDocumentType">
+		<xs:sequence>
+			<xs:element name="GUID" type="xs:string"></xs:element>
+			<xs:element name="status" type="ac:statusType"></xs:element>
+			<xs:element name="request" type="ac:enterpriseRequestDocumentType"
+				maxOccurs="1" minOccurs="0" />
+			<xs:element ref="ac:response" maxOccurs="1" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="creditClassType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="low" />
+			<xs:enumeration value="medium" />
+			<xs:enumeration value="high" />
+			<xs:enumeration value="exceptional" />
+			<xs:enumeration value="unknown" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="regionType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SOUTHWEST" />
+			<xs:enumeration value="WEST" />
+			<xs:enumeration value="MIDWEST" />
+			<xs:enumeration value="EAST" />
+			<xs:enumeration value="SOUTHEAST" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="serviceType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="BUSINESS" />
+			<xs:enumeration value="RESIDENTIAL" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="providerType">
+		<xs:annotation>
+			<xs:documentation>Defines a provider record for response from
+				Serviceability API (using an address as input)
+				and as an input into
+				Product APIs</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="source" type="ac:providerSourceType"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Local provider</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="parent" type="ac:providerType"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Parent provider (name and external ID only)
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="capabilityList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A list of elements which have a name attribute
+						that describes
+						which capability of the service that the provider
+						offers at a requested address.
+					</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="capability" type="ac:capabilityType"
+							minOccurs="0" maxOccurs="unbounded" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="externalId" type="xs:string" use="required" />
+		<xs:attribute name="name" type="xs:string" use="required" />
+		<xs:attribute name="offerType" type="ac:offerTypeType" use="optional"/>
+		
+	</xs:complexType>
+
+	<xs:simpleType name="providerSourceBaseType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="internal" />
+			<xs:enumeration value="realtime" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="providerSourceType">
+		<xs:annotation>
+			<xs:documentation>Denotes whether a provider is realtime or internal,
+				and provides field to indentify the realtime datasource ie "ATTSTI".
+				Datasource is optional incase of internal provider data
+			</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="ac:providerSourceBaseType">
+				<xs:attribute name="datasource" type="xs:string" use="optional" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:complexType name="customSelectionsType">
+		<xs:sequence>
+			<xs:element name="selections" type="ac:lineItemSelectionsType"
+				minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="lineItemSelectionsType">
+		<xs:sequence>
+			<xs:element name="selection" type="ac:lineItemSelectionType"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="lineItemSelectionType">
+		<xs:sequence>
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="shortDescription"
+                maxOccurs="1" minOccurs="0" type="xs:string" />
+			<xs:element name="selectionChoice" type="ac:selectionChoiceType"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="externalId" type="xs:string" />
+		<xs:attribute name="parentChoiceExternalId" type="xs:string" />
+		<xs:attribute name="displayOrder" type="xs:short" use="optional" />
+        <xs:attribute name="type" type="xs:string" use="optional" />
+	</xs:complexType>
+
+	<xs:complexType name="selectionChoiceType">
+		<xs:sequence>
+		<xs:element name="name" type="xs:string" />
+        <xs:element name="shortDescription" maxOccurs="1"
+            	minOccurs="0" type="xs:string" />
+		<xs:element name="price" type="ac:priceInfoType" minOccurs="0" maxOccurs="1" /> 
+		<xs:element name="detail" type="xs:string" minOccurs="0"
+				maxOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="externalId" type="xs:string" />
+		<xs:attribute name="displayOrder" type="xs:short" use="optional" />
+	</xs:complexType>
+
+	<xs:complexType name="metaDataListType">
+		<xs:annotation>
+			<xs:documentation>
+				A collection of 'MetaTagType' elements.  Used to 'decorate' objects with name/value type metadata.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="metadata" type="ac:metaData" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="metaData">
+		<xs:annotation>
+			<xs:documentation>
+				A simple type to contain a kind of 'metadata' information that could be used to categorize or select
+				elements that it is attached to.  They will typically be used in groups as defined by
+				a 'TagListType'
+			</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="name" type="xs:string" use="required" />
+		<xs:attribute name="value" type="xs:string" use="required" />
+	</xs:complexType>
+
+<xs:simpleType name="offerTypeType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="new" />
+			<xs:enumeration value="transfer" />
+			<xs:enumeration value="upgrade" />
+			<xs:enumeration value="asis" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="userGroupListType">
+		<xs:sequence>
+			<xs:element name="userGroup" type="ac:userGroupType"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="userGroupType">
+		<xs:sequence>
+			<xs:element name="impactedArea" type="ac:impactAreaListType"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required" />
+	</xs:complexType>
+	
+	<xs:complexType name="impactAreaListType">
+		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="id" type="xs:long" />
+	</xs:complexType>
+	
+	<xs:complexType name="EnergyProduct">
+		<xs:sequence>
+			<xs:element name="ProductCode"  type="xs:string" minOccurs="1"/>
+			<xs:element minOccurs="0"  maxOccurs="1" name="ProductCode2" type="xs:string"/>
+			<xs:element minOccurs="0"  maxOccurs="1" name="ProductSubType" type="ac:ProductSubTypeEnum"/>
+			<xs:element minOccurs="0"  maxOccurs="1" name="OEIndex" type="xs:long"/>
+			<xs:element name="Shortname"  type="xs:string"/>
+			<xs:element minOccurs="0"  maxOccurs="1" name="Mediumname"  type="xs:string"/>
+			<xs:element minOccurs="0"  maxOccurs="1" name="Longname"  type="xs:string"/>
+			<xs:element name="ShortDescription"  type="xs:string"/>
+			<xs:element minOccurs="0"  maxOccurs="1" name="LongDescription"  type="xs:string"/>
+			<xs:element minOccurs="0"  maxOccurs="1" name="Prices"  type="ac:PriceFields"/>
+			<xs:element minOccurs="0"  maxOccurs="1" name="ContractLength" type="ac:ContractLengthEnum"/>
+			<xs:element minOccurs="0"  maxOccurs="1" name="EarlyTerminationFee"  type="xs:string"/>
+			<xs:element minOccurs="0"  maxOccurs="1" name="DisplayVisible" type="ac:YesNoEnum"/>
+			<xs:element minOccurs="0"  maxOccurs="1" name="DisplaySelected" type="ac:YesNoEnum"/>
+			<xs:element minOccurs="0" maxOccurs="1"  name="TermsAndConditions"  type="xs:string"/>
+			<xs:element minOccurs="0" maxOccurs="1" name="PlanType" type="ac:EnergyPlanTypeEnum" />
+			<xs:element minOccurs="0" maxOccurs="1" name="EnergyType" type="ac:EnergyTypEnum" />
+			<xs:element minOccurs="0" maxOccurs="1" name="EnergySourceType" type="ac:EnergySourceTypeEnum" />
+			<xs:element minOccurs="0" maxOccurs="1" name="CampaignCode"  type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="PromotionCode"  type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="OfferSequenceNumber"  type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="ProductPriceCode"  type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="IncentiveCode"  type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="MarketSegment"  type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="ProductSubTypeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NONE"/>
+			<xs:enumeration value="PHONE_COPPER"/>
+			<xs:enumeration value="PHONE_FIBER"/>
+			<xs:enumeration value="HSI_FIBER"/>
+			<xs:enumeration value="VIDEO_FIBER"/>
+			<xs:enumeration value="DSL"/>
+			<xs:enumeration value="FIBER"/>
+			<xs:enumeration value="CABLE"/>
+			<xs:enumeration value="SAT"/>
+			<xs:enumeration value="SPORTS_PKG"/>
+			<xs:enumeration value="MOVIE_PKG"/>
+			<xs:enumeration value="GAME_PKG"/>
+			<xs:enumeration value="STDDVR"/>
+			<xs:enumeration value="HDDVR"/>
+			<xs:enumeration value="STB_NO_DVR"/>
+			<xs:enumeration value="ADDON"/>
+			<xs:enumeration value="ANTENNA"/>
+			<xs:enumeration value="WIRELESS_ROUTER"/>
+			<xs:enumeration value="ROUTER"/>
+			<xs:enumeration value="JACK1"/>
+			<xs:enumeration value="JACK2PLUS"/>
+			<xs:enumeration value="PROTECTIONPLAN"/>
+			<xs:enumeration value="NONLISTED"/>
+			<xs:enumeration value="NONPUBLISHED"/>
+			<xs:enumeration value="LISTEDPUBLISHED"/>
+			<xs:enumeration value="FLATRATE"/>
+			<xs:enumeration value="MSGRATE"/>
+			<xs:enumeration value="UNLIMITED_LOCAL"/>
+			<xs:enumeration value="FEATURE"/>
+			<xs:enumeration value="INTERNATIONAL_CHANNEL"/>
+			<xs:enumeration value="HW_CONNECTION_KIT"/>
+			<xs:enumeration value="PREPAID"/>
+			<xs:enumeration value="REGULATED"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="PriceFields">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="PriceField" nillable="true" type="ac:PriceField"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="PriceField">
+		<xs:sequence>
+			<xs:element name="nameEnum" type="ac:PriceFieldNameEnum"/>
+			<xs:element name="price" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<DefaultValue EmitDefaultValue="false"/>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="frequency" type="ac:PriceFrequencyEnum"/>
+			<xs:element minOccurs="0" name="description"  type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<DefaultValue EmitDefaultValue="false"/>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="priceText" type="xs:string">
+				<xs:annotation>
+					<xs:appinfo>
+						<DefaultValue EmitDefaultValue="false"/>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="minimumUsage" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="PriceFieldNameEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NONE"/>
+			<xs:enumeration value="PRODUCT"/>
+			<xs:enumeration value="HARDWARE"/>
+			<xs:enumeration value="DEPOSIT"/>
+			<xs:enumeration value="SHIPPING"/>
+			<xs:enumeration value="ADDITIONAL_LINE"/>
+			<xs:enumeration value="LONGDISTANCE"/>
+			<xs:enumeration value="SERVICE_CHARGE"/>
+			<xs:enumeration value="PROMOTION"/>
+			<xs:enumeration value="INSTALLATION"/>
+			<xs:enumeration value="INTERNATIONAL"/>
+			<xs:enumeration value="ANSWERS"/>
+			<xs:enumeration value="BEST_PRICE"/>
+			<xs:enumeration value="RACK_RATE"/>
+			<xs:enumeration value="ADVANCED"/>
+			<xs:enumeration value="AUTO"/>
+			<xs:enumeration value="ONE_TIME"/>
+			<xs:enumeration value="BALANCE_DUE"/>
+			<xs:enumeration value="SERVICE_ENERGY_CHARGE"/>
+			<xs:enumeration value="SERVICE_TDSP_CHARGE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="PriceFrequencyEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NONE"/>
+			<xs:enumeration value="ONETIME"/>
+			<xs:enumeration value="WEEKLY"/>
+			<xs:enumeration value="MONTHLY"/>
+			<xs:enumeration value="ANNUALLY"/>
+			<xs:enumeration value="EVERY2MONTHS"/>
+			<xs:enumeration value="EVERY3MONTHS"/>
+			<xs:enumeration value="EVERY6MONTHS"/>
+			<xs:enumeration value="EVERY2YEARS"/>
+			<xs:enumeration value="EVERY3YEARS"/>
+			<xs:enumeration value="PER_KWH"/>
+			<xs:enumeration value="PER_THERM"/>
+			<xs:enumeration value="PER_MCF"/>
+			<xs:enumeration value="PER_CCF"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="ContractLengthEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CT_NONE"/>
+			<xs:enumeration value="CT_M2M"/>
+			<xs:enumeration value="CT_1MONTH"/>
+			<xs:enumeration value="CT_2MONTH"/>
+			<xs:enumeration value="CT_3MONTH"/>
+			<xs:enumeration value="CT_4MONTH"/>
+			<xs:enumeration value="CT_5MONTH"/>
+			<xs:enumeration value="CT_6MONTH"/>
+			<xs:enumeration value="CT_7MONTH"/>
+			<xs:enumeration value="CT_8MONTH"/>
+			<xs:enumeration value="CT_9MONTH"/>
+			<xs:enumeration value="CT_10MONTH"/>
+			<xs:enumeration value="CT_11MONTH"/>
+			<xs:enumeration value="CT_12MONTH"/>
+			<xs:enumeration value="CT_13MONTH"/>
+			<xs:enumeration value="CT_14MONTH"/>
+			<xs:enumeration value="CT_15MONTH"/>
+			<xs:enumeration value="CT_16MONTH"/>
+			<xs:enumeration value="CT_17MONTH"/>
+			<xs:enumeration value="CT_18MONTH"/>
+			<xs:enumeration value="CT_19MONTH"/>
+			<xs:enumeration value="CT_20MONTH"/>
+			<xs:enumeration value="CT_21MONTH"/>
+			<xs:enumeration value="CT_22MONTH"/>
+			<xs:enumeration value="CT_23MONTH"/>
+			<xs:enumeration value="CT_24MONTH"/>
+			<xs:enumeration value="CT_25MONTH"/>
+			<xs:enumeration value="CT_26MONTH"/>
+			<xs:enumeration value="CT_27MONTH"/>
+			<xs:enumeration value="CT_28MONTH"/>
+			<xs:enumeration value="CT_29MONTH"/>
+			<xs:enumeration value="CT_30MONTH"/>
+			<xs:enumeration value="CT_36MONTH"/>
+			<xs:enumeration value="CT_48MONTH"/>
+			<xs:enumeration value="CT_60MONTH"/>
+			<xs:enumeration value="CT_1YEAR"/>
+			<xs:enumeration value="CT_2YEAR"/>
+			<xs:enumeration value="CT_3YEAR"/>
+			<xs:enumeration value="CT_4YEAR"/>
+			<xs:enumeration value="CT_5YEAR"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="YesNoEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NONE"/>
+			<xs:enumeration value="YES"/>
+			<xs:enumeration value="NO"/>
+			<xs:enumeration value="MAYBE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="EnergyPlanTypeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NONE" />
+			<xs:enumeration value="VARIABLE" />
+			<xs:enumeration value="FIXED" />
+			<xs:enumeration value="PREPAY" />
+			<xs:enumeration value="VARIABLEPREPAY" />
+			<xs:enumeration value="INDEXED" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="EnergyTypEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NONE" />
+			<xs:enumeration value="TRADITIONAL" />
+			<xs:enumeration value="RENEWABLE" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="EnergySourceTypeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NONE" />
+			<xs:enumeration value="WINDENERGY" />
+			<xs:enumeration value="WINDWATERENGERGY" />
+			<xs:enumeration value="SOLARWINDENERGY" />
+			<xs:enumeration value="NGENERGY" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+</xs:schema>

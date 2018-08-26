@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema		
+	attributeFormDefault="unqualified" 
+	elementFormDefault="unqualified"
+	targetNamespace="http://xml.A.com/v2"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:ac="http://xml.A.com/v2" >
+		
+   	<xs:include schemaLocation="types.xsd"/>
+ 	
+	<xs:element name="acMessage" type="ac:acMessageType"/>		
+			
+	<xs:complexType name="acMessageType">
+			<xs:sequence>
+				<xs:element name="source" type="xs:string" />
+				<xs:element name="msgType" minOccurs="1" maxOccurs="1" >
+					<xs:simpleType>
+						<xs:restriction base="xs:token">
+							<xs:enumeration value="request" />
+							<xs:enumeration value="response" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>	
+				<xs:element name="actionType" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+						<xs:restriction base="xs:token">
+							<xs:enumeration value="query" />
+							<xs:enumeration value="create" />
+							<xs:enumeration value="update" />
+							<xs:enumeration value="new" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="payloadType" type="xs:string" minOccurs="1" maxOccurs="1" />
+				<xs:element name="payload">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:any processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>	
+			
+			<xs:attribute name="id" use="optional" type="ac:idType"/>
+	
+	</xs:complexType>
+			
+</xs:schema>

@@ -1,0 +1,104 @@
+<v4:orderManagementRequestResponse xmlns:v4="http://xml.AL.com/v4" xsi:schemaLocation="http://xml.AL.com/ac orderManagement.xsd "
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         <v4:correlationId>1234</v4:correlationId>
+     
+         <v4:transactionTimeStamp>2001-01-01</v4:transactionTimeStamp>
+         <v4:transactionId>1</v4:transactionId>
+         <v4:transactionType>addLineItem</v4:transactionType>
+           <v4:request>
+            <v4:orderId>8136</v4:orderId>
+            <v4:afterLineItemNumber>-1</v4:afterLineItemNumber>
+            <v4:isAppliesToLineItemIncluded>true</v4:isAppliesToLineItemIncluded>
+            <v4:newLineItems>
+               <v4:lineItem>
+                  <v4:partnerName>TWC-Carolinas</v4:partnerName>
+                  <v4:productDatasource dataSource="">internal</v4:productDatasource>
+                  <v4:providerConfirmationNumber/>
+                  <v4:providerCustomerAccountNumber/>
+                  <v4:lineItemNumber>0</v4:lineItemNumber>
+                  <v4:lineItemDetail>
+                     <v4:detailType>product</v4:detailType>
+                     <v4:detail>
+                        <v4:productLineItem>
+                           <v4:externalId>14849</v4:externalId>
+                           <v4:productCategory displayName="">cable TV</v4:productCategory>
+                           <v4:name>Digital Cable</v4:name>
+                           <v4:channels>
+                              <v4:channel>Web</v4:channel>
+                           </v4:channels>
+                           <v4:provider externalId="23928" name="Digital Cable">
+                              <v4:source datasource="Digital Cable">internal</v4:source>
+                              <v4:parent externalId="" name=""/>
+                              <v4:capabilityList>
+                                 <v4:capability name=""/>
+                              </v4:capabilityList>
+                           </v4:provider>
+                           <v4:priceInfo>
+                              <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                              <v4:baseNonRecurringPriceUnits>v4:baseNonRecurringPriceUnits</v4:baseNonRecurringPriceUnits>
+                              <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                              <v4:baseRecurringPriceUnits>v4:baseRecurringPriceUnits</v4:baseRecurringPriceUnits>
+                              <v4:includeInTotalPrice/>
+                           </v4:priceInfo>
+                           <v4:capabilityList>
+                              <v4:capability name=""/>
+                           </v4:capabilityList>
+                       </v4:productLineItem>
+                     </v4:detail>
+                  </v4:lineItemDetail>
+                  <v4:lineItemPriceInfo>
+                     <v4:baseNonRecurringPrice>0</v4:baseNonRecurringPrice>
+                     <v4:baseNonRecurringPriceUnits>v4:baseNonRecurringPriceUnits</v4:baseNonRecurringPriceUnits>
+                     <v4:baseRecurringPrice>0</v4:baseRecurringPrice>
+                     <v4:baseRecurringPriceUnits>v4:baseRecurringPriceUnits</v4:baseRecurringPriceUnits>
+                     <v4:includeInTotalPrice/>
+                     <v4:priceInfoStatus>
+                        <v4:statusCode>0</v4:statusCode>
+                        <v4:processingMessages>
+                           <v4:message>
+                              <v4:code>0.0</v4:code>
+                              <v4:text>v4:text</v4:text>
+                           </v4:message>
+                        </v4:processingMessages>
+                     </v4:priceInfoStatus>
+                     <v4:pricingDate>2012-04-25T12:00:00</v4:pricingDate>
+                  </v4:lineItemPriceInfo>
+                  <v4:svcAddressExtId/>
+                  <v4:billingInfoExtId/>
+                  <v4:svcAddressRef>${DataGen#BLGAUniqueID}</v4:svcAddressRef>
+                  <v4:billingInfoRef>${DataGen#BillINFOUniqueID}</v4:billingInfoRef>
+                  <v4:SchedulingInfo appointmentComment="Test Comment" billingInstallments="true" earlierAppointmentDate="true" installationFee="29.99" residenceType="HOUSE">
+                     <v4:desiredStartDate>
+                        <v4:date>2012-05-01</v4:date>
+                        <v4:time>1:30:00</v4:time>
+                     </v4:desiredStartDate>
+                     <v4:scheduledStartDate>
+                        <v4:date>2012-05-02</v4:date>
+                        <v4:time>2:30:00</v4:time>
+                     </v4:scheduledStartDate>
+                     <v4:actualStartDate>
+                        <v4:date>2011-05-03</v4:date>
+                        <v4:time>3:30:00</v4:time>
+                     </v4:actualStartDate>
+                     <v4:ScheduleAsSoonAsPossible>true</v4:ScheduleAsSoonAsPossible>
+                  </v4:SchedulingInfo>
+                  <v4:activeDialogs>
+                    <v4:dialogs>
+                        <v4:dialog>
+                           <v4:externalId>DLG101</v4:externalId>
+                           <v4:value selected="true" type="string">Option1</v4:value>
+                        </v4:dialog>
+                     </v4:dialogs>
+                  </v4:activeDialogs>
+                  <v4:howLongAtAddress>v4:howLongAtAddress</v4:howLongAtAddress>
+                  <v4:service>BUSINESS</v4:service>
+                  <v4:creditStatus>Approved</v4:creditStatus>
+                  <v4:lineItemEvents source="">
+                     <v4:LineItemEvent>
+                        <v4:values>v4:values</v4:values>
+                     </v4:LineItemEvent>
+                  </v4:lineItemEvents>
+               </v4:lineItem>
+            </v4:newLineItems>
+         </v4:request>
+      </v4:orderManagementRequestResponse>

@@ -1,0 +1,1086 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.AL</groupId>
+		<artifactId>ALParent</artifactId>
+		<version>1.2</version>
+	</parent>
+	<groupId>com.AL.V</groupId>
+	<artifactId>ome-app-parent</artifactId>
+	<version>01.04.27</version>
+	<packaging>pom</packaging>
+	<name>Order Management App Parent</name>
+	<modules>
+		<module>ome-ie</module>
+		<module>ome-core</module>
+		<module>ome-metrics</module>
+		<module>ome-app</module>
+	</modules>
+
+
+	<scm>
+		<connection>scm:svn:http://svn/svn/services/OrderManagement/trunk</connection>
+		<developerConnection>scm:svn:http://svn/svn/services/OrderManagement/trunk</developerConnection>
+	</scm>
+	<distributionManagement>
+		<site>
+			<id>Site</id>
+			<name>OME</name>
+			<url>OME</url>
+		</site>
+	</distributionManagement>
+
+	<properties>
+		<AL.cm-core.version>02.00.01-001</AL.cm-core.version>
+		<AL.geocoder.version>1.7.1.1</AL.geocoder.version>
+		<AL.xmlbeans.version>02.00.00-001</AL.xmlbeans.version>
+		<AL.logical.version>02.00.00-004</AL.logical.version>
+		<AL.reference.version>02.00.00-004</AL.reference.version>
+		<V.library.version>02.00.00-013</V.library.version>
+		<backport.concurrent.version>3.1</backport.concurrent.version>
+		<spring.framework.version>3.0.5.RELEASE</spring.framework.version>
+		<checkstyle.version>5.0-beta01</checkstyle.version>
+		<commons.io.version>1.4</commons.io.version>
+		<commons.logging.version>1.1.1</commons.logging.version>
+		<commons.httpclient.version>3.1</commons.httpclient.version>
+		<httpclient.version>4.1.1</httpclient.version>
+		<oracle.version>10.2.0.1.0</oracle.version>
+		<java.version>1.8</java.version>
+		<javax.jms.version>1.1</javax.jms.version>
+		<javax.servlet-api.version>2.5</javax.servlet-api.version>
+		<javax.servlet-jsp.version>2.1</javax.servlet-jsp.version>
+		<junit.version>4.8.1</junit.version>
+		<log4j.version>1.2.15</log4j.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<saxon-version>b9.1.0.1</saxon-version>
+		<xmlbean.version>2.4.0</xmlbean.version>
+
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<deployment.directory>./</deployment.directory>
+				<ome.jms.q.username>V</ome.jms.q.username>
+				<ome.jms.q.password>V</ome.jms.q.password>
+				<customer.jms.q.username>V</customer.jms.q.username>
+				<customer.jms.q.password>V</customer.jms.q.password>
+				<pricing.jms.q.username>V</pricing.jms.q.username>
+				<pricing.jms.q.password>V</pricing.jms.q.password>
+				<product.jms.q.username>V</product.jms.q.username>
+				<product.jms.q.password>V</product.jms.q.password>
+				<integration.jms.q.username>V</integration.jms.q.username>
+				<integration.jms.q.password>V</integration.jms.q.password>
+				<!-- <broadcast.jms.t.username>V</broadcast.jms.t.username>
+				<broadcast.jms.t.password>V</broadcast.jms.t.password> -->
+				<broadcast.jms.q.username>V</broadcast.jms.q.username>
+				<broadcast.jms.q.password>V</broadcast.jms.q.password>
+				<rtim.proxy.in.q.username>V</rtim.proxy.in.q.username>
+				<rtim.proxy.in.q.password>V</rtim.proxy.in.q.password>
+
+				<ome.transactional.ds.file.name>transactional-ds.xml</ome.transactional.ds.file.name>
+				<ome.logical.ds.file.name>logical-ds.xml</ome.logical.ds.file.name>
+				<cm.transactional.ds.file.name>transactional-ds.xml</cm.transactional.ds.file.name>
+				<cm.logical.ds.file.name>logical-ds.xml</cm.logical.ds.file.name>
+				<!--<main.jms.q.url>failover://(tcp://main-jms1.ln:61616,tcp://main-jms2.ln:61616)?jms.watchTopicAdvisories=false</main.jms.q.url>
+                                <backend.jms.q.url>failover://(tcp://backend-jms1.ln:61616,tcp://backend-jms2.ln:61616)?jms.watchTopicAdvisories=false</backend.jms.q.url>-->
+                <main.jms.q.url>failover://(tcp://192.168.248.37:61616,tcp://192.168.248.37:61616)?jms.watchTopicAdvisories=false</main.jms.q.url>
+                <backend.jms.q.url>failover://(tcp://192.168.248.37:61616,tcp://192.168.248.37:61616)?jms.watchTopicAdvisories=false</backend.jms.q.url>                
+
+			</properties>
+		</profile>
+		<profile>
+			<id>symuat001</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<deployment.directory>./</deployment.directory>
+				<ome.jms.q.username>V</ome.jms.q.username>
+				<ome.jms.q.password>V</ome.jms.q.password>
+				<customer.jms.q.username>V</customer.jms.q.username>
+				<customer.jms.q.password>V</customer.jms.q.password>
+				<pricing.jms.q.username>V</pricing.jms.q.username>
+				<pricing.jms.q.password>V</pricing.jms.q.password>
+				<product.jms.q.username>V</product.jms.q.username>
+				<product.jms.q.password>V</product.jms.q.password>
+				<integration.jms.q.username>V</integration.jms.q.username>
+				<integration.jms.q.password>V</integration.jms.q.password>
+				<!-- <broadcast.jms.t.username>V</broadcast.jms.t.username>
+				<broadcast.jms.t.password>V</broadcast.jms.t.password> -->
+				<broadcast.jms.q.username>V</broadcast.jms.q.username>
+				<broadcast.jms.q.password>V</broadcast.jms.q.password>
+				<rtim.proxy.in.q.username>V</rtim.proxy.in.q.username>
+				<rtim.proxy.in.q.password>V</rtim.proxy.in.q.password>
+
+				<ome.transactional.ds.file.name>transactional-ds.xml</ome.transactional.ds.file.name>
+				<ome.logical.ds.file.name>logical-ds.xml</ome.logical.ds.file.name>
+				<cm.transactional.ds.file.name>transactional-ds.xml</cm.transactional.ds.file.name>
+				<cm.logical.ds.file.name>logical-ds.xml</cm.logical.ds.file.name>
+				<main.jms.q.url>failover://(tcp://main-jms1.ln:61616,tcp://main-jms2.ln:61616)?jms.watchTopicAdvisories=false</main.jms.q.url>
+                                <backend.jms.q.url>failover://(tcp://backend-jms1.ln:61616,tcp://backend-jms2.ln:61616)?jms.watchTopicAdvisories=false</backend.jms.q.url>
+
+			</properties>
+		</profile>
+		<profile>
+			<id>symplt001</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<deployment.directory>./</deployment.directory>
+				<ome.jms.q.username>V</ome.jms.q.username>
+				<ome.jms.q.password>V</ome.jms.q.password>
+				<customer.jms.q.username>V</customer.jms.q.username>
+				<customer.jms.q.password>V</customer.jms.q.password>
+				<pricing.jms.q.username>V</pricing.jms.q.username>
+				<pricing.jms.q.password>V</pricing.jms.q.password>
+				<product.jms.q.username>V</product.jms.q.username>
+				<product.jms.q.password>V</product.jms.q.password>
+				<integration.jms.q.username>V</integration.jms.q.username>
+				<integration.jms.q.password>V</integration.jms.q.password>
+				<!-- <broadcast.jms.t.username>V</broadcast.jms.t.username>
+				<broadcast.jms.t.password>V</broadcast.jms.t.password> -->
+				<broadcast.jms.q.username>V</broadcast.jms.q.username>
+				<broadcast.jms.q.password>V</broadcast.jms.q.password>
+				<rtim.proxy.in.q.username>V</rtim.proxy.in.q.username>
+				<rtim.proxy.in.q.password>V</rtim.proxy.in.q.password>
+
+				<ome.transactional.ds.file.name>transactional-ds.xml</ome.transactional.ds.file.name>
+				<ome.logical.ds.file.name>logical-ds.xml</ome.logical.ds.file.name>
+				<cm.transactional.ds.file.name>transactional-ds.xml</cm.transactional.ds.file.name>
+				<cm.logical.ds.file.name>logical-ds.xml</cm.logical.ds.file.name>
+				<main.jms.q.url>failover://(tcp://main-jms1.ln:61616,tcp://main-jms2.ln:61616)?jms.watchTopicAdvisories=false</main.jms.q.url>
+                                <backend.jms.q.url>failover://(tcp://backend-jms1.ln:61616,tcp://backend-jms2.ln:61616)?jms.watchTopicAdvisories=false</backend.jms.q.url>
+
+			</properties>
+		</profile>
+
+		<profile>
+			<id>symdev002</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<deployment.directory>./</deployment.directory>
+				<ome.jms.q.username>V</ome.jms.q.username>
+				<ome.jms.q.password>V</ome.jms.q.password>
+				<customer.jms.q.username>V</customer.jms.q.username>
+				<customer.jms.q.password>V</customer.jms.q.password>
+				<pricing.jms.q.username>V</pricing.jms.q.username>
+				<pricing.jms.q.password>V</pricing.jms.q.password>
+				<product.jms.q.username>V</product.jms.q.username>
+				<product.jms.q.password>V</product.jms.q.password>
+				<integration.jms.q.username>V</integration.jms.q.username>
+				<integration.jms.q.password>V</integration.jms.q.password>
+				<!-- <broadcast.jms.t.username>V</broadcast.jms.t.username>
+				<broadcast.jms.t.password>V</broadcast.jms.t.password> -->
+				<broadcast.jms.q.username>V</broadcast.jms.q.username>
+				<broadcast.jms.q.password>V</broadcast.jms.q.password>
+				<rtim.proxy.in.q.username>V</rtim.proxy.in.q.username>
+				<rtim.proxy.in.q.password>V</rtim.proxy.in.q.password>
+
+				<ome.transactional.ds.file.name>transactional-ds.xml</ome.transactional.ds.file.name>
+				<ome.logical.ds.file.name>logical-ds.xml</ome.logical.ds.file.name>
+				<cm.transactional.ds.file.name>transactional-ds.xml</cm.transactional.ds.file.name>
+				<cm.logical.ds.file.name>logical-ds.xml</cm.logical.ds.file.name>
+				<main.jms.q.url>failover://(tcp://main-jms1.ln:61616,tcp://main-jms2.ln:61616)?jms.watchTopicAdvisories=false</main.jms.q.url>
+                                <backend.jms.q.url>failover://(tcp://backend-jms1.ln:61616,tcp://backend-jms2.ln:61616)?jms.watchTopicAdvisories=false</backend.jms.q.url>
+
+			</properties>
+		</profile>
+		
+		<profile>
+			<id>symdev003</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<deployment.directory>./</deployment.directory>
+				<ome.jms.q.username>V</ome.jms.q.username>
+				<ome.jms.q.password>V</ome.jms.q.password>
+				<customer.jms.q.username>V</customer.jms.q.username>
+				<customer.jms.q.password>V</customer.jms.q.password>
+				<pricing.jms.q.username>V</pricing.jms.q.username>
+				<pricing.jms.q.password>V</pricing.jms.q.password>
+				<product.jms.q.username>V</product.jms.q.username>
+				<product.jms.q.password>V</product.jms.q.password>
+				<integration.jms.q.username>V</integration.jms.q.username>
+				<integration.jms.q.password>V</integration.jms.q.password>
+				<!-- <broadcast.jms.t.username>V</broadcast.jms.t.username>
+				<broadcast.jms.t.password>V</broadcast.jms.t.password> -->
+				<broadcast.jms.q.username>V</broadcast.jms.q.username>
+				<broadcast.jms.q.password>V</broadcast.jms.q.password>
+				<rtim.proxy.in.q.username>V</rtim.proxy.in.q.username>
+				<rtim.proxy.in.q.password>V</rtim.proxy.in.q.password>
+
+				<ome.transactional.ds.file.name>transactional-ds.xml</ome.transactional.ds.file.name>
+				<ome.logical.ds.file.name>logical-ds.xml</ome.logical.ds.file.name>
+				<cm.transactional.ds.file.name>transactional-ds.xml</cm.transactional.ds.file.name>
+				<cm.logical.ds.file.name>logical-ds.xml</cm.logical.ds.file.name>
+				<main.jms.q.url>failover://(tcp://main-jms1.ln:61616,tcp://main-jms2.ln:61616)?jms.watchTopicAdvisories=false</main.jms.q.url>
+                                <backend.jms.q.url>failover://(tcp://backend-jms1.ln:61616,tcp://backend-jms2.ln:61616)?jms.watchTopicAdvisories=false</backend.jms.q.url>
+
+			</properties>
+		</profile>
+
+		<profile>
+			<id>symdev004</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<deployment.directory>./</deployment.directory>
+				<ome.jms.q.username>V</ome.jms.q.username>
+				<ome.jms.q.password>V</ome.jms.q.password>
+				<customer.jms.q.username>V</customer.jms.q.username>
+				<customer.jms.q.password>V</customer.jms.q.password>
+				<pricing.jms.q.username>V</pricing.jms.q.username>
+				<pricing.jms.q.password>V</pricing.jms.q.password>
+				<product.jms.q.username>V</product.jms.q.username>
+				<product.jms.q.password>V</product.jms.q.password>
+				<integration.jms.q.username>V</integration.jms.q.username>
+				<integration.jms.q.password>V</integration.jms.q.password>
+				<!-- <broadcast.jms.t.username>V</broadcast.jms.t.username>
+				<broadcast.jms.t.password>V</broadcast.jms.t.password> -->
+				<broadcast.jms.q.username>V</broadcast.jms.q.username>
+				<broadcast.jms.q.password>V</broadcast.jms.q.password>
+				<rtim.proxy.in.q.username>V</rtim.proxy.in.q.username>
+				<rtim.proxy.in.q.password>V</rtim.proxy.in.q.password>
+
+				<ome.transactional.ds.file.name>transactional-ds.xml</ome.transactional.ds.file.name>
+				<ome.logical.ds.file.name>logical-ds.xml</ome.logical.ds.file.name>
+				<cm.transactional.ds.file.name>transactional-ds.xml</cm.transactional.ds.file.name>
+				<cm.logical.ds.file.name>logical-ds.xml</cm.logical.ds.file.name>
+				<main.jms.q.url>failover://(tcp://main-jms1.ln:61616,tcp://main-jms2.ln:61616)?jms.watchTopicAdvisories=false</main.jms.q.url>
+                                <backend.jms.q.url>failover://(tcp://backend-jms1.ln:61616,tcp://backend-jms2.ln:61616)?jms.watchTopicAdvisories=false</backend.jms.q.url>
+
+			</properties>
+		</profile>
+
+		<profile>
+			<id>vprqap001</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<deployment.directory>./</deployment.directory>
+				<ome.jms.q.username>V</ome.jms.q.username>
+				<ome.jms.q.password>V</ome.jms.q.password>
+				<customer.jms.q.username>V</customer.jms.q.username>
+				<customer.jms.q.password>V</customer.jms.q.password>
+				<pricing.jms.q.username>V</pricing.jms.q.username>
+				<pricing.jms.q.password>V</pricing.jms.q.password>
+				<product.jms.q.username>V</product.jms.q.username>
+				<product.jms.q.password>V</product.jms.q.password>
+				<integration.jms.q.username>V</integration.jms.q.username>
+				<integration.jms.q.password>V</integration.jms.q.password>
+				<!-- <broadcast.jms.t.username>V</broadcast.jms.t.username>
+				<broadcast.jms.t.password>V</broadcast.jms.t.password> -->
+				<broadcast.jms.q.username>V</broadcast.jms.q.username>
+				<broadcast.jms.q.password>V</broadcast.jms.q.password>
+				<rtim.proxy.in.q.username>V</rtim.proxy.in.q.username>
+				<rtim.proxy.in.q.password>V</rtim.proxy.in.q.password>
+
+				<ome.transactional.ds.file.name>transactional-ds.xml</ome.transactional.ds.file.name>
+				<ome.logical.ds.file.name>logical-ds.xml</ome.logical.ds.file.name>
+				<cm.transactional.ds.file.name>transactional-ds.xml</cm.transactional.ds.file.name>
+				<cm.logical.ds.file.name>logical-ds.xml</cm.logical.ds.file.name>
+				<main.jms.q.url>failover://(tcp://main-jms1.ln:61616,tcp://main-jms2.ln:61616)?jms.watchTopicAdvisories=false</main.jms.q.url>
+                                <backend.jms.q.url>failover://(tcp://backend-jms1.ln:61616,tcp://backend-jms2.ln:61616)?jms.watchTopicAdvisories=false</backend.jms.q.url>
+
+			</properties>
+		</profile>
+		<profile>
+			<id>devint</id>
+			<properties>
+				<ome.jms.q.username>V</ome.jms.q.username>
+				<ome.jms.q.password>V</ome.jms.q.password>
+				<customer.jms.q.username>V</customer.jms.q.username>
+				<customer.jms.q.password>V</customer.jms.q.password>
+				<pricing.jms.q.username>V</pricing.jms.q.username>
+				<pricing.jms.q.password>V</pricing.jms.q.password>
+				<product.jms.q.username>V</product.jms.q.username>
+				<product.jms.q.password>V</product.jms.q.password>
+				<integration.jms.q.username>V</integration.jms.q.username>
+				<integration.jms.q.password>V</integration.jms.q.password>
+				<!-- <broadcast.jms.t.username>V</broadcast.jms.t.username>
+				<broadcast.jms.t.password>V</broadcast.jms.t.password> -->
+				<broadcast.jms.q.username>V</broadcast.jms.q.username>
+				<broadcast.jms.q.password>V</broadcast.jms.q.password>
+				<rtim.proxy.in.q.username>V</rtim.proxy.in.q.username>
+				<rtim.proxy.in.q.password>V</rtim.proxy.in.q.password>
+				<ome.transactional.ds.file.name>transactional-ds.xml</ome.transactional.ds.file.name>
+				<ome.logical.ds.file.name>logical-ds.xml</ome.logical.ds.file.name>
+				<cm.transactional.ds.file.name>transactional-ds.xml</cm.transactional.ds.file.name>
+				<cm.logical.ds.file.name>logical-ds.xml</cm.logical.ds.file.name>
+				<main.jms.q.url>failover://(tcp://main-jms1.ln:61616,tcp://main-jms2.ln:61616)?jms.watchTopicAdvisories=false</main.jms.q.url>
+			        <backend.jms.q.url>failover://(tcp://backend-jms1.ln:61616,tcp://backend-jms2.ln:61616)?jms.watchTopicAdvisories=false</backend.jms.q.url>
+			</properties>
+		</profile>
+		<profile>
+			<id>qa</id>
+			<properties>
+				<ome.jms.q.username>V</ome.jms.q.username>
+				<ome.jms.q.password>V</ome.jms.q.password>
+				<customer.jms.q.username>V</customer.jms.q.username>
+				<customer.jms.q.password>V</customer.jms.q.password>
+				<pricing.jms.q.username>V</pricing.jms.q.username>
+				<pricing.jms.q.password>V</pricing.jms.q.password>
+				<product.jms.q.username>V</product.jms.q.username>
+				<product.jms.q.password>V</product.jms.q.password>
+				<integration.jms.q.username>V</integration.jms.q.username>
+				<integration.jms.q.password>V</integration.jms.q.password>
+				<!-- <broadcast.jms.t.username>V</broadcast.jms.t.username>
+				<broadcast.jms.t.password>V</broadcast.jms.t.password> -->
+				<broadcast.jms.q.username>V</broadcast.jms.q.username>
+				<broadcast.jms.q.password>V</broadcast.jms.q.password>
+				<rtim.proxy.in.q.username>V</rtim.proxy.in.q.username>
+				<rtim.proxy.in.q.password>V</rtim.proxy.in.q.password>
+				<ome.transactional.ds.file.name>transactional-ds.xml</ome.transactional.ds.file.name>
+				<ome.logical.ds.file.name>logical-ds.xml</ome.logical.ds.file.name>
+				<cm.transactional.ds.file.name>transactional-ds.xml</cm.transactional.ds.file.name>
+				<cm.logical.ds.file.name>logical-ds.xml</cm.logical.ds.file.name>
+				<main.jms.q.url>failover://(tcp://main-jms1.ln:61616,tcp://main-jms2.ln:61616)?jms.watchTopicAdvisories=false</main.jms.q.url>
+				<backend.jms.q.url>failover://(tcp://backend-jms1.ln:61616,tcp://backend-jms2.ln:61616)?jms.watchTopicAdvisories=false</backend.jms.q.url>
+			</properties>
+		</profile>
+		
+		<profile>
+			<id>symdvi002</id>
+			<activation>
+                                 <activeByDefault>true</activeByDefault>
+                         </activation>
+			<properties>
+				<ome.jms.q.username>V</ome.jms.q.username>
+				<ome.jms.q.password>V</ome.jms.q.password>
+				<customer.jms.q.username>V</customer.jms.q.username>
+				<customer.jms.q.password>V</customer.jms.q.password>
+				<pricing.jms.q.username>V</pricing.jms.q.username>
+				<pricing.jms.q.password>V</pricing.jms.q.password>
+				<product.jms.q.username>V</product.jms.q.username>
+				<product.jms.q.password>V</product.jms.q.password>
+				<integration.jms.q.username>V</integration.jms.q.username>
+				<integration.jms.q.password>V</integration.jms.q.password>
+				<!-- <broadcast.jms.t.username>V</broadcast.jms.t.username>
+				<broadcast.jms.t.password>V</broadcast.jms.t.password> -->
+				<broadcast.jms.q.username>V</broadcast.jms.q.username>
+				<broadcast.jms.q.password>V</broadcast.jms.q.password>
+				<rtim.proxy.in.q.username>V</rtim.proxy.in.q.username>
+				<rtim.proxy.in.q.password>V</rtim.proxy.in.q.password>
+				<ome.transactional.ds.file.name>transactional-ds.xml</ome.transactional.ds.file.name>
+				<ome.logical.ds.file.name>logical-ds.xml</ome.logical.ds.file.name>
+				<cm.transactional.ds.file.name>transactional-ds.xml</cm.transactional.ds.file.name>
+				<cm.logical.ds.file.name>logical-ds.xml</cm.logical.ds.file.name>
+				<main.jms.q.url>failover://(tcp://main-jms1.ln:61616,tcp://main-jms2.ln:61616)?jms.watchTopicAdvisories=false</main.jms.q.url>
+                                <backend.jms.q.url>failover://(tcp://backend-jms1.ln:61616,tcp://backend-jms2.ln:61616)?jms.watchTopicAdvisories=false</backend.jms.q.url>
+			</properties>
+		</profile>
+		
+		<profile>
+			<id>symdvi003</id>
+			<activation>
+                                 <activeByDefault>true</activeByDefault>
+                         </activation>
+			<properties>
+				<ome.jms.q.username>V</ome.jms.q.username>
+				<ome.jms.q.password>V</ome.jms.q.password>
+				<customer.jms.q.username>V</customer.jms.q.username>
+				<customer.jms.q.password>V</customer.jms.q.password>
+				<pricing.jms.q.username>V</pricing.jms.q.username>
+				<pricing.jms.q.password>V</pricing.jms.q.password>
+				<product.jms.q.username>V</product.jms.q.username>
+				<product.jms.q.password>V</product.jms.q.password>
+				<integration.jms.q.username>V</integration.jms.q.username>
+				<integration.jms.q.password>V</integration.jms.q.password>
+				<!-- <broadcast.jms.t.username>V</broadcast.jms.t.username>
+				<broadcast.jms.t.password>V</broadcast.jms.t.password> -->
+				<broadcast.jms.q.username>V</broadcast.jms.q.username>
+				<broadcast.jms.q.password>V</broadcast.jms.q.password>
+				<rtim.proxy.in.q.username>V</rtim.proxy.in.q.username>
+				<rtim.proxy.in.q.password>V</rtim.proxy.in.q.password>
+				<ome.transactional.ds.file.name>transactional-ds.xml</ome.transactional.ds.file.name>
+				<ome.logical.ds.file.name>logical-ds.xml</ome.logical.ds.file.name>
+				<cm.transactional.ds.file.name>transactional-ds.xml</cm.transactional.ds.file.name>
+				<cm.logical.ds.file.name>logical-ds.xml</cm.logical.ds.file.name>
+				<main.jms.q.url>failover://(tcp://main-jms1.ln:61616,tcp://main-jms2.ln:61616)?jms.watchTopicAdvisories=false</main.jms.q.url>
+                                <backend.jms.q.url>failover://(tcp://backend-jms1.ln:61616,tcp://backend-jms2.ln:61616)?jms.watchTopicAdvisories=false</backend.jms.q.url>
+			</properties>
+		</profile>
+		
+		<profile>
+			<id>symdvi004</id>
+			<activation>
+                                 <activeByDefault>true</activeByDefault>
+                         </activation>
+			<properties>
+				<ome.jms.q.username>V</ome.jms.q.username>
+				<ome.jms.q.password>V</ome.jms.q.password>
+				<customer.jms.q.username>V</customer.jms.q.username>
+				<customer.jms.q.password>V</customer.jms.q.password>
+				<pricing.jms.q.username>V</pricing.jms.q.username>
+				<pricing.jms.q.password>V</pricing.jms.q.password>
+				<product.jms.q.username>V</product.jms.q.username>
+				<product.jms.q.password>V</product.jms.q.password>
+				<integration.jms.q.username>V</integration.jms.q.username>
+				<integration.jms.q.password>V</integration.jms.q.password>
+				<!-- <broadcast.jms.t.username>V</broadcast.jms.t.username>
+				<broadcast.jms.t.password>V</broadcast.jms.t.password> -->
+				<broadcast.jms.q.username>V</broadcast.jms.q.username>
+				<broadcast.jms.q.password>V</broadcast.jms.q.password>
+				<rtim.proxy.in.q.username>V</rtim.proxy.in.q.username>
+				<rtim.proxy.in.q.password>V</rtim.proxy.in.q.password>
+				<ome.transactional.ds.file.name>transactional-ds.xml</ome.transactional.ds.file.name>
+				<ome.logical.ds.file.name>logical-ds.xml</ome.logical.ds.file.name>
+				<cm.transactional.ds.file.name>transactional-ds.xml</cm.transactional.ds.file.name>
+				<cm.logical.ds.file.name>logical-ds.xml</cm.logical.ds.file.name>
+				<main.jms.q.url>failover://(tcp://main-jms1.ln:61616,tcp://main-jms2.ln:61616)?jms.watchTopicAdvisories=false</main.jms.q.url>
+                                <backend.jms.q.url>failover://(tcp://backend-jms1.ln:61616,tcp://backend-jms2.ln:61616)?jms.watchTopicAdvisories=false</backend.jms.q.url>
+			</properties>
+		</profile>
+		
+		<profile>
+			<id>symqap001</id>
+			<activation>
+                                 <activeByDefault>true</activeByDefault>
+                         </activation>
+			<properties>
+				<ome.jms.q.username>V</ome.jms.q.username>
+				<ome.jms.q.password>V</ome.jms.q.password>
+				<customer.jms.q.username>V</customer.jms.q.username>
+				<customer.jms.q.password>V</customer.jms.q.password>
+				<pricing.jms.q.username>V</pricing.jms.q.username>
+				<pricing.jms.q.password>V</pricing.jms.q.password>
+				<product.jms.q.username>V</product.jms.q.username>
+				<product.jms.q.password>V</product.jms.q.password>
+				<integration.jms.q.username>V</integration.jms.q.username>
+				<integration.jms.q.password>V</integration.jms.q.password>
+				<!-- <broadcast.jms.t.username>V</broadcast.jms.t.username>
+				<broadcast.jms.t.password>V</broadcast.jms.t.password> -->
+				<broadcast.jms.q.username>V</broadcast.jms.q.username>
+				<broadcast.jms.q.password>V</broadcast.jms.q.password>
+				<rtim.proxy.in.q.username>V</rtim.proxy.in.q.username>
+				<rtim.proxy.in.q.password>V</rtim.proxy.in.q.password>
+				<ome.transactional.ds.file.name>transactional-ds.xml</ome.transactional.ds.file.name>
+				<ome.logical.ds.file.name>logical-ds.xml</ome.logical.ds.file.name>
+				<cm.transactional.ds.file.name>transactional-ds.xml</cm.transactional.ds.file.name>
+				<cm.logical.ds.file.name>logical-ds.xml</cm.logical.ds.file.name>
+				<main.jms.q.url>failover://(tcp://main-jms1.ln:61616,tcp://main-jms2.ln:61616)?jms.watchTopicAdvisories=false</main.jms.q.url>
+                                <backend.jms.q.url>failover://(tcp://backend-jms1.ln:61616,tcp://backend-jms2.ln:61616)?jms.watchTopicAdvisories=false</backend.jms.q.url>
+			</properties>
+		</profile>
+		<profile>
+			<id>symqap002</id>
+			<activation>
+                                 <activeByDefault>true</activeByDefault>
+                         </activation>
+			<properties>
+				<ome.jms.q.username>V</ome.jms.q.username>
+				<ome.jms.q.password>V</ome.jms.q.password>
+				<customer.jms.q.username>V</customer.jms.q.username>
+				<customer.jms.q.password>V</customer.jms.q.password>
+				<pricing.jms.q.username>V</pricing.jms.q.username>
+				<pricing.jms.q.password>V</pricing.jms.q.password>
+				<product.jms.q.username>V</product.jms.q.username>
+				<product.jms.q.password>V</product.jms.q.password>
+				<integration.jms.q.username>V</integration.jms.q.username>
+				<integration.jms.q.password>V</integration.jms.q.password>
+				<!-- <broadcast.jms.t.username>V</broadcast.jms.t.username>
+				<broadcast.jms.t.password>V</broadcast.jms.t.password> -->
+				<broadcast.jms.q.username>V</broadcast.jms.q.username>
+				<broadcast.jms.q.password>V</broadcast.jms.q.password>
+				<rtim.proxy.in.q.username>V</rtim.proxy.in.q.username>
+				<rtim.proxy.in.q.password>V</rtim.proxy.in.q.password>
+				<ome.transactional.ds.file.name>transactional-ds.xml</ome.transactional.ds.file.name>
+				<ome.logical.ds.file.name>logical-ds.xml</ome.logical.ds.file.name>
+				<cm.transactional.ds.file.name>transactional-ds.xml</cm.transactional.ds.file.name>
+				<cm.logical.ds.file.name>logical-ds.xml</cm.logical.ds.file.name>
+				<main.jms.q.url>failover://(tcp://main-jms1.ln:61616,tcp://main-jms2.ln:61616)?jms.watchTopicAdvisories=false</main.jms.q.url>
+                                <backend.jms.q.url>failover://(tcp://backend-jms1.ln:61616,tcp://backend-jms2.ln:61616)?jms.watchTopicAdvisories=false</backend.jms.q.url>
+			</properties>
+		</profile>
+		<profile>
+			<id>symqap003</id>
+			<activation>
+                                 <activeByDefault>true</activeByDefault>
+                         </activation>
+			<properties>
+				<ome.jms.q.username>V</ome.jms.q.username>
+				<ome.jms.q.password>V</ome.jms.q.password>
+				<customer.jms.q.username>V</customer.jms.q.username>
+				<customer.jms.q.password>V</customer.jms.q.password>
+				<pricing.jms.q.username>V</pricing.jms.q.username>
+				<pricing.jms.q.password>V</pricing.jms.q.password>
+				<product.jms.q.username>V</product.jms.q.username>
+				<product.jms.q.password>V</product.jms.q.password>
+				<integration.jms.q.username>V</integration.jms.q.username>
+				<integration.jms.q.password>V</integration.jms.q.password>
+				<!-- <broadcast.jms.t.username>V</broadcast.jms.t.username>
+				<broadcast.jms.t.password>V</broadcast.jms.t.password> -->
+				<broadcast.jms.q.username>V</broadcast.jms.q.username>
+				<broadcast.jms.q.password>V</broadcast.jms.q.password>
+				<rtim.proxy.in.q.username>V</rtim.proxy.in.q.username>
+				<rtim.proxy.in.q.password>V</rtim.proxy.in.q.password>
+				<ome.transactional.ds.file.name>transactional-ds.xml</ome.transactional.ds.file.name>
+				<ome.logical.ds.file.name>logical-ds.xml</ome.logical.ds.file.name>
+				<cm.transactional.ds.file.name>transactional-ds.xml</cm.transactional.ds.file.name>
+				<cm.logical.ds.file.name>logical-ds.xml</cm.logical.ds.file.name>
+				<main.jms.q.url>failover://(tcp://main-jms1.ln:61616,tcp://main-jms2.ln:61616)?jms.watchTopicAdvisories=false</main.jms.q.url>
+                                <backend.jms.q.url>failover://(tcp://backend-jms1.ln:61616,tcp://backend-jms2.ln:61616)?jms.watchTopicAdvisories=false</backend.jms.q.url>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>ecmqap001</id>
+			<activation>
+            <activeByDefault>true</activeByDefault>
+            </activation>
+			<properties>
+				<ome.jms.q.username>V</ome.jms.q.username>
+				<ome.jms.q.password>V</ome.jms.q.password>
+				<customer.jms.q.username>V</customer.jms.q.username>
+				<customer.jms.q.password>V</customer.jms.q.password>
+				<pricing.jms.q.username>V</pricing.jms.q.username>
+				<pricing.jms.q.password>V</pricing.jms.q.password>
+				<product.jms.q.username>V</product.jms.q.username>
+				<product.jms.q.password>V</product.jms.q.password>
+				<integration.jms.q.username>V</integration.jms.q.username>
+				<integration.jms.q.password>V</integration.jms.q.password>
+				<!-- <broadcast.jms.t.username>V</broadcast.jms.t.username>
+				<broadcast.jms.t.password>V</broadcast.jms.t.password> -->
+				<broadcast.jms.q.username>V</broadcast.jms.q.username>
+				<broadcast.jms.q.password>V</broadcast.jms.q.password>
+				<rtim.proxy.in.q.username>V</rtim.proxy.in.q.username>
+				<rtim.proxy.in.q.password>V</rtim.proxy.in.q.password>
+				<ome.transactional.ds.file.name>transactional-ds.xml</ome.transactional.ds.file.name>
+				<ome.logical.ds.file.name>logical-ds.xml</ome.logical.ds.file.name>
+				<cm.transactional.ds.file.name>transactional-ds.xml</cm.transactional.ds.file.name>
+				<cm.logical.ds.file.name>logical-ds.xml</cm.logical.ds.file.name>
+				<main.jms.q.url>failover://(tcp://main-jms1.ln:61616,tcp://main-jms2.ln:61616)?jms.watchTopicAdvisories=false</main.jms.q.url>
+                <backend.jms.q.url>failover://(tcp://backend-jms1.ln:61616,tcp://backend-jms2.ln:61616)?jms.watchTopicAdvisories=false</backend.jms.q.url>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>ecmdev001</id>
+			<activation>
+	        <activeByDefault>true</activeByDefault>
+            </activation>
+			<properties>
+				<ome.jms.q.username>V</ome.jms.q.username>
+				<ome.jms.q.password>V</ome.jms.q.password>
+				<customer.jms.q.username>V</customer.jms.q.username>
+				<customer.jms.q.password>V</customer.jms.q.password>
+				<pricing.jms.q.username>V</pricing.jms.q.username>
+				<pricing.jms.q.password>V</pricing.jms.q.password>
+				<product.jms.q.username>V</product.jms.q.username>
+				<product.jms.q.password>V</product.jms.q.password>
+				<integration.jms.q.username>V</integration.jms.q.username>
+				<integration.jms.q.password>V</integration.jms.q.password>
+				<!-- <broadcast.jms.t.username>V</broadcast.jms.t.username>
+				<broadcast.jms.t.password>V</broadcast.jms.t.password> -->
+				<broadcast.jms.q.username>V</broadcast.jms.q.username>
+				<broadcast.jms.q.password>V</broadcast.jms.q.password>
+				<rtim.proxy.in.q.username>V</rtim.proxy.in.q.username>
+				<rtim.proxy.in.q.password>V</rtim.proxy.in.q.password>
+				<ome.transactional.ds.file.name>transactional-ds.xml</ome.transactional.ds.file.name>
+				<ome.logical.ds.file.name>logical-ds.xml</ome.logical.ds.file.name>
+				<cm.transactional.ds.file.name>transactional-ds.xml</cm.transactional.ds.file.name>
+				<cm.logical.ds.file.name>logical-ds.xml</cm.logical.ds.file.name>
+				<main.jms.q.url>failover://(tcp://main-jms1.ln:61616,tcp://main-jms2.ln:61616)?jms.watchTopicAdvisories=false</main.jms.q.url>
+                <backend.jms.q.url>failover://(tcp://backend-jms1.ln:61616,tcp://backend-jms2.ln:61616)?jms.watchTopicAdvisories=false</backend.jms.q.url>
+			</properties>
+		</profile>
+		<profile>
+			<id>stage</id>
+			<properties>
+				<ome.jms.q.username>V</ome.jms.q.username>
+				<ome.jms.q.password>V</ome.jms.q.password>
+				<customer.jms.q.username>V</customer.jms.q.username>
+				<customer.jms.q.password>V</customer.jms.q.password>
+				<pricing.jms.q.username>V</pricing.jms.q.username>
+				<pricing.jms.q.password>V</pricing.jms.q.password>
+				<product.jms.q.username>V</product.jms.q.username>
+				<product.jms.q.password>V</product.jms.q.password>
+				<integration.jms.q.username>V</integration.jms.q.username>
+				<integration.jms.q.password>V</integration.jms.q.password>
+				<!-- <broadcast.jms.t.username>V</broadcast.jms.t.username>
+				<broadcast.jms.t.password>V</broadcast.jms.t.password> -->
+				<broadcast.jms.q.username>V</broadcast.jms.q.username>
+				<broadcast.jms.q.password>V</broadcast.jms.q.password>
+				<rtim.proxy.in.q.username>V</rtim.proxy.in.q.username>
+				<rtim.proxy.in.q.password>V</rtim.proxy.in.q.password>
+				<ome.transactional.ds.file.name>transactional-ds.xml</ome.transactional.ds.file.name>
+				<ome.logical.ds.file.name>logical-ds.xml</ome.logical.ds.file.name>
+				<cm.transactional.ds.file.name>transactional-ds.xml</cm.transactional.ds.file.name>
+				<cm.logical.ds.file.name>logical-ds.xml</cm.logical.ds.file.name>
+				<main.jms.q.url>failover://(tcp://main-jms1.ln:61616,tcp://main-jms2.ln:61616)?jms.watchTopicAdvisories=false</main.jms.q.url>
+                                <backend.jms.q.url>failover://(tcp://backend-jms1.ln:61616,tcp://backend-jms2.ln:61616)?jms.watchTopicAdvisories=false</backend.jms.q.url>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<ome.jms.q.username>V</ome.jms.q.username>
+				<ome.jms.q.password>V</ome.jms.q.password>
+				<customer.jms.q.username>V</customer.jms.q.username>
+				<customer.jms.q.password>V</customer.jms.q.password>
+				<pricing.jms.q.username>V</pricing.jms.q.username>
+				<pricing.jms.q.password>V</pricing.jms.q.password>
+				<product.jms.q.username>V</product.jms.q.username>
+				<product.jms.q.password>V</product.jms.q.password>
+				<!-- <broadcast.jms.t.username>V</broadcast.jms.t.username>
+				<broadcast.jms.t.password>V</broadcast.jms.t.password> -->
+				<broadcast.jms.q.username>V</broadcast.jms.q.username>
+				<broadcast.jms.q.password>V</broadcast.jms.q.password>
+				<rtim.proxy.in.q.username>V</rtim.proxy.in.q.username>
+				<rtim.proxy.in.q.password>V</rtim.proxy.in.q.password>
+				<ome.transactional.ds.file.name>transactional-ds.xml</ome.transactional.ds.file.name>
+				<ome.logical.ds.file.name>logical-ds.xml</ome.logical.ds.file.name>
+				<cm.transactional.ds.file.name>transactional-ds.xml</cm.transactional.ds.file.name>
+				<cm.logical.ds.file.name>logical-ds.xml</cm.logical.ds.file.name>
+				<main.jms.q.url>failover://(tcp://main-jms1.ln:61616,tcp://main-jms2.ln:61616)?jms.watchTopicAdvisories=false</main.jms.q.url>
+                                <backend.jms.q.url>failover://(tcp://backend-jms1.ln:61616,tcp://backend-jms2.ln:61616)?jms.watchTopicAdvisories=false</backend.jms.q.url>
+			</properties>
+		</profile>
+	</profiles>
+
+	<dependencyManagement>
+		<dependencies>
+
+			<dependency>
+				<groupId>com.AL.V</groupId>
+				<artifactId>V-rules</artifactId>
+				<version>${V.library.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.AL.V</groupId>
+				<artifactId>V-dao</artifactId>
+				<version>${V.library.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.AL.V</groupId>
+				<artifactId>V-marshaller</artifactId>
+				<version>${V.library.version}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>com.AL.V</groupId>
+				<artifactId>V-common</artifactId>
+				<version>${V.library.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-lang</groupId>
+				<artifactId>commons-lang</artifactId>
+				<version>2.6</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<!-- <dependency>
+				<groupId>ac-eap</groupId>
+				<artifactId>commons-httpclient</artifactId>
+				<version>${jboss-ac-eap.version}</version>
+				<type>pom</type>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>ac-eap</groupId>
+				<artifactId>commons-collections</artifactId>
+				<version>${jboss-ac-eap.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>ac-eap</groupId>
+				<artifactId>commons-beanutils</artifactId>
+				<version>${jboss-ac-eap.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>ac-eap</groupId>
+				<artifactId>commons-digester</artifactId>
+				<version>${jboss-ac-eap.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>ac-eap</groupId>
+				<artifactId>antlr</artifactId>
+				<version>${jboss-ac-eap.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>ac-eap</groupId>
+				<artifactId>commons-logging</artifactId>
+				<version>${jboss-ac-eap.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>ac-eap</groupId>
+				<artifactId>antlr-runtime</artifactId>
+				<version>${jboss-ac-eap.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>ac-eap</groupId>
+				<artifactId>mvel2</artifactId>
+				<version>${jboss-ac-eap.version}</version>
+				<scope>provided</scope>
+			</dependency> -->
+			
+			<dependency>
+				<groupId>ac-eap</groupId>
+				<artifactId>drools-core</artifactId>
+				<version>${jboss-ac-eap.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>ac-eap</groupId>
+				<artifactId>drools-api</artifactId>
+				<version>${jboss-ac-eap.version}</version>
+			</dependency>
+
+			<!-- <dependency>
+				<groupId>ac-eap</groupId>
+				<artifactId>jaxrs-api</artifactId>
+				<version>${jboss-ac-eap.version}</version>
+				<scope>provided</scope>
+			</dependency> -->
+
+			<dependency>
+				<groupId>javax.validation</groupId>
+				<artifactId>validation-api</artifactId>
+				<version>1.0.0.GA</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.thoughtworks.xstream</groupId>
+				<artifactId>xstream</artifactId>
+				<version>1.3</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.oracle</groupId>
+				<artifactId>ojdbc14</artifactId>
+				<version>10.2.0.1.0</version>
+				<scope>provided</scope>
+			</dependency>
+			
+			<dependency>
+				<groupId>c3p0</groupId>
+				<artifactId>c3p0</artifactId>
+				<version>0.9.1.2</version>
+				<type>jar</type>
+				<scope>compile</scope>
+			</dependency>
+
+			<!-- JEE EJB3 -->
+			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-api</artifactId>
+				<version>7.0</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.jboss.ejb3</groupId>
+				<artifactId>jboss-ejb3-ext-api</artifactId>
+				<version>2.2.0.Final</version>
+				<scope>provided</scope>
+			</dependency>
+			
+			<!-- Hibernate validator -->
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>3.1.0.GA</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.slf4j</groupId>
+						<artifactId>slf4j-api</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.hibernate</groupId>
+						<artifactId>hibernate-core</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.hibernate</groupId>
+						<artifactId>commons-annotations</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			
+			<!-- <dependency>
+				<groupId>ac-eap</groupId>
+				<artifactId>ejb-api</artifactId>
+				<version>${jboss-ac-eap.version}</version>
+				<scope>provided</scope>
+			</dependency> -->
+
+			<!-- <dependency>
+				<groupId>ac-eap</groupId>
+				<artifactId>jboss-common-core</artifactId>
+				<version>${jboss-ac-eap.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>ac-eap</groupId>
+				<artifactId>jboss-system</artifactId>
+				<version>${jboss-ac-eap.version}</version>
+				<scope>provided</scope>
+			</dependency> -->
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${spring.framework.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aop</artifactId>
+				<version>${spring.framework.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-asm</artifactId>
+				<version>${spring.framework.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aspects</artifactId>
+				<version>${spring.framework.version}</version>
+
+				<exclusions>
+					<exclusion>
+						<artifactId>com.springsource.org.apache.commons.logging
+                        </artifactId>
+						<groupId>org.apache.commons</groupId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-expression</artifactId>
+				<version>${spring.framework.version}</version>
+
+			</dependency>
+
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+				<version>${spring.framework.version}</version>
+
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring.framework.version}</version>
+
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${spring.framework.version}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jdbc</artifactId>
+				<version>${spring.framework.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jms</artifactId>
+				<version>${spring.framework.version}</version>
+			</dependency>
+
+
+			<!-- <dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-orm</artifactId>
+				<version>${spring.framework.version}</version>
+				<exclusions>
+					<exclusion>
+						<artifactId>com.springsource.org.apache.commons.logging
+                        </artifactId>
+						<groupId>org.apache.commons</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>com.springsource.org.aopalliance
+                        </artifactId>
+						<groupId>org.aopalliance</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>com.springsource.org.antlr
+                        </artifactId>
+						<groupId>org.antlr</groupId>
+					</exclusion>
+				</exclusions>
+			</dependency> -->
+
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-tx</artifactId>
+				<version>${spring.framework.version}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context-support</artifactId>
+				<version>${spring.framework.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${spring.framework.version}</version>
+			</dependency>
+
+			<!-- From metrics -->
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>${javax.servlet-api.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.servlet.jsp</groupId>
+				<artifactId>jsp-api</artifactId>
+				<version>${javax.servlet-jsp.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>${log4j.version}</version>
+				<scope>provided</scope>
+				<exclusions>
+					<exclusion>
+						<groupId>javax.mail</groupId>
+						<artifactId>mail</artifactId>
+					</exclusion>
+
+					<exclusion>
+						<groupId>com.sun.jdmk</groupId>
+						<artifactId>jmxtools</artifactId>
+					</exclusion>
+
+					<exclusion>
+						<groupId>com.sun.jmx</groupId>
+						<artifactId>jmxri</artifactId>
+					</exclusion>
+
+					<exclusion>
+						<groupId>javax.jms</groupId>
+						<artifactId>jms</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<!-- From OME-IE -->
+			<dependency>
+				<groupId>org.springframework.integration</groupId>
+				<artifactId>spring-integration-core</artifactId>
+				<version>2.0.0.RELEASE</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-all</artifactId>
+				<version>1.8.5</version>
+			</dependency>
+
+			<!-- From OME-Core -->
+			<dependency>
+				<groupId>ac-eap</groupId>
+				<artifactId>dom4j</artifactId>
+				<version>${jboss-ac-eap.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<!-- Gson: Java to Json conversion -->
+			<dependency>
+				<groupId>com.google.code.gson</groupId>
+				<artifactId>gson</artifactId>
+				<version>2.1</version>
+			</dependency>
+			<dependency>
+				<groupId>net.sf.json</groupId>
+				<artifactId>json-lib</artifactId>
+				<version>2.3</version>
+				<classifier>jdk15</classifier>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-httpclient</groupId>
+				<artifactId>commons-httpclient</artifactId>
+				<version>${commons.httpclient.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>1.3.2</version>
+			</dependency>
+
+			<!-- Web service -->
+			<dependency>
+				<groupId>org.jboss.ws</groupId>
+				<artifactId>jbossws-api</artifactId>
+				<version>1.0.3.Final</version>
+				<scope>provided</scope>
+			</dependency>
+			
+			<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+			<dependency>
+			    <groupId>org.postgresql</groupId>
+			    <artifactId>postgresql</artifactId>
+			    <version>9.4-1205-jdbc4</version>
+			    <scope>provided</scope>
+			</dependency>
+			
+			<!-- active mq 5.2.0 is needed due to communication manager -->
+			<dependency>
+				<groupId>org.apache.activemq</groupId>
+				<artifactId>activemq-core</artifactId>
+				<version>5.2.0</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>

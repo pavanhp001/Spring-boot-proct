@@ -1,0 +1,1 @@
+ALTER TABLE V_tx.cm_customer_interaction ALTER COLUMN notes TYPE character varying(3000);

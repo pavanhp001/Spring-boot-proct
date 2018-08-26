@@ -1,0 +1,157 @@
+<orderManagementRequestResponse
+	xsi:schemaLocation="http://xml.A.com/v4 orderManagement.xsd "
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xml.A.com/v4">
+	<correlationId>1323215</correlationId>
+	<sessionId>12233</sessionId>
+	<transactionId>11111</transactionId>
+	<transactionType>createOrder</transactionType>
+	<status>
+		<statusCode>0</statusCode>
+		<processingMessages>
+			<message>
+				<code>1.0</code>
+				<text>New Order</text>
+			</message>
+		</processingMessages>
+	</status>
+	<request>
+		<agentId>1234</agentId>
+		<salesContext>
+			<entity name="harmony">
+				<attribute name="source" value="accord" />
+			</entity>
+		</salesContext>
+		<orderInfo>
+			<externalId>ZZZZZZZZ</externalId>
+			<source>Web</source>
+			<referrerId>108</referrerId>
+			<associatedWithMove>true</associatedWithMove>
+			<campaignId>ATT</campaignId>
+			<moveDate>2014-01-01</moveDate>
+			<customerInformation>
+				<action>referenceCustomer</action>
+				<customer>
+					<externalId>62346</externalId>
+				</customer>
+			</customerInformation>
+			<agentId>User1</agentId>
+			<AConfirmationNumber></AConfirmationNumber>
+			<ACustomerAccountNumber></ACustomerAccountNumber>
+			<totalPriceInfo>
+				<baseNonRecurringPrice>0.0</baseNonRecurringPrice>
+				<baseNonRecurringPriceUnits>Dollar</baseNonRecurringPriceUnits>
+				<baseRecurringPrice>0.0</baseRecurringPrice>
+				<baseRecurringPriceUnits>Dollar</baseRecurringPriceUnits>
+				<includeInTotalPrice />
+			</totalPriceInfo>
+			<lineItems>
+				<lineItem>
+					<productDatasource dataSource="">internal
+					</productDatasource>
+					<lineItemNumber>0</lineItemNumber>
+					<newPhone />
+					<lineItemDetail>
+						<detailType>product</detailType>
+						<detail>
+							<productLineItem>
+								<externalId>THD-MOVERS</externalId>
+								<productCategory displayName="offer" />
+								<name />
+								<channels>
+									<channel>Web</channel>
+								</channels>
+								<provider externalId="18486164" name="Home Depot">
+									<source datasource="">internal</source>
+								</provider>
+							</productLineItem>
+						</detail>
+					</lineItemDetail>
+					<externalId>externalId</externalId>
+					<svcAddressExtId>61345</svcAddressExtId>
+					<billingInfoExtId>55641</billingInfoExtId>
+					<svcAddressRef />
+					<billingInfoRef />
+					<!-- <SchedulingInfo appointmentComment="Test Comment" billingInstallments="true"
+						earlierAppointmentDate="true" installationFee="29.99" residenceType="HOUSE">
+						<desiredStartDate> <date>${DataGen#tomorrowsDate}</date> <time>01:30:00</time>
+						</desiredStartDate> <scheduledStartDate> <date>${DataGen#tomorrowsDate}</date>
+						<time>02:30:00</time> </scheduledStartDate> <actualStartDate> <date>${DataGen#tomorrowsDate}</date>
+						<time>03:30:00</time> </actualStartDate> <ScheduleAsSoonAsPossible>true</ScheduleAsSoonAsPossible>
+						</SchedulingInfo> -->
+					<!-- <selectedFeatures> <features> <featureValue externalId="ELEC13"
+						value="" type="string" /> <featureValue externalId="PRFL40" value="2/2/2013"
+						type="string" /> <featureValue externalId="XXZIPONLY" value="0" type="string"
+						/> </features> </selectedFeatures> -->
+
+					<selectedFeatures>
+						<features>
+							<featureValue externalId="DIG_RCVR" value="1"
+								type="integer" />
+							<featureValue externalId="VOICE_MAIL" value="true"
+								type="boolean" />
+						</features>
+						<featureGroup groupType="1" externalId="MODEM_OPTION">
+							<featureValue type="string" value="Modem Option"
+								externalId="LEASE_MODEM" />
+						</featureGroup>
+						<featureGroup groupType="1" externalId="CONN_SPEED">
+							<featureValue type="string" value="20 Mbps"
+								externalId="INTERNET_SPEED2" />
+						</featureGroup>
+						<featureGroup externalId="TW_CHAR_CINEMAX"
+							groupType="-1" />
+					</selectedFeatures>
+
+
+
+					<lineItemAttributes>
+
+						<entity source="SP_OPTION_RESP_7">
+							<attribute>
+								<name>SP_OPTION_ID</name>
+								<value>3507119</value>
+							</attribute>
+							<attribute>
+								<name>SPS_ID</name>
+								<value>6605801</value>
+							</attribute>
+							<attribute>
+								<name>SP_OPTION_CODE</name>
+								<value>PSIE3</value>
+							</attribute>
+							<attribute>
+								<name>SP_OPTION_RESP</name>
+								<value>single-family</value>
+							</attribute>
+						</entity>
+						<entity source="SP_OPTION_RESP_8">
+							<attribute>
+								<name>SP_OPTION_ID</name>
+								<value>3507121</value>
+							</attribute>
+							<attribute>
+								<name>SPS_ID</name>
+								<value>6605803</value>
+							</attribute>
+							<attribute>
+								<name>SP_OPTION_CODE</name>
+								<value>PSIE5</value>
+							</attribute>
+							<attribute>
+								<name>SP_OPTION_RESP</name>
+								<value>3 products</value>
+							</attribute>
+						</entity>
+
+					</lineItemAttributes>
+
+
+					<howLongAtAddress>10</howLongAtAddress>
+					<service>BUSINESS</service>
+					<creditStatus>Approved</creditStatus>
+				</lineItem>
+			</lineItems>
+		</orderInfo>
+	</request>
+	<response />
+</orderManagementRequestResponse>

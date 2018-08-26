@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ac:orderManagementRequestResponse
+	xmlns:ac="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xml.AL.com/v4 orderManagement.xsd ">
+	<ac:correlationId>12345</ac:correlationId>
+	<ac:transactionType>createOrder</ac:transactionType>
+	<ac:status>
+		<ac:statusCode>0</ac:statusCode>
+		<ac:processingMessages>
+			<ac:message>
+				<ac:code>1.0</ac:code>
+				<ac:text>New Order</ac:text>
+			</ac:message>
+		</ac:processingMessages>
+	</ac:status>
+
+	<ac:request>
+		<ac:salesContext>
+			<ac:entity name="Test1">
+				<ac:attribute name="credit score" value="750" />
+				<ac:attribute name="dwelling type" value="house" />
+			</ac:entity>
+			<ac:entity name="Test2">
+				<ac:attribute name="neighborhood" value="rich" />
+				<ac:attribute name="customerType" value="High Income" />
+			</ac:entity>
+		</ac:salesContext>
+		<ac:orderInfo>
+			<ac:externalId>ZZZZZZZZ</ac:externalId>
+			<ac:source>Web</ac:source>
+			<ac:referrerId>108</ac:referrerId>
+			<ac:associatedWithMove>true</ac:associatedWithMove>
+			<ac:campaignId>ATT</ac:campaignId>
+			<ac:customerInformation>
+				<ac:action>referenceCustomer</ac:action>
+				<ac:customer>
+					<ac:externalId>715</ac:externalId>
+				</ac:customer>
+			</ac:customerInformation>
+			<ac:agentId>User1</ac:agentId>
+			<ac:ALConfirmationNumber>CCCCCCCCNNNNNN</ac:ALConfirmationNumber>
+			<ac:ALCustomerAccountNumber>CCCCCAAAAANNNNNN</ac:ALCustomerAccountNumber>
+			<ac:totalPriceInfo>
+				<ac:baseNonRecurringPrice>100.25</ac:baseNonRecurringPrice>
+				<ac:baseNonRecurringPriceUnits>Dollar
+				</ac:baseNonRecurringPriceUnits>
+				<ac:baseRecurringPrice>150.50</ac:baseRecurringPrice>
+				<ac:baseRecurringPriceUnits>Dollar</ac:baseRecurringPriceUnits>
+				<ac:includeInTotalPrice />
+			</ac:totalPriceInfo>
+			<ac:lineItems>
+				<ac:lineItem>
+					<ac:partnerName>ac:partnerName</ac:partnerName>
+					<ac:productUniqueId>0</ac:productUniqueId>
+					<ac:providerConfirmationNumber>ac:providerConfirmationNumber
+					</ac:providerConfirmationNumber>
+					<ac:providerCustomerAccountNumber>ac:providerCustomerAccountNumber
+					</ac:providerCustomerAccountNumber>
+					<ac:lineItemNumber>0</ac:lineItemNumber>
+					<ac:lineItemStatus agentId="0" dateTimeStamp="2001-12-31T12:00:00"
+						statusCode="0" statusCodeDescription="">
+						<ac:reason>0</ac:reason>
+					</ac:lineItemStatus>
+					<ac:lineItemStatusHistory>
+						<ac:previousStatus agentId="0" dateTimeStamp="2001-12-31T12:00:00"
+							statusCode="0" statusCodeDescription="">
+							<ac:reason>0</ac:reason>
+						</ac:previousStatus>
+					</ac:lineItemStatusHistory>
+					<ac:lineItemDetail>
+						<ac:detailType>product</ac:detailType>
+						<ac:detail>
+							<ac:productLineItem>
+								<ac:externalId>DIRECTSTAR-DTV-1-WEB</ac:externalId>
+								<ac:productCategory displayName="">TV
+								</ac:productCategory>
+								<ac:name>DTV</ac:name>
+								<ac:channels>
+									<ac:channel>Web</ac:channel>
+								</ac:channels>
+								<ac:provider externalId="2314635" name="DTV">
+									<ac:source datasource="DTV">internal</ac:source>
+									<ac:parent externalId="" name="" />
+									<ac:capabilityList>
+										<ac:capability name="" />
+									</ac:capabilityList>
+								</ac:provider>
+								<ac:priceInfo>
+									<ac:baseNonRecurringPrice>0.0</ac:baseNonRecurringPrice>
+									<ac:baseNonRecurringPriceUnits>ac:baseNonRecurringPriceUnits
+									</ac:baseNonRecurringPriceUnits>
+									<ac:baseRecurringPrice>0.0</ac:baseRecurringPrice>
+									<ac:baseRecurringPriceUnits>ac:baseRecurringPriceUnits
+									</ac:baseRecurringPriceUnits>
+									<ac:includeInTotalPrice />
+								</ac:priceInfo>
+								<ac:capabilityList>
+									<ac:capability name="" />
+								</ac:capabilityList>
+							</ac:productLineItem>
+						</ac:detail>
+					</ac:lineItemDetail>
+					<ac:lineItemPriceInfo>
+						<ac:baseNonRecurringPrice>0.0</ac:baseNonRecurringPrice>
+						<ac:baseNonRecurringPriceUnits>ac:baseNonRecurringPriceUnits
+						</ac:baseNonRecurringPriceUnits>
+						<ac:baseRecurringPrice>0.0</ac:baseRecurringPrice>
+						<ac:baseRecurringPriceUnits>ac:baseRecurringPriceUnits
+						</ac:baseRecurringPriceUnits>
+						<ac:includeInTotalPrice />
+						<ac:priceInfoStatus>
+							<ac:statusCode>0</ac:statusCode>
+							<ac:processingMessages>
+								<ac:message>
+									<ac:code>0.0</ac:code>
+									<ac:text>ac:text</ac:text>
+								</ac:message>
+							</ac:processingMessages>
+						</ac:priceInfoStatus>
+						<ac:pricingDate>2001-12-31T12:00:00</ac:pricingDate>
+					</ac:lineItemPriceInfo>
+					<ac:externalId>0</ac:externalId>
+					<ac:svcAddressExtId>3279</ac:svcAddressExtId>
+					<ac:svcAddressRef>ac:svcAddressRef</ac:svcAddressRef>
+					<ac:billingInfoExtId>95</ac:billingInfoExtId>
+					<ac:billingInfoRef>ac:billingInfoRef</ac:billingInfoRef>
+					<ac:SchedulingInfo appointmentComment=""
+						billingInstallments="true" earlierAppointmentDate="true"
+						installationFee="0.0" residenceType="">
+						<ac:desiredStartDate>
+							<ac:date>2001-01-01</ac:date>
+							<ac:time>12:00:00</ac:time>
+						</ac:desiredStartDate>
+						<ac:scheduledStartDate>
+							<ac:date>2001-01-01</ac:date>
+							<ac:time>12:00:00</ac:time>
+						</ac:scheduledStartDate>
+						<ac:actualStartDate>
+							<ac:date>2001-01-01</ac:date>
+							<ac:time>12:00:00</ac:time>
+						</ac:actualStartDate>
+						<ac:ScheduleAsSoonAsPossible>true</ac:ScheduleAsSoonAsPossible>
+					</ac:SchedulingInfo>
+					<ac:selectedFeatures>
+						<ac:features>
+							<ac:featureValue externalId="" type="integer"
+								value="" />
+						</ac:features>
+						<ac:featureGroup externalId="" groupType="0">
+							<ac:featureValue externalId="" type="integer"
+								value="" />
+						</ac:featureGroup>
+					</ac:selectedFeatures>
+					<ac:activeDialogs>
+						<ac:dialogs>
+							<ac:dialog>
+								<ac:externalId>DLG101</ac:externalId>
+								<ac:dialogueDate>2011-09-29T09:00:00</ac:dialogueDate>
+								<ac:value selected="true" type="string">ABC</ac:value>
+								<ac:value selected="false" type="string">DEF</ac:value>
+							</ac:dialog>
+							<ac:dialog>
+								<ac:externalId>DLG102</ac:externalId>
+								<ac:dialogueDate>2011-09-30T09:00:00</ac:dialogueDate>
+								<ac:value selected="false" type="string">GHI</ac:value>
+								<ac:value selected="true" type="string">JKL</ac:value>
+							</ac:dialog>
+						</ac:dialogs>
+					</ac:activeDialogs>
+
+					<ac:customSelections>
+						<ac:selections>
+							<ac:selection externalId="PortYourNumber">
+								<ac:selectionChoice externalId="KeepMyCurrentNumber" />
+							</ac:selection>
+
+							<ac:selection externalId="NameOnAccount"
+								parentChoiceExternalId="KeepMyCurrentNumber">
+								<ac:selectionChoice externalId="name">
+									<ac:detail>Jonathan Gerhard</ac:detail>
+								</ac:selectionChoice>
+							</ac:selection>
+
+							<ac:selection externalId="AddressLineOne"
+								parentChoiceExternalId="KeepMyCurrentNumber">
+								<ac:selectionChoice externalId="lineOne">
+									<ac:detail>30 E Lawn Way</ac:detail>
+								</ac:selectionChoice>
+							</ac:selection>
+
+							<ac:selection externalId="AddressCity"
+								parentChoiceExternalId="KeepMyCurrentNumber">
+								<ac:selectionChoice externalId="city">
+									<ac:detail>Covington</ac:detail>
+								</ac:selectionChoice>
+							</ac:selection>
+
+							<ac:selection externalId="AddressState"
+								parentChoiceExternalId="KeepMyCurrentNumber">
+								<ac:selectionChoice externalId="state">
+									<ac:detail>GA</ac:detail>
+								</ac:selectionChoice>
+							</ac:selection>
+
+
+							<ac:selection externalId="ModemProfessionalOrSelfInstall">
+								<ac:selectionChoice externalId="SelfInstall" />
+							</ac:selection>
+						 
+							
+							
+							
+						 <ac:selection externalId="OptionalCablePackages">
+								<ac:selectionChoice externalId="HBO">
+									<ac:detail>Premium HBO channel</ac:detail>
+								</ac:selectionChoice>
+								<ac:selectionChoice externalId="Cinemax">
+									<ac:detail>Premium Cinemax channel</ac:detail>
+								</ac:selectionChoice>
+								<ac:selectionChoice externalId="Starz">
+									<ac:detail>Premium Starz channel</ac:detail>
+								</ac:selectionChoice>
+							</ac:selection>  
+
+						</ac:selections>
+					</ac:customSelections>
+
+					<ac:service>BUSINESS</ac:service>
+					<ac:creditStatus>Approved</ac:creditStatus>
+					<ac:lineItemEvents source="">
+						<ac:LineItemEvent>
+							<ac:values>ac:values</ac:values>
+						</ac:LineItemEvent>
+					</ac:lineItemEvents>
+					<ac:notificationEvents>
+						<ac:event dateTimeStamp="2001-12-31T12:00:00" source=""
+							uniqueId="">
+							<ac:code>0</ac:code>
+							<ac:reason>0</ac:reason>
+							<ac:comment>ac:comment</ac:comment>
+							<ac:acknowledged>false</ac:acknowledged>
+						</ac:event>
+					</ac:notificationEvents>
+					<ac:leadId>0</ac:leadId>
+				</ac:lineItem>
+
+
+			</ac:lineItems>
+			<ac:orderStatus>
+				<ac:status>0</ac:status>
+				<ac:reason>0</ac:reason>
+				<ac:dateTimeStamp>2001-12-31T12:00:00</ac:dateTimeStamp>
+				<ac:agentId>0</ac:agentId>
+			</ac:orderStatus>
+			<ac:orderStatusHistory>
+				<ac:previousStatus>
+					<ac:status>0</ac:status>
+					<ac:reason>0</ac:reason>
+					<ac:dateTimeStamp>2001-12-31T12:00:00</ac:dateTimeStamp>
+					<ac:agentId>0</ac:agentId>
+				</ac:previousStatus>
+			</ac:orderStatusHistory>
+		</ac:orderInfo>
+	</ac:request>
+	<ac:response>
+
+	</ac:response>
+</ac:orderManagementRequestResponse>

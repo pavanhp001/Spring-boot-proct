@@ -1,0 +1,71 @@
+.CKO-wizard > .CKO-wizard-step > .CKO-wizard-round{
+	background:rgba(0, 0, 0, 0) linear-gradient(to bottom, #f8ffe8 3%, #e3f5ab 26%, #b7df2d 100%) repeat scroll 0 0; 
+}
+.CKO-wizard > .CKO-wizard-step > .CKO-wizard-round{
+	background:rgba(0, 0, 0, 0) linear-gradient(to bottom, #f8ffe8 3%, #e3f5ab 26%, #b7df2d 100%) repeat scroll 0 0; 
+	color: #999;
+}
+.AL-green legend > div{
+		background:rgba(0, 0, 0, 0) linear-gradient(to bottom, #f8ffe8 3%, #e3f5ab 26%, #b7df2d 100%) repeat scroll 0 0; 
+	color: #666;
+	
+}
+
+.AL-green .button {
+	 background:rgba(0, 0, 0, 0) linear-gradient(to bottom, #f8ffe8 4%, #e3f5ab 4%, #b7df2d 100%) repeat scroll 0 0;
+	 color: #666;
+}
+ .tblPromotions.table.table-striped.table-bordered.table-hover thead tr th {
+    background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #f8ffe8 3%, #e3f5ab 26%, #b7df2d 100%) repeat scroll 0 0;
+}
+
+.CKO-wizard > .CKO-wizard-step > .progress > .progress-bar{
+	background:rgba(0, 0, 0, 0) linear-gradient(to bottom, #f8ffe8 3%, #e3f5ab 26%, #b7df2d 100%) repeat scroll 0 0; 
+	
+}
+.CKONumbers{
+	color: #777;
+}
+.info_type_label {
+    color: #9dc45f;
+}
+/* .AL-green .button {
+    background:rgba(0, 0, 0, 0) linear-gradient(to bottom, #f8ffe8 3%, #e3f5ab 26%, #b7df2d 100%) repeat scroll 0 0; 
+    color:#999;
+} */
+#pdet_features_content table tr th {
+    background:rgba(0, 0, 0, 0) linear-gradient(to bottom, #f8ffe8 3%, #e3f5ab 26%, #b7df2d 100%) repeat scroll 0 0; 
+    color: #999;
+}
+
+.AL-green .button:hover {
+    background:rgba(0, 0, 0, 0) linear-gradient(to bottom, #f8ffe8 2%, #c7d98f 4%, #b7df2d 100%) repeat scroll 0 0;
+}
+
+  .content_new{
+    background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #f8ffe8 3%, #e3f5ab 26%, #f8ffe8 100%) repeat scroll 0 0;
+    
+ }
+  .last_section{
+    background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #f8ffe8 3%, #e3f5ab 26%, #f8ffe8 100%) repeat scroll 0 0;
+  }
+  
+  #tblPromotions thead tr th {
+	background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #f8ffe8 3%, #e3f5ab 26%, #b7df2d 100%) repeat scroll 0 0;
+}
+
+table.placeOrder tbody tr th {
+    background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #f8ffe8 3%, #e3f5ab 26%, #b7df2d 100%) repeat scroll 0 0;
+    color: #666;
+}
+.last_data_title{
+	
+	 background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #e3f5ab 3%, #e3f5ab 26%, #b7df2d 100%) repeat scroll 0 0;
+    color: #666;
+}
+.last_section{
+	color: #666;
+}
+.content_new > div {
+    color: #666;
+}

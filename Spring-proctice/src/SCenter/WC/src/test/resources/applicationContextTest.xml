@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd
+		http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+
+
+	<!-- Configures the @Controller programming model -->
+	<mvc:annotation-driven />
+
+	<context:component-scan base-package="com.A.controller" />
+
+
+<bean id="marshaller" class="org.springframework.oxm.xstream.XStreamMarshaller" >
+ <property name="aliases">
+        <map>
+            <entry key="items" value="java.util.List" />
+            <entry key="item" value="com.A.ui.domain.WebLookup" />
+            <entry key="lookups" value="com.A.ui.domain.WebLookupCollection" />
+        </map>
+    </property>
+     
+</bean>
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="locale/messages" />
+	</bean>
+
+
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- one of the properties available; the maximum file size in bytes -->
+		<property name="maxUploadSize" value="2000000" />
+	</bean>
+
+
+	<!-- Forwards requests to the "/" resource to the "welcome" view -->
+	<mvc:view-controller path="/" view-name="welcome" />
+
+	<!-- Configures Handler Interceptors -->
+	<mvc:interceptors>
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
+	</mvc:interceptors>
+
+	<!-- Saves a locale change using a cookie -->
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.CookieLocaleResolver" />
+
+
+	<!-- minimum needed to make REST calls -->
+	<bean id="restTemplate" class="org.springframework.web.client.RestTemplate" />
+
+	<context:annotation-config />
+	<context:component-scan base-package="com.A" />
+	<task:annotation-driven />
+
+	<bean class="com.A.util.spring.DatasourcePostProcessor" />
+	<bean
+		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor">
+		<property name="defaultPersistenceUnitName" value="transactional_pu" />
+	</bean>
+	<bean id="pum"
+		class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
+		<property name="persistenceXmlLocations">
+			<list>
+
+				<value>classpath:META-INF/persistence.xml</value>
+			</list>
+		</property>
+		<property name="dataSources">
+			<map>
+
+
+
+				<entry key="transactionalDatasource" value-ref="transactionalDatasource" />
+			</map>
+		</property>
+	</bean>
+
+	<tx:annotation-driven transaction-manager="transactionalTransactionManager" />
+	<context:annotation-config />
+
+	<bean id="transactionalDatasource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="org.postgresql.Driver" />
+		<property name="jdbcUrl" value="jdbc:postgresql://localhost:5432/fulfillment" />
+		<property name="user" value="fulfillment" />
+		<property name="password" value="fulfillment" />
+		<property name="initialPoolSize" value="5" />
+		<property name="minPoolSize" value="1" />
+		<property name="maxPoolSize" value="1" />
+	</bean>
+
+
+	<bean id="JDBCDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.postgresql.Driver" />
+		<property name="url" value="jdbc:postgresql://localhost:5432/fulfillment" />
+		<property name="username" value="fulfillment" />
+		<property name="password" value="fulfillment" />
+	</bean>
+
+
+
+	<bean id="transactionalEntityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitManager" ref="pum" />
+		<property name="persistenceUnitName" value="transactional_pu" />
+		<property name="dataSource" ref="transactionalDatasource" />
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+			</bean>
+		</property>
+
+		<property name="loadTimeWeaver">
+			<bean
+				class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver" />
+		</property>
+		<property name="jpaDialect">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect">
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="transactionalEntityManagerFactory" />
+		<qualifier value="transactional" />
+		<property name="jpaDialect">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect" />
+		</property>
+	</bean>
+
+</beans>

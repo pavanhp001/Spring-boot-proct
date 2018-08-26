@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+<definition name="*/*"  >
+    <put-attribute name="content" value="/WEB-INF/views/index.vm" />
+</definition>
+
+  <definition name="base.definition"
+        template="/WEB-INF/jsp/layout.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="/WEB-INF/jsp/header.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/jsp/menu.jsp" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer" value="/WEB-INF/jsp/footer.jsp" />
+    </definition>
+ 
+    <definition name="contact" extends="base.definition">
+        <put-attribute name="title" value="Contact Manager" />
+        <put-attribute name="body" value="/WEB-INF/layouts/main.vm" type="velocity" />
+    </definition>
+
+    <!-- acts like abstract definition -->
+    <definition name="masterDfn" template="/WEB-INF/layouts/main.vm"  >
+
+        <put-attribute name="title" value="artifactName" />
+        <put-attribute name="metaDescription" value="web application from openhouse.sk" />
+
+        <put-attribute name="metaAuthor" value="artifactName" />
+        <put-attribute name="metaCopyright" value="artifactName" />
+
+        <put-attribute name="body" value="/WEB-INF/views/index.vm" type="velocity"/>
+
+        <put-list-attribute name="styleSheets">
+            <add-attribute value="/resources/css/screen.css" type="velocity" />
+        </put-list-attribute>
+
+        <put-list-attribute name="metaKeywords" >
+            <add-attribute value="openhouse.sk" type="velocity"/>
+            <add-attribute value="web application" type="velocity"/>
+        </put-list-attribute>
+    </definition>
+
+    <!-- main default definition -->
+    <definition name="mainDfn" extends="masterDfn" templateType="velocity">
+    </definition>
+
+    <!-- error definition -->
+    <definition name="errorDfn" template="/WEB-INF/layouts/error.vm" templateType="velocity">
+
+        <put-attribute name="title" value="Error" />
+
+        <put-attribute name="metaAuthor" value="artifactName" />
+        <put-attribute name="metaCopyright" value="artifactName" />
+
+        <put-list-attribute name="styleSheets">
+            <add-attribute value="/resources/css/screen.css" type="velocity" />
+        </put-list-attribute>
+    </definition>
+
+    <!-- pages -->
+
+    <definition name="index" extends="mainDfn" templateType="velocity">
+        <put-attribute name="title" value="artifactName | Index" />
+        <put-attribute name="body" value="/WEB-INF/views/index.vm" type="velocity" />
+    </definition>
+    
+       <definition name="hello" extends="mainDfn" templateType="velocity">
+        <put-attribute name="title" value="artifactName | Index" />
+        <put-attribute name="body" value="/WEB-INF/views/index.vm" type="velocity" />
+    </definition>
+
+    <!-- error pages -->
+    <definition name="404" extends="errorDfn" templateType="velocity">
+        <put-attribute name="title" value="artifactName | 404 - Page Not Found" />
+        <put-attribute name="body" value="/WEB-INF/views/error/404.vm" type="velocity" />
+    </definition>
+
+    <definition name="exception" extends="errorDfn" templateType="velocity">
+        <put-attribute name="title" value="artifactName | Exception" />
+        <put-attribute name="body" value="/WEB-INF/views/error/exception.vm" type="velocity" />
+    </definition>
+
+</tiles-definitions>

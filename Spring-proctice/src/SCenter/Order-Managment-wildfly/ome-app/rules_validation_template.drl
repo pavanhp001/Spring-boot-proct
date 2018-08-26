@@ -1,0 +1,26 @@
+package AL.ome.validation;
+
+import org.drools.runtime.rule.RuleContext;
+import com.AL.rules.util.*;
+import com.AL.V.beans.entity.SalesOrder;
+import com.AL.rules.core.ReportFactory;
+import com.AL.rules.core.ValidationReport;
+import function  com.AL.rules.util.RuleValidationHelper.error;
+import function  com.AL.rules.util.RuleValidationHelper.warning;
+
+//global ReportFactory reportFactory;
+//global ValidationReport validationReport;
+ 
+	
+	rule "One"
+    salience 100
+    when
+        SalesOrder(id==-1)
+    then 
+        System.out.println("performed the calculation");
+       
+        warning(kcontext, "warning");
+        error(kcontext, "error");
+      
+end
+	

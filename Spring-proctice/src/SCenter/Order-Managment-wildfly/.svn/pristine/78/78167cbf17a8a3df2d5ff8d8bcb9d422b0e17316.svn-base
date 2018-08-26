@@ -1,0 +1,14 @@
+endpoint.ome.in=op.in.q
+hlst=jms.ln
+port=61616
+communicationType=JMS
+vendor=ActiveMQ
+jndiName=
+transacted=
+persist=
+timeToLive=300
+username=${ome.jms.q.username}
+password=${ome.jms.q.password}
+redeliveryMax=5
+jndiConnectionFactoryName=op
+url=${main.jms.q.url}

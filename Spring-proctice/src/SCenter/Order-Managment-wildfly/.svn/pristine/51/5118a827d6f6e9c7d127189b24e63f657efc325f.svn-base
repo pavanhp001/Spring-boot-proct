@@ -1,0 +1,482 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v4="http://xml.AL.com/v4">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <v4:processRequest>
+          <arg0><![CDATA[
+        <ac:orderManagementRequestResponse xmlns:ac="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xml.AL.com/v4 orderManagement.xsd ">
+  <ac:correlationId>correlationId</ac:correlationId>
+  <ac:transactionTimeStamp>2001-01-01</ac:transactionTimeStamp>
+  <ac:transactionId>1234</ac:transactionId>
+  <ac:transactionType>orderQualification</ac:transactionType>
+  <ac:region>EAST</ac:region>
+  <ac:affiliateName>KRAMERE</ac:affiliateName>
+  <ac:salesCode>KRAMERE</ac:salesCode>
+<!-- <tns1:channell>12345</tns1:channell> -->
+  <ac:status>
+    <ac:statusCode>0</ac:statusCode>
+    <ac:processingMessages>
+      <ac:message>
+        <ac:code>0.0</ac:code>
+        <ac:text>ac:text</ac:text>
+      </ac:message>
+    </ac:processingMessages>
+  </ac:status>
+
+<ac:pagingDetail>
+			<ac:offSet>1</ac:offSet>
+			<ac:totalRows>12</ac:totalRows>
+			</ac:pagingDetail>
+
+  <ac:request>
+<ac:orderId>55555</ac:orderId>
+    	<ac:orderInfo>
+			<ac:externalId>1</ac:externalId>
+			<ac:source>Wed</ac:source>
+			<ac:referrerId>108</ac:referrerId>
+			<ac:associatedWithMove>true</ac:associatedWithMove>
+			<ac:directMailOptIn>true</ac:directMailOptIn>
+			<ac:eMailOptIn>true</ac:eMailOptIn>
+			<ac:campaignId>campaignId</ac:campaignId>
+			<ac:consumer>
+				<ac:title>Sir</ac:title>
+				<ac:firstName>John</ac:firstName>
+				<ac:lastName>Doe</ac:lastName>
+				<ac:middleName>Kennedy</ac:middleName>
+				<ac:nameSuffix>Jr.</ac:nameSuffix>
+				<ac:gender>M</ac:gender>
+				<ac:dob>2001-01-01</ac:dob>
+				<ac:ssn>111-222-3333</ac:ssn>
+				<ac:ALCustomerNumber>111222333
+				</ac:ALCustomerNumber>
+				<ac:homePhoneNumber>
+					<ac:value>1-800-hom-fone</ac:value>
+					<ac:order>0</ac:order>
+					<ac:desc>Home Phone Number</ac:desc>
+				</ac:homePhoneNumber>
+				<ac:cellPhoneNumber>
+					<ac:value>1-800-cel-fone</ac:value>
+					<ac:order>1</ac:order>
+					<ac:desc>CELL Phone Number</ac:desc>
+				</ac:cellPhoneNumber>
+				<ac:workPhoneNumber>
+					<ac:value>1-800-wrk-fone</ac:value>
+					<ac:order>2</ac:order>
+					<ac:desc>Work Phone Number</ac:desc>
+				</ac:workPhoneNumber>
+				<ac:homeEMail>
+					<ac:value>ebthomas3@home.com</ac:value>
+					<ac:order>3</ac:order>
+					<ac:desc>ac:desc</ac:desc>
+				</ac:homeEMail>
+				<ac:workEMail>
+					<ac:value>ebthomas3@work.com</ac:value>
+					<ac:order>0</ac:order>
+					<ac:desc>ac:desc</ac:desc>
+				</ac:workEMail>
+				<ac:address>
+					<ac:prefixDirectional>consumer.prefixDirectional.Addr
+					</ac:prefixDirectional>
+					<ac:streetNumber>consumer.539</ac:streetNumber>
+					<ac:streetName>consumer.Jones Street</ac:streetName>
+					<ac:streetType>consumer.Court</ac:streetType>
+					<ac:line2>consumer.Apt. 102</ac:line2>
+					<ac:postfixDirectional>consumer.postfixDirectional.Addr
+					</ac:postfixDirectional>
+					<ac:city>consumer.Alpharetta</ac:city>
+					<ac:stateOrProvince>consumer.Georgia</ac:stateOrProvince>
+					<ac:postalCode>12345</ac:postalCode>
+					<ac:country>consumer.United States</ac:country>
+					<ac:countyParishBorough>consumer.Dade</ac:countyParishBorough>
+					<ac:addressBlock>consumer.addressBlock
+					</ac:addressBlock>
+					<ac:hasHadServicePreviously>true</ac:hasHadServicePreviously>
+					<ac:howLongAtAddress>1</ac:howLongAtAddress>
+				</ac:address>
+				<ac:previousAddress>
+					<ac:prefixDirectional>consumer.p.prefix
+					</ac:prefixDirectional>
+					<ac:streetNumber>consumer.p.streetNumber
+					</ac:streetNumber>
+					<ac:streetName>consumer.p.streetName
+					</ac:streetName>
+					<ac:streetType>consumer</ac:streetType>
+					<ac:line2>consumer</ac:line2>
+					<ac:postfixDirectional>postFixDirectional
+					</ac:postfixDirectional>
+					<ac:city>p.alpharetta</ac:city>
+					<ac:stateOrProvince>p.Georgia</ac:stateOrProvince>
+					<ac:postalCode>30009</ac:postalCode>
+					<ac:country>United States</ac:country>
+					<ac:countyParishBorough>countyParish
+					</ac:countyParishBorough>
+					<ac:addressBlock>address Block</ac:addressBlock>
+				</ac:previousAddress>
+				<ac:financialInfo>
+					<ac:employed>
+						<ac:businessName>Working Inc.</ac:businessName>
+						<ac:businessPhoneNum>1-800-work-hard
+						</ac:businessPhoneNum>
+						<ac:occupation>QA Engineer</ac:occupation>
+					</ac:employed>
+					<ac:student xsi:nil="false" />
+					<ac:retired xsi:nil="true" />
+					<ac:bankOrMortgageInstitution>Mortgage R US
+					</ac:bankOrMortgageInstitution>
+					<ac:otherIncomeSource>Source Other Income
+					</ac:otherIncomeSource>
+				</ac:financialInfo>
+			</ac:consumer>
+			<ac:agentId>5</ac:agentId>
+			<ac:ALConfirmationNumber>ALConfirmationNumber
+			</ac:ALConfirmationNumber>
+			<ac:ALCustomerAccountNumber>ALCustomerAccountNumber
+			</ac:ALCustomerAccountNumber>
+			<ac:totalPriceInfo>
+				<ac:baseNonRecurringPrice>111.0</ac:baseNonRecurringPrice>
+				<ac:baseRecurringPrice>123.0</ac:baseRecurringPrice>
+			</ac:totalPriceInfo>
+			<ac:orderStatus>
+				<ac:status>ac:status</ac:status>
+				<ac:reason>ac:reason</ac:reason>
+				<ac:dateTimeStamp>2001-12-31T12:00:00
+				</ac:dateTimeStamp>
+			</ac:orderStatus>
+			<ac:orderStatusHistory>
+				<ac:previousStatus>
+					<ac:status>ac:status</ac:status>
+					<ac:reason>ac:reason</ac:reason>
+					<ac:dateTimeStamp>2001-12-31T12:00:00
+					</ac:dateTimeStamp>
+				</ac:previousStatus>
+			</ac:orderStatusHistory>
+			<ac:secondCallInfo>
+				<ac:whenToCallBack>
+					<ac:date>2001-01-01</ac:date>
+					<ac:time>12:00:00</ac:time>
+				</ac:whenToCallBack>
+				<ac:firstPhoneNumber>
+					<ac:value>token</ac:value>
+					<ac:order>0</ac:order>
+					<ac:desc>ac:desc</ac:desc>
+				</ac:firstPhoneNumber>
+				<ac:secondPhoneNumber>
+					<ac:value>token</ac:value>
+					<ac:order>0</ac:order>
+					<ac:desc>ac:desc</ac:desc>
+				</ac:secondPhoneNumber>
+			</ac:secondCallInfo>
+			<ac:billingInfo>
+				<ac:billingMethod>order.billingMethod
+				</ac:billingMethod>
+				<ac:creditCardNumber>order.creditCardNumber
+				</ac:creditCardNumber>
+				<ac:verificationCode>order.verificationCode
+				</ac:verificationCode>
+				<ac:checkingAccountNumber>order.checkingAccountNumber
+				</ac:checkingAccountNumber>
+				<ac:routingNumber>order.routingNumber
+				</ac:routingNumber>
+				<ac:billingAddress>
+					<ac:prefixDirectional>order.prefixBillingAddress
+					</ac:prefixDirectional>
+					<ac:streetNumber>order.streetNumber
+					</ac:streetNumber>
+					<ac:streetName>order.streetName</ac:streetName>
+					<ac:streetType>order.streetType</ac:streetType>
+					<ac:line2>order.line2</ac:line2>
+					<ac:postfixDirectional>order.postfixDirectional
+					</ac:postfixDirectional>
+					<ac:city>order.city</ac:city>
+					<ac:stateOrProvince>order.stateOrProvince
+					</ac:stateOrProvince>
+					<ac:postalCode>order.postalCode</ac:postalCode>
+					<ac:country>order.country</ac:country>
+					<ac:countyParishBorough>order.countyParishBorough
+					</ac:countyParishBorough>
+					<ac:addressBlock>order.addressBlock
+					</ac:addressBlock>
+				</ac:billingAddress>
+			</ac:billingInfo>
+			<ac:lineItems>
+				<ac:lineItem>
+				<ac:lineItemNumber>0</ac:lineItemNumber>
+					<provider>
+						<name>DISH</name>
+						<externalId>1234</externalId>
+					</provider>
+					<ac:externalId>111</ac:externalId>
+					<ac:providerConfirmationNumber>111
+					</ac:providerConfirmationNumber>
+					<ac:howLongAtAddress>3 Years</ac:howLongAtAddress>
+					<ac:providerCustomerAccountNumber>111
+					</ac:providerCustomerAccountNumber>
+					<ac:serviceOrDeliveryAddress>
+						<ac:prefixDirectional>aaa</ac:prefixDirectional>
+						<ac:streetNumber>streetNumber</ac:streetNumber>
+						<ac:streetName>streetName</ac:streetName>
+						<ac:streetType>234</ac:streetType>
+						<ac:line2>line2</ac:line2>
+						<ac:postfixDirectional>postFixDirectional
+						</ac:postfixDirectional>
+						<ac:city>city</ac:city>
+						<ac:stateOrProvince>stateOrProvince
+						</ac:stateOrProvince>
+						<ac:postalCode>posta</ac:postalCode>
+						<ac:country>country</ac:country>
+						<ac:countyParishBorough>countyParish
+						</ac:countyParishBorough>
+						<ac:addressBlock>address Block</ac:addressBlock>
+					</ac:serviceOrDeliveryAddress>
+					<ac:billingInfo>
+						<ac:billingMethod>billingMethod</ac:billingMethod>
+						<ac:creditCardNumber>creditCardNumber
+						</ac:creditCardNumber>
+						<ac:verificationCode>verificationCode
+						</ac:verificationCode>
+						<ac:checkingAccountNumber>checkingAccountNumber
+						</ac:checkingAccountNumber>
+						<ac:routingNumber>routingNumber</ac:routingNumber>
+						<ac:billingAddress>
+							<ac:prefixDirectional>prefixBillingAddress
+							</ac:prefixDirectional>
+							<ac:streetNumber>ba.streetNumber</ac:streetNumber>
+							<ac:streetName>ba.streetName</ac:streetName>
+							<ac:streetType>ba.streetType</ac:streetType>
+							<ac:line2>ba.line2</ac:line2>
+							<ac:postfixDirectional>ba.postfixDirectional
+							</ac:postfixDirectional>
+							<ac:city>ba.city</ac:city>
+							<ac:stateOrProvince>ba.stateOrProvince
+							</ac:stateOrProvince>
+							<ac:postalCode>ba.postalCode</ac:postalCode>
+							<ac:country>ba.country</ac:country>
+							<ac:countyParishBorough>ba.countyParishBorough
+							</ac:countyParishBorough>
+							<ac:addressBlock>ba.addressBlock</ac:addressBlock>
+						</ac:billingAddress>
+					</ac:billingInfo>
+					<ac:marketItem>
+						<ac:externalId xmlns:v4="http://xml.AL.com/v4">P3-ESSBUNDLE-CA
+						</ac:externalId>
+						<ac:channels xmlns:v4="http://xml.AL.com/v4">
+							<ac:channel>callCenter</ac:channel>
+						</ac:channels>
+						<ac:accordChangeStamp xmlns:v4="http://xml.AL.com/v4">1264433861859
+						</ac:accordChangeStamp>
+						<ac:providerId xmlns:v4="http://xml.AL.com/v4">4353598
+						</ac:providerId>
+						<ac:providerName xmlns:v4="http://xml.AL.com/v4">Verizon
+						</ac:providerName>
+						<ac:priceInfo xmlns:v4="http://xml.AL.com/v4">
+							<ac:baseNonRecurringPrice>11.0</ac:baseNonRecurringPrice>
+							<ac:baseRecurringPrice>0.0</ac:baseRecurringPrice>
+						</ac:priceInfo>
+						<ac:item xmlns:v4="http://xml.AL.com/v4">
+							<ac:name>Triple Freedom with Freedom Essentials, FiOS 15M
+								and
+								FiOS
+								TV Essentials</ac:name>
+							<ac:providerId>4353598</ac:providerId>
+							<ac:providerName>Verizon</ac:providerName>
+							<ac:category>bundles</ac:category>
+							<ac:priceInfo>
+								<ac:baseNonRecurringPrice>11.0</ac:baseNonRecurringPrice>
+								<ac:baseRecurringPrice>22.0</ac:baseRecurringPrice>
+							</ac:priceInfo>
+						</ac:item>
+					</ac:marketItem>
+					<ac:desiredStartDate>
+						<ac:date xmlns:v4="http://xml.AL.com/v4">2010-01-25-05:00
+						</ac:date>
+						<ac:time xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</ac:time>
+						<ac:startTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</ac:startTime>
+						<ac:endTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</ac:endTime>
+					</ac:desiredStartDate>
+					<ac:scheduledStartDate>
+						<ac:date xmlns:v4="http://xml.AL.com/v4">2010-01-25-05:00
+						</ac:date>
+						<ac:time xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</ac:time>
+						<ac:startTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</ac:startTime>
+						<ac:endTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</ac:endTime>
+					</ac:scheduledStartDate>
+					<ac:actualStartDate>
+						<ac:date xmlns:v4="http://xml.AL.com/v4">2010-01-25-05:00
+						</ac:date>
+						<ac:time xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</ac:time>
+						<ac:startTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</ac:startTime>
+						<ac:endTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</ac:endTime>
+					</ac:actualStartDate>
+					<ac:lineItemStatus>
+						<ac:status>lineitemStatus</ac:status>
+						<ac:reason>lineItemStatusReason</ac:reason>
+						<ac:dateTimeStamp>2001-12-31T12:00:00
+						</ac:dateTimeStamp>
+					</ac:lineItemStatus>
+					<ac:lineItemStatusHistory>
+						<ac:previousStatus>
+							<ac:status>Line.Item.Prev.ac:status</ac:status>
+							<ac:reason>Line.Item.Prev.ac:reason</ac:reason>
+							<ac:dateTimeStamp>2001-12-31T12:00:00
+							</ac:dateTimeStamp>
+						</ac:previousStatus>
+					</ac:lineItemStatusHistory>
+  <ac:notificationEvents>
+            <ac:event dateTimeStamp="2001-12-31T12:00:00" source="" uniqueId="">
+              <ac:code>1</ac:code>
+              <ac:reason>processByProvider</ac:reason>
+              <ac:comment>processByProvider</ac:comment>
+              <ac:acknowledged>false</ac:acknowledged>
+            </ac:event>
+          </ac:notificationEvents>
+
+				</ac:lineItem>
+				<ac:lineItem>
+				<ac:lineItemNumber>1</ac:lineItemNumber>
+					<provider>
+						<name>ATT</name>
+						<externalId>5678</externalId>
+					</provider>
+					<ac:externalId>222</ac:externalId>
+					<ac:providerConfirmationNumber>222
+					</ac:providerConfirmationNumber>
+					<ac:howLongAtAddress>22 Years</ac:howLongAtAddress>
+					<ac:providerCustomerAccountNumber>222
+					</ac:providerCustomerAccountNumber>
+					<ac:serviceOrDeliveryAddress>
+						<ac:prefixDirectional>2aaa</ac:prefixDirectional>
+						<ac:streetNumber>2streetNumber</ac:streetNumber>
+						<ac:streetName>2streetName</ac:streetName>
+						<ac:streetType>222234</ac:streetType>
+						<ac:line2>2line2</ac:line2>
+						<ac:postfixDirectional>2postFixDirectional
+						</ac:postfixDirectional>
+						<ac:city>2city</ac:city>
+						<ac:stateOrProvince>2stateOrProvince
+						</ac:stateOrProvince>
+						<ac:postalCode>2posta</ac:postalCode>
+						<ac:country>2country</ac:country>
+						<ac:countyParishBorough>2countyParish
+						</ac:countyParishBorough>
+						<ac:addressBlock>2address Block</ac:addressBlock>
+					</ac:serviceOrDeliveryAddress>
+					<ac:billingInfo>
+						<ac:billingMethod>2billingMethod</ac:billingMethod>
+						<ac:creditCardNumber>2creditCardNumber
+						</ac:creditCardNumber>
+						<ac:verificationCode>2verificationCode
+						</ac:verificationCode>
+						<ac:checkingAccountNumber>2checkingAccountNumber
+						</ac:checkingAccountNumber>
+						<ac:routingNumber>2routingNumber</ac:routingNumber>
+						<ac:billingAddress>
+							<ac:prefixDirectional>2refixDirectional
+							</ac:prefixDirectional>
+							<ac:streetNumber>2streetNumber</ac:streetNumber>
+							<ac:streetName>2streetName</ac:streetName>
+							<ac:streetType>2streetType</ac:streetType>
+							<ac:line2>2line2</ac:line2>
+							<ac:postfixDirectional>2postfixDirectional
+							</ac:postfixDirectional>
+							<ac:city>2city</ac:city>
+							<ac:stateOrProvince>2stateOrProvince
+							</ac:stateOrProvince>
+							<ac:postalCode>2postalCode</ac:postalCode>
+							<ac:country>2country</ac:country>
+							<ac:countyParishBorough>2countyParishBorough
+							</ac:countyParishBorough>
+							<ac:addressBlock>2addressBlock</ac:addressBlock>
+						</ac:billingAddress>
+					</ac:billingInfo>
+					<ac:marketItem>
+						<ac:externalId xmlns:v4="http://xml.AL.com/v4">P3-ESSBUNDLE-CA
+						</ac:externalId>
+						<ac:channels xmlns:v4="http://xml.AL.com/v4">
+							<ac:channel>callCenter</ac:channel>
+						</ac:channels>
+						<ac:accordChangeStamp xmlns:v4="http://xml.AL.com/v4">1264433861859
+						</ac:accordChangeStamp>
+						<ac:providerId xmlns:v4="http://xml.AL.com/v4">4353598
+						</ac:providerId>
+						<ac:providerName xmlns:v4="http://xml.AL.com/v4">Verizon
+						</ac:providerName>
+						<ac:priceInfo xmlns:v4="http://xml.AL.com/v4">
+							<ac:baseNonRecurringPrice>11.0</ac:baseNonRecurringPrice>
+							<ac:baseRecurringPrice>0.0</ac:baseRecurringPrice>
+						</ac:priceInfo>
+						<ac:item xmlns:v4="http://xml.AL.com/v4">
+							<ac:name>Triple Freedom with Freedom Essentials, FiOS 15M
+								and
+								FiOS
+								TV Essentials</ac:name>
+							<ac:providerId>4353598</ac:providerId>
+							<ac:providerName>Verizon</ac:providerName>
+							<ac:category>bundles</ac:category>
+							<ac:priceInfo>
+								<ac:baseNonRecurringPrice>11.0</ac:baseNonRecurringPrice>
+								<ac:baseRecurringPrice>22.0</ac:baseRecurringPrice>
+							</ac:priceInfo>
+						</ac:item>
+					</ac:marketItem>
+					<ac:desiredStartDate>
+						<ac:date xmlns:v4="http://xml.AL.com/v4">2010-01-25-05:00
+						</ac:date>
+						<ac:time xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</ac:time>
+						<ac:startTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</ac:startTime>
+						<ac:endTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</ac:endTime>
+					</ac:desiredStartDate>
+					<ac:scheduledStartDate>
+						<ac:date xmlns:v4="http://xml.AL.com/v4">2010-01-25-05:00
+						</ac:date>
+						<ac:time xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</ac:time>
+						<ac:startTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</ac:startTime>
+						<ac:endTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</ac:endTime>
+					</ac:scheduledStartDate>
+					<ac:actualStartDate>
+						<ac:date xmlns:v4="http://xml.AL.com/v4">2010-01-25-05:00
+						</ac:date>
+						<ac:time xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</ac:time>
+						<ac:startTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</ac:startTime>
+						<ac:endTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</ac:endTime>
+					</ac:actualStartDate>
+					<ac:lineItemStatus>
+						<ac:status>2lineitemStatus</ac:status>
+						<ac:reason>2lineItemStatusReason</ac:reason>
+						<ac:dateTimeStamp>2001-12-31T12:00:00
+						</ac:dateTimeStamp>
+					</ac:lineItemStatus>
+					<ac:lineItemStatusHistory>
+						<ac:previousStatus>
+							<ac:status>2Line.Item.Prev.ac:status</ac:status>
+							<ac:reason>2Line.Item.Prev.ac:reason</ac:reason>
+							<ac:dateTimeStamp>2001-12-31T12:00:00
+							</ac:dateTimeStamp>
+						</ac:previousStatus>
+					</ac:lineItemStatusHistory>
+				</ac:lineItem>
+			</ac:lineItems>
+		</ac:orderInfo>
+	</ac:request>
+</ac:orderManagementRequestResponse>
+  ]]>  
+</arg0>
+      </v4:processRequest>
+   </soapenv:Body>
+</soapenv:Envelope>

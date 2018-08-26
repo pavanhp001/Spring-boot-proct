@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" targetNamespace="http://xml.A.com/v4"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ac="http://xml.A.com/v4">
+
+	<xs:include schemaLocation="order.xsd" />
+	<xs:include schemaLocation="types.xsd" />
+ 
+	<xs:element name="integrationEngineRequestResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="correlationId" type="xs:string"
+					minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							A unique identifier used to correlate related calls will outlive transaction calls
+                        </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="transactionId" type="xs:int" minOccurs="0"
+					maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Client specified value, used to track this request/response pair. 
+                        </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="transactionType" minOccurs="1"
+					maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:token">
+							<xs:enumeration value="getCreditQualification" />
+							<xs:enumeration value="getProductCatalog" />
+							<xs:enumeration value="getOrderDateQualification" />
+							<xs:enumeration value="getOrderQualification" />
+							<xs:enumeration value="getOrderStatus" />
+							<xs:enumeration value="orderSubmission" />
+							<xs:enumeration value="getServiceQualification" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="status" type="ac:statusType" minOccurs="0" maxOccurs="1" />
+
+				<xs:element name="request">
+					<xs:complexType>
+						<xs:annotation>
+							<xs:documentation>
+								 The Integration Engine Request
+							</xs:documentation>
+						</xs:annotation>
+						<xs:sequence>
+							<xs:element name="dateFilter" type="ac:dateTimeOrTimeRangeType"
+								minOccurs="0" maxOccurs="1" />
+							<xs:element name="orderId" type="xs:string" />
+							<xs:element name="customerId" minOccurs="0" maxOccurs="1"
+								type="xs:string" />
+							<xs:element name="confirmationNumber" minOccurs="0"
+								maxOccurs="1" type="xs:string" />
+
+							<xs:choice minOccurs="0" maxOccurs="1" >
+  
+								<xs:sequence>
+									<xs:annotation>
+										<xs:documentation>
+											This is used by getProductAvailability
+											</xs:documentation>
+									</xs:annotation>
+									 
+									<xs:choice>
+										<xs:element name="addr" minOccurs="0" maxOccurs="1" type="xs:string" />
+									</xs:choice>
+								</xs:sequence>
+							</xs:choice>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+
+				<xs:element name="response">
+					<xs:complexType>
+						<xs:annotation>
+							<xs:documentation>
+								A response will consist of either the updated
+								order, or the id of the order.
+							</xs:documentation>
+						</xs:annotation>
+						<xs:choice>
+							<xs:element name="responseStrings"  >
+								<xs:complexType>
+									<xs:choice>
+										<xs:element name="responseString"  type="xs:string" />
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+						</xs:choice>
+					</xs:complexType>
+				</xs:element>
+
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

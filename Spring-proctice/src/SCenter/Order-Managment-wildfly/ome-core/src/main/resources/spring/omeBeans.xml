@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:jms="http://www.springframework.org/schema/jms"
+	xmlns:amq="http://activemq.apache.org/schema/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd 
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd 
+	http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms.xsd 
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd 
+	http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd 
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd 
+	  http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<bean id="marshallOrder" class="com.AL.vm.util.converter.marshall.MarshallOrder"></bean>
+	<bean id="marshallStatus" class="com.AL.vm.util.converter.marshall.MarshallStatus"></bean>
+	<bean id="marshallLineitem"
+		class="com.AL.vm.util.converter.marshall.MarshallLineItem"></bean>
+
+	<bean id="unmarshallLineitem"
+		class="com.AL.vm.util.converter.unmarshall.UnmarshallLineItem"></bean>
+	<bean id="unmarshallLineitemDetail"
+		class="com.AL.vm.util.converter.unmarshall.UnmarshallLineItemDetail"></bean>
+	<bean id="unmarshallOrder"
+		class="com.AL.vm.util.converter.unmarshall.UnmarshallOrder"></bean>
+
+
+
+
+
+	<bean id="activityUpdateLineItemWithNotificationEvent"
+		class="com.AL.activity.impl.ActivityUpdateLineItemWithNotificationEvent"></bean>
+		
+	<bean id="activityUpdateLineItemWithTransient"
+		class="com.AL.activity.impl.ActivityUpdateLineItemWithTransient"></bean>
+		
+		<bean id="activityCalculateOrderPrice"
+		class="com.AL.activity.impl.ActivityCalculateOrderPrice"></bean>
+		
+		
+
+</beans>

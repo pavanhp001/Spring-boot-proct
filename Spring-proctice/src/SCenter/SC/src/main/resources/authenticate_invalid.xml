@@ -1,0 +1,18 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <v4:uamEnterpriseResponse xmlns:v4="http://xml.AL.com/v4">
+         <v4:GUID>smrOrder564</v4:GUID>
+         <v4:status>
+            <v4:statusCode>3</v4:statusCode>
+            <v4:processingMessages>
+               <v4:message>
+                  <v4:code>2.0</v4:code>
+                  <v4:text>Invalid credentials</v4:text>
+               </v4:message>
+            </v4:processingMessages>
+         </v4:status>
+         <v4:response/>
+      </v4:uamEnterpriseResponse>
+   </soapenv:Body>
+</soapenv:Envelope>

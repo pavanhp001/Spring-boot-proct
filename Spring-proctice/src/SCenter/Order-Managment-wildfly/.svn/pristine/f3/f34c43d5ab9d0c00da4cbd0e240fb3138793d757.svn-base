@@ -1,0 +1,16 @@
+# Queue name where Pricing is listening for OME
+endpoint.pricing.in=pricing.in.q
+# host name for ActiveMQ which is mapped to IP address in hosts file(Dev Integration Envt : 192.168.222.136 - sgdv3vm1)
+host=main-jms.ln
+port=61616
+communicationType=JMS
+vendor=ActiveMQ
+jndiName=
+transacted=
+persist=
+timeToLive=300
+username=${pricing.jms.q.username}
+password=${pricing.jms.q.password}
+redeliveryMax=5
+jndiConnectionFactoryName=pricing
+url=${main.jms.q.url}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<v4:orderManagementRequestResponse
+	xmlns:v4="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xml.AL.com/v4 orderManagement.xsd ">
+	<v4:transactionType>getOrderByCustomer</v4:transactionType>
+	<v4:pagingDetail>
+		<v4:offSet>3</v4:offSet>
+		<v4:totalRows>15</v4:totalRows>
+	</v4:pagingDetail>
+	<v4:request> 
+		  <v4:customerId>20</v4:customerId>  
+		  <v4:includeCustomerDetailsInResponse>true</v4:includeCustomerDetailsInResponse>
+	</v4:request>
+</v4:orderManagementRequestResponse>

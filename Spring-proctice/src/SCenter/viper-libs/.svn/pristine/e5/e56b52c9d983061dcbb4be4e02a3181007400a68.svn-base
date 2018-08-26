@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<parent>
+		<groupId>com.A.V</groupId>
+		<artifactId>V-library-parent</artifactId>
+		<version>02.00.00-002</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<packaging>jar</packaging>
+	<artifactId>V-rules</artifactId>
+	<name>V Rules Engine</name>
+
+	<scm>
+		<connection>scm:svn:http://svn/svn/services/V-libs/trunk/V-rules</connection>
+		<developerConnection>scm:svn:http://svn/svn/services/V-libs/trunk/V-rules</developerConnection>
+	</scm>
+
+	<build>
+		<plugins>
+			<!-- This clean plugin will help resolve the issue where it was filing 
+				when not able to delete team1.xls file -->
+			<!-- <plugin> <artifactId>maven-clean-plugin</artifactId> <version>2.4.1</version> 
+				<configuration> <failOnError>false</failOnError> </configuration> </plugin> -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version> <!--was 2.0.2 -->
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+		</plugins>
+		<resources>
+
+
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/spring/applicationContext-logical.xml</include>
+					<include>**/spring/applicationContext-transactional.xml</include>
+					<include>**/spring/arbiterContext.xml</include>
+					<include>**/spring/omeBeans.xml</include>
+					<include>**/spring/omeContext.xml</include>
+					<include>**/ehcache.xml</include>
+					<include>**/*.drl</include>
+					<include>**/*.xls</include>
+				</includes>
+			</resource>
+
+		</resources>
+	</build>
+	
+	<dependencies>
+		<!-- project dependency -->
+		<dependency>
+			<groupId>com.A.V</groupId>
+			<artifactId>V-common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.A.V</groupId>
+			<artifactId>V-dao</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.A.V</groupId>
+			<artifactId>V-marshaller</artifactId>
+			<version>${project.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>tools</artifactId>
+					<groupId>com.sun</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<!-- Drools -->
+		<dependency>
+			<groupId>ac-eap</groupId>
+			<artifactId>drools-core</artifactId>
+			<version>${jboss-ac-eap.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ac-eap</groupId>
+			<artifactId>drools-api</artifactId>
+			<version>${jboss-ac-eap.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ac-eap</groupId>
+			<artifactId>drools-compiler</artifactId>
+			<version>${jboss-ac-eap.version}</version>
+		</dependency>
+		
+		<!-- log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.mail</groupId>
+					<artifactId>mail</artifactId>
+				</exclusion>
+
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+
+				<exclusion>
+					<groupId>javax.jms</groupId>
+					<artifactId>jms</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<!-- commons -->
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.2</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-digester</groupId>
+			<artifactId>commons-digester</artifactId>
+			<version>1.8.1</version>
+		</dependency>
+		
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+	</dependencies>
+</project>

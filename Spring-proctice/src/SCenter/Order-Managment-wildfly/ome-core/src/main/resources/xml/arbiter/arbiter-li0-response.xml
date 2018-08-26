@@ -1,0 +1,825 @@
+<tns:rtimRequestResponse
+	xsi:schemaLocation="http://xml.AL.com/v4/rtimRequestResponse/rtim.xsd"
+	xmlns:tns="http://xml.AL.com/v4/rtimRequestResponse/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<response xsi:type="tns:OrderFulfillmentResponse"
+		xsi:schemaLocation="http://xml.AL.com/v4/orderFulfillment/orderFulfillment.xsd"
+		xmlns:ac="http://xml.AL.com/v4" xmlns:tns="http://xml.AL.com/v4/orderFulfillment"
+		xmlns:tns1="http://xml.AL.com/common" xmlns:tns2="http://xml.AL.com/v4/VendorRequestResponse/">
+
+		<context>
+			<tns1:correlationId>smr903</tns1:correlationId>
+			<tns1:providerId>ATTSTI</tns1:providerId>
+			<tns1:sessionId>02945907-c0a8-3cf7-084c-c70e9e6a0235</tns1:sessionId>
+			<tns1:salesCode>KRAMERE</tns1:salesCode>
+			<tns1:affiliateName>KRAMER</tns1:affiliateName>
+			<tns1:orderNumber>smr903</tns1:orderNumber>
+			<tns1:region>EAST</tns1:region>
+			<tns1:transactionType>orderQualification</tns1:transactionType>
+		</context>
+
+		<rtimErrors>
+			<tns1:rtimError>
+				<tns1:errorType>tns1:errorType</tns1:errorType>
+				<tns1:errorCode>tns1:errorCode</tns1:errorCode>
+				<tns1:errorMessage>tns1:errorMessage</tns1:errorMessage>
+				<tns1:provider>tns1:provider</tns1:provider>
+			</tns1:rtimError>
+		</rtimErrors>
+
+		<context>
+			<tns1:correlationId>smr903</tns1:correlationId>
+			<tns1:providerId>ATTSTI</tns1:providerId>
+			<tns1:sessionId>02945907-c0a8-3cf7-084c-c70e9e6a0235</tns1:sessionId>
+			<tns1:salesCode>KRAMERE</tns1:salesCode>
+			<tns1:affiliateName>KRAMER</tns1:affiliateName>
+			<tns1:orderNumber>smr903</tns1:orderNumber>
+			<tns1:region>EAST</tns1:region>
+			<tns1:transactionType>orderQualification</tns1:transactionType>
+		</context>
+
+		<orderManagementRequestResponse
+			xsi:schemaLocation="http://xml.AL.com/v4/orderManagement.xsd">
+			<correlationId>12345</correlationId>
+			<transactionTimeStamp>2011-08-24-04:00</transactionTimeStamp>
+			<transactionId>0</transactionId>
+			<status>
+				<statusCode>0</statusCode>
+				<processingMessages>
+					<message>
+						<code>0.2</code>
+						<text>Added Sales Order #856</text>
+					</message>
+				</processingMessages>
+				<statusMsg>INFO</statusMsg>
+			</status>
+			<request>
+				<salesContext>
+					<entity name="Test1">
+						<attribute name="credit score" value="750" />
+						<attribute name="dwelling type" value="house" />
+					</entity>
+					<entity name="Test2">
+						<attribute name="neighborhood" value="rich" />
+						<attribute name="customerType" value="High Income" />
+					</entity>
+				</salesContext>
+				<orderInfo>
+					<externalId>1</externalId>
+					<source>Web</source>
+					<referrerId>108</referrerId>
+					<associatedWithMove>true</associatedWithMove>
+					<campaignId>ATT</campaignId>
+					<customerInformation>
+						<action>createCustomer</action>
+						<customer>
+							<externalId>0</externalId>
+							<agentId>1</agentId>
+							<title>Mr.</title>
+							<firstName>Steven</firstName>
+							<lastName>Grebner</lastName>
+							<middleName>R</middleName>
+							<nameSuffix>N/A</nameSuffix>
+							<gender>M</gender>
+							<dob>1974-04-25</dob>
+							<ssn>229229229</ssn>
+							<directMailOptIn>true</directMailOptIn>
+							<eMailOptIn>true</eMailOptIn>
+							<phoneContactOptIn>true</phoneContactOptIn>
+							<eMailProductUpdatesOptIn>true</eMailProductUpdatesOptIn>
+							<howLongAtPreviousAddress>10</howLongAtPreviousAddress>
+							<ALCustomerNumber>0</ALCustomerNumber>
+							<homePhoneNumber>
+								<value>7706190123</value>
+								<order>1</order>
+								<desc>Home Phone</desc>
+							</homePhoneNumber>
+							<cellPhoneNumber>
+								<value>2222222222</value>
+								<order>2</order>
+								<desc>Cell Phone</desc>
+							</cellPhoneNumber>
+							<workPhoneNumber>
+								<value>3333333333</value>
+								<order>3</order>
+								<desc>Work Phone</desc>
+							</workPhoneNumber>
+							<homeEMail>
+								<value>sachin@home.com</value>
+								<order>1</order>
+								<desc>Home Email</desc>
+							</homeEMail>
+							<workEMail>
+								<value>sachin@bcci.com</value>
+								<order>2</order>
+								<desc>work email</desc>
+							</workEMail>
+							<region>SOUTHWEST</region>
+							<landlordInfo>
+								<landlordName>Ramesh Tendulkar</landlordName>
+								<landlordPhoneNumber>4444444444</landlordPhoneNumber>
+							</landlordInfo>
+							<driverLicense>
+								<LicenseNumber>123456789</LicenseNumber>
+								<State>Georgia</State>
+								<LicenseExpirationDate>2021-01-01</LicenseExpirationDate>
+							</driverLicense>
+							<stateId>
+								<IdNumber>123456789</IdNumber>
+								<State>Georgia</State>
+							</stateId>
+							<payments>
+								<PaymentEvent custAgreedCCDisclosure="true">
+									<billingInfoId>billingInfoId</billingInfoId>
+									<Event>ADVANCED</Event>
+									<CVV>CVV</CVV>
+									<Amount>0.0</Amount>
+									<ConfirmNumber>ConfirmNumber</ConfirmNumber>
+									<transactionDate>2001-01-01</transactionDate>
+									<paymentStatus>
+										<status>0</status>
+										<reason>0</reason>
+										<dateTimeStamp>2001-12-31T12:00:00</dateTimeStamp>
+										<providerId>0</providerId>
+									</paymentStatus>
+								</PaymentEvent>
+								<OrderId>OrderId</OrderId>
+								<CustomerId>CustomerId</CustomerId>
+							</payments>
+							<accounts accountStatus="" accountTypeIndicator=""
+								consentToCC="" suppressionIndicator="">
+								<ProviderType>ProviderType</ProviderType>
+								<AccountType>AccountType</AccountType>
+								<BillingAccountNumber>BillingAccountNumber
+								</BillingAccountNumber>
+								<BillingAccountTelephoneNumber>BillingAccountTelephoneNumber
+								</BillingAccountTelephoneNumber>
+								<AddressRef>AddressRef</AddressRef>
+								<ConsumerRef>ConsumerRef</ConsumerRef>
+								<Authentication>
+									<pin>pin</pin>
+									<securityQuestion>securityQuestion</securityQuestion>
+									<securityAnswer>securityAnswer</securityAnswer>
+								</Authentication>
+								<ExistingLast4SSN>ExistingLast4SSN</ExistingLast4SSN>
+								<SecurityCreditCard>
+									<SecurityTCAccepted>SecurityTCAccepted
+									</SecurityTCAccepted>
+									<IsAuthorized>IsAuthorized</IsAuthorized>
+									<CreditCardRef>CreditCardRef</CreditCardRef>
+								</SecurityCreditCard>
+								<PrevAddressIndicator>true</PrevAddressIndicator>
+								<CreditCheck>CreditCheck</CreditCheck>
+								<CreditAlert>CreditAlert</CreditAlert>
+							</accounts>
+							<financialInfo>
+								<employed>
+									<businessName>Tendulkar Restaurant</businessName>
+									<businessPhoneNum>555-555-5555</businessPhoneNum>
+									<occupation>Cricketer</occupation>
+								</employed>
+								<student />
+								<retired />
+								<bankOrMortgageInstitution>N/A</bankOrMortgageInstitution>
+								<otherIncomeSource>Business</otherIncomeSource>
+							</financialInfo>
+							<billingInfoList>
+								<billingInfo>
+									<billingUniqueId>1314205169616</billingUniqueId>
+									<addressRef>1314205169616</addressRef>
+									<billingMethod>Credit Card</billingMethod>
+									<creditCardNumber>1111-2222-3333-4444</creditCardNumber>
+									<verificationCode>123</verificationCode>
+									<checkingAccountNumber>1234-1234-1234-1234
+									</checkingAccountNumber>
+									<routingNumber>123456</routingNumber>
+									<status>Active</status>
+									<externalId>0</externalId>
+								</billingInfo>
+							</billingInfoList>
+							<addressList>
+								<customerAddress>
+									<addressRoles>billingAddress serviceAddress currentAddress
+									</addressRoles>
+									<addressUniqueId>1314205169616</addressUniqueId>
+									<status>active</status>
+									<address xsi:type="addressType">
+										<externalId>0</externalId>
+										<prefixDirectional>prefix</prefixDirectional>
+										<streetNumber>111</streetNumber>
+										<streetName>Lawrenceville Hwy</streetName>
+										<streetType>Hwy</streetType>
+										<line2>N/A</line2>
+										<postfixDirectional>postfix</postfixDirectional>
+										<city>Larenceville</city>
+										<stateOrProvince>GA</stateOrProvince>
+										<postalCode>30031</postalCode>
+										<country>USA</country>
+										<countyParishBorough>Gwinnet</countyParishBorough>
+										<addressBlock>addr block</addressBlock>
+										<howLongAtAddress>10</howLongAtAddress>
+										<dwellingType>apartment</dwellingType>
+										<inEffect>2001-01-01</inEffect>
+										<expiration>2051-01-01</expiration>
+										<changeType>chtype</changeType>
+										<hasHadServicePreviously>false</hasHadServicePreviously>
+										<cityAlias>lawrenceville</cityAlias>
+									</address>
+								</customerAddress>
+							</addressList>
+							<securityVerificationInfo>
+								<pin>1234</pin>
+								<securityQuestion>Quesiton1</securityQuestion>
+								<securityAnswer>Answer1</securityAnswer>
+							</securityVerificationInfo>
+							<billingDeliveryPreference>paper
+							</billingDeliveryPreference>
+						</customer>
+					</customerInformation>
+					<agentId>1</agentId>
+					<ALConfirmationNumber />
+					<ALCustomerAccountNumber />
+					<totalPriceInfo>
+						<baseNonRecurringPrice>100.25</baseNonRecurringPrice>
+						<baseNonRecurringPriceUnits>Dollar
+						</baseNonRecurringPriceUnits>
+						<baseRecurringPrice>150.50</baseRecurringPrice>
+						<baseRecurringPriceUnits>Dollar</baseRecurringPriceUnits>
+						<includeInTotalPrice />
+					</totalPriceInfo>
+					<lineItems>
+						<lineItem>
+							<partnerName>ATT</partnerName>
+							<productDatasource dataSource="ATT">internal
+							</productDatasource>
+							<provider>
+								<name>ATT</name>
+								<externalId>111</externalId>
+							</provider>
+							<providerConfirmationNumber />
+							<providerCustomerAccountNumber />
+							<lineItemNumber>1</lineItemNumber>
+							<lineItemStatus agentId="0" dateTimeStamp="2001-12-31T12:00:00"
+								statusCode="sales_new_order" statusCodeDescription="">
+								<reason>0</reason>
+							</lineItemStatus>
+							<lineItemStatusHistory>
+								<previousStatus agentId="0" dateTimeStamp="2001-12-31T12:00:00"
+									statusCode="sales_new_order" statusCodeDescription="">
+									<reason>0</reason>
+								</previousStatus>
+							</lineItemStatusHistory>
+							<lineItemDetail>
+								<detailType>product</detailType>
+								<detail>
+									<productLineItem>
+										<externalId>ATT-9-DIR-XT6-I</externalId>
+										<productCategoryList>
+											<productCategory displayName="">High Speed
+												Internet</productCategory>
+										</productCategoryList>
+										<name xsi:nil="true" />
+										<channels>
+											<channel>CallCenter</channel>
+										</channels>
+										<provider externalId="2314635" name="ATT">
+											<source datasource="ATT">internal</source>
+											<parent externalId="" name="" />
+											<capabilityList>
+												<capability name="" />
+											</capabilityList>
+										</provider>
+										<priceInfo>
+											<baseNonRecurringPrice>0.0</baseNonRecurringPrice>
+											<baseNonRecurringPriceUnits>baseNonRecurringPriceUnits
+											</baseNonRecurringPriceUnits>
+											<baseRecurringPrice>0.0</baseRecurringPrice>
+											<baseRecurringPriceUnits>baseRecurringPriceUnits
+											</baseRecurringPriceUnits>
+											<includeInTotalPrice />
+										</priceInfo>
+										<capabilityList>
+											<capability name="" />
+										</capabilityList>
+									</productLineItem>
+								</detail>
+								<productUniqueId>729</productUniqueId>
+							</lineItemDetail>
+							<lineItemPriceInfo>
+								<baseNonRecurringPrice>99.0</baseNonRecurringPrice>
+								<baseNonRecurringPriceUnits>baseNonRecurringPriceUnits
+								</baseNonRecurringPriceUnits>
+								<baseRecurringPrice>99.0</baseRecurringPrice>
+								<baseRecurringPriceUnits>baseRecurringPriceUnits
+								</baseRecurringPriceUnits>
+								<includeInTotalPrice />
+								<priceInfoStatus>
+									<statusCode>0</statusCode>
+									<processingMessages>
+										<message>
+											<code>0.0</code>
+											<text>text</text>
+										</message>
+									</processingMessages>
+								</priceInfoStatus>
+								<pricingDate>2001-12-31T12:00:00</pricingDate>
+							</lineItemPriceInfo>
+							<externalId>123</externalId>
+							<svcAddressExtId>2063</svcAddressExtId>
+							<billingInfoExtId>909</billingInfoExtId>
+							<svcAddressRef>1314205169616</svcAddressRef>
+							<billingInfoRef>1314205169616</billingInfoRef>
+							<SchedulingInfo appointmentComment="Test Comment"
+								billingInstallments="true" earlierAppointmentDate="true"
+								installationFee="29.99" residenceType="HOUSE">
+								<desiredStartDate>
+									<date>2011-01-01</date>
+									<time>1:30:00</time>
+								</desiredStartDate>
+								<scheduledStartDate>
+									<date>2011-02-02</date>
+									<time>2:30:00</time>
+								</scheduledStartDate>
+								<actualStartDate>
+									<date>2011-03-03</date>
+									<time>3:30:00</time>
+								</actualStartDate>
+								<ScheduleAsSoonAsPossible>true</ScheduleAsSoonAsPossible>
+							</SchedulingInfo>
+							<howLongAtAddress>howLongAtAddress</howLongAtAddress>
+							<service>BUSINESS</service>
+							<creditStatus>Approved</creditStatus>
+							<lineItemEvents source="">
+								<LineItemEvent>
+									<values>values</values>
+								</LineItemEvent>
+							</lineItemEvents>
+							<lineItemStatus>
+								<status>1</status>
+								<reason>1</reason>
+								<dateTimeStamp>2001-12-31T12:00:00</dateTimeStamp>
+								<agentId>1</agentId>
+							</lineItemStatus>
+						</lineItem>
+					</lineItems>
+					<orderStatus>
+						<status>0</status>
+						<reason>0</reason>
+						<dateTimeStamp>2001-12-31T12:00:00</dateTimeStamp>
+						<agentId>0</agentId>
+					</orderStatus>
+					<orderStatusHistory>
+						<previousStatus>
+							<status>0</status>
+							<reason>0</reason>
+							<dateTimeStamp>2001-12-31T12:00:00</dateTimeStamp>
+							<agentId>0</agentId>
+						</previousStatus>
+					</orderStatusHistory>
+				</orderInfo>
+			</request>
+
+
+
+			<response>
+				<orderId>856</orderId>
+				<orderInfo>
+					<customerInformation>
+						<customer>
+							<externalId>1936</externalId>
+							<agentId>1</agentId>
+							<title>Mr.</title>
+							<firstName>Yuvraj</firstName>
+							<lastName>Singh</lastName>
+							<middleName>R</middleName>
+							<nameSuffix>N/A</nameSuffix>
+							<gender>M</gender>
+							<dob>1974-04-25-04:00</dob>
+							<ssn>000-00-0000</ssn>
+							<nonBuyerWebOptIn>false</nonBuyerWebOptIn>
+							<phoneContactOptIn>true</phoneContactOptIn>
+							<eMailProductUpdatesOptIn>true</eMailProductUpdatesOptIn>
+							<marketingOptIn>false</marketingOptIn>
+							<ALCustomerNumber>AC-13142051786561935
+							</ALCustomerNumber>
+							<homePhoneNumber>
+								<value>111-111-1111</value>
+								<order>1</order>
+								<desc>Home Phone</desc>
+							</homePhoneNumber>
+							<cellPhoneNumber>
+								<value>222-222-2222</value>
+								<order>2</order>
+								<desc>Cell Phone</desc>
+							</cellPhoneNumber>
+							<workPhoneNumber>
+								<value>333-333-3333</value>
+								<order>3</order>
+								<desc>Work Phone</desc>
+							</workPhoneNumber>
+							<homeEMail>
+								<value>sachin@home.com</value>
+								<order>1</order>
+								<desc>Home Email</desc>
+							</homeEMail>
+							<workEMail>
+								<value>sachin@bcci.com</value>
+								<order>2</order>
+								<desc>work email</desc>
+							</workEMail>
+							<landlordInfo>
+								<landlordName>Ramesh Tendulkar</landlordName>
+								<landlordPhoneNumber>444-444-4444</landlordPhoneNumber>
+							</landlordInfo>
+							<driverLicense>
+								<LicenseNumber>123456789</LicenseNumber>
+								<State>Georgia</State>
+								<LicenseExpirationDate>2021-01-01-05:00</LicenseExpirationDate>
+							</driverLicense>
+							<stateId>
+								<IdNumber>123456789</IdNumber>
+								<State>Georgia</State>
+							</stateId>
+							<primaryLanguage>0</primaryLanguage>
+							<financialInfo>
+								<employed>
+									<businessName>Tendulkar Restaurant</businessName>
+									<businessPhoneNum>555-555-5555</businessPhoneNum>
+									<occupation>Cricketer</occupation>
+								</employed>
+								<bankOrMortgageInstitution>N/A</bankOrMortgageInstitution>
+								<otherIncomeSource>Business</otherIncomeSource>
+							</financialInfo>
+							<billingInfoList>
+								<billingInfo>
+									<billingMethod>Credit Card</billingMethod>
+									<creditCardNumber>1111-2222-3333-4444</creditCardNumber>
+									<verificationCode>123</verificationCode>
+									<checkingAccountNumber>1234-1234-1234-1234
+									</checkingAccountNumber>
+									<routingNumber>123456</routingNumber>
+									<externalId>909</externalId>
+									<billingUniqueId>1314205169616</billingUniqueId>
+								</billingInfo>
+							</billingInfoList>
+							<addressList>
+								<customerAddress>
+									<addressRoles>billingAddress currentAddress serviceAddress
+									</addressRoles>
+									<addressUniqueId>1314205169616</addressUniqueId>
+									<status>active</status>
+									<address>
+										<externalId>2063</externalId>
+										<prefixDirectional>prefix</prefixDirectional>
+										<streetNumber>111</streetNumber>
+										<streetName>Lawrenceville Hwy</streetName>
+										<streetType>Hwy</streetType>
+										<line2>N/A</line2>
+										<postfixDirectional>postfix</postfixDirectional>
+										<city>Larenceville</city>
+										<stateOrProvince>Georgia</stateOrProvince>
+										<postalCode>30031</postalCode>
+										<country>USA</country>
+										<countyParishBorough>Gwinnet</countyParishBorough>
+										<addressBlock>addr block</addressBlock>
+										<inEffect>2011-08-24-04:00</inEffect>
+										<expiration xsi:nil="true" />
+									</address>
+								</customerAddress>
+							</addressList>
+							<securityVerificationInfo>
+								<pin>1234</pin>
+								<securityQuestion>Quesiton1</securityQuestion>
+								<securityAnswer>Answer1</securityAnswer>
+							</securityVerificationInfo>
+							<billingDeliveryPreference>paper</billingDeliveryPreference>
+						</customer>
+					</customerInformation>
+					<agentId>1</agentId>
+					<ALConfirmationNumber>CNF-1314205180876857
+					</ALConfirmationNumber>
+					<ALCustomerAccountNumber
+						xsi:nil="true" />
+					<source>Web</source>
+					<referrerId>108</referrerId>
+					<externalId>856</externalId>
+					<associatedWithMove>true</associatedWithMove>
+					<orderDate>2011-08-24-04:00</orderDate>
+					<lineItems>
+						<lineItem>
+							<externalId>715</externalId>
+							<lineItemNumber>0</lineItemNumber>
+							<providerConfirmationNumber />
+							<providerCustomerAccountNumber />
+							<svcAddressExtId>2063</svcAddressExtId>
+							<billingInfoExtId>909</billingInfoExtId>
+							<productDatasource>internal</productDatasource>
+							<leadId>0</leadId>
+							<lineItemDetail>
+								<detailType>product</detailType>
+								<detail>
+									<productLineItem>
+										<externalId>DIRECTSTAR-DTV-1-WEB</externalId>
+										<productCategoryList>
+											<productCategory displayName="satelliteTV" />
+										</productCategoryList>
+										<channels>
+											<channel>2</channel>
+										</channels>
+										<provider externalId="2314635" />
+									</productLineItem>
+								</detail>
+								<productUniqueId>729</productUniqueId>
+							</lineItemDetail>
+							<selectedFeatures />
+							<lineItemStatus dateTimeStamp="2001-12-31T12:00:00.000-05:00"
+								agentId="1" statusCode="sales_new_order">
+								<reason>0</reason>
+							</lineItemStatus>
+							<lineItemStatusHistory />
+							<SchedulingInfo appointmentComment="Test Comment"
+								installationFee="29.99" billingInstallments="true"
+								residenceType="HOUSE">
+								<desiredStartDate>
+									<date>2011-01-01-05:00</date>
+									<time>00:00:00.000-05:00</time>
+									<startTime>00:00:00.000-05:00</startTime>
+									<endTime>00:00:00.000-05:00</endTime>
+								</desiredStartDate>
+								<scheduledStartDate>
+									<date>2011-02-02-05:00</date>
+									<time>00:00:00.000-05:00</time>
+									<startTime>00:00:00.000-05:00</startTime>
+									<endTime>00:00:00.000-05:00</endTime>
+								</scheduledStartDate>
+								<actualStartDate>
+									<date>2011-03-03-05:00</date>
+									<time>00:00:00.000-05:00</time>
+									<startTime>00:00:00.000-05:00</startTime>
+									<endTime>00:00:00.000-05:00</endTime>
+								</actualStartDate>
+								<ScheduleAsSoonAsPossible>false</ScheduleAsSoonAsPossible>
+							</SchedulingInfo>
+							<lineItemPriceInfo>
+								<baseNonRecurringPrice>19.95</baseNonRecurringPrice>
+								<baseRecurringPrice>60.99</baseRecurringPrice>
+							</lineItemPriceInfo>
+							<transientResponseContainer>
+								<transientResponse>
+									<suggestedPhone>suggestedPhone</suggestedPhone>
+									<confirmedPhone>confirmedPhone</confirmedPhone>
+									<product>
+										<productBundleLineItem>
+											<externalId>externalId</externalId>
+											<productCategoryList>
+												<productCategory displayName="">productCategory
+												</productCategory>
+											</productCategoryList>
+											<channels>
+												<channel>channel</channel>
+											</channels>
+											<name>name</name>
+											<providerId>providerId</providerId>
+											<providerName>providerName</providerName>
+											<priceInfo>
+												<baseNonRecurringPrice>0.0</baseNonRecurringPrice>
+												<baseNonRecurringPriceUnits>baseNonRecurringPriceUnits
+												</baseNonRecurringPriceUnits>
+												<baseRecurringPrice>0.0</baseRecurringPrice>
+												<baseRecurringPriceUnits>baseRecurringPriceUnits
+												</baseRecurringPriceUnits>
+												<includeInTotalPrice />
+											</priceInfo>
+											<bundledProducts>
+												<externalId>externalId</externalId>
+											</bundledProducts>
+										</productBundleLineItem>
+									</product>
+									<qualificationFlag>true</qualificationFlag>
+									<programmingValidFlag>true</programmingValidFlag>
+									<customerType>customerType</customerType>
+									<productInfo>
+										<productId>0</productId>
+										<productRule>
+											<inclusion>
+												<productId>0</productId>
+											</inclusion>
+											<exclusion>
+												<productId>0</productId>
+											</exclusion>
+										</productRule>
+									</productInfo>
+									<tvConstraints>
+										<maxNumTvs>0</maxNumTvs>
+										<slingSupported>true</slingSupported>
+										<tvLabels>
+											<Default>Default</Default>
+											<Standard>Standard</Standard>
+										</tvLabels>
+									</tvConstraints>
+									<receiver>
+										<Name>Name</Name>
+										<Description>Description</Description>
+										<Price>0.0</Price>
+										<HdFlag>true</HdFlag>
+										<DvrFlag>true</DvrFlag>
+									</receiver>
+									<priceInfo>
+										<priceCategory>
+											<categoryName>categoryName</categoryName>
+											<categoryTotal>categoryTotal</categoryTotal>
+											<productInfo>
+												<productName>productName</productName>
+												<price>price</price>
+											</productInfo>
+										</priceCategory>
+										<amountDueNow>0.0</amountDueNow>
+									</priceInfo>
+									<dISHConfiguration>dISHConfiguration</dISHConfiguration>
+									<providerLineItemStatus>
+										<reason>reason</reason>
+										<processingStatusCode>INFO</processingStatusCode>
+										<lineItemStatusCode>sales_new_order</lineItemStatusCode>
+										<dateTimeStamp>2001-12-31T12:00:00</dateTimeStamp>
+									</providerLineItemStatus>
+									<termsAndConditions>
+										<sessionID>sessionID</sessionID>
+										<termsAndConditions>termsAndConditions</termsAndConditions>
+									</termsAndConditions>
+								</transientResponse>
+							</transientResponseContainer>
+						</lineItem>
+						<lineItem>
+							<externalId>716</externalId>
+							<lineItemNumber>1</lineItemNumber>
+							<providerConfirmationNumber />
+							<providerCustomerAccountNumber />
+							<svcAddressExtId>2063</svcAddressExtId>
+							<billingInfoExtId>909</billingInfoExtId>
+							<productDatasource>internal</productDatasource>
+							<leadId>0</leadId>
+							<lineItemDetail>
+								<detailType>product</detailType>
+								<detail>
+									<productLineItem>
+										<externalId>DIRECTSTAR-DTV-1-WEB</externalId>
+										<productCategoryList>
+											<productCategory displayName="satelliteTV" />
+										</productCategoryList>
+										<channels>
+											<channel>2</channel>
+										</channels>
+										<provider externalId="2314635" />
+									</productLineItem>
+								</detail>
+								<productUniqueId>729</productUniqueId>
+							</lineItemDetail>
+							<selectedFeatures />
+							<lineItemStatus dateTimeStamp="2001-12-31T12:00:00.000-05:00"
+								agentId="1" statusCode="sales_new_order">
+								<reason>0</reason>
+							</lineItemStatus>
+							<lineItemStatusHistory />
+							<SchedulingInfo appointmentComment="Test Comment"
+								installationFee="29.99" billingInstallments="true"
+								residenceType="HOUSE">
+								<desiredStartDate>
+									<date>2011-01-01-05:00</date>
+									<time>00:00:00.000-05:00</time>
+									<startTime>00:00:00.000-05:00</startTime>
+									<endTime>00:00:00.000-05:00</endTime>
+								</desiredStartDate>
+								<scheduledStartDate>
+									<date>2011-02-02-05:00</date>
+									<time>00:00:00.000-05:00</time>
+									<startTime>00:00:00.000-05:00</startTime>
+									<endTime>00:00:00.000-05:00</endTime>
+								</scheduledStartDate>
+								<actualStartDate>
+									<date>2011-03-03-05:00</date>
+									<time>00:00:00.000-05:00</time>
+									<startTime>00:00:00.000-05:00</startTime>
+									<endTime>00:00:00.000-05:00</endTime>
+								</actualStartDate>
+								<ScheduleAsSoonAsPossible>false</ScheduleAsSoonAsPossible>
+							</SchedulingInfo>
+							<lineItemPriceInfo>
+								<baseNonRecurringPrice>19.95</baseNonRecurringPrice>
+								<baseRecurringPrice>60.99</baseRecurringPrice>
+							</lineItemPriceInfo>
+							<transientResponseContainer>
+								<transientResponse>
+									<suggestedPhone>suggestedPhone</suggestedPhone>
+									<confirmedPhone>confirmedPhone</confirmedPhone>
+									<product>
+										<productBundleLineItem>
+											<externalId>externalId</externalId>
+											<productCategoryList>
+												<productCategory displayName="">productCategory
+												</productCategory>
+											</productCategoryList>
+											<channels>
+												<channel>channel</channel>
+											</channels>
+											<name>name</name>
+											<providerId>providerId</providerId>
+											<providerName>providerName</providerName>
+											<priceInfo>
+												<baseNonRecurringPrice>0.0</baseNonRecurringPrice>
+												<baseNonRecurringPriceUnits>baseNonRecurringPriceUnits
+												</baseNonRecurringPriceUnits>
+												<baseRecurringPrice>0.0</baseRecurringPrice>
+												<baseRecurringPriceUnits>baseRecurringPriceUnits
+												</baseRecurringPriceUnits>
+												<includeInTotalPrice />
+											</priceInfo>
+											<bundledProducts>
+												<externalId>externalId</externalId>
+											</bundledProducts>
+										</productBundleLineItem>
+									</product>
+									<qualificationFlag>true</qualificationFlag>
+									<programmingValidFlag>true</programmingValidFlag>
+									<customerType>customerType</customerType>
+									<productInfo>
+										<productId>0</productId>
+										<productRule>
+											<inclusion>
+												<productId>0</productId>
+											</inclusion>
+											<exclusion>
+												<productId>0</productId>
+											</exclusion>
+										</productRule>
+									</productInfo>
+									<tvConstraints>
+										<maxNumTvs>0</maxNumTvs>
+										<slingSupported>true</slingSupported>
+										<tvLabels>
+											<Default>Default</Default>
+											<Standard>Standard</Standard>
+										</tvLabels>
+									</tvConstraints>
+									<receiver>
+										<Name>Name</Name>
+										<Description>Description</Description>
+										<Price>0.0</Price>
+										<HdFlag>true</HdFlag>
+										<DvrFlag>true</DvrFlag>
+									</receiver>
+									<priceInfo>
+										<priceCategory>
+											<categoryName>categoryName</categoryName>
+											<categoryTotal>categoryTotal</categoryTotal>
+											<productInfo>
+												<productName>productName</productName>
+												<price>price</price>
+											</productInfo>
+										</priceCategory>
+										<amountDueNow>0.0</amountDueNow>
+									</priceInfo>
+									<dISHConfiguration>dISHConfiguration</dISHConfiguration>
+									<providerLineItemStatus>
+										<reason>reason</reason>
+										<processingStatusCode>INFO</processingStatusCode>
+										<lineItemStatusCode>sales_new_order</lineItemStatusCode>
+										<dateTimeStamp>2001-12-31T12:00:00</dateTimeStamp>
+									</providerLineItemStatus>
+									<termsAndConditions>
+										<sessionID>sessionID</sessionID>
+										<termsAndConditions>termsAndConditions</termsAndConditions>
+									</termsAndConditions>
+								</transientResponse>
+							</transientResponseContainer>
+						</lineItem>
+					</lineItems>
+					<orderStatus>
+						<status>0</status>
+						<reason>0</reason>
+						<dateTimeStamp>2001-12-31T12:00:00.000-05:00</dateTimeStamp>
+					</orderStatus>
+					<orderStatusHistory>
+						<previousStatus>
+							<status>0</status>
+							<reason>0</reason>
+							<dateTimeStamp>2001-12-31T12:00:00.000-05:00</dateTimeStamp>
+						</previousStatus>
+					</orderStatusHistory>
+					<moveDate xsi:nil="true" />
+					<campaignId>ATT</campaignId>
+					<totalPriceInfo>
+						<baseNonRecurringPrice>19.95</baseNonRecurringPrice>
+						<baseRecurringPrice>60.99</baseRecurringPrice>
+					</totalPriceInfo>
+				</orderInfo>
+			</response>
+
+		</orderManagementRequestResponse>
+
+
+
+
+
+
+	</response>
+</tns:rtimRequestResponse>

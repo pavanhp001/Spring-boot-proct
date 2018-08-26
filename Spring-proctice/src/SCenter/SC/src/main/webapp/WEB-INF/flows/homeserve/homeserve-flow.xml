@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+	<action-state id="greetingAction">
+		<evaluate
+			expression="greetingWebflowController.showHomeServeGreetingInfo(externalContext.nativeRequest, externalContext.nativeResponse, flowRequestContext)" />
+		<transition on="greetingViewEvent" to="greetings" />
+	</action-state>
+
+
+	<view-state id="greetings" view="homeserve.greeting">
+		<transition on="greeting" to="idlePage" />
+		<transition on="endCallEvent" to="idlePage" />
+	</view-state>
+	
+	 <view-state id="unRecoverableEvent" view="webflow.Unrecoverable" />
+		
+	<view-state id="recoverableEvent" view="webflow.recoverable" />
+		
+	<view-state id="errorEvent" view="webflow.error" /> 
+	
+	 <end-state id="idlePage" view="externalRedirect:#{externalContext.sessionMap.urlPath}/salescenter/login_process" /> 
+	 	
+	   <global-transitions>
+		<transition on-exception="com.AL.V.exception.UnRecoverableException" to="unRecoverableEvent"/>
+		<transition on-exception="com.AL.V.exception.RecoverableException" to="recoverableEvent"/>
+		<transition on-exception="java.lang.Exception" to="errorEvent"/>
+	</global-transitions> 
+	
+</flow>

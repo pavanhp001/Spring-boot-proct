@@ -1,0 +1,76 @@
+@charset "utf-8";
+.contentwrapper {
+    height: 594px;
+    position: relative;
+    width: 1005px;
+	font-family: Arial, Helvetica, sans-serif, Verdana;
+}
+#action_wrapper {
+    height: 587px;
+    width: 1005px;
+	margin: 0;
+	position: static;
+}
+.widget_container {
+    float: left;
+    height: 533px;
+    width: 981px;
+	background-color: #fff;
+	overflow: hidden;
+	padding: 12px;
+}
+.pc_pdetails{
+	display: inline-block;
+	width: 100%;
+	line-height: 18px;
+	font-family: Arial, Helvetica, sans-serif, Verdana;
+}
+.pc_pdetails_logo{
+	background: url("../image/att_logo.png") no-repeat;
+	float: left;
+	width: 107px;
+	height: 54px;
+	margin-right: 10px;
+	text-align: center;
+}
+.pc_pdetails_logo div{
+	width: 107px;
+	height: 54px;
+	vertical-align: middle;
+	display: table-cell;
+}
+.pc_pdetails_logo img{
+	display: none;
+	max-width: 104px;
+	max-height: 52px;
+	background-size: cover;
+}
+.pc_pdetails_info{
+	float: left;
+	display: inline-block;
+	width: 860px;
+	line-height: 18px;
+}
+.pc_pdetails .label{
+	float: left;
+	width: 172px;
+	font-size: 14px;
+	font-weight: bold;
+}
+.pc_pdetails .value{
+	float: left;	
+	width: 688px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #000;
+}
+.pc_info_cc_text{
+	padding: 5px 0 15px;
+	height: 31px;
+	background: url("images/CKO_info_icon.png") no-repeat 4px 7px;
+	vertical-align: middle;
+	display: table-cell;
+	border-color: #616264;
+    border-style: solid;
+    border-width: 0 1px 1px;
+}

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+    targetNamespace="http://xml.A.com/v4" 
+    elementFormDefault="qualified" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:ac="http://xml.A.com/v4">
+
+    <xs:include schemaLocation="order.xsd" />
+
+    <xs:element name="pricingRequestResponse">
+    	<xs:complexType>
+            <xs:sequence>
+            	<xs:element name="GUID" type="xs:string"/>
+            	<xs:element name="salesContext" type="ac:salesContextType" maxOccurs="1" minOccurs="0"/>
+                <xs:element name="transactionType" minOccurs="1" maxOccurs="1">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:token">
+                            <xs:enumeration value="calculateOrderPrice"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+            	
+                <xs:element name="status" type="ac:statusType" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Defines the allowable status types.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+
+                <xs:element name="request" minOccurs="1" maxOccurs="1">
+                    <xs:complexType>
+	                    <xs:annotation>
+	                        <xs:documentation>
+	                            Contains the information for requesting a calculation of price of
+	                            of a set of order types.
+	                        </xs:documentation>
+	                    </xs:annotation>
+	                    
+                        <xs:sequence>
+                            <xs:element name="pricingRequestOrderElement" type="ac:orderType" 
+                                               minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>                                       
+                </xs:element>
+
+                <xs:element name="response" minOccurs="0" maxOccurs="1">
+                    <xs:complexType>
+	                    <xs:annotation>
+	                        <xs:documentation>
+	                            Returns a set of order types with the their calculate prices.	                          
+	                        </xs:documentation>
+	                    </xs:annotation>
+                    
+                        <xs:sequence>
+                            <xs:element name="pricingResponseOrderElement" type="ac:orderType" 
+                                       minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>                                       
+                </xs:element>
+
+            </xs:sequence>
+    	   
+    	</xs:complexType>
+    </xs:element>
+</xs:schema>

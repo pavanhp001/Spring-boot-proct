@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+	<action-state id="greeting">
+		<evaluate
+			expression="BasicInformationController" />
+		<transition on="basicViewEvent" to="basicInfoView"/>
+	</action-state>
+
+	<view-state id="basicInfoView" view="firstEnergy.basic_information">
+		<transition on="basicInfoEvent" to="performValidAddressAction" />
+		<transition on="endCallEvent" to="EndCallView" />
+	</view-state>
+
+	<action-state id="performValidAddressAction">
+		<evaluate expression="ValidAddressController"></evaluate>
+		<transition on="validAddressEvent" to="validAddressView"></transition>
+		<transition on="invalidAddressEvent" to="invalidAddressView"></transition>
+		<transition on="multipleAddressEvent" to="multipleAddressView"></transition>
+	</action-state>
+
+	<view-state id="validAddressView" view="firstEnergy.isValidAddress">
+		<transition on="addressFoundEvent" to="supplierDecide" />
+		<transition on="endCallEvent" to="EndCallView" />
+	</view-state>
+
+	<view-state id="invalidAddressView" view="firstEnergy.isInvalidAddress">
+		<transition on="addressNotFoundEvent" to="performValidAddressAction" />
+		<transition on="endCallEvent" to="EndCallView" />
+	</view-state>
+
+	<view-state id="multipleAddressView" view="firstEnergy.isMultipleAddress">
+		<transition on="multipleAddressEvent" to="performValidAddressAction" />
+		<transition on="endCallEvent" to="EndCallView" />
+	</view-state>
+	
+	<action-state id="supplierDecide">
+		<evaluate expression="SupplierController.determineSimpleChoiceSupplierView(flowRequestContext)"></evaluate>
+		<transition on="supplierViewEvent" to="supplierAction" />
+		<transition on="performUtilityOfferEvent" to="performUtilityOfferAction" />
+	</action-state>	
+	
+	<action-state id="supplierAction">
+		<evaluate expression="SupplierController.showSupplierData(flowRequestContext)"></evaluate>
+		<transition on="supplierViewEventForDrupal" to="supplierViewForDrupal"/>
+		<transition on="supplierViewEvent" to="supplierView"/>
+	</action-state>
+
+    <view-state id="supplierView" view="firstEnergy.supplierInfo">
+		<transition on="showSupplierViewEvent" to="supplierView" />
+		<transition on="supplierEvent" to="saveSupplier" />
+		<transition on="endCallEvent" to="EndCallView" />
+	</view-state>
+	
+	<view-state id="supplierViewForDrupal" view="firstEnergy.supplierInfoFroDrupal">
+		<transition on="existingCustomerEvent" to="existingCustomerCKOView" />
+		<transition on="showSupplierViewEvent" to="supplierView" />
+		<transition on="supplierEvent" to="saveSupplier" />
+		<transition on="endCallEvent" to="EndCallView" />
+	</view-state>
+	
+	<action-state id="saveSupplier">
+		<evaluate expression="SupplierController.saveFirstEnergySupplierDataOnOrder(flowRequestContext)"></evaluate>
+		<transition to="performUtilityOfferAction"/>
+	</action-state>
+	
+	<action-state id="performUtilityOfferAction">
+		<evaluate expression="UtilityOfferController"></evaluate>
+		<transition on="recommendationsViewEvent" to="recommendationsAction"></transition>
+		<transition on="qualificationViewEvent" to="EndCallView"></transition>
+		<transition on="endCallEvent" to="placeOrderAction" />
+	</action-state>
+	
+	<view-state  id="EndCallView" view="firstEnergy.closingcallnosale">
+		<on-entry>
+			<evaluate expression="EndCallController" />
+		</on-entry>
+		<transition on="dispositionsEvent" to="DispositionView" />
+	</view-state>
+	
+	<end-state id="DispositionView" view="firstEnergy.dispositions">
+		<on-entry>
+			<evaluate expression="DispositionController" />
+		</on-entry>
+	</end-state>
+
+    <end-state id="unRecoverableEvent" view="webflow.Unrecoverable" />
+		
+	<end-state id="recoverableEvent" view="webflow.recoverable" />
+		
+	<end-state id="errorEvent" view="webflow.error" />
+		
+	<global-transitions>
+		<transition on-exception="com.AL.V.exception.UnRecoverableException" to="unRecoverableEvent"/>
+		<transition on-exception="com.AL.V.exception.RecoverableException" to="recoverableEvent"/>
+		<transition on-exception="java.lang.Exception" to="errorEvent"/>
+	</global-transitions>
+</flow>

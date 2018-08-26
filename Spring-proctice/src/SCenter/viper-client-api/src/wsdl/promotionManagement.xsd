@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" targetNamespace="http://xml.A.com/v4"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ac="http://xml.A.com/v4">
+
+	<xs:include schemaLocation="promotion.xsd" />
+
+	<xs:element name="promotionRequestResponse">
+		<xs:complexType>
+			<xs:sequence>
+                <xs:element name="correlationId" type="xs:string" minOccurs="0"
+                    maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>
+                            A system-generated unique identifier. Since
+                            the service is stateless, the coorelation id is not used to
+                            reload any previous state, just to identify a particular
+                            invocation of the service, or to connect multiple invocations
+                            as part of the same global action.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+				<xs:element name="transactionType" minOccurs="1"
+					maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Used to communicate the desired request action.
+							</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:token">
+							<xs:enumeration value="getAllPromotions">
+								<xs:annotation>
+									<xs:documentation>
+										Used to request all of the available
+										promotions that exist for the given market item. 
+									</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="status" type="ac:statusType" minOccurs="0"
+					maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							For the coupon service, the following status values and
+							processing codes may be returned:
+							<B>
+								<I>This is currently TBD</I>
+							</B>
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+
+				<xs:element name="request" minOccurs="1" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Contains the information for requesting coupon / promotion information.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="promotionRequestElement" type="ac:promotionElementType"
+								minOccurs="1" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation>
+										Object type and external ID used to look up the promotion, item, or marketItem
+										to query for promotions.
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+
+				<xs:element name="response" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Contains the information requested in the corresponding request.
+							It should be noted that the result elements contain the matching
+							request object info to assist the client in
+							processing the response.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence maxOccurs="unbounded" minOccurs="1">
+							<xs:element name="promotionResultElement" type="ac:promotionResultType"
+								minOccurs="1" maxOccurs="unbounded" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

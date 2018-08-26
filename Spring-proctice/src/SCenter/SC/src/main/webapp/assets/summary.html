@@ -1,0 +1,574 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>SYP</title>
+<link rel="stylesheet" href="../css/main.css" />
+<link rel="stylesheet" href="../css/nav.css" />
+<link rel="stylesheet" href="../css/classes.css" />
+<link rel="stylesheet" href="../css/text.css" />
+<link rel="stylesheet" href="../css/formStyles.css" />
+<link rel="stylesheet" href="../css/screen.css" />
+<link href="../css/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../js/jquDD5B.js"></script>
+<script type="text/javascript" src="../js/textHint.js"></script>
+<script src="../js/jquery-ui.min.js"></script>
+
+  <script>
+  $(document).ready(function() {
+    $("#datepicker").datepicker();
+  });
+    $(document).ready(function() {
+    $("#datepickerElectric").datepicker();
+  });
+      $(document).ready(function() {
+    $("#datepickerGas").datepicker();
+  });
+  </script>
+</head>
+
+<body>
+<div id="wrapper">
+    <header id="main_header">
+        <div id="SYP_toolbar">
+            <div id="SYP_title">SYP</div><div id="AL_title">AL</div>
+            <nav id="main_menu">
+	<ul>
+		<li><a href="#">Performance</a></li>
+		<li><a href="#">Settings</a>
+			<ul>
+				<li><a href="#">Icon Orientation</a>
+                	<ul>
+						<li><a href="#">Horizontal</a></li>
+						<li><a href="#">Verticle</a></li>
+					</ul>
+                </li>
+				<li><a href="#">Icon Theme</a>
+					<ul>
+						<li><a href="#">AL</a></li>
+						<li><a href="#">Spectrum</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li><a href="#">Help</a>
+		</li>
+        <li>
+        	<form class="searchform">
+<input class="searchfield" type="text" onblur="if (this.value == '') {this.value = 'Search...';}" onfocus="if (this.value == 'Search...') {this.value = '';}" value="Search..." />
+<input class="searchbutton" type="button" value="Go" />
+</form>
+        
+        </li>
+	</ul>
+</nav>
+        </div>
+        <div id="SYP_ALbar"><img src="../images/img/ALLogoMain.png" width="149" height="20" alt="AL" border="0" />
+        </div>
+    </header>
+    <div id="contentWrapper">
+            <aside id="left_aside">
+            </aside>
+        <section id="main_section">
+        	<section id="MiddleContentShell">
+            	<nav id="products">
+                	<ul class="productsNav">
+                    	<a href="#" /><li class="prodcutsBtn">
+                        	<img src="../images/nav/Star.png" width="28" height="28" alt="Power Pitch" border="0" />
+                            <label id="productLabel" class="productLabel" value="PP" for="PP">P-Pitch</label>
+                        </li></a>
+                    	<a href="#" /><li class="prodcutsBtn">
+                        	<img src="../images/nav/Triples.png" width="28" height="28" alt="Triples" border="0" />
+                            <label id="productLabel" class="productLabel" value="Triples" for="Triples">Triples</label>
+                        </li></a>
+                    	<a href="#" /><li class="prodcutsBtn">
+                        	<img src="../images/nav/Doubles.png" width="28" height="28" alt="Doubles" border="0" />
+                            <label id="productLabel" class="productLabel" value="Doubles" for="Doubles">Doubles</label>
+                        </li></a>
+                    	<a href="#" /><li class="prodcutsBtn">
+                        	<img src="../images/nav/TV.png" width="28" height="28" alt="Video" border="0" />
+                            <label id="productLabel" class="productLabel" value="Video" for="Video">Video</label>
+                        </li></a>
+                    	<a href="#" /><li class="prodcutsBtn">
+                        	<img src="../images/nav/Internet.png" width="28" height="28" alt="Internet" border="0" />
+                            <label id="productLabel" class="productLabel" value="PP" for="PP">Internet</label>
+                        </li></a>
+                    	<a href="#" /><li class="prodcutsBtn">
+                        	<img src="../images/nav/Phone.png" width="28" height="28" alt="Power Pitch" border="0" />
+                            <label id="productLabel" class="productLabel" value="PP" for="PP">Phone</label>
+                        </li></a>
+                    	<a href="#" /><li class="prodcutsBtn">
+                        	<img src="../images/nav/Security.png" width="28" height="28" alt="Security" border="0" />
+                            <label id="productLabel" class="productLabel" value="PP" for="Security">Security</label>
+                        </li></a>
+                    	<a href="#" /><li class="prodcutsBtn">
+                        	<img src="../images/nav/Tech.png" width="28" height="28" alt="Tech" border="0" />
+                            <label id="productLabel" class="productLabel" value="Tech" for="Tech">Tech</label>
+                        </li></a>
+                    	<a href="#" /><li class="prodcutsBtn">
+                        	<img src="../images/nav/Electric.png" width="28" height="28" alt="Electric" border="0" />
+                            <label id="productLabel" class="productLabel" value="Electric" for="Electric">Electric</label>
+                        </li></a>
+                    	<a href="#" /><li class="prodcutsBtn">
+                        	<img src="../images/nav/Gas.png" width="28" height="28" alt="Gas" border="0" />
+                            <label id="productLabel" class="productLabel" value="Gas" for="Gas">Gas</label>
+                        </li></a>
+                    	<a href="#" /><li class="prodcutsBtn">
+                        	<img src="../images/nav/Water.png" width="28" height="28" alt="Water" border="0" />
+                            <label id="productLabel" class="productLabel" value="Water" for="Water">Water</label>
+                        </li></a>
+                    	<a href="#" /><li class="prodcutsBtn">
+                        	<img src="../images/nav/Trash.png" width="28" height="28" alt="Waste" border="0" />
+                            <label id="productLabel" class="productLabel" value="Waste" for="Waste">Waste</label>
+                        </li></a>
+                    </ul>	
+                </nav>
+                <header id="content_header">
+                    	<div class="row">                	
+                    		<span class="cell">
+                            <svg version="1.1" id="Layer_5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="29px" height="29px" viewBox="0 0 29 29" enable-background="new 0 0 29 29" xml:space="preserve" class="headphonesSVG">
+<g>
+	<path fill="#96C43E" d="M29,25.298c0,2.066-1.677,3.744-3.744,3.744H4.411c-2.067,0-3.745-1.678-3.745-3.744V4.328
+		c0-2.068,1.678-3.745,3.745-3.745h20.845C27.323,0.583,29,2.26,29,4.328V25.298z"/>
+	<path fill="#FFFFFF" d="M23.861,18.677c0.116,0.435,0.177,0.891,0.177,1.362c0,2.921-2.367,5.289-5.288,5.289
+		c-0.291,0-0.576-0.023-0.854-0.068l-0.004-0.002c-0.285,0.446-0.843,0.75-1.482,0.75c-0.932,0-1.686-0.64-1.686-1.428
+		s0.754-1.428,1.686-1.428c0.563,0,1.061,0.234,1.367,0.594l0,0c0.208,0.029,0.422,0.044,0.641,0.044
+		c2.19,0,3.967-1.542,3.967-3.445c0-0.307-0.046-0.604-0.132-0.887l-0.052,0.015c-0.244,0.015-0.527,0.008-0.855-0.031v0.608
+		c0,0-0.059,0.398-0.808,0.375s-0.784-0.234-0.796-0.445c-0.012-0.21,0-5.5,0-5.5s0.047-0.409,0.819-0.397
+		c0.655,0.012,0.737,0.246,0.761,0.375c0.023,0.128,0.023,0.784,0.023,0.784l0.374-0.059l0.088-0.058
+		c0.189-0.664,0.265-1.24,0.265-1.966c0-4.188-3.395-7.583-7.582-7.583c-4.188,0-7.583,3.395-7.583,7.583
+		c0,0.722,0.128,1.363,0.316,2.024l0.374,0.059c0,0,0-0.655,0.023-0.784s0.105-0.363,0.761-0.375
+		c0.772-0.012,0.819,0.398,0.819,0.398s0.012,5.289,0,5.5s-0.047,0.422-0.796,0.445s-0.808-0.375-0.808-0.375v-0.608
+		c-1.193,0.141-1.802-0.141-2.07-0.339c-0.27-0.199-1.065-0.913-0.738-2.293c0.328-1.381,1.451-1.58,1.674-1.58
+		s0.164-0.07,0.164-0.07c-0.416-1.001-0.609-2.02-0.609-3.171c0-4.679,3.793-8.472,8.473-8.472c4.678,0,8.472,3.793,8.472,8.472
+		c0,1.107-0.212,2.165-0.599,3.134l-0.046,0.037c0,0-0.059,0.07,0.163,0.07c0.223,0,1.346,0.199,1.674,1.58
+		c0.205,0.863-0.029,1.465-0.299,1.845L23.861,18.677z"/>
+</g>
+</svg>
+
+                    		</span>
+                    		<span class="cell">Order Summary</span>
+                    		<span class="cell">Call Time: 03:56</span>
+                    	</div>
+				</header>
+                <div class="content_border">
+  
+                <section id="action_wrapper">
+                    
+        <div id="pageBody">
+		<div id="pageContent">
+
+
+			<div class="pageBox">
+				<div class="orderSummaryContent">
+                    <span class="row">
+                        <span class="cell">	
+                            <input type="button" class="placeOrderBtn" value="Place Order" />
+                        </span>
+                    </span>
+                    
+                    <table cellspacing="0" cellpadding="0" class="fullLineItem">
+						<tbody>
+							<tr>
+							<td class="itemHeader price">Select</td>
+							<td class="itemHeader price"></td>
+								<td class="itemHeader">Item</td>
+								<td class="itemHeader qty">Status</td>
+								<td class="itemHeader price"> </td>
+							</tr>
+						</tbody>
+					</table>
+                    <table cellspacing="0" cellpadding="0" class="fullLineItem">
+						<tbody>
+							<tr>
+						 
+								<td class="price"><input style="float:left;margin-left:20px;" type='checkbox' /></td>
+						 
+								<td class="price">
+									<input class="whitebuttons" value="Begin Order Process" type='button' />
+								</td>
+								
+								<td width="1%">
+									<div class="productImage">
+										<a href="#/order/variant/1/"> <img
+											 
+											src="/images/provider/18972486.jpg">
+										</a>
+									</div>
+								</td>
+								<td>
+									<h3>
+										<a href="#/order/variant/1/">-10311</a>
+									</h3>
+									
+									
+								
+									<div class="itemList">
+									 <div class="detailsContent detailsServingOptions">
+							<div class="table variantTable variantSection">
+								<div class="thead">
+									<div class="row">
+										<div class="td tdName">
+											<!-- -->
+										</div>
+										 
+										<div style="float:left;text-align:left; width:50%;" class="td">Description</div>
+										<div style="float:left; width:20%;" class="td">Quantity</div>
+										<div style="float:left; width:20%;" class="td">Price</div>
+										<div class="clr">
+											<!-- -->
+										</div>
+									</div>
+								</div>
+								<div class="tbody">
+								
+									<label class="row   " for="B8PCSCB">
+										<div style="float:left; width:50%; font-weight:bold; "  class="td tdName">Base Package Price  </div> 
+										<div style="float:left; width:20%;"  class="td"> </div>
+										<div style="float:left; width:20%;"  class="td">$5.99/M</div>
+										<div class="clr">
+											<!-- -->
+										</div>
+									</label>
+									
+									
+									
+									<label class="row last " for="B8PCSCB">
+										<div style="float:left; width:50%;"  class="td tdName">Cash on Delivery  </div> 
+										<div style="float:left; width:20%;"  class="td"> </div>
+										<div style="float:left; width:20%;"  class="td">0.00/M</div>
+										<div class="clr">
+											<!-- -->
+										</div>
+									</label>
+									<label class="row last " for="B8PCSCB">
+										<div style="float:left; width:50%;"  class="td tdName">Monthly Fee</div> 
+										<div style="float:left; width:20%;"  class="td"> </div>
+										<div style="float:left; width:20%;"  class="td">99.0 USD/M</div>
+										<div class="clr">
+											<!-- -->
+										</div>
+									</label>
+									<label class="row last" for="B8PCSCB">
+										<div style="float:left; width:50%;"  class="td tdName">Installation Fee</div> 
+										<div style="float:left; width:20%;"  class="td"> </div>
+										<div style="float:left; width:20%;"  class="td">99.0 USD/M</div>
+										<div class="clr">
+											<!-- -->
+										</div>
+									</label>
+								</div>
+							</div>
+						</div>
+									
+																	</div>
+																	
+								</td>
+								<td class="qty">
+								
+								<span style="background-color:#FAFAD2;border:1px solid gray;padding:3px;"> SALES_NEW_ORDER </span>
+									
+										<p style="margin:5px;" >
+										<a href="/order/5582/lineitem/7531/remove" class="js-removeVariant">remove</a>
+									</p>
+									
+								</td>
+								<td class="price"> </td>
+							</tr>
+						</tbody>
+					</table>
+					 
+					 
+					
+								
+					<table cellspacing="0" cellpadding="0" class="fullLineItem">
+						<tbody>
+							<tr>
+							<td class="itemHeader price">Select</td>
+							<td class="itemHeader price"></td>
+								<td class="itemHeader">Item</td>
+								<td class="itemHeader qty">Status</td>
+								<td class="itemHeader price"> </td>
+							</tr>
+						</tbody>
+					</table>
+                    
+					<table cellspacing="0" cellpadding="0" class="fullLineItem">
+						<tbody>
+							<tr>
+						 
+								<td class="price"><input style="float:left;margin-left:20px;" type='checkbox' /></td>
+						 
+								<td class="price">
+								
+									<input class="whitebuttons" value="Begin Order Process" type='button' />
+								
+									
+								
+								</td>
+								
+								<td width="1%">
+									<div class="productImage">
+										<a href="#/order/variant/1/"> <img
+											 
+											src="/images/provider/24699452.jpg">
+										</a>
+									</div>
+								</td>
+								<td>
+									<h3>
+										<a href="#/order/variant/1/">-RTS:ATTSTI:ATT-9-IPD-ELTD-I</a>
+									</h3>
+									
+									
+								
+									<div class="itemList">
+									 <div class="detailsContent detailsServingOptions">
+							<div class="table variantTable variantSection">
+								<div class="thead">
+									<div class="row">
+										<div class="td tdName">
+											<!-- -->
+										</div>
+										 
+										<div style="float:left;text-align:left; width:50%;" class="td">Description</div>
+										<div style="float:left; width:20%;" class="td">Quantity</div>
+										<div style="float:left; width:20%;" class="td">Price</div>
+										<div class="clr">
+											<!-- -->
+										</div>
+									</div>
+								</div>
+								<div class="tbody">
+								
+									<label class="row   " for="B8PCSCB">
+										<div style="float:left; width:50%; font-weight:bold; "  class="td tdName">Base Package Price  </div> 
+										<div style="float:left; width:20%;"  class="td"> </div>
+										<div style="float:left; width:20%;"  class="td">$5.99/M</div>
+										<div class="clr">
+											<!-- -->
+										</div>
+									</label>
+									
+									
+										<label class="row  " for="B8PCSCB">
+										<div style="float:left; width:50%;"  class="td tdName">ELEC13</div> 
+										<div style="float:left; width:20%;"  class="td">1</div>
+										<div style="float:left; width:20%;"  class="td">chetanpag@cybage.com/M</div>
+										<div class="clr">
+											<!-- -->
+										</div>
+										</label>
+									
+									
+									<label class="row last " for="B8PCSCB">
+										<div style="float:left; width:50%;"  class="td tdName">Cash on Delivery  </div> 
+										<div style="float:left; width:20%;"  class="td"> </div>
+										<div style="float:left; width:20%;"  class="td">0.00/M</div>
+										<div class="clr">
+											<!-- -->
+										</div>
+									</label>
+									<label class="row last " for="B8PCSCB">
+										<div style="float:left; width:50%;"  class="td tdName">Monthly Fee</div> 
+										<div style="float:left; width:20%;"  class="td"> </div>
+										<div style="float:left; width:20%;"  class="td">299.06 USD/M</div>
+										<div class="clr">
+											<!-- -->
+										</div>
+									</label>
+									<label class="row last" for="B8PCSCB">
+										<div style="float:left; width:50%;"  class="td tdName">Installation Fee</div> 
+										<div style="float:left; width:20%;"  class="td"> </div>
+										<div style="float:left; width:20%;"  class="td">99.02 USD/M</div>
+										<div class="clr">
+											<!-- -->
+										</div>
+									</label>
+								</div>
+							</div>
+						</div>
+									
+																	</div>
+																	
+								</td>
+								<td class="qty">
+								
+								<span style="background-color:#FAFAD2;border:1px solid gray;padding:3px;"> SALES_NEW_ORDER </span>
+									
+										<p style="margin:5px;" >
+										<a href="/order/5582/lineitem/7533/remove" class="js-removeVariant">remove</a>
+									</p>
+									
+								</td>
+								<td class="price"> </td>
+							</tr>
+						</tbody>
+					</table>
+					 
+					 
+					
+								
+					<table cellspacing="0" cellpadding="0" class="fullLineItem">
+						<tbody>
+							<tr>
+							<td class="itemHeader price">Select</td>
+							<td class="itemHeader price"></td>
+								<td class="itemHeader">Item</td>
+								<td class="itemHeader qty">Status</td>
+								<td class="itemHeader price"> </td>
+							</tr>
+						</tbody>
+					</table>
+					<table cellspacing="0" cellpadding="0" class="fullLineItem">
+						<tbody>
+							<tr>
+						 
+								<td class="price"><input style="float:left;margin-left:20px;" type='checkbox' /></td>
+						 
+								<td class="price">
+								
+									<input class="whitebuttons" value="Begin Order Process" type='button' />
+								
+									
+								
+								</td>
+								
+								<td width="1%">
+									<div class="productImage">
+										<a href="#/order/variant/1/"> <img
+											 
+											src="/images/provider/27010360.jpg">
+										</a>
+									</div>
+								</td>
+								<td>
+									<h3>
+										<a href="#/order/variant/1/">-RTS:DISH:CORE_259952</a>
+									</h3>
+									
+									
+								
+									<div class="itemList">
+									 <div class="detailsContent detailsServingOptions">
+							<div class="table variantTable variantSection">
+								<div class="thead">
+									<div class="row">
+										<div class="td tdName">
+											<!-- -->
+										</div>
+										 
+										<div style="float:left;text-align:left; width:50%;" class="td">Description</div>
+										<div style="float:left; width:20%;" class="td">Quantity</div>
+										<div style="float:left; width:20%;" class="td">Price</div>
+										<div class="clr">
+											<!-- -->
+										</div>
+									</div>
+								</div>
+								<div class="tbody">
+								
+									<label class="row   " for="B8PCSCB">
+										<div style="float:left; width:50%; font-weight:bold; "  class="td tdName">Base Package Price  </div> 
+										<div style="float:left; width:20%;"  class="td"> </div>
+										<div style="float:left; width:20%;"  class="td">$5.99/M</div>
+										<div class="clr">
+											<!-- -->
+										</div>
+									</label>
+									
+									
+									
+									<label class="row last " for="B8PCSCB">
+										<div style="float:left; width:50%;"  class="td tdName">Cash on Delivery  </div> 
+										<div style="float:left; width:20%;"  class="td"> </div>
+										<div style="float:left; width:20%;"  class="td">0.00/M</div>
+										<div class="clr">
+											<!-- -->
+										</div>
+									</label>
+									<label class="row last " for="B8PCSCB">
+										<div style="float:left; width:50%;"  class="td tdName">Monthly Fee</div> 
+										<div style="float:left; width:20%;"  class="td"> </div>
+										<div style="float:left; width:20%;"  class="td">0.0 /M</div>
+										<div class="clr">
+											<!-- -->
+										</div>
+									</label>
+									<label class="row last" for="B8PCSCB">
+										<div style="float:left; width:50%;"  class="td tdName">Installation Fee</div> 
+										<div style="float:left; width:20%;"  class="td"> </div>
+										<div style="float:left; width:20%;"  class="td">0.0 /M</div>
+										<div class="clr">
+											<!-- -->
+										</div>
+									</label>
+								</div>
+							</div>
+						</div>
+									
+																	</div>
+																	
+								</td>
+								<td class="qty">
+								
+								<span style="background-color:#FAFAD2;border:1px solid gray;padding:3px;"> SALES_NEW_ORDER </span>
+									
+										<p style="margin:5px;" >
+										<a href="/order/5582/lineitem/7535/remove" class="js-removeVariant">remove</a>
+									</p>
+									
+								</td>
+								<td class="price"> </td>
+							</tr>
+						</tbody>
+					</table>
+                         <span class="row">
+                        <span class="cell">	
+                            <input type="button" class="placeOrderBtn" value="Place Order" />
+                        </span>
+                    </span>	
+               </div>
+			</div>
+
+
+
+		</div>
+	</div>
+	 
+
+                </section>
+                <footer id="action_footer">
+                <span class="row changePageRow">
+                	<span class="cell">
+                    <input type="submit" value="" class="backArrowBtn"/>
+                    </span>
+                    <span class="cell">
+                    <input type="submit" value="" class="forwardArrowBtn"/>
+                    </span>
+                </span>
+                </footer>
+                </div>
+         <! --- end content div --->
+           </section>
+        </section>
+        <aside id="main_aside">
+        </aside>
+    </div>    
+    <footer id="main_footer">
+    <span class="row">
+    <span class="cell terms font8">
+    Only users with express authorization from AL, Inc. may use this system. Unauthorized use is strictly prohibited and may expose you to legal liability. Violations will be logged and reported.</span>
+					<span class="cell">
+                        <form>
+                        <input type="submit" name="End Call" value="End Call" class="css3button" /></input>
+                        </form>
+                     </span>
+                     <span class="cell font9">powered by AL</span>
+    </span>
+    </footer>
+                	
+</div>
+</body>
+</html>

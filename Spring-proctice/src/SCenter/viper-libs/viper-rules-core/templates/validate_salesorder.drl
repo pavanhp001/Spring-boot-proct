@@ -1,0 +1,27 @@
+package A.ome.validation;
+
+import org.drools.runtime.rule.RuleContext;
+import com.A.rules.util.*;
+import com.A.rules.domain.Message;
+import com.A.validation.ReportFactory;
+import com.A.validation.ValidationReport;
+import com.A.V.beans.entity.SalesOrder;
+import function  com.A.rules.core.impl.RuleValidationHelper.error;
+import function  com.A.rules.core.impl.RuleValidationHelper.warning;
+import function  com.A.rules.core.impl.RuleValidationHelper.outcome;
+import com.A.V.beans.entity.LineItem;
+
+global com.A.validation.ReportFactory reportFactory;
+global com.A.validation.ValidationReport validationReport;
+	
+	rule "Valid Agent Id"
+	    salience 100
+	    when
+ 		so : SalesOrderBean( agent == null) 
+	    
+	    then 
+             outcome(kcontext, "invalid.agent.id");
+	 
+	end
+
+

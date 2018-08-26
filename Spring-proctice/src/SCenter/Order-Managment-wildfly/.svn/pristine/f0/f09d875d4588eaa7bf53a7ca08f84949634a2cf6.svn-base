@@ -1,0 +1,33 @@
+# Note this file is used for per-deployment log file configuration
+# it can able to split log to multiple files as required by the app.
+# This configuration will overwrite server logging subsystem in JBoss config directory
+
+# Additional loggers to configure (the root logger is always configured)
+loggers=com,org
+
+logger.level=INFO
+logger.handlers=FILE,CONSOLE
+
+logger.com.level=ALL
+logger.com.useParentHandlers=false
+logger.com.handlers=OME
+
+logger.org.level=ALL
+logger.org.useParentHandlers=false
+logger.org.handlers=OME
+
+handler.OME=org.jboss.logmanager.handlers.PeriodicRotatingFileHandler
+handler.OME.level=INFO
+handler.OME.formatter=OME-PATTERN
+handler.OME.properties=append,autoFlush,enabled,suffix,fileName
+handler.OME.constructorProperties=fileName,append
+handler.OME.append=true
+handler.OME.autoFlush=true
+handler.OME.enabled=true
+handler.OME.suffix=.yyyy-MM-dd-HH
+handler.OME.fileName=${LOG_DIR}/standalone/log/ome.log
+
+
+formatter.OME-PATTERN=org.jboss.logmanager.formatters.PatternFormatter
+formatter.OME-PATTERN.properties=pattern
+formatter.OME-PATTERN.pattern=%d{yyyy-MM-dd} %d{HH\:mm\:ss,SSS} %-5p [%c] (%t) %s%e%n

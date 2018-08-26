@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ac:merchandisingEnterpriseRequest debug="true" xmlns:ac="http://xml.A.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xml.A.com/v4 merchandisingManagement.xsd ">
+  <ac:GUID>ac:GUID</ac:GUID>
+  <ac:transactionType xsi:type="ac:merchandisingTransactionTypeType">
+	  <ac:merchandisingTransactionType>
+	  processAlgorithm
+	  </ac:merchandisingTransactionType>
+  </ac:transactionType>
+  <ac:salesContext>
+    <ac:entity name="FOO">
+      <ac:attribute name="BAR" value="2"/>
+    </ac:entity>
+  </ac:salesContext>
+  <ac:request xsi:type="ac:merchandisingRequestType">
+  	<ac:productList>
+  		<ac:product externalId="FOO" type="marketItem"/>
+  	</ac:productList>
+  </ac:request>
+</ac:merchandisingEnterpriseRequest>

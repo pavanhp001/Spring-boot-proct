@@ -1,0 +1,16 @@
+<ord:OrderProvisioningResponse xmlns:ord="http://xml.A.com/v4/OrderProvisioning/">
+	<responseStatus xmlns:rtim="http://xml.A.com/v4/rtimRequestResponse/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<com:statusCode xmlns:com="http://xml.A.com/common">0000</com:statusCode>
+		<com:opMessage xmlns:com="http://xml.A.com/common">
+			<com:code>1</com:code>
+			<com:text>response completed</com:text>
+		</com:opMessage>
+		<com:status xmlns:com="http://xml.A.com/common">SUCCESS</com:status>
+	</responseStatus>
+	<response xsi:type="ord:AuthenticateCustomerResponse" xmlns:rtim="http://xml.A.com/v4/rtimRequestResponse/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<providerAttributes>
+			<v4:name xmlns:v4="http://xml.A.com/v4">CustomerName</v4:name>
+			<v4:value xmlns:v4="http://xml.A.com/v4">Jon lenon</v4:value>
+		</providerAttributes>
+	</response>
+</ord:OrderProvisioningResponse>

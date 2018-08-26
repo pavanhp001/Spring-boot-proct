@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.A.V</groupId>
+		<artifactId>VEntityModel</artifactId>
+		<version>02.00.00-004</version>
+	</parent>
+	<packaging>jar</packaging>
+	<artifactId>ALogicalModel</artifactId>
+	<name>Logical</name>
+	<url>http://maven.apache.org</url>
+	<build>
+<!--
+		<finalName>ALogicalModel</finalName>
+-->
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.1</version>
+				<executions>
+					<execution>
+						<id>config</id>
+						<phase>compile</phase>
+						<configuration>
+							<tasks>
+								<delete>
+									<fileset dir="${project.build.outputDirectory}">
+										<include name="**/ZipPlusFour.class" />
+										<include name="**/ZipCodesCityState.class" />
+										<include name="**/ServiceabilityCacheRecordBean.class" />
+									</fileset>
+								</delete>
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
+

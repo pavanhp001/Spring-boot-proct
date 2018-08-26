@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<v4:orderManagementRequestResponse
+	xmlns:v4="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xml.AL.com/v4 ../schemas/v4/orderManagement.xsd ">
+	<v4:transactionType>updateOrder</v4:transactionType>
+	<v4:request>
+		<v4:orderId>2</v4:orderId>
+		<v4:updatedOrderInfo xsi:type="v4:unconstraintedOrderType">
+		    <v4:externalId>2</v4:externalId>  
+			<v4:source>software.architecting</v4:source> 
+		</v4:updatedOrderInfo>
+	</v4:request>
+</v4:orderManagementRequestResponse>

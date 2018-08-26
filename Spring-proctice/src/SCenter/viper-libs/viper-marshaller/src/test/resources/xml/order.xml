@@ -1,0 +1,195 @@
+<v4:orderManagementRequestResponse
+	xsi:schemaLocation="http://xml.A.com/v4 orderManagement.xsd "
+	xmlns:v4="http://xml.A.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<v4:correlationId>${DataGen#CorrelationId}</v4:correlationId>
+	<v4:transactionTimeStamp>${DataGen#Timestamp}</v4:transactionTimeStamp>
+	<v4:sessionId>${DataGen#SessionId}</v4:sessionId>
+	<v4:transactionId>${DataGen#TransactionId}</v4:transactionId>
+	<v4:region>${#TestSuite#Region}</v4:region>
+	<v4:affiliateName>${#TestSuite#AffiliateName}</v4:affiliateName>
+	<v4:salesCode>${#TestSuite#Salescode}</v4:salesCode>
+	<v4:transactionType>createOrder</v4:transactionType>
+	<v4:status>
+		<v4:statusCode>0</v4:statusCode>
+		<v4:processingMessages>
+			<v4:message>
+				<v4:code>1.</v4:code>
+				<v4:text>New Order</v4:text>
+			</v4:message>
+		</v4:processingMessages>
+	</v4:status>
+	<v4:request>
+		<v4:salesContext />
+		<v4:orderInfo>
+			<v4:externalId>ZZZZZZZZ</v4:externalId>
+			<v4:source>Web</v4:source>
+			<v4:referrerId>108</v4:referrerId>
+			<v4:associatedWithMove>true</v4:associatedWithMove>
+			<v4:campaignId>ATT</v4:campaignId>
+			<v4:agentId>User1</v4:agentId>
+			<v4:AConfirmationNumber />
+			<v4:ACustomerAccountNumber />
+			<v4:totalPriceInfo>
+				<v4:baseNonRecurringPrice>100.25</v4:baseNonRecurringPrice>
+				<v4:baseNonRecurringPriceUnits>Dollar
+				</v4:baseNonRecurringPriceUnits>
+				<v4:baseRecurringPrice>150.50</v4:baseRecurringPrice>
+				<v4:baseRecurringPriceUnits>Dollar</v4:baseRecurringPriceUnits>
+				<v4:includeInTotalPrice />
+			</v4:totalPriceInfo>
+			<v4:lineItems>
+				<v4:lineItem>
+					<v4:partnerName>Test Partner</v4:partnerName>
+					<v4:productDatasource dataSource="">internal
+					</v4:productDatasource>
+					<v4:providerConfirmationNumber />
+					<v4:providerCustomerAccountNumber />
+					<v4:lineItemNumber>0</v4:lineItemNumber>
+					<v4:lineItemDetail>
+						<v4:detailType>product</v4:detailType>
+						<v4:detail>
+							<v4:productLineItem>
+								<v4:externalId>ADT-SC-SECURITY</v4:externalId>
+								<v4:productCategory displayName="" />
+								<v4:name>ADT</v4:name>
+								<v4:channels>
+									<v4:channel>Web</v4:channel>
+								</v4:channels>
+								<v4:provider externalId="4142189" name="RedVentures">
+									<v4:source datasource="">internal</v4:source>
+									<v4:parent externalId="" name="" />
+									<v4:capabilityList>
+										<v4:capability name="" />
+									</v4:capabilityList>
+								</v4:provider>
+								<v4:priceInfo>
+									<v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+									<v4:baseNonRecurringPriceUnits>v4:baseNonRecurringPriceUnits
+									</v4:baseNonRecurringPriceUnits>
+									<v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+									<v4:baseRecurringPriceUnits>v4:baseRecurringPriceUnits
+									</v4:baseRecurringPriceUnits>
+									<v4:includeInTotalPrice />
+								</v4:priceInfo>
+								<v4:capabilityList>
+									<v4:capability name="" />
+								</v4:capabilityList>
+							</v4:productLineItem>
+						</v4:detail>
+					</v4:lineItemDetail>
+					<v4:lineItemPriceInfo>
+						<v4:baseNonRecurringPrice>99.0</v4:baseNonRecurringPrice>
+						<v4:baseNonRecurringPriceUnits>v4:baseNonRecurringPriceUnits
+						</v4:baseNonRecurringPriceUnits>
+						<v4:baseRecurringPrice>99.0</v4:baseRecurringPrice>
+						<v4:baseRecurringPriceUnits>v4:baseRecurringPriceUnits
+						</v4:baseRecurringPriceUnits>
+						<v4:includeInTotalPrice />
+						<v4:priceInfoStatus>
+							<v4:statusCode>0</v4:statusCode>
+							<v4:processingMessages>
+								<v4:message>
+									<v4:code>0.0</v4:code>
+									<v4:text>v4:text</v4:text>
+								</v4:message>
+							</v4:processingMessages>
+						</v4:priceInfoStatus>
+						<v4:pricingDate>2001-12-31T12:00:00</v4:pricingDate>
+					</v4:lineItemPriceInfo>
+					<v4:externalId>v4:externalId</v4:externalId>
+					<v4:svcAddressExtId />
+					<v4:billingInfoExtId />
+					<v4:svcAddressRef>${DataGen#AddressUniqueId}</v4:svcAddressRef>
+					<v4:billingInfoRef>${DataGen#BillingUniqueId}</v4:billingInfoRef>
+					<v4:SchedulingInfo appointmentComment="Test Comment"
+						billingInstallments="true" earlierAppointmentDate="true"
+						installationFee="29.99" residenceType="HOUSE">
+						<v4:desiredStartDate>
+							<v4:date>${DataGen#tomorrowsDate}</v4:date>
+							<v4:time>1:30:00</v4:time>
+						</v4:desiredStartDate>
+						<v4:scheduledStartDate>
+							<v4:date>${DataGen#tomorrowsDate}</v4:date>
+							<v4:time>2:30:00</v4:time>
+						</v4:scheduledStartDate>
+						<v4:actualStartDate>
+							<v4:date>${DataGen#tomorrowsDate}</v4:date>
+							<v4:time>3:30:00</v4:time>
+						</v4:actualStartDate>
+						<v4:ScheduleAsSoonAsPossible>true</v4:ScheduleAsSoonAsPossible>
+					</v4:SchedulingInfo>
+					<v4:activeDialogs>
+						<v4:dialogs>
+							<v4:dialog>
+								<v4:externalId>ADTHomeSecurityBeforeQues</v4:externalId>
+								<v4:value selected="true" type="boolean">No</v4:value>
+							</v4:dialog>
+							<v4:dialog>
+								<v4:externalId>ADTCurrentlyMonitoredQues</v4:externalId>
+								<v4:value selected="true" type="boolean">No</v4:value>
+							</v4:dialog>
+							<v4:dialog>
+								<v4:externalId>ADT3MonthsQues</v4:externalId>
+								<v4:value selected="true" type="boolean">No</v4:value>
+							</v4:dialog>
+							<v4:dialog>
+								<v4:externalId>ADTCanCallQues3</v4:externalId>
+								<v4:value selected="true" type="boolean">Yes</v4:value>
+							</v4:dialog>
+							<v4:dialog>
+								<v4:externalId>ADTSquareFootageQues</v4:externalId>
+								<v4:value selected="true" type="string">1251-1500</v4:value>
+							</v4:dialog>
+
+							<v4:dialog>
+								<v4:externalId>ADTWantToHearMoreQues</v4:externalId>
+								<v4:value selected="true" type="boolean">yes</v4:value>
+							</v4:dialog>
+
+							<v4:dialog>
+								<v4:externalId>ADTCanCallQues</v4:externalId>
+								<v4:value selected="true" type="boolean">yes</v4:value>
+							</v4:dialog>
+
+						</v4:dialogs>
+					</v4:activeDialogs>
+					<v4:lineItemAttributes>
+						<v4:entity source="SPLOCALIN">
+							<v4:attribute>
+								<v4:name>NWPH</v4:name>
+								<v4:value>123-456-7888</v4:value>
+								<v4:description>New phone no from provider</v4:description>
+							</v4:attribute>
+							<!-- <v4:attribute>
+								<v4:name>MNCH</v4:name>
+								<v4:value>22.50</v4:value>
+								<v4:description>Minimum charge for this item</v4:description>
+							</v4:attribute> -->
+						</v4:entity>
+						<v4:entity source="DSOB">
+							<v4:attribute>
+								<v4:name>DirectStarId</v4:name>
+								<v4:value>44556</v4:value>
+								<v4:description>Direct Star ID</v4:description>
+							</v4:attribute>
+							<v4:attribute>
+								<v4:name>DirectvCustNo</v4:name>
+								<v4:value>DTV-123</v4:value>
+								<v4:description>Directv Customer No</v4:description>
+							</v4:attribute>
+						</v4:entity>
+					</v4:lineItemAttributes>
+					<v4:howLongAtAddress>10</v4:howLongAtAddress>
+					<v4:service>BUSINESS</v4:service>
+					<v4:creditStatus>Approved</v4:creditStatus>
+				</v4:lineItem>
+			</v4:lineItems>
+
+		</v4:orderInfo>
+	</v4:request>
+	<v4:response />
+</v4:orderManagementRequestResponse>
+
+
+
+

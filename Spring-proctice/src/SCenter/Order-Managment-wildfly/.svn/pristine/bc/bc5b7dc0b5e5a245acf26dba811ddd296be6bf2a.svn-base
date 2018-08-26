@@ -1,0 +1,94 @@
+ <orderManagementRequestResponse xmlns="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         <correlationId>243a96bc-d4dd-4e61-be26-bc57c2f841f5</correlationId>
+         <transactionTimeStamp>2012-08-13-04:00</transactionTimeStamp>
+         <sessionId/>
+         <transactionId>0</transactionId>
+         <region/>
+         <affiliateName/>
+         <salesCode/>
+         <transactionType>createOrder</transactionType>
+         <request>
+            <lineitemId/>
+            <agentId>User222</agentId>
+            <salesContext>
+               <entity name="harmony">
+                  <attribute name="source" value="accord"/>
+               </entity>
+            </salesContext>
+            <orderInfo>
+               <lineItems>
+                  <lineItem>
+                     <lineItemNumber>3</lineItemNumber>
+                     <externalId>0</externalId>
+                     <productDatasource datasource="">internal</productDatasource>
+                     <lineItemDetail>
+                        <detailType>product</detailType>
+                        <detail>
+                           <productLineItem>
+                              <externalId>DISH-TRIAL-NEW</externalId>
+                              <productCategoryList>
+                                 <productCategory displayName="satellite"/>
+                              </productCategoryList>
+                              <provider externalId="18063259" name="">
+                                 <source datasource="">internal</source>
+                              </provider>
+                              <priceInfo>
+                                 <baseNonRecurringPrice>0.0</baseNonRecurringPrice>
+                                 <baseRecurringPrice>0.0</baseRecurringPrice>
+                              </priceInfo>
+                           </productLineItem>
+                        </detail>
+                        <selectedFeatures>
+						<features>
+							<featureValue externalId="PSIE1" value="111" type="string"/>
+							<featureValue externalId="PSIE2" value="222" type="string"/>
+						</features>
+						</selectedFeatures>
+                     </lineItemDetail>
+                     <service>BUSINESS</service>
+                     <creditStatus>Approved</creditStatus>
+                     <svcAddressExtId>87187</svcAddressExtId>
+                     <billingInfoExtId>76835</billingInfoExtId>
+                     <lineItemPriceInfo>
+                        <baseNonRecurringPrice>0.0</baseNonRecurringPrice>
+                        <baseRecurringPrice>0.0</baseRecurringPrice>
+                        <priceInfoStatus>
+                           <statusCode>0</statusCode>
+                        </priceInfoStatus>
+                        <pricingDate>2012-08-13T02:25:36.013-04:00</pricingDate>
+                     </lineItemPriceInfo>
+                     <notificationEvents>
+                        <event source="Accord">
+                           <reason>123428</reason>
+                           <comment>Problems</comment>
+                        </event>
+                        <event source="Accord">
+                           <reason>123423</reason>
+                           <comment>Summary</comment>
+                        </event>
+                        <event source="Accord">
+                           <reason>590</reason>
+                           <comment>Status</comment>
+                        </event>
+                     </notificationEvents>
+                     <selectedFeatures/>
+                     <lineItemStatus statusCode="processing_schedule_pending"/>
+                  </lineItem>
+               </lineItems>
+               <source>Accord</source>
+               <orderDate xsi:nil="true"/>
+               <associatedWithMove>true</associatedWithMove>
+               <customerInformation>
+                  <action>referenceCustomer</action>
+                  <customer>
+                     <externalId>87926</externalId>
+                  </customer>
+               </customerInformation>
+               <agentId>default</agentId>
+               <totalPriceInfo>
+                  <baseNonRecurringPrice>0.0</baseNonRecurringPrice>
+                  <baseRecurringPrice>0.0</baseRecurringPrice>
+               </totalPriceInfo>
+            </orderInfo>
+         </request>
+      </orderManagementRequestResponse>

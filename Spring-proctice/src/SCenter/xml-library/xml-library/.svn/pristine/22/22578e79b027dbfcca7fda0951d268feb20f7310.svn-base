@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions
+    name="WebServiceProxyService" 
+    targetNamespace="http://xml.A.com/v3" 
+	xmlns:tns="http://xml.A.com/v3" 
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+	xmlns:ns1="http://schemas.xmlsoap.org/soap/http" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:ac="http://xml.A.com/v3" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+	
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://xml.A.com/v3" >
+			<xsd:include schemaLocation="http://xml.A.com/v3/couponPromoManagement.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="CouponPromoRequestResponseMessage">
+		<wsdl:part name="parameters" element="ac:couponPromoRequestResponse" />
+	</wsdl:message>
+	<wsdl:portType name="WebServiceProxyServicePortType">
+		<wsdl:operation name="GetCoupon">
+			<wsdl:input name="couponRequest" message="ac:CouponPromoRequestResponseMessage" />
+			<wsdl:output name="couponResponse" message="ac:CouponPromoRequestResponseMessage" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="WebServiceProxyServiceSoapBinding" type="ac:WebServiceProxyServicePortType">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="GetCoupon">
+			<soap:operation soapAction="http://sgdv1vm3.A.com:8802/services/coupon" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="WebServiceProxyService">
+		<wsdl:port name="WebServiceProxyServicePort" binding="ac:WebServiceProxyServiceSoapBinding">
+			<soap:address location="http://sgdv1vm3.A.com:8802/services/coupon" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

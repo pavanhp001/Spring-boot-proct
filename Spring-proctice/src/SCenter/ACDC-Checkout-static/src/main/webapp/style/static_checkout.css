@@ -1,0 +1,41 @@
+/*@media (min-width: 1053px) {*/
+@media only screen {
+	body .container-fluid {
+	    margin: 0;
+	    padding: 0;
+	}
+	.popover {font-size:0.8em}
+	.popover strong{display:block}
+	.popover-content {
+	    word-wrap: break-word;
+	}
+	/* Content */
+	#left_sec_content {width: 100%;}
+	#left_sec_content #customizations .cust_title h3 {margin: 0;}
+	#left_sec_content #customizations .next_step a{
+		width:165px;height:34px;background-color:#81bd41;color:#fff;display:table-cell;vertical-align:middle;
+		text-align:center;font-size: 18px;font-weight:bold;border-radius: 5px;text-decoration:none;
+	}
+	#left_sec_content .home-services-options {display: block;}
+	#left_sec_content #bottom-footer .prev_step a{color:#1f678f;text-align:left;font-size: 13px;font-weight:normal;text-decoration:underline; cursor: pointer;}
+	#left_sec_content #bottom-footer .prev_step a:hover{text-decoration:none;}
+	
+	#left_sec_content #bottom-footer .next_step a{
+		width:165px;height:34px;background-color:#81bd41;color:#fff;display:table-cell;vertical-align:middle;
+		text-align:center;font-size: 18px;font-weight:bold;border-radius: 5px;text-decoration:none;
+	}
+	#left_sec_content form {
+	    width: 100%;
+	}	
+	.feature_item_Value {
+		/*margin: 0 5px;*/
+		padding: 5px;
+		width: 57%;
+	}
+	ui.nav.nav-tabs li {
+	    margin-right: 8px;margin-bottom: 10px !important;
+	}
+	#left_sec_content .confirm-order-details address {
+	    margin-bottom: 0;
+	}
+}

@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+
+<tiles-definitions>
+
+	<!-- ############################################################################################# -->
+	<!-- ##########################  Shopping-cart Layout Mapping Starts  ############################ -->
+	<!-- ############################################################################################# -->
+	
+	<!-- Order Summary Layout -->
+	<definition name="cart.base.definition.summary"
+		template="/WEB-INF/jsp/common/layout/layout_summary.jsp">
+		<put-attribute name="product_menu_content"
+			value="/WEB-INF/jsp/cart/component/product_menu_content.jsp" />
+		<put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="realtime_content" value="/WEB-INF/jsp/sales/realtimecontent.jsp" />
+	</definition>
+	
+	<!-- CKO and Utility Offer Page Layout -->
+	<definition name="cart.base.definition.CKO"
+		template="/WEB-INF/jsp/common/layout/layout_CKO.jsp">
+		<put-attribute name="product_menu_content"
+			value="/WEB-INF/jsp/cart/component/product_menu_content.jsp" />
+		<put-attribute name="cust_summary_content"
+			value="/WEB-INF/jsp/cart/component/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/jsp/cart/component/customer_summary_quick.jsp" />
+	</definition>
+
+	<!-- Order Recap Layout -->
+	<definition name="cart.base.definition.orderquick"
+		template="/WEB-INF/jsp/common/layout/layout_orderquick.jsp">
+		<put-attribute name="product_menu_content"
+			value="/WEB-INF/jsp/cart/component/product_menu_content.jsp" />
+		<put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="realtime_content" value="/WEB-INF/jsp/sales/realtimecontent.jsp" />	
+	</definition>
+
+	<!-- Close Call Sale Layout -->
+	<definition name="cart.base.definition.closeCallSale"
+		template="/WEB-INF/jsp/common/layout/layout_closeCallSale.jsp">
+	</definition>
+	
+	<!-- Reference  Mapping -->
+	<definition name="main.definition"
+		template="/WEB-INF/jsp/common/layout/layout_main.jsp">
+	</definition>
+	
+	<definition name="cart.base.definition.login"
+		template="/WEB-INF/jsp/common/layout/layout_login.jsp">
+	</definition>
+	
+	<definition name="cart.base.definition" template="/WEB-INF/jsp/common/layout/layout.jsp">
+		<put-attribute name="product_menu_content"
+			value="/WEB-INF/jsp/cart/component/product_menu_content.jsp" />
+	</definition>
+	
+	<!-- ############################################################################################# -->
+	<!-- ##########################  Shopping-cart Layout Mapping Ends  ############################ -->
+	<!-- ############################################################################################# -->
+	
+	<!-- ############################################################################################# -->
+	<!-- #############################  Shopping-Cart Mapping Starts  ################################ -->
+	<!-- ############################################################################################# -->
+	
+	<!-- Order Summary Page	-->
+	<definition name="cart.summary" extends="cart.base.definition.summary">
+		<put-attribute name="main_content"
+			value="/WEB-INF/jsp/cart/order_summary.jsp" />
+		<put-attribute name="cust_summary_content"
+			value="/WEB-INF/jsp/cart/component/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/jsp/cart/component/customer_summary_quick.jsp" />
+	</definition>
+	
+	<!-- CKO and Utility Offer Page -->
+	<definition name="cart.CKO_start" extends="cart.base.definition.summary">
+		<put-attribute name="main_content"
+			value="/WEB-INF/jsp/cart/CKO_container.jsp" />
+		<put-attribute name="cust_summary_content"
+			value="/WEB-INF/jsp/cart/component/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/jsp/cart/component/customer_summary_quick.jsp" />	
+	</definition>
+	
+	<!-- Order Recap Page -->
+	<definition name="cart.recap" extends="cart.base.definition.orderquick">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/cart/order_recap.jsp" />
+		<put-attribute name="product_menu_content"
+			value="/WEB-INF/jsp/cart/component/product_menu_content.jsp" />		
+		<put-attribute name="cust_summary_content"
+			value="/WEB-INF/jsp/cart/component/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/jsp/cart/component/customer_summary_quick.jsp" />
+	</definition>
+	
+	<!-- Close Call Sale Page -->
+	<definition name="cart.conclusion" extends="cart.base.definition.closeCallSale">
+		<put-attribute name="main_content"
+			value="/WEB-INF/jsp/cart/order_conclusion.jsp" />
+		<put-attribute name="cust_summary_content"
+			value="/WEB-INF/jsp/cart/component/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/jsp/cart/component/customer_summary_quick.jsp" />
+	</definition>
+	
+	<!-- SysInfo Page -->
+	<definition name="sysinfo" extends="cart.base.definition.login">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/cart/sysinfo.jsp" />
+	</definition>
+	
+	<!-- ############################################################################################# -->
+	<!-- #############################  Shopping-Cart Mapping Ends  ################################ -->
+	<!-- ############################################################################################# -->
+	
+	
+	
+	<!-- ############################################################################################# -->
+	<!-- ###################################  Unused Mappings  ################################## -->
+	<!-- ############################################################################################# -->
+	
+	<definition name="cart.base.definition.empty"
+		template="/WEB-INF/jsp/common/layout/layout_empty.jsp">
+	</definition>
+	
+	<definition name="cart.disposition" extends="sales.base.definition.nonav">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/sales/dispositions.jsp" />
+	</definition>
+	
+	<definition name="cart.conclusionNext" 
+	template="/WEB-INF/jsp/cart/page.jsp">
+	</definition>
+
+	<definition name="cart.base.definition.lineItem"
+		template="/WEB-INF/jsp/common/layout/layout_lineItem.jsp">
+		<put-attribute name="product_menu_content"
+			value="/WEB-INF/jsp/cart/component/product_menu_content.jsp" />
+	</definition>
+
+	<definition name="cart.CKO_mock_content" extends="cart.base.definition.empty">
+		<put-attribute name="main_content"
+			value="/WEB-INF/jsp/cart/CKO_mock/CKO_mock_content.jsp" />
+	</definition>
+
+	<definition name="cart.CKO_mock" extends="cart.base.definition">
+		<put-attribute name="main_content"
+			value="/WEB-INF/jsp/cart/CKO_mock/mock.jsp" />
+	</definition>
+
+	<definition name="cart.provider" extends="cart.base.definition">
+		<put-attribute name="main_content"
+			value="/WEB-INF/jsp/cart/provider_list_content.jsp" />
+	</definition>
+
+	<definition name="cart.submit" extends="cart.base.definition.summary">
+		<put-attribute name="main_content"
+			value="/WEB-INF/jsp/cart/order_summary.jsp" />
+		<put-attribute name="cust_summary_content"
+			value="/WEB-INF/jsp/cart/component/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/jsp/cart/component/customer_summary_quick.jsp" />
+	</definition>
+
+
+	<definition name="cart.postsubmit" extends="cart.base.definition.summary">
+		<put-attribute name="main_content"
+			value="/WEB-INF/jsp/cart/order_summary.jsp" />
+		<put-attribute name="cust_summary_content"
+			value="/WEB-INF/jsp/cart/component/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/jsp/cart/component/customer_summary_quick.jsp" />
+	</definition>
+
+	<definition name="cart.create_customer" extends="cart.base.definition.summary">
+		<put-attribute name="main_content"
+			value="/WEB-INF/jsp/cart/order_summary.jsp" />
+		<put-attribute name="cust_summary_content"
+			value="/WEB-INF/jsp/cart/component/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/jsp/cart/component/customer_summary_quick.jsp" />
+	</definition>
+
+	<definition name="cart.create_order" extends="cart.base.definition.summary">
+		<put-attribute name="main_content"
+			value="/WEB-INF/jsp/cart/order_summary.jsp" />
+		<put-attribute name="cust_summary_content"
+			value="/WEB-INF/jsp/cart/component/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/jsp/cart/component/customer_summary_quick.jsp" />
+	</definition>
+
+	<definition name="cart.address" extends="cart.base.definition.summary">
+		<put-attribute name="main_content"
+			value="/WEB-INF/jsp/cart/order_summary.jsp" />
+		<put-attribute name="cust_summary_content"
+			value="/WEB-INF/jsp/cart/component/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/jsp/cart/component/customer_summary_quick.jsp" />
+	</definition>
+
+	<definition name="cart.get_order" extends="cart.base.definition">
+		<put-attribute name="main_content"
+			value="/WEB-INF/jsp/cart/order_get_content.jsp" />
+	</definition>
+
+	<definition name="cart.get_customer" extends="cart.base.definition.summary">
+		<put-attribute name="main_content"
+			value="/WEB-INF/jsp/cart/order_summary.jsp" />
+		<put-attribute name="cust_summary_content"
+			value="/WEB-INF/jsp/cart/component/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/jsp/cart/component/customer_summary_quick.jsp" />
+	</definition>
+
+	<definition name="cart.postsubmit" extends="cart.base.definition.summary">
+		<put-attribute name="main_content"
+			value="/WEB-INF/jsp/cart/order_summary.jsp" />
+		<put-attribute name="cust_summary_content"
+			value="/WEB-INF/jsp/cart/component/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/jsp/cart/component/customer_summary_quick.jsp" />
+	</definition>
+
+	<definition name="cart.customer" extends="cart.base.definition">
+		<put-attribute name="main_content"
+			value="/WEB-INF/jsp/cart/customer_create.jsp" />
+	</definition>
+
+	<definition name="cart.addAddress" extends="cart.base.definition">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/cart/address.jsp" />
+	</definition>
+
+	<definition name="cart.cart_login" extends="cart.base.definition.login">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/cart/cartLogin.jsp" />
+	</definition>
+
+	<definition name="cart.show" extends="cart.base.definition">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/cart/showDetails.jsp" />
+	</definition>
+
+	<definition name="cart.profile" extends="cart.base.definition">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/cart/cust_profile.jsp" />
+	</definition>
+
+
+	<definition name="cart.addOrder" extends="cart.base.definition">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/cart/addOrder.jsp" />
+	</definition>
+
+
+	<definition name="cart.addLineItem" extends="main.definition">
+		<put-attribute name="product_menu_content"
+			value="/WEB-INF/jsp/cart/component/product_menu_content.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/jsp/cart/addLineItem.jsp" />
+		<put-attribute name="cust_summary_content"
+			value="/WEB-INF/jsp/cart/component/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/jsp/cart/component/customer_summary_quick.jsp" />
+	</definition>
+	
+	
+
+</tiles-definitions>

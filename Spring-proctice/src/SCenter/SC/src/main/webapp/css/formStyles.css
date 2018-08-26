@@ -1,0 +1,513 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* ---- search form style ---*/
+.searchform {
+    background: -moz-linear-gradient(center top , #FFFFFF, #EDEDED) repeat scroll 0 0 transparent;
+    border: 1px solid #D2D2D2;
+    border-radius: 15px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin-top: 2px;
+	padding: 1px 2px;
+	/*border: 1px solid purple;*/
+}
+.searchform .searchfield {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #BCBBBB;
+    border-radius: 15px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+    outline: medium none;
+    padding: 2px 2px 2px 3px;
+    width: 102px;
+	height: 10px;
+	/*border: 1px solid purple;*/
+}
+
+.searchform input {
+    	font: 9.5px/100% Arial,Helvetica,sans-serif;
+		color: #757575; 
+}
+.searchform .searchbutton {
+    background: -moz-linear-gradient(center top , #9E9E9E, #454545) repeat scroll 0 0 transparent;
+    border: 1px solid #494949;
+    border-radius: 15px;
+    color: #FFFFFF;
+    font-size: 9.5px;
+    height: 20px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
+    width: 20px;
+}
+.formQuestions {
+	font-size: 12px;
+}
+.discoveryQuestionsForm {
+	float: left;
+	margin-top: 5px;
+	/*border: 1px solid purple;	*/
+}
+.basicInformationForm
+{
+margin: 15px 5px 5px 5px;
+width: 643px;
+/*height: 360px;*/
+/*border: 1px solid red;*/	
+}
+
+.BasicInformationFormFieldSet
+{
+width: 643px;	
+background: #f8f8f8;
+}
+
+.searchform input{	
+	padding: 0px;
+	margin: 0px;
+}
+input.blur {
+  color:#808080;
+  border: 1px solid #686868;
+}
+select  {
+	color: #808080;	
+	border: 1px solid #686868;
+}
+select option{
+	color: #262626;
+}
+input {
+min-height: 20px;	
+}
+
+/* --- buttons ----*/
+
+input.css3button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8px;
+	color: #fff;
+	padding: 2px 5px;
+	background: -moz-linear-gradient(
+		top,
+		#ffffff 0%,
+		#fa2525 50%,
+		#e63427 50%,
+		#b40c06);
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#ffffff),
+		color-stop(0.50, #fa2525),
+		color-stop(0.50, #e63427),
+		to(#b40c06));
+		border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border: 1px solid #eb7373;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,1);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,1);
+	box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,1);
+	text-shadow:
+		0px -1px 0px rgba(000,000,000,0.2),
+		0px 1px 0px rgba(89,89,89,0.4);
+		cursor: pointer;
+}
+
+.ViewDetailsBtn, .ViewDetailsBtn:link {
+	float: left;
+	margin: 10px 5px 5px 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8px;
+	color: #224395;
+	padding: 2px 5px;
+	/*background: #224395;*/
+	border: 1px solid #2c3b60;
+	text-shadow:
+		0px -1px 0px rgba(48,48,48,0.2),
+		0px 1px 0px rgba(48,48,48,0.4);
+		cursor: pointer;
+}
+input.ViewInformation {
+	float: left;
+	margin-top: 5px;
+	margin-left: 10px;
+	margin-bottom: 5px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #404040;
+	padding: 2px 5px;
+	background: #ededed;
+	border: 1px solid #686767;
+	text-shadow:
+		0px -1px 0px rgba(255,255,255,0.2),
+		0px 1px 0px rgba(255,255,255,0.4);
+		cursor: pointer;
+}
+.placeOrderBtn {
+	float: left;
+	margin-top: 0px;
+	margin-bottom: 3px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9.5px;
+	color: #1f1f1f;
+	padding: 3px;
+	background: #fff;
+	border-radius: 5px;
+	border: 1px solid #bcbdbc;
+	text-shadow:
+		0px -1px 0px rgba(203,203,203,0.2),
+		0px 1px 0px rgba(203,203,203,0.4);
+		cursor: pointer;
+}
+.whitebuttons{
+	float: left;
+	margin-top: 0px;
+	margin-bottom: 3px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9.5px;
+	color: #1f1f1f;
+	padding: 3px;
+	background: #fff;
+	border-radius: 5px;
+	border: 1px solid #bcbdbc;
+	text-shadow:
+		0px -1px 0px rgba(203,203,203,0.2),
+		0px 1px 0px rgba(203,203,203,0.4);
+		cursor: pointer;
+   background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#e3e0e3));
+   background: -webkit-linear-gradient(top, #ffffff, #e3e0e3);
+   background: -moz-linear-gradient(top, #ffffff, #e3e0e3);
+   background: -ms-linear-gradient(top, #ffffff, #e3e0e3);
+   background: -o-linear-gradient(top, #ffffff, #e3e0e3);}
+.buttonRight{
+float: right; margin: 0px 5px; padding: 2px; 	
+}
+.whitebuttonsSmall{
+	float: left;
+	margin-top: 0px;
+	margin-bottom: 3px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8.5px;
+	color: #1f1f1f;
+	padding: 3px;
+	background: #fff;
+	border-radius: 5px;
+	border: 1px solid #bcbdbc;
+	text-shadow:
+		0px -1px 0px rgba(203,203,203,0.2),
+		0px 1px 0px rgba(203,203,203,0.4);
+		cursor: pointer;
+   background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#e3e0e3));
+   background: -webkit-linear-gradient(top, #ffffff, #e3e0e3);
+   background: -moz-linear-gradient(top, #ffffff, #e3e0e3);
+   background: -ms-linear-gradient(top, #ffffff, #e3e0e3);
+   background: -o-linear-gradient(top, #ffffff, #e3e0e3);}
+.pp_form {
+float: left; 
+margin: 0px 5px; 
+padding: 2px; 
+/*border: 1px solid green;	*/
+}
+.pp_checkbox {
+float: left;
+display: block;
+/*border: 1px solid blue;*/
+}
+.ViewDetailsBtn {
+clear: left;
+margin-top: -4px;
+padding: 0px; 
+display: block;
+background: none; 
+border: 0px solid transparent; 
+text-decoration: underline;
+text-shadow:none;
+font-size: 10px;
+/*border: 1px solid green;	*/
+}
+input.addtoorderbtn {
+	margin-bottom: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9.5px;
+	color: #fff;
+	padding: 2px 5px;
+	background: #007930; 
+	border: 1px solid #395427;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,1);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,1);
+	box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,1);
+	text-shadow:
+		0px -1px 0px rgba(000,000,000,0.2),
+		0px 1px 0px rgba(89,89,89,0.4);
+		cursor: pointer;
+}
+
+.addtoorder{
+/*float: left;
+padding: 0;
+margin: 3px 5px 0px 510px;*/
+/*border: 1px solid purple;*/	
+}
+.actionbuttons {
+float: left;
+padding: 0;
+margin: 3px 5px 0px 410px;
+/*border: 1px solid purple;*/	
+}
+/* --- text boxes ----*/
+
+
+/* -- login --*/
+
+#login {
+    background-color: #fff;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
+    background-image: -webkit-linear-gradient(top, #fff, #eee);
+    background-image: -moz-linear-gradient(top, #fff, #eee);
+    background-image: -ms-linear-gradient(top, #fff, #eee);
+    background-image: -o-linear-gradient(top, #fff, #eee);
+    background-image: linear-gradient(top, #fff, #eee);  
+    height: 240px;
+    width: 400px;
+    margin: -150px 0 0 -230px;
+    padding: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 0;
+    -webkit-box-shadow:
+          0 0 2px rgba(0, 0, 0, 0.2),
+          0 1px 1px rgba(0, 0, 0, .2),
+          0 3px 0 #fff,
+          0 4px 0 rgba(0, 0, 0, .2),
+          0 6px 0 #fff,  
+          0 7px 0 rgba(0, 0, 0, .2);
+    -moz-box-shadow:
+          0 0 2px rgba(0, 0, 0, 0.2),  
+          1px 1px   0 rgba(0,   0,   0,   .1),
+          3px 3px   0 rgba(255, 255, 255, 1),
+          4px 4px   0 rgba(0,   0,   0,   .1),
+          6px 6px   0 rgba(255, 255, 255, 1),  
+          7px 7px   0 rgba(0,   0,   0,   .1);
+    box-shadow:
+          0 0 2px rgba(0, 0, 0, 0.2),  
+          0 1px 1px rgba(0, 0, 0, .2),
+          0 3px 0 #fff,
+          0 4px 0 rgba(0, 0, 0, .2),
+          0 6px 0 #fff,  
+          0 7px 0 rgba(0, 0, 0, .2);
+}
+
+#login:before
+{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    border: 1px solid #ccc;
+    top: 5px;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    -moz-box-shadow: 0 0 0 1px #fff;
+    -webkit-box-shadow: 0 0 0 1px #fff;
+    box-shadow: 0 0 0 1px #fff;
+}
+
+#inputs input
+{
+    background: #f1f1f1 url(../images/img/login-sprite.png) no-repeat;
+    padding: 15px 15px 15px 30px !important;
+    margin: 0 0 10px 0 !important;
+    width: 353px; /* 353 + 2 + 45 = 400 */
+    border: 1px solid #ccc;
+    -moz-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+    -webkit-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+    box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+}
+
+fieldset#inputs {
+    padding: 0px;
+    margin: 0px;
+}
+
+#inputs{ border: 0px solid transparent;}
+
+#username
+{
+    background-position: 5px -2px !important;
+}
+
+#password
+{
+    background-position: 5px -52px !important;
+}
+
+#inputs input:focus
+{
+    background-color: #fff;
+    border-color: #71b26e;
+    outline: none;
+    -moz-box-shadow: 0 0 0 1px #b0cbac inset;
+    -webkit-box-shadow: 0 0 0 1px #b0cbac inset;
+    box-shadow: 0 0 0 1px #b0cbac inset;
+}
+#actions
+{
+    margin: 25px 0 0 0;
+	border: 0px solid transparent;
+}
+
+#submit
+{		
+    background-color: #c2ff4b;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#96c43d), to(#c2ff4b));
+    background-image: -webkit-linear-gradient(top, #96c43d, #c2ff4b);
+    background-image: -moz-linear-gradient(top, #96c43d, #c2ff4b);
+    background-image: -ms-linear-gradient(top, #96c43d, #c2ff4b);
+    background-image: -o-linear-gradient(top, #96c43d, #c2ff4b);
+    background-image: linear-gradient(top, #96c43d, #c2ff4b);
+    
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    
+     -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+     -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+     box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;    
+    
+    border-width: 1px;
+    border-style: solid;
+    border-color: #31d639 #80e337 #3c6838 #3d8a04;
+
+    float: left;
+    height: 35px;
+    padding: 0;
+    width: 120px;
+    cursor: pointer;
+    font: bold 15px Arial, Helvetica, sans-serif;
+
+    color: #7c7341;
+
+}
+
+
+#submit:hover,#submit:focus
+{		
+    background-color: #96c43d;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#c2ff4b), to(#96c43d));
+    background-image: -webkit-linear-gradient(top, #c2ff4b, #96c43d);
+    background-image: -moz-linear-gradient(top, #c2ff4b, #96c43d);
+    background-image: -ms-linear-gradient(top, #c2ff4b, #96c43d);
+    background-image: -o-linear-gradient(top, #c2ff4b, #96c43d);
+    background-image: linear-gradient(top, #c2ff4b, #96c43d);
+}	
+
+#submit:active
+{		
+    outline: none;
+   
+     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+     -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;		
+}
+
+#submit::-moz-focus-inner
+{
+  border: none;
+}
+
+#actions a
+{
+    color: #3151A2;    
+    float: right;
+    line-height: 35px;
+    margin-left: 10px;
+}
+
+#back
+{
+    display: block;
+    text-align: center;
+    position: relative;
+    top: 60px;
+    color: #999;
+}
+
+
+/*--------------------*/
+
+/* -- Basic Information --*/
+ .addressfield {
+resize: horizontal;
+ overflow: auto;
+ min-width: 500px;
+ /*border: 1px solid red;*/
+}
+/* -- discovery --*/
+
+.DiscoveryFormFieldSet
+{
+background: #f8f8f8;
+}
+.labelblock {
+float: left;
+margin: 0; 
+width: 646px;	
+/*border: 1px solid red;*/
+}
+.labelrow {
+float: left;
+min-height: 20px;
+white-space: normal;
+font-size: 12px;
+/*border: 1px solid green;*/	
+}
+.labelrowinput {
+float: right;
+width: 200px;
+white-space: normal;
+font-size: 12px;
+padding-left: 5px;
+/*border: 1px solid purple;*/	
+}
+.labelrowinputGrouping {
+float: right;
+width: 250px;
+white-space: normal;
+font-size: 12px;
+padding-left: 5px;
+margin-bottom: 3px;
+/*border: 1px solid purple;*/	
+}
+.groupedInput {
+float: right; 
+width: 270px;
+/* border: 1px solid green;*/
+ }
+.inputblock {
+float: left; 
+width: 42%;	
+/*border: 1px solid purple;*/ 
+}
+input.checkbox {
+float: left;
+/*border: 1px solid blue;*/
+}
+.rowgroup {
+float: left; 
+border: 1px solid #d3d3d4;
+width: 100%;
+}
+

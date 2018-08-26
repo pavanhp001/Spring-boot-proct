@@ -1,0 +1,1219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+    elementFormDefault="qualified" targetNamespace="http://xml.A.com/v4"
+    xmlns:ac="http://xml.A.com/v4" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:comm="http://xml.A.com/common">
+
+    <xs:include schemaLocation="order.xsd" />
+    <xs:include schemaLocation="types.xsd" />
+    <xs:include schemaLocation="product.xsd" />
+    <xs:import schemaLocation="common.xsd" namespace="http://xml.A.com/common" />
+
+    <xs:complexType name="transientRequestContainerType">
+        <xs:sequence>
+            <xs:element name="transientRequest" type="ac:transientRequestType"
+                minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="transientResponseContainerType">
+        <xs:sequence>
+            <xs:element name="transientResponse" type="ac:transientResponseType"
+                minOccurs="0" maxOccurs="1" />
+
+            <xs:element name="lineItemId" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="transientRequestType">
+        <xs:annotation>
+            <xs:documentation>
+                Data used to process an order but not part of an
+                order. Request.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:annotation>
+                <xs:documentation>
+                    list of available phone numbers
+                </xs:documentation>
+            </xs:annotation>
+            <xs:element name="providerRequestContainer" type="ac:ProviderRequestContainer"
+                minOccurs="0"/>
+            <xs:element name="action" type="xs:string" minOccurs="0"
+                maxOccurs="1" />
+            <xs:element name="lineItemNumber" type="xs:int" minOccurs="0"
+                maxOccurs="1" />
+            <xs:element name="requestedPhone" type="ac:valuelist"
+                minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="promotionId" type="xs:string" minOccurs="0"
+                maxOccurs="unbounded" />
+            <xs:element name="tvSelect" type="ac:TvSelect" minOccurs="0"
+                maxOccurs="1" />
+            <xs:element name="securityInfo" type="ac:SecurityInfo"
+                minOccurs="0" />
+            <xs:element name="availableConnections" type="ac:AvailableConnections"
+                minOccurs="0" />
+            <xs:element name="workOrderNote" type="ac:WorkOrderNote"
+                minOccurs="0" />
+            <xs:element name="accountNote" type="ac:AccountNote"
+                minOccurs="0" />
+            <xs:element name="billLanguage" type="ac:BillLanguage"
+                minOccurs="0" />
+            <xs:element name="webClaimId" type="xs:string" minOccurs="0" />
+            <xs:element name="sellerId" type="ac:SellerId" minOccurs="0" />
+            <xs:element name="billingCycleDay" type="xs:int"
+                minOccurs="0" />
+            <xs:element name="dISHCinemaSelected" type="xs:boolean"
+                minOccurs="0" />
+            <xs:element name="conversationId" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="completeCreditCheck" type="xs:boolean"
+                minOccurs="0" />
+            <xs:element name="NewsletterSelected" type="xs:boolean"
+                minOccurs="0" nillable="true" />
+            <xs:element name="scheduleDate" type="ac:ScheduleDateType"
+                minOccurs="0" />           
+            <xs:element name="customerCode" type="xs:string" minOccurs="0" />
+            <xs:element name="termsAndConditions" type="ac:TermsAndConditionsType" minOccurs="0" />
+            <xs:element name="dishEquipmentSolutionSelectionName" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="dishPromotionId" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="dishProgrammingValidFlag" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="dishConfigurationName" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="tvConstraints" type="ac:TvConstraints"
+                minOccurs="0" />
+			<xs:element name="receiversSolution" type="ac:ReceiversSolution"
+                minOccurs="1"/>
+            <xs:element name="creditQualificationFlag" type="xs:boolean"
+                minOccurs="0" />
+             <xs:element name="leadId" type="xs:string"
+                minOccurs="0" />
+             <xs:element name="promotionInfo" type="ac:PromoDescription" minOccurs="0"
+                maxOccurs="unbounded" />
+             <xs:element name="energyProduct" type="ac:EnergyProduct" minOccurs="0" maxOccurs="1"/>
+             <xs:element name="lineItems" type="ac:lineItemCollectionType" minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+   
+    <xs:complexType name="transientResponseType">
+        <xs:annotation>
+            <xs:documentation>
+                Data used to process an order but not part of an
+                order. Response
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:annotation>
+                <xs:documentation>
+                    Suggested Phone Numbers from the provider.
+                    Confirmed Phone number from the provider.
+                    List of products available
+                    from the provider.
+                </xs:documentation>
+            </xs:annotation>
+            <xs:element name="providerResponseContainer" type="ac:ProviderResponseContainer"
+                minOccurs="0"/>
+            <xs:element name="orderNumber" type="xs:string" minOccurs="0"/>
+            <xs:element name="suggestedPhone" type="ac:valuelist"
+                minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="confirmedPhone" type="ac:valuelist"
+                minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="product" type="ac:orderLineItemDetailTypeType"
+                minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="qualificationFlag" type="xs:boolean"
+                minOccurs="0" />
+            <xs:element name="programmingValidFlag" type="xs:boolean"
+                minOccurs="0" />
+            <xs:element name="customerType" type="xs:string"
+                minOccurs="0" />
+            <xs:element name="dishPromotionId" type="xs:string" minOccurs="0" maxOccurs="1" />
+
+            <xs:element name="conversationId" type="xs:string" minOccurs="0" maxOccurs="1" />
+
+            <xs:element name="productInfo" type="ac:ProductInfo"
+                minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="tvConstraints" type="ac:TvConstraints"
+                minOccurs="0" />
+            <xs:element name="receiver" type="ac:Receiver" minOccurs="0"
+                maxOccurs="unbounded" />
+            <xs:element name="priceInfo" type="ac:PriceInfo"
+                minOccurs="0" />
+            <xs:element name="dISHConfiguration" type="xs:string"
+                minOccurs="0" />
+            <xs:element name="creditQualResponse" type="ac:CreditQualResponseInfo"
+                minOccurs="0" maxOccurs="1"/>
+            <xs:element name="orderQualResponse" type="ac:OrderQualResponseInfo"
+                minOccurs="0" maxOccurs="1"/>
+            <xs:element name="submitOrderResponse" type="ac:SubmitOrderResponseInfo"
+                minOccurs="0" maxOccurs="1"/>
+            <xs:element name="scheduleDate" type="ac:ScheduleDateType"
+                minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="providerLineItemStatus" type="ac:providerLineItemStatusType"
+                minOccurs="1" maxOccurs="1" />
+            <xs:element name="termsAndConditions" type="ac:TermsAndConditionsType"
+                minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="customerOrderInfo" type="ac:CustomerOrderInfo"
+                minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="equipmentBundleInfo" type="ac:EquipmentBundleInfo"
+                minOccurs="0" maxOccurs="1" />
+             <xs:element name="receiversSolution" type="ac:ReceiversSolution"
+                minOccurs="1"/>
+            <xs:element name="equipmentSolutionInfo" type="ac:EquipmentSolutionInfo"
+                minOccurs="1" maxOccurs="unbounded" />
+            <xs:element name="productBundleInfo" type="ac:ProductBundleInfo"
+                minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="authenticateCustomerResponse" type="ac:AuthenticateCustomerResponseInfo"
+                minOccurs="0" maxOccurs="1"/>
+            <xs:element name="rtimErrorCode" type="xs:string"
+                minOccurs="0" />
+            <xs:element name="alternatePromotions" type="ac:AlternatePromotion"
+                minOccurs="0"  maxOccurs="1"/>
+			<xs:element name="leadId" type="xs:string"
+                minOccurs="0" />
+             <xs:element name="receiverSelectionValid" type="xs:boolean"
+                minOccurs="0" />
+             <xs:element name="promotionInfo" type="ac:PromoDescription" minOccurs="0"
+                maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CustomerOrderInfo">
+        <xs:annotation>
+            <xs:documentation>
+                ATT STI Customer CreditInfo, Disposition and Product Scheduling Information.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="OrderCustomizations" type="ac:customizationType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="Disposition" type="ac:Disposition" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="ProductSchedule" type="ac:ProductSchedule" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CreditDetails">
+        <xs:sequence>
+            <xs:element name="CreditDetail" type="ac:CreditDetail" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CreditDetail">
+        <xs:sequence>
+            <xs:element name="CustomizationCode" type="xs:string" minOccurs="1"/>
+            <xs:element name="Name" type="xs:string" minOccurs="0"/>
+            <xs:element name="ShortDescription" type="xs:string" minOccurs="0"/>
+            <xs:element name="LongDescription" type="xs:string" minOccurs="0"/>
+            <xs:element name="GroupName" type="xs:string" minOccurs="0"/>
+            <xs:element name="Schedule" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Choices" type="ac:CreditOptions" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="MinChoices" type="xs:nonNegativeInteger" minOccurs="0"/>
+            <xs:element name="MaxChoices" type="xs:nonNegativeInteger" minOccurs="0"/>
+            <xs:element name="CustomizationType" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="required" type="xs:boolean" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="CreditOptions">
+        <xs:sequence>
+            <xs:element name="ChoiceCode" type="xs:string"/>
+            <xs:element name="Name" type="xs:string"/>
+            <xs:element name="USOC" type="xs:string"/>
+            <xs:element name="PaymentType" type="ac:PaymentUniqueId" minOccurs="0"/>
+            <xs:element name="ShortDescription" type="xs:string" minOccurs="0"/>
+            <xs:element name="LongDescription" type="xs:string" minOccurs="0"/>
+            <xs:element name="Fees" type="ac:CreditFees" minOccurs="0"/>
+            <xs:element name="ChoiceType">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="OptionalPackage"/>
+                        <xs:enumeration value="Equipment"/>
+                        <xs:enumeration value="Credit"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="CreditDetails" type="ac:CreditDetails" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="PaymentUniqueId">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ADVANCED"/>
+            <xs:enumeration value="AUTO"/>
+            <xs:enumeration value="DEPOSIT"/>
+            <xs:enumeration value="ONETIME"/>
+            <xs:enumeration value="ONETIME_DTV"/>
+            <xs:enumeration value="RECURRING"/>
+            <xs:enumeration value="OUTSTANDING_BALANCE"/>
+            <xs:enumeration value="EQUIPMENT"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="CreditFees">
+        <xs:sequence>
+            <xs:element name="Fee" type="xs:decimal"/>
+            <xs:element name="FeeTerm" minOccurs="0" type="xs:string"/>
+            <xs:element name="Description" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="ProductCategory">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="LocalPhone"/>
+            <xs:enumeration value="DSL"/>
+            <xs:enumeration value="DTV"/>
+            <xs:enumeration value="Wireless"/>
+            <xs:enumeration value="Fiber"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="Disposition">
+        <xs:sequence>
+            <xs:element name="MasterState" type="ac:OrderState" maxOccurs="1" minOccurs="1"/>
+            <xs:element name="State" type="ac:OrderState" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ProductSchedule">
+        <xs:sequence>
+            <xs:element name="Scheduling" type="ac:ScheduleDateType" minOccurs="0"/>
+            <xs:element name="Appointments" type="ac:AvailableAppointmentType" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="productType" type="ac:ProductCategory" use="optional"/>
+        <xs:attribute name="lineItem" type="xs:string" use="optional"/>
+        <xs:attribute name="installationDate" type="xs:string" use="optional"/>
+        <xs:attribute name="activationDate" type="xs:string" use="optional"/>
+        <xs:attribute name="disconnectDate" type="xs:string" use="optional"/>
+        <xs:attribute name="attOrderNumber" type="xs:string" use="optional"/>
+        <xs:attribute name="subOrderNumber" type="xs:string" use="optional"/>
+        <xs:attribute name="TnOrFtn" type="xs:string" use="optional"/>
+    </xs:complexType>
+
+    <xs:complexType name="OrderState">
+        <xs:attribute name="whenAffected" type="xs:dateTime" use="required"/>
+        <xs:attribute name="categoryId" type="xs:string" use="required"/>
+        <xs:attribute name="state" type="xs:string" use="required"/>
+        <xs:attribute name="reasonCode" type="xs:string" use="optional"/>
+        <xs:attribute name="message" type="xs:string" use="optional"/>
+        <xs:attribute name="subkey" type="xs:string" use="optional"/>
+    </xs:complexType>
+
+    <xs:complexType name="providerLineItemStatusType">
+        <xs:sequence>
+            <xs:element name="reason" type="xs:string" minOccurs="1"
+                maxOccurs="unbounded" />
+
+            <xs:element name="processingStatusCode" minOccurs="1"
+                maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:token">
+                        <xs:enumeration value="INFO" />
+                        <xs:enumeration value="ERROR" />
+                        <xs:enumeration value="SUCCESS" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+
+            <xs:element name="lineItemStatusCode" minOccurs="0"
+                maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:token">
+                        <xs:enumeration value="sales_new_order" />
+                        <xs:enumeration value="processing_schedule_pending" />
+                        <xs:enumeration value="processing_schedule_confirmed" />
+                        <xs:enumeration value="processing_connected" />
+                        <xs:enumeration value="processing_disconnected" />
+                        <xs:enumeration value="processing_cancelled" />
+                        <xs:enumeration value="hold_order_pending_problem" />
+                        <xs:enumeration value="hold_authorization_pending" />
+                        <xs:enumeration value="hold_provider" />
+                        <xs:enumeration value="order_info_required" />
+                        <xs:enumeration value="order_ready_for_submit" />
+                        <xs:enumeration value="order_submitted" />
+                        <xs:enumeration value="order_failed" />
+                        <xs:enumeration value="failed" />
+                        <xs:enumeration value="success" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="dateTimeStamp" type="xs:dateTime" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="SellerId">
+        <xs:annotation>
+            <xs:documentation>DISH SellerId of the client. Should be not be used
+                unless your implementation is a special scenario.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]+" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="BillLanguage">
+        <xs:annotation>
+            <xs:documentation>Set to "S" to receive customer's bill in Spanish.
+                Default is English.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[ES]" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="WorkOrderNote">
+        <xs:annotation>
+            <xs:documentation>Note that will be added to the Installation
+                WorkOrder for the installer.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1" />
+            <xs:maxLength value="180" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="AccountNote">
+        <xs:annotation>
+            <xs:documentation>Note that will be added to the account and will be
+                viewable by DISH customer service representatives.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1" />
+            <xs:maxLength value="300" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="AvailableConnections">
+        <xs:annotation>
+            <xs:documentation>List of available connections that the customer
+                has.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="connectionDetails" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>Customer Connection</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="connectionType">
+                            <xs:annotation>
+                                <xs:documentation>Type of connection the customer has.
+                                </xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="NONE" />
+                                    <xs:enumeration value="BROADBAND" />
+                                    <xs:enumeration value="LANDLINEPHONE" />
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="provider" type="xs:string" minOccurs="0">
+                            <xs:annotation>
+                                <xs:documentation>Company/Provider name of connection.
+                                </xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="SecurityInfo">
+        <xs:sequence>
+            <xs:element name="PIN">
+                <xs:annotation>
+                    <xs:documentation>4-digit numeric value used to verify ownership of
+                        account for further access.</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[0-9]{4}" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="PINHint">
+                <xs:annotation>
+                    <xs:documentation>200-character alpha-numeric value that alludes to
+                        the PIN to assist user access.</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="0" />
+                        <xs:maxLength value="50" />
+                        <xs:whiteSpace value="replace" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="AuthorizedPersons" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Names of users customer wishes to allow access to
+                        account.</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="name" type="comm:Name" maxOccurs="3" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ProductInfo">
+        <xs:sequence>
+            <xs:element name="productId" type="xs:int" />
+            <xs:element name="productRule" type="ac:ProductRule" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PriceInfo">
+        <xs:sequence>
+            <xs:element name="priceCategory" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="categoryName" type="xs:string" />
+                        <xs:element name="categoryTotal" type="xs:string" />
+                        <xs:element name="productInfo" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="productName" type="xs:string" />
+                                    <xs:element name="price" type="xs:string" />
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+             <xs:element name="partialPaymentDueOption" type="ac:PartialPaymentDueOption"
+                minOccurs="0" />
+            <xs:element name="amountDueNow" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="PartialPaymentDueOption">
+        <xs:sequence>
+            <xs:element name="amountDueNow" type="xs:float" />
+            <xs:element name="promptMessage" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="ScheduleTimeSlots">
+        <xs:sequence>
+            <xs:element name="startHour" type="xs:time"/>
+            <xs:element name="endHour" type="xs:time"/>
+            <xs:element name="timeSlotRefId" type="xs:string" minOccurs="0"/>
+            <xs:element name="isPremium" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ScheduleDateType">
+        <xs:annotation>
+            <xs:documentation>This element contains an install date
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="installDate" type="xs:date" />
+            <xs:element name="activationDate" type="xs:date" minOccurs="0"/>
+            <xs:element name="disconnectDate" type="xs:date" minOccurs="0"/>
+            <xs:element name="installTimeSlot" type="ac:ScheduleTimeSlots"  maxOccurs="unbounded" />
+            <xs:element name="activationTimeSlot" type="comm:TimeSlots"  maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element name="disconnectTimeSlot" type="comm:TimeSlots"  maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element name="timeDesc" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>MORNING or AFTERNOON</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="hasPremiumTimesslots" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AvailableAppointmentType">
+        <xs:annotation>
+            <xs:documentation>Appointment information for orders</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="Appointment" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="apptStartDateTime" type="xs:date" />
+                        <xs:element name="apptEndDateTime" type="xs:date" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="TermsAndConditionsType">
+        <xs:annotation>
+            <xs:documentation>This element contains an install date
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="sessionID" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="termsAndConditions" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="TvConstraints">
+        <xs:annotation>
+            <xs:documentation>This element lists the constraints as to how a
+                customer may select TV's.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="maxNumTvs" type="xs:nonNegativeInteger" />
+            <xs:element name="slingSupported" type="xs:boolean" />
+            <xs:element name="wholeHomeOption" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+            <xs:element name="hdProgrammingPresent" type="xs:boolean"  minOccurs="0" maxOccurs="1" />
+            <xs:element name="tvLabels">
+                <xs:annotation>
+                    <xs:documentation>This element lists all of the allowable TV
+                        labels, including the default (i.e. which label to apply to each
+                        TV initially -- and the only label that may be applied to more
+                        than one TV).</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Default" type="xs:string" />
+                        <xs:element name="Standard" type="xs:string" minOccurs="0"
+                            maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="receiverOptions" type="ac:ReceiverOptions"  minOccurs="0" maxOccurs="1" />
+         </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="ReceiverOptions">
+        <xs:sequence>
+          <xs:element name="receiverOption" type="ac:ReceiverOption"  minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="ReceiverOption">
+        <xs:sequence>
+         <xs:element name="OptionName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+         <xs:element name="Display" type="xs:string" minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+      </xs:complexType>
+
+    <xs:complexType name="TvSelect">
+        <xs:sequence>
+            <xs:element name="tvConfiguration" type="ac:TvConfiguration"
+                maxOccurs="unbounded" />
+            <xs:element name="SlingAdapterRequired" type="xs:boolean" />
+            <xs:element name="LogitechRevueRequired" type="xs:boolean" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CreditQualResponseInfo">
+        <xs:sequence>
+            <xs:element name="code" type="xs:string"
+                minOccurs="0" maxOccurs="1"/>
+            <xs:element name="reason" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="additionalInfo" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="creditRef" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="rtsAllowed" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="videoDeposit" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="voiceDeposit" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="fiosDataDepositCap" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="dataDeposit" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="hsiDeposit" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="spendingLimit" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="paymentMethod" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="riskLevel" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="finalBillPayAmount" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="finalBillAmountRequired" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="finalBillAccTN" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="finalBillAccID" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="OrderQualResponseInfo">
+        <xs:sequence>
+            <xs:element name="code" type="xs:string"
+                minOccurs="0" maxOccurs="1"/>
+            <xs:element name="reason" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="status" type="xs:string"
+                minOccurs="0" maxOccurs="1"/>
+            <xs:element name="message" type="xs:string"
+                minOccurs="0" maxOccurs="1"/>
+            <xs:element name="attribute" type="ac:attributeDetailType"
+                minOccurs="0" maxOccurs="unbounded" nillable="true" />
+            <xs:element name="orderType" type="xs:string"
+                minOccurs="0" maxOccurs="1"/>
+            <xs:element name="dueDateCode" type="xs:string"
+                minOccurs="0" maxOccurs="1"/>
+            <xs:element name="requestTnResponse" type="ac:RequestTnResponseInfo"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="validateOrderResponse" type="ac:ValidateOrderResponseInfo"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="setDueDateResponse" type="ac:SetDueDateResponseInfo"
+                minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="SubmitOrderResponseInfo">
+        <xs:sequence>
+            <xs:element name="code" type="xs:string"
+                minOccurs="0" maxOccurs="1"/>
+            <xs:element name="message" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="trackingNbr" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="orderType" type="xs:string"
+                minOccurs="0" maxOccurs="1"/>
+            <xs:element name="dueDate" type="xs:string"
+                minOccurs="0" maxOccurs="1"/>
+            <xs:element name="interval" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="dueDateCode" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="providerResponseInfo" type="ac:BillingAttributeType"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="ccProcessingResponse" type="ac:CCProcessingResponseInfo"
+                minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CCProcessingResponseInfo">
+        <xs:sequence>
+            <xs:element name="responseStatus" type="xs:string" />
+            <xs:element name="responseCode" type="xs:string" />
+            <xs:element name="responseMessage" type="xs:string" />
+            <xs:element name="vendorCode" type="xs:string" />
+            <xs:element name="vendorMessage" type="xs:string" />
+            <xs:element name="vendorAuthorizationVerificationCode" type="xs:string" />
+            <xs:element name="transactionNumber" type="xs:string" />
+            <xs:element name="confirmationNumber" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="GetDueDatesResponseInfo">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dueDateResponse" type="ac:DueDateResponseInfo" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DueDateResponseInfo">
+        <xs:sequence>
+            <xs:element name="value" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="interval" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="code" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="RequestTnInfo">
+        <xs:sequence minOccurs = "0" maxOccurs="unbounded">
+            <xs:element name="telNum" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="RequestTnResponseInfo">
+        <xs:sequence>
+            <xs:element name="masterOrderNumberResponse" type="ac:MasterOrderNumberResponseInfo"
+                minOccurs="0" maxOccurs="1"/>
+            <xs:element name="requestTn" type="ac:RequestTnInfo"
+                minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ValidateOrderResponseInfo">
+        <xs:sequence>
+            <xs:element name="status" type="xs:string"
+                minOccurs="0" maxOccurs="1"/>
+            <xs:element name="orderType" type="xs:string"
+                minOccurs="0" maxOccurs="1"/>
+            <xs:element name="dueDateCode" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="getDueDatesResponse" type="ac:ProductSchedule"
+                minOccurs="0" maxOccurs="1"/>
+            <xs:element name="providerAttributes" type="ac:ProviderAttributes" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="estimateFirstBillResponse" type="ac:EstimateFirstBillResponseInfo" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="EstimateFirstBillResponseInfo">
+        <xs:sequence>
+            <xs:element name="providerAttributes"  type="ac:ProviderAttributes" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="productEstimate"     type="ac:ProductEstimate"    minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ProductEstimate">
+        <xs:sequence>
+            <xs:element name="productDescription"             type="xs:string" />
+            <xs:element name="productComponentType"           type="xs:string" />
+            <xs:element name="productRate"                    type="xs:string" />
+            <xs:element name="recurringAmount"                type="xs:string" />
+            <xs:element name="recurringAmountWithDiscount"    type="xs:string" />
+            <xs:element name="nonRecurringAmount"             type="xs:string" />
+            <xs:element name="nonRecurringAmountWithDiscount" type="xs:string" />
+            <xs:element name="isSOCDisplay" 				  type="xs:string" />
+            <xs:element name="isPrimaryService"               type="xs:string" />
+            <xs:element name="isBundled"            		  type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="SetDueDateResponseInfo">
+        <xs:sequence>
+            <xs:element name="orderType" type="xs:string"
+                minOccurs="0" maxOccurs="1"/>
+            <xs:element name="dueDate" type="xs:string"
+                minOccurs="0" maxOccurs="1"/>
+            <xs:element name="interval" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="dueDateCode" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="MasterOrderNumberResponseInfo">
+        <xs:sequence>
+            <xs:element name="code" type="xs:string"
+                minOccurs="0" maxOccurs="1"/>
+            <xs:element name="message" type="xs:string"
+                minOccurs="0" maxOccurs="1" />
+            <xs:element name="MasterOrderNumber" type="ac:ArrayOfMON"
+                minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ArrayOfMON">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="MON" nillable="true" type="ac:MON" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="MON">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="type" type="xs:string" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="TvConfiguration">
+        <xs:annotation>
+            <xs:documentation>A specification of what the customer wants a single
+                TV to support.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="Label" type="xs:string" />
+            <xs:element name="Hd" type="xs:boolean" />
+            <xs:element name="Dvr" type="xs:boolean" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Receiver">
+        <xs:annotation>
+            <xs:documentation>A receiver/set-top-box.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="Name" type="xs:string" />
+            <xs:element name="Description" type="xs:string" />
+            <xs:element name="Price" type="xs:float" />
+            <xs:element name="HdFlag" type="xs:boolean" />
+            <xs:element name="DvrFlag" type="xs:boolean" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ProductRule">
+        <xs:annotation>
+            <xs:documentation>This element contains rule information such as
+                inclusions and exclusions</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="inclusion" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="productId" type="xs:int" maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="exclusion" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="productId" type="xs:int" maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ProductBundleInfo">
+        <xs:sequence>
+            <xs:element name="productID" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="Rule" type="ac:Rule" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Rule">
+        <xs:sequence>
+            <xs:element name="Inclusion" type="ac:Inclusion" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Exclusion" type="ac:Exclusion" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Inclusion">
+        <xs:sequence>
+            <xs:element name="productID" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Exclusion">
+        <xs:sequence>
+            <xs:element name="productID" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="EquipmentBundleInfo">
+        <xs:sequence>
+            <xs:element name="SolutionLineItem" type="ac:SolutionLineItem" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="PotentialAccessory" type="ac:PotentialAccessory" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="ReceiversSolution">
+        <xs:sequence>
+            <xs:element name="customReceivers" type="ac:CustomReceivers" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CustomReceivers">
+        <xs:sequence>
+            <xs:element name="solutionType" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="receiver" type="ac:Receivers"  minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="Receivers">
+        <xs:sequence>
+            <xs:element name="ModelName" type="xs:string" minOccurs="1" />
+            <xs:element name="ReceiverId" type="xs:int" minOccurs="1" />
+            <xs:element name="PurchaseAllowed" type="xs:boolean" minOccurs="1" />
+			<xs:element name="count" type="xs:int" minOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="EquipmentSolutionInfo">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="EquipmentCountInfo" type="ac:EquipmentCountInfo" minOccurs="1"/>
+            <xs:element name="SolutionLineItem" type="ac:SolutionLineItem"  minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+	<xs:complexType name="EquipmentCountInfo">
+        <xs:sequence>
+            <xs:element name="noOfTvs" type="xs:int" minOccurs="1" />
+            <xs:element name="noOfReceivers" type="xs:int" minOccurs="1" />
+            <xs:element name="noOfHDs" type="xs:int" minOccurs="1" />
+            <xs:element name="noOfDVRs" type="xs:int" minOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="SolutionLineItem">
+        <xs:sequence>
+            <xs:element name="Description" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="MonthlyPrice" type="xs:float" minOccurs="1"  maxOccurs="1"/>
+            <xs:element name="ReceiverId" type="xs:int" minOccurs="0" />
+            <xs:element name="Purchased" type="xs:boolean" minOccurs="0" />
+            <xs:element name="EquipmentTvItem" type="ac:EquipmentTvItem" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="EquipmentTvItem">
+        <xs:sequence>
+            <xs:element name="TvNumber" type="xs:int" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="HdFlag" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="DvrFlag" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="TvsSupported" type="xs:int" />
+            <xs:element name="TunersSupported" type="xs:int" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PotentialAccessory">
+        <xs:sequence>
+            <xs:element name="productID" type="xs:int" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="Name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="Price" type="xs:float" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+
+    <xs:complexType name="BillingAttributeType">
+        <xs:sequence>
+            <xs:element name="entity" type="ac:attributeDetailType"
+                minOccurs="1" maxOccurs="unbounded" nillable="true" />
+            <xs:element name="billingAdress" type="ac:billingAddress" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="source" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="[\w\d\\.]+"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+
+
+    <xs:complexType name="billingAddress">
+        <xs:sequence>
+            <xs:element name="address" type="ac:address" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="AddressValidFlag" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="address">
+        <xs:sequence>
+            <xs:element name="LineOne" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="LineTwo" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="City" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="State" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="Zip" type="xs:string" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AuthenticateCustomerResponseInfo">
+        <xs:sequence>
+            <xs:element name="billingAddress" type="ac:billingAddress" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="regionalProgramming" type="ac:RegionalProgramming" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="localProgramming" type="ac:LocalProgramming" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="RegionalProgramming">
+        <xs:sequence>
+            <xs:element name="localPackage" type="ac:package" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="distantLocalPackage" type="ac:package" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="distantLocalAlaCarte" type="ac:package" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="superstationPackage" type="ac:package" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="stateWideLocal" type="ac:package" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="nationalPbs" type="ac:package" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="regionalSports" type="ac:package" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="superStationAlaCarte" type="ac:package" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="LocalProgramming">
+        <xs:sequence>
+            <xs:element name="superStationAlaCarte" type="xs:string" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="package">
+        <xs:sequence>
+            <xs:element name="productID" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AlternatePromotion">
+        <xs:sequence>
+           <xs:element name="productID" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ProviderRequestContainer" abstract="true">
+        <xs:sequence>
+            <xs:element name="providerName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ProviderResponseContainer" abstract="true">
+        <xs:sequence>
+            <xs:element name="providerName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CPOSCreditQualResponseContainer">
+        <xs:complexContent>
+            <xs:extension base="ac:ProviderResponseContainer">
+                <xs:sequence>
+                    <xs:element name="depositAmount" type="xs:double" minOccurs="0"/>
+                    <xs:element name="houseDebtAmount" type="xs:double" minOccurs="0"/>
+                    <xs:element name="customerDebt" type="xs:double" minOccurs="0"/>
+                    <xs:element name="pastDueAmount" type="xs:double" minOccurs="0"/>
+                    <xs:element name="payNowOneTimeCharges" type="xs:double" minOccurs="0"/>
+                    <xs:element name="result" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="providerAttributes" type="ac:ProviderAttributes" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="CPOSOrderQualResponseContainer">
+        <xs:complexContent>
+            <xs:extension base="ac:ProviderResponseContainer">
+                <xs:sequence>
+                    <xs:element name="contractAcceptance" type="ac:ContractAcceptance" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="mitigateResult" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="chargeNrc" type="xs:double" minOccurs="0"/>
+                    <xs:element name="chargeRc" type="xs:double" minOccurs="0"/>
+                    <xs:element name="product" type="ac:productInfoType" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="providerAttributes" type="ac:ProviderAttributes" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="CPOSOrderQualRequestContainer">
+        <xs:complexContent>
+            <xs:extension base="ac:ProviderRequestContainer">
+                <xs:sequence>
+                    <xs:element name="timeSlotRefId" type="xs:string" minOccurs="0" nillable="true"/>
+                    <xs:element name="installPriceRefId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="providerAttributes" type="ac:ProviderAttributes" minOccurs="0" maxOccurs="unbounded" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="ContractAcceptance">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="contractId" type="xs:string" />
+            <xs:element minOccurs="0" name="contractType" type="xs:string" />
+            <xs:element minOccurs="0" name="contractText" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ProviderAttributes">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="value" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="MapFeatures">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="priceRefId" type="xs:string" />
+            <xs:element minOccurs="0" name="type" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CPOSCreditQualRequestContainer">
+        <xs:complexContent>
+            <xs:extension base="ac:ProviderRequestContainer">
+                <xs:sequence>
+                    <xs:element name="proInstallId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="providerAttributes" type="ac:ProviderAttributes" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:complexType name="verificationQuestion">
+		<xs:sequence>
+		<xs:element name="questionId" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>ID number for this question. To be returned in IndirectOrderRequest.</xs:documentation>
+			</xs:annotation>
+		</xs:element>
+		<xs:element name="questionText" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>Question text to be displayed to customer.</xs:documentation>
+			</xs:annotation>
+		</xs:element>
+		<xs:element name="answerOption" minOccurs="1" maxOccurs="unbounded">
+			<xs:annotation>
+				<xs:documentation>Array of possible answers to be displayed for this question.</xs:documentation>
+			</xs:annotation>
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element name="answerId" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>ID number for this answer. To be returned in IndirectOrderRequest.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="answerText" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Answer text to be displayed to customer.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+		</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="verificationAnswer">
+		<xs:sequence>
+			<xs:element name="questionId" type="xs:string"/>
+			<xs:element name="answerId" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+    <xs:complexType name="STIOrderQualResponseContainer">
+        <xs:complexContent>
+            <xs:extension base="ac:ProviderResponseContainer">
+                <xs:sequence>
+                   <xs:element name="verificationQuestion" type="ac:verificationQuestion" minOccurs="0" maxOccurs="unbounded"/>
+                   <xs:element name="providerAttributes" type="ac:ProviderAttributes" minOccurs="0" maxOccurs="unbounded" /> 
+                   
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:complexType name="STIOrderQualRequestContainer">
+        <xs:complexContent>
+            <xs:extension base="ac:ProviderRequestContainer">
+                <xs:sequence>
+                    <xs:element name="verificationAnswer" type="ac:verificationAnswer" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+     <xs:complexType name="DishCreditQualResponseContainer">
+        <xs:complexContent>
+            <xs:extension base="ac:ProviderResponseContainer">
+                <xs:sequence>
+                   <xs:element name="verificationQuestion" type="ac:verificationQuestion" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="providerAttributes" type="ac:ProviderAttributes" minOccurs="0" maxOccurs="unbounded"/> 
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:complexType name="DishCreditQualRequestContainer">
+        <xs:complexContent>
+            <xs:extension base="ac:ProviderRequestContainer">
+                <xs:sequence>
+                    <xs:element name="verificationAnswer" type="ac:verificationAnswer" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="providerAttributes" type="ac:ProviderAttributes" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:complexType name="PromoDescription">
+		<xs:sequence>
+			<xs:element name="qualifiedPromotionId" type="xs:string"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="promotionName" type="xs:string"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="QualificationFlag" type="xs:boolean"
+				minOccurs="0" />
+			<xs:element name="isPromotionSwitched" type="xs:boolean"
+				minOccurs="0" />
+			<xs:element name="code" type="xs:string" minOccurs="0" />
+			<xs:element name="description" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

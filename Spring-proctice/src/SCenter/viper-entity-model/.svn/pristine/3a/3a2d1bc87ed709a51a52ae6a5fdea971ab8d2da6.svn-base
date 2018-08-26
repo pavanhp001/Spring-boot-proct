@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+
+<project name="V" default="archive" basedir=".">
+
+		<!-- Load in required Ant tasks -->
+		<!--<taskdef resource="net/sf/antcontrib/antlib.xml" />-->
+		<taskdef resource="net/sf/ant4eclipse/antlib.xml" />
+	
+        <!-- Give user a chance to override without editing this file or typing -D -->
+        <property file="${basedir}/build.properties" />
+
+        <property name="profile" value="integration" />
+        <property file="build-${profile}.properties" />
+	
+		<property name="projectname" value="V"/>
+
+        <!-- set global properties for this build -->
+        <property name="project.name" value="V"/>
+        <property name="dist.dir" value="dist" />
+        <property name="src.model.dir" value="src/model" />
+        <property name="lib.dir" value="lib" />
+        <property name="jar.dir" value="archive" />
+        <property name="javac.debug" value="true" />
+        <property name="javac.deprecation" value="false" />
+        <property name="debug" value="false" />
+	
+		<!--Properties for validating configuration files -->
+		<property name="validate.resources.dir" value="${basedir}/exploded-archives" />
+		<property name="schema.dir" value="${basedir}/exploded-archives/schemas" />
+		<property name="src.schema.dir" value="${schema.dir}/org/jboss/seam"/>
+		<property name="schema.version" value="2.0" />
+	
+        <fileset id="lib" dir="${lib.dir}">
+                <include name="*.jar" />
+        </fileset>
+
+        <path id="build.classpath">
+                <fileset refid="lib" />
+        </path>
+
+        <target name="init" description="Initialize the build">
+                <mkdir dir="${jar.dir}" />
+                <mkdir dir="${dist.dir}" />
+	    		<getEclipseClasspath classpathId="eclipse.buildPath" workspace="${basedir}/.." projectName="V" />
+	    		<getEclipseClasspath workspace="${basedir}/.."
+	    		                     projectname="${projectname}"
+	    		                     property="classpath"
+	    		                     relative="false"
+	    		                     runtime="false"
+	    		                     pathseparator="#" />
+
+        </target>
+	
+		<target name="generateStandardDataJar" depends="compile">
+			<delete file="${dist.dir}/AStandardData.jar" />
+				
+			<jar jarfile="${dist.dir}/AStandardData.jar">
+				<fileset dir="${jar.dir}">
+					<include name="**/AddressData.class" />
+				</fileset>
+			</jar>	
+		
+		</target>
+	
+		<target name="generateALogicalModel" depends="compile">
+			<delete file="${dist.dir}/ALogicalModel.jar" />
+			
+            <copy todir="${jar.dir}/META-INF">
+	            <fileset dir="${basedir}/resources/META-INF">
+	                <include name="components.xml" />
+	        	    <include name="StatusCodes.properties" />
+	            	<include name="ReasonCodes.properties" />
+	            </fileset>
+            </copy>
+			
+			
+			
+			<jar jarfile="${dist.dir}/ALogicalModel.jar">
+				<fileset dir="${jar.dir}">
+					<exclude name="**/ZipPlusFour.class" />
+					<exclude name="**/ZipCodesCityState.class" />
+					<exclude name="**/ServiceabilityCacheRecordBean.class" />
+				</fileset>
+			</jar>	
+
+			<delete file="${jar.dir}/META-INF/components.xml" />
+			
+		</target>
+	
+		<target name="generateReferenceDataModel" depends="compile">
+			<delete file="${dist.dir}/AReferenceDataModel.jar" />
+			
+			<copy tofile="${jar.dir}/META-INF/components.xml"
+				file="${basedir}/resources/META-INF/components.xml"
+				overwrite="true" />
+			
+			<jar jarfile="${dist.dir}/AReferenceDataModel.jar">
+				<fileset dir="${jar.dir}">
+					<include name="**/ZipPlusFour.class" />
+					<include name="**/ZipCodesCityState.class" />
+					<include name="**/META-INF/*" />
+				</fileset>
+			</jar>	
+			
+			<delete file="${jar.dir}/META-INF/components.xml" />
+		</target>
+	
+		<target name="generateCacheDataModel" depends="compile">
+			<delete file="${dist.dir}/ACacheDataModel.jar" />
+			
+			<copy tofile="${jar.dir}/META-INF/components.xml"
+				file="${basedir}/resources/META-INF/components.xml"
+				overwrite="true" />
+			
+			<jar jarfile="${dist.dir}/ACacheDataModel.jar">
+				<fileset dir="${jar.dir}">
+					<include name="**/ServiceabilityCacheRecordBean.class" />
+					<include name="**/META-INF/*" />
+				</fileset>
+			</jar>	
+			
+			<delete file="${jar.dir}/META-INF/components.xml" />
+		</target>
+
+        <target name="compile" depends="init" 
+                        description="Compile the Java source code"
+                    unless="eclipse.running">
+                <javac classpathref="eclipse.buildPath"  
+                                destdir="${jar.dir}" 
+                                  debug="${javac.debug}" 
+                            deprecation="${javac.deprecation}" 
+                                nowarn="on">
+                        <src path="${src.model.dir}" />
+                </javac>
+        </target>
+
+        <target name="copyclasses" depends="init" 
+                        description="Copy the classes that were compiled by eclipse"
+                    if="eclipse.running">
+                <copy todir="${jar.dir}">
+                        <fileset dir="classes/model">
+                                <include name="**/*.class"/>
+                        </fileset>
+                </copy>
+        </target>
+        
+        <target name="archive" depends="generateALogicalModel, generateReferenceDataModel, generateCacheDataModel, generateStandardDataJar"/>
+               
+        <target name="clean" description="Cleans up the build directory">
+        		<delete dir="bin" />
+                <delete dir="${dist.dir}"/>
+                <delete dir="${ear.dir}"/>
+                <delete dir="${war.dir}"/>
+                <delete dir="${jar.dir}"/>
+        		<delete dir="${src.schema.dir}" failonerror="no"/>
+                <delete dir="${basedir}/test-report"/>
+                <delete dir="${basedir}/test-output"/>
+                <delete failonerror="no">
+                        <fileset dir="${test.dir}">
+                                <exclude name="**/*.class" if="eclipse.running"/>
+                        </fileset>
+                </delete>
+        </target>
+        
+</project>

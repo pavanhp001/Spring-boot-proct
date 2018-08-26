@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 		
+	attributeFormDefault="unqualified" 
+	elementFormDefault="qualified"
+	xmlns:tns="http://xml.A.com/v4"
+	targetNamespace="http://xml.A.com/v4"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:ac="http://xml.A.com/v4" >
+
+	<xs:include schemaLocation="serviceability2.xsd"/>
+		
+	<xs:element name="serviceabilityEnterpriseRequest" type="ac:enterpriseRequestDocumentType">
+	</xs:element>
+	<xs:element name="serviceabilityEnterpriseResponse" type="ac:enterpriseResponseDocumentType">
+	</xs:element>
+	
+</xs:schema>

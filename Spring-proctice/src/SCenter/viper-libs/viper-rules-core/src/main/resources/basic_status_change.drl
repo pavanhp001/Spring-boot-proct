@@ -1,0 +1,35 @@
+package A.ome.validation;
+
+import org.drools.runtime.rule.RuleContext;
+import com.A.rules.util.*;
+import com.A.rules.domain.Message;
+import com.A.validation.ReportFactory;
+import com.A.validation.ValidationReport;
+import com.A.V.beans.entity.SalesOrder;
+import function  com.A.rules.core.impl.RuleValidationHelper.error;
+import function  com.A.rules.core.impl.RuleValidationHelper.warning;
+import function  com.A.rules.core.impl.RuleValidationHelper.outcome;
+import com.A.V.beans.entity.LineItem;
+
+global com.A.validation.ReportFactory reportFactory;
+global com.A.validation.ValidationReport validationReport;
+	
+	rule "invalid.agent.id"
+	    salience 100
+	    when
+ 		so : SalesOrder( agent == null)  
+	    then 
+            error(kcontext, "agent.id.is.null");
+	end
+	
+	rule "line.item.data.present"
+	    salience 100
+	    when
+ 		so : SalesOrder() 
+	    lib : LineItem (lib.actualStartDate != null) from so.lineItems
+	    then 
+        error(kcontext, "line.item.actual.start.date.present.for.line.item.id#"+lib.getExternalId());
+	 
+	end
+
+

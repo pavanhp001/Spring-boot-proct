@@ -1,0 +1,23 @@
+<ac:orderManagementRequestResponse
+	xsi:schemaLocation="http://xml.AL.com/v4/orderManagement.xsd "
+	xmlns:ac="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ac:correlationId />
+	<ac:transactionType>updateLineItem</ac:transactionType>
+	<ac:request>
+		<ac:orderId>11690</ac:orderId>
+		<ac:agentId>default</ac:agentId>
+		<ac:updatedLineItemInfo>
+			<ac:lineItem>
+				<!--Lineitem External Id -->
+				<ac:externalId>12063</ac:externalId>
+				<ac:leadId>1234</ac:leadId>
+				<ac:newPhone>111-222-3333</ac:newPhone>
+				<ac:lineItemPriceInfo>
+					<ac:baseNonRecurringPrice>99999.00</ac:baseNonRecurringPrice>
+					<ac:baseRecurringPrice>999.99</ac:baseRecurringPrice>
+					<ac:onDeliveryPrice>999999.00</ac:onDeliveryPrice>
+				</ac:lineItemPriceInfo>
+			</ac:lineItem>
+		</ac:updatedLineItemInfo>
+	</ac:request>
+</ac:orderManagementRequestResponse>

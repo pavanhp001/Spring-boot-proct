@@ -1,0 +1,456 @@
+<ac:results xsi:type="v4:dialogueResponseType" xmlns:ac="http://xml.AL.com/v4"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ac:dialogueList>
+		<ac:dialogue name="AT&amp;T STI Account Essentials">
+			<ac:externalId>ATT_STI_Standard_1</ac:externalId>
+			<ac:dataGroupList>
+				<ac:dataGroup name="ATT_STI_Standard_One">
+					<ac:displayName>AT&amp;T STI Account Essentials</ac:displayName>
+					<ac:dataFieldList>
+						<ac:dataField name="ALL" type="text">
+							<ac:externalId>ATTFedRegRecordsD</ac:externalId>
+							<ac:enabled>true</ac:enabled>
+							<ac:text>During this session it will be necessary for us to
+								access your telephone service and usage records to process your
+								order. Federal regulations require our AT&amp;T family of
+								companies to receive your permission in order to share your
+								telephone account information with other AT&amp;T family of
+								companies involved in processing this order. Your decision on
+								whether to allow us to use these records will not affect the
+								service you currently receive. We cannot continue to process
+								your order without this authorization.</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:infoType>disclosure</ac:infoType>
+						</ac:dataField>
+						<ac:dataField name="ALL" type="text">
+							<ac:externalId>ATTFedRegRecordsQ</ac:externalId>
+							<ac:enabled>true</ac:enabled>
+							<ac:text>Does customer authorize this?</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:dataConstraints>
+							  <ac:stringConstraint>
+								<ac:listOfValues>
+										<ac:value>Yes</ac:value>
+										<ac:value>No</ac:value>
+								</ac:listOfValues>
+							  </ac:stringConstraint>
+							</ac:dataConstraints>
+						</ac:dataField>
+						<ac:dataField name="ALL" type="text">
+							<ac:externalId>ATTFedRegRecordsDenyD</ac:externalId>
+							<ac:enabled>false</ac:enabled>
+							<ac:text>I am sorry but at this time without the ability to share
+								your account information we are unable to qualify you for
+								AT&amp;T services. Let me see if there are any other offers you
+								qualify for today.</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:infoType>disclosure</ac:infoType>
+						</ac:dataField>
+						<ac:dataField name="ALL" type="text">
+							<ac:externalId>ATTCreditCheckD</ac:externalId>
+							<ac:enabled>true</ac:enabled>
+							<ac:text>By placing this order you authorize the required credit
+								check through a nationwide credit bureau and use of existing
+								information on file with the service provider's family of
+								companies.</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:infoType>disclosure</ac:infoType>
+						</ac:dataField>
+						<ac:dataField name="ALL" type="text">
+							<ac:externalId>ATTCreditCheckAuthorizeQ</ac:externalId>
+							<ac:enabled>true</ac:enabled>
+							<ac:text>Does customer authorize this?</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:dataConstraints>
+							  <ac:stringConstraint>
+								<ac:listOfValues>
+										<ac:value>Yes</ac:value>
+										<ac:value>No</ac:value>
+								</ac:listOfValues>
+							  </ac:stringConstraint>	
+							</ac:dataConstraints>
+						</ac:dataField>
+						<ac:dataField name="ALL" type="text">
+							<ac:externalId>ATTCreditCheckAuthorizeDenyD</ac:externalId>
+							<ac:enabled>false</ac:enabled>
+							<ac:text>I am sorry but at this time without a credit check we
+								are unable to qualify you for AT&amp;T U-verse services. Let me
+								see if there are any other offers you qualify for today.</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:infoType>disclosure</ac:infoType>
+						</ac:dataField>
+						<ac:dataField name="ALL" type="text">
+							<ac:externalId>ATTCancelOrderI</ac:externalId>
+							<ac:enabled>false</ac:enabled>
+							<ac:text>RS - please cancel this order.</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:infoType>informational</ac:infoType>
+						</ac:dataField>
+						<ac:dataField name="ALL" type="text">
+							<ac:externalId>ATTBestContactNumberExtN</ac:externalId>
+							<ac:enabled>true</ac:enabled>
+							<ac:text>AT&amp;T does not accept extensions on Best Contact
+								Numbers</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:infoType>notable</ac:infoType>
+						</ac:dataField>
+						<ac:dataField name="ALL" type="text">
+							<ac:externalId>ATTBestContactNumD</ac:externalId>
+							<ac:enabled>true</ac:enabled>
+							<ac:text>May I have a contact number that we can reach you via
+								phone or text with information about your order?</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:infoType>disclosure</ac:infoType>
+						</ac:dataField>
+						<ac:dataField name="BestContactNum" type="text">
+							<ac:externalId>BestContactNum</ac:externalId>
+							<ac:enabled>true</ac:enabled>
+							<ac:text>Which is your best contact number?</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:dataConstraints>
+								<ac:stringConstraint>
+									<ac:listOfValues>
+										<ac:value>Home</ac:value>
+										<ac:value>Cell</ac:value>
+										<ac:value>Work</ac:value>
+									</ac:listOfValues>
+								</ac:stringConstraint>
+							</ac:dataConstraints>
+						</ac:dataField>
+						<ac:dataField name="HomePhoneNum" type="text">
+							<ac:externalId>HomePhoneNum</ac:externalId>
+							<ac:enabled>false</ac:enabled>
+							<ac:text>Home Phone Number</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:dataConstraints>
+								<ac:stringConstraint>
+									<ac:listOfValues>
+										<ac:value>Home</ac:value>
+										<ac:value>Cell</ac:value>
+										<ac:value>Work</ac:value>
+									</ac:listOfValues>
+								</ac:stringConstraint>
+							</ac:dataConstraints>
+							<ac:validation>Phone</ac:validation>
+						</ac:dataField>
+						<ac:dataField name="CellPhoneNum" type="text">
+							<ac:externalId>CellPhoneNum</ac:externalId>
+							<ac:enabled>false</ac:enabled>
+							<ac:text>Cell Phone Number</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:dataConstraints>
+								<ac:stringConstraint>
+									<ac:listOfValues>
+										<ac:value>Home</ac:value>
+										<ac:value>Cell</ac:value>
+										<ac:value>Work</ac:value>
+									</ac:listOfValues>
+								</ac:stringConstraint>
+							</ac:dataConstraints>
+							<ac:validation>Phone</ac:validation>
+						</ac:dataField>
+						<ac:dataField name="CHTRSecondContact" type="text">
+							<ac:externalId>WorkPhoneNum</ac:externalId>
+							<ac:enabled>false</ac:enabled>
+							<ac:text>Work Phone Number</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:dataConstraints>
+								<ac:stringConstraint>
+									<ac:listOfValues>
+										<ac:value>Home</ac:value>
+										<ac:value>Cell</ac:value>
+										<ac:value>Work</ac:value>
+									</ac:listOfValues>
+								</ac:stringConstraint>
+							</ac:dataConstraints>
+							<ac:validation>Phone</ac:validation>
+						</ac:dataField>
+						<ac:dataField name="ALL" type="text">
+							<ac:externalId>ATTBestContactWirelessTextN</ac:externalId>
+							<ac:enabled>true</ac:enabled>
+							<ac:text>If customer doesn't provide wireless number they will
+								not receive Text updates. Updates Include - Estimate Tech
+								Arrival if Pro Install Missed Appointments situations Order
+								Confirmations and Equipment shipment status</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:infoType>notable</ac:infoType>
+						</ac:dataField>
+					</ac:dataFieldList>
+					<ac:dataFieldMatrix>
+						<ac:dependency externalId="ATTFedRegRecordsQ" type="text">
+							<ac:enabledDataFields value="No">
+								<ac:ref externalId="ATTFedRegRecordsDenyD" />
+							</ac:enabledDataFields>
+						</ac:dependency>
+						<ac:dependency externalId="ATTCreditCheckAuthorizeQ"
+							type="text">
+							<ac:enabledDataFields value="No">
+								<ac:ref externalId="ATTCreditCheckAuthorizeDenyD" />
+							</ac:enabledDataFields>
+						</ac:dependency>
+					</ac:dataFieldMatrix>
+				</ac:dataGroup>
+			</ac:dataGroupList>
+		</ac:dialogue>
+		<ac:dialogue name="AT&amp;T STI Uverse Account Essentials">
+			<ac:externalId>ATT_STI_Standard_Uverse_1</ac:externalId>
+			<ac:dataGroupList>
+				<ac:dataGroup name="ATT_STI_Standard_Uverse_One">
+					<ac:displayName>AT&amp;T STI Uverse Account Essentials</ac:displayName>
+					<ac:dataFieldList>
+						<ac:dataField name="ALLUversePlans" type="text">
+							<ac:externalId>ATTUVSEcondaryContactNumD</ac:externalId>
+							<ac:enabled>true</ac:enabled>
+							<ac:text>In order for us to process this request we also need to
+								obtain a separate valid alternate contact telephone number. If
+								needs be this can be a work neighbor friend or relative's phone
+								number.</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:infoType>disclosure</ac:infoType>
+						</ac:dataField>
+						<ac:dataField name="ALLUversePlans" type="text">
+							<ac:externalId>ATTUVSecondaryContactNumQ</ac:externalId>
+							<ac:enabled>true</ac:enabled>
+							<ac:text>Secondary Contact Phone</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:dataConstraints>
+								<ac:stringConstraint>
+									<ac:value>NA</ac:value>
+								</ac:stringConstraint>
+							</ac:dataConstraints>
+							<ac:validation>Phone</ac:validation>
+						</ac:dataField>
+						<ac:dataField name="ALLUversePlans" type="text">
+							<ac:externalId>ATTUVSecondaryContactNumI</ac:externalId>
+							<ac:enabled>true</ac:enabled>
+							<ac:text>AT&amp;T requires an alternate number since this order
+								requires a technician to conduct the installation to the
+								customer's home.</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:infoType>informational</ac:infoType>
+						</ac:dataField>
+						<ac:dataField name="ALLUversePlans" type="text">
+							<ac:externalId>ATTUVSecondaryNumDupQ</ac:externalId>
+							<ac:enabled>true</ac:enabled>
+							<ac:text>Is alternate number the same as best contact?</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:dataConstraints>
+								<ac:booleanConstraint />
+							</ac:dataConstraints>
+						</ac:dataField>
+						<ac:dataField name="ALLUversePlans" type="text">
+							<ac:externalId>ATTUVSecaondaryNumDupD</ac:externalId>
+							<ac:enabled>false</ac:enabled>
+							<ac:text>The alternate number can’t match as this is required to
+								process this order. Please provide a different number.</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:infoType>disclosure</ac:infoType>
+						</ac:dataField>
+						<ac:dataField name="ALLUversePlans" type="text">
+							<ac:externalId>ATTUVSecurityPinD</ac:externalId>
+							<ac:enabled>true</ac:enabled>
+							<ac:text>Since you are a new Uverse Customer as a precaution we
+								are required to set up security measures for you on your
+								account. What four digits do you want to choose for your PIN
+								number?</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:infoType>disclosure</ac:infoType>
+						</ac:dataField>
+						<ac:dataField name="ALLUversePlans" type="text">
+							<ac:externalId>ATTUVSecurityPinQ</ac:externalId>
+							<ac:enabled>true</ac:enabled>
+							<ac:text>Security Pin :</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:dataConstraints>
+								<ac:stringConstraint>
+									<ac:value>NA</ac:value>
+								</ac:stringConstraint>
+							</ac:dataConstraints>
+						</ac:dataField>
+						<ac:dataField name="ALLUversePlans" type="text">
+							<ac:externalId>ATTUVSecurityPinBackupQ</ac:externalId>
+							<ac:enabled>true</ac:enabled>
+							<ac:text>In case you forget your PIN please select a Security
+								Question</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:dataConstraints>
+								<ac:stringConstraint>
+									<ac:listOfValues>
+										<ac:value>Name of your favorite restaurant?</ac:value>
+									</ac:listOfValues>
+								</ac:stringConstraint>
+							</ac:dataConstraints>
+						</ac:dataField>
+						<ac:dataField name="ALLUversePlans" type="text">
+							<ac:externalId>ATTUVSecurityPinAnswerQ</ac:externalId>
+							<ac:enabled>true</ac:enabled>
+							<ac:text>Security Answer :</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:dataConstraints>
+								<ac:stringConstraint>
+									<ac:value>NA</ac:value>
+								</ac:stringConstraint>
+							</ac:dataConstraints>
+						</ac:dataField>
+					</ac:dataFieldList>
+					<ac:dataFieldMatrix>
+						<ac:dependency externalId="ATTUVSecondaryNumDupQ"
+							type="text">
+							<ac:enabledDataFields value="Y">
+								<ac:ref externalId="ATTUVSecaondaryNumDupD" />
+							</ac:enabledDataFields>
+						</ac:dependency>
+					</ac:dataFieldMatrix>
+				</ac:dataGroup>
+			</ac:dataGroupList>
+		</ac:dialogue>
+		<ac:dialogue name="AT&amp;T STI UV Phone Customer Essentials">
+			<ac:externalId>ATT_STI_Phone_Uverse_2</ac:externalId>
+			<ac:dataGroupList>
+				<ac:dataGroup name="ATT_STI_Phone_Uverse_Two">
+					<ac:displayName>AT&amp;T STI UV Phone Customer Essentials</ac:displayName>
+					<ac:dataFieldList>
+						<ac:dataField name="FIBERPHONEUversePlans" type="text">
+							<ac:externalId>ATTUVPhoneE911D</ac:externalId>
+							<ac:enabled>true</ac:enabled>
+							<ac:text>Your Uverse service functions on electrical power. If an
+								outage occurs you won't be able to make or receive calls
+								including 911 calls unless you have battery backup power.
+								Details on backup battery procedures will be provided at
+								installation.</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:infoType>disclosure</ac:infoType>
+						</ac:dataField>
+					</ac:dataFieldList>
+					<ac:dataFieldMatrix />
+				</ac:dataGroup>
+			</ac:dataGroupList>
+		</ac:dialogue>
+		<ac:dialogue name="AT&amp;T STI Closing Essentials">
+			<ac:externalId>ATT_STI_Standard_3</ac:externalId>
+			<ac:dataGroupList>
+				<ac:dataGroup name="ATT_STI_Standard_Three">
+					<ac:displayName>AT&amp;T STI Closing Essentials</ac:displayName>
+					<ac:dataFieldList>
+						<ac:dataField name="ALL" type="text">
+							<ac:externalId>ATTInitialBillD</ac:externalId>
+							<ac:enabled>true</ac:enabled>
+							<ac:text>Your initial AT&amp;T bill will be higher than normal
+								because it will include monthly charges one month in advance
+								prorated monthly charges from the date of installation up to
+								your current billing period installation charges and mandatory
+								fees.</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:infoType>disclosure</ac:infoType>
+						</ac:dataField>
+						<ac:dataField name="ALL" type="text">
+							<ac:externalId>ATTWelcomeLetterD</ac:externalId>
+							<ac:enabled>true</ac:enabled>
+							<ac:text>You will receive a welcome letter and brochures
+								including information on how to use your phone services features
+								and voicemail to your home address.</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:infoType>disclosure</ac:infoType>
+						</ac:dataField>
+						<ac:dataField name="ALL" type="text">
+							<ac:externalId>ATTCreditVerificationD</ac:externalId>
+							<ac:enabled>true</ac:enabled>
+							<ac:text>To guarantee your service I am now requesting credit
+								verification to determine any pre-payment requirements.</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:infoType>disclosure</ac:infoType>
+						</ac:dataField>
+						<ac:dataField name="ALL" type="text">
+							<ac:externalId>ATTCustomerTransferQ</ac:externalId>
+							<ac:enabled>true</ac:enabled>
+							<ac:text>RS Is this customer transfering AT&amp;T service to a
+								new address?</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:dataConstraints>
+								<ac:booleanConstraint />
+							</ac:dataConstraints>
+						</ac:dataField>
+						<ac:dataField name="ALL" type="text">
+							<ac:externalId>ATTTransferCustomerD</ac:externalId>
+							<ac:enabled>false</ac:enabled>
+							<ac:text>Once you receive email confirmation that today’s order
+								has been successfully processed please contact AT&amp;T at
+								1-800-222-0300 to schedule the disconnection of your existing
+								services.</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:infoType>disclosure</ac:infoType>
+						</ac:dataField>
+					</ac:dataFieldList>
+					<ac:dataFieldMatrix>
+						<ac:dependency externalId="ATTCustomerTransferQ"
+							type="text">
+							<ac:enabledDataFields value="Y">
+								<ac:ref externalId="ATTTransferCustomerD" />
+							</ac:enabledDataFields>
+						</ac:dependency>
+					</ac:dataFieldMatrix>
+				</ac:dataGroup>
+			</ac:dataGroupList>
+		</ac:dialogue>
+		<ac:dialogue name="AT&amp;T STI UV Closing Essentials">
+			<ac:externalId>ATT_STI_Standard_Uverse_3</ac:externalId>
+			<ac:dataGroupList>
+				<ac:dataGroup name="ATT_STI_Standard_Uverse_Three">
+					<ac:displayName>AT&amp;T STI UV Closing Essentials</ac:displayName>
+					<ac:dataFieldList>
+						<ac:dataField name="ALLUversePlans" type="text">
+							<ac:externalId>ATTUVQuickStartGuideD</ac:externalId>
+							<ac:enabled>true</ac:enabled>
+							<ac:text>You will be provided a Quick Start Guide and a Uverse
+								walk through during your installation.</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:infoType>disclosure</ac:infoType>
+						</ac:dataField>
+						<ac:dataField name="ALLUversePlans" type="text">
+							<ac:externalId>ATTUVVideoBillD</ac:externalId>
+							<ac:enabled>true</ac:enabled>
+							<ac:text>In addition to your paper bill AT&amp;T will be sending
+								you a personalized video bill for your first and second billing
+								cycles. This video will explain how to read each section of your
+								U-verse bill including any prorated and one-time charges.</ac:text>
+							<ac:contentRefId />
+							<ac:valueTarget />
+							<ac:infoType>disclosure</ac:infoType>
+						</ac:dataField>
+					</ac:dataFieldList>
+					<ac:dataFieldMatrix />
+				</ac:dataGroup>
+			</ac:dataGroupList>
+		</ac:dialogue>
+	</ac:dialogueList>
+		</ac:results>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<v4:pricingRequestResponse xmlns:v4="http://xml.A.com/v4">
+  <v4:transactionId>423455</v4:transactionId>
+  <v4:transactionType>calculateOrderPrice</v4:transactionType>
+  <v4:status>
+    <v4:statusCode>-2</v4:statusCode>
+    <v4:processingMessages>
+      <v4:message>
+        <v4:text>ORDER ID : 0 FAILED. See Line Item Errors</v4:text>
+      </v4:message>
+    </v4:processingMessages>
+    <v4:statusMsg>FATAL_REQUEST_FAILED</v4:statusMsg>
+  </v4:status>
+  <v4:response>
+    <v4:pricingResponseOrderElement>
+      <v4:totalPriceInfo xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+      <ac:lineItems xmlns:ac="http://xml.A.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <ac:lineItem>
+          <ac:lineItemNumber>0</ac:lineItemNumber>
+          <ac:lineItemStatus agentId="0" dateTimeStamp="2001-12-31T12:00:00" statusCode="0" statusCodeDescription="">
+            <ac:reason>0</ac:reason>
+          </ac:lineItemStatus>
+          <ac:lineItemDetail>
+            <ac:detailType>marketItem</ac:detailType>
+            <ac:detail>
+              <ac:marketItemLineItem>
+                <ac:externalId>ATTMW-WI-BASIC-WEBwww</ac:externalId>
+                <ac:channels>
+                  <ac:channel>1</ac:channel>
+                </ac:channels>
+                <ac:providerId>5000615</ac:providerId>
+                <ac:providerName>DTV</ac:providerName>
+                <ac:priceInfo/>
+                <ac:item xsi:type="ac:itemType">
+                  <ac:name>DirecTV</ac:name>
+                  <ac:providerId>DTV1001</ac:providerId>
+                  <ac:providerName>DTV</ac:providerName>
+                  <ac:itemCategory displayName="">ac:itemCategory</ac:itemCategory>
+                  <ac:priceInfo/>
+                </ac:item>
+              </ac:marketItemLineItem>
+            </ac:detail>
+          </ac:lineItemDetail>
+          <ac:selectedFeatures>
+            <ac:features>
+              <ac:featureValue externalId="THREE_WAY_CALL" value="true" type="boolean"/>
+              <ac:featureValue externalId="VOICE_MAIL" value="true" type="boolean"/>
+              <ac:featureValue externalId="DOM_LONG_DIST" value="Available a la carte" type="string"/>
+            </ac:features>
+          </ac:selectedFeatures>
+          <ac:lineItemPriceInfo>
+            <ac:priceInfoStatus>
+              <ac:statusCode>-5</ac:statusCode>
+              <ac:processingMessages>
+                <ac:message>
+                  <ac:code>8.0</ac:code>
+                  <ac:text>LI_MARKETITEM_NOT_FND</ac:text>
+                </ac:message>
+                <ac:message>
+                  <ac:text>LI_MARKETITEM_NOT_FND : ATTMW-WI-BASIC-WEBwww</ac:text>
+                </ac:message>
+              </ac:processingMessages>
+              <ac:statusMsg>LINE_ITEM_INVALID</ac:statusMsg>
+            </ac:priceInfoStatus>
+          </ac:lineItemPriceInfo>
+        </ac:lineItem>
+      </ac:lineItems>
+    </v4:pricingResponseOrderElement>
+  </v4:response>
+</v4:pricingRequestResponse>

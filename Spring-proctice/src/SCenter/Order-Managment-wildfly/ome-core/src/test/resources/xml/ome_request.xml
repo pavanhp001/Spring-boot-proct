@@ -1,0 +1,140 @@
+<ns3:orderManagementRequestResponse xmlns:ns2="http://xml.AL.com/common" xmlns:ns3="http://xml.AL.com/v4">
+	<ns3:correlationId>7b988d06-940f-4bf7-b3a2-26b4311c09b2</ns3:correlationId>
+	<ns3:transactionId>969410755</ns3:transactionId>
+	<ns3:transactionType>addLineItem</ns3:transactionType>
+	<ns3:request>
+		<ns3:salesContext>
+			<ns3:orderSource>0</ns3:orderSource>
+			<ns3:entity name="source">
+				<ns3:attribute value="SYP" name="source"/>
+			</ns3:entity>
+			<ns3:entity name="CKO">
+				<ns3:attribute value="7b988d06-940f-4bf7-b3a2-26b4311c09b2" name="GUID"/>
+				<ns3:attribute value="SYP" name="source"/>
+			</ns3:entity>
+		</ns3:salesContext>
+		<ns3:orderId>53458</ns3:orderId>
+		<ns3:agentId>default</ns3:agentId>
+		<ns3:afterLineItemNumber>9999</ns3:afterLineItemNumber>
+		<ns3:isAppliesToLineItemIncluded>true</ns3:isAppliesToLineItemIncluded>
+		<ns3:newLineItems>
+			<ns3:lineItem>
+				<ns3:partnerName>Windstream</ns3:partnerName>
+				<ns3:partnerExternalId>6554116</ns3:partnerExternalId>
+				<ns3:productDatasource datasource="Windstream">internal</ns3:productDatasource>
+				<ns3:lineItemNumber>0</ns3:lineItemNumber>
+				<ns3:lineItemDetail>
+					<ns3:detailType>product</ns3:detailType>
+					<ns3:detail>
+						<ns3:productLineItem xsi:type="ns3:linkableType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+							<ns3:externalId>WINDSTREAM-UNLIMPHONE-6DSL-TIER1</ns3:externalId>
+							<ns3:name>Price for Life Bundle (Unlimited Phone + 6Mbps HSI) TIER 2</ns3:name>
+							<ns3:provider name="Windstream" externalId="6554116"/>
+						</ns3:productLineItem>
+					</ns3:detail>
+				</ns3:lineItemDetail>
+				<ns3:lineItemPriceInfo>
+					<ns3:baseNonRecurringPrice>35.0</ns3:baseNonRecurringPrice>
+					<ns3:baseRecurringPrice>54.99</ns3:baseRecurringPrice>
+				</ns3:lineItemPriceInfo>
+				<ns3:externalId>0</ns3:externalId>
+				<ns3:svcAddressExtId>60969</ns3:svcAddressExtId>
+				<ns3:billingInfoExtId>46623</ns3:billingInfoExtId>
+				<ns3:state>1</ns3:state>
+				<ns3:service>BUSINESS</ns3:service>
+				<ns3:lineItemAttributes>
+					<ns3:entity source="PROVIDER_NAME">
+						<ns3:attribute>
+							<ns3:name>name</ns3:name>
+							<ns3:value>Windstream</ns3:value>
+							<ns3:description/>
+						</ns3:attribute>
+					</ns3:entity>
+					<ns3:entity source="PRODUCT_NAME">
+						<ns3:attribute>
+							<ns3:name>name</ns3:name>
+							<ns3:value>Price for Life Bundle (Unlimited Phone + 6Mbps HSI) TIER 2</ns3:value>
+							<ns3:description/>
+						</ns3:attribute>
+					</ns3:entity>
+					<ns3:entity source="PRODUCT_CATEGORY">
+						<ns3:attribute>
+							<ns3:name>productType</ns3:name>
+							<ns3:value>DOUBLE_PLAY_INTERNET_PHONE</ns3:value>
+							<ns3:description/>
+						</ns3:attribute>
+					</ns3:entity>
+					<ns3:entity source="CKO">
+						<ns3:attribute>
+							<ns3:name>STATUS</ns3:name>
+							<ns3:value>CKOReady</ns3:value>
+							<ns3:description>LINEITEM IS READY FOR CKO PROCESSING</ns3:description>
+						</ns3:attribute>
+					</ns3:entity>
+				</ns3:lineItemAttributes>
+			</ns3:lineItem>
+			<ns3:lineItem>
+				<ns3:partnerExternalId>6554116</ns3:partnerExternalId>
+				<ns3:productDatasource datasource="Windstream">internal</ns3:productDatasource>
+				<ns3:lineItemNumber>0</ns3:lineItemNumber>
+				<ns3:lineItemDetail>
+					<ns3:detailType>productPromotion</ns3:detailType>
+					<ns3:detail>
+						<ns3:promotionLineItem>
+							<ns3:appliesTo>0</ns3:appliesTo>
+							<ns3:promotion>
+								<ns3:externalId>10413</ns3:externalId>
+								<ns3:promoCode>$240 Instant Bill Credit</ns3:promoCode>
+								<ns3:shortDescription>Receive $240 in Instant Bill Credits!</ns3:shortDescription>
+								<ns3:description>Customers agreeing to a 24-month contract will receive $240 in bill credits which will be applied to the cost of the modem as well as the activation fee.</ns3:description>
+								<ns3:qualification>Acceptance of the promotion requires a 24-month commitment; if a customer terminates within the first year a $10/month early termination fee will be assessed for all remaining months left in the service agreement.</ns3:qualification>
+								<ns3:conditions>Limited-time non-transferable offer via windstream.com only for residential customers.  Subject to availability credit approval and Windstream Terms and Conditions at windstream.com/terms and Windstream�s acceptable use policy at windstream.net. Details: Must be new High-Speed Internet (HSI) customer subscribing to select HSI plans to qualify. 24-month HSI contract required. Early termination fee of $10 per month(s) remaining applies if HSI is terminated before end of 24 months. High-Speed Internet includes Internet transport Internet access and unlimited incoming calls. Outbound calls except for toll free and 911 will be charged at 10 cents/minute. Operator Service and 411 will be charged the tariffed rates. No features or long-distance carrier allowed. Higher Internet speeds are available for an additional charge. Speeds are distance-sensitive and availability varies by address. Windstream cannot guarantee speeds or uninterrupted error-free service. Other conditions may apply. Instant Credits: One-time bill credit of $165 and one-time bill credit of $75 for new HSI customers applies. Windstream and the Windstream logo are registered service marks of Windstream Corporation. � 2012 Windstream Corporation.</ns3:conditions>
+								<ns3:type>oneTimeFeeDiscount</ns3:type>
+								<ns3:priceValueType>relative</ns3:priceValueType>
+								<ns3:priceValue>75.0</ns3:priceValue>
+								<ns3:promotionDuration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+							</ns3:promotion>
+						</ns3:promotionLineItem>
+					</ns3:detail>
+				</ns3:lineItemDetail>
+				<ns3:externalId>0</ns3:externalId>
+				<ns3:svcAddressExtId>60969</ns3:svcAddressExtId>
+				<ns3:billingInfoExtId>46623</ns3:billingInfoExtId>
+				<ns3:state>1</ns3:state>
+				<ns3:service>BUSINESS</ns3:service>
+				<ns3:lineItemAttributes>
+					<ns3:entity source="PROMOTION_DETAILS">
+						<ns3:attribute>
+							<ns3:name>conditions</ns3:name>
+							<ns3:value>Limited-time non-transferable offer via windstream.com only for residential customers.  Subject to availability credit approval and Windstream Terms and Conditions at windstream.com/terms and Windstream�s acceptable use policy at windstream.net. Details: Must be new High-Speed Internet (HSI) customer subscribing to select HSI plans to qualify. 24-month HSI contract required. Early termination fee of $10 per month(s) remaining applies if HSI is terminated before end of 24 months. High-Speed Inter</ns3:value>
+						</ns3:attribute>
+						<ns3:attribute>
+							<ns3:name>priceValueType</ns3:name>
+							<ns3:value>relative</ns3:value>
+						</ns3:attribute>
+						<ns3:attribute>
+							<ns3:name>qualification</ns3:name>
+							<ns3:value>Acceptance of the promotion requires a 24-month commitment; if a customer terminates within the first year a $10/month early termination fee will be assessed for all remaining months left in the service agreement.</ns3:value>
+						</ns3:attribute>
+						<ns3:attribute>
+							<ns3:name>shortDescription</ns3:name>
+							<ns3:value>Receive $240 in Instant Bill Credits!</ns3:value>
+						</ns3:attribute>
+						<ns3:attribute>
+							<ns3:name>description</ns3:name>
+							<ns3:value>Customers agreeing to a 24-month contract will receive $240 in bill credits which will be applied to the cost of the modem as well as the activation fee.</ns3:value>
+						</ns3:attribute>
+						<ns3:attribute>
+							<ns3:name>promoCode</ns3:name>
+							<ns3:value>$240 Instant Bill Credit</ns3:value>
+						</ns3:attribute>
+						<ns3:attribute>
+							<ns3:name>priceValue</ns3:name>
+							<ns3:value>75</ns3:value>
+						</ns3:attribute>
+					</ns3:entity>
+				</ns3:lineItemAttributes>
+			</ns3:lineItem>
+		</ns3:newLineItems>
+	</ns3:request>
+</ns3:orderManagementRequestResponse>

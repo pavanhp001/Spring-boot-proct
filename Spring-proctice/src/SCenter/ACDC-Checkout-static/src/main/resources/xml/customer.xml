@@ -1,0 +1,194 @@
+<ac:customer xmlns:ac="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ac:externalId>10</ac:externalId>
+	<ac:agentId>1</ac:agentId>
+	<ac:title>Mr.</ac:title>
+	<ac:firstName>Steven</ac:firstName>
+	<ac:lastName>Grebner</ac:lastName>
+	<ac:nameSuffix>N/A</ac:nameSuffix>
+	<ac:gender>M</ac:gender>
+	<ac:dob>1968-10-03</ac:dob>
+	<ac:ssn>221322132</ac:ssn>
+	<ac:directMailOptIn>true</ac:directMailOptIn>
+	<ac:eMailOptIn>true</ac:eMailOptIn>
+	<ac:phoneContactOptIn>true</ac:phoneContactOptIn>
+	<ac:eMailProductUpdatesOptIn>true</ac:eMailProductUpdatesOptIn>
+	<ac:howLongAtPreviousAddress>10</ac:howLongAtPreviousAddress>
+	<ac:ALCustomerNumber>0</ac:ALCustomerNumber>
+	<ac:homePhoneNumber>
+		<ac:value>4046190218</ac:value>
+		<ac:order>1</ac:order>
+		<ac:desc>Home Phone</ac:desc>
+	</ac:homePhoneNumber>
+	<ac:cellPhoneNumber>
+		<ac:value>6082222222</ac:value>
+		<ac:order>2</ac:order>
+		<ac:desc>Cell Phone</ac:desc>
+	</ac:cellPhoneNumber>
+	<ac:workPhoneNumber>
+		<ac:value>6783333333</ac:value>
+		<ac:order>3</ac:order>
+		<ac:desc>Work Phone</ac:desc>
+	</ac:workPhoneNumber>
+	<ac:homeEMail>
+		<ac:value>jeldub@home.com</ac:value>
+		<ac:order>1</ac:order>
+		<ac:desc>Home Email</ac:desc>
+	</ac:homeEMail>
+	<ac:workEMail>
+		<ac:value>jeldub@work.com</ac:value>
+		<ac:order>2</ac:order>
+		<ac:desc>work email</ac:desc>
+	</ac:workEMail>
+	<ac:region>SOUTHEAST</ac:region>
+	<ac:landlordInfo>
+		<ac:landlordName>Mickey Mouse</ac:landlordName>
+		<ac:landlordPhoneNumber>4043334444</ac:landlordPhoneNumber>
+	</ac:landlordInfo>
+	<ac:driverLicense>
+		<ac:LicenseNumber>123456789</ac:LicenseNumber>
+		<ac:State>Georgia</ac:State>
+		<ac:LicenseExpirationDate>2021-01-01</ac:LicenseExpirationDate>
+	</ac:driverLicense>
+	<ac:stateId>
+		<ac:IdNumber>123456789</ac:IdNumber>
+		<ac:State>Georgia</ac:State>
+	</ac:stateId>
+	<ac:payments>
+		<ac:PaymentEvent custAgreedCCDisclosure="true">
+			<ac:billingInfoId>BI1348514100115</ac:billingInfoId>
+			<ac:Event>OUTSTANDING_BALANCE</ac:Event>
+			<ac:CVV>ac:CVV</ac:CVV>
+			<ac:Amount>10.0</ac:Amount>
+			<ac:ConfirmNumber>ac:ConfirmNumber</ac:ConfirmNumber>
+			<ac:transactionDate>2001-01-01</ac:transactionDate>
+			<ac:paymentStatus>
+				<ac:status>0</ac:status>
+				<ac:reason>0</ac:reason>
+				<ac:dateTimeStamp>2001-12-31T12:00:00</ac:dateTimeStamp>
+				<ac:providerId>0</ac:providerId>
+			</ac:paymentStatus>
+			<ac:LineItemId>1348514100132</ac:LineItemId>
+			<ac:OrderId>ac:OrderId</ac:OrderId>
+		</ac:PaymentEvent>
+		<ac:PaymentEvent custAgreedCCDisclosure="true">
+			<ac:billingInfoId>BI1348514100115</ac:billingInfoId>
+			<ac:Event>DEPOSIT</ac:Event>
+			<ac:CVV>ac:CVV</ac:CVV>
+			<ac:Amount>449.0</ac:Amount>
+			<ac:ConfirmNumber>ac:ConfirmNumber</ac:ConfirmNumber>
+			<ac:transactionDate>2001-01-01</ac:transactionDate>
+			<ac:paymentStatus>
+				<ac:status>0</ac:status>
+				<ac:reason>0</ac:reason>
+				<ac:dateTimeStamp>2001-12-31T12:00:00</ac:dateTimeStamp>
+				<ac:providerId>0</ac:providerId>
+			</ac:paymentStatus>
+			<ac:LineItemId>1348514100132</ac:LineItemId>
+			<ac:OrderId>ac:OrderId</ac:OrderId>
+		</ac:PaymentEvent>
+	</ac:payments>
+	<ac:customerType>EXISTING</ac:customerType>
+	<!--ACCOUNTS -->
+	<ac:accounts accountStatus="" accountTypeIndicator=""
+		consentToCC="" suppressionIndicator="">
+		<ac:ProviderType>ac:ProviderType</ac:ProviderType>
+		<ac:AccountType>ac:AccountType</ac:AccountType>
+		<ac:BillingAccountNumber>ac:BillingAccountNumber</ac:BillingAccountNumber>
+		<ac:BillingAccountTelephoneNumber>9971511512</ac:BillingAccountTelephoneNumber>
+		<ac:AddressRef>ac:AddressRef</ac:AddressRef>
+		<ac:ConsumerRef>ac:ConsumerRef</ac:ConsumerRef>
+		<ac:Authentication>
+			<ac:pin>100368</ac:pin>
+			<ac:securityQuestion>What city was your spouse born in</ac:securityQuestion>
+			<ac:securityAnswer>Annapolis</ac:securityAnswer>
+		</ac:Authentication>
+		<ac:ExistingLast4SSN>2132</ac:ExistingLast4SSN>
+		<ac:SecurityCreditCard>
+			<ac:SecurityTCAccepted>ac:SecurityTCAccepted</ac:SecurityTCAccepted>
+			<ac:IsAuthorized>ac:IsAuthorized</ac:IsAuthorized>
+			<ac:CreditCardRef>ac:CreditCardRef</ac:CreditCardRef>
+		</ac:SecurityCreditCard>
+		<ac:PrevAddressIndicator>true</ac:PrevAddressIndicator>
+		<ac:CreditCheck>ac:CreditCheck</ac:CreditCheck>
+		<ac:CreditAlert>ac:CreditAlert</ac:CreditAlert>
+	</ac:accounts>
+	<ac:financialInfo>
+		<ac:employed>
+			<ac:businessName>Disneyworld Inc</ac:businessName>
+			<ac:businessPhoneNum>555-555-5555</ac:businessPhoneNum>
+			<ac:occupation>Cricketer</ac:occupation>
+		</ac:employed>
+		<ac:student />
+		<ac:retired />
+		<ac:bankOrMortgageInstitution>N/A</ac:bankOrMortgageInstitution>
+		<ac:otherIncomeSource>Business</ac:otherIncomeSource>
+	</ac:financialInfo>
+	<ac:billingInfoList>
+		<ac:billingInfo>
+			<ac:addressRef>BLG1348514100115</ac:addressRef>
+			<ac:billingAccountType>CreditCard</ac:billingAccountType>
+			<ac:billingMethod>ac:billingMethod</ac:billingMethod>
+			<ac:creditCardNumber>9971511512000000</ac:creditCardNumber>
+			<ac:creditCardType>Visa</ac:creditCardType>
+			<ac:expirationYearMonth>2030-01</ac:expirationYearMonth>
+			<ac:cardHolderName>Steven Grebner</ac:cardHolderName>
+			<ac:verificationCode>123</ac:verificationCode>
+			<ac:checkingAccountNumber>12345678</ac:checkingAccountNumber>
+			<ac:routingNumber>012345678</ac:routingNumber>
+			<ac:status>Active</ac:status>
+			<ac:externalId>0</ac:externalId>
+			<ac:billingUniqueId>BI1348514100115</ac:billingUniqueId>
+		</ac:billingInfo>
+		<ac:billingInfo>
+			<ac:addressRef>BLG1348514100115</ac:addressRef>
+			<ac:billingAccountType>CreditCard</ac:billingAccountType>
+			<ac:billingMethod>ac:billingMethod</ac:billingMethod>
+			<ac:creditCardNumber>9971511512000004</ac:creditCardNumber>
+			<ac:creditCardType>Visa</ac:creditCardType>
+			<ac:expirationYearMonth>2030-01</ac:expirationYearMonth>
+			<ac:cardHolderName>Steven Grebner</ac:cardHolderName>
+			<ac:verificationCode>123</ac:verificationCode>
+			<ac:checkingAccountNumber>12345678</ac:checkingAccountNumber>
+			<ac:routingNumber>012345678</ac:routingNumber>
+			<ac:status>Active</ac:status>
+			<ac:externalId>0</ac:externalId>
+			<ac:billingUniqueId>BI1348514100116</ac:billingUniqueId>
+		</ac:billingInfo>
+	</ac:billingInfoList>
+	<ac:addressList>
+		<ac:customerAddress>
+			<ac:addressRoles>
+				<ac:role>BillingAddress</ac:role>
+				<ac:role>ServiceAddress</ac:role>
+				<ac:role>ShippingAddress</ac:role>
+			</ac:addressRoles>
+			<ac:addressUniqueId>BLG1348514100115</ac:addressUniqueId>
+			<ac:status>active</ac:status>
+			<ac:address xsi:type="ac:addressType">
+				<ac:externalId>0</ac:externalId>
+				<ac:streetNumber>7</ac:streetNumber>
+				<ac:streetName>DECATURST SE</ac:streetName>
+				<ac:streetType>SE</ac:streetType>
+				<ac:city>ATLANTA</ac:city>
+				<ac:stateOrProvince>GA</ac:stateOrProvince>
+				<ac:postalCode>30303-2906</ac:postalCode>
+				<!--<ac:postalCode>30303</ac:postalCode> -->
+				<ac:country>USA</ac:country>
+				<ac:addressBlock>7 DECATUR ST SE, ATLANTA GA 30303-2906</ac:addressBlock>
+				<ac:howLongAtAddress>10</ac:howLongAtAddress>
+				<ac:dwellingType>house</ac:dwellingType>
+				<ac:inEffect>2011-09-01</ac:inEffect>
+				<ac:expiration>2051-01-01</ac:expiration>
+				<ac:changeType>chtype</ac:changeType>
+				<ac:hasHadServicePreviously>false</ac:hasHadServicePreviously>
+				<ac:cityAlias>lawrenceville</ac:cityAlias>
+			</ac:address>
+		</ac:customerAddress>
+	</ac:addressList>
+	<ac:securityVerificationInfo>
+		<ac:pin>1234</ac:pin>
+		<ac:securityQuestion>Question1</ac:securityQuestion>
+		<ac:securityAnswer>Answer1</ac:securityAnswer>
+	</ac:securityVerificationInfo>
+	<ac:billingDeliveryPreference>paper</ac:billingDeliveryPreference>
+</ac:customer>

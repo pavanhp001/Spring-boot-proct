@@ -1,0 +1,32 @@
+rule "Gross Total"
+    agenda-group "CKO"
+    dialect "mvel"
+when
+   $order : Order( grossTotal == -1)
+   Number( total : doubleValue ) from accumulate( Purchase( $price : product.price ),
+                 sum( $price ) )
+then
+    modify( $order ) { grossTotal = total };
+    textArea.append( "\ngross total=" + total + "\n" );
+end
+
+rule "Apply 5% Discount"
+    agenda-group "CKO"
+dialect "mvel"
+when
+   $order : Order( grossTotal >= 10 && < 20 )
+then
+   $order.discountedTotal = $order.grossTotal * 0.95;
+   textArea.append( "discountedTotal total=" + $order.discountedTotal + "\n" );
+end
+
+
+rule "Apply 10% Discount"
+    agenda-group "CKO"
+dialect "mvel"
+when
+   $order : Order( grossTotal >= 20 )
+then
+   $order.discountedTotal = $order.grossTotal * 0.90;
+   textArea.append( "discountedTotal total=" + $order.discountedTotal + "\n" );
+end

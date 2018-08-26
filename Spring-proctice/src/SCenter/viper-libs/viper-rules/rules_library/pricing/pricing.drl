@@ -1,0 +1,10 @@
+rule "Sum all items"
+when
+ $total : Number() from accumulate(
+         Product( $p : price ),
+         sum( $p ) )
+then
+ // do something
+end
+
+

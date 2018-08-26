@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+     <definition
+        name="firstEnergy.base.definition.nonav.basicinfo"
+        template="/WEB-INF/flows/jsp/layout/layout_nonav_basicInfo.jsp" >
+        <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+    </definition>
+	
+	<definition name="firstEnergy.view" extends="firstEnergy.base.definition.nonav.basicinfo">
+		<put-attribute name="discovery_notepad"
+			value="/WEB-INF/jsp/sales/empty_notepad.jsp" />
+		<put-attribute name="main_content"
+			value="/WEB-INF/flows/jsp/common/greeting.jsp" />
+	</definition>
+	
+	<definition
+        name="firstEnergy.base.definition.nav.basicinfo"
+        template="/WEB-INF/jsp/common/layout/layout_nav_basicInfo.jsp" >
+        <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+    </definition>
+
+	
+	<definition name="firstEnergy.basic_information" extends="firstEnergy.base.definition.nonav.basicinfo">
+    	<put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/flows/simplechoice/common/basic_information.jsp" />
+	</definition>
+	
+    <definition name="firstEnergy.isValidAddress" extends="firstEnergy.base.definition.nonav.basicinfo">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/addressFound.jsp" />
+	</definition>
+	
+	<definition name="firstEnergy.isInvalidAddress" extends="firstEnergy.base.definition.nonav.basicinfo">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/addressNotFound.jsp" />
+	</definition>
+	
+	<definition name="firstEnergy.isMultipleAddress" extends="firstEnergy.base.definition.nonav.basicinfo">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/multipleAddress.jsp" />
+	</definition>
+	
+	<definition name="firstEnergy.base.definition.realtimestatusforconfirmation" template="/WEB-INF/flows/jsp/layout/layout_sales_realtime_confirmation.jsp">
+		 <put-attribute name="sales_cust_summary_content" value="/WEB-INF/flows/jsp/common/sales_customer_summary_quick.jsp" />
+		 <put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+		 <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+	</definition>
+		
+	<definition name="firstEnergy.confirmation" extends="firstEnergy.base.definition.realtimestatusforconfirmation">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/confirmation.jsp" />
+	</definition>
+	
+	<definition name="firstEnergy.base.definition.realtimestatus" template="/WEB-INF/flows/jsp/layout/layout_sales_realtime.jsp">
+		 <put-attribute name="sales_summary_content" value="/WEB-INF/flows/jsp/common/sales_customer_summary_quick.jsp" />
+		 <put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+		 <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+	</definition>
+	
+	<definition name="firstEnergy.offer" extends="firstEnergy.base.definition.orderquick">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/offer.jsp" />
+		<put-attribute name="product_menu_content" value="/WEB-INF/flows/jsp/common/product_menu_content.jsp" />		
+		<put-attribute name="cust_summary_content" value="/WEB-INF/flows/jsp/common/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content" value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />
+	</definition>
+	
+	<definition name="firstEnergy.exceptionPageInfo" extends="firstEnergy.base.definition.realtimestatusforconfirmation">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/exceptionpage.jsp" />
+	</definition>
+		
+	<definition name="firstEnergy.supplierInfo" extends="firstEnergy.base.definition.realtimestatusforconfirmation">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/supplier.jsp" />
+	</definition>
+	
+	<definition name="firstEnergy.supplierInfoFroDrupal" extends="firstEnergy.base.definition.realtimestatusforconfirmation">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/supplier_drupal.jsp" />
+	</definition>
+			
+	<definition name="firstEnergy.qualification" extends="firstEnergy.base.definition.realtimestatus">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/qualification.jsp" />
+	</definition>
+	
+	<definition name="firstEnergy.discoveryA" extends="firstEnergy.base.definition.realtimestatus">
+	 	<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/discoveryNew.jsp" />  
+	</definition>
+	
+	<definition name="firstEnergy.discoveryB" extends="firstEnergy.base.definition.realtimestatus">
+        <put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/discoveryTransfer.jsp" />
+	</definition>
+	
+	<definition name="firstEnergy.base.definition.realtimestatus" template="/WEB-INF/flows/jsp/layout/layout_sales_realtime.jsp">
+		 <put-attribute name="sales_summary_content" value="/WEB-INF/flows/jsp/common/sales_customer_summary_quick.jsp" />
+		  <put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+		  <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+	</definition>
+	
+   <definition name="firstEnergy.base.definition.lineItem" template="/WEB-INF/flows/jsp/layout/layoutnav_lineitem.jsp">
+   		<put-attribute name="product_menu_content"	value="/WEB-INF/flows/jsp/common/product_menu_content.jsp" />
+	</definition>
+	
+
+    <definition name="firstEnergy.recommendations" extends="firstEnergy.base.definition.lineItem">
+	 	<put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+        <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/recommendations.jsp" />
+       <put-attribute name="cust_summary_content"
+			value="/WEB-INF/flows/jsp/common/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />   
+	</definition>
+	
+	<definition name="firstEnergy.recommendationsbyCategory" extends="firstEnergy.base.definition.lineItem">
+	 	<put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+         <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/recommendationsbyCategory.jsp" />
+        <put-attribute name="cust_summary_content" value="/WEB-INF/flows/jsp/common/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />   
+	</definition>
+	
+	<definition name="firstEnergy.orderSummary" extends="firstEnergy.base.definition.summary">
+		<put-attribute name="main_content"
+			value="/WEB-INF/flows/jsp/common/order_summary.jsp" />
+		<put-attribute name="cust_summary_content"
+			value="/WEB-INF/flows/jsp/common/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />
+	</definition>
+	
+	<definition name="firstEnergy.base.definition.orderquick"
+		template="/WEB-INF/flows/jsp/layout/layout_orderquick.jsp">
+		<put-attribute name="product_menu_content"
+			value="/WEB-INF/flows/jsp/common/product_menu_content.jsp" />
+		<put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />	
+	</definition>
+	
+	<!-- Order Recap Page -->
+	<definition name="firstEnergy.orderRecap" extends="firstEnergy.base.definition.orderquick">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/order_recap.jsp" />
+		<put-attribute name="product_menu_content"
+			value="/WEB-INF/flows/jsp/common/product_menu_content.jsp" />		
+		<put-attribute name="cust_summary_content"
+			value="/WEB-INF/flows/jsp/common/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />
+	</definition>
+	
+	<definition name="firstEnergy.base.definition.closeCallSale"
+		template="/WEB-INF/flows/jsp/layout/layout_closeCallSale.jsp">
+	</definition>
+	
+	<!-- Close Call Sale Page -->
+	<definition name="firstEnergy.closeCallSale" extends="firstEnergy.base.definition.closeCallSale">
+		<put-attribute name="main_content"	value="/WEB-INF/jsp/cart/order_conclusion.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />  
+	</definition>
+	
+ 	<definition name="firstEnergy.closingcallnosale" extends="firstEnergy.base.definition.nav.basicinfo">
+        <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/empty_notepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/closingCallNoSale.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />  
+	</definition> 
+	
+	<definition
+        name="firstEnergy.base.definition.nonav.dispostions"
+        template="/WEB-INF/flows/jsp/layout/layout_nonav_dispostions.jsp" >
+        <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+    </definition>
+    
+	<definition name="firstEnergy.dispositions" extends="firstEnergy.base.definition.nonav.dispostions">
+	    <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/empty_notepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/dispositions.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />  		
+	</definition>
+	
+	<definition name="firstEnergy.base.definition.summary"
+		template="/WEB-INF/flows/jsp/layout/layout_summary.jsp">
+		<put-attribute name="product_menu_content"
+			value="/WEB-INF/flows/jsp/common/product_menu_content.jsp" />
+		<put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+	</definition>
+	
+	<definition name="firstEnergy.CKO_start" extends="firstEnergy.base.definition.summary">
+		<put-attribute name="main_content"
+			value="/WEB-INF/flows/jsp/common/CKO_container.jsp" />
+		<put-attribute name="cust_summary_content"
+		value="/WEB-INF/flows/jsp/common/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />	
+	</definition>
+	
+</tiles-definitions>

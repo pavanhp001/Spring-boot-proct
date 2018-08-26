@@ -1,0 +1,33 @@
+package com.AL.ome.functional;
+
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+ 
+
+/**
+ * @author ebthomas
+ * 
+ */
+@RunWith(value = SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = { "classpath:**/applicationContextTest.xml" })
+public class ConsumerRemoveAllTestF {
+
+ 
+	@Before
+	public void setUp() {
+
+	}
+
+	@Test
+	public void testOrderIdPresent() {
+		try {
+			 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

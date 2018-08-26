@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 		
+	attributeFormDefault="unqualified" 
+	elementFormDefault="qualified"
+	targetNamespace="http://xml.A.com/v4"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:ac="http://xml.A.com/v4" >
+
+<xs:include schemaLocation="serviceability.xsd" />
+
+<xs:element name="ServiceabilityFilter">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="filterCriteria" type="ac:filterCriteriaType"/>
+			<xs:element name="marketItemList">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="marketItem" type="ac:filterItemTuple" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:element>
+
+<xs:complexType name="filterItemTuple">
+	<xs:sequence>
+		<xs:element name="externalId" type="xs:string" minOccurs="0" maxOccurs="1" />
+		<xs:element name="planId" type="xs:int" minOccurs="0" maxOccurs="1" />
+		<xs:element name="changeStamp" type="xs:long" minOccurs="0" maxOccurs="1" />
+	</xs:sequence>
+</xs:complexType>
+
+</xs:schema>

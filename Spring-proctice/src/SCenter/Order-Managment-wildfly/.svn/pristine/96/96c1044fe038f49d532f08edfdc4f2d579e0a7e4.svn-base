@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+  <wb-module deploy-name="ome-app">
+    <wb-resource deploy-path="/" source-path="src/main/application"/>
+    <wb-resource deploy-path="/" source-path="src/main/java"/>
+    <wb-resource deploy-path="/" source-path="src/test/java"/>
+    <wb-resource deploy-path="/" source-path="src/main/resources"/>
+    <wb-resource deploy-path="/" source-path="src/test/resources"/>
+    <wb-resource deploy-path="/" source-path="C:/projects/ome-trunk/resources"/>
+        <dependent-module archiveName="jboss-seam-5.0.1.jar" deploy-path="/" handle="module:/classpath/var/M2_REPO/ac-eap/jboss-seam/5.0.1/jboss-seam-5.0.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ALLogicalModel-01.00.08-SNAPSHOT.jar" deploy-path="/" handle="module:/classpath/var/M2_REPO/com/AL/V/ALLogicalModel/01.00.08-SNAPSHOT/ALLogicalModel-01.00.08-SNAPSHOT.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ALReferenceModel-01.00.08-SNAPSHOT.jar" deploy-path="/" handle="module:/classpath/var/M2_REPO/com/AL/V/ALReferenceModel/01.00.08-SNAPSHOT/ALReferenceModel-01.00.08-SNAPSHOT.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ALGeocoder-1.7.1.1.jar" deploy-path="/" handle="module:/classpath/var/M2_REPO/com/AL/V/ALGeocoder/1.7.1.1/ALGeocoder-1.7.1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ome-metrics-01.00.00-SNAPSHOT.war" deploy-path="/" handle="module:/resource/ome-metrics/ome-metrics">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ome-core-01.00.00-SNAPSHOT.jar" deploy-path="/" handle="module:/resource/ome-core/ome-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ome-ie-01.00.00-SNAPSHOT.jar" deploy-path="/" handle="module:/resource/ome-ie/ome-ie">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="V-rules-01.00.00-SNAPSHOT.jar" deploy-path="/" handle="module:/resource/V-rules/V-rules">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="V-dao-01.00.00-SNAPSHOT.jar" deploy-path="/lib" handle="module:/resource/V-dao/V-dao">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="cm-core-01.03.00.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/com/AL/V/cm-core/01.03.00/cm-core-01.03.00.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="activation-1.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/javax/activation/activation/1.1/activation-1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="concurrent-1.3.4.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/concurrent/concurrent/1.3.4/concurrent-1.3.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="drools-api-5.0.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/ac-eap/drools-api/5.0.1/drools-api-5.0.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="drools-compiler-5.0.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/ac-eap/drools-compiler/5.0.1/drools-compiler-5.0.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="drools-core-5.0.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/ac-eap/drools-core/5.0.1/drools-core-5.0.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="drools-decisiontables-5.0.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/ac-eap/drools-decisiontables/5.0.1/drools-decisiontables-5.0.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="drools-jsr94-5.0.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/drools/drools-jsr94/5.0.1/drools-jsr94-5.0.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="drools-core-5.0.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/drools/drools-core/5.0.1/drools-core-5.0.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mvel2-2.0.10.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/mvel/mvel2/2.0.10/mvel2-2.0.10.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="drools-api-5.0.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/drools/drools-api/5.0.1/drools-api-5.0.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="joda-time-1.6.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/joda-time/joda-time/1.6/joda-time-1.6.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="drools-compiler-5.0.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/drools/drools-compiler/5.0.1/drools-compiler-5.0.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="antlr-runtime-3.1.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/antlr/antlr-runtime/3.1.1/antlr-runtime-3.1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="core-3.4.2.v_883_R34x.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/eclipse/jdt/core/3.4.2.v_883_R34x/core-3.4.2.v_883_R34x.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="janino-2.5.15.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/janino/janino/2.5.15/janino-2.5.15.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="drools-decisiontables-5.0.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/drools/drools-decisiontables/5.0.1/drools-decisiontables-5.0.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="drools-templates-5.0.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/drools/drools-templates/5.0.1/drools-templates-5.0.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jxl-2.4.2.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/jexcelapi/jxl/2.4.2/jxl-2.4.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jsr94-1.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/jsr94/jsr94/1.1/jsr94-1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="antlrall-2.7.4.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/antlr/antlrall/2.7.4/antlrall-2.7.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mvel-1.3.1-java1.4.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/mvel/mvel/1.3.1-java1.4/mvel-1.3.1-java1.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="junit-4.8.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/junit/junit/4.8.1/junit-4.8.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="xbean-2.4.0.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/xmlbeans/xbean/2.4.0/xbean-2.4.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-tx-3.0.5.RELEASE.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/springframework/spring-tx/3.0.5.RELEASE/spring-tx-3.0.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="aopalliance-1.0.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/aopalliance/aopalliance/1.0/aopalliance-1.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="V-marshaller-01.00.00-SNAPSHOT.jar" deploy-path="/lib" handle="module:/resource/V-marshaller/V-marshaller">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-oxm-3.0.0.RELEASE.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/springframework/spring-oxm/3.0.0.RELEASE/spring-oxm-3.0.0.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-aop-3.0.5.RELEASE.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/springframework/spring-aop/3.0.5.RELEASE/spring-aop-3.0.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-asm-3.0.5.RELEASE.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/springframework/spring-asm/3.0.5.RELEASE/spring-asm-3.0.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-aspects-3.0.5.RELEASE.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/springframework/spring-aspects/3.0.5.RELEASE/spring-aspects-3.0.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-expression-3.0.5.RELEASE.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/springframework/spring-expression/3.0.5.RELEASE/spring-expression-3.0.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-beans-3.0.5.RELEASE.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/springframework/spring-beans/3.0.5.RELEASE/spring-beans-3.0.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-context-3.0.5.RELEASE.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/springframework/spring-context/3.0.5.RELEASE/spring-context-3.0.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-core-3.0.5.RELEASE.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/springframework/spring-core/3.0.5.RELEASE/spring-core-3.0.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-logging-1.1.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-jdbc-3.0.5.RELEASE.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/springframework/spring-jdbc/3.0.5.RELEASE/spring-jdbc-3.0.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-jms-3.0.5.RELEASE.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/springframework/spring-jms/3.0.5.RELEASE/spring-jms-3.0.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-orm-3.0.5.RELEASE.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/springframework/spring-orm/3.0.5.RELEASE/spring-orm-3.0.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-context-support-3.0.5.RELEASE.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/springframework/spring-context-support/3.0.5.RELEASE/spring-context-support-3.0.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="validation-api-1.0.0.GA.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="hibernate-validator-4.2.0.Final.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/hibernate/hibernate-validator/4.2.0.Final/hibernate-validator-4.2.0.Final.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="slf4j-api-1.6.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="xstream-1.3.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/com/thoughtworks/xstream/xstream/1.3/xstream-1.3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="xpp3_min-1.1.4c.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mockito-all-1.8.5.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/mockito/mockito-all/1.8.5/mockito-all-1.8.5.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="json-lib-2.3-jdk15.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/net/sf/json/json-lib/2.3/json-lib-2.3-jdk15.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jms-1.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/javax/jms/jms/1.1/jms-1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="gson-1.7.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/com/google/code/gson/gson/1.7.1/gson-1.7.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="c3p0-0.9.1.2.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/c3p0/c3p0/0.9.1.2/c3p0-0.9.1.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ehcache-1.2.3.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/net/sf/ehcache/ehcache/1.2.3/ehcache-1.2.3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-collections-2.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/commons-collections/commons-collections/2.1/commons-collections-2.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-integration-core-2.0.0.RELEASE.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/springframework/integration/spring-integration-core/2.0.0.RELEASE/spring-integration-core-2.0.0.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="V-common-01.00.00-SNAPSHOT.jar" deploy-path="/lib" handle="module:/resource/V-common/V-common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-test-3.0.2.RELEASE.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/springframework/spring-test/3.0.2.RELEASE/spring-test-3.0.2.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="saaj-api-1.3.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/javax/xml/soap/saaj-api/1.3/saaj-api-1.3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="saaj-impl-1.3.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/com/sun/xml/messaging/saaj/saaj-impl/1.3/saaj-impl-1.3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ALXMLBeans-01.00.13.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/com/AL/V/ALXMLBeans/01.00.13/ALXMLBeans-01.00.13.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="antlr-runtime-5.0.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/ac-eap/antlr-runtime/5.0.1/antlr-runtime-5.0.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="core-5.0.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/ac-eap/core/5.0.1/core-5.0.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="janino-5.0.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/ac-eap/janino/5.0.1/janino-5.0.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="javassist-5.0.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/ac-eap/javassist/5.0.1/javassist-5.0.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jaxrs-api-5.0.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/ac-eap/jaxrs-api/5.0.1/jaxrs-api-5.0.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jaxws-api-5.0.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/ac-eap/jaxws-api/5.0.1/jaxws-api-5.0.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="activemq-pool-5.2.0.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/apache/activemq/activemq-pool/5.2.0/activemq-pool-5.2.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-logging-api-1.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/commons-logging/commons-logging-api/1.1/commons-logging-api-1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="activemq-core-5.2.0.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/apache/activemq/activemq-core/5.2.0/activemq-core-5.2.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="camel-core-1.5.0.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/apache/camel/camel-core/1.5.0/camel-core-1.5.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="geronimo-jms_1.1_spec-1.1.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/apache/geronimo/specs/geronimo-jms_1.1_spec/1.1.1/geronimo-jms_1.1_spec-1.1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="activeio-core-3.1.0.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/apache/activemq/activeio-core/3.1.0/activeio-core-3.1.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="backport-util-concurrent-2.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/backport-util-concurrent/backport-util-concurrent/2.1/backport-util-concurrent-2.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="geronimo-j2ee-management_1.0_spec-1.0.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/apache/geronimo/specs/geronimo-j2ee-management_1.0_spec/1.0/geronimo-j2ee-management_1.0_spec-1.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="geronimo-jta_1.0.1B_spec-1.0.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/apache/geronimo/specs/geronimo-jta_1.0.1B_spec/1.0.1/geronimo-jta_1.0.1B_spec-1.0.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-pool-1.4.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/commons-pool/commons-pool/1.4/commons-pool-1.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-web-3.0.2.RELEASE.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/springframework/spring-web/3.0.2.RELEASE/spring-web-3.0.2.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+  </wb-module>
+</project-modules>

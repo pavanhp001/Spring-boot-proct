@@ -1,0 +1,1 @@
+ALTER TABLE V_tx.OM_LINE_ITEM ADD COLUMN LI_OWNER_EXT_ID   character varying(60);

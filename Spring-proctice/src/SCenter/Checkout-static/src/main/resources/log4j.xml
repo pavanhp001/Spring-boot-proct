@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="rootConsole" class="org.apache.log4j.ConsoleAppender">
+		<param name="Threshold" value="INFO" />
+		<layout class="com.AL.media.util.log4j.PatternLayoutEx">
+			<!-- for some reason its backwards in log4j -->
+			<!-- use false if not ignore -->
+			<param name="ignoresThrowable" value="false" />
+
+			<param name="ConversionPattern" value="%5p [%d{HH:mm:ss,SSS}][GUID=%X{GUID} sessionId=%X{sessionId} user=%X{agentId} order=%X{orderId}]  (%F:%L) - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- used to show version on startup. maybe there is a better way -->
+	<appender name="infoConsole" class="org.apache.log4j.ConsoleAppender">
+		<param name="Threshold" value="INFO" />
+		<layout class="com.AL.media.util.log4j.PatternLayoutEx">
+			<param name="ConversionPattern" value="%5p [%d{HH:mm:ss,SSS}][GUID=%X{GUID} sessionId=%X{sessionId} user=%X{agentId} order=%X{orderId}] (%F:%L) - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="applicationLog" class="org.apache.log4j.RollingFileAppender">
+		<param name="Threshold" value="INFO" />
+
+		<param name="File" value="${log.dir}/sim.log" />
+		<param name="BufferSize" value="8192" />
+		<param name="MaxFileSize" value="10MB" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%5p [%t %d{HH:mm:ss,SSS}][GUID=%X{GUID} sessionId=%X{sessionId} user=%X{agentId} order=%X{orderId}] (%F:%L) - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="errorLog" class="org.apache.log4j.RollingFileAppender">
+		<param name="Threshold" value="INFO" />
+
+		<param name="File" value="${log.dir}/error.log" />
+		<param name="BufferSize" value="2048" />
+		<param name="MaxFileSize" value="10MB" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%5p [%t %d{ISO8601}][GUID=%X{GUID} sessionId=%X{sessionId} user=%X{agentId} order=%X{orderId}] (%F:%L) - %m%n" />
+		</layout>
+	</appender>
+
+
+	<appender name="diagnosticLog" class="org.apache.log4j.RollingFileAppender">
+		<param name="Threshold" value="WARN" />
+
+		<param name="File" value="${log.dir}/diagnostic.log" />
+		<param name="BufferSize" value="2048" />
+		<param name="MaxFileSize" value="10MB" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="com.AL.media.util.log4j.PatternLayoutEx">
+			<!-- for some reason its backwards in log4j -->
+			<!-- use false if not ignore -->
+			<param name="ignoresThrowable" value="false" />
+			<param name="ConversionPattern" value="[%d{ISO8601}][GUID=%X{GUID} sessionId=%X{sessionId} user=%X{agentId} order=%X{orderId}] %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="auditLog" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${log.dir}/audit.log" />
+		<param name="BufferSize" value="512" />
+		<param name="MaxFileSize" value="10MB" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss}[GUID=%X{GUID} sessionId=%X{sessionId} user=%X{agentId} order=%X{orderId}], %m%n" />
+		</layout>
+	</appender>
+
+
+	<appender name="versionLog" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${log.dir}/version.log" />
+		<param name="BufferSize" value="8192" />
+		<param name="MaxFileSize" value="8KB" />
+		<param name="MaxBackupIndex" value="1" />
+		<layout class="org.apache.log4j.TTCCLayout">
+			<param name="dateFormat" value="ISO8601" />
+		</layout>
+	</appender>
+
+
+
+	<appender name="cacheLog" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${log.dir}/cache.log" />
+		<param name="BufferSize" value="8192" />
+		<param name="MaxFileSize" value="10MB" />
+		<param name="MaxBackupIndex" value="2" />
+		<layout class="org.apache.log4j.TTCCLayout">
+			<param name="dateFormat" value="ISO8601" />
+		</layout>
+	</appender>
+
+	<appender name="sqlLog" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${log.dir}/sql.log" />
+		<param name="BufferSize" value="8192" />
+		<param name="MaxFileSize" value="10MB" />
+		<param name="MaxBackupIndex" value="1" />
+		<layout class="org.apache.log4j.TTCCLayout">
+			<param name="dateFormat" value="ISO8601" />
+		</layout>
+	</appender>
+
+
+
+	 
+
+	 
+
+
+	<logger name="org.hibernate.SQL" additivity="false">
+		<!-- set this to 'WARN' do disable and 'WARN' to enable sql logging -->
+		<level value="trace" />
+		<appender-ref ref="sqlLog" />
+	</logger>
+
+	<logger name="org.springframework.orm" additivity="false">
+		<!-- set this to 'WARN' do disable and 'WARN' to enable sql logging -->
+		<level value="DEBUG" />
+		<appender-ref ref="sqlLog" />
+	</logger>
+
+
+	<logger name="org.hibernate.cache" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="cacheLog" />
+	</logger>
+
+	<logger name="net.sf.ehcache" additivity="false">
+		<!-- 'WARN' to disable cache logging -->
+		<!-- 'WARN' to enable cache logging -->
+		<level value="DEBUG" />
+		<appender-ref ref="cacheLog" />
+	</logger>
+
+
+
+	<logger name="com.whirlycott.cache">
+		<level value="DEBUG" />
+		<appender-ref ref="cacheLog" />
+	</logger>
+
+
+	<logger name="com.AL">
+		<level value="DEBUG" />
+		<appender-ref ref="applicationLog" />
+	</logger>
+
+	<logger name="net">
+		<level value="DEBUG" />
+	</logger>
+
+	<category name="org.hibernate.type">
+		<priority value="trace" />
+	</category>
+
+ 
+
+<!-- 
+	<root>
+		<level value="DEBUG" />
+		<appender-ref ref="rootConsole" />
+		<appender-ref ref="applicationLog" />
+	</root>
+ -->
+
+</log4j:configuration>

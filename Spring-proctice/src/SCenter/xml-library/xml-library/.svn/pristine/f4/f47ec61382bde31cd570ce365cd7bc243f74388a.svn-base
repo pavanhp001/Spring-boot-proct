@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions name="ContextManagerService"
+             targetNamespace="http://xml.A.com/context" 
+             xmlns:v3="http://xml.A.com/v3"
+             xmlns:tns="http://xml.A.com/context" 
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+             xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" >
+
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://xml.A.com/v3" >
+			<xsd:include schemaLocation="http://xml.A.com/v3/context.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+    
+    <wsdl:message name="ContextManagerMsg">
+        <wsdl:part name="contextMessage" element="v3:contextRequestResponse" />
+    </wsdl:message>
+    <wsdl:portType name="ContextManagerPortType">
+        <wsdl:operation name="ContextManagerRequest">
+            <wsdl:input name="inputMsg" message="tns:ContextManagerMsg" />
+            <wsdl:output name="outputMsg" message="tns:ContextManagerMsg" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ContextServiceBinding" type="tns:ContextManagerPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="ContextManagerRequest">
+            <soap:operation soapAction="ContextManagerRequest" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ContextManagerService">
+        <wsdl:port name="ContextManagerPort" binding="tns:ContextServiceBinding">
+            <soap:address location="http://sgdv1vm3/services/context/v3" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

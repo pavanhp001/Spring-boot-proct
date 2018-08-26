@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+	attributeFormDefault="unqualified" 
+	elementFormDefault="qualified"
+	targetNamespace="http://xml.A.com/v4"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:ac="http://xml.A.com/v4">
+
+	<xs:annotation>
+		<xs:documentation>
+
+		</xs:documentation>
+	</xs:annotation>
+
+
+	<xs:complexType name="emptyElementType">
+		<xs:complexContent>
+			<xs:restriction base="xs:anyType" />
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="arbitraryXML">
+		<xs:sequence>
+			<xs:any processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="id" type="ac:idType" />
+	<xs:simpleType name="idType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d{1,25}" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="idListType">
+		<xs:sequence>
+			<xs:element ref="ac:id" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<!--  Name-related elements  -->
+	<xs:element name="title" type="xs:string" />
+	<xs:element name="firstName" type="xs:string" />
+	<xs:element name="lastName" type="xs:string" />
+	<xs:element name="middleName" type="xs:string" />
+	<xs:element name="nameSuffix" type="xs:string" />
+	<xs:element name="gender">
+		<xs:simpleType>
+			<xs:restriction base="xs:token">
+				<xs:enumeration value="M" />
+				<xs:enumeration value="F" />
+				<xs:enumeration value="U" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	
+	<xs:element name="dob" type="xs:date" />	
+	
+	<xs:complexType name="dateTimeOrTimeRangeType">
+		<xs:sequence>
+			<xs:element name="date" type="xs:date" minOccurs="1" maxOccurs="1" />
+			<xs:choice>
+				<xs:element name="time" type="xs:time" minOccurs="1" maxOccurs="1" />
+				<xs:sequence>
+					<xs:element name="startTime" type="xs:time" minOccurs="1" maxOccurs="1" />
+					<xs:element name="endTime" type="xs:time" minOccurs="1" maxOccurs="1" />
+				</xs:sequence>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:element name="entryType" type="xs:string" /> <!-- ENUM -->
+
+
+	<xs:element name="phoneNumber" type="ac:phoneNumberType" />
+
+	<xs:complexType name="phoneNumberType">
+		<xs:sequence>
+			<xs:element name="value" type="ac:phoneNumberValueType" minOccurs="1" maxOccurs="1" />
+			<xs:element name="extension" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="order" type="xs:int" minOccurs="0" maxOccurs="1" />
+			<xs:element name="desc" type="xs:string" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="phoneNumberValueType">
+		<xs:restriction base="xs:token">
+			<xs:pattern
+				value="(1\s*[-]?)?(\((\d{3})\)|(\d{3}))\s*[-]?\s*(\d{3})\s*[-]?\s*(\d{4})\s*(([xX]|[eE][xX][tT])\.?\s*(\d+))*" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:element name="eMailAddress" type="ac:eMailAddressType" />
+
+	<xs:complexType name="eMailAddressType">
+		<xs:sequence>
+			<xs:element name="value" type="ac:emailAddressValueType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="order" type="xs:int" minOccurs="0" maxOccurs="1" />
+			<xs:element name="desc" type="xs:string" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="emailAddressValueType">
+		<xs:restriction base="xs:string">
+			<xs:pattern
+				value="[A-Za-z0-9!#-'\*\+\-/=\?\^_`\{-~]+(\.[A-Za-z0-9!#-'\*\+\-/=\?\^_`\{-~]+)*@[A-Za-z0-9!#-'\*\+\-/=\?\^_`\{-~]+(\.[A-Za-z0-9!#-'\*\+\-/=\?\^_`\{-~]+)*" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:element name="ssn" type="ac:ssnType" />
+
+	<xs:simpleType name="ssnType">
+		<xs:restriction base="xs:token">
+			<xs:pattern value="[0-9]{3}-[0-9]{2}-[0-9]{4}" />
+		</xs:restriction>
+	</xs:simpleType>
+
+
+	<xs:element name="encryptedPassword" type="xs:string" />
+
+	<xs:element name="agentUserName" type="xs:string" />
+	<xs:element name="extension">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value="(\d){1,6}" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	
+	<xs:simpleType name="dwellingType">
+		<xs:annotation>
+			<xs:documentation>
+				Dwelling type identifies the type of customer
+				premise, if known. The
+				service uses this data to filter results
+				so
+				that it does not
+				return services that are not appropriate
+				for the
+				given
+				dwelling type. This value is selected from the
+				following:
+				apartment, house, new_construction, condo/townhouse,
+				business,duplex and mobile home.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="apartment" />
+			<xs:enumeration value="house" />
+			<xs:enumeration value="new_construction" />
+			<xs:enumeration value="condo/townhouse" />
+			<xs:enumeration value="business" />
+			<xs:enumeration value="duplex" />
+			<xs:enumeration value="mobile home" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="metaDataType">
+		<xs:sequence>
+			<xs:element name="metaData" type="xs:string" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

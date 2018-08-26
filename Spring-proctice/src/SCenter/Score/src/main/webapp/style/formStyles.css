@@ -1,0 +1,447 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* ---- search form style ---*/
+.searchform {
+    background: -moz-linear-gradient(top , #FFFFFF, #EDEDED) repeat scroll 0 0 transparent;
+    background: -webkit-linear-gradient(top , #FFFFFF, #EDEDED) repeat scroll 0 0 transparent;
+    background: linear-gradient(top , #FFFFFF, #EDEDED) repeat scroll 0 0 transparent;
+    border: 1px solid #D2D2D2;
+    border-radius: 2em 2em 2em 2em;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin-top: 2px;
+	padding: 1px 3px;
+	/*border: 1px solid purple;*/
+}
+.searchform .searchfield {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #BCBBBB;
+    border-radius: 2em 2em 2em 2em;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) inset;
+    outline: medium none;
+    padding: 4px 4px 4px 6px;
+    width: 102px;
+}
+
+.searchform input {
+    	font: 9.5px/100% Arial,Helvetica,sans-serif;
+		color: #757575; 
+}
+.searchform .searchbutton {
+    background: -moz-linear-gradient(top , #9E9E9E, #454545) repeat scroll 0 0 transparent;
+    background: -webkit-linear-gradient(top, #9E9E9E, #454545) repeat scroll 0 0 transparent;
+    background: linear-gradient(top, #9E9E9E, #454545) repeat scroll 0 0 transparent; 
+    border: 1px solid #494949;
+    border-radius: 2em 2em 2em 2em;
+    color: #FFFFFF;
+    font-size: 9.5px;
+    height: 20px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
+    width: 20px;
+}
+
+.basicInformationForm
+{
+	/*border: 1px solid red;*/	
+}
+.searchform input{	
+	padding: 0px;
+	margin: 0px;
+}
+
+
+
+
+/* --- buttons ----*/
+
+input.css3button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8px;
+	color: #fff;
+	padding: 2px 5px;
+	background: -moz-linear-gradient(
+		top,
+		#ffffff 0%,
+		#fa2525 50%,
+		#e63427 50%,
+		#b40c06);
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#ffffff),
+		color-stop(0.50, #fa2525),
+		color-stop(0.50, #e63427),
+		to(#b40c06));
+		border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border: 1px solid #eb7373;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,1);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,1);
+	box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 2px rgba(255,255,255,1);
+	text-shadow:
+		0px -1px 0px rgba(000,000,000,0.2),
+		0px 1px 0px rgba(255,255,255,0.4);
+}
+
+/* --- text boxes ----*/
+
+
+/* --- dropdowns ----*/
+.basicInformationForm fieldset{
+	margin: 2px;
+	padding: 5px;
+	
+}
+.basicInformationForm fieldset .row {
+	max-width: 600px;
+	/*border: 1px solid purple;*/
+}
+.basicInformationForm input {
+	margin-bottom: 8px;	
+}
+	  
+.basicInformationForm input.text {
+      -webkit-border-radius: 0px;
+      -moz-border-radius: 0px;
+      border-radius: 0 0 0 0;
+      border:solid 1px #afafaf;
+      font-size: 10px;
+      padding: 7px 8px 7px 10px;
+      -moz-box-shadow: 0px 1px 0px #777;
+      -webkit-box-shadow: 0px 1px 0px #777;
+	  background: #ddd;
+	  background: -moz-linear-gradient(
+           center bottom,
+           rgb(225,225,225) 0%,
+           rgb(215,215,215) 54%,
+           rgb(219,219,219) 100%
+           );
+	  background: -webkit-gradient(
+          linear,
+          left bottom,
+          left top,
+          color-stop(0, rgb(225,225,225)),
+          color-stop(0.54, rgb(215,215,215)),
+          color-stop(1, rgb(219,219,219))
+          );
+      color:#333;
+      text-shadow:0px 1px 0px #FFF;
+}
+
+.basicInformationForm fieldset label.infield {
+    color: #333;
+    text-shadow: 0px 1px 0px #fff;
+    position: absolute;
+    text-align: left;
+    top: 3px !important;
+    left: 35px !important;
+    line-height: 29px;
+    }
+	  
+.basicInformationForm select {
+      -webkit-border-radius: 0px;
+      -moz-border-radius: 0px;
+      border-radius: 0px;
+      border:solid 1px #afafaf;
+      font-size: 10px;
+      padding: 6px 7px 6px 10px;
+      -moz-box-shadow: 0px 1px 0px #777;
+      -webkit-box-shadow: 0px 1px 0px #777;
+	  background: #ddd;
+	  background: -moz-linear-gradient(
+           center bottom,
+           rgb(225,225,225) 0%,
+           rgb(215,215,215) 54%,
+           rgb(219,219,219) 100%
+           );
+	  background:  -webkit-gradient(
+          linear,
+          left bottom,
+          left top,
+          color-stop(0, rgb(225,225,225)),
+          color-stop(0.54, rgb(215,215,215)),
+          color-stop(1, rgb(219,219,219))
+          );
+      color:#333;
+      text-shadow:0px 1px 0px #FFF;
+	margin-bottom: 8px;	
+}
+.addressfield{
+	width: 452px;
+}
+
+/* -- basic fields --*/
+
+fieldset{
+	margin: 2px;
+	padding: 5px;
+	border-style:none;
+}
+input {
+	margin-bottom: 8px;	
+}
+	  
+input.text {
+      -webkit-border-radius: 0px;
+      -moz-border-radius: 0px;
+      border-radius: 0px;
+      border:solid 1px #afafaf;
+      font-size: 10px;
+      padding: 6px 7px 6px 10px;
+      -moz-box-shadow: 0px 1px 0px #777;
+      -webkit-box-shadow: 0px 1px 0px #777;
+	  background: #ddd;
+	  background: -moz-linear-gradient(
+           center bottom,
+           rgb(225,225,225) 0%,
+           rgb(215,215,215) 54%,
+           rgb(219,219,219) 100%
+           );
+	  background: -webkit-gradient(
+          linear,
+          left bottom,
+          left top,
+          color-stop(0, rgb(225,225,225)),
+          color-stop(0.54, rgb(215,215,215)),
+          color-stop(1, rgb(219,219,219))
+          );
+      color:#333;
+      text-shadow:0px 1px 0px #FFF;
+}
+
+fieldset label.infield {
+    color: #333;
+    text-shadow: 0px 1px 0px #fff;
+    position: absolute;
+    text-align: left;
+    top: 3px !important;
+    left: 35px !important;
+    line-height: 29px;
+    }
+	  
+select {
+      -webkit-border-radius: 0px;
+      -moz-border-radius: 0px;
+      border-radius: 0px;
+      border:solid 1px #afafaf;
+      font-size: 10px;
+      padding: 6px 7px 6px 10px;
+      -moz-box-shadow: 0px 1px 0px #777;
+      -webkit-box-shadow: 0px 1px 0px #777;
+	  background: #ddd;
+	  background: -moz-linear-gradient(
+           center bottom,
+           rgb(225,225,225) 0%,
+           rgb(215,215,215) 54%,
+           rgb(219,219,219) 100%
+           );
+	  background:  -webkit-gradient(
+          linear,
+          left bottom,
+          left top,
+          color-stop(0, rgb(225,225,225)),
+          color-stop(0.54, rgb(215,215,215)),
+          color-stop(1, rgb(219,219,219))
+          );
+      color:#333;
+      text-shadow:0px 1px 0px #FFF;
+		margin-bottom: 8px;	
+}
+
+/* -- login --*/
+
+
+#login {
+    background-color: #fff;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
+    background-image: -webkit-linear-gradient(top, #fff, #eee);
+    background-image: -moz-linear-gradient(top, #fff, #eee);
+    background-image: -ms-linear-gradient(top, #fff, #eee);
+    background-image: -o-linear-gradient(top, #fff, #eee);
+    background-image: linear-gradient(top, #fff, #eee);  
+    height: 240px;
+    width: 400px;
+    margin: -150px 0 0 -230px;
+    padding: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 0;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;  
+    -webkit-box-shadow:
+          0 0 2px rgba(0, 0, 0, 0.2),
+          0 1px 1px rgba(0, 0, 0, .2),
+          0 3px 0 #fff,
+          0 4px 0 rgba(0, 0, 0, .2),
+          0 6px 0 #fff,  
+          0 7px 0 rgba(0, 0, 0, .2);
+    -moz-box-shadow:
+          0 0 2px rgba(0, 0, 0, 0.2),  
+          1px 1px   0 rgba(0,   0,   0,   .1),
+          3px 3px   0 rgba(255, 255, 255, 1),
+          4px 4px   0 rgba(0,   0,   0,   .1),
+          6px 6px   0 rgba(255, 255, 255, 1),  
+          7px 7px   0 rgba(0,   0,   0,   .1);
+    box-shadow:
+          0 0 2px rgba(0, 0, 0, 0.2),  
+          0 1px 1px rgba(0, 0, 0, .2),
+          0 3px 0 #fff,
+          0 4px 0 rgba(0, 0, 0, .2),
+          0 6px 0 #fff,  
+          0 7px 0 rgba(0, 0, 0, .2);
+}
+
+#login:before
+{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    border: 1px solid #ccc;
+    top: 5px;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    -moz-box-shadow: 0 0 0 1px #fff;
+    -webkit-box-shadow: 0 0 0 1px #fff;
+    box-shadow: 0 0 0 1px #fff;
+}
+
+#inputs input
+{
+    background: #f1f1f1 url(/images/img/login-sprite.png) no-repeat;
+    padding: 15px 15px 15px 30px !important;
+    margin: 0 0 10px 0 !important;
+    width: 353px; /* 353 + 2 + 45 = 400 */
+    border: 1px solid #ccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+    -webkit-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+    box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+}
+
+fieldset#inputs {
+    padding: 0px;
+    margin: 0px;
+}
+
+#inputs{ border: 0px solid transparent;}
+
+#username
+{
+    background-position: 5px -2px !important;
+}
+
+#password
+{
+    background-position: 5px -52px !important;
+}
+
+#inputs input:focus
+{
+    background-color: #fff;
+    border-color: #71b26e;
+    outline: none;
+    -moz-box-shadow: 0 0 0 1px #b0cbac inset;
+    -webkit-box-shadow: 0 0 0 1px #b0cbac inset;
+    box-shadow: 0 0 0 1px #b0cbac inset;
+}
+#actions
+{
+    margin: 25px 0 0 0;
+	border: 0px solid transparent;
+}
+
+#submit
+{		
+    background-color: #c2ff4b;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#96c43d), to(#c2ff4b));
+    background-image: -webkit-linear-gradient(top, #96c43d, #c2ff4b);
+    background-image: -moz-linear-gradient(top, #96c43d, #c2ff4b);
+    background-image: -ms-linear-gradient(top, #96c43d, #c2ff4b);
+    background-image: -o-linear-gradient(top, #96c43d, #c2ff4b);
+    background-image: linear-gradient(top, #96c43d, #c2ff4b);
+    
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    
+     -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+     -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+     box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;    
+    
+    border-width: 1px;
+    border-style: solid;
+    border-color: #31d639 #80e337 #3c6838 #3d8a04;
+
+    float: left;
+    height: 35px;
+    padding: 0;
+    width: 120px;
+    cursor: pointer;
+    font: bold 15px Arial, Helvetica;
+    color: #7c7341;
+
+}
+
+
+#submit:hover,#submit:focus
+{		
+    background-color: #96c43d;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#c2ff4b), to(#96c43d));
+    background-image: -webkit-linear-gradient(top, #c2ff4b, #96c43d);
+    background-image: -moz-linear-gradient(top, #c2ff4b, #96c43d);
+    background-image: -ms-linear-gradient(top, #c2ff4b, #96c43d);
+    background-image: -o-linear-gradient(top, #c2ff4b, #96c43d);
+    background-image: linear-gradient(top, #c2ff4b, #96c43d);
+}	
+
+#submit:active
+{		
+    outline: none;
+   
+     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+     -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;		
+}
+
+#submit::-moz-focus-inner
+{
+  border: none;
+}
+
+#actions a
+{
+    color: #3151A2;    
+    float: right;
+    line-height: 35px;
+    margin-left: 10px;
+}
+
+#back
+{
+    display: block;
+    text-align: center;
+    position: relative;
+    top: 60px;
+    color: #999;
+}
+
+
+/*--------------------*/
+
+
+
+

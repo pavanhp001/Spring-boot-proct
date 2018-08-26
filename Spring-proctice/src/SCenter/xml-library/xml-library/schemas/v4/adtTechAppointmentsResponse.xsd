@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://xml.A.com/v4/adtProvisioning/createtechappointmentsresp/"
+	targetNamespace="http://xml.A.com/v4/adtProvisioning/createtechappointmentsresp/"
+	xmlns:ac="http://xml.A.com/v4" xmlns:comm="http://xml.A.com/common">
+
+
+	<xs:complexType name="response">
+		<xs:sequence>
+			<xs:element name="data" type="tns:data" minOccurs="1"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute type="xs:string" name="success" use="optional" />
+		<xs:attribute type="xs:string" name="type" use="optional" />
+	</xs:complexType>
+
+	<xs:complexType name="data">
+		<xs:sequence>
+			<xs:element name="TechSchedule" type="tns:TechSchedule"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xs:element name="message" type="xs:string" minOccurs="0"
+				maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TechSchedule">
+		<xs:sequence>
+			<xs:element name="TechID" type="xs:string" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="TechName" type="xs:string" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="TechScheduleID" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="StartTime" type="xs:string" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="Duration" type="xs:string" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="ServiceNotes" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="CustomerID" type="xs:string" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="VisitType" type="xs:string" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="ConfirmationStatusID" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="ConfirmationStatusName" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="responses">
+		<xs:sequence>
+			<xs:element name="response" type="tns:response" minOccurs="1"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="root">
+		<xs:sequence>
+			<xs:element name="responses" type="tns:responses"
+				minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="root" type="tns:root" />
+</schema>

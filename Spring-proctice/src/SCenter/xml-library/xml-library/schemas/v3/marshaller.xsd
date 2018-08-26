@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 	
+	attributeFormDefault="unqualified" 
+	elementFormDefault="qualified"
+	targetNamespace="http://xml.A.com/v3"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:ac="http://xml.A.com/v3" >
+			 
+	<xs:element name="marshaller" type="ac:marshallerType" />
+	<xs:element name="constraint" type="xs:string" />
+	<xs:element name="validationClazz" type="xs:string" />
+	<xs:element name="clazz" type="ac:clazzType" />
+	<xs:element name="attribute" type="ac:attributeType" />
+	<xs:element name="validations" type="ac:validatorTypeCollection" />
+	<xs:element name="validation" type="ac:validatorType" />
+	
+	 
+	<xs:complexType name="clazzType">
+		<xs:sequence> 
+		    <xs:element minOccurs="1" maxOccurs="1" name="name" type="xs:string" />
+			<xs:element minOccurs="1" maxOccurs="unbounded" ref="ac:attribute" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="attributeType">
+		<xs:sequence>
+		    <xs:element minOccurs="1" maxOccurs="1" name="name" type="xs:string" />
+			<xs:element minOccurs="1" maxOccurs="1" ref="ac:constraint" />
+			<xs:element minOccurs="0" maxOccurs="unbounded" ref="ac:validations" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	<xs:complexType name="validatorType">
+		<xs:sequence>
+		    <xs:element minOccurs="1" maxOccurs="1" name="name" type="xs:string" /> 
+			<xs:element minOccurs="0" maxOccurs="1" ref="ac:validationClazz" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="validatorTypeCollection">
+		<xs:sequence> 
+			<xs:element minOccurs="0" maxOccurs="unbounded" ref="ac:validation" />
+		</xs:sequence>
+	</xs:complexType>
+	 
+	
+	<xs:complexType name="marshallerType">
+		<xs:sequence> 
+			<xs:element minOccurs="1" maxOccurs="unbounded" ref="ac:clazz" /> 
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

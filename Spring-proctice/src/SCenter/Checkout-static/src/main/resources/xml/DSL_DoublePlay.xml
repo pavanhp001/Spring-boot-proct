@@ -1,0 +1,477 @@
+<v4:productEnterpriseResponse xmlns:v4="http://xml.AL.com/v4">
+ <v4:GUID>ece79c52-f77d-11e1-bd56-bf32d2af32ed</v4:GUID>
+ <v4:status>
+	<v4:statusCode>0</v4:statusCode>
+	<v4:processingMessages>
+	   <v4:message>
+		  <v4:code>0.0</v4:code>
+		  <v4:text>All entities requested were found</v4:text>
+	   </v4:message>
+	</v4:processingMessages>
+ </v4:status>
+ <v4:response xsi:type="v4:productResponseType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<v4:providerResults>
+	   <v4:provider externalId="100" name="">
+		  <v4:source datasource="ATTSTI">realtime</v4:source>
+	   </v4:provider>
+	   <v4:productInfo externalId="RTS:ATTSTI:ATT-WI-2AD-ELT-CCE-DVC-Q">
+		  <v4:product>
+			 <v4:externalId>RTS:ATTSTI:ATT-WI-2AD-ELT-CCE-DVC-Q</v4:externalId>
+			 <v4:productCategoryList>
+				<v4:productCategory displayName="localPhone">localPhone</v4:productCategory>
+				<v4:productCategory displayName="highSpeedInternet">highSpeedInternet</v4:productCategory>
+				<v4:productCategory displayName="Line Share">Line Share</v4:productCategory>
+			 </v4:productCategoryList>
+			 <v4:name>AT&amp;T DOUBLE PACK (DSL ELITE + COMPLETE CHOICE� ENHANCED)</v4:name>
+			 <v4:channels>
+				<v4:channel>web</v4:channel>
+				<v4:channel>callCenter</v4:channel>
+			 </v4:channels>
+			 <v4:provider externalId="24699452" name="">
+				<v4:source datasource="ATTSTI">realtime</v4:source>
+			 </v4:provider>
+			 <v4:priceInfo>
+				<v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+				<v4:baseRecurringPrice>47.95</v4:baseRecurringPrice>
+			 </v4:priceInfo>
+			 <v4:capabilityList>
+				<v4:capability name="wiredDataUpSpeed"/>
+				<v4:capability name="wiredDataDownSpeed"/>
+				<v4:capability name="localPhone"/>
+			 </v4:capabilityList>
+		  </v4:product>
+		  <v4:productDetails>
+			 <v4:feature description="ELITE DSL (UP TO 6.0 MBPS)" type="ELITE DSL (UP TO 6.0 MBPS)">
+				<v4:externalId>CONN_SPEED</v4:externalId>
+				<v4:price>
+				   <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+				   <v4:baseNonRecurringPriceUnits>USD</v4:baseNonRecurringPriceUnits>
+				   <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+				   <v4:baseRecurringPriceUnits>USD</v4:baseRecurringPriceUnits>
+				   <v4:includeInTotalPrice/>
+				</v4:price>
+				<v4:included/>
+				<v4:required>false</v4:required>
+				<v4:available>true</v4:available>
+				<v4:dataConstraints>
+				   <v4:stringConstraint comparableValue="0.75">
+					  <v4:value>ELITE DSL (UP TO 6.0 MBPS)</v4:value>
+				   </v4:stringConstraint>
+				</v4:dataConstraints>
+				<v4:capabilities>
+				   <v4:featureCapability name="UP_SPEED" value="0.75" xsi:nil="true"/>
+				   <v4:featureCapability name="DOWN_SPEED" value="6" xsi:nil="true"/>
+				</v4:capabilities>
+			 </v4:feature>
+			 <v4:customization externalId="ATT-TEL-DL-1" required="true" displayOrder="1009">
+				<v4:name>Choose a Directory Listing Option</v4:name>
+				<v4:shortDescription>Please choose a directory listing option.</v4:shortDescription>
+				<v4:longDescription>You can choose to have your phone number listed in the directory, unlisted, or unpublished.</v4:longDescription>
+				<v4:options min="1" max="1" type="Selection">
+				   <v4:choice externalId="1004-1" displayOrder="1040">
+					  <v4:name>Local Phone Directory Listing Options</v4:name>
+					  <v4:shortDescription>Non-Published Number</v4:shortDescription>
+					  <v4:longDescription>Non-Published Number assures your name, address and phone number will not be listed in the Telephone Directory, White pages, Directory Assistance (411), and Street Address Telephone Directory.</v4:longDescription>
+					  <v4:priceInfo>
+						 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+						 <v4:baseRecurringPrice>5.5</v4:baseRecurringPrice>
+					  </v4:priceInfo>
+				   </v4:choice>
+				   <v4:choice externalId="1003-1" displayOrder="1020">
+					  <v4:name>Local Phone Directory Listing Options</v4:name>
+					  <v4:shortDescription>Non-Listed Number</v4:shortDescription>
+					  <v4:longDescription>Non-listed Number is a directory service selection that does not publish your name and number in the telephone book. This selection will keep your name and number available when someone dials 411 Directory Assistance.</v4:longDescription>
+					  <v4:priceInfo>
+						 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+						 <v4:baseRecurringPrice>3.5</v4:baseRecurringPrice>
+					  </v4:priceInfo>
+				   </v4:choice>
+				   <v4:choice externalId="CHO_08" displayOrder="1010">
+					  <v4:name>Local Phone Directory Listing Options</v4:name>
+					  <v4:shortDescription>Listed in Directory</v4:shortDescription>
+					  <v4:longDescription>Each new phone number is entitled to a complimentary directory listing. Your name, address, and phone number will be listed in the White Pages and with Directory Assistance (calls to 411).</v4:longDescription>
+					  <v4:priceInfo>
+						 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+						 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+					  </v4:priceInfo>
+				   </v4:choice>
+				</v4:options>
+			 </v4:customization>
+			 <v4:customization externalId="ACCESS-PORT-1" required="true" displayOrder="5200">
+				<v4:name>Port Your Phone Number</v4:name>
+				<v4:shortDescription>Would you like to keep your current phone number, or get a new phone number?</v4:shortDescription>
+				<v4:longDescription>You may keep your current phone number, or you will be assigned a new number.  Important Note: Transferring of phone numbers is not guaranteed, and can not be done from one state to another.</v4:longDescription>
+				<v4:options min="1" max="1" type="Selection">
+				   <v4:choice externalId="ACCESS-PORT-1-ATT" displayOrder="5012">
+					  <v4:name>Phone Number</v4:name>
+					  <v4:shortDescription>Keep My Current AT&amp;T Phone Number</v4:shortDescription>
+					  <v4:longDescription>You will keep your current AT&amp;T phone number.  Important Note: Transferring of phone numbers is not guaranteed, and can not be done from one state to another.</v4:longDescription>
+					  <v4:priceInfo>
+						 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+						 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+					  </v4:priceInfo>
+					  <v4:customization externalId="ACCESS-PORT-2" required="true" displayOrder="5210">
+						 <v4:name>Phone Number to be Ported</v4:name>
+						 <v4:shortDescription>Current Phone Number</v4:shortDescription>
+						 <v4:longDescription>Please enter your current phone number that you want to keep.  Do not include any spaces, dashes or parenthesis.</v4:longDescription>
+						 <v4:options min="1" max="1" type="Text">
+							<v4:choice externalId="ACCESS-PORT-2-NUMBER" displayOrder="5020">
+							   <v4:name>Phone Number</v4:name>
+							   <v4:shortDescription>My Current Phone Number</v4:shortDescription>
+							   <v4:longDescription>Please enter your current phone number.  Do not include any spaces, dashes or parenthesis.</v4:longDescription>
+							   <v4:priceInfo>
+								  <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+								  <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+							   </v4:priceInfo>
+							</v4:choice>
+						 </v4:options>
+					  </v4:customization>
+					  <v4:customization externalId="ACCESS-PORT-6" required="true" displayOrder="5250">
+						 <v4:name>Get New or Cancel</v4:name>
+						 <v4:shortDescription>If you can not keep your phone number, do you want us to give you a new number?</v4:shortDescription>
+						 <v4:longDescription>In some cases you may not be able to keep your current telephone number.  If this happens, would you like us to assign you a new number, or cancel your order?</v4:longDescription>
+						 <v4:options min="1" max="1" type="Selection">
+							<v4:choice externalId="ACCESS-PORT-6-NEW" displayOrder="5061">
+							   <v4:name>Get New Number</v4:name>
+							   <v4:shortDescription>Assign Me a New Telephone Number</v4:shortDescription>
+							   <v4:longDescription>If I can not keep my current phone number, then please assign me a new number.</v4:longDescription>
+							   <v4:priceInfo>
+								  <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+								  <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+							   </v4:priceInfo>
+							</v4:choice>
+							<v4:choice externalId="ACCESS-PORT-6-CANCEL" displayOrder="5062">
+							   <v4:name>Cancel Order</v4:name>
+							   <v4:shortDescription>Please Cancel My Order</v4:shortDescription>
+							   <v4:longDescription>If I can not keep my current phone number, then please cancel my order.</v4:longDescription>
+							   <v4:priceInfo>
+								  <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+								  <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+							   </v4:priceInfo>
+							</v4:choice>
+						 </v4:options>
+					  </v4:customization>
+					  <v4:customization externalId="ACCESS-PORT-4E" required="true" displayOrder="5234">
+						 <v4:name>Additional Contact Number</v4:name>
+						 <v4:shortDescription>Additional Contact Phone Number</v4:shortDescription>
+						 <v4:longDescription>Please provide an additional phone number where we can contact you.</v4:longDescription>
+						 <v4:options min="1" max="1" type="Text">
+							<v4:choice externalId="ACCESS-PORT-4-ADDITIONAL-CONTACT" displayOrder="5044">
+							   <v4:name>Additional Contact</v4:name>
+							   <v4:shortDescription>My Additional Contact Number</v4:shortDescription>
+							   <v4:longDescription>Please enter an additional telephone number where we can contact you.</v4:longDescription>
+							   <v4:priceInfo>
+								  <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+								  <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+							   </v4:priceInfo>
+							</v4:choice>
+						 </v4:options>
+					  </v4:customization>
+				   </v4:choice>
+				   <v4:choice externalId="ACCESS-PORT-1-Y" displayOrder="5013">
+					  <v4:name>Phone Number</v4:name>
+					  <v4:shortDescription>Keep My Current Non-AT&amp;T Phone Number</v4:shortDescription>
+					  <v4:longDescription>You will keep your current non-AT&amp;T phone number.   Important Notes: Do not cancel your existing service. AT&amp;T will cancel your service for you on the activation date for your new service.  Transferring of phone numbers is not guaranteed, and can not be done from one state to another.  It may take up to 2 weeks to complete. If eligible, you will receive an email within 24 hours, giving you a phone number to call to verify the process. Please call the phone number as soon as you can.</v4:longDescription>
+					  <v4:priceInfo>
+						 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+						 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+					  </v4:priceInfo>
+					  <v4:customization externalId="ACCESS-PORT-6" required="true" displayOrder="5250">
+						 <v4:name>Get New or Cancel</v4:name>
+						 <v4:shortDescription>If you can not keep your phone number, do you want us to give you a new number?</v4:shortDescription>
+						 <v4:longDescription>In some cases you may not be able to keep your current telephone number.  If this happens, would you like us to assign you a new number, or cancel your order?</v4:longDescription>
+						 <v4:options min="1" max="1" type="Selection">
+							<v4:choice externalId="ACCESS-PORT-6-NEW" displayOrder="5061">
+							   <v4:name>Get New Number</v4:name>
+							   <v4:shortDescription>Assign Me a New Telephone Number</v4:shortDescription>
+							   <v4:longDescription>If I can not keep my current phone number, then please assign me a new number.</v4:longDescription>
+							   <v4:priceInfo>
+								  <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+								  <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+							   </v4:priceInfo>
+							</v4:choice>
+							<v4:choice externalId="ACCESS-PORT-6-CANCEL" displayOrder="5062">
+							   <v4:name>Cancel Order</v4:name>
+							   <v4:shortDescription>Please Cancel My Order</v4:shortDescription>
+							   <v4:longDescription>If I can not keep my current phone number, then please cancel my order.</v4:longDescription>
+							   <v4:priceInfo>
+								  <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+								  <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+							   </v4:priceInfo>
+							</v4:choice>
+						 </v4:options>
+					  </v4:customization>
+					  <v4:customization externalId="ACCESS-PORT-4D" required="true" displayOrder="5233">
+						 <v4:name>Zip Code on Previous Phone Account</v4:name>
+						 <v4:shortDescription>Zip Code on Current Phone Account</v4:shortDescription>
+						 <v4:longDescription>Please enter the zip code from your current telephone account.</v4:longDescription>
+						 <v4:options min="1" max="1" type="Text">
+							<v4:choice externalId="ACCESS-PORT-4-ZIP" displayOrder="5043">
+							   <v4:name>Port Zip Code</v4:name>
+							   <v4:shortDescription>The Zip Code of the Address on my Current Phone Account</v4:shortDescription>
+							   <v4:longDescription>Please enter the zip code on your current phone account.</v4:longDescription>
+							   <v4:priceInfo>
+								  <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+								  <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+							   </v4:priceInfo>
+							</v4:choice>
+						 </v4:options>
+					  </v4:customization>
+					  <v4:customization externalId="ACCESS-PORT-4C" required="true" displayOrder="5232">
+						 <v4:name>State on Previous Phone Account</v4:name>
+						 <v4:shortDescription>State on Current Phone Account</v4:shortDescription>
+						 <v4:longDescription>Please enter the two letter state abbreviation from your current telephone account.</v4:longDescription>
+						 <v4:options min="1" max="1" type="Text">
+							<v4:choice externalId="ACCESS-PORT-4-STATE" displayOrder="5042">
+							   <v4:name>Port State</v4:name>
+							   <v4:shortDescription>The State on my Current Phone Account</v4:shortDescription>
+							   <v4:longDescription>Please enter the state on your current phone account.</v4:longDescription>
+							   <v4:priceInfo>
+								  <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+								  <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+							   </v4:priceInfo>
+							</v4:choice>
+						 </v4:options>
+					  </v4:customization>
+					  <v4:customization externalId="ACCESS-PORT-4B" required="true" displayOrder="5231">
+						 <v4:name>City on Previous Phone Account</v4:name>
+						 <v4:shortDescription>City on Current Phone Account</v4:shortDescription>
+						 <v4:longDescription>Please enter the city from your current telephone account.</v4:longDescription>
+						 <v4:options min="1" max="1" type="Text">
+							<v4:choice externalId="ACCESS-PORT-4-CITY" displayOrder="5041">
+							   <v4:name>Port City</v4:name>
+							   <v4:shortDescription>The City on my Current Phone Account</v4:shortDescription>
+							   <v4:longDescription>Please enter the city on your current phone account.</v4:longDescription>
+							   <v4:priceInfo>
+								  <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+								  <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+							   </v4:priceInfo>
+							</v4:choice>
+						 </v4:options>
+					  </v4:customization>
+					  <v4:customization externalId="ACCESS-PORT-5" required="true" displayOrder="5240">
+						 <v4:name>Acknowledge Disconnect</v4:name>
+						 <v4:shortDescription>Acknowledge Disconnect of Current Phone Account</v4:shortDescription>
+						 <v4:longDescription>Please check here to acknowledge that your phone service will be disconnected from your current provider.</v4:longDescription>
+						 <v4:options min="1" max="1" type="Selection">
+							<v4:choice externalId="ACCESS-PORT-5-ACKNOWLEDGE" displayOrder="5050">
+							   <v4:name>Acknowledge</v4:name>
+							   <v4:shortDescription>Acknowledge Disconnect of Previous Phone</v4:shortDescription>
+							   <v4:longDescription>I acknowledge that my phone service will be disconnected from my previous provider.</v4:longDescription>
+							   <v4:priceInfo>
+								  <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+								  <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+							   </v4:priceInfo>
+							</v4:choice>
+						 </v4:options>
+					  </v4:customization>
+					  <v4:customization externalId="ACCESS-PORT-4E" required="true" displayOrder="5234">
+						 <v4:name>Additional Contact Number</v4:name>
+						 <v4:shortDescription>Additional Contact Phone Number</v4:shortDescription>
+						 <v4:longDescription>Please provide an additional phone number where we can contact you.</v4:longDescription>
+						 <v4:options min="1" max="1" type="Text">
+							<v4:choice externalId="ACCESS-PORT-4-ADDITIONAL-CONTACT" displayOrder="5044">
+							   <v4:name>Additional Contact</v4:name>
+							   <v4:shortDescription>My Additional Contact Number</v4:shortDescription>
+							   <v4:longDescription>Please enter an additional telephone number where we can contact you.</v4:longDescription>
+							   <v4:priceInfo>
+								  <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+								  <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+							   </v4:priceInfo>
+							</v4:choice>
+						 </v4:options>
+					  </v4:customization>
+					  <v4:customization externalId="ACCESS-PORT-3" required="true" displayOrder="5220">
+						 <v4:name>Name on Previous Phone Account</v4:name>
+						 <v4:shortDescription>Name on Current Phone Account</v4:shortDescription>
+						 <v4:longDescription>Please enter the name on  your current telephone account.</v4:longDescription>
+						 <v4:options min="1" max="1" type="Text">
+							<v4:choice externalId="ACCESS-PORT-3-NAME" displayOrder="5030">
+							   <v4:name>Name</v4:name>
+							   <v4:shortDescription>The Name on my Current Phone Account</v4:shortDescription>
+							   <v4:longDescription>Please enter the name on your current phone account.</v4:longDescription>
+							   <v4:priceInfo>
+								  <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+								  <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+							   </v4:priceInfo>
+							</v4:choice>
+						 </v4:options>
+					  </v4:customization>
+					  <v4:customization externalId="ACCESS-PORT-2" required="true" displayOrder="5210">
+						 <v4:name>Phone Number to be Ported</v4:name>
+						 <v4:shortDescription>Current Phone Number</v4:shortDescription>
+						 <v4:longDescription>Please enter your current phone number that you want to keep.  Do not include any spaces, dashes or parenthesis.</v4:longDescription>
+						 <v4:options min="1" max="1" type="Text">
+							<v4:choice externalId="ACCESS-PORT-2-NUMBER" displayOrder="5020">
+							   <v4:name>Phone Number</v4:name>
+							   <v4:shortDescription>My Current Phone Number</v4:shortDescription>
+							   <v4:longDescription>Please enter your current phone number.  Do not include any spaces, dashes or parenthesis.</v4:longDescription>
+							   <v4:priceInfo>
+								  <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+								  <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+							   </v4:priceInfo>
+							</v4:choice>
+						 </v4:options>
+					  </v4:customization>
+					  <v4:customization externalId="ACCESS-PORT-4A" required="true" displayOrder="5230">
+						 <v4:name>Address Line 1 on Previous Phone Account</v4:name>
+						 <v4:shortDescription>First Line of Address on Current Phone Account</v4:shortDescription>
+						 <v4:longDescription>Please enter the first line of the address from your current telephone account.</v4:longDescription>
+						 <v4:options min="1" max="1" type="Text">
+							<v4:choice externalId="ACCESS-PORT-4-LINE1" displayOrder="5040">
+							   <v4:name>Port Address Line 1</v4:name>
+							   <v4:shortDescription>The First Line of the Address on my Current Phone Account</v4:shortDescription>
+							   <v4:longDescription>Please enter the first line of the address on your current phone account.</v4:longDescription>
+							   <v4:priceInfo>
+								  <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+								  <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+							   </v4:priceInfo>
+							</v4:choice>
+						 </v4:options>
+					  </v4:customization>
+				   </v4:choice>
+				   <v4:choice externalId="ACCESS-PORT-1-N" displayOrder="5011">
+					  <v4:name>Phone Number</v4:name>
+					  <v4:shortDescription>Get a New Number</v4:shortDescription>
+					  <v4:longDescription>You will be assigned a new phone number.</v4:longDescription>
+					  <v4:priceInfo>
+						 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+						 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+					  </v4:priceInfo>
+				   </v4:choice>
+				</v4:options>
+			 </v4:customization>
+			 <v4:customization externalId="ATT-HSI-HW-6" required="true" displayOrder="2104">
+				<v4:name>High Speed Internet Hardware Options</v4:name>
+				<v4:shortDescription>Select the type of hardware for your High Speed Internet service.</v4:shortDescription>
+				<v4:longDescription>Choose a Modem if you are only connecting a single computer to the internet.  Choose a Wireless Gateway to create multiple Internet connections and connect to the Internet wirelessly.  Use your own equipment if you already have a Modem or Wireless Gateway.</v4:longDescription>
+				<v4:options min="1" max="1" type="Selection">
+				   <v4:choice externalId="11-81-6" displayOrder="2012">
+					  <v4:name>High Speed Internet Hardware Options</v4:name>
+					  <v4:shortDescription>AT&amp;T Wireless Gateway</v4:shortDescription>
+					  <v4:longDescription>Get the most out of your high-speed Internet connection with our Wireless Gateway - an affordable, all-in-one wireless networking solution. Connect one or multiple desktop and/or laptops via a wired or wireless connection. (Standard shipping included, taxes will apply)</v4:longDescription>
+					  <v4:priceInfo>
+						 <v4:baseNonRecurringPrice>100.0</v4:baseNonRecurringPrice>
+						 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+					  </v4:priceInfo>
+				   </v4:choice>
+				   <v4:choice externalId="11-80-6" displayOrder="2022">
+					  <v4:name>High Speed Internet Hardware Options</v4:name>
+					  <v4:shortDescription>AT&amp;T Modem</v4:shortDescription>
+					  <v4:longDescription>Secure, reliable modem for high-speed Internet connectivity.  (Standard shipping included, taxes will apply)</v4:longDescription>
+					  <v4:priceInfo>
+						 <v4:baseNonRecurringPrice>75.0</v4:baseNonRecurringPrice>
+						 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+					  </v4:priceInfo>
+				   </v4:choice>
+				   <v4:choice externalId="11-935-5" displayOrder="2031">
+					  <v4:name>High Speed Internet Hardware Options</v4:name>
+					  <v4:shortDescription>Already have equipment</v4:shortDescription>
+					  <v4:longDescription>If you already have a modem or wireless gateway</v4:longDescription>
+					  <v4:priceInfo>
+						 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+						 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+					  </v4:priceInfo>
+				   </v4:choice>
+				</v4:options>
+			 </v4:customization>
+			 <v4:customization externalId="ATT-DSL-INS-4" required="true" displayOrder="2003">
+				<v4:name>High Speed Internet Order Install Types</v4:name>
+				<v4:shortDescription>High Speed Internet Order Install Types-Choose your type of installation: Professional or Self-install?</v4:shortDescription>
+				<v4:longDescription>The installation of AT&amp;T High Speed Internet will be free if you self-install your service. There is a free customer support number you can call with any questions. If you are still having problems after speaking to the helpdesk, or are not comfortable continuing with the installation, we can send a technician to complete the installation for you (there is a charge for this service).  If a technician performs the installation, there is a service activation and installation charge.</v4:longDescription>
+				<v4:options min="1" max="1" type="Selection">
+				   <v4:choice externalId="13-79-4" displayOrder="2122">
+					  <v4:name>High Speed Internet Order Install Types</v4:name>
+					  <v4:shortDescription>Professional Install</v4:shortDescription>
+					  <v4:longDescription>A service technician visits your location and installs your Internet service.</v4:longDescription>
+					  <v4:priceInfo>
+						 <v4:baseNonRecurringPrice>149.0</v4:baseNonRecurringPrice>
+						 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+					  </v4:priceInfo>
+				   </v4:choice>
+				   <v4:choice externalId="13-78-4" displayOrder="2112">
+					  <v4:name>High Speed Internet Order Install Types</v4:name>
+					  <v4:shortDescription>Self-Install</v4:shortDescription>
+					  <v4:longDescription>Install your Internet service yourself and save money.  As part of your order, you'll receive a Self Installation Kit with easy-to-follow instructions on how to connect your Internet equipment and register your account.  You should receive your equipment and self-install kit within 5-7 days.</v4:longDescription>
+					  <v4:priceInfo>
+						 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+						 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+					  </v4:priceInfo>
+				   </v4:choice>
+				</v4:options>
+			 </v4:customization>
+			 <v4:customization externalId="ATT-DEVICE-4795-Q" required="true" displayOrder="10">
+				<v4:name>Choose your Promotion</v4:name>
+				<v4:shortDescription>Choose between $47.95 a month for twelve months or get a free device and pay only $57.95 per month for 12 months.</v4:shortDescription>
+				<v4:longDescription>You can choose to pay $47.95 a month for twelve months or get a free Kindle Fire, Sonos� PLAY:3 TM or Xbox 360� with 1 year Xbox LIVE Gold and pay only $57.95 per month for 12 months.   One year term required.</v4:longDescription>
+				<v4:options min="1" max="1" type="Selection">
+				   <v4:choice externalId="ATT-DVC-5795-YES-Q" displayOrder="8">
+					  <v4:name>Promotion Options</v4:name>
+					  <v4:shortDescription>Free Device</v4:shortDescription>
+					  <v4:longDescription>Pay just $57.95 a month for twelve months, plus get a free Kindle Fire, Sonos� PLAY:3 TM or Xbox 360� with 1 year Xbox LIVE Gold.  Details and redemption instructions will be sent to you in the mail within three weeks of activating your service.  Please visit att.com/rewardinfo to learn more about the reward redemption process.</v4:longDescription>
+					  <v4:priceInfo>
+						 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+						 <v4:baseRecurringPrice>10.0</v4:baseRecurringPrice>
+					  </v4:priceInfo>
+				   </v4:choice>
+				   <v4:choice externalId="ATT-DVC-4795-NO-Q" displayOrder="7">
+					  <v4:name>Promotion Options</v4:name>
+					  <v4:shortDescription>No Device</v4:shortDescription>
+					  <v4:longDescription>Pay just $47.95 a month for twelve months.</v4:longDescription>
+					  <v4:priceInfo>
+						 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+						 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+					  </v4:priceInfo>
+				   </v4:choice>
+				</v4:options>
+			 </v4:customization>
+			 <v4:marketingHighlights>
+				<v4:marketingHighlight>AT&amp;T High Speed Internet Minimum System Requirements:  Windows:  Windows 7 - Memory:  1 GB; Processor Speed Required:  1 GHz or faster;  Free Disk Space:  125 MB; CD-ROM Drive:  Yes; Network Interface for Home Networking:  Available Ethernet Port; Video Display Adapter:  Standard VGA/SVGA;  Audio:  Audio output capability.  Windows Vista -  Memory:  512 MB; Processor Speed Required:  800 MHz or faster;  Free Disk Space:  125 MB; CD-ROM Drive:  Yes; Network Interface for Home Networking:  Available Ethernet Port; Video Display Adapter:  Standard VGA/SVGA;  Audio:  Audio output capability.  Windows XP -  Memory:  128 MB; Processor Speed Required:  300 MHz or faster;  Free Disk Space:  100 MB; CD-ROM Drive:  Yes; Network Interface for Home Networking:  Available Ethernet Port; Video Display Adapter:  Included with OS requirements;  Audio:  Included with OS requirements. Macintosh:  Mac OS X v10.3 Panther OS - Processor:  PowerPC (G3, G4, G5); CD-ROM Media:  CD-Rom or DVD Drive; Disk Space:  100 MB of free disk space; Memory:  64 MB of RAM (128 MB recommended); Video Display Adapter:  Standard; Audio:  Audio output capability.  Mac OS X v10.4 Tiger and above OS - Processor:  Included with OS requirements; CD-ROM Media:  Included with OS requirements; Disk Space:  Included with OS requirements; Memory:  1 GB of RAM (recommended); Video Display Adapter:  Included with OS requirements; Audio:  Included with OS requirements.</v4:marketingHighlight>
+				<v4:marketingHighlight>Service Requires: DSL modem or gateway/router.</v4:marketingHighlight>
+				<v4:marketingHighlight>11 accounts each with virtually unlimited storage</v4:marketingHighlight>
+				<v4:marketingHighlight>Convenient Billing: All services provided on the same bill.</v4:marketingHighlight>
+				<v4:marketingHighlight>10 MB of personal web space</v4:marketingHighlight>
+				<v4:marketingHighlight>Please note: It may be necessary for an AT&amp;T representative to contact you before your order can be completed.</v4:marketingHighlight>
+				<v4:marketingHighlight>Need additional jacks and wiring in your house? Your AT&amp;T Order Confirmation will provide instructions on how to schedule installation of jacks and wiring by our experienced technicians.</v4:marketingHighlight>
+				<v4:marketingHighlight>Subject to taxes and fees</v4:marketingHighlight>
+				<v4:marketingHighlight>Includes on-the-go access to the entire national AT&amp;T Wi-Fi Hotspot network, at no extra charge.</v4:marketingHighlight>
+				<v4:marketingHighlight>Customer Self-Installation: Install your Internet service yourself and save money while obtaining the installation that's best for you. Only a small shipping and handling fee applies. Professional Installation: A service technician visits your location and installs your Internet service. $149 fee applies.</v4:marketingHighlight>
+			 </v4:marketingHighlights>
+			 <v4:descriptiveInfo type="longDescription">
+				<v4:value>Elite DSL is twice the speed of Pro DSL.  Perfect for home networking, streaming video, online gaming, downloading movies, and sharing photos.  Complete Choice� Enhanced is a money saving package. It includes your residential phone service, unlimited local calling, and several of our most popular calling features.  It's designed for the busy household, providing convenience, control, and savings.Our double pack includes unlimited local calling &amp; Internet downstream speeds up to 6.0 Mbps.  A great combination of services for one low monthly price!</v4:value>
+			 </v4:descriptiveInfo>
+			 <v4:descriptiveInfo type="termsAndConditions">
+				<v4:value><![CDATA[AT&T High Speed Internet Service requires DSL modem/router and local access line. Taxes, excessive usage and other charges may apply.  Speed claim(s) represent maximum downstream and/or upstream speed capabilities which may vary and are not guaranteed.  Many factors can affect actual speeds.  In order to enhance reliability and consistency of performance, some lines may be provisioned at less than the maximum speed capability but within the range of speed purchased.  See the Terms of Service, www.att.yahoo.com/terms.  Internet speed options not available in all areas.  DSL price includes 150 GB of data/mo. Additional $10 charge per each 50 GB of data usage in excess of allowance. For more information, go to www.att.com/internet-usage.  Access includes AT&T Wi-Fi Basic. Wi-Fi enabled device required. Other restrictions apply. See www.attwifi.com for details and locations.  Use of Wi-Fi at home will count toward your AT&T High Speed Internet usage allowance.  Advertised services and Internet speed options not available in all areas.  Offers may be modified or discontinued at any time without notice.  Other conditions may apply to all offers.  $29.95 Internet Offer:  Offer available for new residential Internet customers.  Price for up to 6.0 Mbps Internet service after monthly bill credit. After 12 months, standard rate applies unless canceled by customer.  Qualifying AT&T home phone service required.  Promotional rates may no longer apply if customer changes their speed tier during term. 12 month term required.  Up to $180 early termination fee applies.  Internet gateway required.  Taxes apply.  Internet price includes 150 GB of data/mo. Additional $10 charge per each 50 GB of data usage in excess of data plan.   For more information, go to www.att.com/internet-usage.  Device Offer: Available to customers ordering qualifying Internet service with a 1-year term.  Reward notification sent to customer within 3-4 weeks after service activation. See notification for redemption details. Online redemption required. Device sent 2-3 weeks after redemption to customers who retain qualifying service(s) for 30 days. Offer expires 12/31/12.  Amazon, Microsoft and Sonos are not sponsors of this promotion. All trademarks are the property of their respective owners.  $19.95 Internet Offer:  Offer available for new AT&T Internet customers only.  Offer applies up to 6.0 Mbps Internet service after monthly bill credit.  After 12 months, standard rate applies unless canceled by customer.  Requires AT&T home phone service.  Promotional rates may no longer apply if customer changes their speed tier during term.  Residential customers only.  Modem/gateway required.  Taxes apply.  Internet price includes 150 GB of data/mo. Additional $10 charge per each 50 GB of data usage in excess of allowance. For more information, go to www.att.com/internet-usage.  Speed claim(s) represent maximum downstream and/or upstream speed capabilities which may vary and are not guaranteed.  O ffer expires 12/31/12.   $38/$50 AT&T Reward Card for purchase of a modem or wireless gateway and high speed Internet from AT&T:  Available to new or existing AT&T wireless customers. Offer ends 12/31/12.   Applicable taxes and fees will be based on the full monthly price of products and services.  Redemption Terms:  Card redemption required. Card sent 4-6 weeks after redemption to customers who retain qualifying service(s).� Not redeemable for cash, for use at automated gasoline pumps or for cash withdrawal at ATMs.  Card expires 90 days after issuance. For cardholder agreement/terms and conditions go to http://rewardcenter.att.com/myrewardcard/agreement.pdf. �Cards issued by U.S. Bank National Association, pursuant to a license from Visa U.S.A. Inc.  DSL price includes 150 GB of data/mo. Additional $10 charge per each 50 GB of data usage in excess of allowance. For more information, go to www.att.com/internet-usage.  Voice Terms & Conditions Lifeline Services: If you are enrolled in government assistance programs or are low income, you may qualify for lifeline or other low income programs.  For more information, call 800-288-2020. Stand Alone Local Access Service and Other Services:  Rate  The 1st bill may be higher than usual as it may include partial month charges along with your normal monthly rate. First bill will be approximately 2 months of service, the one-time installation fee (if applicable), plus taxes and surcharges.  You will receive a confirmation letter regarding this order. You will have 30 days from the postmark to call with any changes to avoid any additional service charges.    Complete Choice� Enhanced: Rate excludes installation charges, taxes, surcharges, subscriber-line and extended area usage and service charges and Universal Service Fund fee.  Offer includes access line and 8-12 calling features.  For Connecticut customers, package includes access line and 10 calling features, including Privacy Manager�.  All other customers, Privacy Manager� may be available upon request and may require additional charges.  Display equipment required for Caller ID, Call Waiting ID and Privacy Manager�.  Call Waiting ID requires subscription to Caller ID and Call Waiting.  With Caller ID and Call Waiting ID, some call information may be blocked or otherwise not displayed, including information for some calls originating outside of the AT&T network and calls carried over facilities that do not transmit Caller ID information.  With Three-Way Calling, Call Forwarding, Speed Calling 8, Call Return, Missed Call Dialing, Call Again and Selective Call Forwarding, local toll/long distance charges may apply, depending on the location of the called parties.  Toll or long distance charges may apply to calls forwarded or returned to numbers outside of your service area.  In certain California metropolitan areas (ZUM 3), usage charges are incurred for calls that are beyond a customer's local calling area but are not local toll or long distance.  Subs]]></v4:value>
+			 </v4:descriptiveInfo>
+			 <v4:descriptiveInfo type="disclosures">
+				<v4:value/>
+			 </v4:descriptiveInfo>
+			 <v4:promotion>
+				<v4:externalId>DBL-ELT-CCE-DVC-Q</v4:externalId>
+				<v4:promoCode>DBL-ELT-CCE-DVC-Q</v4:promoCode>
+				<v4:shortDescription>Choose between $47.95 a month for twelve months or get a free Kindle Fire, Sonos� PLAY:3 TM or Xbox 360� with 1 year Xbox LIVE Gold and pay only $57.95 per month for 12 months.   One year term required.</v4:shortDescription>
+				<v4:description>Regular price $71/month.  New DSL customers only.  Downstream  up to 6.0 Mbps.</v4:description>
+				<v4:qualification>N/A</v4:qualification>
+				<v4:conditions>$29.95 Internet Offer:  Offer available for new residential Internet customers.  Price for up to 6.0 Mbps Internet service after monthly bill credit. After 12 months, standard rate applies unless canceled by customer.  Qualifying AT&amp;T home phone service required.  Promotional rates may no longer apply if customer changes their speed tier during term. 12 month term required.  Up to $180 early termination fee applies.  Internet gateway required.  Taxes apply.  Internet price includes 150 GB of data/mo. Additional $10 charge per each 50 GB of data usage in excess of data plan.   For more information, go to www.att.com/internet-usage  Device Offer: Available to customers ordering qualifying Internet service with a 1-year term.  Reward notification sent to customer within 3-4 weeks after service activation. See notification for redemption details. Online redemption required. Device sent 2-3 weeks after redemption to customers who retain qualifying service(s) for 30 days. Offer expires 12/31/12.  Amazon, Microsoft and Sonos are not sponsors of this promotion. All trademarks are the property of their respective owners.</v4:conditions>
+				<v4:type>baseMonthlyDiscount</v4:type>
+				<v4:priceValueType>unspecifiedPriceValueType</v4:priceValueType>
+				<v4:priceValue>47.95</v4:priceValue>
+				<v4:promotionDuration>P12M</v4:promotionDuration>
+			 </v4:promotion>
+			 <v4:promotion>
+				<v4:externalId>DSL Half CPE Rebate</v4:externalId>
+				<v4:promoCode>DSL Half CPE Rebate</v4:promoCode>
+				<v4:shortDescription>If you have AT&amp;T wireless service, you may be eligible to receive an AT&amp;T Visa� Reward Card to offset 50% of the cost of your new Internet equipment.  Please visit att.com/equipmentoffer to see how to qualify.</v4:shortDescription>
+				<v4:description>Rebate is available to customers who purchase new Internet service from AT&amp;T.  Rebate will be in the form of an AT&amp;T Reward Card.  Offer ends 12/31/2012.</v4:description>
+				<v4:qualification>N/A</v4:qualification>
+				<v4:conditions>$38/$50 AT&amp;T Reward Card for purchase of a modem or wireless gateway and high speed Internet from AT&amp;T.  Available to new or existing AT&amp;T wireless customers. Offer ends 12/31/12.   Applicable taxes and fees will be based on the full monthly price of products and services.  Redemption Terms:  Card redemption required. Card sent 4-6 weeks after redemption to customers who retain qualifying service(s).� Not redeemable for cash, for use at automated gasoline pumps or for cash withdrawal at ATMs.  Card expires 90 days after issuance. For cardholder agreement/terms and conditions go to http://rewardcenter.att.com/myrewardcard/agreement.pdf. �Cards issued by U.S. Bank National Association, pursuant to a license from Visa U.S.A. Inc.</v4:conditions>
+				<v4:type>unspecifiedType</v4:type>
+				<v4:priceValueType>unspecifiedPriceValueType</v4:priceValueType>
+				<v4:priceValue>0.0</v4:priceValue>
+				<v4:promotionDuration>PT0S</v4:promotionDuration>
+			 </v4:promotion>
+		  </v4:productDetails>
+	   </v4:productInfo>
+	</v4:providerResults>
+ </v4:response>
+</v4:productEnterpriseResponse>

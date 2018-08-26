@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+	attributeFormDefault="unqualified" 
+	elementFormDefault="qualified"
+	targetNamespace="http://xml.A.com/v4"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:ac="http://xml.A.com/v4">
+	
+	<xs:include schemaLocation="types.xsd"/>
+
+	<xs:simpleType name="detailObjectType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="item" />
+			<xs:enumeration value="marketItem" />
+			<xs:enumeration value="businessParty" />
+			<xs:enumeration value="productCatalog" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="detailElementType">
+		<xs:choice maxOccurs="1" minOccurs="1">
+			<xs:sequence>
+				<xs:element name="detailType" maxOccurs="1" minOccurs="1">
+					<xs:annotation>
+							<xs:documentation>
+							Contains the object type for which details are being requested.
+							</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="ac:detailObjectType">
+								<xs:attribute name="externalId" type="xs:string" use="required" >
+									<xs:annotation>
+										<xs:documentation>
+										Contains the external id of the object being requested. 
+										</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+								<xs:attribute name="realTime" type="xs:boolean" use="optional" >
+									<xs:annotation>
+										<xs:documentation>
+										Flag to indicate that the entity being requested is from Real Time Integration. 
+										</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+								<xs:attribute name="catalogId" type="xs:integer" use="required" >
+									<xs:annotation>
+										<xs:documentation>
+										Contains the external id of the object being requested. 
+										</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>	
+				</xs:element>
+			</xs:sequence>
+			<xs:sequence>
+				<xs:element name="referenceType" maxOccurs="1" minOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+						Contains the object type for which details are being requested.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:token">
+							<xs:enumeration value="itemCategories" />
+							<xs:enumeration value="referrers" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:choice>
+	</xs:complexType>
+
+	<xs:complexType name="orderSourceRequestElementType">
+		<xs:sequence>
+				<xs:element name="externalId" type="xs:string" maxOccurs="1" minOccurs="0" >
+					<xs:annotation>
+						<xs:documentation>
+						Contains the external id of the order source requested
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="vdn" type="xs:string" maxOccurs="1" minOccurs="1" >
+					<xs:annotation>
+						<xs:documentation>
+						Contains the vdn for which the order sources are requested
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="program" type="xs:string" maxOccurs="1" minOccurs="1" >
+					<xs:annotation>
+						<xs:documentation>
+						Contains the program external id for which the order sources are requested
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="channel" type="xs:string" maxOccurs="1" minOccurs="1" >
+					<xs:annotation>
+						<xs:documentation>
+						Contains the channel for which the order sources are requested 
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="detailResultType">
+		<xs:annotation>
+			<xs:documentation>
+			Contains the specialized result type for the requested type and external id.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="itemResult" type="ac:itemDetailType"
+					minOccurs="1" maxOccurs="1">
+				</xs:element>
+			</xs:sequence>
+			<xs:sequence>
+				<xs:element name="marketItemResult" type="ac:marketItemDetailType"
+					minOccurs="1" maxOccurs="1">
+				</xs:element>
+			</xs:sequence>
+			<xs:sequence>
+				<xs:element name="businessPartyResult" type="ac:businessPartyDetailResultType"
+					minOccurs="1" maxOccurs="1" >
+				</xs:element>
+			</xs:sequence>
+			<xs:sequence>
+				<xs:element name="productCatalogResult" type="ac:marketItemDetailType"
+					minOccurs="1" maxOccurs="1" >
+				</xs:element>
+			</xs:sequence>
+
+			<xs:sequence>
+				<xs:element name="referenceResult" type="ac:referenceResultType"
+					minOccurs="1" maxOccurs="1" >
+				</xs:element>
+			</xs:sequence>
+		</xs:choice>
+	</xs:complexType>
+	
+	<xs:complexType name="orderSourceResultType">
+		<xs:annotation>
+			<xs:documentation>
+			Contains the specialized result type for the requested type and external id.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="orderSource" type="ac:orderSourceType" 
+					minOccurs="1" maxOccurs="1" >
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="itemDetailType">
+		<xs:sequence>
+			<xs:element name="requestedFor" type="ac:detailElementType"	minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+					Contains the detail element that contains what was requested.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="feature" type="ac:featureType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+					Contains the feature info for the requested object.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="featureGroup" type="ac:featureGroupType" minOccurs="0" maxOccurs="unbounded" >
+				<xs:annotation>
+					<xs:documentation>
+					Contains the feature group info for the requested object.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="marketingHighlights" type="ac:marketingHighlightType" minOccurs="0" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+					Contains the marketing highlights info for the requested object.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descriptiveInfo" type="ac:descriptiveInfoType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+					Contains the descriptive info for the requested object.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="metaData" type="ac:metaDataType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+					Contains the meta data for the requested object.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- <xs:element name="question" type="ac:questionType" minOccurs="0" maxOccurs="unbounded" >
+				<xs:annotation>
+					<xs:documentation>
+					Contains the question info for the requested object.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>-->
+		</xs:sequence>
+	</xs:complexType>
+
+  <xs:element name="marketItemDetail" type="ac:marketItemDetailType" />
+  <xs:complexType name="marketItemDetailType">
+		<xs:sequence>
+			<xs:element name="requestedFor" type="ac:detailElementType"	minOccurs="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+					Contains the detail element that contains what was requested.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="feature" type="ac:featureType" minOccurs="0" maxOccurs="unbounded" >
+				<xs:annotation>
+					<xs:documentation>
+					Contains the feature info for the requested object.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="featureGroup" type="ac:featureGroupType" minOccurs="0" maxOccurs="unbounded" >
+				<xs:annotation>
+					<xs:documentation>
+					Contains the feature group info for the requested object.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="marketingHighlights" type="ac:marketingHighlightType" minOccurs="0" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+					Contains the marketing highlights info for the requested object.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descriptiveInfo" type="ac:descriptiveInfoType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+					Contains the descriptive info for the requested object.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="metaData" type="ac:metaDataType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+					Contains the meta data for the requested object.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- <xs:element name="question" type="ac:questionType" minOccurs="0" maxOccurs="unbounded" >
+				<xs:annotation>
+					<xs:documentation>
+					Contains the question info for the requested object.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>-->
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="businessPartyDetailResultType">
+		<xs:complexContent>
+			<xs:extension base="ac:businessPartyDetailType">
+				<xs:sequence>
+					<xs:element name="requestedFor" type="ac:detailElementType"	minOccurs="1" maxOccurs="1" >
+						<xs:annotation>
+							<xs:documentation>
+							Contains the detail element that contains what was requested.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="businessPartyDetailType">
+		<xs:sequence>
+			<xs:element name="externalId" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="parent" type="xs:string" minOccurs="0" maxOccurs="1" >
+			<xs:annotation>
+					<xs:documentation>
+					Contains the parent external id
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="logoImagePath" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="currentAddress" type="ac:addressType" minOccurs="0" maxOccurs="1" />
+			<xs:element name="coBrandName" type="xs:string" minOccurs="0" maxOccurs="1" />
+    		<xs:element name="urlForOrdering" type="xs:anyURI" minOccurs="0" maxOccurs="1" />
+    		<xs:element name="phoneNumForOrdering" type="ac:phoneNumberValueType" minOccurs="0" maxOccurs="1" />
+    		<xs:element name="phoneNumForCustomerCare" type="ac:phoneNumberValueType" minOccurs="0" maxOccurs="1" />
+    		<xs:element name="provider" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+    		<xs:element name="referrer" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+			<xs:element name="descriptiveInfo" type="ac:descriptiveInfoType" minOccurs="0" maxOccurs="unbounded" >
+			
+				<xs:annotation>
+					<xs:documentation>
+					Contains the descriptive info for the requested object.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="orderSource" type="ac:orderSourceType" />
+
+
+	<xs:complexType name="orderSourceType">
+		<xs:sequence>
+			<xs:element name="sourceCode" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="program" type="ac:programType" minOccurs="0" maxOccurs="1" /> 
+			<xs:element name="businessParty" type="ac:orderSourceBusinessPartyType" minOccurs="0" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+					Contains the external id of the business party
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+    		<xs:element name="telephonyList" type="ac:telephonyListType" minOccurs="0" maxOccurs="1" />
+    		<xs:element name="channel" type="xs:string" minOccurs="0" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+					Contains the external id of the sales channel
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+    		<xs:element name="imageUrl" type="xs:string" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="programType">
+		<xs:sequence>
+			<xs:element name="externalId" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="metadataList" type="ac:metaDataListType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="inboundOrderNumber" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="callbackNumber" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="emailCallbackNumber" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="coBrandName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="baseURL" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="refFacingName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="type" type="xs:string" use="optional"/>
+		<xs:attribute name="flow" type="xs:string" use="optional"/>
+		<xs:attribute name="channel" type="xs:string" use="optional"/>
+	</xs:complexType>
+	
+	<xs:complexType name="orderSourceBusinessPartyType">
+		<xs:sequence>
+			<xs:element name="externalId" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="metadataList" type="ac:metaDataListType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="telephonyListType">
+		<xs:sequence>
+			<xs:element name="telephony" type="ac:telephonyType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="telephonyType">
+		<xs:sequence>
+			<xs:element name="phoneNumber" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="vdn" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="language" type="xs:string" minOccurs="0" maxOccurs="1" />
+    		<xs:element name="callType" type="xs:string" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="featureType">
+		<xs:sequence>
+			<xs:element name="externalId" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:choice>
+				<xs:element ref="ac:price" />
+				<xs:element ref="ac:priceTierList" />
+			</xs:choice>
+			<xs:element name="included" type="ac:emptyElementType" minOccurs="0" maxOccurs="1" />
+			<xs:element name="required" type="xs:boolean" minOccurs="1" maxOccurs="1" />
+			<xs:element name="available" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+			<xs:element name="doNotDisplay" type="ac:emptyElementType" minOccurs="0" maxOccurs="1" />
+			<xs:element name="dataConstraints" type="ac:dataConstraintType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="capabilities" type="ac:featureCapabilityListType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="dependencies" type="ac:featureDependencyListType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="type" type="xs:string" use="required" />
+		<xs:attribute name="description" type="xs:string" use="optional" />
+		<xs:attribute name="tags" type="xs:string" use="optional" />	
+	</xs:complexType>
+
+	<xs:complexType name="featureGroupType">
+		<xs:sequence>
+			<xs:element name="externalId" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element ref="ac:price" minOccurs="0" maxOccurs="1" />
+			<xs:element name="included" type="ac:emptyElementType" minOccurs="0" maxOccurs="1" />
+			<xs:element name="required" type="xs:boolean" minOccurs="1" maxOccurs="1" />
+			<xs:element name="available" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+			<xs:element name="doNotDisplay" type="ac:emptyElementType" minOccurs="0" maxOccurs="1" />
+			<xs:element name="dataConstraints" type="ac:dataConstraintType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="capabilities" type="ac:featureCapabilityListType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="dependencies" type="ac:featureDependencyListType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="feature" type="ac:featureType" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="selectionType">
+				<xs:complexType>
+					<xs:choice minOccurs="1" maxOccurs="1">
+						<xs:element name="pickAll" type="ac:emptyElementType" />
+						<xs:element name="pickOne" type="ac:emptyElementType" />
+						<xs:element name="pickUpToN" type="xs:positiveInteger"/>
+						<xs:element name="pickN" type="xs:positiveInteger" />
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>			
+		</xs:sequence>
+		<xs:attribute name="type" type="xs:string" use="required" />
+		<xs:attribute name="description" type="xs:string" use="optional" />
+		<xs:attribute name="tags" type="xs:string" use="optional" />		
+	</xs:complexType>
+
+	<!-- <xs:complexType name="questionType">
+		<xs:sequence>
+			<xs:element name="externalId" type="xs:string" minOccurs="1" maxOccurs="1" />			
+			<xs:element name="questionString" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="dataConstraints" type="ac:dataConstraintType" minOccurs="0" maxOccurs="1"/>			
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="optional" />	
+		<xs:attribute name="description" type="xs:string" use="optional" />	
+	</xs:complexType>-->
+
+
+
+	<xs:complexType name="descriptiveInfoType">
+		<xs:sequence>
+			<xs:element name="value" type="xs:string" minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="type" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:token">
+					<xs:enumeration value="termsAndConditions" />
+					<xs:enumeration value="disclosures" />
+					<xs:enumeration value="longDescription" />
+					<xs:enumeration value="shortDescription" />
+					<xs:enumeration value="associatedDocument" />
+					<xs:enumeration value="other" />
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="description" type="xs:string" use="optional" />
+	</xs:complexType>
+	
+	<xs:complexType name="marketingHighlightType">
+		<xs:sequence>
+			<xs:element name="marketingHighlight" type="xs:string" minOccurs="0" maxOccurs="10" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="referenceResultType">
+		<xs:sequence>
+			<xs:element name="requestedFor" type="ac:detailElementType"	minOccurs="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+					Contains the detail element that contains what was requested.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:sequence>
+				<xs:choice>
+					<xs:element name="itemCategory" type="ac:itemCategory" minOccurs="1" maxOccurs="unbounded">			
+						<xs:annotation>
+							<xs:documentation>
+							Contains the item category reference info.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="referrers">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="referrer" type="ac:businessPartyDetailType" minOccurs="1" maxOccurs="unbounded"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:choice>
+			</xs:sequence>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="featureCapabilityType">		
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="name" type="xs:string"/>
+				<xs:attribute name="value" type="xs:string" use="optional"/>
+				<xs:attribute name="valueDataType" use="optional">
+					<xs:simpleType>
+						<xs:restriction base="xs:token">
+							<xs:enumeration value="string" />
+							<xs:enumeration value="integer" />
+							<xs:enumeration value="double" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	
+	<xs:complexType name="featureCapabilityListType">
+		<xs:sequence>
+			<xs:element name="featureCapability" type="ac:featureCapabilityType" nillable="true" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+		
+	<xs:complexType name="featureDependencyType">
+		<xs:sequence>
+			<xs:element name="dependencyExternalId" type="xs:string" minOccurs="1" maxOccurs="20"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="dependency" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:token">
+					<xs:enumeration value="requires" />
+					<xs:enumeration value="excludes" />
+					<xs:enumeration value="recommends" />
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+		<xs:complexType name="featureDependencyListType">
+		<xs:sequence>
+			<xs:element name="dependency" type="ac:featureDependencyType" minOccurs="1" maxOccurs="10"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>

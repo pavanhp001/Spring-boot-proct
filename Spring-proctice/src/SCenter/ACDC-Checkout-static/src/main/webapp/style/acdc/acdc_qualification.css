@@ -1,0 +1,70 @@
+#left_sec_content .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+.yearContent > select{height:25px;width:70px}
+
+.monthContent > select{height:25px;width:70px}
+
+.alert.alert-info{margin:38px 0 0;}
+
+.dataFieldCont{float:left;-width:56%}
+
+.dataFieldText{padding:10px 0;clear:both}
+
+.dialogueTextInput{width:175px}
+
+.dialogueDropDown{width:225px}
+
+.dialogueContent .checkBoxInput, .dialogueContent{margin-left:10px}
+
+.dataFieldDisclosure{background:#eee none repeat scroll 0 0;border:1px solid #ccc;border-radius:5px;margin:5px;padding:5px}
+
+.DLNumber{height:25px;margin-left:10px}
+
+.validCont{display:none;margin:40px 0 0}
+
+#left_sec_content #bottom-footer .next_step span{width:165px;height:34px;background-color:#81bd41;color:#fff;display:table-cell;cursor:pointer;vertical-align:middle;text-align:center;font-size:18px;font-weight:bold;border-radius:5px;text-decoration:none}
+
+#customizations .next_step span{width:165px;height:34px;background-color:#81bd41;color:#fff;display:table-cell;cursor:pointer;vertical-align:middle;text-align:center;font-size:18px;font-weight:bold;border-radius:5px;text-decoration:none;.yearcontent}
+ 
+.invalidMsg{color:red;font-size:13px;font-weight:bold;margin-left:8px;padding:2px}
+ 
+.mandatoryStar{color:red;float:left;margin-right: 5px;}
+#DisabledCreditCardType select{margin-left: 0;width: auto;}
+select#DisabledDebitCardType {clear: both;float: left;margin-left: 0;width: auto;}
+   
+
+.newOrTransferCustomer{ border: 1px solid #222;border-radius: 0px;margin: 26px 15px 2px -3px;padding: 4px 15px 9px 13px;text-align: center;width: 30px;cursor:pointer;}
+
+.newOrTransferCustomer.active{background-color:#81bd41;color:#fff;}
+.NewOrTransfer {display: inline-flex; margin: -22px 2px 0 5px;}
+
+.newOrTransferSpan{}
+
+.NewOrTransfer .error_tooltip{margin-top: 35px;}
+.validationMsgCont {clear: both;}
+
+.ssn-help-icon { background-color: #999; border-radius: 72px; color: #fff; display: inline-block; font-size: 10px; font-weight: normal; height: 13px; margin: -2px 0 0 1px; position: absolute; text-align: center; text-decoration: none !important; vertical-align: inherit; width: 13px; }
+.dlContent {
+    float: left;
+}
+
+.yearContent {
+    display: inline;
+    margin: 2px 0 2px 3px;
+}
+.monthContent {
+    display: inline-block;
+}
+
+@media ( max-width : 500px ) {
+	.dataFieldCont {
+		width: 75%;
+	}	
+}
+
+.dataFieldCont.cccheckbox {
+    float: right !important;
+    max-width: 94% !important;
+}

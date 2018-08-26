@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions name="LoggingService"
+             targetNamespace="http://xml.A.com/logging" 
+             xmlns="http://xml.A.com/logging"
+             xmlns:tns="http://xml.A.com/logging" 
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+             xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+             xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" >
+
+    <wsdl:types>
+        <xs:schema xmlns:soapenc="http://schemas.xmlsoap.org/wsdl/" 
+                   xmlns="http://xml.A.com/logging" 
+                   targetNamespace="http://xml.A.com/logging">
+            <xs:element name="logMessage">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:any/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <!-- This is the generic message type, since all logging messages (initially) will be just strings -->
+    <wsdl:message name="LogEntryMsg">
+        <wsdl:part name="logEntry" element="logMessage" />
+    </wsdl:message>
+    <wsdl:portType name="LoggingPortType">
+        <wsdl:operation name="LogServiceabilityEvent">
+            <wsdl:input name="serviceabilityLogMsg" message="LogEntryMsg" />
+        </wsdl:operation>
+        <wsdl:operation name="LogDetailsEvent">
+            <wsdl:input name="detailsLogMsg" message="LogEntryMsg" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="LoggingServiceBinding" type="tns:LoggingPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="LogServiceabilityEvent">
+            <soap:operation soapAction="LogServiceabilityEvent" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+        </wsdl:operation>
+        <wsdl:operation name="LogDetailsEvent">
+            <soap:operation soapAction="LogDetailsEvent" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="LoggingService">
+        <wsdl:port name="LoggingPort" binding="tns:LoggingServiceBinding">
+            <soap:address location="http://sgdv1vm3/services/logging" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

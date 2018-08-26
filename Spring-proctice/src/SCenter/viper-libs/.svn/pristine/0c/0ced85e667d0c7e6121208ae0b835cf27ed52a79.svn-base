@@ -1,0 +1,12 @@
+rule "Apply 10% discount if total purcahses is over 100"
+ no-loop true
+ dialect "java"
+    when
+      $c : Customer()
+      $i : Double(doubleValue  > 100) from accumulate ( Purchase( customer == $c, $price : product.price ), 
+                                                            sum( $price ) )
+    then
+      $c.setDiscount( 10 );
+      insertLogical( new Discount($c, 10) );
+      System.out.println( "Customer " + $c.getName() + " now has a shopping total of " + $i );
+end  

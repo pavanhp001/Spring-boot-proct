@@ -1,0 +1,60 @@
+      <v4:orderManagementRequestResponse xsi:schemaLocation="http://xml.AL.com/v4/orderManagement.xsd " xmlns:v4="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         <v4:correlationId/>
+         <v4:transactionType>updateLineItem</v4:transactionType>
+         <v4:request>
+            <v4:agentId>default</v4:agentId>
+            <v4:salesContext>
+               <v4:entity name="harmony">
+                  <v4:attribute name="source" value="accord"/>
+                  <v4:attribute name="updatedBy" value="soap"/>
+               </v4:entity>
+            </v4:salesContext>
+            <v4:orderId>37145</v4:orderId>
+            <v4:updatedLineItemInfo>
+               <v4:lineItem>
+                  <!--Lineitem External Id-->
+                  <v4:externalId>30497</v4:externalId>
+                  <v4:newPhone>1234567890</v4:newPhone>
+                  <v4:leadId>123</v4:leadId>
+                  <v4:lineItemAttributes>
+                     <v4:entity source="Test">
+						<v4:attribute>
+							<v4:name>Test</v4:name>
+							<v4:value>TestV1</v4:value>
+						</v4:attribute>
+					</v4:entity>
+                  </v4:lineItemAttributes>
+				<v4:lineItemPriceInfo>
+					<v4:baseNonRecurringPrice>999.0</v4:baseNonRecurringPrice>
+					<v4:baseRecurringPrice>888</v4:baseRecurringPrice>
+					<v4:includeInTotalPrice/>
+					<v4:priceInfoStatus>
+						<v4:statusCode>1</v4:statusCode>
+						<v4:processingMessages>
+							<v4:message>
+								<v4:code>0.0</v4:code>
+								<v4:text>fulfillment</v4:text>
+							</v4:message>
+						</v4:processingMessages>
+						<v4:statusMsg>fulfillment Price Update</v4:statusMsg>
+					</v4:priceInfoStatus>
+					<v4:pricingDate>2013-10-07T10:15:24.818-04:00</v4:pricingDate>
+					<v4:onDeliveryPrice>99999</v4:onDeliveryPrice>
+				</v4:lineItemPriceInfo>
+                  <v4:activeDialogs>
+					<v4:dialogs>
+						<v4:dialog>
+							<v4:externalId>TWCEastCreditCheckPermission</v4:externalId>
+							<v4:value selected="true" type="boolean">N</v4:value>
+						</v4:dialog>
+						<v4:dialog>
+							<v4:externalId>TWCEastProvidePaymentInfo</v4:externalId>
+							<v4:value selected="true" type="string">No</v4:value>
+						</v4:dialog>
+					</v4:dialogs>
+				</v4:activeDialogs>
+
+               </v4:lineItem>
+            </v4:updatedLineItemInfo>
+         </v4:request>
+      </v4:orderManagementRequestResponse>

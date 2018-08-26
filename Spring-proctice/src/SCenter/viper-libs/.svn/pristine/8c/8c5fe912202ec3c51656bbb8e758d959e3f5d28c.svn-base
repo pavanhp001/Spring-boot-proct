@@ -1,0 +1,60 @@
+rule "Purchase notification"
+    salience 10
+
+ when
+  $c : Customer()
+  $p : Purchase( customer == $c)	    
+ then
+     System.out.println( "Customer " + $c.name + " just purchased " + $p.product.name );
+end 
+
+rule "Discount removed notification"
+ when
+     $c : Customer()
+  not Discount( customer == $c )
+ then
+  $c.discount = 0 ;
+  System.out.println( "Customer " + $c.name + " now has a discount of " + $c.discount );
+end
+
+rule "Discount awarded notification"
+ when
+     $c : Customer()
+     $d : Discount( customer == $c )
+ then
+  System.out.println( "Customer " + $c.name + " now has a discount of " + $d.amount );
+end     
+
+
+rule "Apply a discount to people in the city of Raleigh"
+ruleflow-group "test"
+lock-on-active true
+when
+    $p : Person( ) 
+    $a : Address( city == "Raleigh") from $p.address 
+then
+    modify ($p) {} #Apply discount to person in a modify block
+end
+
+
+rule "Assign people in North Carolina (NC) to sales region 1"
+ruleflow-group "test"
+lock-on-active true
+when
+    $p : Person(address.state == "NC" )  
+then
+    modify ($p) {} #Assign person to sales region 1 in a modify block
+end
+
+rule "Apply a discount to people in the city of Raleigh"
+ruleflow-group "test"
+lock-on-active true
+when
+    $p : Person(address.city == "Raleigh" )  
+then
+    modify ($p) {} #Apply discount to person in a modify block
+end
+
+
+
+

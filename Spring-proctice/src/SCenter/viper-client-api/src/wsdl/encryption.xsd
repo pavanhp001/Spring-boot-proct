@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" targetNamespace="http://xml.A.com/v4"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ac="http://xml.A.com/v4">
+
+	<xs:include schemaLocation="types.xsd" />
+
+
+	<xs:element name="encryptionRequest" type="ac:encryptionRequestType" />
+	<xs:element name="encryptionResponse" type="ac:encryptionResponseType" />
+
+	<xs:complexType name="encryptionRequestType">
+		<xs:complexContent>
+			<xs:extension base="ac:abstractRequestType">
+			   <xs:sequence>
+				<xs:element name="fieldList" maxOccurs="1" minOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							List of fields plain text/encrypted
+                            </xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="field" maxOccurs="unbounded"
+								minOccurs="1" type="ac:encryptionDataFieldType" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="encryptionResponseType">
+		<xs:complexContent>
+			<xs:extension base="ac:abstractResponseType">
+				<xs:sequence>
+				<xs:element name="fieldList" maxOccurs="1" minOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							List of fields encrypted
+                            </xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="field" maxOccurs="unbounded"
+								minOccurs="1" type="ac:encryptionDataFieldType" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>	
+
+
+	<xs:complexType name="encryptionDataFieldType">
+		<xs:attribute name="data" type="xs:string" use="required">
+				<xs:annotation>
+					<xs:documentation>
+						Field plain text/encrypted
+                    </xs:documentation>
+				</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="correlationId" type="xs:string" use="required" />
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://xml.A.com/v4/orderFulfillment"
+	targetNamespace="http://xml.A.com/v4/orderFulfillment"
+	xmlns:ac="http://xml.A.com/v4" xmlns:vndr="http://xml.A.com/v4/VendorRequestResponse/"
+	xmlns:comm="http://xml.A.com/common">
+	<xs:import schemaLocation="vendorRequestResponse.xsd" namespace="http://xml.A.com/v4/VendorRequestResponse/" />
+	<xs:import schemaLocation="common.xsd" namespace="http://xml.A.com/common" />
+	<xs:import schemaLocation="address.xsd" namespace="http://xml.A.com/v4" />
+	<xs:import schemaLocation="orderManagement.xsd" namespace="http://xml.A.com/v4" />
+
+	<xs:complexType name="OrderFulfillmentResponse">
+		<xs:complexContent>
+			<xs:extension base="vndr:RtimResponse">
+				<xs:sequence>
+					<xs:element   ref="ac:orderManagementRequestResponse" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="OrderFulfillmentRequest">
+		<xs:complexContent>
+			<xs:extension base="vndr:RtimRequest">
+				<xs:sequence>
+					<xs:element  ref="ac:orderManagementRequestResponse" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+
+
+	<xs:element name="orderFulfillmentRequest" type="tns:OrderFulfillmentRequest" />
+	<xs:element name="orderFulfillmentResponse" type="tns:OrderFulfillmentResponse" />
+</xs:schema>

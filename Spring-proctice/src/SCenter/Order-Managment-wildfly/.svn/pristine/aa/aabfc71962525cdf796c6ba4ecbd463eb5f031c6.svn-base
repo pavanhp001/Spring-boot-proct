@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ac:orderManagementRequestResponse
+	xmlns:ac="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xml.AL.com/v4/orderManagement.xsd ">
+	<ac:correlationId></ac:correlationId>
+	<ac:transactionType>updateItem</ac:transactionType>
+	<ac:request>
+		<ac:orderId>159</ac:orderId>
+		<ac:updatedLineItemInfo>
+
+			<ac:lineItem>
+				<ac:lineItemNumber>301</ac:lineItemNumber>
+				<ac:desiredStartDate>
+					<ac:date>2011-05-01</ac:date>
+					<ac:time>12:00:00</ac:time>
+				</ac:desiredStartDate>
+				<ac:scheduledStartDate>
+					<ac:date>2011-04-01</ac:date>
+					<ac:time>12:00:00</ac:time>
+				</ac:scheduledStartDate>
+				<ac:howLongAtAddress>10</ac:howLongAtAddress>
+			</ac:lineItem>
+			<ac:lineItem>
+				<ac:lineItemNumber>300</ac:lineItemNumber>
+				<ac:desiredStartDate>
+					<ac:date>2011-05-01</ac:date>
+					<ac:time>12:00:00</ac:time>
+				</ac:desiredStartDate>
+				<ac:scheduledStartDate>
+					<ac:date>2011-04-01</ac:date>
+					<ac:time>12:00:00</ac:time>
+				</ac:scheduledStartDate>
+				<ac:howLongAtAddress>10</ac:howLongAtAddress>
+			</ac:lineItem>
+		</ac:updatedLineItemInfo>
+	</ac:request>
+</ac:orderManagementRequestResponse>

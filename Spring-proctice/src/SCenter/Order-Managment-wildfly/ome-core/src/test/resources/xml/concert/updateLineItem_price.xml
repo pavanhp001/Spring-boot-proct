@@ -1,0 +1,26 @@
+<v4:orderManagementRequestResponse xsi:schemaLocation="http://xml.AL.com/v4 orderManagement.xsd " xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:v4="http://xml.AL.com/v4">
+	<v4:correlationId/>
+         <v4:transactionType>updateLineItem</v4:transactionType>
+         <v4:request>
+            <v4:agentId>default</v4:agentId>
+            <v4:salesContext>
+               <v4:entity name="SYP">
+                  <v4:attribute name="source" value="salescenter"/>
+                  <v4:attribute name="updatedBy" value="fa"/>
+               </v4:entity>
+            </v4:salesContext>
+            <v4:orderId>13348</v4:orderId>
+            <v4:updatedLineItemInfo>
+               <v4:lineItem>
+                  <!--Lineitem External Id-->
+                  <v4:externalId>14099</v4:externalId>
+                  <v4:lineItemPriceInfo>
+                    <v4:baseNonRecurringPrice>59.99</v4:baseNonRecurringPrice>
+                    <v4:baseNonRecurringPriceUnits>USD</v4:baseNonRecurringPriceUnits>
+                    <v4:baseRecurringPrice>153.97</v4:baseRecurringPrice>
+                    <v4:baseRecurringPriceUnits>USD</v4:baseRecurringPriceUnits>
+                </v4:lineItemPriceInfo>
+               </v4:lineItem>
+            </v4:updatedLineItemInfo>
+         </v4:request>
+      </v4:orderManagementRequestResponse>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 	
+	attributeFormDefault="unqualified" 
+	elementFormDefault="qualified"
+	targetNamespace="http://xml.A.com/v3"
+	xmlns:ac="http://xml.A.com/v3" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:include schemaLocation="address.xsd" />	
+	<xs:include schemaLocation="types.xsd" />	
+	<xs:include schemaLocation="consumer.xsd" />	
+
+	<xs:element name="orderStatus" type="ac:orderStatusWithTypeType" /> 
+	<xs:element name="lineItemStatus" type="ac:orderStatusWithTypeType" /> 
+
+	<xs:element name="order" type="ac:orderType" />
+	
+	<xs:complexType name="orderType">
+		<xs:complexContent>
+			<xs:extension base="ac:unconstraintedOrderType">
+				<xs:sequence>
+					<xs:element name="lineItems" type="ac:lineItemCollectionType" minOccurs="1" maxOccurs="1"/>
+					<xs:element ref="ac:orderStatus" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="orderStatusHistory" type="ac:orderStatusHistoryType" minOccurs="1" maxOccurs="1" />
+					<xs:element name="externalId" type="xs:string" minOccurs="1" maxOccurs="1" />
+					<xs:element name="source" type="xs:string" minOccurs="1" maxOccurs="1" />
+					<xs:element name="referrerId" type="xs:string" minOccurs="1" maxOccurs="1" />
+					<xs:element name="associatedWithMove" type="xs:boolean" minOccurs="1" maxOccurs="1" />
+					<xs:element name="directMailOptIn" type="xs:boolean" minOccurs="1" maxOccurs="1" />
+					<xs:element name="eMailOptIn" type="xs:boolean" minOccurs="1" maxOccurs="1" />
+					<xs:element name="campaignId" type="xs:string" minOccurs="0" maxOccurs="1" />
+					<xs:element ref="ac:consumer" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="agentId" type="xs:string" minOccurs="1" maxOccurs="1" />
+					<xs:element name="AConfirmationNumber" type="xs:string" minOccurs="0" maxOccurs="1" />
+					<xs:element name="ACustomerAccountNumber" type="xs:string" minOccurs="0" maxOccurs="1" />
+					<xs:element name="totalPriceInfo" type="ac:priceInfoType" minOccurs="1" maxOccurs="1" />
+					<xs:element ref="ac:billingInfo" minOccurs="0" maxOccurs="1" />
+					<xs:element name="secondCallInfo" type="ac:secondCallType" minOccurs="0" maxOccurs="1" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="unconstraintedOrderType">
+		<xs:sequence>
+			<xs:element name="externalId" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="source" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="referrerId" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="associatedWithMove" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+			<xs:element name="directMailOptIn" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+			<xs:element name="eMailOptIn" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+			<xs:element name="campaignId" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element ref="ac:consumer" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="agentId" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="AConfirmationNumber" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="ACustomerAccountNumber" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="totalPriceInfo" type="ac:priceInfoType" minOccurs="0" maxOccurs="1" />
+			<xs:element ref="ac:billingInfo" minOccurs="0" maxOccurs="1" />
+			<xs:element name="secondCallInfo" type="ac:secondCallType" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="unconstrainedSecondCallType">
+		<xs:all>
+			<xs:element name="whenToCallBack" type="ac:dateTimeOrTimeRangeType" minOccurs="0" />
+			<xs:element name="firstPhoneNumber" type="ac:phoneNumberType" minOccurs="0" />
+			<xs:element name="secondPhoneNumber" type="ac:phoneNumberType" minOccurs="0" />
+		</xs:all>
+	</xs:complexType>
+	
+	<xs:complexType name="secondCallType">
+		<xs:complexContent>
+			<xs:restriction base="ac:unconstrainedSecondCallType">
+				<xs:all>
+					<xs:element name="whenToCallBack" type="ac:dateTimeOrTimeRangeType" />
+					<xs:element name="firstPhoneNumber" type="ac:phoneNumberType" />
+					<xs:element name="secondPhoneNumber" type="ac:phoneNumberType" minOccurs="0"/>
+				</xs:all>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="lineItemCollectionType">
+		<xs:sequence>
+			<xs:element name="lineItem" type="ac:lineItemType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="unconstraintedLineItemType">
+		<xs:all>
+			<xs:element name="lineItemNumber" type="xs:int" minOccurs="0" maxOccurs="1" />
+			<xs:element ref="ac:lineItemStatus" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="externalId" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="provider" type="ac:unconstrainedBusinessPartyType" minOccurs="0" maxOccurs="1" />
+			<xs:element name="providerConfirmationNumber" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="providerCustomerAccountNumber" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="serviceOrDeliveryAddress" type="ac:unconstrainedAddressType" minOccurs="0" maxOccurs="1" />
+			<xs:element ref="ac:billingInfo" minOccurs="0" maxOccurs="1" />
+			<xs:element name="marketItem" type="ac:marketItemType" minOccurs="0" maxOccurs="1" />
+			<xs:element name="priceInfo" type="ac:priceInfoType" minOccurs="0" maxOccurs="1" />
+			<xs:element name="desiredStartDate" type="ac:dateTimeOrTimeRangeType" minOccurs="0" maxOccurs="1" />
+			<xs:element name="scheduledStartDate" type="ac:dateTimeOrTimeRangeType" minOccurs="0" maxOccurs="1" />
+			<xs:element name="actualStartDate" type="ac:dateTimeOrTimeRangeType" minOccurs="0" maxOccurs="1" />
+		</xs:all>
+	</xs:complexType>
+
+	<xs:complexType name="intermedidateLineItemType">
+		<xs:complexContent>
+			<xs:restriction base="ac:unconstraintedLineItemType">
+				<xs:sequence>
+					<xs:element name="lineItemNumber" type="xs:int" minOccurs="1" maxOccurs="1" />
+					<xs:element ref="ac:lineItemStatus" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="externalId" type="xs:string" minOccurs="1" maxOccurs="1" />
+					<xs:element name="provider" type="ac:businessPartyType" minOccurs="1" maxOccurs="1" />
+					<xs:element name="providerConfirmationNumber" type="xs:string" minOccurs="0" maxOccurs="1" />
+					<xs:element name="providerCustomerAccountNumber" type="xs:string" minOccurs="0" maxOccurs="1" />
+					<xs:element name="serviceOrDeliveryAddress" type="ac:addressType" minOccurs="0" maxOccurs="1" />
+					<xs:element ref="ac:billingInfo" minOccurs="0" maxOccurs="1" />
+					<xs:element name="marketItem" type="ac:marketItemType" minOccurs="1" maxOccurs="1" />
+					<xs:element name="priceInfo" type="ac:priceInfoType" minOccurs="1" maxOccurs="1" />
+					<xs:element name="desiredStartDate" type="ac:dateTimeOrTimeRangeType" minOccurs="0" maxOccurs="1" />
+					<xs:element name="scheduledStartDate" type="ac:dateTimeOrTimeRangeType" minOccurs="0" maxOccurs="1" />
+					<xs:element name="actualStartDate" type="ac:dateTimeOrTimeRangeType" minOccurs="0" maxOccurs="1" />
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="lineItemType">
+		<xs:complexContent>
+			<xs:extension base="ac:intermedidateLineItemType">
+				<xs:sequence>
+					<xs:element name="lineItemNumber" type="xs:int" minOccurs="1" maxOccurs="1" />
+					<xs:element ref="ac:lineItemStatus" minOccurs="1" maxOccurs="1"/>
+					<xs:element name="lineItemStatusHistory" type="ac:orderStatusHistoryType" minOccurs="1" maxOccurs="1" />
+					<xs:element name="lineItemNumber" type="xs:int" minOccurs="1" maxOccurs="1" />
+					<xs:element name="externalId" type="xs:string" minOccurs="1" maxOccurs="1" />
+					<xs:element name="provider" type="ac:businessPartyType" minOccurs="1" maxOccurs="1" />
+					<xs:element name="providerConfirmationNumber" type="xs:string" minOccurs="0" maxOccurs="1" />
+					<xs:element name="providerCustomerAccountNumber" type="xs:string" minOccurs="0" maxOccurs="1" />
+					<xs:element name="serviceOrDeliveryAddress" type="ac:addressType" minOccurs="0" maxOccurs="1" />
+					<xs:element ref="ac:billingInfo" minOccurs="0" maxOccurs="1" />
+					<xs:element name="marketItem" type="ac:marketItemType" minOccurs="1" maxOccurs="1" />
+					<xs:element name="priceInfo" type="ac:priceInfoType" minOccurs="1" maxOccurs="1" />
+					<xs:element name="desiredStartDate" type="ac:dateTimeOrTimeRangeType" minOccurs="0" maxOccurs="1" />
+					<xs:element name="scheduledStartDate" type="ac:dateTimeOrTimeRangeType" minOccurs="0" maxOccurs="1" />
+					<xs:element name="actualStartDate" type="ac:dateTimeOrTimeRangeType" minOccurs="0" maxOccurs="1" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+</xs:schema>

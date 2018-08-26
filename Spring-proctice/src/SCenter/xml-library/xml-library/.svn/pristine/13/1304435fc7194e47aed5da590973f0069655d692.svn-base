@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" targetNamespace="http://xml.A.com/v4"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ac="http://xml.A.com/v4">
+
+	<xs:include schemaLocation="types.xsd" />
+	
+	<xs:simpleType name="dialogueTransactionType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="getDialogues">
+				<xs:annotation>
+					<xs:documentation>
+						The basic transaction/operation type for the Dialogue service.  For this transaction
+						type, the service will return the appropriate dialogue(s) based on the passed Criteria.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="tagListType">
+		<xs:annotation>
+			<xs:documentation>
+				A collection of 'MetaTagType' elements.  Used to 'decorate' objects with name/value type metadata.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="tag" type="ac:tagType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="tagType">
+		<xs:annotation>
+			<xs:documentation>
+				A simple type to contain a kind of 'metadata' information that could be used to categorize or select 
+				elements that it is attached to.  They will typically be used in groups as defined by
+				a 'TagListType'
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1" nillable="true">
+				<xs:annotation>
+					<xs:documentation>
+						A simple name identifier, used in a name/value pair. There should not be
+						any restriction of the value of this element.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="value" type="xs:string" minOccurs="0" maxOccurs="1" nillable="true">
+				<xs:annotation>
+					<xs:documentation>
+						A simple value identifier, used in a name/value pair. There should not be
+						any restriction of the value of this element.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="dialogueListType">
+		<xs:sequence>
+			<xs:element name="dialogue" type="ac:dialogueType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="dialogueType">
+		<xs:sequence>
+			<xs:element name="externalId" type="xs:string" minOccurs="1" maxOccurs="1" />			
+			<xs:element name="tags" type="ac:tagListType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="dataGroupList" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="dataGroup" type="ac:dataGroupType" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>					
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="optional"/>
+	</xs:complexType>
+	
+	<xs:complexType name="dataGroupType">
+		<xs:sequence>
+			<xs:element name="displayName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="tags" type="ac:tagListType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="dataFieldList">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="dataField" type="ac:dataFieldType" minOccurs="1" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element ref="ac:dataFieldMatrix"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="optional"/>
+	</xs:complexType>
+	
+	<xs:complexType name="dataFieldType">
+		<xs:sequence>
+			<xs:element name="externalId" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="featureExternalId" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="displayGroup" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="enabled" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="required" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="tags" type="ac:tagListType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="text" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="contentRefId" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="valueTarget" type="xs:string" minOccurs="0" maxOccurs="1"/>		
+			<xs:element name="dataConstraints" type="ac:dataConstraintType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="infoType" type="ac:infoType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="validation" type="xs:string"  minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>		
+		<xs:attribute name="name" type="xs:string" use="optional"/>
+		<xs:attribute name="type" type="ac:dataFieldTypeType" use="required"/> 
+	</xs:complexType>
+	
+	<xs:element name="dataFieldMatrix" type="ac:dataFieldMatrixType"/>
+	
+	<xs:complexType name="dataFieldMatrixType">
+		<xs:sequence>			
+			<xs:element name="dependency" type="ac:dataFieldDependencyType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="dataFieldDependencyType">
+		<xs:sequence>						
+			<xs:element name="enabledDataFields" type="ac:dependentDataFieldsType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="externalId" type="xs:string" use="required"/>	
+		<xs:attribute name="type" type="ac:dataFieldTypeType" use="required"/>		
+	</xs:complexType>
+	
+	<xs:complexType name="dependentDataFieldsType">
+		<xs:sequence>		
+			<xs:element name="ref" type="ac:dataFieldRefType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="value" type="xs:string" use="required"/>
+	</xs:complexType>
+	
+	<xs:complexType name="dataFieldRefType">			
+		<xs:attribute name="externalId" type="xs:string"></xs:attribute>
+	</xs:complexType>
+	
+
+	
+	  <xs:simpleType name="dataFieldTypeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="text" />
+			<xs:enumeration value="feature" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	 <xs:simpleType name="infoType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="disclosure" />
+			<xs:enumeration value="informational" />
+			<xs:enumeration value="notable" />
+			<xs:enumeration value="other" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<!--  <xs:simpleType name="fieldType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Integer" />
+			<xs:enumeration value="Number" />
+			<xs:enumeration value="String" />
+			<xs:enumeration value="Boolean" />
+			<xs:enumeration value="Date" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="validationType">
+		<xs:sequence>
+			<xs:element name="name" type="ac:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="pattern" type="xs:string"  minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType> 
+	
+	<xs:simpleType name="validationOptions">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Telephone" />
+			<xs:enumeration value="ZipCode" />
+			<xs:enumeration value="SSN" />
+			<xs:enumeration value="CreditCardNumber" />
+			<xs:enumeration value="CreditCardCVV" />
+			<xs:enumeration value="Email" />
+			<xs:enumeration value="BusinessDay" />
+		</xs:restriction>
+	</xs:simpleType>-->
+	
+	
+
+</xs:schema>

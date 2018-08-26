@@ -1,0 +1,32 @@
+package AL.ome.validation;
+
+import org.drools.runtime.rule.RuleContext;
+import com.AL.rules.util.*;
+import com.AL.rules.domain.Message;
+import com.AL.validation.ReportFactory;
+import com.AL.validation.ValidationReport;
+import com.AL.V.beans.entity.SalesOrder;
+import com.AL.V.beans.entity.LineItem;
+import com.AL.V.beans.entity.StatusRecordBean;
+import function  com.AL.rules.core.impl.RuleValidationHelper.info;
+import function  com.AL.rules.core.impl.RuleValidationHelper.error;
+import function  com.AL.rules.core.impl.RuleValidationHelper.warning;
+import function  com.AL.rules.core.impl.RuleValidationHelper.outcome;
+import java.util.ArrayList;
+import com.AL.enums.LineItemStatus;
+
+global com.AL.validation.ReportFactory reportFactory;
+global com.AL.validation.ValidationReport validationReport;
+	
+	rule "line item rule#1"
+	    salience 100
+	    when
+ 		so : SalesOrder()
+		liList: ArrayList() from collect (LineItem() from so.lineItems)
+		li: LineItem(providerExternalId == '2314635')
+		newStatus : StatusRecordBean()
+	    then 
+            info(kcontext, "sales order examine"+li.getExternalId());
+           // newStatus.getReasons().add("222");
+			//newStatus.setStatus(LineItemStatus.processing_aged.name());
+	end 

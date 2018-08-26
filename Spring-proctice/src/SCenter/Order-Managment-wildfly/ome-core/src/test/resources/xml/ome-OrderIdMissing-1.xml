@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<v4:orderManagementRequestResponse
+	xmlns:v4="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xml.AL.com/v4 orderManagement.xsd ">
+	<v4:transactionType>createOrder</v4:transactionType>
+	<v4:request>
+		 
+	</v4:request>
+</v4:orderManagementRequestResponse>

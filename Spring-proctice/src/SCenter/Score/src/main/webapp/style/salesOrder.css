@@ -1,0 +1,184 @@
+body {
+    overflow: auto !important;
+}
+
+.UIContentTopper_text_container{
+    margin-right: auto;
+    margin-top: 10px;
+    width: 90%;
+}
+
+#main_container{
+	background-color: #FBFBBC;
+    border: 1px solid #C0D576;
+    border-radius: 6px;
+    box-shadow: 0 0 1px #C0D576;
+    font-size: 12px;
+    width: 90% !important;
+}
+
+input#button {
+  background-color: #006633;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 4px 4px;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 1px 4px;
+  text-shadow: 0 -1px 0 #050505;
+}
+
+input#button:hover {
+	background-color: #669933;
+	color: #FFFFFF;
+	text-shadow: 0 -1px 2px #050505;
+}
+
+.navigationBlock {
+    display: table;
+    margin-bottom: 5px;
+    margin-left: 7%;
+    width: 86% !important;
+    -webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	
+}
+
+.pageLink{
+    background-color: #E0F596;
+    border: 1px solid #607516;
+    border-radius: 4px;
+    color: #006633;
+    float: left;
+    font-size: 14px;
+    margin-right: 5px;
+    padding: 2px;
+    text-align: left;
+    text-decoration: none !important;
+    line-height: normal;
+    margin-left: 5px;
+}
+
+.selPage, [class^="pageLink"]:hover, .prevousLink:hover  {
+	background-color: #006633 !important;
+    color: #FFF;
+    border: 1px solid #006633;
+}
+
+.UIFullPage_Container {
+    margin: 0;
+    padding: 0 12px;
+    width: 100%;
+}
+
+div#content {
+    border: medium none !important;
+    float: left;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+#selectedPage {
+    background-color: #C0C0C0;
+    border-radius: 4px;
+    float : left;
+    font-size: 14px;
+    line-height: 20px;
+    margin-left: 10px;
+    padding: 4px 6px;
+}
+
+.container{
+	border: 2px solid;
+    margin-bottom: 20px !important;
+}
+
+.dataBlock {
+	-moz-user-select: none !important;
+	clear: both;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.noPageContent{
+	background-color: #FDFFB3;
+    border: 1px solid #3B5998;
+    color: #006633;
+    font-size: 30px;
+    font-weight: bold;
+    height: 125px;
+    padding-left: 50px;
+    padding-top: 75px;
+    width: 1600px;
+}
+
+.noData {
+	color: rgb(255, 0, 0); 
+	font-size: 20px; 
+	font-weight: bold; 
+	border: 2px solid; 
+	width: 50%; 
+	border-radius: 6px 6px 6px 6px; 
+	text-align: center; 
+	padding: 9px 6px; 
+	margin-left: 4%;
+}
+
+.scoreErrorMsg {
+	color: rgb(255, 0, 0); 
+	font-size: 10px; 
+	border: 2px solid; 
+	width: auto; 
+	border-radius: 6px 6px 6px 6px; 
+	text-align: center; 
+	padding: 9px 6px; 
+}
+
+.scoreErrorMsg H1 {
+	color: rgb(255, 0, 0); 
+	font-weight: bold; 
+	font-size: 25px;
+}
+.inputStyle{
+	height: 20px;
+    width: 190px;
+}
+
+
+.prevousLink {
+    background-color: #E0F596;
+    border: 1px solid #607516;
+    border-radius: 4px;
+    color: #006633;
+    cursor: pointer;
+    float: left;
+    font-size: 14px;
+    margin-right: 5px;
+    padding: 2px;
+    text-decoration: none !important;
+    line-height: normal;
+}
+
+
+.clearSpan{
+    color: #0066CC;
+    cursor: pointer;
+    margin-left: 4px;
+    text-decoration: underline;
+}
+.preloader
+{
+display:none;
+float: left;
+margin-left: 30px;
+}
+
+.pdet_promos_features {
+  overflow-y: hidden !important;
+}
+

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ac:orderManagementRequestResponse xmlns:ac="http://xml.AL.com/v4" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <ac:correlationId>f28880a7-6e6d-4fb4-a0f9-1d760e0754c3</ac:correlationId>
+  <ac:transactionTimeStamp>2012-04-17-04:00</ac:transactionTimeStamp>
+  <ac:sessionId>sessionId</ac:sessionId>
+  <ac:transactionId>0</ac:transactionId>
+  <ac:region>region</ac:region>
+  <ac:affiliateName>affiliateName</ac:affiliateName>
+  <ac:salesCode>salesCode</ac:salesCode>
+  <v4:request xmlns:v4="http://xml.AL.com/v4">
+    <v4:lineitemId />
+    <v4:salesContext>
+      <v4:entity name="harmony">
+        <v4:attribute name="source" value="accord" />
+        <v4:attribute name="agentname" value="John Doe" />
+      </v4:entity>
+    </v4:salesContext>
+    <v4:orderInfo>
+      <v4:customerInformation>
+        <v4:action>referenceCustomer</v4:action>
+        <v4:customer>
+          <v4:externalId>12798</v4:externalId>
+        </v4:customer>
+      </v4:customerInformation>
+      <v4:agentId>User1</v4:agentId>
+      <v4:externalId />
+      <v4:source>Accord</v4:source>
+      <v4:orderDate>2012-04-17-04:00</v4:orderDate>
+      <v4:referrerId>108</v4:referrerId>
+      <v4:associatedWithMove>true</v4:associatedWithMove>
+      <v4:campaignId />
+      <v4:ALConfirmationNumber />
+      <v4:ALCustomerAccountNumber />
+      <v4:lineItems>
+        <v4:lineItem>
+          <v4:lineItemNumber>0</v4:lineItemNumber>
+          <v4:externalId>0</v4:externalId>
+          <v4:productDatasource datasource="">internal</v4:productDatasource>
+          <v4:lineItemDetail>
+            <v4:detailType>product</v4:detailType>
+            <v4:detail>
+              <v4:productLineItem>
+                <v4:externalId>OO-BUNDLE</v4:externalId>
+                <v4:provider externalId="6401" name="">
+                  <v4:source datasource="">internal</v4:source>
+                </v4:provider>
+              </v4:productLineItem>
+            </v4:detail>
+          </v4:lineItemDetail>
+          <v4:SchedulingInfo appointmentComment="Test Comment" billingInstallments="true" earlierAppointmentDate="true" installationFee="0.0" residenceType="HOUSE">
+            <v4:desiredStartDate>
+              <v4:date>2012-04-17-04:00</v4:date>
+            </v4:desiredStartDate>
+            <v4:scheduledStartDate>
+              <v4:date>2012-04-17-04:00</v4:date>
+            </v4:scheduledStartDate>
+            <v4:actualStartDate>
+              <v4:date>2012-04-17-04:00</v4:date>
+            </v4:actualStartDate>
+            <v4:ScheduleAsSoonAsPossible>true</v4:ScheduleAsSoonAsPossible>
+          </v4:SchedulingInfo>
+          <v4:service>BUSINESS</v4:service>
+          <v4:creditStatus>Approved</v4:creditStatus>
+          <v4:svcAddressExtId>10783</v4:svcAddressExtId>
+          <v4:billingInfoExtId>8083</v4:billingInfoExtId>
+          <v4:lineItemPriceInfo>
+            <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+            <v4:baseNonRecurringPriceUnits>Dollar</v4:baseNonRecurringPriceUnits>
+            <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+            <v4:baseRecurringPriceUnits>Dollar</v4:baseRecurringPriceUnits>
+            <v4:priceInfoStatus>
+              <v4:statusCode>0</v4:statusCode>
+            </v4:priceInfoStatus>
+            <v4:pricingDate>2012-04-17T13:04:48.796-04:00</v4:pricingDate>
+          </v4:lineItemPriceInfo>
+          <v4:lineItemStatus statusCode="cancelled_removed">
+            <v4:reason>0</v4:reason>
+          </v4:lineItemStatus>
+        </v4:lineItem>
+        <v4:lineItem>
+          <v4:lineItemNumber>0</v4:lineItemNumber>
+          <v4:externalId>0</v4:externalId>
+          <v4:productDatasource datasource="">internal</v4:productDatasource>
+          <v4:lineItemDetail>
+            <v4:detailType>product</v4:detailType>
+            <v4:detail>
+              <v4:productLineItem>
+                <v4:externalId>THD-MOVERS</v4:externalId>
+                <v4:provider externalId="6401" name="">
+                  <v4:source datasource="">internal</v4:source>
+                </v4:provider>
+              </v4:productLineItem>
+            </v4:detail>
+          </v4:lineItemDetail>
+          <v4:SchedulingInfo appointmentComment="Test Comment" billingInstallments="true" earlierAppointmentDate="true" installationFee="0.0" residenceType="HOUSE">
+            <v4:desiredStartDate>
+              <v4:date>2012-04-17-04:00</v4:date>
+            </v4:desiredStartDate>
+            <v4:scheduledStartDate>
+              <v4:date>2012-04-17-04:00</v4:date>
+            </v4:scheduledStartDate>
+            <v4:actualStartDate>
+              <v4:date>2012-04-17-04:00</v4:date>
+            </v4:actualStartDate>
+            <v4:ScheduleAsSoonAsPossible>true</v4:ScheduleAsSoonAsPossible>
+          </v4:SchedulingInfo>
+          <v4:service>BUSINESS</v4:service>
+          <v4:creditStatus>Approved</v4:creditStatus>
+          <v4:svcAddressExtId>10783</v4:svcAddressExtId>
+          <v4:billingInfoExtId>8083</v4:billingInfoExtId>
+          <v4:lineItemPriceInfo>
+            <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+            <v4:baseNonRecurringPriceUnits>Dollar</v4:baseNonRecurringPriceUnits>
+            <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+            <v4:baseRecurringPriceUnits>Dollar</v4:baseRecurringPriceUnits>
+            <v4:priceInfoStatus>
+              <v4:statusCode>0</v4:statusCode>
+            </v4:priceInfoStatus>
+            <v4:pricingDate>2012-04-17T13:04:48.811-04:00</v4:pricingDate>
+          </v4:lineItemPriceInfo>
+          <v4:lineItemStatus statusCode="sales_new_order">
+            <v4:reason>0</v4:reason>
+          </v4:lineItemStatus>
+        </v4:lineItem>
+        <v4:lineItem>
+          <v4:lineItemNumber>0</v4:lineItemNumber>
+          <v4:externalId>0</v4:externalId>
+          <v4:productDatasource datasource="">internal</v4:productDatasource>
+          <v4:lineItemDetail>
+            <v4:detailType>product</v4:detailType>
+            <v4:detail>
+              <v4:productLineItem>
+                <v4:externalId>OO-OI-NONCF</v4:externalId>
+                <v4:provider externalId="6401" name="">
+                  <v4:source datasource="">internal</v4:source>
+                </v4:provider>
+              </v4:productLineItem>
+            </v4:detail>
+          </v4:lineItemDetail>
+          <v4:SchedulingInfo appointmentComment="Test Comment" billingInstallments="true" earlierAppointmentDate="true" installationFee="0.0" residenceType="HOUSE">
+            <v4:desiredStartDate>
+              <v4:date xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+            </v4:desiredStartDate>
+            <v4:scheduledStartDate>
+              <v4:date xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+            </v4:scheduledStartDate>
+            <v4:actualStartDate>
+              <v4:date xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+            </v4:actualStartDate>
+            <v4:ScheduleAsSoonAsPossible>true</v4:ScheduleAsSoonAsPossible>
+          </v4:SchedulingInfo>
+          <v4:service>BUSINESS</v4:service>
+          <v4:creditStatus>Approved</v4:creditStatus>
+          <v4:svcAddressExtId>10783</v4:svcAddressExtId>
+          <v4:billingInfoExtId>8083</v4:billingInfoExtId>
+          <v4:lineItemPriceInfo>
+            <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+            <v4:baseNonRecurringPriceUnits>Dollar</v4:baseNonRecurringPriceUnits>
+            <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+            <v4:baseRecurringPriceUnits>Dollar</v4:baseRecurringPriceUnits>
+            <v4:priceInfoStatus>
+              <v4:statusCode>0</v4:statusCode>
+            </v4:priceInfoStatus>
+            <v4:pricingDate>2012-04-17T13:04:48.812-04:00</v4:pricingDate>
+          </v4:lineItemPriceInfo>
+          <v4:lineItemStatus statusCode="sales_new_order">
+            <v4:reason>0</v4:reason>
+          </v4:lineItemStatus>
+        </v4:lineItem>
+        <v4:lineItem>
+          <v4:lineItemNumber>0</v4:lineItemNumber>
+          <v4:externalId>0</v4:externalId>
+          <v4:productDatasource datasource="">internal</v4:productDatasource>
+          <v4:lineItemDetail>
+            <v4:detailType>product</v4:detailType>
+            <v4:detail>
+              <v4:productLineItem>
+                <v4:externalId>OO-BUNDLE-SAVER-1</v4:externalId>
+                <v4:provider externalId="6401" name="">
+                  <v4:source datasource="">internal</v4:source>
+                </v4:provider>
+              </v4:productLineItem>
+            </v4:detail>
+          </v4:lineItemDetail>
+          <v4:SchedulingInfo appointmentComment="Test Comment" billingInstallments="true" earlierAppointmentDate="true" installationFee="0.0" residenceType="HOUSE">
+            <v4:desiredStartDate>
+              <v4:date xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+            </v4:desiredStartDate>
+            <v4:scheduledStartDate>
+              <v4:date xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+            </v4:scheduledStartDate>
+            <v4:actualStartDate>
+              <v4:date xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+            </v4:actualStartDate>
+            <v4:ScheduleAsSoonAsPossible>true</v4:ScheduleAsSoonAsPossible>
+          </v4:SchedulingInfo>
+          <v4:service>BUSINESS</v4:service>
+          <v4:creditStatus>Approved</v4:creditStatus>
+          <v4:svcAddressExtId>10783</v4:svcAddressExtId>
+          <v4:billingInfoExtId>8083</v4:billingInfoExtId>
+          <v4:lineItemPriceInfo>
+            <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+            <v4:baseNonRecurringPriceUnits>Dollar</v4:baseNonRecurringPriceUnits>
+            <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+            <v4:baseRecurringPriceUnits>Dollar</v4:baseRecurringPriceUnits>
+            <v4:priceInfoStatus>
+              <v4:statusCode>0</v4:statusCode>
+            </v4:priceInfoStatus>
+            <v4:pricingDate>2012-04-17T13:04:48.813-04:00</v4:pricingDate>
+          </v4:lineItemPriceInfo>
+          <v4:lineItemStatus statusCode="sales_new_order">
+            <v4:reason>0</v4:reason>
+          </v4:lineItemStatus>
+        </v4:lineItem>
+      </v4:lineItems>
+      <v4:totalPriceInfo />
+    </v4:orderInfo>
+  </v4:request>
+</ac:orderManagementRequestResponse>

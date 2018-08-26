@@ -1,0 +1,959 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.A</groupId>
+		<artifactId>AParent</artifactId>
+		<version>1.2</version>
+	</parent>
+	<groupId>com.A.V</groupId>
+	<artifactId>V-client-api</artifactId>
+	<packaging>jar</packaging>
+	<version>01.10.00-SNAPSHOT</version>
+	<name>V Client API</name>
+	<url>http://maven.apache.org</url>
+	<scm>
+		<connection>scm:svn:${svn.location}${svn.module}/${svn.project}/${svn.release}</connection>
+		<developerConnection>scm:svn:${svn.location}${svn.module}/${svn.project}/${svn.release}</developerConnection>
+	</scm>
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<deployment.directory>./</deployment.directory>
+			</properties>
+		</profile>
+		<profile>
+			<id>devint</id>
+			<properties>
+				<deployment.directory>./</deployment.directory>
+			</properties>
+		</profile>
+		<profile>
+			<id>qa</id>
+			<properties>
+				<deployment.directory>./</deployment.directory>
+			</properties>
+		</profile>
+		<profile>
+			<id>stage</id>
+			<properties>
+				<deployment.directory>./</deployment.directory>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<deployment.directory>./</deployment.directory>
+			</properties>
+		</profile>
+	</profiles>
+	<build>
+		<finalName>V-client-api</finalName>
+
+		<plugins>
+			 
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<configuration>
+					<wtpversion>1.0</wtpversion>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.9</version>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>${basedir}/target/generated-ome/src/main/java</source>
+								<source>${basedir}/target/generated-cm/src/main/java</source>
+								<source>${basedir}/target/generated-uam/src/main/java</source>
+								<source>${basedir}/target/generated-pr/src/main/java</source>
+								<source>${basedir}/target/generated-di/src/main/java</source>
+								<source>${basedir}/target/generated-se/src/main/java</source>
+								<source>${basedir}/target/generated-me/src/main/java</source>
+								<source>${basedir}/target/generated-dtl/src/main/java</source>
+								<source>${basedir}/target/generated-html/src/main/java</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- mvn generate-sources -->
+			<plugin>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-codegen-plugin</artifactId>
+				<version>2.6.0</version>
+				<executions>
+					<execution>
+						<id>ccp-service</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>${basedir}/target/generated-ome/src/main/java</sourceRoot>
+							<wsdlOptions>
+								<wsdlOption>
+									<wsdl>${basedir}/src/wsdl/ACCP.wsdl</wsdl>
+									<serviceName>WebServiceProxyService</serviceName>
+									<extraargs>
+										<extraarg>-client</extraarg>
+										<extraarg>-verbose</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>com.A.xml.v4</extraarg>
+										<extraarg>-validate</extraarg>
+										<extraarg>-autoNameResolution</extraarg> 
+										<extraarg>-b</extraarg>
+										<extraarg>${basedir}/src/wsdl/valueBindings-dtl.xjc</extraarg>
+									</extraargs>
+								</wsdlOption>
+							</wsdlOptions>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+					
+					<execution>
+						<id>ome-service</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>${basedir}/target/generated-ome/src/main/java</sourceRoot>
+							<wsdlOptions>
+
+								<wsdlOption>
+									<wsdl>${basedir}/src/wsdl/OrderManagement.wsdl</wsdl>
+									<serviceName>OrderManagementWebServiceClient</serviceName>
+									<extraargs>
+										<extraarg>-client</extraarg>
+										<extraarg>-verbose</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>com.A.xml.v4</extraarg>
+										<extraarg>-validate</extraarg>
+										<extraarg>-autoNameResolution</extraarg> 
+										<extraarg>-b</extraarg>
+										<extraarg>${basedir}/src/wsdl/valueBindings-dtl.xjc</extraarg>
+									</extraargs>
+								</wsdlOption>
+
+							</wsdlOptions>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+
+
+					<execution>
+						<id>cm-service</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>${basedir}/target/generated-cm/src/main/java</sourceRoot>
+							<wsdlOptions>
+								<wsdlOption>
+									<wsdl>${basedir}/src/wsdl/CustomerManagement.wsdl</wsdl>
+									<serviceName>CustomerManagementWebServiceClient</serviceName>
+									<extraargs>
+										<extraarg>-client</extraarg>
+										<extraarg>-verbose</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>com.A.xml.cm.v4</extraarg>
+										<extraarg>-validate</extraarg>
+										<extraarg>-autoNameResolution</extraarg> 
+									</extraargs>
+								</wsdlOption>
+							</wsdlOptions>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+
+					<execution>
+						<id>uam-service</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>${basedir}/target/generated-uam/src/main/java</sourceRoot>
+							<wsdlOptions>
+								<wsdlOption>
+									<wsdl>${basedir}/src/wsdl/uam.wsdl</wsdl>
+									<serviceName>UamServiceWebServiceClient</serviceName>
+									<extraargs>
+										<extraarg>-client</extraarg>
+										<extraarg>-verbose</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>com.A.xml.uam.v4</extraarg>
+										<extraarg>-validate</extraarg>
+										<extraarg>-autoNameResolution</extraarg> 
+									</extraargs>
+								</wsdlOption>
+							</wsdlOptions>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+
+					<execution>
+						<id>pr-service</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>${basedir}/target/generated-pr/src/main/java</sourceRoot>
+							<wsdlOptions>
+								<wsdlOption>
+									<wsdl>${basedir}/src/wsdl/ProductManagement.wsdl</wsdl>
+									<serviceName>ProductManagementWebServiceClient</serviceName>
+									<extraargs>
+										<extraarg>-client</extraarg>
+										<extraarg>-verbose</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>com.A.xml.pr.v4</extraarg>
+										<extraarg>-validate</extraarg>
+										<extraarg>-autoNameResolution</extraarg> 
+										<extraarg>-b</extraarg>
+										<extraarg>${basedir}/src/wsdl/valueBindings-dtl.xjc</extraarg>
+									</extraargs>
+								</wsdlOption>
+							</wsdlOptions>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+					
+					<execution>
+						<id>di-service</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>${basedir}/target/generated-di/src/main/java</sourceRoot>
+							<wsdlOptions>
+								<wsdlOption>
+									<wsdl>${basedir}/src/wsdl/DialogManagement.wsdl</wsdl>
+									<serviceName>DialogManagementWebServiceClient</serviceName>
+									<extraargs>
+										<extraarg>-client</extraarg>
+										<extraarg>-verbose</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>com.A.xml.di.v4</extraarg>
+										<extraarg>-validate</extraarg>
+										<extraarg>-autoNameResolution</extraarg> 
+									</extraargs>
+								</wsdlOption>
+							</wsdlOptions>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+					
+					<execution>
+						<id>se-service</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>${basedir}/target/generated-se/src/main/java</sourceRoot>
+							<wsdlOptions>
+								<wsdlOption>
+									<wsdl>${basedir}/src/wsdl/Serviceability2V4.wsdl</wsdl>
+									<serviceName>ServiceabilityWebServiceClient</serviceName>
+									<extraargs>
+										<extraarg>-client</extraarg>
+										<extraarg>-verbose</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>com.A.xml.se.v4</extraarg>
+										<extraarg>-validate</extraarg>
+										<extraarg>-autoNameResolution</extraarg>
+										<extraarg>-b</extraarg>
+										<extraarg>${basedir}/src/wsdl/valueBindings.xjc</extraarg>
+									</extraargs>
+								</wsdlOption>
+							</wsdlOptions>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+ 
+					<execution>
+						<id>merch-service</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>${basedir}/target/generated-me/src/main/java</sourceRoot>
+							<wsdlOptions>
+								<wsdlOption>
+									<wsdl>${basedir}/src/wsdl/Merchandising-DevInt-V4.wsdl</wsdl>
+									<serviceName>MerchandisingWebServiceClient</serviceName>
+									<extraargs>
+										<extraarg>-client</extraarg>
+										<extraarg>-verbose</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>com.A.xml.me.v4</extraarg>
+										<extraarg>-validate</extraarg>
+										<extraarg>-autoNameResolution</extraarg>
+									</extraargs>
+								</wsdlOption>
+							</wsdlOptions>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+				
+					<execution>
+						<id>dtl-service</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>${basedir}/target/generated-dtl/src/main/java</sourceRoot>
+							<wsdlOptions>
+								<wsdlOption>
+									<wsdl>${basedir}/src/wsdl/Details-DevInt-V4.wsdl</wsdl>
+									<serviceName>DetailManagementWebServiceClient</serviceName>
+									<extraargs>
+										<extraarg>-client</extraarg>
+										<extraarg>-verbose</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>com.A.xml.dtl.v4</extraarg>
+										<extraarg>-validate</extraarg>
+										<extraarg>-autoNameResolution</extraarg>
+										<extraarg>-b</extraarg>
+										<extraarg>${basedir}/src/wsdl/valueBindings-dtl.xjc</extraarg>
+									</extraargs>
+								</wsdlOption>
+							</wsdlOptions>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>					
+										
+					<execution>
+						<id>html-service</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>${basedir}/target/generated-html/src/main/java</sourceRoot>
+							<wsdlOptions>
+
+								<wsdlOption>
+									<wsdl>${basedir}/src/wsdl/xhtml.wsdl</wsdl>
+									<serviceName>HtmlManagementWebServiceClient</serviceName>
+									<extraargs>
+										<extraarg>-client</extraarg>
+										<extraarg>-verbose</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>com.A.html</extraarg>
+										<extraarg>-validate</extraarg>
+										<extraarg>-b</extraarg>
+										<extraarg>${basedir}/src/wsdl/bindings.xjc</extraarg>
+										<extraarg>-autoNameResolution</extraarg> 
+									</extraargs>
+								</wsdlOption>
+
+							</wsdlOptions>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+					
+					<execution>
+						<id>op-service</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>${basedir}/target/generated-ome/src/main/java</sourceRoot>
+							<wsdlOptions>
+								<wsdlOption>
+									<wsdl>${basedir}/src/wsdl/orderProvisioning.wsdl</wsdl>
+									<serviceName>OrderProvisioningWebServiceClient</serviceName>
+									<extraargs>
+										<extraarg>-client</extraarg>
+										<extraarg>-verbose</extraarg>
+										<extraarg>-p</extraarg>
+										<extraarg>com.A.xml.v4</extraarg>
+										<extraarg>-validate</extraarg>
+										<extraarg>-b</extraarg>
+										<extraarg>${basedir}/src/wsdl/valueBindings-dtl.xjc</extraarg>
+										<extraarg>-autoNameResolution</extraarg> 
+									</extraargs>
+								</wsdlOption>
+							</wsdlOptions>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>xerces</groupId>
+						<artifactId>xercesImpl</artifactId>
+						<version>2.9.1</version>
+					</dependency>
+
+				</dependencies>
+			</plugin>
+			
+
+	<plugin>
+				<groupId>org.codehaus.gmaven</groupId>
+				<artifactId>gmaven-plugin</artifactId>
+				<version>${groovy.maven.plugin}</version>
+				<executions>
+					<execution>
+						<id>compile-groovy</id>
+						<phase>process-sources</phase>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+						<configuration>
+							<providerSelection>1.7</providerSelection>
+							<verbose>true</verbose>
+							<debug>true</debug>
+							<stacktrace>true</stacktrace>
+							<sources>
+								<fileset>
+									<directory>${project.basedir}/src</directory>
+									<includes>
+										<include>**/*.groovy</include>
+									</includes>
+								</fileset>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.codehaus.gmaven.runtime</groupId>
+						<artifactId>gmaven-runtime-1.7</artifactId>
+						<version>${groovy-all.runtime.version}</version>
+						<exclusions>
+							<exclusion>
+								<groupId>org.codehaus.groovy</groupId>
+								<artifactId>groovy-all</artifactId>
+							</exclusion>
+						</exclusions>
+					</dependency>
+					 
+					<dependency>
+						<groupId>org.codehaus.groovy</groupId>
+						<artifactId>groovy-all</artifactId>
+						<version>${groovy-all.version}</version>
+					</dependency>
+					
+				 
+		
+		
+					<dependency>
+						<groupId>asm</groupId>
+						<artifactId>asm-all</artifactId>
+						<version>${asm}</version>
+					</dependency>
+					<dependency>
+						<groupId>antlr</groupId>
+						<artifactId>antlr</artifactId>
+						<version>${antlr.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>commons-cli</groupId>
+						<artifactId>commons-cli</artifactId>
+						<version>${commons-cli.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.xml</include>
+					<include>**/*.properties</include>
+					<include>**/*.conf</include>
+					<include>**/*.vm</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/wsdl</directory>
+				<includes>
+					<include>**/*.wsdl</include>
+				</includes>
+			</resource>
+		</resources>
+	</build>
+	<!-- Project dependencies -->
+	<dependencies>
+	
+	<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate-entitymanager.version}</version>
+		</dependency>
+	
+	<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk16</artifactId>
+			<version>${bouncy.castle.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcpg-jdk16</artifactId>
+			<version>${bouncy.castle.version}</version>
+		</dependency>
+	
+	<dependency>
+			<groupId>org.codehaus.gmaven.runtime</groupId>
+			<artifactId>gmaven-runtime-1.7</artifactId>
+			<version>1.3</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.codehaus.groovy</groupId>
+					<artifactId>groovy-all</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+				<dependency>
+			<groupId>jsr94</groupId>
+			<artifactId>jsr94</artifactId>
+			<version>${jsr.api.version}</version>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>org.mbte.groovypp</groupId>
+			<artifactId>groovypp-all</artifactId>
+			<version>${groovypp-all.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>${groovy-all.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-tools-common</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-simple</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.xml.ws</groupId>
+			<artifactId>jaxws-rt</artifactId>
+			<version>${jaxws.rt.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.xml.ws</groupId>
+			<artifactId>jaxws-tools</artifactId>
+			<version>${jaxws.tools.version}</version>
+		</dependency>
+
+		<!-- Gson: Java to Json conversion -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>${google.gson.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<!-- Joda Time -->
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>${joda.time.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Jackson JSON Mapper -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>${jackson.mapper.version}</version>
+		</dependency>
+
+<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>${httpclient.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>${commons.codec.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>${commons.lang.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>${commons.logging.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.xml</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>${jaxb.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>${commons.httpclient.version}</version>
+		</dependency>
+		
+			<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>${httpclient.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-core</artifactId>
+			<version>${shiro-core.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-ehcache</artifactId>
+			<version>${shiro-ehcache.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>${xstream.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+			<version>${ehcache.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons.io.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-math</groupId>
+			<artifactId>commons-math</artifactId>
+			<version>${commons.math.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>${jaxb.xml.bind.api.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>${jaxb.impl.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.xml.soap</groupId>
+			<artifactId>saaj-api</artifactId>
+			<version>${saaj.api.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.xml.messaging.saaj</groupId>
+			<artifactId>saaj-impl</artifactId>
+			<version>${saaj.impl.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>${commons.dbcp.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>${commons.fileupload.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>${mockito.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>${c3p0.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>${json.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>ac-eap</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${jboss-ac-eap.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>ac-eap</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${jboss-ac-eap.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>quartz</groupId>
+			<artifactId>quartz</artifactId>
+			<version>${quartz.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
+			<version>${jta.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>jdom</groupId>
+			<artifactId>jdom</artifactId>
+			<version>${jdom.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>checkstyle</groupId>
+			<artifactId>checkstyle</artifactId>
+			<version>${checkstyle.version}</version>
+		</dependency>
+
+		 
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mvel</groupId>
+			<artifactId>mvel2</artifactId>
+			<version>${mvel.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ognl</groupId>
+			<artifactId>ognl</artifactId>
+			<version>${ognl.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		 
+	 
+
+
+
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>${commons.collections}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>${velocity.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-digester</groupId>
+			<artifactId>commons-digester</artifactId>
+			<version>${commons.digester.version}</version>
+		</dependency>
+
+
+		 
+
+
+
+		<!-- ********************************************************************* -->
+		<!-- ********************************************************************* -->
+		<!-- ********************************************************************* -->
+
+		<dependency>
+			<groupId>avalon-framework</groupId>
+			<artifactId>avalon-framework</artifactId>
+			<version>${avalon.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>excalibur-store</groupId>
+			<artifactId>excalibur-store</artifactId>
+			<version>${excalibur.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>d-haven-managed-pool</groupId>
+					<artifactId>d-haven-managed-pool</artifactId>
+
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.A.V</groupId>
+			<artifactId>cm-core</artifactId>
+			<version>${A.cm-core.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+	</dependencies>
+
+	<properties>
+		<A.cm-core.version>01.04.17</A.cm-core.version>
+
+		<hibernate-entitymanager.version>3.5.1-Final</hibernate-entitymanager.version>
+		<asm>3.2</asm>
+		<antlr.version>2.7.7</antlr.version>
+		<avalon.version>4.1.5</avalon.version>
+		<bouncy.castle.version>1.46</bouncy.castle.version>
+		<c3p0.version>0.9.1.2</c3p0.version>
+		<checkstyle.version>5.0-beta01</checkstyle.version>
+		<commons-cli.version>1.2</commons-cli.version>
+		<commons.collections>3.2.1</commons.collections>
+		<commons.codec.version>1.4</commons.codec.version>
+		<commons.digester.version>1.8</commons.digester.version>
+		<commons.dbcp.version>1.2.1</commons.dbcp.version>
+		<commons.fileupload.version>1.2.1</commons.fileupload.version>
+		<commons.io.version>1.4</commons.io.version>
+		<commons.math.version>1.1</commons.math.version>
+		<commons.logging.version>1.1.1</commons.logging.version>
+		<commons.httpclient.version>3.1</commons.httpclient.version>
+		<commons.lang.version>2.2</commons.lang.version>
+		<commons.httpclient.version>3.1</commons.httpclient.version>
+		<cxf.version>2.6.0</cxf.version>
+		<ehcache.version>1.2.4</ehcache.version>
+		<excalibur.version>2.1</excalibur.version>
+		<google.gson.version>1.6</google.gson.version>
+		<groovy.maven.plugin>1.3</groovy.maven.plugin>
+		<groovypp-all.version>0.9.0_1.8.2</groovypp-all.version>
+		<groovypp-all.mbte.version>0.2.23</groovypp-all.mbte.version>
+		<groovy-all.runtime.version>1.2</groovy-all.runtime.version>
+		<groovy-all.version>1.8.2</groovy-all.version>
+		<httpclient.version>4.1.1</httpclient.version>
+		<jaxb.version>2.1</jaxb.version>
+		<jaxws.rt.version>2.2</jaxws.rt.version>
+		<jaxws.tools.version>2.2.1</jaxws.tools.version>
+		<joda.time.version>1.6</joda.time.version>
+		<jackson.mapper.version>1.5.3</jackson.mapper.version>
+		<jaxb.impl.version>2.0.3</jaxb.impl.version>
+		<log4j.version>1.2.13</log4j.version>
+		<java.version>1.6</java.version>
+		<jaxb.xml.bind.api.version>2.0</jaxb.xml.bind.api.version>
+		<jdom.version>b9</jdom.version>
+		<jta.version>1.1</jta.version>
+		<jboss-ac-eap.version>5.0.1</jboss-ac-eap.version>
+		<json.version>20080701</json.version>
+		<jsr.api.version>1.1</jsr.api.version>
+		<junit.version>4.8.1</junit.version>
+		<mockito.version>1.7</mockito.version>
+		<mvel.version>2.0.19</mvel.version>
+		<ognl.version>3.0.1</ognl.version>
+		<org.springframework.version>3.1.1.RELEASE</org.springframework.version>
+		<quartz.version>1.5.2</quartz.version>
+		<saaj.impl.version>1.3</saaj.impl.version>
+		<saaj.api.version>1.3</saaj.api.version>
+			<shiro-core.version>1.2.0</shiro-core.version>
+			<shiro-ehcache.version>1.2.0</shiro-ehcache.version>
+		<svn.location>http://svn/svn/</svn.location>
+		<svn.module>services</svn.module>
+		<svn.project>V-client-api</svn.project>
+		<svn.release>trunk</svn.release>
+		<xalan.version>2.7.1</xalan.version>
+		<xstream.version>1.2.2</xstream.version>
+		<velocity.version>1.7</velocity.version>
+	</properties>
+</project>

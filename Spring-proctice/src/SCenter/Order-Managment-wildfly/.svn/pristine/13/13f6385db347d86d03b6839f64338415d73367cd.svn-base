@@ -1,0 +1,222 @@
+<v4:orderManagementRequestResponse xsi:schemaLocation="http://xml.AL.com/v4 orderManagement.xsd " xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:v4="http://xml.AL.com/v4">
+         <v4:correlationId>12345</v4:correlationId>
+         <v4:transactionType>createOrder</v4:transactionType>
+         <v4:request>
+            <!--<v4:salesContext>
+               <v4:entity name="harmony">
+                  <v4:attribute name="source" value="accord"/>
+               </v4:entity>
+            </v4:salesContext>-->
+            <v4:agentId>1234</v4:agentId>
+            <v4:orderInfo>
+               <v4:externalId/>
+               <v4:source>Web</v4:source>
+               <v4:referrerId>108</v4:referrerId>
+               <v4:associatedWithMove>true</v4:associatedWithMove>
+               <v4:campaignId>ATT</v4:campaignId>
+               <v4:customerInformation>
+                  <v4:action>createCustomer</v4:action>
+                  <v4:customer>
+                     <v4:externalId>0</v4:externalId>
+                     <v4:agentId>default</v4:agentId>
+                     <v4:title>Mr.</v4:title>
+                     <v4:firstName>Test</v4:firstName>
+                     <v4:lastName>Test</v4:lastName>
+                     <v4:middleName>R</v4:middleName>
+                     <v4:nameSuffix>N/A</v4:nameSuffix>
+                     <v4:gender>M</v4:gender>
+                     <v4:dob>1974-04-25</v4:dob>
+                     <v4:ssn>000-00-0000</v4:ssn>
+                     <v4:directMailOptIn>true</v4:directMailOptIn>
+                     <v4:eMailOptIn>true</v4:eMailOptIn>
+                     <v4:phoneContactOptIn>true</v4:phoneContactOptIn>
+                     <v4:eMailProductUpdatesOptIn>true</v4:eMailProductUpdatesOptIn>
+                     <v4:howLongAtPreviousAddress>10</v4:howLongAtPreviousAddress>
+                     <v4:ALCustomerNumber>0</v4:ALCustomerNumber>
+                     <v4:homePhoneNumber>
+                        <v4:value>800-111-1111</v4:value>
+                        <v4:order>1</v4:order>
+                        <v4:desc>Home Phone</v4:desc>
+                     </v4:homePhoneNumber>
+                     <v4:cellPhoneNumber>
+                        <v4:value>755-222-2222</v4:value>
+                        <v4:order>2</v4:order>
+                        <v4:desc>Cell Phone</v4:desc>
+                     </v4:cellPhoneNumber>
+                     <v4:workPhoneNumber>
+                        <v4:value>566-333-3333</v4:value>
+                        <v4:order>3</v4:order>
+                        <v4:desc>Work Phone</v4:desc>
+                     </v4:workPhoneNumber>
+                     <v4:homeEMail>
+                        <v4:value>sachin@home.com</v4:value>
+                        <v4:order>1</v4:order>
+                        <v4:desc>Home Email</v4:desc>
+                     </v4:homeEMail>
+                     <v4:workEMail>
+                        <v4:value>test@bcci.com</v4:value>
+                        <v4:order>2</v4:order>
+                        <v4:desc>work email</v4:desc>
+                     </v4:workEMail>
+                     <v4:region>SOUTHWEST</v4:region>
+                     <v4:billingInfoList>
+                        <v4:billingInfo>
+                           <v4:billingUniqueId>B1</v4:billingUniqueId>
+                           <v4:addressRef>A1</v4:addressRef>
+                           <v4:billingMethod>Credit Card</v4:billingMethod>
+                           <v4:creditCardNumber>1111-2222-3333-4444</v4:creditCardNumber>
+                           <v4:verificationCode>123</v4:verificationCode>
+                           <v4:checkingAccountNumber>1234-1234-1234-1234</v4:checkingAccountNumber>
+                           <v4:routingNumber>123456</v4:routingNumber>
+                           <v4:status>Active</v4:status>
+                           <v4:externalId>0</v4:externalId>
+                        </v4:billingInfo>
+                     </v4:billingInfoList>
+                     <v4:addressList>
+                        <v4:customerAddress>
+                           <v4:addressRoles>
+                              <v4:role>CurrentAddress</v4:role>
+                              <v4:role>ServiceAddress</v4:role>
+                              <v4:role>BillingAddress</v4:role>
+                              <v4:role>PreviousAddress</v4:role>
+                           </v4:addressRoles>
+                           <v4:addressUniqueId>A1</v4:addressUniqueId>
+                           <v4:status>active</v4:status>
+                           <v4:address xsi:type="v4:addressType">
+                              <v4:externalId>0</v4:externalId>
+                              <v4:prefixDirectional>prefix</v4:prefixDirectional>
+                              <v4:streetNumber>111</v4:streetNumber>
+                              <v4:streetName>Lawrenceville Hwy</v4:streetName>
+                              <v4:streetType>Hwy</v4:streetType>
+                              <v4:line2>N/A</v4:line2>
+                              <v4:postfixDirectional>postfix</v4:postfixDirectional>
+                              <v4:city>Larenceville</v4:city>
+                              <v4:stateOrProvince>Georgia</v4:stateOrProvince>
+                              <v4:postalCode>30031</v4:postalCode>
+                              <v4:country>USA</v4:country>
+                              <v4:countyParishBorough>Gwinnet</v4:countyParishBorough>
+                              <v4:addressBlock>addr block</v4:addressBlock>
+                              <v4:howLongAtAddress>P10Y</v4:howLongAtAddress>
+                              <v4:dwellingType>apartment</v4:dwellingType>
+                              <v4:inEffect>2001-01-01</v4:inEffect>
+                              <v4:expiration>2051-01-01</v4:expiration>
+                              <v4:changeType>chtype</v4:changeType>
+                              <v4:hasHadServicePreviously>false</v4:hasHadServicePreviously>
+                              <v4:cityAlias>lawrenceville</v4:cityAlias>
+                              <v4:addressOwnership>own</v4:addressOwnership>
+                           </v4:address>
+                        </v4:customerAddress>
+                     </v4:addressList>
+                  </v4:customer>
+               </v4:customerInformation>
+               <v4:agentId>default</v4:agentId>
+               <v4:ALConfirmationNumber>${DataGen#TransactionId}</v4:ALConfirmationNumber>
+               <v4:ALCustomerAccountNumber/>
+               <v4:totalPriceInfo>
+                  <v4:baseNonRecurringPrice>0</v4:baseNonRecurringPrice>
+                  <v4:baseNonRecurringPriceUnits>Dollar</v4:baseNonRecurringPriceUnits>
+                  <v4:baseRecurringPrice>0</v4:baseRecurringPrice>
+                  <v4:baseRecurringPriceUnits>Dollar</v4:baseRecurringPriceUnits>
+                  <v4:includeInTotalPrice/>
+               </v4:totalPriceInfo>
+               <v4:lineItems>
+                  <v4:lineItem>
+                     <v4:productDatasource dataSource="">internal</v4:productDatasource>
+                     <v4:lineItemNumber>0</v4:lineItemNumber>
+                     <v4:newPhone/>
+                     <v4:lineItemAttributes>
+                        <v4:entity source="SecurityInfo">
+                           <v4:attribute>
+                              <v4:name>PIN</v4:name>
+                              <v4:value>1234</v4:value>
+                           </v4:attribute>
+                           <v4:attribute>
+                              <v4:name>PINHint</v4:name>
+                              <v4:value>Number sequesnce</v4:value>
+                           </v4:attribute>
+                           <v4:attribute>
+                              <v4:name>FirstName</v4:name>
+                              <v4:value>Harrison</v4:value>
+                           </v4:attribute>
+                           <v4:attribute>
+                              <v4:name>LastName</v4:name>
+                              <v4:value>Ford</v4:value>
+                           </v4:attribute>
+                        </v4:entity>
+                        <v4:entity source="ConnectionDetails">
+                           <v4:attribute>
+                              <v4:name>ConnectionType</v4:name>
+                              <v4:value>NONE</v4:value>
+                           </v4:attribute>
+                           <v4:attribute>
+                              <v4:name>Provider</v4:name>
+                              <v4:value>AL</v4:value>
+                           </v4:attribute>
+                        </v4:entity>
+                        <v4:entity source="Miscellaneous">
+                           <v4:attribute>
+                              <v4:name>DISHCinemaSelected</v4:name>
+                              <v4:value>true</v4:value>
+                           </v4:attribute>
+                           <v4:attribute>
+                              <v4:name>NewsletterSelected</v4:name>
+                              <v4:value>true</v4:value>
+                           </v4:attribute>
+                        </v4:entity>
+                     </v4:lineItemAttributes>
+                     <v4:lineItemDetail>
+                        <v4:detailType>product</v4:detailType>
+                        <v4:detail>
+                           <v4:productLineItem>
+                              <v4:externalId>TWC-CHARLOTTE-PC-WEB</v4:externalId>
+                              <v4:productCategory displayName=""/>
+                              <v4:name/>
+                              <v4:channels>
+                                 <v4:channel>Web</v4:channel>
+                              </v4:channels>
+                              <v4:provider externalId="23928" name="Dummy">
+                                 <v4:source datasource="">internal</v4:source>
+                                 <v4:parent externalId="" name=""/>
+                                 <v4:capabilityList>
+                                    <v4:capability name=""/>
+                                 </v4:capabilityList>
+                              </v4:provider>
+                           </v4:productLineItem>
+                        </v4:detail>
+                     </v4:lineItemDetail>
+                     <v4:externalId>v4:externalId</v4:externalId>
+                     <v4:svcAddressExtId/>
+                     <v4:billingInfoExtId/>
+                     <v4:svcAddressRef>A1</v4:svcAddressRef>
+                     <v4:billingInfoRef>B1</v4:billingInfoRef>
+                    <!-- <v4:SchedulingInfo appointmentComment="Test Comment" billingInstallments="true" earlierAppointmentDate="true" installationFee="29.99" residenceType="HOUSE">
+                        <v4:desiredStartDate>
+                           <v4:date>${DataGen#tomorrowsDate}</v4:date>
+                           <v4:time>01:30:00</v4:time>
+                        </v4:desiredStartDate>
+                        <v4:scheduledStartDate>
+                           <v4:date>${DataGen#tomorrowsDate}</v4:date>
+                           <v4:time>02:30:00</v4:time>
+                        </v4:scheduledStartDate>
+                        <v4:actualStartDate>
+                           <v4:date>${DataGen#tomorrowsDate}</v4:date>
+                           <v4:time>03:30:00</v4:time>
+                        </v4:actualStartDate>
+                        <v4:ScheduleAsSoonAsPossible>true</v4:ScheduleAsSoonAsPossible>
+                     </v4:SchedulingInfo>-->
+                     <v4:activeDialogs>
+                        <v4:dialogs>
+                           <v4:dialog>
+                              <v4:externalId>DLG101</v4:externalId>
+                              <v4:value selected="true" type="string">Option1</v4:value>
+                           </v4:dialog>
+                        </v4:dialogs>
+                     </v4:activeDialogs>
+                     <v4:howLongAtAddress>10</v4:howLongAtAddress>
+                     <v4:service>BUSINESS</v4:service>
+                     <v4:creditStatus>Approved</v4:creditStatus>
+                  </v4:lineItem>
+               </v4:lineItems>
+            </v4:orderInfo>
+         </v4:request>
+      </v4:orderManagementRequestResponse>

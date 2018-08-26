@@ -1,0 +1,31 @@
+rule "Young male single driver"
+ruleflow-group "risk assessment"
+when
+ $driver : Driver( genre == Driver.MALE, age < 25, maritalState == Driver.SINGLE )
+then 
+ $driver.updateInsuranceFactor(1.6);
+end
+
+rule "no expert driver"
+ruleflow-group "risk assessment"
+when
+ $driver : Driver ( licenceYears < 3 )
+then
+ $driver.updateInsuranceFactor(1.2);
+end
+
+
+
+
+ruleflow-group "insurancecalcule"
+salience 20
+when
+ not Rejection()
+ $driver : Driver ( driverID : id )
+ $access : AccessoriesCoverage ( driverId == driverID)
+ $policy : Policy( approved == true )
+then
+ $policy.setInsurancePrice( $policy.getInsurancePrice() + 
+  ($access.getAlarmSystemValue() * 0.10) + 
+  ($access.getArmorValue() * 0.20) +
+  ($access.getSoundSystemValue() * 0.30 ));

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+
+<tiles-definitions>
+	
+	 <definition
+        name="sales.base.definition"
+        template="/WEB-INF/jsp/common/layout/layoutnav.jsp" >
+    </definition>
+
+    
+    <definition
+        name="sales.base.definition.nonav"
+        template="/WEB-INF/jsp/common/layout/layout_sales.jsp" >
+    </definition>
+     <definition
+        name="sales.base.definition.nonav.basicinfo"
+        template="/WEB-INF/jsp/common/layout/layout_nonav_basicInfo.jsp" >
+        <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+    </definition>
+    
+    <definition
+        name="sales.base.definition.nav.basicinfo"
+        template="/WEB-INF/jsp/common/layout/layout_nav_basicInfo.jsp" >
+        <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+    </definition> 
+
+   
+    <definition
+        name="sales.base.definition.nonav.dispostions"
+        template="/WEB-INF/jsp/common/layout/layout_nonav_dispostions.jsp" >
+        <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+    </definition>
+    
+    
+    <definition
+        name="sales.base.definition.empty"
+        template="/WEB-INF/jsp/common/layout/layout_empty.jsp" >
+    </definition>
+    
+   <definition name="sales.base.definition.lineItem" template="/WEB-INF/jsp/common/layout/layoutnav_lineitem.jsp">
+   <put-attribute name="product_menu_content"
+			value="/WEB-INF/jsp/cart/component/product_menu_content.jsp" />
+	<put-attribute name="category_filter" 
+			value="/WEB-INF/jsp/sales/categoryFilter.jsp" />
+	</definition>
+	  
+	<definition name="sales.base.definition.lineItem.realTime" template="/WEB-INF/jsp/common/layout/layoutnav_lineitem_realTime.jsp">
+    </definition>
+
+	
+	<definition name="sales.base.definition.realtimestatus" template="/WEB-INF/jsp/common/layout/layout_sales_realtime.jsp">
+		 <put-attribute name="sales_summary_content" value="/WEB-INF/jsp/sales/sales_customer_summary_quick.jsp" />
+		  <put-attribute name="realtime_content" value="/WEB-INF/jsp/sales/realtimecontent.jsp" />
+		  <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+	</definition>
+	
+	<definition 
+		name="sales.base.definition.realtimestatusforconfirmation"
+		 template="/WEB-INF/jsp/common/layout/layout_sales_realtime_confirmation.jsp">
+		
+	</definition>
+	
+    <!-- LAYOUT END. VIEW DEFINITION START -->
+
+    <definition  name="sales.version"  extends="sales.base.definition" > 
+        <put-attribute  name="main_content"  value="/WEB-INF/jsp/common/version_content.jsp" />
+    </definition>
+    
+     <definition name="login"  template="/WEB-INF/jsp/login_content.jsp">
+	</definition>
+	<definition name="thoughtSpot"  template="/WEB-INF/jsp/thoughtSpot.jsp">
+	</definition>
+	
+	<definition name="greeting" extends="sales.base.definition.nonav.basicinfo">
+		<put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/empty_notepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/jsp/greeting.jsp" />
+	</definition>
+    
+    <definition name="sales.isValidAddress" extends="sales.base.definition.nonav.basicinfo">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/sales/addressFound.jsp" />
+	</definition>
+	
+	<definition name="sales.isInvalidAddress" extends="sales.base.definition.nonav.basicinfo">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/sales/addressNotFound.jsp" />
+	</definition>
+	
+	<definition name="sales.isMultipleAddress" extends="sales.base.definition.nonav.basicinfo">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/sales/multipleAddress.jsp" />
+	</definition>
+	
+    <definition name="sales.basic_information" extends="sales.base.definition.nonav.basicinfo">
+    	<put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/jsp/sales/basic_information.jsp" />
+	</definition>
+	
+	<definition name="sales.confirmation" extends="sales.base.definition.realtimestatusforconfirmation">
+		<put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="realtime_content" value="/WEB-INF/jsp/sales/realtimecontent.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/jsp/sales/confirmation.jsp" />
+		<put-attribute name="sales_cust_summary_content" value="/WEB-INF/jsp/sales/sales_customer_summary_quick.jsp" />
+	</definition>
+	
+	<definition name="sales.offer" extends="sales.base.definition.realtimestatus">
+		
+		<put-attribute name="main_content" value="/WEB-INF/jsp/sales/offer.jsp" />
+		
+	</definition>
+		
+	<definition name="sales.qualification" extends="sales.base.definition.realtimestatus">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/sales/qualification.jsp" />
+	</definition>	
+	
+	<definition name="sales.discoveryA" extends="sales.base.definition.realtimestatus">
+	 	<put-attribute name="main_content" value="/WEB-INF/jsp/sales/discoveryNew.jsp" />  
+	</definition>
+	
+	<definition name="sales.warmTransfer" extends="sales.base.definition.nav.basicinfo">
+	 	<put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/empty_notepad.jsp" />
+	 	<put-attribute name="main_content" value="/WEB-INF/jsp/sales/warmTransfer.jsp" />  
+	 	<put-attribute name="order_summary_content"
+			value="/WEB-INF/jsp/cart/component/customer_summary_quick.jsp" />  
+	</definition>
+	
+	<definition name="sales.discoveryB" extends="sales.base.definition.realtimestatus">
+        <put-attribute name="main_content" value="/WEB-INF/jsp/sales/discoveryTransfer.jsp" />
+	</definition>
+
+	<definition name="sales.utilityoffer" extends="sales.base.definition.realtimestatus">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/sales/utilityOffer.jsp" />
+	</definition>
+	
+	<definition name="context_select" extends="sales.base.definition.nonav">
+	    <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/empty_notepad.jsp" />
+        <put-attribute name="main_content" value="/WEB-INF/jsp/context_select_content.jsp" />
+    </definition>
+
+    <definition name="closingcall" extends="sales.base.definition.nav.basicinfo">
+        <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/empty_notepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/jsp/closingCall.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/jsp/cart/component/customer_summary_quick.jsp" />  
+	</definition> 
+	
+	<definition name="sales.dispositions" extends="sales.base.definition.nonav.dispostions">
+	    <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/empty_notepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/jsp/sales/dispositions.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/jsp/cart/component/customer_summary_quick.jsp" />   
+	</definition>
+	
+	<definition name="sales.savedisposition" extends="sales.base.definition.empty">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/sales/savedisposition.jsp" />
+	</definition>
+	  
+	<definition name="sales.recommendations" extends="sales.base.definition.lineItem">
+	 	<put-attribute name="realtime_content" value="/WEB-INF/jsp/sales/realtimecontent.jsp" />
+        <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/jsp/sales/recommendations.jsp" />
+       <put-attribute name="cust_summary_content"
+			value="/WEB-INF/jsp/cart/component/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/jsp/cart/component/customer_summary_quick.jsp" />   
+	</definition>    
+    	
+	<definition name="sales.recommendationsbyCategory" extends="sales.base.definition.lineItem">
+	 	<put-attribute name="realtime_content" value="/WEB-INF/jsp/sales/realtimecontent.jsp" />
+         <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/jsp/sales/recommendationsbyCategory.jsp" />
+        <put-attribute name="cust_summary_content" value="/WEB-INF/jsp/cart/component/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content" value="/WEB-INF/jsp/cart/component/customer_summary_quick.jsp" />
+	</definition>    
+    
+    <definition name="sales.viewDetails" extends="sales.base.definition.lineItem">
+   	 	<put-attribute name="realtime_content" value="/WEB-INF/jsp/sales/realtimecontent.jsp" />
+   	 	<put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+        <put-attribute name="main_content" value="/WEB-INF/jsp/sales/viewOrder.jsp" />
+        <put-attribute name="cust_summary_content" value="/WEB-INF/jsp/cart/component/order_summary_quick.jsp" />
+        <put-attribute name="order_summary_content" value="/WEB-INF/jsp/cart/component/customer_summary_quick.jsp" />
+    </definition>
+    
+    <definition name="sales.ordercapture" template="/WEB-INF/jsp/order/salesOrder.jsp" >
+    </definition>
+    
+    <definition name="sales.tpv" extends="sales.base.definition.nav.basicinfo">
+	 	<put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/empty_notepad.jsp" />
+	 	<put-attribute name="main_content" value="/WEB-INF/jsp/sales/tpv.jsp" />  
+	 	<put-attribute name="order_summary_content"
+			value="/WEB-INF/jsp/cart/component/customer_summary_quick.jsp" />  
+	</definition>
+    	
+</tiles-definitions>

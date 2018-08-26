@@ -1,0 +1,39 @@
+        
+# GENERAL WS STATUSES==========================================================       
+WS.FATAL_REQUEST_FAILED=-1
+WS.EMPTY_STATUS=0
+WS.XML_REQUEST_VALID=1
+#==============================================================================
+
+
+# PRICING STATUSES=============================================================
+# Pricing General WS Statuses
+PRICING.INFO_ORDER_PRICED_SUCCESSFULLY=10
+PRICING.WARN_ORDER_PARTIALLY_PRICED=20   
+PRICING.WARN_ORDER_NONE_PRICED=30
+PRICING.FATAL_REQUEST_FAILED=40
+PRICING.EMPTY_STATUS=50
+PRICING.XML_REQUEST_VALID=60
+                        
+# Pricing Status Codes    
+PRICING.LINE_ITEM_VALID=70 
+PRICING.LINE_ITEM_INVALID=80
+PRICING.ORDER_PRICED_SUCCESSFULLY=90
+PRICING.ORDER_PRICED_UNSUCCESSFULLY=100
+#==============================================================================        
+        
+        
+# CCP STATUSES=================================================================        
+# CCP General WS Statuses
+CCP.FATAL_REQUEST_FAILED=110
+CCP.EMPTY_STATUS=120
+CCP.XML_REQUEST_VALID=130
+
+# CCP Status Codes    
+CCP.COMM_EVENT_SUCCESSFUL=140
+CCP.COMM_EVENT_FAILED=150
+CCP.COMM_NOT_REQUIRED=160
+CCP.FEEDBACK_PROCESSED_OK=170
+CCP.FEEDBACK_NOT_PROCESSED=180
+CCP.EMAILCONTENT_PERSIST_ERROR=190
+#============================================================================== 

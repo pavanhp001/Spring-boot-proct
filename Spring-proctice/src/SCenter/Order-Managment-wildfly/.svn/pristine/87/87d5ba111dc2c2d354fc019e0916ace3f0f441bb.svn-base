@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<v4:orderManagementRequestResponse xmlns:v4="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xml.AL.com/v4 ../schemas/v4/orderManagement.xsd ">
+  <v4:transactionType>updateOrderStatus</v4:transactionType>
+  <v4:request> 
+     <v4:orderId>1</v4:orderId>
+    <v4:lineItemId>1</v4:lineItemId>
+    <v4:newOrderStatus>
+    <v4:agentId>1</v4:agentId>
+    <v4:status>212121</v4:status> 
+     <v4:reason>1212</v4:reason>
+       <v4:reason>3131</v4:reason>
+    </v4:newOrderStatus> 			
+    
+  </v4:request> 
+</v4:orderManagementRequestResponse>
+ 

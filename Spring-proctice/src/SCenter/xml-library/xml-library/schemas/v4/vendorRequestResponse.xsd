@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://xml.A.com/v4/VendorRequestResponse/"
+	targetNamespace="http://xml.A.com/v4/VendorRequestResponse/"
+	xmlns:comm="http://xml.A.com/common">
+
+	<import schemaLocation="common.xsd" namespace="http://xml.A.com/common" />
+
+	<complexType name="RtimRequest" abstract="true">
+		<sequence>
+			<element name="context" type="comm:RequestContext" />
+			<element name="applicationType" type="comm:ApplicationType" />
+		</sequence>
+	</complexType>
+
+	<complexType name="RtimResponse" abstract="true">
+		<sequence>
+			<element name="rtimErrors" type="comm:RtimErrors"/>
+			<element name="responseStatus" type="comm:OpResponseStatus" minOccurs="0"/>
+			<element name="context" type="comm:ResponseContext" />			<element name="applicationType" type="comm:ApplicationType" />
+		</sequence>
+	</complexType>
+	<element name="rtimRequest" type="tns:RtimRequest" />
+	<element name="rtimResponse" type="tns:RtimResponse" />
+</schema>

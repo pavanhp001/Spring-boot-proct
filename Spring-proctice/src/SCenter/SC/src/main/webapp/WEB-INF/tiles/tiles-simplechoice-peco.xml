@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+     <definition name="pecoEnergy.base.definition.nonav.basicinfo" 
+     	template="/WEB-INF/flows/jsp/layout/layout_nonav_basicInfo.jsp" >
+        <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+    </definition>
+	
+
+	<definition name="pecoEnergy.view" extends="pecoEnergy.base.definition.nonav.basicinfo">
+		<put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/empty_notepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/greeting.jsp" />
+	</definition>
+	
+	<definition name="pecoEnergy.base.definition.nav.basicinfo" template="/WEB-INF/jsp/common/layout/layout_nav_basicInfo.jsp" >
+        <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+    </definition>
+	
+	
+	<definition name="pecoEnergy.basic_information" extends="pecoEnergy.base.definition.nonav.basicinfo">
+    	<put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/basic_information_peco.jsp" />
+	</definition>
+	
+    <definition name="pecoEnergy.isValidAddress" extends="pecoEnergy.base.definition.nonav.basicinfo">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/addressFound.jsp" />
+	</definition>
+	
+	<definition name="pecoEnergy.isInvalidAddress" extends="pecoEnergy.base.definition.nonav.basicinfo">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/addressNotFound.jsp" />
+	</definition>
+	
+	<definition name="pecoEnergy.isMultipleAddress" extends="pecoEnergy.base.definition.nonav.basicinfo">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/multipleAddress.jsp" />
+	</definition>
+	
+	<definition name="pecoEnergy.base.definition.realtimestatusforconfirmation" template="/WEB-INF/flows/jsp/layout/layout_sales_realtime_confirmation.jsp">
+	</definition>
+		
+	<definition name="pecoEnergy.confirmation" extends="pecoEnergy.base.definition.realtimestatusforconfirmation">
+		<put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/confirmation.jsp" />
+		<put-attribute name="sales_cust_summary_content" value="/WEB-INF/jsp/sales/sales_customer_summary_quick.jsp" />
+	</definition>
+	
+	<definition name="pecoEnergy.base.definition.realtimestatus" template="/WEB-INF/flows/jsp/layout/layout_sales_realtime.jsp">
+		 <put-attribute name="sales_summary_content" value="/WEB-INF/flows/jsp/common/sales_customer_summary_quick.jsp" />
+		  <put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+		  <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+	</definition>
+	
+	
+	<definition name="pecoEnergy.offer" extends="pecoEnergy.base.definition.closeCallSale">
+		<put-attribute name="main_content"	value="/WEB-INF/flows/jsp/common/offer.jsp" />
+		<put-attribute name="order_summary_content" value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />  
+	</definition>
+	
+	
+	<definition name="pecoEnergy.supplierInfo" extends="pecoEnergy.base.definition.realtimestatusforconfirmation">
+		<put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/supplier_peco.jsp" />
+		<put-attribute name="sales_cust_summary_content" value="/WEB-INF/flows/jsp/common/sales_customer_summary_quick.jsp" />
+	</definition>
+	
+	<definition name="pecoEnergy.supplierInfoFroDrupal" extends="pecoEnergy.base.definition.realtimestatusforconfirmation">
+		<put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/supplier_peco_drupal.jsp" />
+		<put-attribute name="sales_cust_summary_content" value="/WEB-INF/flows/jsp/common/sales_customer_summary_quick.jsp" />
+	</definition>
+		
+	
+			
+	<definition name="pecoEnergy.qualification" extends="pecoEnergy.base.definition.realtimestatus">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/qualification.jsp" />
+	</definition>
+	
+	
+	
+	<definition name="pecoEnergy.discoveryA" extends="pecoEnergy.base.definition.realtimestatus">
+	 	<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/discoveryNew.jsp" />  
+	</definition>
+	
+	
+	<definition name="pecoEnergy.discoveryB" extends="pecoEnergy.base.definition.realtimestatus">
+        <put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/discoveryTransfer.jsp" />
+	</definition>
+	
+	<definition name="pecoEnergy.base.definition.realtimestatus" template="/WEB-INF/flows/jsp/layout/layout_sales_realtime.jsp">
+		 <put-attribute name="sales_summary_content" value="/WEB-INF/flows/jsp/common/sales_customer_summary_quick.jsp" />
+		  <put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+		  <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+	</definition>
+	
+   <definition name="pecoEnergy.base.definition.lineItem" template="/WEB-INF/flows/jsp/layout/layoutnav_lineitem.jsp">
+   		<put-attribute name="product_menu_content" value="/WEB-INF/flows/jsp/common/product_menu_content.jsp" />
+	</definition>
+	
+
+    <definition name="pecoEnergy.recommendations" extends="pecoEnergy.base.definition.lineItem">
+	 	<put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+        <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/recommendations.jsp" />
+        <put-attribute name="cust_summary_content" value="/WEB-INF/flows/jsp/common/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content" value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />   
+	</definition>
+	
+	<definition name="pecoEnergy.recommendationsbyCategory" extends="pecoEnergy.base.definition.lineItem">
+	 	<put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+         <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/recommendationsbyCategory.jsp" />
+        <put-attribute name="cust_summary_content" value="/WEB-INF/flows/jsp/common/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content" value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />   
+	</definition>
+	
+	<definition name="pecoEnergy.orderSummary" extends="pecoEnergy.base.definition.summary">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/order_summary.jsp" />
+		<put-attribute name="cust_summary_content" value="/WEB-INF/flows/jsp/common/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content" value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />
+	</definition>
+	
+	<definition name="pecoEnergy.base.definition.summary"  template="/WEB-INF/flows/jsp/layout/layout_summary.jsp">
+  		<put-attribute name="product_menu_content"  value="/WEB-INF/flows/jsp/common/product_menu_content.jsp" />
+  		<put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+  		<put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+ 	</definition>
+ 	
+	<definition name="pecoEnergy.base.definition.orderquick" template="/WEB-INF/flows/jsp/layout/layout_orderquick.jsp">
+		<put-attribute name="product_menu_content" value="/WEB-INF/flows/jsp/common/product_menu_content.jsp" />
+		<put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />	
+	</definition>
+	
+	<!-- Order Recap Page -->
+	<definition name="pecoEnergy.orderRecap" extends="pecoEnergy.base.definition.orderquick">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/order_recap.jsp" />
+		<put-attribute name="product_menu_content" value="/WEB-INF/flows/jsp/common/product_menu_content.jsp" />		
+		<put-attribute name="cust_summary_content" value="/WEB-INF/flows/jsp/common/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content" value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />
+	</definition>
+	
+	<definition name="pecoEnergy.base.definition.closeCallSale" template="/WEB-INF/flows/jsp/layout/layout_closeCallSale.jsp">
+	</definition>
+	
+	
+	<!-- Close Call Sale Page -->
+	<definition name="pecoEnergy.closeCallSale" extends="pecoEnergy.base.definition.closeCallSale">
+		<put-attribute name="main_content"	value="/WEB-INF/jsp/cart/order_conclusion.jsp" />
+		<put-attribute name="order_summary_content" value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />  
+	</definition>
+	
+ 	<definition name="pecoEnergy.closingcall" extends="pecoEnergy.base.definition.nav.basicinfo">
+        <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/empty_notepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/closingCallNoSale.jsp" />
+		<put-attribute name="order_summary_content" value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />  		
+	</definition>
+	
+	<definition
+        name="pecoEnergy.base.definition.nonav.dispostions"
+        template="/WEB-INF/flows/jsp/layout/layout_nonav_dispostions.jsp" >
+        <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="order_summary_content" value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />  	        
+    </definition>
+    
+	<definition name="pecoEnergy.dispositions" extends="pecoEnergy.base.definition.nonav.dispostions">
+	    <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/empty_notepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/dispositions.jsp" />
+	</definition>
+
+	<definition name="pecoEnergy.CKO_start" extends="pecoEnergy.base.definition.summary">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/CKO_container.jsp" />
+		<put-attribute name="cust_summary_content" value="/WEB-INF/flows/jsp/common/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content" value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />	
+	</definition>
+	
+</tiles-definitions>

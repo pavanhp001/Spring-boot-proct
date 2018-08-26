@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" xmlns:tns="http://xml.A.com/v4"
+	targetNamespace="http://xml.A.com/v4"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ac="http://xml.A.com/v4"
+	xmlns:comm="http://xml.A.com/common" >
+
+	<xs:include schemaLocation="types.xsd"/>
+	<xs:include schemaLocation="product.xsd"/>
+	<xs:import schemaLocation="common.xsd" namespace="http://xml.A.com/common" />
+	
+	<xs:element name="serviceabilityRequest2" type="tns:serviceabilityRequestType2" />
+	<xs:element name="serviceabilityResponse2" type="tns:serviceabilityResponseType2"/>
+	
+	<xs:complexType name="serviceabilityRequestType2">
+		<xs:complexContent>
+			<xs:extension base="ac:abstractRequestType">
+				<xs:sequence>
+					<xs:element ref="ac:inputAddressString" maxOccurs="1" minOccurs="1" />
+					<xs:element ref="ac:serviceabilityTransactionType" maxOccurs="1" minOccurs="0" />
+					<xs:element name="speedMode" type="xs:boolean" maxOccurs="1" minOccurs="0" />
+					<xs:element name="rtimRequestResponseCriteria" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								A list of rtim requests that need to be sent.
+							</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:annotation>
+								<xs:documentation>
+									A list of rtim provider specific requests that are sent.
+								</xs:documentation>
+							</xs:annotation>
+							<xs:sequence>
+								<xs:element name="providerCriteria" type="ac:providerCriteriaType2"
+									maxOccurs="1" minOccurs="0">
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element ref="ac:correctedAddress" maxOccurs="1" minOccurs="0" />
+					<xs:element name="status" type="ac:statusType" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								A container element for the status code and
+								processing messages.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="ac:correlationId" maxOccurs="1" minOccurs="0" />
+					<xs:element ref="ac:messageOrigin" maxOccurs="1" minOccurs="0" />
+					<xs:element ref="ac:candidateAddressList" maxOccurs="1" minOccurs="0" />		
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="serviceabilityResponseType2">
+		<xs:complexContent>
+			<xs:extension base="ac:abstractResponseType">
+				<xs:sequence>
+					<xs:element ref="ac:inputAddressString" maxOccurs="1" minOccurs="1" />
+					<xs:element ref="ac:serviceabilityTransactionType" maxOccurs="1" minOccurs="0" />
+					<xs:element ref="ac:correctedAddress" maxOccurs="1" minOccurs="0" />
+					<xs:element ref="ac:correlationId" maxOccurs="1" minOccurs="0" />
+					<xs:element ref="ac:messageOrigin" maxOccurs="1" minOccurs="0" />
+					<xs:element ref="ac:candidateAddressList" maxOccurs="1" minOccurs="0" />
+					<xs:element name="rtimRequestResponseCriteria" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								A list of rtim response statuses.
+							</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:annotation>
+								<xs:documentation>
+									A list of rtim response statuses.
+								</xs:documentation>
+							</xs:annotation>
+							<xs:sequence>
+								<xs:element name="providerCriteria" type="ac:providerCriteriaType2"
+									maxOccurs="1" minOccurs="0">
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="providerList" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								List of providers from the Serviceability
+								response, product service will return products for these providers
+								at the corrected address.
+							</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="provider" type="ac:providerType"
+									minOccurs="1" maxOccurs="unbounded" />
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="providerCriteriaType2">
+		<xs:sequence>
+			<xs:element name="provider" type="ac:providerCriteriaEntityType2"
+				minOccurs="1" maxOccurs="unbounded">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="providerCriteriaEntityType2">
+		<xs:sequence>
+			<xs:element name="attribute" type="ac:providerNameValuePairType2"
+				minOccurs="1" maxOccurs="unbounded" nillable="false" />
+			<xs:element name="phone" type="ac:CustomerPhone2" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						RTIM Provider related Phone.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="name" use="required" type="xs:string" />
+	</xs:complexType>
+
+	<xs:complexType name="providerNameValuePairType2">
+		<xs:attribute name="name" use="required" type="xs:string" />
+		<xs:attribute name="value" type="xs:string" use="optional" />
+	</xs:complexType>
+	
+	<xs:element name="inputAddressString" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>
+				The address for which the partner wishes to
+				obtain serviceability information. The address should be as
+				well-formed as possible: no extraneous whitespace at the ends
+				or between the components of it, a comma between the end of the
+				street address (including any apartment numbering) and the
+				city/state/zip portion, and no special characters.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	
+	<xs:element name="serviceabilityTransactionType" type="ac:serviceabilityTransactionTypeType"/>
+	
+	<xs:element name="correctedAddress" type="ac:addressType">
+		<xs:annotation>
+			<xs:documentation>
+				When the service is able to find a single address match for 
+				the given address information, then this element is populated 
+				with the address data from the database. In the case where the
+				address passed is exactly the same as the address that it was
+				matched against, the data is the same.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	
+	<xs:element name="correlationId" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>
+				A system-generated unique identifier. Since
+				the	service is stateless, the coorelation id is not used to
+				reload any previous state, just to identify a particular
+				invocation of the service, or to connect multiple invocations
+				as part of the same global action.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	
+	<xs:element name="messageOrigin" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>
+				The service which originally generated the request.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	
+	<xs:element name="candidateAddressList">
+		<xs:annotation>
+			<xs:documentation>
+				When the service is unable to find a single
+				address match for the
+				given address information, then this element
+				is populated with
+				the suggested address data from the database.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="candidateAddress" minOccurs="0"
+						maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>
+							Candidate addresses contain all of the
+							information in the
+							addressType and adds a matching score
+							which indicates how	well
+							we consider this candidate to
+							match the input address.
+							<B>Note: You should not base any solutions on any
+									particular values, as the algorithm is constantly reviewed
+									and adjusted. You should base all logic only on the order
+									implied in the list by these values.</B>
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:complexContent>
+							<xs:extension base="ac:addressType">
+								<xs:attribute name="matchScore" type="xs:int"
+									use="optional" />
+							</xs:extension>
+						</xs:complexContent>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>			
+	
+	<xs:simpleType name="serviceabilityTransactionTypeType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="normal">
+				<xs:annotation>
+					<xs:documentation>
+						A standard request, where if there is no
+						exact match, then address candidates 
+						are returned. If there are
+						no address candidates, then a "no match found" message
+						is returned.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="zipfallback">
+				<xs:annotation>
+					<xs:documentation>
+						Similar to the normal type, except that if
+						there is no match and
+						no candidates returned then it will
+						attempt to use the zip
+						code only to perform serviceability.resp and process rules
+						against sales context
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+		
+	<xs:complexType name="CustomerPhone2">
+     <xs:sequence>
+       <xs:element name="home">
+         <xs:simpleType>
+           <xs:restriction base="xs:string">
+             <xs:length value="10"/>
+           </xs:restriction>
+         </xs:simpleType>
+       </xs:element>
+       <xs:element name="work" minOccurs="0">
+         <xs:simpleType>
+           <xs:restriction base="xs:string">
+             <xs:length value="10"/>
+           </xs:restriction>
+         </xs:simpleType>
+       </xs:element>
+     </xs:sequence>
+   </xs:complexType>
+   
+	<xs:complexType name="marketItemInfoType2">
+		<xs:sequence>
+			<xs:element name="marketItem" type="ac:marketItemWithCapabilitiesType"
+				minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A market item is an item that is serviceable
+						within a given market.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="serviceAddress" type="ac:addressType"
+				minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>

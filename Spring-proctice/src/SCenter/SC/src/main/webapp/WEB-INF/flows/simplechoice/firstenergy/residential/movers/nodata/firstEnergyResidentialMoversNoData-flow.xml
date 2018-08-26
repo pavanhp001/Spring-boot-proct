@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+	<action-state id="greetingAction">
+		<evaluate expression="BasicInformationController"></evaluate>
+		<transition on="basicViewEvent" to="basicInfoView"></transition>
+	</action-state>
+
+	<view-state id="basicInfoView" view="firstEnergy.basic_information">
+		<transition on="basicInfoEvent" to="performValidAddressAction" />
+		<transition on="endCallEvent" to="EndCallView" />
+	</view-state>
+
+	<action-state id="performValidAddressAction">
+		<evaluate expression="ValidAddressController"></evaluate>
+		<transition on="validAddressEvent" to="validAddressView"></transition>
+		<transition on="invalidAddressEvent" to="invalidAddressView"></transition>
+		<transition on="multipleAddressEvent" to="multipleAddressView"></transition>
+	</action-state>
+
+	<view-state id="validAddressView" view="firstEnergy.isValidAddress">
+		<transition on="addressFoundEvent" to="ExceptionPageView" />
+		<transition on="endCallEvent" to="placeOrderAction" />
+	</view-state>
+
+	<view-state id="invalidAddressView" view="firstEnergy.isInvalidAddress">
+		<transition on="addressNotFoundEvent" to="performValidAddressAction" />
+		<transition on="endCallEvent" to="EndCallView" />
+	</view-state>
+
+	<view-state id="multipleAddressView" view="firstEnergy.isMultipleAddress">
+		<transition on="multipleAddressEvent" to="performValidAddressAction" />
+		<transition on="endCallEvent" to="EndCallView" />
+	</view-state>
+
+	<view-state id="ExceptionPageView" view="firstEnergy.exceptionPageInfo">
+		<on-entry>
+			<evaluate expression="ExceptionPageController" />
+		</on-entry>
+		<transition on="exceptionPageEvent" to="qualificationAction" />
+		<transition on="existingCustomerEvent" to="existingCustomerCKOView" />
+		<transition on="endCallEvent" to="placeOrderAction" />
+	</view-state>
+    
+	   <decision-state id="qualificationAction">
+			<if test="flowScope.isMoveInDeltaPassed == true" then="qualificationMoveInDeltaView"
+				else="qualificationView" />
+		</decision-state>
+	    
+	<view-state id="qualificationView" view="firstEnergy.qualification">
+		<on-entry>
+			<evaluate expression="QualificationController" />
+		</on-entry>
+		<transition on="qualificationEvent" to="discoveryAction" />
+		<transition on="endCallEvent" to="placeOrderAction" />
+		<transition on="existingCustomerEvent" to="existingCustomerCKOView" />
+		<transition on="orderSummaryViewEvent" to="orderSummaryView" />
+	</view-state>
+
+	<view-state id="qualificationMoveInDeltaView" view="webCallFlow.qualificationMoveInDelta">
+		<on-entry>
+			<evaluate
+				expression="QualificationController.gotoQualificationMoveInDeltaView(flowRequestContext)" />
+		</on-entry>
+		<transition on="existingCustomerEvent" to="existingCustomerCKOView" />
+		<transition on="orderSummaryViewEvent" to="orderSummaryView" />
+		<transition on="discoveryAction" to="recommendationsView" />
+		<transition on="endCallEvent" to="placeOrderAction" />
+		<transition on="endCallEventForDelta" to="isClosingOfferShow" >
+		    <set name="flowScope.callView" value="'endCallEventForDelta'" type="string" />
+		</transition>
+	</view-state>
+	
+	<view-state  id="EndCallEventViewForDelta" view="firstEnergy.closingcallnosale">
+		<on-entry>
+		<set name="flowScope.moveInDeltaAtuoDisposition" value="true" ></set>
+			<evaluate expression="EndCallController" />
+		</on-entry>
+		<transition on="warmTransferEvent" to="dynamic-flow-warmTransferView" />
+		<transition on="dispositionsEvent" to="DispositionAction" />
+		<transition on="recommendationsByCategoryEvent" to="recommendationsByCategoryView" />
+		<transition on="recommendationsBySyntheticBundlesEvent" to="recommendationsBySyntheticBundlesView" />
+	</view-state>
+	
+	<!-- <action-state id="recommendationsView">
+		<evaluate expression="DiscoveryController"></evaluate>
+		<transition to="DecideDiscovery"></transition>
+	</action-state> -->
+	
+	<action-state id="discoveryAction">
+		<evaluate expression="DiscoveryController"></evaluate>
+		<transition to="DecideDiscovery"></transition>
+	</action-state>
+	
+	<decision-state id="DecideDiscovery"> 
+		<if test="flowScope.View == 'sales.discoveryA' " then="toDiscoveryNew"  />
+		<if test="flowScope.View == 'sales.discoveryB' " then="toDiscoveryTransfer" />
+		<if test="flowScope.View == 'sales.discoveryC' " then="toDiscoveryMoveInDelta" />
+	</decision-state>
+	
+	<view-state id="toDiscoveryNew" view="firstEnergy.discoveryA">
+		<transition on="discoveryEvent" to="recommendationsView" />
+		<transition on="backToQualificationEvent" to="qualificationAction" />
+		<transition on="endCallEvent" to="placeOrderAction" />
+		<transition on="existingCustomerEvent" to="existingCustomerCKOView" />
+		<transition on="orderSummaryViewEvent" to="orderSummaryView" />
+	</view-state>
+	
+	<view-state id="toDiscoveryTransfer" view="firstEnergy.discoveryB">
+		<transition on="discoveryEvent" to="recommendationsView" />
+		<transition on="backToQualificationEvent" to="qualificationAction" />
+		<transition on="endCallEvent" to="placeOrderAction" />
+		<transition on="existingCustomerEvent" to="existingCustomerCKOView" />
+		<transition on="orderSummaryViewEvent" to="orderSummaryView" />
+	</view-state>
+	
+	<view-state id="toDiscoveryMoveInDelta" view="webCallFlow.discoveryMoveInDelta">
+		<transition on="discoveryEvent" to="recommendationsByCategoryView" />
+		<transition on="existingCustomerEvent" to="existingCustomerCKOView" />
+		<transition on="backToQualificationEvent" to="qualificationAction" />
+		<transition on="orderSummaryViewEvent" to="orderSummaryView" />
+		<transition on="endCallEvent" to="EndCallView" />
+	</view-state>
+	
+	<view-state id="recommendationsView" view="firstEnergy.recommendations">
+		<on-entry>
+			<evaluate expression="RecommendationsController" />
+		</on-entry>
+		<transition on="recommendationsEvent" to="recommendationsView" />
+		<transition on="recommendationsByCategoryEvent" to="recommendationsByCategoryView" />
+		<transition on="recommendationsBySyntheticBundlesEvent" to="recommendationsBySyntheticBundlesView" />
+		<transition on="orderSummaryViewEvent" to="orderSummaryView" />
+		<transition on="backToDiscoveryEvent" to="discoveryAction" />
+		<transition on="addToOrderAndCKOEvent" to="addToOrderAndCKOAction" />
+		<transition on="existingCustomerEvent" to="existingCustomerCKOView" />
+		<transition on="endCallEvent" to="placeOrderAction" />
+	</view-state>
+	
+	<view-state id="recommendationsByCategoryView" view="firstEnergy.recommendationsbyCategory">
+		<on-entry>
+			<evaluate expression="RecommendationsByCategory" />
+		</on-entry>
+		<transition on="recommendationsEvent" to="recommendationsView" />
+		<transition on="recommendationsByCategoryEvent" to="recommendationsByCategoryView" />
+		<transition on="recommendationsBySyntheticBundlesEvent" to="recommendationsBySyntheticBundlesView" />
+		<transition on="orderSummaryViewEvent" to="orderSummaryView" />
+		<transition on="backToDiscoveryEvent" to="discoveryAction" />
+		<transition on="addToOrderAndCKOEvent" to="addToOrderAndCKOAction" />
+		<transition on="existingCustomerEvent" to="existingCustomerCKOView" />
+		<transition on="endCallEvent" to="placeOrderAction" />
+	</view-state>
+	
+	<view-state id="recommendationsBySyntheticBundlesView" view="dynamicFlow.syntheticBundles">
+		<on-entry>
+			<evaluate expression="RecommendationsByCategory" />
+		</on-entry>
+		<transition on="recommendationsEvent" to="recommendationsView" />
+		<transition on="recommendationsByCategoryEvent" to="recommendationsByCategoryView" />
+		<transition on="recommendationsBySyntheticBundlesEvent" to="recommendationsBySyntheticBundlesView" />
+		<transition on="orderSummaryViewEvent" to="orderSummaryView" />
+		<transition on="addToOrderAndCKOEvent" to="addToOrderAndCKOAction" />
+		<transition on="backToDiscoveryEvent" to="discoveryAction" />
+		<transition on="existingCustomerEvent" to="existingCustomerCKOView" />
+		<transition on="endCallEvent" to="placeOrderAction" />
+	</view-state>
+	
+	<view-state id="orderSummaryView" view="firstEnergy.orderSummary">
+		<on-entry>
+			<evaluate expression="CartOrderSummaryWebflowController" />
+		</on-entry>
+		<transition on="CKO" to="CKOView" />
+		<transition on="orderRecapEvent" to="placeOrderAction" />
+		<transition on="recommendationsEvent" to="recommendationsView"></transition>
+		<transition on="recommendationsByCategoryEvent" to="recommendationsByCategoryView" />
+		<transition on="recommendationsBySyntheticBundlesEvent" to="recommendationsBySyntheticBundlesView" />
+		<transition on="removeLineItemEvent" to="removeLineItemAction" />
+		<transition on="onReAddCompleteEvent" to="removeLineItemAction" />
+		<transition on="existingCustomerEvent" to="existingCustomerCKOView" />
+		<transition on="endCallEvent" to="placeOrderAction" />
+	</view-state>
+	
+	<action-state id="decideOrderSummuryNextView">
+		<evaluate expression="CartOrderRecapWebflowController.decideOrderSummuryNextView(flowRequestContext)" ></evaluate>
+		<transition on="orderRecapEvent" to="orderRecapViewEvent"/>
+		<transition on="closeCallSaleViewEvent" to="placeOrderAction" />
+	</action-state>
+	
+	<action-state id="removeLineItemAction">
+		<evaluate expression="CartUpdateStateWebflowController"></evaluate>
+		<transition to="orderSummaryView"></transition>
+	</action-state>
+	
+	<view-state  id="CKOView" view="firstEnergy.CKO_start">
+		<on-entry>
+			<evaluate expression="CartCKOWebFlowController" />
+		</on-entry>
+		<transition on="cancelCKOEvent" to="cancelCKOAction" />
+		<transition on="CKOCompleteEvent" to="orderSummaryView" />
+		<transition on="recommendationsEvent" to="recommendationsView"></transition>
+		<transition on="recommendationsByCategoryEvent" to="recommendationsByCategoryView" />
+		<transition on="recommendationsBySyntheticBundlesEvent" to="recommendationsBySyntheticBundlesView" />
+		<transition on="endCallEvent" to="placeOrderAction" />
+		<transition on="existingCustomerEvent" to="existingCustomerCKOView" />
+		<transition on="orderSummaryViewEvent" to="orderSummaryView" />
+		<!-- below transition added for closing offer flow -->
+		<transition on="closeCallNoSaleEvent" to="EndCallView" />
+		<transition on="closeCallSaleEvent" to="closeCallSaleView"/>
+		<transition on="placeOrderAction" to="closeCallSaleView"/>
+		<transition on="endCallEventForDelta" to="EndCallEventViewForDelta"/>
+	</view-state>
+	
+	<view-state  id="existingCustomerCKOView" view="dynamicFlow.CKO_start">
+		<on-entry>
+			<evaluate expression="CartCKOWebFlowController.showExistingCustomerCKOView(flowRequestContext)" />
+		</on-entry>
+		<transition on="cancelECCKOEvent" to="recommendationsView" />
+		<transition on="cancelCKOEvent" to="recommendationsView"/>
+		<transition on="recommendationsEvent" to="recommendationsView"></transition>
+		<transition on="recommendationsByCategoryEvent" to="recommendationsByCategoryView" />
+		<transition on="recommendationsBySyntheticBundlesEvent" to="recommendationsBySyntheticBundlesView" />
+		<transition on="endCallEvent" to="placeOrderAction" />
+		<transition on="existingCustomerEvent" to="existingCustomerCKOView" />
+		<transition on="orderSummaryViewEvent" to="orderSummaryView" />
+	</view-state>
+	
+	<action-state id="addToOrderAndCKOAction">
+		<evaluate expression="CartCKOWebFlowController.addProductToOrderAndCKO(flowRequestContext)"></evaluate>
+		<transition on="CKOViewEvent" to="addToOrderAndCKOView"></transition>
+		<transition on="recommendationsEvent" to="recommendationsView"></transition>
+	</action-state>
+	
+	<view-state  id="addToOrderAndCKOView" view="dynamicFlow.CKO_start">
+		<transition on="cancelCKOEvent" to="cancelCKOAction" />
+		<transition on="CKOCompleteEvent" to="orderSummaryView" />
+		<transition on="recommendationsEvent" to="recommendationsView"></transition>
+		<transition on="recommendationsByCategoryEvent" to="recommendationsByCategoryView" />
+		<transition on="recommendationsBySyntheticBundlesEvent" to="recommendationsBySyntheticBundlesView" />
+		<transition on="qualificationEvent" to="qualificationAction"></transition>
+		<transition on="endCallEvent" to="placeOrderAction" />
+		<transition on="existingCustomerEvent" to="existingCustomerCKOView" />
+		<transition on="orderSummaryViewEvent" to="orderSummaryView" />
+		<!-- below transition added for closing offer flow -->
+		<transition on="closeCallNoSaleEvent" to="EndCallView" />
+		<transition on="closeCallSaleEvent" to="closeCallSaleView"/>
+		<transition on="placeOrderAction" to="closeCallSaleView"/>
+		<transition on="endCallEventForDelta" to="EndCallEventViewForDelta"/>
+	</view-state>
+	
+	<action-state id="cancelCKOAction">
+		<evaluate expression="CartCKOWebFlowController.cancelCKO(flowRequestContext)"></evaluate>
+		<transition on="qualificationEvent" to="qualificationAction"></transition>
+		<transition on="recommendationsEvent" to="recommendationsView"></transition>
+		<transition on="orderSummaryEvent" to="orderSummaryView" />
+		<!-- below transition added for closing offer flow -->
+		<transition on="closeCallNoSaleEvent" to="EndCallView" />
+		<transition on="closeCallSaleEvent" to="closeCallSaleView"/>
+		<transition on="placeOrderAction" to="closeCallSaleView"/>
+		<transition on="endCallEventForDelta" to="EndCallEventViewForDelta"/>
+	</action-state>
+	
+	<view-state  id="EndCallView" view="firstEnergy.closingcallnosale">
+		<on-entry>
+			<evaluate expression="EndCallController" />
+		</on-entry>
+		<transition on="warmTransferEvent" to="dynamic-flow-warmTransferView" />
+		<transition on="dispositionsEvent" to="DispositionAction" />
+		<transition on="recommendationsByCategoryEvent" to="recommendationsByCategoryView" />
+		<transition on="recommendationsBySyntheticBundlesEvent" to="recommendationsBySyntheticBundlesView" />
+	</view-state>
+	
+	<view-state id="orderRecapViewEvent" view="firstEnergy.orderRecap">
+		<on-entry>
+			<evaluate expression="CartOrderRecapWebflowController" />
+		</on-entry>
+		<transition on="recommendationsEvent" to="recommendationsView"></transition>
+		<transition on="recommendationsByCategoryEvent" to="recommendationsByCategoryView" />
+		<transition on="recommendationsBySyntheticBundlesEvent" to="recommendationsBySyntheticBundlesView" />
+		<transition on="closeCallSaleViewEvent" to="placeOrderAction" />
+		<transition on="existingCustomerEvent" to="existingCustomerCKOView" />
+		<transition on="orderSummaryViewEvent" to="orderSummaryView" />
+	</view-state>
+	
+	<action-state id="placeOrderAction">
+		<evaluate expression="CartOrderRecapWebflowController.submitOrder(flowRequestContext)"></evaluate>
+		<transition on="closeCallSaleEvent" to="isClosingOfferShow" >
+		       <set name="flowScope.callView" value="'closeCallSaleEvent'" type="string" />
+		</transition>
+		<transition on="closeCallNoSaleEvent" to="isClosingOfferShow" >
+		       <set name="flowScope.callView" value="'closeCallNoSaleEvent'" type="string" />
+		</transition>
+		<transition on ="offerEvent" to="OfferView"/>
+	</action-state>
+	
+	<view-state id="OfferView" view="firstEnergy.offer">
+		<on-entry>
+			<evaluate expression="OfferController.showSaversOffer(flowRequestContext)"></evaluate>
+		</on-entry>
+		<transition on="endCallEvent" to="saveOfferOnOrderAction" />
+	</view-state>
+	
+	<action-state id="saveOfferOnOrderAction">
+		<evaluate expression="OfferController.saveSaversOfferOnOrder(flowRequestContext)"></evaluate>
+		<transition on="closeCallSaleEvent" to="isClosingOfferShow" >
+		       <set name="flowScope.callView" value="'closeCallSaleEvent'" type="string" />
+		</transition>
+		<transition on="closeCallNoSaleEvent" to="isClosingOfferShow" >
+		       <set name="flowScope.callView" value="'closeCallNoSaleEvent'" type="string" />
+		</transition>
+	</action-state>
+	
+	<action-state id="isClosingOfferShow">
+		<evaluate expression="ClosingOfferController.isClosingOfferShow(flowRequestContext)"></evaluate>
+		<transition on="endCallEventForDelta" to="EndCallEventViewForDelta"/>
+		<transition on="CKOViewEvent" to="CKOView"></transition>
+		<transition on="closeCallNoSaleEvent" to="EndCallView" />
+		<transition on="closeCallSaleEvent" to="closeCallSaleView"/>
+		<transition on="placeOrderAction" to="closeCallSaleView"/>
+	</action-state>	
+	
+	<view-state id="closeCallSaleView" view="firstEnergy.closeCallSale">
+		<on-entry>
+			<evaluate expression="CartOrderRecapSaveWebflowController" />
+		</on-entry>
+		<transition on="dispayCloseCallSaleNextEvent" to="dispayCloseCallSaleNextView" />
+	</view-state>
+	
+	<action-state id="dispayCloseCallSaleNextView">
+		<evaluate expression="DispositionController.decideViewAfterCloseCallSale(flowRequestContext)"></evaluate>
+		<transition on="tpvEvent" to="tpvView" />
+		<transition on="warmTransferEvent" to="warmTransferView" />
+		<transition on="dispositionSaleEvent" to="DispositionSaleView" />
+	</action-state>
+	
+	<view-state id="tpvView" view="firstEnergy.tpvView">
+		<transition on="saveTpvEvent" to="saveTpvAction" />
+	</view-state>
+	
+	<action-state id="saveTpvAction">
+		<evaluate expression="TPVController.saveTPVDialoguesOnFlow(externalContext.nativeRequest)"></evaluate>
+		<transition to="DispositionSaleView" />
+	</action-state>
+	
+	<view-state id="warmTransferView" view="firstEnergy.warmTransfer">
+		<transition on="saveWarmTransferEvent" to="saveWarmTransferAction" />
+	</view-state>
+	
+	<action-state id="saveWarmTransferAction">
+		<evaluate expression="WarmTransferController.saveWarmTransferDetails(externalContext.nativeRequest)"></evaluate>
+		<transition to="DispositionSaleView" />
+	</action-state>
+	
+	<view-state id="dynamic-flow-warmTransferView" view="dynamicFlow.warmTransfer">
+		   <on-entry>
+				<evaluate expression="WarmTransferController.showWarmTransfer(flowRequestContext,externalContext.nativeRequest)" />
+			</on-entry>
+		<transition on="saveWarmTransferEvent" to="dynamic-flow-saveWarmTransferAction" />
+	</view-state>
+	
+   <action-state id="dynamic-flow-saveWarmTransferAction">
+		<evaluate expression="WarmTransferController.saveWarmTransferDetails(externalContext.nativeRequest)"></evaluate>
+		<transition to="DispositionAction" />
+	</action-state>
+	
+	<end-state id="DispositionSaleView" view="firstEnergy.dispositions">
+		<on-entry>
+			<evaluate expression="DispositionController.showDispositionViewForSale(flowRequestContext)" />
+		</on-entry>
+	</end-state>
+	
+	<action-state id="DispositionAction">
+	   <evaluate expression="DispositionController" />
+		<transition on="dispositionEvent" to="dispositionView"/>
+		<transition on="idlePageEvent" to="idlePage"/>
+	</action-state>
+	
+	<end-state id="dispositionView" view="firstEnergy.dispositions"/>
+	
+	<end-state id="unRecoverableEvent" view="webflow.Unrecoverable" />
+		
+	<end-state id="recoverableEvent" view="webflow.recoverable" />
+		
+	<end-state id="errorEvent" view="webflow.error" />
+	
+	<end-state id="idlePage" view="externalRedirect:#{externalContext.sessionMap.urlPath}/salescenter/login_process" />
+		
+	<global-transitions>
+		<transition on-exception="com.AL.V.exception.UnRecoverableException" to="unRecoverableEvent"/>
+		<transition on-exception="com.AL.V.exception.RecoverableException" to="recoverableEvent"/>
+		<transition on-exception="java.lang.Exception" to="errorEvent"/>
+	</global-transitions>
+</flow>

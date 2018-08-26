@@ -1,0 +1,132 @@
+body {
+	font: 0.8em/ 21px arial, sans-serif;
+}
+
+label {
+	float: left;
+	width: 90%;
+}
+
+.checkbox,.radio {
+	width: 19px;
+	height: 25px;
+	padding: 0 5px 0 0;
+	background:
+		url(http://ryanfait.com/resources/custom-checkboxes-and-radio-buttons/checkbox.png)
+		no-repeat;
+	display: block;
+	clear: left;
+	float: left;
+}
+
+radio {
+	background:
+		url(http://ryanfait.com/resources/custom-checkboxes-and-radio-buttons/radio.png)
+		no-repeat;
+}
+
+.select {
+	position: absolute;
+	width: 158px;
+	/* With the padding included, the width is 190 pixels: the actual width of the image. */
+	height: 21px;
+	padding: 0 24px 0 8px;
+	color: #fff;
+	font: 12px/ 21px arial, sans-serif;
+	background:
+		url(http://ryanfait.com/resources/custom-checkboxes-and-radio-buttons/select.png)
+		no-repeat;
+	overflow: hidden;
+}
+
+
+fieldset {
+	border: 1px solid #808080;
+	margin: 20px 10px 30px 10px;
+}
+
+legend {
+	padding: 0.2em 0.5em;
+	border: 1px solid #333333;
+	color: #333333;
+	font-size: 90%;
+	text-align: left;
+	font-weight: bold;
+	background: #FFFFCC;
+	width: 97%;
+}
+
+.instructions {
+	color: red;
+	clear: both;
+	width: 100%;
+	display: block;
+}
+
+.styled {
+	white-space: wrap;
+}
+
+.dialoguenamecss {
+	border: none !important;
+	font-size: 150%;
+	font-weight: bold;
+	text-align: left;
+}
+
+.datagroupnamecss {
+	border: none;
+	font-size: 100%;
+	color: red;
+	font-weight: bold;
+	text-align: left;
+}
+
+.textBold {
+	font-weight: bold;
+}
+
+.textStyled {
+	font-weight: bold;
+	font-size: 100%;
+	color: red;
+}
+
+.custom_padding {
+	clear: both;
+	padding: 5px 0 5px 5px;
+}
+
+.width70Pc {
+	width: 70% !important;
+}
+/* 
+	TABLE HEADER CSS
+*/
+
+.headerSpan {
+	text-align:center;
+	color:red;
+	font-weight:bold;
+	font-family:serif,monospace;
+	margin: 15px 0 15px 0;
+	padding: 15px 15px 15px 15px;
+}
+
+.tableSpan {
+	text-align:center;
+	color:blue;
+	font-weight:300;
+	font-family:serif,monospace;
+}
+
+#next {
+    background-color: #A1A1A1;
+    border: 1px solid #9A9A9A;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 0 1px #FFFFFF inset;
+    color: #FFFFFF;
+    cursor: pointer;
+    font: bold 15px Arial,Helvetica;
+    padding: 1px 5px;
+}

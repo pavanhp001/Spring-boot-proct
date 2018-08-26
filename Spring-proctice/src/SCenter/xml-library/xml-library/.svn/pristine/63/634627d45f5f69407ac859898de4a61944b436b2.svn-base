@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema      
+    attributeFormDefault="unqualified" 
+    elementFormDefault="qualified"
+    targetNamespace="http://xml.A.com/v4"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:ac="http://xml.A.com/v4"
+    xmlns:comm="http://xml.A.com/common" >
+
+	<xs:include schemaLocation="types.xsd" />
+	<xs:import schemaLocation="common.xsd" namespace="http://xml.A.com/common" />
+	
+	<xs:complexType name="filterCriteriaType">
+		<xs:sequence>
+			<xs:element name="address" type="ac:addressType"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="filteringType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A token to indicate what service performed the filtering.
+						<I>As of mid 2009, you should only see the SIFT value.  
+						This element may be removed / retired in future versions of the schema.</I>
+					</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:enumeration value="accord" >
+							<xs:annotation>
+								<xs:documentation>
+								Value that indicates that Accord V6 performed the filtering on this request.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="sift" >
+							<xs:annotation>
+								<xs:documentation>
+								Value that indicates that SIFT performed the filtering on this request.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="dwellingType" type="ac:dwellingType" minOccurs="1" maxOccurs="1">
+			</xs:element>
+			<xs:element name="referrerId" type="xs:int" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="agentId" type="xs:int" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="groups" type="ac:idListType" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="serviceTypeId" type="xs:int" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="addressChanged" type="xs:boolean"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="channelServiceability" type="xs:int"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="forceNonConfirm" type="xs:boolean"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="storeAvailableProviders" type="xs:boolean"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="temporalEventTypeId" type="xs:int"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="derivedDwellingType" type="ac:dwellingType" minOccurs="0" maxOccurs="1" />
+			<xs:element name="addressEngine" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="addressValidate" type="xs:string" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="marketItemInfoType">
+		<xs:sequence>
+			<xs:element name="marketItem" type="ac:marketItemWithCapabilitiesType"
+				minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A market item is an item that is serviceable
+						within a given market.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="serviceAddress" type="ac:addressType"
+				minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="providerCriteriaType">
+		<xs:sequence>
+			<xs:element name="provider" type="ac:providerCriteriaEntityType"
+				minOccurs="1" maxOccurs="unbounded">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="providerCriteriaEntityType">
+		<xs:sequence>
+			<xs:element name="attribute" type="ac:providerNameValuePairType"
+				minOccurs="1" maxOccurs="unbounded" nillable="false" />
+			<xs:element name="phone" type="ac:CustomerPhone" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						RTIM Provider related Phone.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="name" use="required" type="xs:string" />
+	</xs:complexType>
+
+	<xs:complexType name="providerNameValuePairType">
+		<xs:attribute name="name" use="required" type="xs:string" />
+		<xs:attribute name="value" type="xs:string" use="optional" />
+	</xs:complexType>
+	
+	<xs:complexType name="CustomerPhone">
+     <xs:sequence>
+       	<xs:element name="home">
+         	<xs:simpleType>
+           		<xs:restriction base="xs:string">
+             		<xs:length value="10"/>
+           		</xs:restriction>
+         	</xs:simpleType>
+       	</xs:element>
+       	<xs:element name="work" minOccurs="0">
+         	<xs:simpleType>
+           		<xs:restriction base="xs:string">
+             		<xs:length value="10"/>
+           		</xs:restriction>
+         	</xs:simpleType>
+       	</xs:element>
+     </xs:sequence>
+   </xs:complexType>
+	
+</xs:schema>

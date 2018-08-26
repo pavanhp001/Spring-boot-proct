@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://xml.A.com/v4/broadBandAvailability/"
+	targetNamespace="http://xml.A.com/v4/broadBandAvailability/"
+	xmlns:ac="http://xml.A.com/v4" xmlns:vndr="http://xml.A.com/v4/VendorRequestResponse/"
+	xmlns:comm="http://xml.A.com/common">
+	<import schemaLocation="vendorRequestResponse.xsd"
+		namespace="http://xml.A.com/v4/VendorRequestResponse/" />
+
+	<import schemaLocation="common.xsd" namespace="http://xml.A.com/common" />
+
+	<import schemaLocation="address.xsd" namespace="http://xml.A.com/v4" />
+	<complexType name="BroadBandAvailabilityRequest">
+		<complexContent>
+			<extension base="vndr:RtimRequest">
+				<sequence>
+					<element name="telephoneNumber" type="string" />
+					<element name="requestStatus" type="comm:RequestStatus" />
+					<element name="servicableAddress" type="ac:addressType" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+
+	<complexType name="BroadBandAvailabilityResponse">
+		<complexContent>
+			<extension base="vndr:RtimResponse">
+				<sequence>
+					<element name="sessionId" type="string" />
+					<sequence maxOccurs="1" minOccurs="0">
+						<element name="dslSummary" maxOccurs="1" minOccurs="0">
+							<complexType>
+								<sequence>
+									<element name="hasDSL" type="string" />
+								</sequence>
+							</complexType>
+						</element>
+						<element name="typeOfCustomer" type="string" maxOccurs="1"
+							minOccurs="0" />
+						<element name="freedomSummary" maxOccurs="1" minOccurs="0">
+							<complexType>
+								<sequence>
+									<element name="qualifiedForFreedom" type="string" />
+								</sequence>
+							</complexType>
+						</element>
+						<element name="onebillSummary" maxOccurs="1" minOccurs="0">
+							<complexType>
+								<sequence>
+									<element name="qualifiedForOneBill" type="string" />
+								</sequence>
+							</complexType>
+						</element>
+						<element name="voicewingSummary" maxOccurs="1" minOccurs="0">
+							<complexType>
+								<sequence>
+									<element name="qualifiedForVoiceWing" type="string" />
+								</sequence>
+							</complexType>
+						</element>
+						<element name="fttpSummary" maxOccurs="1" minOccurs="0">
+							<complexType>
+								<sequence>
+									<element name="fttpCapable" type="string" />
+									<element name="fttpAvailable" type="string" />
+									<element name="hasVideo" type="string" />
+									<element name="fttpMduFlag" type="string" />
+									<element name="hoaFlag" type="string" />
+									<element name="dropType" type="string" />
+									<element name="dropStatus" type="string" />
+									<element name="dropWinterRulesFlag" type="string" />
+									<element name="engineeringInterval" type="string" />
+									<element name="CS2KClli" type="string" />
+									<element name="MG9KExchangeKey" type="string" />
+									<element name="ontInstallFlag" type="string" />
+									<element name="ontFunctionalType" type="string" />
+									<element name="ontArchitectureType" type="string" />
+									<element name="ontSummary">
+										<complexType>
+											<sequence>
+												<element name="port" maxOccurs="unbounded"
+													minOccurs="0">
+													<complexType>
+														<sequence>
+															<element name="portType" type="string" />
+															<element name="portStatus" type="string" />
+															<element name="portUsedFlag" type="string" />
+														</sequence>
+													</complexType>
+												</element>
+											</sequence>
+										</complexType>
+									</element>
+								</sequence>
+							</complexType>
+						</element>
+					</sequence>
+					<element name="iobiSummary" maxOccurs="1" minOccurs="0">
+						<complexType>
+							<sequence>
+								<element name="qualifiedForIOBI" type="string" />
+							</sequence>
+						</complexType>
+					</element>
+					<element name="validateAddressResult" type="comm:ValidateAddressResult" maxOccurs="1" minOccurs="0"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<element name="broadBandAvailabiltyRequest" type="tns:BroadBandAvailabilityRequest" />
+	<element name="broadBandAvailabiltyResposne" type="tns:BroadBandAvailabilityResponse" />
+
+</schema>

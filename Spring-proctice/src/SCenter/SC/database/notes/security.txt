@@ -1,0 +1,1 @@
+GRANT SELECT, INSERT, DELETE ON sym_sandbox TO SYP@'mssymnpd000.cj13vdlmpnba.us-east-1.rds.amazonaws.com' IDENTIFIED BY 'SYP';

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+	<action-state id="greetingAction">
+		<evaluate
+			expression="greetingWebflowController.showGreetingInfo(externalContext.nativeRequest, externalContext.nativeResponse, flowRequestContext)" />
+		<transition on="basicInfoEvent" to="confirmFirstEnegryCallFlow" />
+		<transition on="greetingViewEvent" to="greetings" />
+	</action-state>
+
+	<view-state id="greetings" view="firstEnergy.view">
+		<transition on="greeting" to="confirmFirstEnegryCallFlow" />
+		<transition on="endCallEvent" to="EndCallView" />
+	</view-state>
+
+	<action-state id="confirmFirstEnegryCallFlow">
+		<evaluate expression="confirmFECallFlowPathController.confirmFEFlowPath(externalContext.nativeRequest, externalContext.nativeResponse, flowRequestContext)" result="flowScope.feFlowPath"></evaluate>
+		<transition to="gotoFirstEnegryCallFlow"></transition>
+	</action-state>
+
+	<view-state  id="EndCallView" view="firstEnergy.closingcallnosale">
+		<on-entry>
+			<evaluate expression="EndCallController" />
+		</on-entry>
+		<transition on="dispositionsEvent" to="DispositionView" />
+	</view-state>
+	
+	<end-state id="DispositionView" view="firstEnergy.dispositions">
+		<on-entry>
+			<evaluate expression="DispositionController" />
+		</on-entry>
+	</end-state>
+	
+	<end-state id="gotoFirstEnegryCallFlow" view="externalRedirect:#{externalContext.sessionMap.urlPath}/salescenter/#{flowScope.feFlowPath}" />
+	
+	<end-state id="unRecoverableEvent" view="webflow.Unrecoverable" />
+		
+	<end-state id="recoverableEvent" view="webflow.recoverable" />
+		
+	<end-state id="errorEvent" view="webflow.error" />
+		
+	<global-transitions>
+		<transition on-exception="com.AL.V.exception.UnRecoverableException" to="unRecoverableEvent"/>
+		<transition on-exception="com.AL.V.exception.RecoverableException" to="recoverableEvent"/>
+		<transition on-exception="java.lang.Exception" to="errorEvent"/>
+	</global-transitions>
+	</flow>

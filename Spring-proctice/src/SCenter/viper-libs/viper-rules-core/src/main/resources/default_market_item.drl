@@ -1,0 +1,37 @@
+package A.ome.validation;
+
+import org.drools.runtime.rule.RuleContext;
+import com.A.rules.util.*;
+import com.A.rules.domain.Message;
+import com.A.validation.ReportFactory;
+import com.A.validation.ValidationReport;
+import com.A.V.beans.entity.SalesOrder;
+import function  com.A.rules.core.impl.RuleValidationHelper.error;
+import function  com.A.rules.core.impl.RuleValidationHelper.warning;
+import function  com.A.rules.core.impl.RuleValidationHelper.outcome;
+
+global com.A.validation.ReportFactory reportFactory;
+global com.A.validation.ValidationReport validationReport;
+	
+	rule "One"
+    salience 100
+    when
+       so : SalesOrderBean( AAccountNumber == "missing")
+    then 
+        System.out.println("performed the calculation");
+        outcome(kcontext, "joe has it");
+ 
+      
+	end
+
+	rule "Two"
+    salience 100
+    when
+       so : SalesOrderBean( so.lineItemBean.externalId != null)
+    then 
+        System.out.println("performed the calculation"+so.lineItemBean.externalId);
+        outcome(kcontext, "joe has it"+so.lineItemBean.externalId);
+ 
+      
+	end
+	

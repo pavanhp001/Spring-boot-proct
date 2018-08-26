@@ -1,0 +1,1064 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:ac="http://xml.A.com/v4"
+    attributeFormDefault="unqualified"
+    elementFormDefault="qualified"
+    targetNamespace="http://xml.A.com/v4" >
+
+    <xs:include schemaLocation="types.xsd" />
+
+    <xs:include schemaLocation="detail.xsd" />
+
+    <xs:include schemaLocation="promotion.xsd" />
+
+    <xs:include schemaLocation="payment.xsd" />
+
+    <xs:element
+        name="productRequest"
+        type="ac:productRequestType" />
+
+    <xs:complexType name="productRequestType" >
+
+        <xs:complexContent>
+
+            <xs:extension base="ac:abstractRequestType" >
+
+                <xs:sequence>
+
+                    <xs:element
+                        name="correctedAddress"
+                        maxOccurs="1"
+                        minOccurs="0"
+                        type="ac:addressType" >
+
+                        <xs:annotation>
+
+                            <xs:documentation>
+								Corrected address output from Serviceability
+								response.
+                            </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+
+                    <xs:element
+                        name="requestedDetails"
+                        maxOccurs="1"
+                        minOccurs="0"
+                        type="ac:productDetailType" />
+
+                    <xs:element
+                        name="providerList"
+                        maxOccurs="1"
+                        minOccurs="0" >
+
+                        <xs:annotation>
+
+                            <xs:documentation>
+								List of providers from the Serviceability
+								response, product service will return products for these providers
+								at the corrected address.
+                            </xs:documentation>
+                        </xs:annotation>
+
+                        <xs:complexType>
+
+                            <xs:sequence>
+
+                                <xs:element
+                                    name="provider"
+                                    maxOccurs="unbounded"
+                                    minOccurs="1"
+                                    type="ac:providerType" />
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+
+                    <xs:element
+                        name="productList"
+                        maxOccurs="1"
+                        minOccurs="0" >
+
+                        <xs:annotation>
+
+                            <xs:documentation>
+								List of products from previous getProducts call to
+								acquire more detail or to copy to product catalog.
+                            </xs:documentation>
+                        </xs:annotation>
+
+                        <xs:complexType>
+
+                            <xs:sequence>
+
+                                <xs:element
+                                    name="productId"
+                                    maxOccurs="unbounded"
+                                    minOccurs="1" >
+
+                                    <xs:complexType>
+
+                                        <xs:attribute
+                                            name="externalId"
+                                            type="xs:string" />
+
+                                        <xs:attribute
+                                            name="providerExternalId"
+                                            type="xs:string" />
+
+                                        <xs:attribute
+                                            name="instanceId"
+                                            type="xs:string"
+                                            use="optional" >
+
+                                            <xs:annotation>
+
+                                                <xs:documentation>
+												Used in catalog products call to identify instance of a product in an order.
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                        </xs:attribute>
+                                        
+                                         <xs:attribute
+                                            name="offerType"
+                                            type="ac:offerTypeType" />
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                      <xs:element
+                        name="productCatalogList"
+                        maxOccurs="1"
+                        minOccurs="0" >
+
+                        <xs:annotation>
+
+                            <xs:documentation>
+								List of ids of cataloged products for which details are required.
+                            </xs:documentation>
+                        </xs:annotation>
+
+                        <xs:complexType>
+
+                            <xs:sequence>
+
+                                <xs:element
+                                    name="catalogId"
+                                    maxOccurs="unbounded"
+                                    minOccurs="1" 
+                                    type="xs:integer">
+                                </xs:element>
+                            </xs:sequence>
+                        </xs:complexType>
+                        
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+	<xs:complexType name="productCatalogType">
+		<xs:complexContent>
+			<xs:extension base="ac:productInfoType" >
+	 			<xs:attribute
+	            name="catalogId"
+	            type="xs:integer" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+    <xs:complexType name="productInfoType" >
+
+        <xs:sequence>
+
+            <xs:element
+                name="product"
+                maxOccurs="1"
+                minOccurs="0"
+                type="ac:productType" />
+
+            <xs:element
+                name="productDetails"
+                maxOccurs="1"
+                minOccurs="0" >
+
+                <xs:complexType>
+
+                    <xs:sequence>
+
+                        <xs:element
+                            name="feature"
+                            maxOccurs="unbounded"
+                            minOccurs="0"
+                            type="ac:featureType" >
+
+                            <xs:annotation>
+
+                                <xs:documentation>
+									Contains the feature info for the requested object.
+                                </xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+
+                        <xs:element
+                            name="featureGroup"
+                            maxOccurs="unbounded"
+                            minOccurs="0"
+                            type="ac:featureGroupType" >
+
+                            <xs:annotation>
+
+                                <xs:documentation>
+									Contains the feature group info for the requested object.
+                                </xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+
+                        <xs:element
+                            name="customization"
+                            maxOccurs="unbounded"
+                            minOccurs="0"
+                            type="ac:customizationType" >
+
+                            <xs:annotation>
+
+                                <xs:documentation>
+									Contains the customization info for the requested object,
+									a more abstract representation of features and dialogs used 
+									for	some vendor integrations.
+                                </xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+
+                        <xs:element
+                            name="marketingHighlights"
+                            maxOccurs="1"
+                            minOccurs="0"
+                            type="ac:marketingHighlightType" >
+
+                            <xs:annotation>
+
+                                <xs:documentation>
+									Contains the marketing highlights info for the requested object.
+                                </xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+
+                        <xs:element
+                            name="descriptiveInfo"
+                            maxOccurs="unbounded"
+                            minOccurs="0"
+                            type="ac:descriptiveInfoType" >
+
+                            <xs:annotation>
+
+                                <xs:documentation>
+									Contains the descriptive info for the requested object.
+                                </xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+
+                        <xs:element
+                            name="metaData"
+                            maxOccurs="1"
+                            minOccurs="0"
+                            type="ac:metaDataType" >
+
+                            <xs:annotation>
+
+                                <xs:documentation>
+									Contains the meta data for the requested object.
+                                </xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+
+                        <xs:element
+                            name="promotion"
+                            maxOccurs="unbounded"
+                            minOccurs="0"
+                            type="ac:productPromotionType" >
+
+                            <xs:annotation>
+
+                                <xs:documentation>
+									Contains promotion data for the requested object.
+                                </xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+
+        <xs:attribute
+            name="externalId"
+            type="xs:string" />
+        <xs:attribute name="offerType" type="ac:offerTypeType" use="optional"/>
+    </xs:complexType>
+
+    <xs:complexType name="productType" >
+
+        <xs:sequence>
+
+            <xs:element
+                name="externalId"
+                maxOccurs="1"
+                minOccurs="1"
+                type="xs:string" />
+            
+            <xs:element
+                name="itemExternalId"
+                maxOccurs="1"
+                minOccurs="1"
+                type="xs:string" />
+                
+            <xs:element
+                name="productCategoryList"
+                maxOccurs="1"
+                minOccurs="1"
+                type="ac:productCategoryListType" />
+
+            <xs:element
+                name="name"
+                maxOccurs="1"
+                minOccurs="1"
+                type="xs:string" >
+
+                <xs:annotation>
+
+                    <xs:documentation>
+						The name of the Item. Ex:
+
+                        <B>
+AT&amp;T Extreme 6.0 DSL
+                        </B>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+
+            <xs:element
+                name="channels"
+                maxOccurs="1"
+                minOccurs="1"
+                type="ac:channelType" />
+
+            <xs:element
+                name="provider"
+                maxOccurs="1"
+                minOccurs="1"
+                type="ac:providerType" />
+                
+            <xs:element
+                name="priceInfo"
+                maxOccurs="1"
+                minOccurs="1"
+                type="ac:priceInfoType" />
+
+            <xs:element
+                name="capabilityList"
+                maxOccurs="1"
+                minOccurs="0" >
+
+                <xs:annotation>
+
+                    <xs:documentation>
+						A list of elements which have a name attribute
+						that describes
+						which capability of the service that the provider
+						offers at a requested address.
+                    </xs:documentation>
+                </xs:annotation>
+
+                <xs:complexType>
+
+                    <xs:sequence>
+
+                        <xs:element
+                            name="capability"
+                            maxOccurs="unbounded"
+                            minOccurs="0"
+                            type="ac:capabilityType" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="productDetailType" >
+
+        <xs:sequence>
+
+            <xs:element
+                name="detail"
+                maxOccurs="unbounded"
+                minOccurs="1" >
+
+                <xs:complexType>
+
+                    <xs:attribute name="level" >
+
+                        <xs:simpleType>
+
+                            <xs:restriction base="xs:token" >
+
+                                <xs:enumeration value="basic" >
+
+                                    <xs:annotation>
+
+                                        <xs:documentation>
+											Retrieve basic product definition
+                                        </xs:documentation>
+                                    </xs:annotation>
+                                </xs:enumeration>
+
+                                <xs:enumeration value="features" >
+
+                                    <xs:annotation>
+
+                                        <xs:documentation>
+											Retrieve product features
+                                        </xs:documentation>
+                                    </xs:annotation>
+                                </xs:enumeration>
+
+                                <xs:enumeration value="customizations" >
+
+                                    <xs:annotation>
+
+                                        <xs:documentation>
+											Retrieve product customizations
+                                        </xs:documentation>
+                                    </xs:annotation>
+                                </xs:enumeration>
+
+                                <xs:enumeration value="descriptiveInfo" >
+
+                                    <xs:annotation>
+
+                                        <xs:documentation>
+											Retrieve product descriptive info
+                                        </xs:documentation>
+                                    </xs:annotation>
+                                </xs:enumeration>
+
+                                <xs:enumeration value="marketingHighlights" >
+
+                                    <xs:annotation>
+
+                                        <xs:documentation>
+											Retrieve product marketing highlights
+                                        </xs:documentation>
+                                    </xs:annotation>
+                                </xs:enumeration>
+
+                                <xs:enumeration value="promotions" >
+
+                                    <xs:annotation>
+
+                                        <xs:documentation>
+											Retrieve product promotions
+                                        </xs:documentation>
+                                    </xs:annotation>
+                                </xs:enumeration>
+
+                                <xs:enumeration value="metadata" >
+
+                                    <xs:annotation>
+
+                                        <xs:documentation>
+											Retrieve product promotions
+                                        </xs:documentation>
+                                    </xs:annotation>
+                                </xs:enumeration>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="bundleInfoType" >
+
+        <xs:sequence>
+
+            <xs:element
+                name="productBundle"
+                maxOccurs="1"
+                minOccurs="1"
+                type="ac:productBundleType" />
+
+            <xs:element
+                name="bundleDetails"
+                maxOccurs="1"
+                minOccurs="0" >
+
+                <xs:complexType>
+
+                    <xs:sequence>
+
+                        <xs:element
+                            name="marketingHighlights"
+                            maxOccurs="1"
+                            minOccurs="0"
+                            type="ac:marketingHighlightType" >
+
+                            <xs:annotation>
+
+                                <xs:documentation>
+									Contains the marketing highlights info for the requested object.
+                                </xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+
+                        <xs:element
+                            name="descriptiveInfo"
+                            maxOccurs="unbounded"
+                            minOccurs="0"
+                            type="ac:descriptiveInfoType" >
+
+                            <xs:annotation>
+
+                                <xs:documentation>
+									Contains the descriptive info for the requested object.
+                                </xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+
+                        <xs:element
+                            name="metaData"
+                            maxOccurs="1"
+                            minOccurs="0"
+                            type="ac:metaDataType" >
+
+                            <xs:annotation>
+
+                                <xs:documentation>
+									Contains the meta data for the requested object.
+                                </xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+
+                        <xs:element
+                            name="promotion"
+                            maxOccurs="unbounded"
+                            minOccurs="0"
+                            type="ac:productPromotionType" >
+
+                            <xs:annotation>
+
+                                <xs:documentation>
+									Contains promotion data for the requested object.
+                                </xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="productBundleType" >
+
+        <xs:sequence>
+
+            <xs:element
+                name="externalId"
+                maxOccurs="1"
+                minOccurs="1"
+                type="xs:string" />
+
+            <xs:element
+                name="productCategoryList"
+                maxOccurs="1"
+                minOccurs="1"
+                type="ac:productCategoryListType" />
+
+            <xs:element
+                name="channels"
+                maxOccurs="1"
+                minOccurs="1"
+                type="ac:channelType" />
+
+            <xs:element
+                name="name"
+                maxOccurs="1"
+                minOccurs="1"
+                type="xs:string" >
+
+                <xs:annotation>
+
+                    <xs:documentation>
+						The name of the Bundle. Ex:
+
+                        <B>
+Comcast Triple Play
+                        </B>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+
+            <xs:element
+                name="providerId"
+                maxOccurs="1"
+                minOccurs="0"
+                type="xs:string" >
+
+                <xs:annotation>
+
+                    <xs:documentation>
+						The id of the provider of the bundle. This could
+						be a business party such as
+						ATT or it may be A for a
+						synthetic bundle - optional.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+
+            <xs:element
+                name="providerName"
+                maxOccurs="1"
+                minOccurs="0"
+                type="xs:string" >
+
+                <xs:annotation>
+
+                    <xs:documentation>
+						The name of the provider of the bundle. This
+						could be a business party such as
+						ATT or it may be A for a
+						synthetic bundle - optional.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+
+            <xs:element
+                name="priceInfo"
+                maxOccurs="1"
+                minOccurs="1"
+                type="ac:priceInfoType" />
+
+            <xs:element name="bundledProducts" >
+
+                <xs:complexType>
+
+                    <xs:sequence>
+
+                        <xs:element
+                            name="externalId"
+                            maxOccurs="unbounded"
+                            minOccurs="1"
+                            type="xs:string" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <!-- all product bundles are breakable -->
+    </xs:complexType>
+
+    <xs:complexType name="productCategoryListType" >
+
+        <xs:sequence>
+
+            <xs:element
+                name="productCategory"
+                maxOccurs="unbounded"
+                minOccurs="1"
+                type="ac:itemCategory" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element
+        name="productResponse"
+        type="ac:productResponseType" />
+
+    <xs:complexType name="productResponseType" >
+
+        <xs:complexContent>
+
+            <xs:extension base="ac:abstractResponseType" >
+
+                <xs:choice>
+
+                    <xs:sequence>
+
+                        <xs:annotation>
+
+                            <xs:documentation>
+This is the result of a getProducts or getProductDetails call.
+                            </xs:documentation>
+                        </xs:annotation>
+						<xs:element name="rtimRequestResponseCriteria" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									A list of rtim response statuses.
+								</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:annotation>
+									<xs:documentation>
+										A list of rtim response statuses.
+									</xs:documentation>
+								</xs:annotation>
+								<xs:sequence>
+									<xs:element name="providerCriteria" type="ac:providerCriteriaListType"
+										maxOccurs="1" minOccurs="0">
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+                        <xs:element
+                            maxOccurs="unbounded"
+                            minOccurs="0"
+                            ref="ac:providerResults" >
+                        </xs:element>
+                        <xs:element
+                            maxOccurs="unbounded"
+                            minOccurs="0"
+                            ref="ac:productCatalogResults" >
+                        </xs:element>
+                        
+ 						
+                        <xs:element
+                            name="productBundles"
+                            maxOccurs="1"
+                            minOccurs="0" >
+
+                            <xs:annotation>
+
+                                <xs:documentation>
+									A list of bundles, which represent bundled sets of serviceable
+									items at the matched address.
+                                </xs:documentation>
+                            </xs:annotation>
+
+                            <xs:complexType>
+
+                                <xs:annotation>
+
+                                    <xs:documentation>
+										A bundle is a set of products that are sold together.
+                                    </xs:documentation>
+                                </xs:annotation>
+
+                                <xs:sequence>
+
+                                    <xs:element
+                                        name="bundleInfo"
+                                        maxOccurs="unbounded"
+                                        minOccurs="1"
+                                        type="ac:bundleInfoType" />
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>                                        
+                    </xs:sequence>
+
+                    <xs:sequence>
+
+                        <xs:annotation>
+
+                            <xs:documentation>
+This is the result of a catalog products call.
+                            </xs:documentation>
+                        </xs:annotation>
+
+                        <xs:element
+                            maxOccurs="unbounded"
+                            minOccurs="0"
+                            ref="ac:catalogedProductList" >
+                        </xs:element>
+                    </xs:sequence>
+                </xs:choice>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:element name="providerResults" >
+
+        <xs:complexType>
+
+            <xs:sequence>
+
+                <xs:element
+                    name="provider"
+                    maxOccurs="1"
+                    minOccurs="1"
+                    type="ac:providerType" />
+
+                <xs:element
+                    name="productInfo"
+                    maxOccurs="unbounded"
+                    minOccurs="0"
+                    type="ac:productInfoType" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+   <xs:element name="productCatalogResults">
+
+	<xs:annotation>
+
+		<xs:documentation>
+			List product catalog items with their details
+                            </xs:documentation>
+	</xs:annotation>
+
+	<xs:complexType>
+
+		<xs:sequence>
+
+			<xs:element name="productCatalog" maxOccurs="unbounded"
+				minOccurs="1" type="ac:productCatalogType">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:element>
+                    
+                    
+    <xs:element name="catalogedProductList" >
+
+        <xs:complexType>
+
+            <xs:sequence>
+
+                <xs:element
+                    name="productCatalogEntry"
+                    maxOccurs="unbounded"
+                    minOccurs="1"
+                    type="ac:catalogEntryType" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="catalogEntryType" >
+
+        <xs:sequence>
+
+            <xs:element name="status" >
+
+                <xs:complexType>
+
+                    <xs:attribute
+                        name="success"
+                        type="xs:boolean"
+                        use="required" />
+
+                    <xs:attribute
+                        name="errorCode"
+                        type="xs:string"
+                        use="optional" />
+
+                    <xs:attribute
+                        name="errorDescription"
+                        type="xs:string"
+                        use="optional" />
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+
+        <xs:attribute
+            name="catalogId"
+            type="xs:string"
+            use="required" />
+
+        <xs:attribute
+            name="externalId"
+            type="xs:string"
+            use="required" />
+
+        <xs:attribute
+            name="providerExternalId"
+            type="xs:string"
+            use="required" />
+
+        <xs:attribute
+            name="instanceId"
+            type="xs:string"
+            use="required" />
+    </xs:complexType>
+
+    <xs:element
+        name="customization"
+        type="ac:customizationType" />
+
+    <xs:complexType name="customizationType" >
+
+        <xs:sequence>
+
+            <xs:element
+                name="name"
+                type="xs:string" />
+
+            <xs:element
+                name="shortDescription"
+                maxOccurs="1"
+                minOccurs="0"
+                type="xs:string" />
+
+            <xs:element
+                name="longDescription"
+                maxOccurs="1"
+                minOccurs="0"
+                type="xs:string" />
+
+            <xs:element
+                name="options"
+                maxOccurs="1"
+                minOccurs="1"
+                type="ac:optionsType" />
+            <!-- do we need category G2B -->
+        </xs:sequence>
+
+		<xs:attribute
+            name="productType"
+            type="xs:string"
+            use="optional" />
+            
+        <xs:attribute
+            name="required"
+            type="xs:boolean"
+            use="optional" />
+
+        <xs:attribute
+            name="externalId"
+            type="xs:string"
+            use="required" />
+
+        <xs:attribute
+            name="displayOrder"
+            type="xs:integer"
+            use="optional" />
+    </xs:complexType>
+
+    <xs:complexType name="optionsType" >
+
+        <xs:sequence>
+
+            <xs:element
+                name="choice"
+                maxOccurs="unbounded"
+                minOccurs="1"
+                type="ac:choiceType" />
+        </xs:sequence>
+
+        <xs:attribute
+            name="min"
+            type="xs:integer"
+            use="required" />
+
+        <xs:attribute
+            name="max"
+            type="xs:integer"
+            use="required" />
+        <!--
+			attribute type maps to possible values: 
+			list(many possible choices ie select channel packages)
+			text (answer question) 
+			selection (there is only 1 choice) in  ATT STI
+        -->
+
+        <xs:attribute
+            name="type"
+            type="xs:string"
+            use="optional" />
+    </xs:complexType>
+
+    <xs:complexType name="choiceType" >
+
+        <xs:sequence>
+
+            <xs:element
+                name="name"
+                type="xs:string" />
+
+            <xs:element
+                name="shortDescription"
+                maxOccurs="1"
+                minOccurs="0"
+                type="xs:string" />
+
+            <xs:element
+                name="longDescription"
+                maxOccurs="1"
+                minOccurs="0"
+                type="xs:string" />
+
+            <xs:element
+                name="paymentEventType"
+                maxOccurs="1"
+                minOccurs="0"
+                type="ac:paymentEventTypeType" />
+
+            <xs:element
+                name="priceInfo"
+                maxOccurs="1"
+                minOccurs="0"
+                type="ac:priceInfoType" />
+            <!-- elements to contain double layer customization or the matching selection (only for ATT STI API) -->
+
+            <xs:element
+                name="customization"
+                maxOccurs="unbounded"
+                minOccurs="0"
+                type="ac:customizationType" />
+        </xs:sequence>
+
+        <xs:attribute
+            name="externalId"
+            type="xs:string"
+            use="required" />
+
+        <xs:attribute
+            name="displayOrder"
+            type="xs:integer"
+            use="optional" />
+    </xs:complexType>	
+    
+    	<xs:complexType name="providerCriteriaListType">
+    		<xs:sequence>
+    			<xs:element name="provider" type="ac:providerCriteriaListEntityType"
+    				minOccurs="1" maxOccurs="unbounded">
+    			</xs:element>
+    		</xs:sequence>
+    	</xs:complexType>
+    
+    	<xs:complexType name="providerCriteriaListEntityType">
+    		<xs:sequence>
+    			<xs:element name="criteria" type="ac:providerCriteriaEntryType"
+    				minOccurs="1" maxOccurs="unbounded" nillable="false" />
+    			<xs:element name="phone" type="ac:customerPhoneEntry" minOccurs="0" maxOccurs="1">
+    				<xs:annotation>
+    					<xs:documentation>
+    						RTIM Provider related Phone.
+    					</xs:documentation>
+    				</xs:annotation>
+    			</xs:element>
+    		</xs:sequence>
+    		<xs:attribute name="name" use="required" type="xs:string" />
+    	</xs:complexType>
+    
+    	<xs:complexType name="providerCriteriaEntryType">
+    		<xs:attribute name="criteriaName" use="required" type="xs:string" />
+    		<xs:attribute name="criteriaValue" type="xs:string" use="optional" />
+    	</xs:complexType>
+    	
+    	<xs:complexType name="customerPhoneEntry">
+    	     <xs:sequence>
+    	       <xs:element name="home">
+    	         <xs:simpleType>
+    	           <xs:restriction base="xs:string">
+    	             <xs:length value="10"/>
+    	           </xs:restriction>
+    	         </xs:simpleType>
+    	       </xs:element>
+    	       <xs:element name="work" minOccurs="0">
+    	         <xs:simpleType>
+    	           <xs:restriction base="xs:string">
+    	             <xs:length value="10"/>
+    	           </xs:restriction>
+    	         </xs:simpleType>
+    	       </xs:element>
+    	     </xs:sequence>
+   	</xs:complexType>
+</xs:schema>

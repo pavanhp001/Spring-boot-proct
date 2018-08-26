@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ac:acMessage id="" xmlns:ac="http://xml.A.com/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xml.A.com/v3 acMessageWrapper.xsd ">
+  <source>source</source>
+  <msgType>request</msgType>
+  <actionType>query</actionType>
+  <payloadType>payloadType</payloadType>
+  <payload/>
+</ac:acMessage>

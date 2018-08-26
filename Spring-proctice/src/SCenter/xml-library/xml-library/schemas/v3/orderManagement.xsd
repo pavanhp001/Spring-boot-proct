@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 	
+	attributeFormDefault="unqualified" 
+	elementFormDefault="qualified"
+	targetNamespace="http://xml.A.com/v3"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:ac="http://xml.A.com/v3" >
+			
+	<xs:include schemaLocation="order.xsd" />
+	<xs:include schemaLocation="types.xsd" />
+	
+	<xs:complexType name="parameterType" abstract="true">
+		<xs:sequence>
+			<xs:element name="orderId" type="xs:string"  />
+		</xs:sequence>
+	</xs:complexType>
+		
+	<xs:element name="orderManagementRequestResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="transactionId" type="xs:int" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="transactionType" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:token">
+							<xs:enumeration value="createOrder" />
+							<xs:enumeration value="delete" />
+							<xs:enumeration value="addLineItem" />
+							<xs:enumeration value="updateOrderStatus" />
+							<xs:enumeration value="updateOrder" />
+							<xs:enumeration value="updateLineItemStatus" />
+							<xs:enumeration value="updateItem" />
+							<xs:enumeration value="getOrder" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="status" type="ac:statusType" minOccurs="0" maxOccurs="1"/>
+				
+				<xs:element name="request">
+					<xs:complexType>
+						<xs:annotation>
+							<xs:documentation>
+								The order id by itself is sufficient for the delete and getOrder requests.
+								It is required, along with some additional data (listed below) for addLineItem, 
+								updateOrderStatus and updateLineItemStatus.
+							</xs:documentation>
+						</xs:annotation>
+						<xs:sequence>
+							<xs:element name="orderId" type="xs:string"  />
+							<xs:choice maxOccurs="1" minOccurs="0">
+							
+									<xs:sequence>
+										<xs:annotation>
+											<xs:documentation>
+											This sequence is for create order requests.
+											</xs:documentation>
+										</xs:annotation>
+										<xs:element name="newOrderInfo" type="ac:orderType" minOccurs="1" maxOccurs="1" />
+									</xs:sequence>
+									
+									<xs:sequence>
+										<xs:annotation>
+											<xs:documentation>
+											This sequence is for add line item requests.
+											</xs:documentation>
+										</xs:annotation>
+										<xs:element name="afterLineItemNumber" type="xs:int" minOccurs="1" maxOccurs="1" />
+										<xs:element name="newLineItem" type="ac:lineItemType" minOccurs="1" maxOccurs="1" />
+									</xs:sequence>
+									
+									
+									<xs:sequence>
+										<xs:annotation>
+											<xs:documentation>
+											This sequence is for update order status requests.
+											</xs:documentation>
+										</xs:annotation>
+										<xs:element name="newOrderStatus" type="xs:string" minOccurs="1" maxOccurs="1" />
+									</xs:sequence>
+									
+									<xs:sequence>
+										<xs:annotation>
+											<xs:documentation>
+											This sequence is for update order requests.
+											</xs:documentation>
+										</xs:annotation>
+										<xs:element name="updatedOrderInfo" type="ac:unconstraintedOrderType" minOccurs="1" maxOccurs="1" />
+									</xs:sequence>
+									
+									<xs:sequence>
+										<xs:annotation>
+											<xs:documentation>
+											This sequence is for update line item status requests, or update line item requests.
+											</xs:documentation>
+										</xs:annotation>
+										<xs:element name="lineItemNumber" type="xs:int" minOccurs="1" maxOccurs="1" />
+										<xs:choice>
+											<xs:element name="newLineItemStatus" type="xs:string" minOccurs="1" maxOccurs="1" />
+											<xs:element name="updatedLineItemInfo" type="ac:unconstraintedLineItemType" 
+																						minOccurs="1" maxOccurs="1" />
+										</xs:choice>
+									</xs:sequence>
+								</xs:choice>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+							
+							
+				<xs:element name="response">	
+					<xs:complexType>
+						<xs:annotation>
+							<xs:documentation>
+								A response will consist of either the updated order, or the id of the order.
+							</xs:documentation>
+						</xs:annotation>
+						<xs:choice>
+							<xs:element name="newOrderInfo" type="ac:orderType" minOccurs="1" maxOccurs="1" />
+							<xs:element name="orderId" type="xs:string" minOccurs="1" maxOccurs="1" />
+						</xs:choice>
+					</xs:complexType>
+				</xs:element>	
+								
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

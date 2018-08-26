@@ -1,0 +1,1 @@
+ALTER TABLE cm_consumer ALTER COLUMN partner_ssn TYPE character varying(15);

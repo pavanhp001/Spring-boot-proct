@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" targetNamespace="http://xml.A.com/v4"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ac="http://xml.A.com/v4">
+
+	<xs:include schemaLocation="product.xsd" />
+
+	<xs:element name="productEnterpriseRequest" type="ac:enterpriseRequestDocumentType">
+	</xs:element>
+	<xs:element name="productEnterpriseResponse" type="ac:enterpriseResponseDocumentType">
+	</xs:element>
+
+	<xs:complexType name="productTransactionTypeType">
+		<xs:complexContent>
+			<xs:extension base="ac:abstractTransactionTypeType">
+				<xs:sequence>
+					<xs:annotation>
+						<xs:documentation>
+							Used to communicate the desired request action.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:element name="productTransactionType">
+						<xs:simpleType>
+							<xs:restriction base="xs:token">
+								<xs:enumeration value="getProducts">
+									<xs:annotation>
+										<xs:documentation>
+											Retrieve algorithm scores and process rules
+											against sales context
+										</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="getProductDetails">
+									<xs:annotation>
+										<xs:documentation>
+											Retrieve algorithm scores and process rules
+											against sales context
+										</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="catalogProducts">
+									<xs:annotation>
+										<xs:documentation>
+											Copy requested products into product catalog  
+											for reference by order management modules
+										</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="getProductCatalogDetails">
+									<xs:annotation>
+										<xs:documentation>
+											Retrieve a product that has been cataloged 
+										</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+</xs:schema>

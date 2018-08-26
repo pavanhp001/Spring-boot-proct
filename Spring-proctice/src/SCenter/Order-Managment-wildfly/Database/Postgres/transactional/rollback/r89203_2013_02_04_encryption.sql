@@ -1,0 +1,17 @@
+ALTER TABLE CM_CONSUMER DROP COLUMN ssn_last_four;
+ALTER TABLE CM_BILLING_INFORMATION DROP COLUMN EXPIRE_MONTH;
+ALTER TABLE CM_BILLING_INFORMATION DROP COLUMN EXPIRE_YEAR;
+
+
+ALTER TABLE CM_BILLING_INFORMATION ADD COLUMN EXPIRATION_DATE timestamp with time zone;
+
+
+ALTER TABLE CM_PAYEVENT ADD COLUMN CVV  character varying(4);
+
+ALTER TABLE cm_billing_information ALTER COLUMN credit_card_number TYPE character varying(255);
+ALTER TABLE cm_billing_information ALTER COLUMN card_holder_name TYPE character varying(255);
+
+
+
+ALTER TABLE cm_consumer DROP COLUMN referrer_general_name;
+

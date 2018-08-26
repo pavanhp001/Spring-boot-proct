@@ -1,0 +1,322 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<parent>
+		<groupId>com.AL.V</groupId>
+		<artifactId>parent-cm-core</artifactId>
+		<version>02.00.01-002</version>
+	</parent>
+	
+	<groupId>com.AL.V</groupId>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>cm-core</artifactId>
+	<version>02.00.01-002</version>
+	<packaging>jar</packaging>
+	<name>Communication Manager Core</name>
+	<scm>
+		<connection>scm:svn:http://svn/svn/tools/CommunicationManager/trunk/cm-core</connection>
+		<developerConnection>scm:svn:http://svn/svn/tools/CommunicationManager/trunk/cm-core</developerConnection> 
+	</scm>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<excludes>
+					<exclude>**/persistence.xml</exclude>
+					<exclude>**/log4j.properties</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<configuration>
+					<enableRulesSummary>false</enableRulesSummary>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+				<configuration>
+					<threshold>Normal</threshold>
+				</configuration>
+			</plugin>
+			<plugin>
+        		<groupId>org.apache.maven.plugins</groupId>
+        		<artifactId>maven-jar-plugin</artifactId>
+        		<version>2.3.1</version>
+        		<configuration>
+        			<archive>
+            			<addMavenDescriptor>false</addMavenDescriptor>
+          			</archive>
+          			<excludes>
+          				<exclude>log4j.properties</exclude>
+          			</excludes>
+        		</configuration>
+      		</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.activemq.tooling</groupId>
+				<artifactId>maven-activemq-plugin</artifactId>
+				<version>5.2.0</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<id>ant-test</id>
+						<phase>package</phase>
+						<configuration>
+							<tasks>
+								<fixcrlf srcdir="${basedir}" includes="**/*.properties"
+									eol="unix" />
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		
+		<!-- property-management dynamoDB integration -->
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>property-management</artifactId>
+			<version>${property-mgmt.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.jms</groupId>
+			<artifactId>jms</artifactId>
+			<version>${javax.jms.version}</version>
+		</dependency>
+
+		<!-- <dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-core</artifactId>
+			<version>${activemq-version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.activemq</groupId>
+					<artifactId>activeio-core</artifactId>
+				</exclusion>
+			</exclusions>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-pool</artifactId>
+			<version>${activemq-version}</version>
+		</dependency> -->
+		<dependency>
+		    <groupId>repo1-cache.org.apache.activemq</groupId>
+		    <artifactId>activemq-broker</artifactId>
+		    <version>5.8.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>repo1-cache.org.apache.activemq</groupId>
+		    <artifactId>activemq-client</artifactId>
+		    <version>5.8.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>repo1-cache.org.apache.activemq</groupId>
+		    <artifactId>activemq-pool</artifactId>
+		    <version>5.8.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.framework.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.framework.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.framework.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.framework.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>3.0.2.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>${commons.lang.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		  
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.14</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>mockobjects</groupId>
+			<artifactId>mockobjects-core</artifactId>
+			<version>0.09</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>jug</groupId>
+			<artifactId>jug</artifactId>
+			<version>1.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-digester</groupId>
+			<artifactId>commons-digester</artifactId>
+			<version>1.8</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>${commons.lang.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>commons-digester</groupId>
+			<artifactId>commons-digester</artifactId>
+			<version>1.8</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-discovery</groupId>
+			<artifactId>commons-discovery</artifactId>
+			<version>20040218.194635</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>ac-eap</groupId>
+			<artifactId>jboss-cache</artifactId>
+			<version>${jboss.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>ac-eap</groupId>
+			<artifactId>jboss-common-core</artifactId>
+			<version>${jboss.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>ac-eap</groupId>
+			<artifactId>jboss-deployers-client-spi</artifactId>
+			<version>${jboss.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>ac-eap</groupId>
+			<artifactId>jboss-deployers-client-spi</artifactId>
+			<version>${jboss.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>ac-eap</groupId>
+			<artifactId>ejb3-persistence</artifactId>
+			<version>${jboss.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+<!--
+	<pluginRepositories>
+		<pluginRepository>
+			<id>maven2-repository.dev.java.net</id>
+			<url>http://download.java.net/maven/2/</url>
+		</pluginRepository>
+	</pluginRepositories>
+-->
+	<properties>
+		<activemq-version>5.2.0</activemq-version>
+		<AL.xmlbeans.version>1.0.4</AL.xmlbeans.version>
+		<checkstyle.version>5.0-beta01</checkstyle.version>
+		<commons.io.version>1.4</commons.io.version>
+		<commons.lang.version>2.5</commons.lang.version>
+		<java.version>1.5</java.version>
+		<javax.ejb.version>3.0</javax.ejb.version>
+		<javax.jms.version>1.1</javax.jms.version>
+		<jboss.version>5.0.1</jboss.version>
+		<junit.version>4.8.1</junit.version>
+
+		<mule.version>3.1.0</mule.version>
+
+		<project.build.sourceEncoding>
+			UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>
+			UTF-8</project.reporting.outputEncoding>
+		<saxon-version>b9.1.0.1</saxon-version>
+		<spring.framework.version>
+			3.0.2.RELEASE</spring.framework.version>
+		<version>1.0.4</version>
+		<xmlbean.plugin.version>2.3.3</xmlbean.plugin.version>
+		<xmlbean.version>2.4.0</xmlbean.version>
+		
+		<!-- property-management dynamoDB integration -->
+		<property-mgmt.version>02.00.00-007</property-mgmt.version>
+	</properties>
+</project>
+

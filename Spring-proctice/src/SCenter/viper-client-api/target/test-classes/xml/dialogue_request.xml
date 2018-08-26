@@ -1,0 +1,22 @@
+ <v4:dialogueEnterpriseRequest debug="false">
+                <v4:GUID>1234124124</v4:GUID>
+                <v4:transactionType xsi:type="v4:dialogueTransactionTypeType">
+                  <v4:dialogueTransactionType>
+                  getDialogues
+                  </v4:dialogueTransactionType>
+                </v4:transactionType>
+         <v4:salesContext>
+            <v4:entity name="salesFlow">
+               <v4:attribute name="salesFlow.dialogueType" value="Provisioning"/>
+            </v4:entity>
+            <v4:entity name="orderSource">
+               <v4:attribute name="orderSource.channel" value="CallCenter"/>
+            </v4:entity>
+            <v4:entity name="provisioning">
+               <v4:attribute name="provisioning.marketItem" value="TWC-WCAR-CI"/>
+	      <!-- <v4:attribute name="provisioning.serviceCategory" value="highSpeedInternet"/>
+               <v4:attribute name="provisioning.item" value=""/>
+               <v4:attribute name="provisioning.businessParty" value="839266"/> -->
+            </v4:entity>
+         </v4:salesContext>
+       </v4:dialogueEnterpriseRequest>

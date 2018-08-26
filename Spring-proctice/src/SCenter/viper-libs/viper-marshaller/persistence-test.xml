@@ -1,0 +1,60 @@
+<persistence-unit name="TestLogicalModelDatasource" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider> 
+		 <class>com.A.V.beans.entity.StatusRecordBean</class>
+		<class>com.A.V.beans.entity.SalesOrder</class>
+		<class>com.A.V.beans.entity.AgentBean</class>
+		<class>com.A.V.beans.entity.BillingInformation</class>
+		<class>com.A.V.beans.entity.AddressBean</class>
+		<class>com.A.V.beans.entity.Consumer</class>
+		<class>com.A.V.beans.entity.PhoneContactChannel</class>
+		<class>com.A.V.beans.entity.EMailContactChannel</class>
+		<class>com.A.V.beans.entity.BusinessParty</class>
+		<class>com.A.V.beans.entity.MarketItemBean</class>
+		<class>com.A.V.beans.entity.ItemBean</class>
+		<class>com.A.V.beans.entity.ItemCategoryBean</class>
+		<class>com.A.V.beans.entity.AnnotatedFeature</class>
+		<class>com.A.V.beans.PriceInfo</class>
+		<class>com.A.V.beans.entity.FeatureBean</class>
+		<class>com.A.V.beans.entity.LineItem</class>
+		<class>com.A.V.beans.entity.AnswerBean</class>
+		<class>com.A.V.beans.entity.QuestionBean</class>
+		<class>com.A.V.beans.entity.DataConstraintBean</class>
+		<class>com.A.V.beans.entity.LineItemDetail</class>
+		<class>com.A.V.beans.entity.SelectedFeatureValue</class>
+		<class>com.A.V.beans.entity.PromotionBean</class>
+		<class>com.A.V.beans.entity.BundleBean</class>
+		<class>com.A.V.beans.entity.OrderAudit</class>
+		<class>com.A.V.beans.entity.Rules</class>
+		<class>com.A.V.beans.entity.RulesSet</class> 
+		
+		 <properties>
+
+			<!-- ************************************************* -->
+			<!-- SYNC SYSTEM ON STARTUP.  UPDATE DB WITH CHANGES   -->
+			<!-- ************************************************* -->
+			<property name="hibernate.hbm2ddl.auto" value="none" />
+			<!-- ************************************************* -->
+			<!-- SET FORMAT AND SHOW SQL:TRUE FOR QUICK DEBUGGING  -->
+			<!-- ************************************************* -->
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<!-- ************************************************* -->
+			<!-- EACH CONTEXT MANAGER COMMAND IS ATOMIC.           -->
+			<!-- ************************************************* -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
+			<property name="hibernate.connection.driver_class" value="oracle.jdbc.driver.OracleDriver" />
+			<property name="hibernate.connection.username" value="proto" />
+			<property name="hibernate.connection.password" value="tampa09" />
+			<property name="hibernate.connection.url" value="jdbc:oracle:thin:@devdb:1521:tampa2" /> 
+			<property name="hibernate.cache.provider_class"
+				value="net.sf.ehcache.hibernate.SingletonEhCacheProvider" />
+			<property name="hibernate.cache.use_second_level_cache"
+				value="true" />
+			<property name="hibernate.mapping.precedence" value="class" />
+			<property name="net.sf.ehcache.configurationResourceName"
+				value="/ehcache.xml" />
+
+			<property name="hibernate.cache.use_query_cache" value="true" />
+			<property name="hibernate.generate_statistics" value="true" />
+		</properties>
+	 </persistence-unit>

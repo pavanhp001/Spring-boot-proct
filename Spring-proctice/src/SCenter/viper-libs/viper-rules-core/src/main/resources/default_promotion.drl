@@ -1,0 +1,27 @@
+package A.ome.validation;
+
+import org.drools.runtime.rule.RuleContext;
+import com.A.rules.util.*;
+import com.A.rules.domain.Message;
+import com.A.validation.ReportFactory;
+import com.A.validation.ValidationReport;
+
+import function  com.A.rules.core.impl.RuleValidationHelper.error;
+import function  com.A.rules.core.impl.RuleValidationHelper.warning;
+import function  com.A.rules.core.impl.RuleValidationHelper.outcome;
+
+global com.A.validation.ReportFactory reportFactory;
+global com.A.validation.ValidationReport validationReport;
+ 
+	
+	rule "One"
+    salience 100
+    when
+       m : Message( status == Message.HELLO, message : message )
+    then 
+        System.out.println("default.promotion");
+        outcome(kcontext, "default.promotion");
+ 
+      
+end
+	

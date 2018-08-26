@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:si="http://www.springframework.org/schema/integration"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:amq="http://activemq.apache.org/schema/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd 
+	http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-3.0.xsd 
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd 
+	http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd 
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd 
+	http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/integration
+http://www.springframework.org/schema/integration/spring-integration-2.0.xsd">
+
+
+
+	<context:annotation-config />
+	<context:component-scan
+		base-package="com.AL.ie, com.AL.Vdao,com.AL.vm, com.AL.activity" />
+
+	<context:annotation-config />
+	<context:component-scan base-package="com.AL" />
+
+
+	<!-- **************** SPRING INTEGRATION ************************* -->
+
+
+ 
+
+<bean id="arbiterFlowManager"
+		class="com.AL.ie.service.strategy.ArbiterFlowManagerDefault" /> 
+	 
+	
+	
+	<bean id="poller"
+		class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		<property name="corePoolSize" value="10" />
+		<property name="maxPoolSize" value="20" />
+		<property name="daemon" value="false" />
+		<property name="queueCapacity" value="100" />
+	</bean>
+
+
+
+	<si:channel id="processChannel">
+		<si:dispatcher task-executor="poller" />
+	</si:channel>
+
+	<si:channel id="splitterChannel">
+		<si:dispatcher task-executor="poller" />
+	</si:channel>
+
+	<si:channel id="formatChannel">
+		<si:dispatcher task-executor="poller" />
+	</si:channel>
+
+	<si:channel id="sendingChannel">
+		<si:dispatcher task-executor="poller" />
+	</si:channel>
+
+	<si:channel id="aggregatingChannel">
+		<si:dispatcher task-executor="poller" />
+	</si:channel>
+
+
+
+
+	<bean id="arbiterService" class="com.AL.ie.service.impl.ArbiterServiceImpl" />
+
+	<si:service-activator input-channel="processChannel"
+		output-channel="splitterChannel" ref="arbiterService" method="doProcess" />
+
+	<si:splitter id="splitter" input-channel="splitterChannel"
+		output-channel="formatChannel" ref="arbiterService" method="doSplit" />
+
+	<si:service-activator input-channel="formatChannel"
+		output-channel="sendingChannel" ref="arbiterService" method="doFormat" />
+
+
+	<si:service-activator input-channel="sendingChannel"
+		output-channel="aggregatingChannel" ref="arbiterService" method="doSend" />
+
+
+	<si:aggregator id="arbiterAggregator" input-channel="aggregatingChannel"
+		output-channel="dlq" ref="arbiterService" method="doAggregate" />
+
+
+
+	<si:channel id="dlq">
+		<si:interceptors>
+			<si:wire-tap channel="logger" />
+		</si:interceptors>
+	</si:channel>
+
+	<si:logging-channel-adapter id="logger"
+		level="DEBUG" />
+
+</beans>

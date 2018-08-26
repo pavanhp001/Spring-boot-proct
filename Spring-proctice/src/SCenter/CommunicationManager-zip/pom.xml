@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.AL</groupId>  
+		<artifactId>ALParent</artifactId>
+		<version>1.1</version>
+	</parent>
+<!--
+Test comment
+-->
+	<groupId>com.AL.V</groupId>
+	<artifactId>parent-cm-core</artifactId>
+	<packaging>pom</packaging>
+	<version>02.00.01-002</version>
+	<name>Communication Manager Parent</name>
+	<url>http://maven.apache.org</url>
+	<modules>
+		<module>cm-app</module>
+		<module>cm-core</module>
+		<module>cm-ejb</module>
+		<module>cm-web</module>
+	</modules>
+	<scm>
+		<connection>scm:svn:http://svn/svn/tools/CommunicationManager/trunk</connection>
+		<developerConnection>scm:svn:http://svn/svn/tools/CommunicationManager/trunk</developerConnection> 
+	</scm>
+	<distributionManagement>
+	  <site>
+		<id>Site</id>
+		<name>Communication Manager</name>
+		<url>CommMgr</url>
+	  </site>
+	</distributionManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.4.3</version>
+				<executions>
+					<execution>
+						<id>replace-pom-placeholder</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<resources>
+								<resource>
+									<directory>${basedir}</directory>
+									<includes>
+										<include>pom.xml</include>
+									</includes>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+							<outputDirectory>${project.build.directory}/pom-install-deploy-fix</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+<!--
+Copy pom file to safe version in case release copy is needed during install phase
+-->
+			<plugin>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>2.3.1</version>
+				<executions>
+					<execution>
+						<id>overwrite-pom</id>
+						<phase>install</phase>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<configuration>
+							<packaging>pom</packaging>
+							<file>target/pom-install-deploy-fix/pom.xml</file>
+							<pomFile>target/pom-install-deploy-fix/pom.xml</pomFile>
+							<version>${project.version}</version>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+<!--
+When running deploy step on release code, update pom file with release version
+-->
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.5</version>
+				<executions>
+					<execution>
+						<id>overwrite-pom</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>deploy-file</goal>
+						</goals>
+						<configuration>
+							<packaging>pom</packaging>
+							<file>target/pom-install-deploy-fix/pom.xml</file>
+							<pomFile>target/pom-install-deploy-fix/pom.xml</pomFile>
+							<url>${deployRepoUrl}</url>
+							<version>${project.version}</version>
+							<updateReleaseInfo>${isRelease}</updateReleaseInfo>
+							<uniqueVersion>false</uniqueVersion>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+<!--
+Define SVN tag format, based on version number
+-->
+			<plugin>
+				<artifactId>maven-scm-plugin</artifactId>
+				<version>1.4</version>
+				<configuration>
+					<tag>${VERSION_NUMBER}</tag>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<properties>
+	   <VERSION_NUMBER>02.00.00-SNAPSHOT</VERSION_NUMBER>
+		<jms.version>1.1</jms.version>
+		<jsf-myfaces.version>2.0.1</jsf-myfaces.version>
+		<jsf-mojarra.version>2.0.3</jsf-mojarra.version>
+		<junit.version>4.8.1</junit.version>
+		<maven.jetty.plugin.version>6.1.22</maven.jetty.plugin.version>
+		<servlet.api.version>2.1</servlet.api.version>
+		<servlet.jstl.version>1.2</servlet.jstl.version>
+		<servlet.version>2.5</servlet.version>
+		<trinidad.version>2.0.0-alpha-2</trinidad.version>
+	</properties>
+</project>

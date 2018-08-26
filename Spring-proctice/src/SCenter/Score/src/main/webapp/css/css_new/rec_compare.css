@@ -1,0 +1,198 @@
+@charset "utf-8";
+#contentfullcontcompare{
+	height: 637px;
+	width: 1007px;
+	position:absolute;
+	top: 73;
+	left: 0;
+	border-radius: 10px 10px 0 0;
+	
+	-moz-box-shadow: 2px 2px 3px 0px #929292;
+	-webkit-box-shadow: 2px 2px 3px 0px #929292;
+	box-shadow: 2px 2px 3px 0px #929292;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Color='#929292')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Color='#929292');
+}
+#content_header_compare {
+	margin: 0px;
+	padding: 0px;
+	height: 38px;
+	width: 1007px;
+	border-radius: 10px 10px 0px 0px;  
+	background: #666666;
+	overflow:hidden;
+}
+#content_header_compare div span:nth-of-type(2){display: inline; padding-top: 7px;}
+#content_header_compare div span:nth-of-type(3){padding-top: 7px; padding-right: 10px;}
+#contentcompare{
+	height: 597px;
+	width: 1005px;
+	background-color: #fff;
+    border: 1px solid #616264;
+	margin-bottom:	0px;
+}
+.contentwrappercompare {
+    height: 594px;
+    position: relative;
+    width: 1005px;
+}
+#action_wrapper_compare {
+    height: 587px;
+    width: 1005px;
+	margin: 0;
+	position: static;
+}
+.widget_container_compare {
+    float: left;
+    height: 551px;
+    width: 999px;
+	background-color: #fff;
+	margin: 3px;
+	border: 0px solid #616264;
+	overflow: hidden;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0)
+{
+	.widget_container_compare {
+		margin: 0px 3px 3px 3px;
+	}	
+}
+.reccomparecont {
+    color: #5A5B5D;
+    float: left;
+    padding: 0;
+	width: inherit;
+}
+.reccomparecont fieldset{
+	border:none;
+    padding: 0;
+	margin:0;
+}
+
+.reccomparetablehead {
+    float: right;
+	margin: 0px;
+    padding: 0;
+	width: 826px;
+	height:70px;
+	font-size: 12px;
+	color:#000;
+	border-collapse:collapse;
+	border:0px solid #616264;
+	text-align:center;
+}
+.reccomparetablehead th{
+	padding: 3px;
+	font-size: 13px;
+	font-weight: bold;
+	background-color: #fff;
+	color:#fff;
+	border:0px solid #616264;
+	text-align:center;
+	width: 269px;
+}
+.reccomparetablehead th img{
+	font-size: 13px;
+	border:none;
+	text-align:center;
+	max-width: 100%;
+	max-height: 64px;
+	background-size: cover;
+}
+.reccomparetablehead1{
+    float: right;
+	margin: 0px;
+    padding: 0;
+	width: 826px;
+	font-size: 12px;
+	color:#000;
+	border-collapse:collapse;
+	border:1px solid #616264;
+	text-align:center;
+}
+.reccomparetablehead1 th{
+	padding: 5px 3px;
+	font-size: 13px;
+	font-weight: bold;
+	background-color: #666;
+	color:#fff;
+	border:1px solid #616264;
+	text-align:center;
+	width: 268px;
+	text-transform: uppercase;
+}
+
+.reccomparetable{
+    float: left;
+	margin: 0px;
+    padding: 0;
+	width: 100%;
+	font-size: 12px;
+	color:#000;
+	border-collapse:collapse;
+	border:1px solid #616264;
+	text-align:center;
+}
+.reccomparetable th{
+	padding: 3px 3px;
+	font-size: 13px;
+	font-weight: bold;
+	background-color: #666;
+	color:#fff;
+	border:1px solid #616264;
+	text-align:center;
+}
+.reccomparetable tr.left {
+    text-align: left;
+}
+.reccomparetable tr.left td {
+    vertical-align: top;
+}
+.reccomparetable fieldset{
+	border:none;
+	padding: 0;
+	margin: 0;
+	list-style: disc;
+    padding: 5px 5px 0px 18px;
+	font-size: 14px;
+	line-height:15px;
+}
+.reccomparetable fieldset li{
+	padding-bottom:6px;
+}
+.reccomparetable .left ul {
+    margin: 0;
+	border:none;
+    padding: 5px 5px 0px 18px;
+	font-size: 14px;
+	line-height:15px;
+}
+.reccomparetable .left ul li{
+	padding-bottom:6px;
+}
+.reccomparetable .left ul li span{
+	font-size: 12px;
+	position:relative;
+	left:-3px;
+}
+.reccomparetable td{
+	padding: 5px 3px;
+	font-size: 12px;
+	color:#000;
+	border:1px solid #616264;
+}
+.reccomparetable td ul{
+	padding: 5px 5px 5px 16px;
+	font-size: 12px;
+	color:#000;
+	border:1px solid #616264;
+}
+.reccomparetable tr > td:first-child { font-weight: bold;font-size: 13px; text-align:center;width: 150px;background-color: #e5e0d9;} /* first column */
+.reccomparetable tr > td:first-child + td { font-weight: normal;width: 275px;} /* second column */
+.reccomparetable tr > td:first-child + td + td { font-weight: normal;width: 275px;} /* third column */
+.reccomparetable tr > td:first-child + td + td + td { font-weight: normal;width: 275px;} /* fourth column */
+
+
+/* End */

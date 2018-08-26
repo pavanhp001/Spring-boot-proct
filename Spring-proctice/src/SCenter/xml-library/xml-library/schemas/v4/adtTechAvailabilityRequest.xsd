@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://xml.A.com/v4/adtProvisioning/techappointmentsreq/"
+	targetNamespace="http://xml.A.com/v4/adtProvisioning/techappointmentsreq/">
+
+	<xs:complexType name="request" abstract="true" />
+
+	<xs:complexType name="GetSystemAuthentication">
+		<xs:complexContent>
+			<xs:extension base="tns:request">
+				<xs:sequence>
+					<xs:element name="attribute" type="tns:attribute"
+						minOccurs="1" maxOccurs="unbounded" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="attribute">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="name" type="string" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:complexType name="GetIfAppointmentAvailableByLocationInfo">
+		<xs:complexContent>
+			<xs:extension base="tns:request">
+				<xs:sequence>
+					<xs:element name="attribute" type="tns:attribute"
+						minOccurs="1" maxOccurs="unbounded" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="requests">
+		<xs:sequence>
+			<xs:element name="request" type="tns:request" minOccurs="1"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="root">
+		<xs:sequence>
+			<xs:element name="requests" type="tns:requests" minOccurs="1"
+				maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+</schema>

@@ -1,0 +1,22 @@
+<ehcache>
+	<!-- Required elements -->
+	<diskStore path="java.io.tmpdir" />
+	<defaultCache maxElementsInMemory="10000" eternal="false"
+		timeToIdleSeconds="120" timeToLiveSeconds="120" overflowToDisk="true" />
+
+	<!-- Cache settings per region defined on the Entity -->
+	<cache name="context_cache" maxElementsInMemory="10000" eternal="false"
+		timeToIdleSeconds="1800" timeToLiveSeconds="1800" overflowToDisk="true" />
+
+
+	<cache name="org.hibernate.cache.StandardQueryCache"
+		maxElementsInMemory="50" eternal="false" timeToLiveSeconds="120"
+		overflowToDisk="true" />
+
+
+	<cache name="org.hibernate.cache.UpdateTimestampsCache"
+		maxElementsInMemory="50" eternal="false" timeToLiveSeconds="120"
+		overflowToDisk="true" />
+
+
+</ehcache>

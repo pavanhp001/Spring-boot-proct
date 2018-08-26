@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+	xmlns:context="http://www.springframework.org/schema/context">
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<context:annotation-config />
+
+	<!--<import resource="datasource-logical.xml" />-->
+
+	<!-- <bean id="logicalDatabaseConfigurer"    class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<value>classpath:transactional-db.properties</value>
+		</property>
+		<property name="systemPropertiesModeName">
+			<value>SYSTEM_PROPERTIES_MODE_OVERRIDE</value>
+		</property>
+		<property name="placeholderPrefix" value="$LOGICAL{"/>
+	</bean>  -->
+
+	<!-- <bean id="transactionalDatasource"
+        class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="oracle.jdbc.driver.OracleDriver" />
+        <property name="jdbcUrl" value="jdbc:oracle:thin:@twvdm:1521:vdev1" />
+        <property name="user" value="V_TX" />
+        <property name="password" value="b0cephus" />
+        <property name="initialPoolSize" value="3" />
+        <property name="minPoolSize" value="1" />
+        <property name="maxPoolSize" value="5" />
+    </bean> -->
+
+
+<bean id="transactionalDatasource"
+        class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="com.edb.Driver" />
+        <property name="jdbcUrl" value="jdbc:edb://vpdb1.aws.AL.com:5438/pgsymdev004" />
+        <property name="user" value="V_tx" />
+        <property name="password" value="1AL1" />
+        <property name="initialPoolSize" value="3" />
+        <property name="minPoolSize" value="1" />
+        <property name="maxPoolSize" value="5" />
+    </bean>
+
+	<bean id="transactionalEntityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitManager" ref="pum" />
+		<property name="persistenceUnitName" value="transactional_pu" />
+		<property name="dataSource" ref="transactionalDatasource" />
+		<property name="jpaVendorAdapter">
+                <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				</bean>
+        </property>
+		<!-- <property name="jpaProperties">
+			<props>
+				<prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JTATransactionFactory</prop>
+				<prop key="hibernate.transaction.manager_lookup_class">org.hibernate.transaction.JBossTransactionManagerLookup</prop>
+			</props>
+		</property> -->
+		<property name="loadTimeWeaver">
+			<bean
+				class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver" />
+		</property>
+		<property name="jpaDialect">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect">
+			</bean>
+		</property>
+	</bean>
+
+	 <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="transactionalEntityManagerFactory" />
+		<qualifier value="transactional" />
+	</bean>
+
+</beans>

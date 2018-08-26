@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>com.A</groupId>
+		<artifactId>AParent</artifactId>
+		<version>1.0</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.A.V</groupId>
+	<artifactId>VEntityModel</artifactId>
+
+	<packaging>pom</packaging>
+	<version>02.00.00-004</version>
+	<name>A V</name>
+	<url>http://maven.apache.org</url>
+	<modules>
+		<module>ALogicalModel</module>
+		<module>ACacheModel</module>
+		<module>AReferenceModel</module>
+		<module>AStandardModel</module>
+	</modules>
+
+	<scm>
+		<connection>scm:svn:http://svn/svn/tools/VEntityModel/trunk/</connection>
+		<developerConnection>scm:svn:http://svn/svn/tools/VEntityModel/trunk/</developerConnection>
+	</scm> 
+	<distributionManagement>
+	  <site>
+		<id>Site</id>
+		<name>VBuildout</name>
+		<url>VBuildout</url>
+	  </site>
+	</distributionManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.9.1</version>
+				<executions>
+					<execution>
+						<id>add-sources</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<!--customized to seam defaults -->
+								<source>../src/model</source>
+							</sources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>add-resources</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>add-resource</goal>
+						</goals>
+						<configuration>
+							<resources>
+								<!--customized -->
+								<resource>
+									<directory>../resources/META-INF</directory>
+									<targetPath>META-INF</targetPath>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<configuration>
+					<enableRulesSummary>false</enableRulesSummary>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+				<configuration>
+					<threshold>Normal</threshold>
+				</configuration>
+			</plugin>
+ 		<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>java</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<mainClass>client.WsClient</mainClass>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		
+		<dependency>
+			<groupId>org.ietf.ldap</groupId>
+			<artifactId>jldap</artifactId>
+			<version>4.3</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-annotations</artifactId>
+		    <version>3.5.6-Final</version>
+			<!-- <scope>provided</scope> -->
+			<exclusions>
+				<!-- <exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion> -->
+				<exclusion>
+					<groupId>org.hibernate</groupId>
+					<artifactId>hibernate-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.hibernate</groupId>
+					<artifactId>commons-annotations</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-entitymanager</artifactId>
+		    <version>5.0.9.Final</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>3.1.0.GA</version>
+		    <!-- <scope>provided</scope> -->
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.hibernate</groupId>
+					<artifactId>hibernate-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.hibernate</groupId>
+					<artifactId>commons-annotations</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<!-- New entery JPA 2 for feature '@ElementCollections' -->
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+		    <artifactId>hibernate-jpa-2.0-api</artifactId>
+		    <version>1.0.0.Final</version>
+			<scope>provided</scope>
+		</dependency>
+				
+		<!-- http://mvnrepository.com/artifact/org.hibernate/hibernate-search -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-search</artifactId>
+		    <version>5.5.2.Final</version>
+		    <scope>provided</scope>
+		</dependency>
+		<!-- http://mvnrepository.com/artifact/org.hibernate/ejb3-persistence -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>ejb3-persistence</artifactId>
+		    <version>1.0.2.GA</version>
+		    <!-- <type>pom</type> -->
+		</dependency>
+		
+		<!-- http://mvnrepository.com/artifact/commons-codec/commons-codec -->
+		<dependency>
+		    <groupId>commons-codec</groupId>
+		    <artifactId>commons-codec</artifactId>
+		    <version>1.10</version>
+		    <scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.A.geocoder</groupId>
+			<artifactId>A-Geocoder</artifactId>
+			<version>${geocoder.version}</version>
+		</dependency>
+
+		<dependency>
+            <!-- <groupId>com.A.V</groupId>
+            <artifactId>V-crypt</artifactId>
+            <version>${V.crypt.version}</version> -->
+            <groupId>com.A.V</groupId>
+			<artifactId>kms-crypt-mgmt</artifactId>
+			<version>02.00.00-002</version>
+        </dependency>
+        <dependency>
+	    	<groupId>javax</groupId>
+	    	<artifactId>javaee-api</artifactId>
+	    	<version>7.0</version>
+	    	<scope>provided</scope>
+		</dependency>
+		
+	
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.mail</groupId>
+					<artifactId>mail</artifactId>
+				</exclusion>
+
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+
+				<exclusion>
+					<groupId>javax.jms</groupId>
+					<artifactId>jms</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+				
+	</dependencies>
+
+	<properties>
+		<jboss-ac-eap.version>5.0.1</jboss-ac-eap.version>
+		<checkstyle.version>5.0-beta01</checkstyle.version>
+		<java.version>1.8</java.version> 
+		<junit.version>4.0</junit.version>
+		<parent.pom.version>1.0.5</parent.pom.version>
+		<project.build.sourceEncoding>
+			UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>
+			UTF-8</project.reporting.outputEncoding>
+		<!-- this specifies the version for all sub-modules -->
+		<version>1.0.8</version>
+		<geocoder.version>01.00.06</geocoder.version>
+		<V.crypt.version>01.00.27</V.crypt.version>
+		<log4j.version>1.2.15</log4j.version>
+	</properties>
+</project>
+

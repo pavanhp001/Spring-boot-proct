@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+	<action-state id="greetingAction">
+		<evaluate expression="callFlowPathController.getWebflow(externalContext.nativeRequest, externalContext.nativeResponse, flowRequestContext)"
+		result="flowScope.flowPath"/>
+		<transition to="goGreeting"/>
+	</action-state>
+
+	<decision-state id="goGreeting">
+		<if test="flowScope.flowPath == 'mvcFlow'" then="greetings" else="goToFlow"/>
+	</decision-state>
+
+	
+    <end-state id="greetings"
+		view="externalRedirect:#{externalContext.sessionMap.urlPath}/salescenter/greeting" /> 
+		
+	<end-state id="goToFlow" view="externalRedirect:#{externalContext.sessionMap.urlPath}/salescenter/#{flowScope.flowPath}" />
+    
+</flow>

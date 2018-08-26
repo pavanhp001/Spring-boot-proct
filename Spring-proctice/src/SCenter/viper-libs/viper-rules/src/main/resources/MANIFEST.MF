@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: ebthomas
+Build-Jdk: 1.6.0_22
+Class-Path: ../lib/V-dao-1.0.8.jar
+

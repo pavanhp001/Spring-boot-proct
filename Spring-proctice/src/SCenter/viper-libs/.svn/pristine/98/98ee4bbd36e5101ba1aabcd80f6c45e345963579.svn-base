@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<parent>
+		<groupId>com.A</groupId>
+		<artifactId>AParent</artifactId>
+		<version>1.2</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<packaging>jar</packaging>
+	<artifactId>V-rules-core</artifactId>
+	<version>01.04.04</version>
+	<name>V Rules Admin Core</name>
+
+	<scm>
+		<connection>scm:svn:http://svn/svn/services/V-libs/trunk/V-rules-core</connection>
+		<developerConnection>scm:svn:http://svn/svn/services/V-libs/trunk/V-rules-core</developerConnection>
+	</scm>
+	
+<properties>
+		<A.cm-core.version>01.04.01</A.cm-core.version>
+		<A.geocoder.version>1.7.1.1</A.geocoder.version>
+		<A.xmlbeans.version>01.00.24-SNAPSHOT</A.xmlbeans.version>
+		<A.logical.version>01.00.08-SNAPSHOT</A.logical.version>
+		<A.reference.version>01.00.08-SNAPSHOT</A.reference.version>
+<hibernate-entitymanager.version>3.5.1-Final
+		</hibernate-entitymanager.version>
+		<antlr.version>2.7.7</antlr.version>
+		<backport.concurrent.version>3.1</backport.concurrent.version>
+		<spring.framework.version>3.0.5.RELEASE</spring.framework.version>
+		<c3p0.version>0.9.1.2</c3p0.version>
+		<checkstyle.version>5.0-beta01</checkstyle.version>
+		<commons.io.version>1.4</commons.io.version>
+		<commons.logging.version>1.1.1</commons.logging.version>
+		<commons.httpclient.version>3.1</commons.httpclient.version>
+		<commons.math.version>1.1</commons.math.version>
+		<commons.lang.version>2.2</commons.lang.version>
+		<commons.fileupload.version>1.2.1</commons.fileupload.version>
+		<commons.codec.version>1.3</commons.codec.version>
+		<ehcache-spring-annotations.version>1.1.2</ehcache-spring-annotations.version>
+		<el.api.version>1.0</el.api.version>
+		<jdom.version>b9</jdom.version>
+		<lucene.core.version>2.4.1</lucene.core.version>
+		<oracle.version>10.2.0.1.0</oracle.version>
+		<java.version>1.5</java.version>
+		<javax.jms.version>1.1</javax.jms.version>
+		<jettyVersion>7.2.0.v20101020</jettyVersion>
+		<jstl.version>1.2</jstl.version>
+		<junit.version>4.8.1</junit.version>
+		<log4j.version>1.2.15</log4j.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<saxon-version>b9.1.0.1</saxon-version>
+		<xml.libraries>01.00.24-SNAPSHOT</xml.libraries>
+		<xmlbean.version>2.4.0</xmlbean.version>
+		<xstream.version>1.2.2</xstream.version>
+		
+	    <jboss-ac-eap.version>5.0.1</jboss-ac-eap.version>
+		<asm>3.2</asm>
+		<antlr.version>2.7.7</antlr.version>
+		<avalon.version>20020627</avalon.version>
+		<backport.concurrent.version>3.1</backport.concurrent.version>
+		<bcprov-jdk16.version>1.46</bcprov-jdk16.version>
+		<bcpg-jdk16.version>1.46</bcpg-jdk16.version>
+		<bouncy.castle.version>1.46</bouncy.castle.version>
+		<c3p0.version>0.9.1.2</c3p0.version>
+		<checkstyle.version>5.0-beta01</checkstyle.version>
+		<commons-digester.version>1.8</commons-digester.version>
+		<commons-cli.version>1.2</commons-cli.version>
+		<commons-collections.version>3.2.1</commons-collections.version>
+		<commons.httpclient.version>3.1</commons.httpclient.version>
+		<commons.lang.version>2.2</commons.lang.version>
+		<commons.math.version>1.1</commons.math.version>
+		<commons.io.version>1.4</commons.io.version>
+		<commons.logging.version>1.1.1</commons.logging.version>
+		<commons-codec.version>1.4</commons-codec.version>
+		<commons-dbcp.version>1.2.1</commons-dbcp.version>
+		<commons-fileupload.version>1.2.1</commons-fileupload.version>
+		<concurrent.version>1.3.4</concurrent.version>
+		<ehcache.version>1.2.4</ehcache.version>
+		<ehcache-spring-annotations.version>1.1.2
+		</ehcache-spring-annotations.version>
+		<el.api.version>2.2</el.api.version>
+		<excalibur.store.version>20020820</excalibur.store.version>
+		<google.json.simple.version>1.1</google.json.simple.version>
+
+		<gson.version>1.6</gson.version>
+		<hibernate-entitymanager.version>3.5.1-Final
+		</hibernate-entitymanager.version>
+		<httpclient.version>4.1.1</httpclient.version>
+		<jackson-mapper-asl.version>1.5.3</jackson-mapper-asl.version>
+		<jaxb.version>2.1</jaxb.version>
+		<jaxb-impl.version>2.0.3</jaxb-impl.version>
+		<jaxb.xml.bind.api.version>2.0</jaxb.xml.bind.api.version>
+		<jdom.version>b9</jdom.version>
+		<jettyVersion>7.2.0.v20101020</jettyVersion>
+		<jetty.scan.interval>10</jetty.scan.interval>
+		<jettison.version>1.0</jettison.version>
+		<json.version>20080701</json.version>
+		<jsr.api.version>1.1</jsr.api.version>
+		<jsp-api.version>2.1</jsp-api.version>
+		<jstl.version>1.2</jstl.version>
+		<jstl.version>1.2</jstl.version>
+		<jta.version>1.1</jta.version>
+		<junit.version>4.8.1</junit.version>
+		<log4j.version>1.2.15</log4j.version>
+		<maven.war.plugin>2.1-alpha-1</maven.war.plugin>
+		<mockito.version>1.7</mockito.version>
+		<openhouse-web.version>1.0.0</openhouse-web.version>
+		<org.springframework.version>3.1.1.RELEASE
+		</org.springframework.version>
+		<port.number>8097</port.number>
+		<postgresql.version>8.4-702.jdbc4</postgresql.version>
+		<project.build.sourceEncoding>
+			UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>
+			UTF-8
+		</project.reporting.outputEncoding>
+		<quartz.version>1.5.2</quartz.version>
+		<recaptcha4j.version>0.0.7</recaptcha4j.version>
+		<saaj-api.version>1.3</saaj-api.version>
+		<shiro-core.version>1.2.0</shiro-core.version>
+		<shiro-ehcache.version>1.2.0</shiro-ehcache.version>
+		<servlet.version>2.5</servlet.version>
+		<servlet-api.version>2.5</servlet-api.version>
+		<slf4j-api.version>1.5.8</slf4j-api.version>
+		<slf4j-log4j12.version>1.5.8</slf4j-log4j12.version>
+		<struts.version>1.2.9</struts.version>
+		<standard.version>1.1.2</standard.version>
+		<saaj-impl.version>1.3</saaj-impl.version>
+		<svn.location>http://svn/svn/</svn.location>
+		<svn.module>services</svn.module>
+		<svn.project>admin</svn.project>
+		<svn.release>trunk</svn.release>
+		<taglib.standard.version>1.1.2</taglib.standard.version>
+		<tiles.version>2.2.2</tiles.version>
+		<tuckey.version>4.0.3</tuckey.version>
+		<velocity.version>1.7</velocity.version>
+		<velocity-tools.version>2.0</velocity-tools.version>
+		<xalan.version>2.7.1</xalan.version>
+		<xpp.version>1.1.4c</xpp.version>
+		<xstream.version>1.4.2</xstream.version>
+		<urlrewritefilter.version>3.1.0</urlrewritefilter.version>
+		<V-client-api.version>01.10.00-SNAPSHOT</V-client-api.version>
+	</properties>
+
+	<build>
+	    
+		<plugins>
+			<!-- This clean plugin will help resolve the issue where it was filing 
+				when not able to delete team1.xls file -->
+			<!-- <plugin> <artifactId>maven-clean-plugin</artifactId> <version>2.4.1</version> 
+				<configuration> <failOnError>false</failOnError> </configuration> </plugin> -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+		</plugins>
+		<resources>
+
+
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/spring/applicationContext-logical.xml</include>
+					<include>**/spring/applicationContext-transactional.xml</include>
+					<include>**/spring/arbiterContext.xml</include>
+					<include>**/spring/omeBeans.xml</include>
+					<include>**/spring/omeContext.xml</include>
+					<include>**/ehcache.xml</include>
+					<include>**/*.drl</include>
+					<include>**/*.xls</include>
+				</includes>
+			</resource>
+
+		</resources>
+	</build>
+	
+	<dependencies>
+		<!-- log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.mail</groupId>
+					<artifactId>mail</artifactId>
+				</exclusion>
+
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+
+				<exclusion>
+					<groupId>javax.jms</groupId>
+					<artifactId>jms</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<!-- Drools -->
+		<dependency>
+			<groupId>ac-eap</groupId>
+			<artifactId>drools-core</artifactId>
+			<version>${jboss-ac-eap.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ac-eap</groupId>
+			<artifactId>drools-api</artifactId>
+			<version>${jboss-ac-eap.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ac-eap</groupId>
+			<artifactId>drools-compiler</artifactId>
+			<version>${jboss-ac-eap.version}</version>
+		</dependency>
+		
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+		
+		<!-- commons -->
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.2</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>${commons.lang.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-digester</groupId>
+			<artifactId>commons-digester</artifactId>
+			<version>1.8.1</version>
+		</dependency>
+		
+		<!-- Hibernate annotations -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-annotations</artifactId>
+		    <version>3.5.6-Final</version>
+			<!-- <scope>provided</scope> -->
+		</dependency>
+		
+		<!-- Java EE 7 (Upgraded for EAP 7) -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>7.0</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>

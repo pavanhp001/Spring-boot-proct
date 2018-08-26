@@ -1,0 +1,1 @@
+ALTER TABLE cm_consumer ALTER COLUMN dt_created TYPE timestamp without time zone;

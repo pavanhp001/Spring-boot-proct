@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<parent>
+        <groupId>com.AL.V</groupId>
+        <artifactId>ome-app-parent</artifactId>
+        <version>01.04.27</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<packaging>jar</packaging>
+	<artifactId>ome-ie</artifactId>
+	<name>Order Management IE Library</name>
+	<url>http://maven.apache.org</url>
+	
+	<scm>
+		<connection>scm:svn:http://svn/svn/services/OrderManagement/trunk/ome-ie</connection>
+		<developerConnection>scm:svn:http://svn/svn/services/OrderManagement/trunk/ome-ie</developerConnection>
+	</scm>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/META-INF/MANIFEST.MF</include>
+					<include>**/arbiterContext.xml</include>
+					<include>**/applicationContextTest.xml</include>
+					<include>**/spring/omeContext.xml</include>
+					<include>**/spring/applicationContext-logical.xml</include>
+					<include>**/spring/applicationContext-transactional.xml</include>
+					<include>**/spring/omeBeans.xml</include>
+					<include>**/META-INF/ejb-jar.xml</include>
+					<include>**/integration.properties</include>
+					<include>**/proxy.properties</include>
+					<!-- <include>**/log4j.xml</include> -->
+				</includes>
+				<excludes>
+					<exclude>**/log4j.properties</exclude>
+				</excludes>
+
+
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src/main/java</source>
+								<source>src/test/java</source>
+								<source>src/main/resources</source>
+								<source>src/test/resources</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<inherited>true</inherited>
+
+				<configuration>
+					<archive>
+						<addMavenDescriptor>false</addMavenDescriptor>
+						<manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+					</archive>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>V-rules</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>V-dao</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>V-marshaller</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>V-common</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>cm-core</artifactId>
+			<version>${AL.cm-core.version}</version>
+		</dependency>
+
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework.integration</groupId>
+			<artifactId>spring-integration-core</artifactId>
+		</dependency>
+		
+		<!-- log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<exclusions>
+				<exclusion>
+					<artifactId>jms</artifactId>
+					<groupId>javax.jms</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jmxtools</artifactId>
+					<groupId>com.sun.jdmk</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jmxri</artifactId>
+					<groupId>com.sun.jmx</groupId>
+				</exclusion>
+			</exclusions>	
+		</dependency>
+		
+		<!-- mockito used to send the message to Queue -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+		</dependency>
+		
+		<!-- ejb3 JEE -->
+		<dependency>
+			<groupId>org.jboss.ejb3</groupId>
+			<artifactId>jboss-ejb3-ext-api</artifactId>
+			<version>2.2.0.Final</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>7.0</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- Web service -->
+		<dependency>
+			<groupId>org.jboss.ws</groupId>
+			<artifactId>jbossws-api</artifactId>
+			<version>1.0.3.Final</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+</project>
+

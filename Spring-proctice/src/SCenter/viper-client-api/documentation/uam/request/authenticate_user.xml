@@ -1,0 +1,23 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <v4:uamEnterpriseRequest debug="false" xsi:schemaLocation="http://xml.A.com/v4 userAccessManagement.xsd " xmlns:v4="http://xml.A.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         <v4:GUID>smrOrder564</v4:GUID>
+         <v4:transactionType xsi:type="v4:uamTransactionTypeType">
+            <v4:uamTransactionType>authenticateUser</v4:uamTransactionType>
+         </v4:transactionType>
+         <v4:request xsi:type="v4:AuthenticateUserRequestType">
+    		<v4:authenticateUserRequest>
+    			<v4:userName>AmetUser</v4:userName>
+    			<v4:credentials>
+      				<v4:credentialName>SAleban74</v4:credentialName>
+    			</v4:credentials>
+    			<v4:superVisorUserName></v4:superVisorUserName>
+    			<v4:superVisorCredentials>
+      				<v4:credentialName></v4:credentialName>
+    			</v4:superVisorCredentials>
+  		</v4:authenticateUserRequest>
+         </v4:request>
+      </v4:uamEnterpriseRequest>
+   </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://xml.A.com/v4/getTermsAndConditions"
+	targetNamespace="http://xml.A.com/v4/getTermsAndConditions"
+	xmlns:vndr="http://xml.A.com/v4/VendorRequestResponse/">
+	<xs:import schemaLocation="vendorRequestResponse.xsd"
+		namespace="http://xml.A.com/v4/VendorRequestResponse/" />
+	<xs:import schemaLocation="address.xsd" namespace="http://xml.A.com/v4" />
+	<xs:import schemaLocation="serviceability.xsd" namespace="http://xml.A.com/v4" />
+
+	<xs:complexType name="GetTermsAndConditionsRequest">
+		<xs:complexContent>
+			<xs:extension base="vndr:RtimRequest">
+				<xs:sequence>
+					<xs:element name="termsAndConditions" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				</xs:sequence>	
+			</xs:extension>	
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="GetTermsAndConditionsResponse">
+		<xs:complexContent>
+			<xs:extension base="vndr:RtimResponse">
+				<xs:sequence>
+					<xs:element name="termsAndConditions" type="xs:string"
+						minOccurs="1" maxOccurs="unbounded"/>					
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>		
+
+	<xs:element name="getTermsAndConditionsRequest" type="tns:GetTermsAndConditionsRequest"/>
+	<xs:element name="getTermsAndConditionsResponse" type="tns:GetTermsAndConditionsResponse"/>
+</xs:schema>

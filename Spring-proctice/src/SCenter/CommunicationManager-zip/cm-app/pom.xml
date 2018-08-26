@@ -1,0 +1,130 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<parent>
+		<groupId>com.AL.V</groupId> 
+		<artifactId>parent-cm-core</artifactId> 
+		<version>02.00.01-002</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.AL.V</groupId>
+	<artifactId>cm-core-mdb</artifactId>
+	<version>02.00.01-002</version>
+	<packaging>ear</packaging>
+	<name>Communication Manager Reference Application</name>
+	<scm>
+		<connection>scm:svn:http://svn/svn/tools/CommunicationManager/trunk/cm-app</connection>
+		<developerConnection>scm:svn:http://svn/svn/tools/CommunicationManager/trunk/cm-app</developerConnection> 
+	</scm>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<deployment.directory>C:\dev\jboss-as\server\default\deploy</deployment.directory>
+	</properties>
+
+	<build>
+		<plugins> 
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.4.2</version> 
+				<configuration>
+					<jboss>
+						<version>5</version>
+						<library>lib</library> 
+					</jboss>
+					<modules> 
+						<jarModule>
+							<groupId>com.AL.V</groupId>
+							<artifactId>cm-core</artifactId>
+							<includeInApplicationXml>false</includeInApplicationXml>
+						</jarModule>
+						<jarModule>
+							<groupId>com.AL.V</groupId>
+							<artifactId>cm-ejb</artifactId>
+							<includeInApplicationXml>false</includeInApplicationXml>
+						</jarModule>
+
+						<webModule>
+							<groupId>com.AL.V</groupId>
+							<artifactId>cm-web</artifactId>
+						</webModule>
+					</modules>
+					<filtering>true</filtering>
+					<filters>
+<!-- Placeholder for later additions
+						<filter>${basedir}/src/main/application/META-INF/rts-att.properties</filter>
+						<filter>${basedir}/src/main/application/META-INF/application.xml</filter>
+-->
+					</filters>
+
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+
+
+				</configuration>
+
+			</plugin>
+
+
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<phase>install</phase>
+						<configuration>
+							<target>
+								<copy todir="${deployment.directory}">
+									<fileset dir="src/main/resources/config">
+										<include name="**/activemq-rar-5.4.2.rar/**/*" />
+										<include name="**/active-jms-ds.xml" />
+									</fileset>
+								</copy>
+								<copy todir="${deployment.directory}">
+									<fileset dir="target">
+										<include name="**/*.ear" />
+									</fileset>
+								</copy>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+
+	</build>
+
+	<dependencies>
+
+
+
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>cm-core</artifactId>
+			<version>01.04.12</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>cm-ejb</artifactId>
+			<version>01.04.12</version>
+
+		</dependency>
+
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>cm-web</artifactId>
+			<version>01.04.12</version>
+			<type>war</type>
+
+		</dependency>
+
+	</dependencies>
+
+
+</project>

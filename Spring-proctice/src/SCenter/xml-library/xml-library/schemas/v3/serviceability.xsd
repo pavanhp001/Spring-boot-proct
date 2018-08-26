@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 		
+	attributeFormDefault="unqualified" 
+	elementFormDefault="qualified"
+	targetNamespace="http://xml.A.com/v3"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:ac="http://xml.A.com/v3" >
+
+	<xs:include schemaLocation="types.xsd" />
+
+	<xs:element name="serviceabilityRequestResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="transactionId" type="xs:int" minOccurs="0"
+					maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							A system-generated unique identifier. Since
+							the	service is stateless, the TransactionId is not used to
+							reload any previous state, just to identify a particular
+							invocation of the service
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="transactionType" minOccurs="1"
+					maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							The transaction type value will determine how
+							to handle the request. Currently, there are only
+							two types that are handled, normal and zipfallback.  
+						</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:token">
+							<xs:enumeration value="normal">
+								<xs:annotation>
+									<xs:documentation>
+										A standard request, where if there is no
+										exact match, then address candidates 
+										are returned. If there are
+										no address candidates, then a "no match found" message
+										is returned.
+									</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="zipfallback">
+								<xs:annotation>
+									<xs:documentation>
+										Similar to the normal type, except that if
+										there is no match and
+										no candidates returned then it will
+										attempt to use the zip
+										code only to perform serviceability.
+									</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="messageOrigin" type="xs:string"
+					minOccurs="1" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							The service which originally generated the
+							request.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="status" type="ac:statusType" minOccurs="0"
+					maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							A container element for the status code and
+							processing messages.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="inputAddressString" type="xs:string"
+					minOccurs="1" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							The address for which the partner wishes to
+							obtain serviceability information. The address should be as
+							well-formed as possible: no extraneous whitespace at the ends
+							or between the components of it, a comma between the end of the
+							street address (including any apartment numbering) and the
+							city/state/zip portion, and no special characters.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="filterCriteria" type="ac:filterCriteriaType"
+					minOccurs="0" maxOccurs="1" />
+				<xs:element name="correctedAddress" type="ac:addressType"
+					minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							When the service is able to find a single address match for 
+							the given address information, then this element is populated 
+							with the address data from the database. In the case where the
+							address passed is exactly the same as the address that it was
+							matched against, the data is the same.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="candidateAddressList" minOccurs="0"
+					maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							When the service is unable to find a single
+							address match for the
+							given address information, then this element
+							is populated with
+							the suggested address data from the database.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="candidateAddress" minOccurs="0"
+								maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation>
+										Candidate addresses contain all of the
+										information in the
+										addressType and adds a matching score
+										which indicates how	well
+										we consider this candidate to
+										match the input address.
+										<B>Note: You should not base any solutions on any
+											particular values, as the algorithm is constantly reviewed
+											and adjusted. You should base all logic only on the order
+											implied in the list by these values.</B>
+									</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="ac:addressType">
+											<xs:attribute name="matchScore" type="xs:int"
+												use="optional" />
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+				<xs:element name="serviceableMarketItems" minOccurs="0"
+					maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							A list of market items, which represent the set of serviceable
+							items at the matched address.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:annotation>
+							<xs:documentation>
+								A market item is an item that is serviceable within a given
+								market.
+							</xs:documentation>
+						</xs:annotation>
+						<xs:sequence>
+							<xs:element name="marketItemInfo" type="ac:marketItemInfoType"
+								minOccurs="0" maxOccurs="unbounded" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="filterCriteriaType">
+		<xs:sequence>
+			<xs:element name="address" type="ac:addressType"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="filteringType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A token to indicate what service performed the filtering.
+						<I>As of mid 2009, you should only see the SIFT value.  
+						This element may be removed / retired in future versions of the schema.</I>
+					</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:enumeration value="accord" >
+							<xs:annotation>
+								<xs:documentation>
+								Value that indicates that Accord V6 performed the filtering on this request.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="sift" >
+							<xs:annotation>
+								<xs:documentation>
+								Value that indicates that SIFT performed the filtering on this request.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="dwellingType" type="ac:dwellingType" minOccurs="1" maxOccurs="1">
+			</xs:element>
+			<xs:element name="referrerId" type="xs:int" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="agentId" type="xs:int" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="groups" type="ac:idListType" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="serviceTypeId" type="xs:int" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="addressChanged" type="xs:boolean"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="channelServiceability" type="xs:int"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="forceNonConfirm" type="xs:boolean"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="storeAvailableProviders" type="xs:boolean"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="temporalEventTypeId" type="xs:int"
+				minOccurs="0" maxOccurs="1" />
+			<!-- xs:element name="satelliteNotEligible" type="xs:boolean"
+				minOccurs="0" maxOccurs="1" -->
+			<xs:element name="derivedDwellingType" type="ac:dwellingType" minOccurs="0" maxOccurs="1" />
+			<xs:element name="addressEngine" type="xs:string" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="marketItemInfoType">
+		<xs:sequence>
+			<xs:element name="marketItem" type="ac:marketItemWithCapabilitiesType"
+				minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A market item is an item that is serviceable
+						within a given market.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="serviceAddress" type="ac:addressType"
+				minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="serviceabilityRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="serviceAddress" type="ac:addressType"
+					maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="serviceabilityResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="marketItem" type="ac:marketItemWithCapabilitiesType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

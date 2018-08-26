@@ -1,0 +1,1 @@
+ALTER TABLE V_TX.OM_LINE_ITEM DROP COLUMN on_delivery_price;

@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <orderManagementRequestResponse xmlns="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <correlationId>ABCDEF</correlationId>
+  <transactionTimeStamp>2011-10-09-04:00</transactionTimeStamp>
+  <transactionId>1</transactionId>
+  <status>
+    <statusCode>0</statusCode>
+    <processingMessages>
+      <message>
+        <code>0.1</code>
+        <text>order successfully submitted to provider:1216</text>
+      </message>
+      <message>
+        <code>0.101</code>
+        <text>update order:1216 status:processing</text>
+      </message>
+    </processingMessages>
+    <statusMsg>INFO</statusMsg>
+  </status>
+  <request xmlns:ac="http://xml.AL.com/v4">
+    <ac:orderId>1216</ac:orderId>
+    <ac:lineitemId>0</ac:lineitemId>
+    <orderInfo>
+      <agentId>1</agentId>
+      <ALConfirmationNumber>CNF-13181902671741217</ALConfirmationNumber>
+      <ALCustomerAccountNumber xsi:nil="true"/>
+      <source>Web</source>
+      <referrerId>108</referrerId>
+      <externalId>1216</externalId>
+      <associatedWithMove>true</associatedWithMove>
+      <orderDate>2011-10-09-04:00</orderDate>
+      <lineItems>
+        <lineItem>
+          <externalId>1081</externalId>
+          <lineItemNumber>0</lineItemNumber>
+          <providerConfirmationNumber xsi:nil="true"/>
+          <providerCustomerAccountNumber xsi:nil="true"/>
+          <svcAddressExtId>3921</svcAddressExtId>
+          <billingInfoExtId>1989</billingInfoExtId>
+          <productDatasource>internal</productDatasource>
+          <leadId>0</leadId>
+          <lineItemDetail>
+            <detailType>product</detailType>
+            <detail>
+              <productLineItem>
+                <externalId>DIRECTSTAR-DTV-1-WEB</externalId>
+                <productCategoryList>
+                  <productCategory displayName="satelliteTV"/>
+                </productCategoryList>
+                <channels>
+                  <channel>2</channel>
+                </channels>
+                <provider externalId="2314635"/>
+              </productLineItem>
+            </detail>
+            <productUniqueId>1005</productUniqueId>
+          </lineItemDetail>
+          <partnerExternalId>2314635</partnerExternalId>
+          <selectedFeatures/>
+          <lineItemStatus dateTimeStamp="2001-12-31T12:00:00.000-05:00" agentId="1" statusCode="sales_new_order">
+            <reason>0</reason>
+          </lineItemStatus>
+          <lineItemStatusHistory/>
+          <SchedulingInfo appointmentComment="Test Comment" installationFee="29.99" billingInstallments="true" residenceType="HOUSE" earlierAppointmentDate="true">
+            <desiredStartDate>
+              <date>2012-01-01-05:00</date>
+              <time>00:00:00.000-05:00</time>
+              <startTime>00:00:00.000-05:00</startTime>
+              <endTime>00:00:00.000-05:00</endTime>
+            </desiredStartDate>
+            <scheduledStartDate>
+              <date>2012-10-06-04:00</date>
+              <time>00:00:00.000-04:00</time>
+              <startTime>00:00:00.000-04:00</startTime>
+              <endTime>00:00:00.000-04:00</endTime>
+            </scheduledStartDate>
+            <actualStartDate>
+              <date>2012-03-03-05:00</date>
+              <time>00:00:00.000-05:00</time>
+              <startTime>00:00:00.000-05:00</startTime>
+              <endTime>00:00:00.000-05:00</endTime>
+            </actualStartDate>
+            <ScheduleAsSoonAsPossible>true</ScheduleAsSoonAsPossible>
+          </SchedulingInfo>
+          <lineItemPriceInfo>
+            <baseNonRecurringPrice>19.95</baseNonRecurringPrice>
+            <baseRecurringPrice>39.99</baseRecurringPrice>
+          </lineItemPriceInfo>
+          <activeDialogs>
+            <dialogs>
+              <dialog>
+                <externalId>DLG101</externalId>
+                <dialogueDate>2011-09-30T09:00:00.000-04:00</dialogueDate>
+                <value selected="true" type="string">Option1</value>
+              </dialog>
+            </dialogs>
+          </activeDialogs>
+          <customSelections>
+            <selections>
+              <selection externalId="OptionalCablePackages" parentChoiceExternalId="">
+                <selectionChoice externalId="HBO">
+                  <detail xsi:nil="true"/>
+                </selectionChoice>
+                <selectionChoice externalId="Cinemax">
+                  <detail xsi:nil="true"/>
+                </selectionChoice>
+                <selectionChoice externalId="Starz">
+                  <detail xsi:nil="true"/>
+                </selectionChoice>
+              </selection>
+            </selections>
+          </customSelections>
+        </lineItem>
+        <lineItem>
+          <externalId>1083</externalId>
+          <lineItemNumber>1</lineItemNumber>
+          <providerConfirmationNumber xsi:nil="true"/>
+          <providerCustomerAccountNumber xsi:nil="true"/>
+          <svcAddressExtId xsi:nil="true"/>
+          <billingInfoExtId xsi:nil="true"/>
+          <productDatasource>internal</productDatasource>
+          <leadId>0</leadId>
+          <lineItemDetail>
+            <detailType>productPromotion</detailType>
+            <detail>
+              <promotionLineItem>
+                <promotion>
+                  <externalId>4421</externalId>
+                  <promoCode>$34.99/mo for 1 yr</promoCode>
+                  <description>$34.99 per month for 12 months on your &lt;b>DIRECTV CHOICE Package&lt;/b> with a 24 month commitment</description>
+                  <conditions>Additional rooms and receivers are $5.00/mo each.  DTV is giving a $5 monthly discount for 12 months if a customer signs up
+ONLINE for DTV email alerts.  The pricing shown includes this discount. Valid email address required.</conditions>
+                  <priceValue>34.99</priceValue>
+                </promotion>
+              </promotionLineItem>
+            </detail>
+            <productUniqueId>1005</productUniqueId>
+          </lineItemDetail>
+          <selectedFeatures/>
+          <lineItemStatus dateTimeStamp="" agentId="1" statusCode="sales_new_order"/>
+          <lineItemStatusHistory/>
+          <lineItemPriceInfo>
+            <baseNonRecurringPrice>0.0</baseNonRecurringPrice>
+            <baseRecurringPrice>0.0</baseRecurringPrice>
+          </lineItemPriceInfo>
+          <activeDialogs>
+            <dialogs/>
+          </activeDialogs>
+          <customSelections>
+            <selections/>
+          </customSelections>
+        </lineItem>
+      </lineItems>
+      <orderStatus>
+        <status>submitted</status>
+        <dateTimeStamp>2011-10-09T15:58:25.536-04:00</dateTimeStamp>
+        <agentId>1</agentId>
+      </orderStatus>
+      <orderStatusHistory>
+        <previousStatus>
+          <status>0</status>
+          <reason>0</reason>
+          <dateTimeStamp>2001-12-31T12:00:00.000-05:00</dateTimeStamp>
+          <agentId>1</agentId>
+        </previousStatus>
+        <previousStatus>
+          <status>0</status>
+          <reason>0</reason>
+          <dateTimeStamp>2011-10-09T15:58:32.230-04:00</dateTimeStamp>
+          <agentId>1</agentId>
+        </previousStatus>
+      </orderStatusHistory>
+      <moveDate>2011-12-12-05:00</moveDate>
+      <campaignId>ATT</campaignId>
+      <totalPriceInfo>
+        <baseNonRecurringPrice>19.95</baseNonRecurringPrice>
+        <baseRecurringPrice>39.99</baseRecurringPrice>
+      </totalPriceInfo>
+    </orderInfo>
+  </request>
+  <response>
+    <orderId>1216</orderId>
+    <orderInfo>
+      <customerInformation>
+        <customer>
+          <externalId>3622</externalId>
+          <agentId>1</agentId>
+          <title>Mr.</title>
+          <firstName>test</firstName>
+          <lastName>test</lastName>
+          <middleName>P</middleName>
+          <nameSuffix>N/A</nameSuffix>
+          <gender>M</gender>
+          <dob>1975-01-01-05:00</dob>
+          <ssn>000-00-0000</ssn>
+          <nonBuyerWebOptIn>false</nonBuyerWebOptIn>
+          <eMailOptIn>true</eMailOptIn>
+          <phoneContactOptIn>false</phoneContactOptIn>
+          <eMailProductUpdatesOptIn>false</eMailProductUpdatesOptIn>
+          <marketingOptIn>false</marketingOptIn>
+          <ALCustomerNumber>AC-13181897784383621</ALCustomerNumber>
+          <homePhoneNumber>
+            <value>800-555-5555</value>
+            <order>1</order>
+            <desc>Home Phone</desc>
+          </homePhoneNumber>
+          <cellPhoneNumber>
+            <value>800-555-5555</value>
+            <order>2</order>
+            <desc>Cell Phone</desc>
+          </cellPhoneNumber>
+          <workPhoneNumber>
+            <value>800-555-5555</value>
+            <order>3</order>
+            <desc>Work Phone</desc>
+          </workPhoneNumber>
+          <homeEMail>
+            <value>test@home.com</value>
+            <order>1</order>
+            <desc>Home Email</desc>
+          </homeEMail>
+          <workEMail>
+            <value>work@work.com</value>
+            <order>2</order>
+            <desc>Work Email</desc>
+          </workEMail>
+          <landlordInfo>
+            <landlordName>Orion Aparment</landlordName>
+            <landlordPhoneNumber>444-444-4444</landlordPhoneNumber>
+          </landlordInfo>
+          <driverLicense>
+            <LicenseNumber>123456789</LicenseNumber>
+            <State>Georgia</State>
+            <LicenseExpirationDate>2012-01-01-05:00</LicenseExpirationDate>
+          </driverLicense>
+          <stateId>
+            <IdNumber>123456789</IdNumber>
+            <State>Georgia</State>
+          </stateId>
+          <primaryLanguage>1</primaryLanguage>
+          <financialInfo>
+            <employed>
+              <businessName>AL</businessName>
+              <businessPhoneNum>555-555-5555</businessPhoneNum>
+              <occupation>Software Developer</occupation>
+            </employed>
+            <bankOrMortgageInstitution>Lending Tree</bankOrMortgageInstitution>
+            <otherIncomeSource>rental</otherIncomeSource>
+          </financialInfo>
+          <billingInfoList>
+            <billingInfo>
+              <billingMethod>Credit Card</billingMethod>
+              <creditCardNumber>1111-1111-1111-1111</creditCardNumber>
+              <verificationCode>123</verificationCode>
+              <checkingAccountNumber>1234-4567-7894</checkingAccountNumber>
+              <routingNumber>123456</routingNumber>
+              <externalId>1989</externalId>
+              <billingUniqueId>B1005309</billingUniqueId>
+            </billingInfo>
+          </billingInfoList>
+          <addressList>
+            <customerAddress>
+              <addressRoles>
+                <role>BillingAddress</role>
+                <role>CurrentAddress</role>
+                <role>PreviousAddress</role>
+                <role>ServiceAddress</role>
+              </addressRoles>
+              <addressUniqueId>A1005309</addressUniqueId>
+              <status>active</status>
+              <address>
+                <externalId>3921</externalId>
+                <prefixDirectional>testPrefix</prefixDirectional>
+                <streetNumber>101</streetNumber>
+                <streetName>Lawrenceville Hwy</streetName>
+                <streetType>hwy</streetType>
+                <line2>n/a</line2>
+                <postfixDirectional>testPostfix</postfixDirectional>
+                <city>Norcross</city>
+                <stateOrProvince>Georgia</stateOrProvince>
+                <postalCode>30093</postalCode>
+                <country>USA</country>
+                <countyParishBorough>Gwinnet</countyParishBorough>
+                <addressBlock>test block</addressBlock>
+                <dwellingType>apartment</dwellingType>
+                <inEffect>2011-10-09-04:00</inEffect>
+                <gasStartAt>2021-01-01-05:00</gasStartAt>
+                <electricityStartAt>2021-02-02-05:00</electricityStartAt>
+                <expiration xsi:nil="true"/>
+                <addressOwnership>own</addressOwnership>
+              </address>
+            </customerAddress>
+          </addressList>
+          <securityVerificationInfo>
+            <pin>1234</pin>
+            <securityQuestion>What is my password?</securityQuestion>
+            <securityAnswer>as usual</securityAnswer>
+          </securityVerificationInfo>
+          <billingDeliveryPreference>paper</billingDeliveryPreference>
+        </customer>
+      </customerInformation>
+      <agentId>1</agentId>
+      <ALConfirmationNumber>CNF-13181902671741217</ALConfirmationNumber>
+      <ALCustomerAccountNumber xsi:nil="true"/>
+      <source>Web</source>
+      <referrerId>108</referrerId>
+      <externalId>1216</externalId>
+      <associatedWithMove>true</associatedWithMove>
+      <orderDate>2011-10-09-04:00</orderDate>
+      <lineItems>
+        <lineItem>
+          <externalId>1081</externalId>
+          <lineItemNumber>0</lineItemNumber>
+          <providerConfirmationNumber xsi:nil="true"/>
+          <providerCustomerAccountNumber xsi:nil="true"/>
+          <svcAddressExtId>3921</svcAddressExtId>
+          <billingInfoExtId>1989</billingInfoExtId>
+          <productDatasource>internal</productDatasource>
+          <leadId>0</leadId>
+          <lineItemDetail>
+            <detailType>product</detailType>
+            <detail>
+              <productLineItem>
+                <externalId>DIRECTSTAR-DTV-1-WEB</externalId>
+                <productCategoryList>
+                  <productCategory displayName="satelliteTV"/>
+                </productCategoryList>
+                <channels>
+                  <channel>2</channel>
+                </channels>
+                <provider externalId="2314635"/>
+              </productLineItem>
+            </detail>
+            <productUniqueId>1005</productUniqueId>
+          </lineItemDetail>
+          <partnerExternalId>2314635</partnerExternalId>
+          <selectedFeatures/>
+          <lineItemStatus dateTimeStamp="2001-12-31T12:00:00.000-05:00" agentId="1" statusCode="sales_new_order">
+            <reason>0</reason>
+          </lineItemStatus>
+          <lineItemStatusHistory/>
+          <SchedulingInfo appointmentComment="Test Comment" installationFee="29.99" billingInstallments="true" residenceType="HOUSE" earlierAppointmentDate="true">
+            <desiredStartDate>
+              <date>2012-01-01-05:00</date>
+              <time>00:00:00.000-05:00</time>
+              <startTime>00:00:00.000-05:00</startTime>
+              <endTime>00:00:00.000-05:00</endTime>
+            </desiredStartDate>
+            <scheduledStartDate>
+              <date>2012-10-06-04:00</date>
+              <time>00:00:00.000-04:00</time>
+              <startTime>00:00:00.000-04:00</startTime>
+              <endTime>00:00:00.000-04:00</endTime>
+            </scheduledStartDate>
+            <actualStartDate>
+              <date>2012-03-03-05:00</date>
+              <time>00:00:00.000-05:00</time>
+              <startTime>00:00:00.000-05:00</startTime>
+              <endTime>00:00:00.000-05:00</endTime>
+            </actualStartDate>
+            <ScheduleAsSoonAsPossible>true</ScheduleAsSoonAsPossible>
+          </SchedulingInfo>
+          <lineItemPriceInfo>
+            <baseNonRecurringPrice>0.0</baseNonRecurringPrice>
+            <baseRecurringPrice>0.0</baseRecurringPrice>
+          </lineItemPriceInfo>
+          <activeDialogs>
+            <dialogs>
+              <dialog>
+                <externalId>DLG101</externalId>
+                <dialogueDate>2011-09-30T09:00:00.000-04:00</dialogueDate>
+                <value selected="true" type="string">Option1</value>
+              </dialog>
+            </dialogs>
+          </activeDialogs>
+          <customSelections>
+            <selections>
+              <selection externalId="OptionalCablePackages" parentChoiceExternalId="">
+                <selectionChoice externalId="HBO">
+                  <detail xsi:nil="true"/>
+                </selectionChoice>
+                <selectionChoice externalId="Cinemax">
+                  <detail xsi:nil="true"/>
+                </selectionChoice>
+                <selectionChoice externalId="Starz">
+                  <detail xsi:nil="true"/>
+                </selectionChoice>
+              </selection>
+            </selections>
+          </customSelections>
+        </lineItem>
+        <lineItem>
+          <externalId>1083</externalId>
+          <lineItemNumber>1</lineItemNumber>
+          <providerConfirmationNumber xsi:nil="true"/>
+          <providerCustomerAccountNumber xsi:nil="true"/>
+          <svcAddressExtId xsi:nil="true"/>
+          <billingInfoExtId xsi:nil="true"/>
+          <productDatasource>internal</productDatasource>
+          <leadId>0</leadId>
+          <lineItemDetail>
+            <detailType>productPromotion</detailType>
+            <detail>
+              <promotionLineItem>
+                <promotion>
+                  <externalId>4421</externalId>
+                  <promoCode>$34.99/mo for 1 yr</promoCode>
+                  <description>$34.99 per month for 12 months on your &lt;b>DIRECTV CHOICE Package&lt;/b> with a 24 month commitment</description>
+                  <conditions>Additional rooms and receivers are $5.00/mo each.  DTV is giving a $5 monthly discount for 12 months if a customer signs up
+ONLINE for DTV email alerts.  The pricing shown includes this discount. Valid email address required.</conditions>
+                  <priceValue>34.99</priceValue>
+                </promotion>
+              </promotionLineItem>
+            </detail>
+            <productUniqueId>1005</productUniqueId>
+          </lineItemDetail>
+          <selectedFeatures/>
+          <lineItemStatus dateTimeStamp="" agentId="1" statusCode="sales_new_order"/>
+          <lineItemStatusHistory/>
+          <lineItemPriceInfo>
+            <baseNonRecurringPrice>0.0</baseNonRecurringPrice>
+            <baseRecurringPrice>0.0</baseRecurringPrice>
+          </lineItemPriceInfo>
+          <activeDialogs>
+            <dialogs/>
+          </activeDialogs>
+          <customSelections>
+            <selections/>
+          </customSelections>
+        </lineItem>
+      </lineItems>
+      <orderStatus>
+        <status>processing</status>
+        <dateTimeStamp>2011-10-09T15:58:39.764-04:00</dateTimeStamp>
+        <agentId>1</agentId>
+      </orderStatus>
+      <orderStatusHistory>
+        <previousStatus>
+          <status>0</status>
+          <reason>0</reason>
+          <dateTimeStamp>2001-12-31T12:00:00.000-05:00</dateTimeStamp>
+          <agentId>1</agentId>
+        </previousStatus>
+        <previousStatus>
+          <status>0</status>
+          <reason>0</reason>
+          <dateTimeStamp>2011-10-09T15:58:32.230-04:00</dateTimeStamp>
+          <agentId>1</agentId>
+        </previousStatus>
+        <previousStatus>
+          <status>undefined</status>
+          <dateTimeStamp>2011-10-09T15:58:39.764-04:00</dateTimeStamp>
+          <agentId>1</agentId>
+        </previousStatus>
+      </orderStatusHistory>
+      <moveDate>2011-12-12-05:00</moveDate>
+      <campaignId>ATT</campaignId>
+      <totalPriceInfo>
+        <baseNonRecurringPrice>0.0</baseNonRecurringPrice>
+        <baseRecurringPrice>0.0</baseRecurringPrice>
+      </totalPriceInfo>
+    </orderInfo>
+  </response>
+</orderManagementRequestResponse>

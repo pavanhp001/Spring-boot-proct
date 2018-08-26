@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ac:orderManagementRequestResponse
+	xmlns:ac="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xml.AL.com/v4/orderManagement.xsd ">
+	<ac:correlationId></ac:correlationId>
+	<ac:transactionType>updateLineItem</ac:transactionType>
+	<ac:request>
+
+		<ac:orderId>8035</ac:orderId>
+
+		<ac:updatedLineItemInfo>
+			<ac:lineItem>
+				<!--Lineitem External Id -->
+				<ac:externalId>6895</ac:externalId>
+				<ac:productDatasource dataSource="">internal</ac:productDatasource>
+				<ac:lineItemDetail>
+					<ac:productUniqueId>4538</ac:productUniqueId>
+				</ac:lineItemDetail>				
+				
+				<!-- Selected Features customer wants to add -->
+				<ac:selectedFeatures>
+					<ac:features>
+						<ac:featureValue externalId="HD_RCVR" value="1"	type="integer" />
+					</ac:features>
+				</ac:selectedFeatures>
+				<ac:activeDialogs>
+					<ac:dialogs>
+						<ac:dialog>
+							<ac:externalId>NEW-DLG102</ac:externalId>
+							<ac:dialogueDate>2011-10-10T09:00:00</ac:dialogueDate>
+							<ac:value selected="true" type="string">OPTION--1</ac:value>
+							<ac:value selected="false" type="string">OPTION--2</ac:value>
+						</ac:dialog>
+					</ac:dialogs>
+				</ac:activeDialogs>
+			</ac:lineItem>
+
+		</ac:updatedLineItemInfo>
+
+	</ac:request>
+
+</ac:orderManagementRequestResponse>

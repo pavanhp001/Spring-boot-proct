@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" 
+	targetNamespace="http://xml.A.com/v4"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:ac="http://xml.A.com/v4">
+
+	<xs:include schemaLocation="encryption.xsd" />
+	<xs:include schemaLocation="types.xsd" />
+	
+	<xs:element name="encryptionEnterpriseRequest" type="ac:enterpriseRequestDocumentType">
+	</xs:element>
+	<xs:element name="encryptionEnterpriseResponse" type="ac:enterpriseResponseDocumentType">
+	</xs:element>
+
+	<xs:complexType name="encryptionTransactionTypeType">
+		<xs:complexContent>
+			<xs:extension base="ac:abstractTransactionTypeType">
+				<xs:sequence>
+					<xs:annotation>
+						<xs:documentation>
+							Used to communicate the desired request action.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:element name="encryptionTransactionType">
+						<xs:simpleType>
+							<xs:restriction base="xs:token">
+								<xs:enumeration value="encrypt">
+									<xs:annotation>
+										<xs:documentation>
+											Encrypts input fields
+										</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="decrypt">
+									<xs:annotation>
+										<xs:documentation>
+											Encrypts input fields
+										</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+
+	
+</xs:schema>

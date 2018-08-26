@@ -1,0 +1,96 @@
+<v4:orderManagementRequestResponse xsi:schemaLocation="http://xml.AL.com/v4 orderManagement.xsd " xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:v4="http://xml.AL.com/v4">
+<v4:correlationId>12345</v4:correlationId>
+         <v4:transactionTimeStamp>2012-04-25</v4:transactionTimeStamp>
+         <v4:transactionId>1</v4:transactionId>
+         <v4:transactionType>addLineItem</v4:transactionType>
+         <v4:request>
+            <v4:salesContext>
+               <v4:entity name="concert">
+                  <v4:attribute name="source" value="salescenter"/>
+               </v4:entity>
+            </v4:salesContext>
+            <v4:agentId>default</v4:agentId>
+            <v4:orderId>13398</v4:orderId>
+            <v4:afterLineItemNumber>+999</v4:afterLineItemNumber>
+            <v4:isAppliesToLineItemIncluded>false</v4:isAppliesToLineItemIncluded>
+            <v4:newLineItems>
+               <v4:lineItem>
+                  <v4:lineItemNumber>1</v4:lineItemNumber>
+                  <v4:externalId>0</v4:externalId>
+                  <v4:service>BUSINESS</v4:service>
+                  <v4:creditStatus>Approved</v4:creditStatus>
+                  <v4:svcAddressExtId>92001</v4:svcAddressExtId>
+                  <v4:billingInfoExtId>81001</v4:billingInfoExtId>
+                  <v4:partnerExternalId>23928</v4:partnerExternalId>
+                  <v4:lineItemCreateDate>2013-07-30T11:07:28.000-04:00</v4:lineItemCreateDate>
+                  <v4:productDatasource datasource="">internal</v4:productDatasource>
+                  <v4:SchedulingInfo appointmentComment="" billingInstallments="true" earlierAppointmentDate="true" installationFee="0.00" residenceType="Apartment">
+                     <v4:ScheduleAsSoonAsPossible>true</v4:ScheduleAsSoonAsPossible>
+                     <v4:desiredStartDate>
+                        <v4:date xsi:nil="true"/>
+                     </v4:desiredStartDate>
+                     <v4:scheduledStartDate>
+                        <v4:date xsi:nil="true"/>
+                     </v4:scheduledStartDate>
+                     <v4:actualStartDate>
+                        <v4:date xsi:nil="true"/>
+                     </v4:actualStartDate>
+                  </v4:SchedulingInfo>
+
+                  <v4:activeDialogs>
+                     <v4:dialogs/>
+                  </v4:activeDialogs>
+                  <v4:lineItemAttributes/>
+                  <v4:lineItemStatus statusCode="sales_new_order" dateTimeStamp="2013-07-30T11:07:28.000-04:00">
+                     <v4:reason>40008</v4:reason>
+                  </v4:lineItemStatus>
+                  <v4:lineItemStatusHistory>
+                     <v4:previousStatus statusCode="sales_new_order" dateTimeStamp="2013-07-30T11:07:28.000-04:00">
+                        <v4:reason>40008</v4:reason>
+                     </v4:previousStatus>
+                  </v4:lineItemStatusHistory>
+                  <v4:lineItemAttributes>
+                     <v4:entity source="CKO">
+                        <v4:attribute>
+                           <v4:name>STATUS</v4:name>
+                           <v4:value>CKOReady</v4:value>
+                           <v4:description>LINEITEM IS READY FOR CKO PROCESSING</v4:description>
+                        </v4:attribute>
+                     </v4:entity>
+                  </v4:lineItemAttributes>
+                  <v4:lineItemDetail>
+                     <v4:detailType>product</v4:detailType>
+                     <v4:detail>
+                        <v4:productLineItem>
+                              <v4:externalId>TW-CHARLOTTE-BUNDLE3</v4:externalId>
+                              <v4:productCategoryList>
+                                 <v4:productCategory displayName="bundles"/>
+                              </v4:productCategoryList>
+                              <v4:name>Digital Trio</v4:name>
+                              <v4:channels>
+                                 <v4:channel>1</v4:channel>
+                              </v4:channels>
+                              <v4:provider externalId="23928"/>
+                           </v4:productLineItem>
+
+                     </v4:detail>
+                  </v4:lineItemDetail>
+                 <v4:selectedFeatures>
+                        <v4:features>
+                           <v4:featureValue type="boolean" value="true" externalId="SPORTS_TIER"/>
+                        </v4:features>
+                  </v4:selectedFeatures>
+                  <v4:lineItemPriceInfo>
+                     <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                     <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                     <v4:priceInfoStatus>
+                        <v4:statusCode>0</v4:statusCode>
+                     </v4:priceInfoStatus>
+                     <v4:pricingDate>2013-08-01T10:58:40.753-04:00</v4:pricingDate>
+                  </v4:lineItemPriceInfo>
+                  <v4:notificationEvents/>
+               </v4:lineItem>
+            </v4:newLineItems>
+         </v4:request>
+         <v4:response/>
+      </v4:orderManagementRequestResponse>

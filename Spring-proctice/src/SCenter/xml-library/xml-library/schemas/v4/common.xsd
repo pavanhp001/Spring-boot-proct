@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://xml.A.com/common" xmlns:tns="http://xml.A.com/common"
+	elementFormDefault="qualified" xmlns:ac="http://xml.A.com/v4">
+	<import schemaLocation="address.xsd" namespace="http://xml.A.com/v4" />
+	<complexType name="RequestContext">
+		<sequence>
+			<xs:element name="correlationId" type="xs:string" />
+			<xs:element name="providerId" type="xs:string" />
+			<xs:element name="sessionId" type="xs:string" />
+			<xs:element name="salesCode" type="xs:string" />
+			<xs:element name="affiliateName" type="xs:string" />
+			<xs:element name="orderNumber" type="xs:string" />
+			<xs:element name="channell" type="xs:string" />
+			<xs:element name="region" type="xs:string" />
+			<xs:element name="requestDate" type="xs:string" />
+			<xs:element name="transactionType"
+				type="tns:TransactionType" />
+			<element name="clientInfo" type="tns:ClientInfo"></element>
+			<xs:element name="newCustomer" type="xs:string" />
+			<xs:element name="moveDate" type="xs:string" />
+		</sequence>
+	</complexType>
+	
+	<complexType name="RtimErrors">
+		<sequence>
+			<xs:element name="rtimError" type="tns:RtimError" minOccurs="1" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="RtimError">
+		<sequence>
+			<xs:element name="errorType" type="xs:string" />
+			<xs:element name="errorCode" type="xs:string" />
+			<xs:element name="errorMessage" type="xs:string" />
+			<xs:element name="provider" type="xs:string" />
+		</sequence>
+	</complexType>
+	
+	<xs:complexType name="OpResponseStatus">
+		<xs:sequence>
+			<xs:element name="statusCode" type="xs:string"/>
+			<xs:element name="opMessage" type="tns:opMessage" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="status" type="tns:OpStatusType"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="opMessage">
+		<xs:sequence>
+			<xs:element name="code" type="xs:string" />
+			<xs:element name="text" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType  name="OpStatusType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="SUCCESS" />
+			<xs:enumeration value="INFO" />
+			<xs:enumeration value="ERROR" />
+			<xs:enumeration value="WARN" />
+			<xs:enumeration value="FATAL" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<complexType name="ResponseContext">
+		<xs:sequence>
+			<xs:element name="correlationId" type="xs:string" />
+			<xs:element name="providerId" type="xs:string" />
+			<xs:element name="requestId" type="xs:string" />
+			<xs:element name="sessionId" type="xs:string" />
+			<xs:element name="salesCode" type="xs:string" />
+			<xs:element name="affiliateName" type="xs:string" />
+			<xs:element name="orderNumber" type="xs:string" />
+			<xs:element name="channell" type="xs:string" />
+			<xs:element name="region" type="xs:string" />
+			<xs:element name="adapterVersion" type="xs:string" />
+			<xs:element name="responseDate" type="xs:string" />
+			<xs:element name="transactionType" type="tns:TransactionType" />
+		</xs:sequence>
+	</complexType>
+	
+	<xs:simpleType name="TransactionType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="getAvailableProducts" />
+			<xs:enumeration value="getOrderFromProvider" />
+			<xs:enumeration value="getProviderAvailableStartDates" />
+			<xs:enumeration value="getProviderSpecificCustomerInformation" />
+			<xs:enumeration value="performProviderSpecificCreditCheck" />
+			<xs:enumeration value="submitOrderToProvider" />
+			<xs:enumeration value="updateOrder" />
+			<xs:enumeration value="validateAddressWithProvider" />
+			<xs:enumeration value="validateAndSubmitOrderWithProvider" />
+			<xs:enumeration value="validateOrderWithProvider" />
+			<xs:enumeration value="getDetails" />
+			<xs:enumeration value="getPromotions"/>
+			<xs:enumeration value="serviceQualification"/>
+			<xs:enumeration value="getProductCatalog"/>
+			<xs:enumeration value="getDueDates"/>
+			<xs:enumeration value="getTermsAndConditions"/>
+			<xs:enumeration value="orderSubmission"/>
+			<!-- order provisioning transaction types -->
+			<xs:enumeration value="creditQualification" />
+			<xs:enumeration value="orderQualification"/>
+			<xs:enumeration value="getOfferFeatures" />
+			<xs:enumeration value="configureOfferFeatures" />
+			<xs:enumeration value="submitPayment" />
+			<xs:enumeration value="getInstallationDates" />
+			<xs:enumeration value="setInstallationDate" />
+			<xs:enumeration value="valiateOrder" />
+			<xs:enumeration value="reviewOrder" />
+			<xs:enumeration value="changeCustomerType" />
+			<xs:enumeration value="authenticateCustomer" />
+			<xs:enumeration value="validatePayment" />
+		</xs:restriction>
+	</xs:simpleType>
+
+
+	<complexType name="ApplicationType">
+		<xs:sequence>
+			<xs:element name="applicationType" minOccurs="1"
+				maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:enumeration value="NC" />
+						<xs:enumeration value="MV" />
+						<xs:enumeration value="AF" />
+						<xs:enumeration value="AP" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</complexType>
+
+	<complexType name="ClientInfo">
+		<xs:sequence>
+			<element name="name" type="string" />
+			<element name="clientId" type="string" />
+			<element name="requestId" type="string" />
+		</xs:sequence>
+	</complexType>
+
+	<complexType name="RequestStatus">
+		<xs:sequence>
+			<element name="description" type="string" />
+			<element name="statusCode" type="string" />
+			<element name="Id" type="string" />
+		</xs:sequence>
+	</complexType>
+
+	<complexType name="ValidateAddressResult">
+		<sequence>
+			<element name="description" type="string" />
+			<element name="statusCode" type="string" />
+			<element name="Id" type="string" />
+			<element name="addresses" type="ac:addressType" maxOccurs="unbounded"
+				minOccurs="1" />
+		</sequence>
+	</complexType>
+	
+	<complexType name="NetworkProductType">
+		<sequence> 
+            <element name="productId" type="int" minOccurs="0"/>
+            <element name="dishChannel" type="string" minOccurs="0"/>
+            <element name="localChannel" type="string" minOccurs="0"/>
+            <element name="affiliateCallSign" type="string" minOccurs="0"/>
+            <element name="description" type="string" minOccurs="0"/>
+            <element name="longDescription" type="string" minOccurs="0"/>
+            <element name="eligible" type="boolean" minOccurs="0"/>
+            <element name="hDStation" type="boolean" minOccurs="0"/>
+            <element name="nationalNetwork" type="string" minOccurs="0"/>
+            <element name="price" type="float" minOccurs="0"/>
+    	</sequence>
+    </complexType>
+	
+	<complexType name="NetworkPackageType">
+          <sequence> 
+            <element name="productId" type="int" minOccurs="0"/>
+            <element name="description" type="string" minOccurs="0"/>
+            <element name="eligible" type="boolean" minOccurs="0"/>
+            <element name = "networkProduct" type="tns:NetworkProductType" minOccurs="0" maxOccurs="unbounded"/>
+            <element name="price" type="float" minOccurs="0"/>
+          </sequence>
+    </complexType>
+    
+          
+   <xs:complexType name="Name">
+       <xs:sequence>
+            <xs:element name="firstName" type="xs:string"/>
+            <xs:element name="lastName" type="xs:string"/>
+            <xs:element name="salutation" type="xs:string" minOccurs="0"/>
+       </xs:sequence>
+   </xs:complexType>
+   
+   <xs:complexType name="Phone">
+     <xs:sequence>
+		<xs:element name="number" type="xs:string"/>
+		<xs:element name="type" type="tns:PhoneType"/>
+		<xs:element name="textInstallEnabled" type="xs:boolean"/>
+     </xs:sequence>
+   </xs:complexType>
+   
+   	<xs:simpleType name="PhoneType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="HOME" />
+			<xs:enumeration value="OFFICE" />
+			<xs:enumeration value="CELL" />
+			<xs:enumeration value="OTHER" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="ContactPhoneType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="HOME" />
+			<xs:enumeration value="WORK" />
+			<xs:enumeration value="CELL" />
+			<xs:enumeration value="OTHER" />
+		</xs:restriction>
+	</xs:simpleType>
+   
+   <xs:complexType name="TermsAndConditionsType">
+		<xs:annotation>
+			<xs:documentation>This element contains an install date
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="sessionID" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="termsAndConditions" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+    
+   <xs:simpleType name="MilitaryHour">
+    <xs:annotation>
+      <xs:documentation>Hour information in military format</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(0[0-9][0-5][0-9])|(1[0-9][0-5][0-9])|(2[0-3][0-5][0-9])"/>
+    </xs:restriction>
+   </xs:simpleType>
+  
+   <xs:complexType name="TimeSlots">
+    <xs:sequence>
+     <xs:element name="startHour" type="tns:MilitaryHour"/>
+     <xs:element name="endHour" type="tns:MilitaryHour"/>   
+    </xs:sequence>
+   </xs:complexType>
+  	
+   <element name="clientInfo" type="tns:ClientInfo" />
+   <element name="requestContext" type="tns:RequestContext" />
+   <element name="repsonseContext" type="tns:ResponseContext" />
+   <element name="applicationType" type="tns:ApplicationType" />
+   <element name="requestStatus" type="tns:RequestStatus" />
+   <element name="validateAddressResult" type="tns:ValidateAddressResult" />
+</schema>

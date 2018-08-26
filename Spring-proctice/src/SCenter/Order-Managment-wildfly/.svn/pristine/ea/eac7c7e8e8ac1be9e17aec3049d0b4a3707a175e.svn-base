@@ -1,0 +1,48 @@
+COMMENT ON TABLE V_tx.om_line_item IS 'LineItem attribute informaiton';
+
+COMMENT ON COLUMN V_tx.om_line_item.id IS 'Primary key';
+COMMENT ON COLUMN V_tx.om_line_item.billing_info_ext_id IS 'Reference to billing information';
+COMMENT ON COLUMN V_tx.om_line_item.external_id IS 'System generated unique id';
+COMMENT ON COLUMN V_tx.om_line_item.addr_occupancy_duration IS '';
+COMMENT ON COLUMN V_tx.om_line_item.line_item_number IS 'Sequntial order of the lineitem in list of lineitems';
+COMMENT ON COLUMN V_tx.om_line_item.actual_start_on IS 'Actual start date of the service';
+COMMENT ON COLUMN V_tx.om_line_item.appt_comment IS 'Appintment comment';
+COMMENT ON COLUMN V_tx.om_line_item.billing_installment IS 'Is bill will be paid in installment for this lineitem';
+COMMENT ON COLUMN V_tx.om_line_item.desired_start_on IS 'Desired start date';
+COMMENT ON COLUMN V_tx.om_line_item.early_appt_date IS 'Early appointment date';
+COMMENT ON COLUMN V_tx.om_line_item.installation_fee IS 'Installation Fee';
+COMMENT ON COLUMN V_tx.om_line_item.residence_type IS 'Residence type';
+COMMENT ON COLUMN V_tx.om_line_item.sch_as_soon_as_possible IS 'Should this product be installed as soon as possible.';
+COMMENT ON COLUMN V_tx.om_line_item.scheduled_start_on IS 'Schedules start date';
+COMMENT ON COLUMN V_tx.om_line_item.non_recur_price IS 'Non-recurring price';
+COMMENT ON COLUMN V_tx.om_line_item.recur_price IS 'Recurring price';
+COMMENT ON COLUMN V_tx.om_line_item.pricing_on IS 'Date when lineitem was priced';
+COMMENT ON COLUMN V_tx.om_line_item.pricing_status IS 'Status of the pricing';
+COMMENT ON COLUMN V_tx.om_line_item.provider_confirm_num IS 'Provider confirmation number';
+COMMENT ON COLUMN V_tx.om_line_item.provider_cust_acct_num IS 'Provider customer account number';
+COMMENT ON COLUMN V_tx.om_line_item.svc_address_ext_id IS 'Service address external id';
+COMMENT ON COLUMN V_tx.om_line_item.currentstatus_id IS 'Reference to cusrrent lineitem status id';
+COMMENT ON COLUMN V_tx.om_line_item.lineitem_dtl_id IS 'Reference to lineitem detail id';
+COMMENT ON COLUMN V_tx.om_line_item.provider_ext_id IS 'External id of the lineitem(product) provider';
+COMMENT ON COLUMN V_tx.om_line_item.lead_id IS 'Provider supplied lead id.';
+COMMENT ON COLUMN V_tx.om_line_item.product_datasource IS 'Source of the product. Realtime or internal(static)';
+COMMENT ON COLUMN V_tx.om_line_item.on_delivery_price IS 'On delivery price of the item';
+COMMENT ON COLUMN V_tx.om_line_item.new_phone IS 'New phone number provided by provider incase of phone based product.';
+COMMENT ON COLUMN V_tx.om_line_item.is_new IS '';
+COMMENT ON COLUMN V_tx.om_line_item.disconnect_on IS 'Date when service was disconnected';
+COMMENT ON COLUMN V_tx.om_line_item.ordered_on IS 'Date when product was ordered';
+COMMENT ON COLUMN V_tx.om_line_item.li_state IS 'State of the lineitem';
+COMMENT ON COLUMN V_tx.om_line_item.non_recur_price_u IS 'Non-recurring price unit';
+COMMENT ON COLUMN V_tx.om_line_item.recur_price_u IS 'Recurring price unit';
+COMMENT ON COLUMN V_tx.om_line_item.inc_price IS '';
+COMMENT ON COLUMN V_tx.om_line_item.service_type IS 'Type of service';
+COMMENT ON COLUMN V_tx.om_line_item.credit_status IS 'Status of the credit check';
+COMMENT ON COLUMN V_tx.om_line_item.desired_start_ee_on IS '';
+COMMENT ON COLUMN V_tx.om_line_item.scheduled_start_ee_on IS '';
+COMMENT ON COLUMN V_tx.om_line_item.actual_start_ee_on IS '';
+COMMENT ON COLUMN V_tx.om_line_item.disconnect_ee_on IS '';
+COMMENT ON COLUMN V_tx.om_line_item.desired_start_req IS '';
+COMMENT ON COLUMN V_tx.om_line_item.partner_ext_id IS '';
+COMMENT ON COLUMN V_tx.om_line_item.LI_OWNER_EXT_ID IS 'customer who owns the line item.  Override and use this customers information when processing the lineitem';
+
+

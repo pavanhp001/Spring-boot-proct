@@ -1,0 +1,38 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <v4:uamEnterpriseResponse xmlns:v4="http://xml.AL.com/v4">
+         <v4:GUID>smrOrder564</v4:GUID>
+         <v4:status>
+            <v4:statusCode>0</v4:statusCode>
+            <v4:processingMessages>
+               <v4:message>
+                  <v4:code>0.0</v4:code>
+                  <v4:text>SUCCESS</v4:text>
+               </v4:message>
+            </v4:processingMessages>
+         </v4:status>
+         <v4:response xsi:type="v4:AuthenticateUserResponseType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <v4:authenticateUserResponse>
+               <v4:userName>Kelly Default</v4:userName>
+               <v4:userLogin>default</v4:userLogin>
+               <v4:userLevel>1</v4:userLevel>
+               <v4:userActive>1</v4:userActive>
+               <v4:userType>1</v4:userType>
+               <v4:userUpdated>2011-08-26-04:00</v4:userUpdated>
+               <v4:providerEntityID>1</v4:providerEntityID>
+               <v4:userRefID>1</v4:userRefID>
+               <v4:userResources>
+                  <v4:resourceName>SUPER</v4:resourceName>
+               </v4:userResources>
+               <v4:userResources>
+                  <v4:resourceName>ADMIN</v4:resourceName>
+               </v4:userResources>
+               <v4:userResources>
+                  <v4:resourceName>PROVIDER</v4:resourceName>
+               </v4:userResources>  
+            </v4:authenticateUserResponse>
+         </v4:response>
+      </v4:uamEnterpriseResponse>
+   </soapenv:Body>
+</soapenv:Envelope>

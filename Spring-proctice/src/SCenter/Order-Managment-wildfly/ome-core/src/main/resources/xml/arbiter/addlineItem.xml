@@ -1,0 +1,89 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v4="http://xml.AL.com/v4">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <v4:processRequest>
+          <arg0><![CDATA[
+        <ac:orderManagementRequestResponse xmlns:ac="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xml.AL.com/v4 orderManagement.xsd ">
+  <ac:correlationId>ABCDEF</ac:correlationId>
+  <ac:transactionTimeStamp>2001-01-01</ac:transactionTimeStamp>
+  <ac:transactionId>1</ac:transactionId>
+  <ac:transactionType>addLineItem</ac:transactionType>
+  <ac:request>
+     		<ac:orderId>73</ac:orderId>
+
+<ac:afterLineItemNumber>-7777</ac:afterLineItemNumber>
+<ac:isAppliesToLineItemIncluded>true</ac:isAppliesToLineItemIncluded>
+ 
+
+<ac:newLineItems> 
+<ac:lineItem>
+    <ac:partnerName>ac:partnerName</ac:partnerName>
+    <ac:productDatasource>internal</ac:productDatasource>
+    <ac:providerConfirmationNumber>ac:providerConfirmationNumber</ac:providerConfirmationNumber>
+    <ac:providerCustomerAccountNumber>ac:providerCustomerAccountNumber</ac:providerCustomerAccountNumber>
+    <ac:lineItemNumber>0</ac:lineItemNumber>
+    <ac:lineItemStatus agentId="0" dateTimeStamp="2001-12-31T12:00:00" statusCode="0" statusCodeDescription="">
+      <ac:reason>0</ac:reason>
+    </ac:lineItemStatus>
+    <ac:lineItemStatusHistory/>
+    <ac:lineItemDetail>
+      <ac:detailType>productBundle</ac:detailType>
+      <ac:detail>
+        <ac:productBundleLineItem>
+          <ac:externalId>0</ac:externalId>
+          <ac:channels>
+            <ac:channel>ac:channel</ac:channel>
+          </ac:channels>
+          <ac:name>ac:name</ac:name>
+          <ac:priceInfo/>
+          <ac:bundledProducts>
+            <ac:externalId>0</ac:externalId>
+          </ac:bundledProducts>
+        </ac:productBundleLineItem>
+      </ac:detail>
+    </ac:lineItemDetail>
+    <ac:lineItemPriceInfo>
+      <ac:priceInfoStatus>
+        <ac:processingMessages/>
+      </ac:priceInfoStatus>
+      <ac:pricingDate>2001-12-31T12:00:00</ac:pricingDate>
+    </ac:lineItemPriceInfo>
+    <ac:externalId>0</ac:externalId>
+    <ac:svcAddressExtId>ac:svcAddressExtId</ac:svcAddressExtId>
+    <ac:svcAddressRef>ac:svcAddressRef</ac:svcAddressRef>
+    <ac:billingInfoExtId>ac:billingInfoExtId</ac:billingInfoExtId>
+    <ac:billingInfoRef>ac:billingInfoRef</ac:billingInfoRef>
+    <ac:SchedulingInfo appointmentComment="" billingInstallments="true" earlierAppointmentDate="true" installationFee="0.0" residenceType="">
+      <ac:ScheduleAsSoonAsPossible>true</ac:ScheduleAsSoonAsPossible>
+    </ac:SchedulingInfo>
+    <ac:selectedFeatures/>
+    <ac:service>BUSINESS</ac:service>
+    <ac:creditStatus>Approved</ac:creditStatus>
+    <ac:lineItemEvents source=""/>
+    <ac:notificationEvents>
+      <ac:event dateTimeStamp="2001-12-31T12:00:00" source="" uniqueId="">
+        <ac:code>0</ac:code>
+        <ac:reason>0</ac:reason>
+        <ac:acknowledged>false</ac:acknowledged>
+      </ac:event>
+    </ac:notificationEvents>
+    <ac:leadId>0</ac:leadId>
+    <ac:transientRequestContainer/>
+    <ac:paymentInfo>
+      <ac:recurring>true</ac:recurring>
+    </ac:paymentInfo>
+    <ac:transientResponseContainer/>
+  </ac:lineItem> 
+</ac:newLineItems>
+
+
+ </ac:request>
+  <ac:response>
+   
+  </ac:response>
+</ac:orderManagementRequestResponse>
+  ]]>  
+</arg0>
+      </v4:processRequest>
+   </soapenv:Body>
+</soapenv:Envelope>

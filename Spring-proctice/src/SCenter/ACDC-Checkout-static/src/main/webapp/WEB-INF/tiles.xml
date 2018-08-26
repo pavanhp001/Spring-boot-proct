@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+
+<tiles-definitions>
+
+	<definition name="base.definition.signup" template="/WEB-INF/jsp/layout/layout_framed.jsp" />
+	
+	<definition name="acdc.base.definition.signup" template="/WEB-INF/jsp/layout/acdc_layout.jsp" >
+	<put-attribute name="source" value="/WEB-INF/jsp/acdc/acdc_source.jsp" />
+	</definition>
+	
+	<definition name="error_custom" extends="base.definition.signup">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/error_custom.jsp" />
+	</definition>
+	
+	<definition name="error_view" extends="base.definition.signup">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/custom_error_view.jsp" />
+	</definition>
+	
+	<definition name="oq_custom" extends="base.definition.signup">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/oq_custom_content.jsp" />
+	</definition>
+
+	<definition name="oq_response_bal_due" extends="base.definition.signup">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/oq_response_bal_due_content.jsp" />
+	</definition>
+
+	<definition name="oq_demo" extends="base.definition.signup">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/oq_demo_content.jsp" />
+	</definition>
+
+	<definition name="dialogueUpdate" extends="base.definition.signup">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/update_dialogue.jsp" />
+	</definition>
+	
+	<definition name="submitLineItem" extends="base.definition.signup">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/place_order.jsp" />
+	</definition>
+
+	<definition name="error_response_page" extends="base.definition.signup">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/error_response.jsp" />
+	</definition>
+
+	<definition name="oq_disclose" extends="base.definition.signup">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/oq_disclose_content.jsp" />
+	</definition>
+
+	<definition name="oq_response" extends="base.definition.signup">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/oq_response_content.jsp" />
+	</definition>
+	
+	<definition name="oq_payment" extends="base.definition.signup">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/oq_payment.jsp" />
+	</definition>
+
+	<definition name="product_info" extends="base.definition.signup">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/product_info_content.jsp" />
+	</definition>
+ 
+	<definition name="SYP" extends="base.definition.signup">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/SYP_content.jsp" />
+	</definition>
+
+	<definition name="os_submit" extends="base.definition.signup">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/os_content.jsp" />
+	</definition>
+
+	<definition name="os_success" extends="base.definition.signup">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/os_success_content.jsp" />
+	</definition>
+
+	<definition name="os_fail" extends="base.definition.signup">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/os_fail_content.jsp" />
+	</definition>
+	
+	<definition name="session_timed_out" extends="base.definition.signup">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/session_timedout.jsp" />
+	</definition>
+	
+	
+	<!-- ********************************** ACDC Static CKO ******************************************** -->	
+	<!--<definition name="acdc_product_info" extends="acdc.base.definition.signup">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/acdc/acdc_product_info_content.jsp" />
+	</definition>
+	
+		--><definition name="acdc_product_info" extends="acdc.base.definition.signup">
+			<put-attribute name="main_content" value="/WEB-INF/jsp/acdc_productInformation.jsp" />
+		</definition>
+		
+		<definition name="acdc_oq_demo" extends="acdc.base.definition.signup">
+			<put-attribute name="main_content" value="/WEB-INF/jsp/qualification_content.jsp" />
+		</definition>
+		<definition name="acdc_utility_view" extends="acdc.base.definition.signup">
+			<put-attribute name="main_content" value="/WEB-INF/jsp/acdc_hcc_CKO.jsp" />
+		</definition>
+	<!--<definition name="acdc_oq_demo" extends="acdc.base.definition.signup">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/acdc/acdc_oq_demo_content.jsp" />
+	</definition>
+
+		--><definition name="acdc_installation_info" extends="acdc.base.definition.signup">
+			<put-attribute name="main_content" value="/WEB-INF/jsp/acdc_installation.jsp" />
+		</definition>
+	<!-- <definition name="session_timed_out" extends="acdc.base.definition.signup">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/acdc/acdc_session_timedout.jsp" />
+	</definition> -->
+         <definition name="acdc_conformation_info" extends="acdc.base.definition.signup">
+			<put-attribute name="main_content" value="/WEB-INF/jsp/Order_Review.jsp" />
+		</definition>
+         <definition name="acdc_submitLineItem" extends="acdc.base.definition.signup">
+			<put-attribute name="main_content" value="/WEB-INF/jsp/acdc/acdc_place_order.jsp" />
+		</definition>
+		
+	<definition name="acdc_submitLineItem" extends="acdc.base.definition.signup">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/acdc/acdc_place_order.jsp" />
+	</definition>
+	
+	<definition name="acdc_error_view" extends="acdc.base.definition.signup">
+		<put-attribute name="main_content" value="/WEB-INF/jsp/acdc/acdc_custom_error_view.jsp" />
+	</definition>
+
+</tiles-definitions>

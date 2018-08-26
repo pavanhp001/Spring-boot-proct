@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ac:orderManagementRequestResponse
+	xmlns:ac="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xml.AL.com/v4 orderManagement.xsd ">
+	<ac:correlationId>ABCDEF</ac:correlationId>
+	<ac:transactionTimeStamp>2001-01-01</ac:transactionTimeStamp>
+	<ac:transactionId>1</ac:transactionId>
+	<ac:transactionType>submit</ac:transactionType>
+	<ac:request>
+		<ac:orderId>1</ac:orderId>
+
+		<ac:lineitemId>0</ac:lineitemId> 
+	</ac:request> 
+</ac:orderManagementRequestResponse>

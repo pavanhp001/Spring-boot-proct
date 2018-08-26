@@ -1,0 +1,143 @@
+Person( firstName < $otherFirstName )
+Cheese( type matches "(Buffalo)?\\S*Mozarella" )
+Cheese( type not matches "(Buffulo)?\\S*Mozarella" )
+
+CheeseCounter( cheeses contains "stilton" ) // contains with a String literal
+CheeseCounter( cheeses contains $var ) // contains with a variable
+
+CheeseCounter( cheeses not contains "cheddar" ) // not contains with a String literal
+CheeseCounter( cheeses not contains $var ) // not contains with a variable
+
+CheeseCounter( cheese memberOf $matureCheeses )
+Cheese( name soundslike 'foobar' )
+
+Person( $cheese : favouriteCheese )
+Cheese( type in ( "stilton", "cheddar", $cheese ) )
+
+Person( girlAge : age, sex = "F" )
+Person( eval( age == girlAge + 2 ), sex = 'M' )
+
+( Cheese( cheeseType : type ) and
+  ( Person( favouriteCheese == cheeseType ) or 
+    Person( favouriteCheese == cheeseType ) )
+
+
+when
+    Cheese( cheeseType : type )
+    Person( favouriteCheese == cheeseType )
+then
+
+
+
+//infixOr with grouping
+( Cheese( cheeseType : type ) or
+  ( Person( favouriteCheese == cheeseType ) and
+    Person( favouriteCheese == cheeseType ) )
+    
+    
+    (or Person( sex == "f", age > 60 )
+    Person( sex == "m", age > 65 )
+    
+    
+    (or pensioner : Person( sex == "f", age > 60 ) 
+    pensioner : Person( sex == "m", age > 65 ) )
+    
+    
+    
+    rule "All English buses are red"
+when
+    forall( $bus : Bus( type == 'english') 
+                   Bus( this == $bus, color = 'red' ) )
+then
+    # all english buses are red
+end
+
+
+
+rule "All Buses are Red"
+when
+    forall( Bus( color == 'red' ) )
+then
+    # all asserted Bus facts are red
+end
+
+
+rule "all employees have health and dental care programs"
+when
+    forall( $emp : Employee()
+            HealthCare( employee == $emp )
+            DentalCare( employee == $emp )
+          )
+then
+    # all employees have health and dental care
+end
+
+
+
+
+rule "not all employees have health and dental care"
+when 
+    not ( forall( $emp : Employee()
+                  HealthCare( employee == $emp )
+                  DentalCare( employee == $emp ) ) 
+        )
+then
+    # not all employees have health and dental care
+end
+
+rule "validate zipcode"
+when
+    Person( $personAddress : address ) 
+    Address( zipcode == "23920W") from $personAddress 
+then
+    # zip code is ok
+end
+
+
+
+rule "apply 10% discount to all items over US$ 100,00 in an order"
+when
+    $order : Order()
+    $item  : OrderItem( value > 100 ) from $order.items
+then
+    # apply discount to $item
+end
+
+
+
+
+rule "Assign people in North Carolina (NC) to sales region 1"
+ruleflow-group "test"
+lock-on-active true
+when
+    $p : Person( ) 
+    $a : Address( state == "NC") from $p.address 
+then
+    modify ($p) {} #Assign person to sales region 1 in a modify block
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+

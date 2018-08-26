@@ -1,0 +1,236 @@
+      <v4:merchandisingEnterpriseResponse xmlns:v4="http://xml.A.com/v4">
+         <v4:GUID>1343318393026537810747303662276106B26D010CAF</v4:GUID>
+         <v4:status>
+            <v4:statusCode>1</v4:statusCode>
+            <v4:processingMessages>
+               <v4:message>
+                  <v4:code>2.0</v4:code>
+                  <v4:text>Attribute not valid for sales context - entity:orderSource attribute: orderSource.referrer</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>2.0</v4:code>
+                  <v4:text>Attribute not valid for sales context - entity:salesFlow attribute: salesFlow.dialogueType</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>0.0</v4:code>
+                  <v4:text>Partial results returned, some entities in request were not found</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : ATT-DSL-SE-STANDALONE</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : ATT-UVERSE-TRIPLE-SW-TX</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : ATTSE-AD-ULT-DTV-GA</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : ATTSE-AD-ULT-GA</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : ATTSE-GA-AD-DBL-PRO</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : ATTSE-GA-AD-TRP-PRO</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : ATTSE-GA-ALD</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : ATTSE-GA-BASIC</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : ATTSE-GA-CC-BASIC</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : ATTSE-GA-CC-ENHANCED</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : ATTSE-GA-CCB-DBL-PRO</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : ATTSE-GA-CCE-DBL-PRO</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : ATTSE-HSI-LS</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : BUNDLEDSL-BLLSTH</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : CC-ATL-C&amp;I</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : CC-ATL-CDV-LOCAL</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : CC-ATL-CDVSTARTER</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : CC-ATL-PREFERRED</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : CC-ATLTPPREFERRED</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : COMATLDBLEPLAYPLAT</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : COMATLDBLEPLAYSILV</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : COMATLLOCALHSI</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : COMATLTRIPPLAYENH</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : COMATLTRIPPLAYPLAT</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : COMATLTRIPPLAYSILV</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : COMCAST-ATL-ASIS</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : DISH-TRIAL1</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : DSL-ADD-ATTSOUTHEAST</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : DUO-ESS-15M-DE-M2M</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : SF-DUO-ESSE-15M-CA-M2M</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>1.0</v4:code>
+                  <v4:text>Entity not found : VZ-STANDALONE-FIOS-25M-WEB</v4:text>
+               </v4:message>
+            </v4:processingMessages>
+         </v4:status>
+         <v4:response xsi:type="v4:merchandisingResponseType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <ac:salesContextLog xmlns:ac="http://xml.A.com/v4">
+               <v4:entity name="context">
+                  <v4:attribute name="context.mode" value="demo"/>
+               </v4:entity>
+               <v4:entity name="orderSource">
+                  <v4:attribute name="orderSource.source" value="123"/>
+                  <v4:attribute name="orderSource.referrer" value="utility"/>
+               </v4:entity>
+               <v4:entity name="consumer">
+                  <v4:attribute name="consumer.creditScore" value="650"/>
+               </v4:entity>
+               <v4:entity name="dwelling">
+                  <v4:attribute name="dwelling.dwellingType" value="house"/>
+               </v4:entity>
+               <v4:entity name="salesFlow">
+                  <v4:attribute name="salesFlow.dialogueType" value="core"/>
+               </v4:entity>
+               <v4:entity name="agent">
+                  <v4:attribute name="agent.capability" value="advanced"/>
+               </v4:entity>
+            </ac:salesContextLog>
+            <v4:productList>
+               <v4:merchandisedProduct externalId="DS-DIRECTVTF" priority="1019.24" sellable="true" type="product">
+                  <v4:attribute name="scoreModifications" value="1"/>
+                  <v4:attribute name="action1" value="ConsumerCredit.lowCreditRuleOwner.IncrementAction.satellite"/>
+               </v4:merchandisedProduct>
+               <v4:merchandisedProduct externalId="DISH-TRIAL-NEW" priority="1000.0" sellable="true" type="product">
+                  <v4:attribute name="scoreModifications" value="1"/>
+                  <v4:attribute name="action1" value="ConsumerCredit.lowCreditRuleOwner.IncrementAction.satellite"/>
+               </v4:merchandisedProduct>
+               <v4:merchandisedProduct externalId="DISH-TRIAL-XFER" priority="1000.0" sellable="true" type="product">
+                  <v4:attribute name="scoreModifications" value="1"/>
+                  <v4:attribute name="action1" value="ConsumerCredit.lowCreditRuleOwner.IncrementAction.satellite"/>
+               </v4:merchandisedProduct>
+               <v4:merchandisedProduct externalId="DSTAR-DTV-WT" priority="1000.0" sellable="true" type="product">
+                  <v4:attribute name="scoreModifications" value="1"/>
+                  <v4:attribute name="action1" value="ConsumerCredit.lowCreditRuleOwner.IncrementAction.satellite"/>
+               </v4:merchandisedProduct>
+               <v4:merchandisedProduct externalId="P3-ESSBUNDLE-15M-CA" priority="500.0" sellable="true" type="product">
+                  <v4:attribute name="scoreModifications" value="1"/>
+                  <v4:attribute name="action1" value="ConsumerCredit.lowCreditRuleOwner.IncrementAction.notv bundle"/>
+               </v4:merchandisedProduct>
+               <v4:merchandisedProduct externalId="GASSOUTH-INTROVARIABLE" priority="29.77" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="ADT-SC-SECURITY" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="ADV-SUPPORT" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="ATT-DSL-SE-STANDALONE" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="ATT-UVERSE-TRIPLE-SW-TX" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="ATTSE-AD-ULT-DTV-GA" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="ATTSE-AD-ULT-GA" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="ATTSE-GA-AD-DBL-PRO" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="ATTSE-GA-AD-TRP-PRO" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="ATTSE-GA-ALD" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="ATTSE-GA-BASIC" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="ATTSE-GA-CC-BASIC" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="ATTSE-GA-CC-ENHANCED" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="ATTSE-GA-CCB-DBL-PRO" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="ATTSE-GA-CCE-DBL-PRO" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="ATTSE-HSI-LS" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="BUNDLEDSL-BLLSTH" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="CC-ATL-C&amp;I" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="CC-ATL-CDV-LOCAL" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="CC-ATL-CDVSTARTER" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="CC-ATL-PREFERRED" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="CC-ATLTPPREFERRED" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="COMATLDBLEPLAYPLAT" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="COMATLDBLEPLAYSILV" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="COMATLLOCALHSI" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="COMATLTRIPPLAYENH" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="COMATLTRIPPLAYPLAT" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="COMATLTRIPPLAYSILV" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="COMCAST-ATL-ASIS" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="DISH-TRIAL1" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="DSL-ADD-ATTSOUTHEAST" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="DUO-ESS-15M-DE-M2M" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="OO-SAVERS-LS" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="SF-DUO-ESSE-15M-CA-M2M" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="VZ-STANDALONE-FIOS-25M-WEB" priority="0.0" sellable="true" type="product"/>
+               <v4:merchandisedProduct externalId="FIOSTV-FIOSINT-2YR" priority="-1.0" sellable="false" type="product">
+                  <v4:attribute name="scoreModifications" value="1"/>
+                  <v4:attribute name="action1" value="ConsumerCredit.lowCreditRuleOwner.SuppressAction.fiber"/>
+               </v4:merchandisedProduct>
+               <v4:merchandisedProduct externalId="RTS:ATTSTI:ATT-9-2IV-MAX-INT-H" priority="-1.0" sellable="false" type="product">
+                  <v4:attribute name="scoreModifications" value="1"/>
+                  <v4:attribute name="action1" value="ConsumerCredit.lowCreditRuleOwner.SuppressAction.fiber"/>
+               </v4:merchandisedProduct>
+               <v4:merchandisedProduct externalId="VZ-STANDALONE-FIOS-15M" priority="-1.0" sellable="false" type="product">
+                  <v4:attribute name="scoreModifications" value="1"/>
+                  <v4:attribute name="action1" value="ConsumerCredit.lowCreditRuleOwner.SuppressAction.fiber"/>
+               </v4:merchandisedProduct>
+            </v4:productList>
+         </v4:response>
+      </v4:merchandisingEnterpriseResponse>

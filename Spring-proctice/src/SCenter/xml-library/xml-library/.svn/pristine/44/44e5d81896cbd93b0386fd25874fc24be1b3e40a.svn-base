@@ -1,0 +1,8 @@
+saxon.lib.dir=C:/Tools/saxonb9-1-0-1j
+
+# The path specified needs to be wherever the actual JAR files are, not just the top-level dir
+xmlbeans.lib.dir=C:/Tools/xmlbeans-2.4.0/lib
+axis2.home.dir=C:/Tools/axis2-1.5/
+wsdl.details.home=c:/projects/xml-library/wsdls/Details/Details.wsdl
+wsdl.pcode.home=c:/projects/xml-library/wsdls/Details/PCode.wsdl
+wsdl.context.home=c:/projects/xml-library/wsdls/ContextManager/ContextManagerV4.wsdl

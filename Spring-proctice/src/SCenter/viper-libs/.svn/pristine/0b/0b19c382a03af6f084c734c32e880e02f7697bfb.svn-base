@@ -1,0 +1,235 @@
+<v4:customerManagementRequestResponse xsi:schemaLocation="http://xml.A.com/v4 customerManagement.xsd " xmlns:v4="http://xml.A.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         <v4:correlationId>v4:correlationId</v4:correlationId>
+         <v4:transactionId>0</v4:transactionId>
+         <v4:transactionType>createCustomer</v4:transactionType>
+         <v4:request>
+            <v4:notificationEventCollection>
+               <v4:event dateTimeStamp="2001-12-31T12:00:00" source="accord" uniqueId="">
+                  <v4:code>100</v4:code>
+                  <v4:reason>10</v4:reason>
+                  <!--Use reason code 10 if customer's name is changed-->
+                  <v4:reason>20</v4:reason>
+                  <!--Use reason code 20 if customer's address is changed-->
+                  <v4:reason>30</v4:reason>
+                  <!--Use reason code 10 if customer's uitility start dates is changed-->
+                  <v4:comment>Customer Info Updated</v4:comment>
+                  <v4:acknowledged>false</v4:acknowledged>
+               </v4:event>
+            </v4:notificationEventCollection>
+            <v4:customerId></v4:customerId>
+            <v4:addressId></v4:addressId>
+            <v4:customerInfo>
+               <v4:agentId>User1</v4:agentId>
+               <v4:referrerId>${DataSource#PARTNER_ID}</v4:referrerId>
+               <v4:partnerAccountId>${DataGen#PartnerAcctId}</v4:partnerAccountId>
+               <v4:externalId>0</v4:externalId>
+               <v4:title>Mr.</v4:title>
+               <v4:firstName>Test</v4:firstName>
+               <v4:lastName>Test</v4:lastName>
+               <v4:middleName>P</v4:middleName>
+               <v4:nameSuffix>N/A</v4:nameSuffix>
+               <v4:gender>M</v4:gender>
+               <v4:dob>1975-01-01</v4:dob>
+               <v4:ssn>000-00-0000</v4:ssn>
+               <v4:directMailOptIn>true</v4:directMailOptIn>
+               <v4:eMailOptIn>true</v4:eMailOptIn>
+               <v4:howLongAtPreviousAddress>10</v4:howLongAtPreviousAddress>
+               <v4:ACustomerNumber>AC1001</v4:ACustomerNumber>
+               <v4:phoneContactOptIn>false</v4:phoneContactOptIn>
+               <v4:primaryLanguage>1</v4:primaryLanguage>
+               <v4:marketingOptIn>false</v4:marketingOptIn>
+               <v4:nonBuyerWebOptIn>false</v4:nonBuyerWebOptIn>
+               <v4:eMailProductUpdatesOptIn>false</v4:eMailProductUpdatesOptIn>
+               <v4:homePhoneNumber>
+                  <v4:value>8005555555</v4:value>
+                  <v4:order>1</v4:order>
+                  <v4:desc>Home Phone</v4:desc>
+               </v4:homePhoneNumber>
+               <v4:cellPhoneNumber>
+                  <v4:value>8005555555</v4:value>
+                  <v4:order>2</v4:order>
+                  <v4:desc>Cell Phone</v4:desc>
+               </v4:cellPhoneNumber>
+               <v4:workPhoneNumber>
+                  <v4:value>8005555555</v4:value>
+                  <v4:order>3</v4:order>
+                  <v4:desc>Work Phone</v4:desc>
+               </v4:workPhoneNumber>
+               <v4:homeEMail>
+                  <v4:value>test@home.com</v4:value>
+                  <v4:order>1</v4:order>
+                  <v4:desc>Home Email</v4:desc>
+               </v4:homeEMail>
+               <v4:workEMail>
+                  <v4:value>work@work.com</v4:value>
+                  <v4:order>2</v4:order>
+                  <v4:desc>Work Email</v4:desc>
+               </v4:workEMail>
+               <v4:region>SOUTHWEST</v4:region>
+               <v4:landlordInfo>
+                  <v4:landlordName>Orion Aparment</v4:landlordName>
+                  <v4:landlordPhoneNumber>444-444-4444</v4:landlordPhoneNumber>
+               </v4:landlordInfo>
+               <v4:driverLicense>
+                  <v4:LicenseNumber>123456789</v4:LicenseNumber>
+                  <v4:State>Georgia</v4:State>
+                  <v4:LicenseExpirationDate>2012-01-01</v4:LicenseExpirationDate>
+               </v4:driverLicense>
+               <v4:stateId>
+                  <v4:IdNumber>123456789</v4:IdNumber>
+                  <v4:State>Georgia</v4:State>
+               </v4:stateId>
+               <v4:payments>
+                  <v4:PaymentEvent custAgreedCCDisclosure="true">
+                     <v4:billingInfoId>v4:billingInfoId</v4:billingInfoId>
+                     <v4:Event>ADVANCED</v4:Event>
+                     <v4:CVV>v4:CVV</v4:CVV>
+                     <v4:Amount>0.0</v4:Amount>
+                     <v4:ConfirmNumber>v4:ConfirmNumber</v4:ConfirmNumber>
+                     <v4:transactionDate>2001-01-01</v4:transactionDate>
+                     <v4:paymentStatus>
+                        <v4:status>0</v4:status>
+                        <v4:reason>0</v4:reason>
+                        <v4:dateTimeStamp>2001-12-31T12:00:00</v4:dateTimeStamp>
+                        <v4:providerId>0</v4:providerId>
+                     </v4:paymentStatus>
+                  </v4:PaymentEvent>
+                  <v4:OrderId>v4:OrderId</v4:OrderId>
+                  <v4:CustomerId>v4:CustomerId</v4:CustomerId>
+               </v4:payments>
+               <v4:accounts accountStatus="" accountTypeIndicator="" consentToCC="" suppressionIndicator="">
+                  <v4:ProviderType>v4:ProviderType</v4:ProviderType>
+                  <v4:AccountType>v4:AccountType</v4:AccountType>
+                  <v4:BillingAccountNumber>v4:BillingAccountNumber</v4:BillingAccountNumber>
+                  <v4:BillingAccountTelephoneNumber>v4:BillingAccountTelephoneNumber</v4:BillingAccountTelephoneNumber>
+                  <v4:AddressRef>v4:AddressRef</v4:AddressRef>
+                  <v4:ConsumerRef>v4:ConsumerRef</v4:ConsumerRef>
+                  <v4:Authentication>
+                     <v4:pin>v4:pin</v4:pin>
+                     <v4:securityQuestion>v4:securityQuestion</v4:securityQuestion>
+                     <v4:securityAnswer>v4:securityAnswer</v4:securityAnswer>
+                  </v4:Authentication>
+                  <v4:ExistingLast4SSN>v4:ExistingLast4SSN</v4:ExistingLast4SSN>
+                  <v4:SecurityCreditCard>
+                     <v4:SecurityTCAccepted>v4:SecurityTCAccepted</v4:SecurityTCAccepted>
+                     <v4:IsAuthorized>v4:IsAuthorized</v4:IsAuthorized>
+                     <v4:CreditCardRef>v4:CreditCardRef</v4:CreditCardRef>
+                  </v4:SecurityCreditCard>
+                  <v4:PrevAddressIndicator>true</v4:PrevAddressIndicator>
+                  <v4:CreditCheck>v4:CreditCheck</v4:CreditCheck>
+                  <v4:CreditAlert>v4:CreditAlert</v4:CreditAlert>
+               </v4:accounts>
+               <v4:financialInfo>
+                  <v4:employed>
+                     <v4:businessName>A</v4:businessName>
+                     <v4:businessPhoneNum>555-555-5555</v4:businessPhoneNum>
+                     <v4:occupation>Software Developer</v4:occupation>
+                  </v4:employed>
+                  <v4:student/>
+                  <v4:retired/>
+                  <v4:bankOrMortgageInstitution>Lending Tree</v4:bankOrMortgageInstitution>
+                  <v4:otherIncomeSource>rental</v4:otherIncomeSource>
+               </v4:financialInfo>
+               <v4:billingInfoList>
+                  <v4:billingInfo>
+                     <v4:billingUniqueId>B123</v4:billingUniqueId>
+                     <v4:addressRef>A123</v4:addressRef>
+                     <v4:billingMethod>Credit Card</v4:billingMethod>
+                     <v4:creditCardNumber>2222-1111-2222-1111</v4:creditCardNumber>
+                     <v4:verificationCode>123</v4:verificationCode>
+                     <v4:checkingAccountNumber>1234-4567-7894</v4:checkingAccountNumber>
+                     <v4:routingNumber>123456</v4:routingNumber>
+                     <v4:status>Active</v4:status>
+                  </v4:billingInfo>
+                   <v4:billingInfo>
+                     <v4:billingUniqueId>B124</v4:billingUniqueId>
+                     <v4:addressRef>A123</v4:addressRef>
+                     <v4:billingMethod>Credit Card</v4:billingMethod>
+                     <v4:creditCardNumber>2222-1111-2222-1111</v4:creditCardNumber>
+                     <v4:verificationCode>123</v4:verificationCode>
+                     <v4:checkingAccountNumber>1234-4567-7894</v4:checkingAccountNumber>
+                     <v4:routingNumber>123456</v4:routingNumber>
+                     <v4:status>Active</v4:status>
+                  </v4:billingInfo>
+               </v4:billingInfoList>
+               <v4:addressList>
+                  <v4:customerAddress>
+                     <v4:addressRoles>
+                        <v4:role>CurrentAddress</v4:role>
+                        <v4:role>ServiceAddress</v4:role>
+                        <v4:role>BillingAddress</v4:role>
+                        <v4:role>PreviousAddress</v4:role>
+                        <v4:role>CorrectedAddress</v4:role>
+                        <v4:role>DTAddress</v4:role>
+                     </v4:addressRoles>
+                     <v4:addressUniqueId>A123</v4:addressUniqueId>
+                     <v4:status>active</v4:status>
+                     <v4:address xsi:type="v4:addressType">
+                        <v4:externalId>0</v4:externalId>
+                        <v4:prefixDirectional>testPrefix</v4:prefixDirectional>
+                        <v4:streetNumber>101</v4:streetNumber>
+                        <v4:streetName>Lawrenceville Hwy</v4:streetName>
+                        <v4:streetType>hwy</v4:streetType>
+                        <v4:line2>n/a</v4:line2>
+                        <v4:postfixDirectional>testPostfix</v4:postfixDirectional>
+                        <v4:city>Norcross</v4:city>
+                        <v4:stateOrProvince>Georgia</v4:stateOrProvince>
+                        <v4:postalCode>30093</v4:postalCode>
+                        <v4:country>USA</v4:country>
+                        <v4:countyParishBorough>Gwinnet</v4:countyParishBorough>
+                        <v4:addressBlock>test block</v4:addressBlock>
+                        <v4:howLongAtAddress>10</v4:howLongAtAddress>
+                        <v4:dwellingType>apartment</v4:dwellingType>
+                        <v4:inEffect>2011-05-01</v4:inEffect>
+                        <v4:expiration/>
+                        <v4:changeType>testChange</v4:changeType>
+                        <v4:hasHadServicePreviously>false</v4:hasHadServicePreviously>
+                        <v4:cityAlias>Norcross</v4:cityAlias>
+                        <v4:gasStartAt/>
+                        <v4:electricityStartAt/>
+                        <v4:addressOwnership>own</v4:addressOwnership>
+                     </v4:address>
+                  </v4:customerAddress>
+                  
+                  <v4:customerAddress>
+                     <v4:addressRoles>
+                        <v4:role>PreviousAddress</v4:role>
+                     </v4:addressRoles>
+                     <v4:addressUniqueId>A124</v4:addressUniqueId>
+                     <v4:status>active</v4:status>
+                     <v4:address xsi:type="v4:addressType">
+                        <v4:externalId>0</v4:externalId>
+                        <v4:prefixDirectional>testPrefix</v4:prefixDirectional>
+                        <v4:streetNumber>101</v4:streetNumber>
+                        <v4:streetName>Lawrenceville Hwy</v4:streetName>
+                        <v4:streetType>hwy</v4:streetType>
+                        <v4:line2>n/a</v4:line2>
+                        <v4:postfixDirectional>testPostfix</v4:postfixDirectional>
+                        <v4:city>Norcross</v4:city>
+                        <v4:stateOrProvince>Georgia</v4:stateOrProvince>
+                        <v4:postalCode>30093</v4:postalCode>
+                        <v4:country>USA</v4:country>
+                        <v4:countyParishBorough>Gwinnet</v4:countyParishBorough>
+                        <v4:addressBlock>test block</v4:addressBlock>
+                        <v4:howLongAtAddress>10</v4:howLongAtAddress>
+                        <v4:dwellingType>apartment</v4:dwellingType>
+                        <v4:inEffect>2011-05-01</v4:inEffect>
+                        <v4:expiration/>
+                        <v4:changeType>testChange</v4:changeType>
+                        <v4:hasHadServicePreviously>false</v4:hasHadServicePreviously>
+                        <v4:cityAlias>Norcross</v4:cityAlias>
+                        <v4:gasStartAt/>
+                        <v4:electricityStartAt/>
+                        <v4:addressOwnership>own</v4:addressOwnership>
+                     </v4:address>
+                  </v4:customerAddress>
+               </v4:addressList>
+               <v4:securityVerificationInfo>
+                  <v4:pin>1234</v4:pin>
+                  <v4:securityQuestion>What is my password?</v4:securityQuestion>
+                  <v4:securityAnswer>as usual</v4:securityAnswer>
+               </v4:securityVerificationInfo>
+               <v4:billingDeliveryPreference>paper</v4:billingDeliveryPreference>
+            </v4:customerInfo>
+         </v4:request>
+      </v4:customerManagementRequestResponse>

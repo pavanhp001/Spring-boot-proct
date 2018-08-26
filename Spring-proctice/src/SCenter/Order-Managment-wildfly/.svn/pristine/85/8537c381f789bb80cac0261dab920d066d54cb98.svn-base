@@ -1,0 +1,1 @@
+ALTER TABLE V_TX.OM_JOB  ADD REASON character varying(255);

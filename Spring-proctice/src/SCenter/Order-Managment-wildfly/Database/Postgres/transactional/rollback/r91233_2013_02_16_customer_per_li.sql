@@ -1,0 +1,1 @@
+ALTER TABLE V_tx.om_line_item DROP COLUMN li_owner_ext_id;

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 	
+	attributeFormDefault="unqualified" 
+	elementFormDefault="qualified"
+	targetNamespace="http://xml.A.com/v1"
+	xmlns:ac="http://xml.A.com/v1" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+			
+	<xs:element name="address" type="ac:addressType" />
+
+	<xs:complexType name="addressType">
+		<xs:sequence>
+			<xs:element name="prefixDirectional" type="xs:string" minOccurs="0" maxOccurs="1" />		
+			<xs:element name="streetNumber" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="streetName" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="streetType" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="line2" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="postfixDirectional" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="city" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="stateOrProvince" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="postalCode" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="countyParishBorough" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="country" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="addressBlock" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="hasHadServicePreviously" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>		
+	</xs:complexType>
+	
+</xs:schema>

@@ -1,0 +1,712 @@
+<v4:providerResults xmlns:v4="http://xml.A.com/v4" xsi:type="v4:productResponseType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+               <v4:provider externalId="24699452" name="">
+                  <v4:source>internal</v4:source>
+               </v4:provider>
+               <v4:productInfo externalId="TW-CHARLOTTE-BUNDLE3">
+                  <v4:product>
+                     <v4:externalId>TW-CHARLOTTE-BUNDLE3</v4:externalId>
+                     <v4:productCategoryList>
+                        <v4:productCategory displayName="bundles">bundles</v4:productCategory>
+                     </v4:productCategoryList>
+                     <v4:name>Digital Trio</v4:name>
+                     <v4:channels>
+                        <v4:channel>callCenter</v4:channel>
+                     </v4:channels>
+                     <v4:provider externalId="23928" name="Time Warner Cable - Carolinas">
+                        <v4:source>internal</v4:source>
+                        <v4:parent externalId="107" name="Time Warner Cable"/>
+                     </v4:provider>
+                     <v4:priceInfo>
+                        <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                        <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                     </v4:priceInfo>
+                     <v4:capabilityList>
+                        <v4:capability name="analogCable"/>
+                        <v4:capability name="digitalCable"/>
+                        <v4:capability name="wiredDataUpSpeed"/>
+                        <v4:capability name="wiredDataDownSpeed"/>
+                        <v4:capability name="localPhone"/>
+                        <v4:capability name="longDistancePhone"/>
+                     </v4:capabilityList>
+                  </v4:product>
+                  <v4:productDetails>
+                     <v4:feature type="Anonymous Call Block">
+                        <v4:externalId>ANON_CALL_BLK</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:included/>
+                        <v4:required>false</v4:required>
+                        <v4:available>true</v4:available>
+                        <v4:dataConstraints>
+                           <v4:booleanConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Auto-Busy Redial">
+                        <v4:externalId>AUTO_BUSY_RDL</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:required>false</v4:required>
+                        <v4:available>false</v4:available>
+                        <v4:dataConstraints>
+                           <v4:booleanConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Call Block">
+                        <v4:externalId>CALL_BLOCK</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:required>false</v4:required>
+                        <v4:available>false</v4:available>
+                        <v4:dataConstraints>
+                           <v4:booleanConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Call Forwarding">
+                        <v4:externalId>CALL_FWD</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:included/>
+                        <v4:required>false</v4:required>
+                        <v4:available>true</v4:available>
+                        <v4:dataConstraints>
+                           <v4:booleanConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Call Forwarding - Busy Line">
+                        <v4:externalId>CALL_FWD_BUSY</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:required>false</v4:required>
+                        <v4:available>false</v4:available>
+                        <v4:dataConstraints>
+                           <v4:booleanConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Call Forwarding - No Answer">
+                        <v4:externalId>CALL_FWD_NA</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:required>false</v4:required>
+                        <v4:available>false</v4:available>
+                        <v4:dataConstraints>
+                           <v4:booleanConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Caller ID w/Name and Number">
+                        <v4:externalId>CALL_ID_NAME_NUM</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:included/>
+                        <v4:required>false</v4:required>
+                        <v4:available>true</v4:available>
+                        <v4:dataConstraints>
+                           <v4:booleanConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Caller ID w/ Number Only">
+                        <v4:externalId>CALL_ID_NUM_ONLY</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:required>false</v4:required>
+                        <v4:available>false</v4:available>
+                        <v4:dataConstraints>
+                           <v4:booleanConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Call Return">
+                        <v4:externalId>CALL_RETURN</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:required>false</v4:required>
+                        <v4:available>false</v4:available>
+                        <v4:dataConstraints>
+                           <v4:booleanConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Call Waiting">
+                        <v4:externalId>CALL_WAIT</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:included/>
+                        <v4:required>false</v4:required>
+                        <v4:available>true</v4:available>
+                        <v4:dataConstraints>
+                           <v4:booleanConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Call Waiting ID (Deluxe)">
+                        <v4:externalId>CALL_WAIT_ID</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:included/>
+                        <v4:required>false</v4:required>
+                        <v4:available>true</v4:available>
+                        <v4:dataConstraints>
+                           <v4:booleanConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Connection Type" description="Type of internet connection">
+                        <v4:externalId>CONN_TYPE</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:included/>
+                        <v4:required>false</v4:required>
+                        <v4:available>true</v4:available>
+                        <v4:dataConstraints>
+                           <v4:stringConstraint>
+                              <v4:value>Cable Modem</v4:value>
+                           </v4:stringConstraint>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Digital Receivers">
+                        <v4:externalId>DIG_RCVR</v4:externalId>
+                        <v4:priceTierList>
+                           <v4:priceTier>
+                              <v4:price>
+                                 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                                 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                                 <v4:includeInTotalPrice/>
+                              </v4:price>
+                              <v4:rangeStart>1</v4:rangeStart>
+                           </v4:priceTier>
+                           <v4:priceTier>
+                              <v4:price>
+                                 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                                 <v4:baseRecurringPrice>12.24</v4:baseRecurringPrice>
+                                 <v4:includeInTotalPrice/>
+                              </v4:price>
+                              <v4:rangeStart>2</v4:rangeStart>
+                           </v4:priceTier>
+                        </v4:priceTierList>
+                        <v4:required>false</v4:required>
+                        <v4:available>true</v4:available>
+                        <v4:dataConstraints>
+                           <v4:integerConstraint>
+                              <v4:minValue>1</v4:minValue>
+                              <v4:maxValue>8</v4:maxValue>
+                           </v4:integerConstraint>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Distinctive Ring">
+                        <v4:externalId>DIST_RING</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:required>false</v4:required>
+                        <v4:available>false</v4:available>
+                        <v4:dataConstraints>
+                           <v4:booleanConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Domestic Long Distance">
+                        <v4:externalId>DOM_LONG_DIST</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:included/>
+                        <v4:required>false</v4:required>
+                        <v4:available>true</v4:available>
+                        <v4:dataConstraints>
+                           <v4:stringConstraint>
+                              <v4:value>Included</v4:value>
+                           </v4:stringConstraint>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="DVRs">
+                        <v4:externalId>DVR</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:required>false</v4:required>
+                        <v4:available>false</v4:available>
+                        <v4:dataConstraints>
+                           <v4:integerConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Enhanced Call Waiting">
+                        <v4:externalId>EHC_CALL_WAIT</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:required>false</v4:required>
+                        <v4:available>false</v4:available>
+                        <v4:dataConstraints>
+                           <v4:booleanConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="HD/DVRs">
+                        <v4:externalId>HD_DVR</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>24.79</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:required>false</v4:required>
+                        <v4:available>true</v4:available>
+                        <v4:dataConstraints>
+                           <v4:integerConstraint>
+                              <v4:minValue>0</v4:minValue>
+                              <v4:maxValue>3</v4:maxValue>
+                           </v4:integerConstraint>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="HD Receivers">
+                       <v4:externalId>HD_RCVR</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>12.24</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:required>false</v4:required>
+                        <v4:available>true</v4:available>
+                        <v4:dataConstraints>
+                           <v4:integerConstraint>
+                              <v4:minValue>0</v4:minValue>
+                              <v4:maxValue>3</v4:maxValue>
+                           </v4:integerConstraint>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Included Domestic Long Distance Minutes">
+                        <v4:externalId>INC_DOM_LONG_DIST_MIN</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:included/>
+                        <v4:required>false</v4:required>
+                        <v4:available>true</v4:available>
+                        <v4:dataConstraints>
+                           <v4:integerConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="International Long Distance">
+                        <v4:externalId>INT_LONG_DIST</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:required>false</v4:required>
+                        <v4:available>false</v4:available>
+                        <v4:dataConstraints>
+                           <v4:stringConstraint>
+                              <v4:value>International Long Distance</v4:value>
+                           </v4:stringConstraint>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Local Channels Available">
+                        <v4:externalId>LOCAL_CHANNEL_AVAIL</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:included/>
+                        <v4:required>false</v4:required>
+                        <v4:available>true</v4:available>
+                        <v4:dataConstraints>
+                           <v4:booleanConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Message Indicator">
+                        <v4:externalId>MSG_IND</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:required>false</v4:required>
+                        <v4:available>false</v4:available>
+                        <v4:dataConstraints>
+                           <v4:booleanConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Total Channels Available">
+                        <v4:externalId>NUM_CHANNEL_AVAIL</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:included/>
+                        <v4:required>false</v4:required>
+                        <v4:available>true</v4:available>
+                        <v4:dataConstraints>
+                           <v4:integerConstraint>
+                              <v4:value>200</v4:value>
+                           </v4:integerConstraint>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Number of E-Mail Boxes Included">
+                        <v4:externalId>NUM_EMAILS</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:included/>
+                        <v4:required>false</v4:required>
+                        <v4:available>true</v4:available>
+                        <v4:dataConstraints>
+                           <v4:integerConstraint>
+                              <v4:value>10</v4:value>
+                           </v4:integerConstraint>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Priority Ringing">
+                        <v4:externalId>PRI_RING</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:required>false</v4:required>
+                        <v4:available>false</v4:available>
+                        <v4:dataConstraints>
+                           <v4:booleanConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Privacy Service">
+                        <v4:externalId>PVCY_SRVCE</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:required>false</v4:required>
+                        <v4:available>false</v4:available>
+                        <v4:dataConstraints>
+                           <v4:booleanConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Receivers Included">
+                        <v4:externalId>RCVRS_INCL</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:included/>
+                        <v4:required>false</v4:required>
+                        <v4:available>true</v4:available>
+                        <v4:dataConstraints>
+                           <v4:integerConstraint>
+                              <v4:value>1</v4:value>
+                           </v4:integerConstraint>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Remote Access to Call Forwarding">
+                        <v4:externalId>REM_CALL_FWD</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:required>false</v4:required>
+                        <v4:available>false</v4:available>
+                        <v4:dataConstraints>
+                           <v4:booleanConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Repeat Dialing">
+                        <v4:externalId>RPT_DIAL</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:required>false</v4:required>
+                        <v4:available>false</v4:available>
+                        <v4:dataConstraints>
+                           <v4:booleanConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Security Screen">
+                        <v4:externalId>SEC_SCEEN</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:required>false</v4:required>
+                        <v4:available>false</v4:available>
+                        <v4:dataConstraints>
+                           <v4:booleanConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Selective Call Acceptance">
+                        <v4:externalId>SEL_CALL_ACC</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:required>false</v4:required>
+                        <v4:available>false</v4:available>
+                        <v4:dataConstraints>
+                           <v4:booleanConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Selective Call Forward">
+                        <v4:externalId>SEL_CALL_FWD</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:required>false</v4:required>
+                        <v4:available>false</v4:available>
+                        <v4:dataConstraints>
+                           <v4:booleanConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Speed Dial">
+                        <v4:externalId>SPD_DIAL</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:included/>
+                        <v4:required>false</v4:required>
+                        <v4:available>true</v4:available>
+                        <v4:dataConstraints>
+                           <v4:booleanConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Three Way Calling">
+                        <v4:externalId>THREE_WAY_CALL</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                       </v4:price>
+                        <v4:included/>
+                        <v4:required>false</v4:required>
+                        <v4:available>true</v4:available>
+                        <v4:dataConstraints>
+                           <v4:booleanConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Talking Call Waiting">
+                        <v4:externalId>TLK_CALL_WAIT</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:required>false</v4:required>
+                        <v4:available>false</v4:available>
+                        <v4:dataConstraints>
+                           <v4:booleanConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:feature type="Voice Mail Service">
+                        <v4:externalId>VOICE_MAIL</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>3.95</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:required>false</v4:required>
+                        <v4:available>true</v4:available>
+                        <v4:dataConstraints>
+                           <v4:booleanConstraint/>
+                        </v4:dataConstraints>
+                     </v4:feature>
+                     <v4:featureGroup type="Connection Speed" description="Which internet speed would you like?">
+                        <v4:externalId>CONN_SPEED</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:required>true</v4:required>
+                        <v4:available>true</v4:available>
+                        <v4:dataConstraints>
+                           <v4:stringConstraint>
+                              <v4:value>Which internet speed would you like?</v4:value>
+                           </v4:stringConstraint>
+                        </v4:dataConstraints>
+                        <v4:feature type="Internet Speed Tier 1" description="Internet Speed Tier 1">
+                           <v4:externalId>INTERNET_SPEED1</v4:externalId>
+                           <v4:price>
+                              <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                              <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                              <v4:includeInTotalPrice/>
+                           </v4:price>
+                           <v4:included/>
+                           <v4:required>false</v4:required>
+                           <v4:available>true</v4:available>
+                           <v4:dataConstraints>
+                              <v4:stringConstraint comparableValue="10.0">
+                                 <v4:value>10 Mbps</v4:value>
+                              </v4:stringConstraint>
+                           </v4:dataConstraints>
+                           <v4:capabilities>
+                              <v4:featureCapability name="DOWNLOAD_SPEED" value="10.0" valueDataType="double">10 Mbps</v4:featureCapability>
+                              <v4:featureCapability name="UPLOAD_SPEED" value="1.0" valueDataType="double">1 Mbps</v4:featureCapability>
+                           </v4:capabilities>
+                        </v4:feature>
+                        <v4:feature type="Internet Speed Tier 2" description="Internet Speed Tier 2">
+                           <v4:externalId>INTERNET_SPEED2</v4:externalId>
+                           <v4:price>
+                              <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                              <v4:baseRecurringPrice>9.95</v4:baseRecurringPrice>
+                              <v4:includeInTotalPrice/>
+                           </v4:price>
+                           <v4:required>false</v4:required>
+                           <v4:available>true</v4:available>
+                           <v4:dataConstraints>
+                              <v4:stringConstraint comparableValue="20.0">
+                                 <v4:value>20 Mbps</v4:value>
+                              </v4:stringConstraint>
+                           </v4:dataConstraints>
+                           <v4:capabilities>
+                              <v4:featureCapability name="DOWNLOAD_SPEED" value="20.0" valueDataType="double">20 Mbps</v4:featureCapability>
+                              <v4:featureCapability name="UPLOAD_SPEED" value="1.0" valueDataType="double">1 Mbps</v4:featureCapability>
+                           </v4:capabilities>
+                        </v4:feature>
+                        <v4:feature type="Internet Speed Tier 3" description="Internet Speed Tier 3">
+                           <v4:externalId>INTERNET_SPEED3</v4:externalId>
+                           <v4:price>
+                              <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                              <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                              <v4:includeInTotalPrice/>
+                           </v4:price>
+                           <v4:required>false</v4:required>
+                           <v4:available>false</v4:available>
+                           <v4:dataConstraints>
+                              <v4:stringConstraint>
+                                 <v4:value>Internet Speed Tier 3</v4:value>
+                              </v4:stringConstraint>
+                           </v4:dataConstraints>
+                        </v4:feature>
+                        <v4:feature type="Internet Speed Tier 4" description="Internet Speed Tier 4">
+                           <v4:externalId>INTERNET_SPEED4</v4:externalId>
+                           <v4:price>
+                              <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                              <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                              <v4:includeInTotalPrice/>
+                           </v4:price>
+                           <v4:required>false</v4:required>
+                           <v4:available>false</v4:available>
+                           <v4:dataConstraints>
+                              <v4:stringConstraint>
+                                 <v4:value>Internet Speed Tier 4</v4:value>
+                              </v4:stringConstraint>
+                           </v4:dataConstraints>
+                        </v4:feature>
+                        <v4:feature type="Internet Speed Tier 5" description="Internet Speed Tier 5">
+                           <v4:externalId>INTERNET_SPEED5</v4:externalId>
+                           <v4:price>
+                              <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                              <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                              <v4:includeInTotalPrice/>
+                           </v4:price>
+                           <v4:required>false</v4:required>
+                           <v4:available>false</v4:available>
+                           <v4:dataConstraints>
+                              <v4:stringConstraint>
+                                 <v4:value>Internet Speed Tier 5</v4:value>
+                              </v4:stringConstraint>
+                           </v4:dataConstraints>
+                        </v4:feature>
+                        <v4:selectionType>
+                           <v4:pickOne/>
+                        </v4:selectionType>
+                     </v4:featureGroup>
+                     <v4:featureGroup type="Modem Option" description="Select Modem Option">
+                        <v4:externalId>MODEM_OPTION</v4:externalId>
+                        <v4:price>
+                           <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                           <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                           <v4:includeInTotalPrice/>
+                        </v4:price>
+                        <v4:included/>
+                        <v4:required>false</v4:required>
+                        <v4:available>true</v4:available>
+                        <v4:dataConstraints>
+                           <v4:stringConstraint>
+                              <v4:value>Select Modem Option</v4:value>
+                           </v4:stringConstraint>
+                        </v4:dataConstraints>
+                        <v4:feature type="Lease Modem" description="Modem Option">
+                           <v4:externalId>LEASE_MODEM</v4:externalId>
+                           <v4:price>
+                              <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+                              <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+                              <v4:includeInTotalPrice/>
+                           </v4:price>
+                           <v4:included/>
+                           <v4:required>false</v4:required>
+                           <v4:available>true</v4:available>
+                           <v4:dataConstraints>
+                              <v4:stringConstraint>
+                                 <v4:value>Modem Option</v4:value>
+                              </v4:stringConstraint>
+                           </v4:dataConstraints>
+                        </v4:feature>
+                        <v4:selectionType>
+                           <v4:pickOne/>
+                        </v4:selectionType>
+                     </v4:featureGroup>
+                     <v4:marketingHighlights>
+                        <v4:marketingHighlight>Over 200 all digital channels, including more than 40 Music Choice channels</v4:marketingHighlight>
+                        <v4:marketingHighlight>Unlimited calling anywhere in the U.S, Canada, and Puerto Rico</v4:marketingHighlight>
+                        <v4:marketingHighlight>Download speeds up to 10 Mbps</v4:marketingHighlight>
+                        <v4:marketingHighlight>TV&amp;#8482; app for iPad&amp;#8482;</v4:marketingHighlight>
+                        <v4:marketingHighlight>Popular features including Call Waiting, Caller ID on TV, Call Forwarding, Three Way Calling and more</v4:marketingHighlight>
+                        <v4:marketingHighlight>FREE Anti-Virus protection, Anti-spam, Firewall protection, web support</v4:marketingHighlight>
+                     </v4:marketingHighlights>
+                     <v4:descriptiveInfo description="" type="longDescription">
+                        <v4:value>With this bundle  you'll get over 200 all digital channels  including more than 40 Music Choice channels  Interactive channel guide  Movies On Demand  and Free On Demand. Also  turn any room in your house into a TV room with the Time Warner Cable TV app for iPad. PLUS get Road Runner High Speed Online and enjoy an always-on blazing fast Internet connection with download speeds up to 10.0 Mbps AND get Digital Phone and enjoy unlimited local and long distance calling anywhere in the US  Canada  and Puerto Rico.</v4:value>
+                     </v4:descriptiveInfo>
+                  </v4:productDetails>
+               </v4:productInfo>
+            </v4:providerResults>

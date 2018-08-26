@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://xml.A.com/v4/serviceQualification"
+	targetNamespace="http://xml.A.com/v4/serviceQualification"
+	xmlns:ac="http://xml.A.com/v4" xmlns:vndr="http://xml.A.com/v4/VendorRequestResponse/"
+	xmlns:s2="http://xml.A.com/v4"
+	xmlns:comm="http://xml.A.com/common">
+	<xs:import schemaLocation="vendorRequestResponse.xsd"
+		namespace="http://xml.A.com/v4/VendorRequestResponse/" />
+	<xs:import schemaLocation="common.xsd" namespace="http://xml.A.com/common" />
+	<xs:import schemaLocation="address.xsd" namespace="http://xml.A.com/v4" />
+	<xs:import schemaLocation="serviceability.xsd" namespace="http://xml.A.com/v4" />
+
+	<xs:complexType name="ServiceQualificationRequest">
+		<xs:complexContent>
+			<xs:extension base="vndr:RtimRequest">
+				<xs:sequence>
+					<xs:element name="statusCode" type="xs:string"/>
+					<xs:element name="phone" type="comm:Phone" minOccurs="0" maxOccurs="3"/>
+					<xs:element name="name" type="comm:Name" minOccurs="0"/>
+					<xs:element name="serviceAddress" type="ac:addressType"/>
+					<xs:element name="billingAddress" type="ac:addressType" minOccurs="0"/>		
+					<xs:element name="request" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="privacyNotice" type="xs:string"/>
+					<xs:element name="addrId" type="xs:string"/>
+					</xs:sequence>
+			</xs:extension>	
+		</xs:complexContent>
+	</xs:complexType>
+		
+	<xs:complexType name="ServiceQualificationResponse">
+		<xs:complexContent>
+			<xs:extension base="vndr:RtimResponse">
+				<xs:sequence>
+				<xs:element name="statusCode" type="xs:string"/>
+				<xs:element name="candidateAddressList" minOccurs="0"
+					maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							When the service is unable to find a single
+							address match for the
+							given address information, then this element
+							is populated with
+							the suggested address data from the database.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="candidateAddress" minOccurs="0"
+								maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation>
+										Candidate addresses contain all of the
+										information in the
+										addressType and adds a matching score
+										which indicates how	well
+										we consider this candidate to
+										match the input address.
+										<B>Note: You should not base any solutions on any
+											particular values, as the algorithm is constantly reviewed
+											and adjusted. You should base all logic only on the order
+											implied in the list by these values.</B>
+									</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="ac:addressType">
+											<xs:attribute name="matchScore" type="xs:int"
+												use="optional" />
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				
+            	<xs:element name="serviceableMarketItems" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								A list of market items, which represent the set of serviceable
+								items at the matched address.
+							</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:annotation>
+								<xs:documentation>
+									A market item is an item that is serviceable within a given
+									market.
+								</xs:documentation>
+							</xs:annotation>
+							<xs:sequence>
+								<xs:element name="marketItemInfo" type="ac:marketItemInfoType"
+									minOccurs="0" maxOccurs="unbounded" />
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					
+					<xs:element name="validateAddressResult" type="comm:ValidateAddressResult" maxOccurs="1" minOccurs="0"/>
+					<xs:element name="sessionId" type="xs:string" />
+										
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>		
+
+	<xs:element name="serviceQualificationRequest" type="tns:ServiceQualificationRequest"/>
+	<xs:element name="serviceQualificationResponse" type="tns:ServiceQualificationResponse"/>
+</xs:schema>

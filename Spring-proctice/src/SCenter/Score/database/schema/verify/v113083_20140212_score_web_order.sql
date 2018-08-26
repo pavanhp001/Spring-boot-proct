@@ -1,0 +1,1 @@
+SELECT  'SCORE_WEB_ORDER', '1' AS EXPECTED, count(*) AS ACTUAL FROM information_schema.tables WHERE table_type = 'BASE TABLE' and table_schema NOT IN ('pg_catalog', 'information_schema') and table_name = 'SCORE_WEB_ORDER';

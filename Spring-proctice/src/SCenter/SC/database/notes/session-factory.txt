@@ -1,0 +1,11 @@
+<hibernate-configuration>
+  <session-factory>
+    <property name="dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="connection.url">jdbc:mysql://mssymnpd000.cj13vdlmpnba.us-east-1.rds.amazonaws.com/sym_sandbox</property>
+    <propertyname="connection.username">SYP</property>
+    <property name="connection.password">SYP</property> 
+      true
+    </property>
+  </session-factory>
+</hibernate-configuration>

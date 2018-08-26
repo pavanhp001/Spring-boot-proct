@@ -1,0 +1,30 @@
+<v4:orderManagementRequestResponse
+	xsi:schemaLocation="http://xml.AL.com/v4 orderManagement.xsd "
+	xmlns:v4="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<v4:correlationId>12345</v4:correlationId>
+	<v4:transactionTimeStamp>2011-11-10-05:00</v4:transactionTimeStamp>
+	<v4:transactionId>0</v4:transactionId>
+	<v4:transactionType>updateLineItem</v4:transactionType>
+	<v4:request>
+		<v4:agentId>default</v4:agentId>
+		<v4:orderId>16182</v4:orderId>
+		<v4:updatedLineItemInfo>
+			<v4:lineItem>
+				<v4:productDatasource dataSource="">internal</v4:productDatasource>
+				<v4:lineItemDetail>
+					<!--Product Unique Id -->
+					<v4:productUniqueId>9794</v4:productUniqueId>
+				</v4:lineItemDetail>
+				<!--Lineitem External Id -->
+				<v4:externalId>17195</v4:externalId>
+				<!--Selected Features customer wants to add -->
+				<v4:selectedFeatures>
+					<v4:features>
+						<v4:featureValue externalId="DIG_RCVR" value="1"
+							type="integer" />
+					</v4:features>
+				</v4:selectedFeatures>
+			</v4:lineItem>
+		</v4:updatedLineItemInfo>
+	</v4:request>
+</v4:orderManagementRequestResponse>

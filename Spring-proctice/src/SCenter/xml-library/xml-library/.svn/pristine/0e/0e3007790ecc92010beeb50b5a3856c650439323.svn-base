@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions
+    name="WebServiceProxyService" 
+    targetNamespace="http://xml.A.com/v4" 
+	xmlns:tns="http://xml.A.com/v4" 
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+	xmlns:ns1="http://schemas.xmlsoap.org/soap/http" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:ac="http://xml.A.com/v4" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+	
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://xml.A.com/v4" >
+			<xsd:include schemaLocation="http://xml.A.com/staging/v4/productManagement.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="ProductRequestMessage">
+		<wsdl:part name="parameters" element="ac:productEnterpriseRequest" />
+	</wsdl:message>
+	<wsdl:message name="ProductResponseMessage">
+		<wsdl:part name="parameters" element="ac:productEnterpriseResponse" />
+	</wsdl:message>
+	<wsdl:portType name="WebServiceProxyServicePortType">
+		<wsdl:operation name="GetProducts">
+			<wsdl:input name="productRequest" message="ac:ProductRequestMessage" />
+			<wsdl:output name="productResponse" message="ac:ProductResponseMessage" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="WebServiceProxyServiceSoapBinding" type="ac:WebServiceProxyServicePortType">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="GetProducts">
+			<soap:operation soapAction="http://sgdv3vm1.A.com:8802/services/product/v4" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="WebServiceProxyService">
+		<wsdl:port name="WebServiceProxyServicePort" binding="ac:WebServiceProxyServiceSoapBinding">
+			<soap:address location="http://sgdv3vm1.A.com:8802/services/product/v4" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

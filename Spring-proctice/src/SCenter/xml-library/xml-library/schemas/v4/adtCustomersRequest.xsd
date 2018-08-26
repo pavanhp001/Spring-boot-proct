@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://xml.A.com/v4/adtProvisioning/createcustomerreq/"
+	targetNamespace="http://xml.A.com/v4/adtProvisioning/createcustomerreq/">
+	<xs:element name="customers">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="customer">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element type="xs:string" name="source_id" />
+							<xs:element type="xs:string" name="fname" />
+							<xs:element type="xs:string" name="lname" />
+							<xs:element type="xs:string" name="spouse" />
+							<xs:element type="xs:string" name="address1" />
+							<xs:element type="xs:string" name="address2" />
+							<xs:element type="xs:string" name="cross_street" />
+							<xs:element type="xs:string" name="city" />
+							<xs:element type="xs:string" name="county" />
+							<xs:element type="xs:string" name="state" />
+							<xs:element type="xs:string" name="zip" />
+							<xs:element type="xs:long" name="phone1" />
+							<xs:element type="xs:long" name="phone2" />
+							<xs:element type="xs:long" name="phone3" />
+							<xs:element type="xs:long" name="phone4" />
+							<xs:element type="xs:string" name="email" />
+							<xs:element type="xs:string" name="beacon_score" />
+							<xs:element type="xs:int" name="credit_tracking_number" />
+							<xs:element type="xs:int" name="ssn" />
+							<xs:element type="xs:string" name="account_num" />
+							<xs:element type="xs:string" name="abort_code" />
+							<xs:element type="xs:float" name="mrr" />
+							<xs:element type="xs:string" name="contact_time" />
+							<xs:element type="xs:string" name="customer_purchase_price" />
+							<xs:element type="xs:string" name="customer_home_ownership" />
+							<xs:element type="xs:string" name="partner_company_unique_id" />
+							<xs:element type="xs:string" name="service_two_way_voice" />
+							<xs:element type="xs:string" name="service_cellular_backup" />
+							<xs:element type="xs:string" name="service_guard_response" />
+							<xs:element type="xs:string" name="service_maintenance" />
+							<xs:element type="xs:float" name="activation_fee" />
+							<xs:element type="xs:byte" name="contract_term_length" />
+							<xs:element type="xs:string" name="birthdate" />
+							<xs:element type="xs:string" name="lead_promo_code" />
+							<xs:element type="xs:string" name="lead_custom1" />
+							<xs:element type="xs:string" name="lead_custom2" />
+							<xs:element type="xs:string" name="lead_custom3" />
+							<xs:element type="xs:string" name="lead_custom4" />
+							<xs:element type="xs:string" name="lead_callcenter_notes" />
+							<xs:element name="EmergencyContacts">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="EmergencyContact">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string" name="ContactName" />
+													<xs:element type="xs:long" name="PhoneNumber" />
+													<xs:element type="xs:string" name="PhoneType" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="BillingInfo" maxOccurs="unbounded"
+								minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="xs:byte" name="BillTypeID" />
+										<xs:element type="xs:string" name="BillCCCardType" />
+										<xs:element type="xs:string" name="BillCCName" />
+										<xs:element type="xs:long" name="BillCCNumber" />
+										<xs:element type="xs:string" name="BillCCExpiration" />
+										<xs:element type="xs:string" name="BillingUses" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

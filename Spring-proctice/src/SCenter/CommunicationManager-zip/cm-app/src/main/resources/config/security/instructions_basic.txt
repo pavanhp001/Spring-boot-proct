@@ -1,0 +1,47 @@
+1) Add simpleAuthenticationPlugin to activemq.xml in your "ACTIVEMQ_HOME/conf" folder
+See the sample activemq.xml in same folder
+
+		<!-- Simple Authentication Plugin -->
+		<plugins>
+			<simpleAuthenticationPlugin>
+				<users>
+					<authenticationUser username="V" password="V"
+						groups="users,admins" />
+					<authenticationUser username="V1" password="V1"
+						groups="users" />
+					<authenticationUser username="guest" password="password"
+						groups="guests" />
+				</users>
+			</simpleAuthenticationPlugin>
+		</plugins>
+
+
+2) update credentials.properties in "ACTIVEMQ_HOME/conf" folder
+
+activemq.username=V
+activemq.password=V
+
+
+3) Update ra.xml in "JBOSS_HOME\server\default\deploy\activemq-rar-5.1.0.rar\META-INF" folder
+
+<config-property>
+			<description>The default user name that will be used to establish connections to the ActiveMQ server.</description>
+            <config-property-name>UserName</config-property-name>
+            <config-property-type>java.lang.String</config-property-type>
+            <config-property-value>V</config-property-value>
+  </config-property>
+  <config-property>
+  			<description>The default password that will be used to log the default user into the ActiveMQ server.</description> 
+            <config-property-name>Password</config-property-name>
+            <config-property-type>java.lang.String</config-property-type>
+            <config-property-value>V</config-property-value>
+</config-property>
+
+4) Update active-jms-ds.xml in "JBOSS_HOME\server\default\deploy\" folder
+
+ 
+      <UserName>V</UserName>
+      <Password>V</Password>
+     
+        
+        

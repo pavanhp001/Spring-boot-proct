@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" targetNamespace="http://xml.A.com/v4"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ac="http://xml.A.com/v4">
+
+	<xs:include schemaLocation="userAccess.xsd" />
+
+	<xs:element name="uamEnterpriseRequest" type="ac:enterpriseRequestDocumentType">
+	</xs:element>
+	<xs:element name="uamEnterpriseResponse" type="ac:enterpriseResponseDocumentType">
+	</xs:element>
+
+	<xs:complexType name="uamTransactionTypeType">
+		<xs:complexContent>
+			<xs:extension base="ac:abstractTransactionTypeType">
+				<xs:sequence>
+					<xs:annotation>
+						<xs:documentation>
+							Used to communicate the desired request action.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:element name="uamTransactionType">
+						<xs:simpleType>
+							<xs:restriction base="xs:token">
+								<xs:enumeration value="authenticateUser">
+									<xs:annotation>
+										<xs:documentation>
+											autheticate User
+										</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="createUser">
+									<xs:annotation>
+										<xs:documentation>
+											create User
+										</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="createResource">
+									<xs:annotation>
+										<xs:documentation>
+											create Resource
+										</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="createRole">
+									<xs:annotation>
+										<xs:documentation>
+											create Role
+										</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="attachResourceToUser">
+									<xs:annotation>
+										<xs:documentation>
+											attach Resource to user
+										</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="attachResourceToRole">
+									<xs:annotation>
+										<xs:documentation>
+											attach Resource to Role
+										</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="attachRoleToUser">
+									<xs:annotation>
+										<xs:documentation>
+											attach Role to User
+										</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="detachResourceFromUser">
+									<xs:annotation>
+										<xs:documentation>
+											detach Resource from User
+										</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="detachResourceFromRole">
+									<xs:annotation>
+										<xs:documentation>
+											detach Resource from Role
+										</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="detachRoleFromUser">
+									<xs:annotation>
+										<xs:documentation>
+											detach Role from User
+										</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="validateUser">
+									<xs:annotation>
+										<xs:documentation>
+											validate User based on User Login
+										</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+</xs:schema>

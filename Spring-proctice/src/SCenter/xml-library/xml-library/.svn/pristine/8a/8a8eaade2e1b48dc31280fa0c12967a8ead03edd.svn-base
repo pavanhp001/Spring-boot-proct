@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xml.A.com/v4/createSession/"
+	targetNamespace="http://xml.A.com/v4/createSession/"
+	xmlns:ac="http://xml.A.com/v4" xmlns:vndr="http://xml.A.com/v4/VendorRequestResponse/">
+
+	<import schemaLocation="vendorRequestResponse.xsd"
+		namespace="http://xml.A.com/v4/VendorRequestResponse/"></import>
+	<complexType name="CreateSessionRequest">
+		<complexContent>
+			<extension base="vndr:RtimResponse">
+				<sequence>
+						<element name="client">
+							<complexType>
+								<sequence>
+									<element name="name" type="string"></element>
+									<element name="clientId" type="string"></element>
+									<element name="requestId" type="string"></element>
+								</sequence>
+							</complexType>
+						</element>
+						<element name="sessionId" type="string"></element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="CreateSessionResponse">
+		<complexContent>
+			<extension base="vndr:RtimResponse">
+				<sequence>
+						<element name="sessionId" type="string"></element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+</schema>

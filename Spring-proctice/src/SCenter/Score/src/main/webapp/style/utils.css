@@ -1,0 +1,81 @@
+.minimizeView {
+    background-image: url("http://fc05.deviantart.net/fs71/i/2010/195/2/8/Boolean_1_1_by_PraX_08.png");
+    background-position: -242px -193px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 13px;
+    margin-left: -12px;
+    margin-right: 5px;
+    vertical-align: bottom;
+    width: 16px;
+    cursor: pointer;
+}
+
+.maxmizeView {
+    background-image: url("../images/maximize.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 16px;
+    margin-left: -12px;
+    margin-right: 5px;
+    vertical-align: bottom;
+    width: 16px;
+    cursor: pointer;
+}
+
+.statusToggle {
+  background-image: url("../images/resize.png");
+  background-position: -33px -5px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  float: right;
+  height: 15px;
+  width: 15px;
+}
+
+.minus {
+  background-position: -3px -5px;
+}
+.statusHistoryToggle {
+  background-image: url("../images/resize.png");
+  background-position: -207.5px -5px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  float: left;
+  height: 18px;
+  width: 15px;
+}
+
+.shMinus {
+  	background-position: -177px -5px;
+}
+
+.itemToggle {
+	background-image: url("../images/resize.png");
+	background-position: -89px -5px;
+	background-repeat: no-repeat;
+	border: 1px solid #98BACF;
+	border-radius: 2px 2px 2px 2px;
+	cursor: pointer;
+	float: right;
+	height: 15px;
+	width: 15px;
+}
+
+.itemMinus {
+  	background-position: -59px -5px;
+}
+
+.alignCenter {
+	text-align: center;
+}
+
+.loaderBlock {
+	background-image: url("../images/spinner1.gif");
+	background-position: center center;
+	background-repeat: no-repeat;
+	border: 1px solid #d9d9d9;
+	border-top: 0;
+}
+
+

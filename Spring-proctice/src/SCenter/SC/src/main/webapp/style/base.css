@@ -1,0 +1,42 @@
+* { padding: 0; margin: 0; }
+body { padding: 10px 25px; background-color: #fff; }
+p { display:block; position: relative; margin:  10px 0; }
+input + label { padding-left: 2px; vertical-align: middle; }
+input[type="checkbox"],
+input[type="radio"]{ width: 24px; height: 26px; position:relative; z-index: 10; opacity: 0; vertical-align: middle; }
+input[type="radio"] { height: 22px; width: 22px; }
+input + label:before { content: " "; background: url(customInputs.png) no-repeat left -2px; width: 24px; height: 30px; position: absolute; left: 0; top: 0; display:inline-block; z-index: 5; }
+input[type="checkbox"] + label:before { background-position: left -3px;}
+input[type="radio"] + label:before { background-position: -36px -3px;}
+
+/* HOVER STYLES */
+input[type="checkbox"]:hover + label:before,
+input[type="checkbox"] + label:hover:before  { background-position: left -34px; }
+input[type="checkbox"]:focus + label:before { background-position: left -65px; }
+input[type="radio"]:hover + label:before,
+input[type="radio"] + label:hover:before { background-position: -36px -34px; }
+input[type="radio"]:focus + label:before { background-position: -36px -65px; }
+
+/* CHECKED STYLES */
+input[type="checkbox"]:checked + label:before { background-position: left -133px; }
+input[type="checkbox"]:hover:checked + label:before,
+input[type="checkbox"]:focus:checked + label:before { background-position: left -166px; }
+input[type="checkbox"]:active:checked + label:before { background-position: left -199px; }
+
+input[type="radio"]:checked + label:before { background-position: -36px -133px; }
+input[type="radio"]:hover:checked + label:before,
+input[type="radio"]:focus:checked + label:before { background-position: -36px -166px; }
+input[type="radio"]:active:checked + label:before { background-position: -36px -199px; }
+
+/* DISABLED STYLES */
+input[type="checkbox"]:disabled + label:before { background-position: left -96px; }
+input[type="radio"]:disabled + label:before { background-position: -36px -96px; }
+input[type="checkbox"]:checked:disabled + label:before { background-position: left -232px; }
+input[type="radio"]:checked:disabled + label:before { background-position: -36px -232px; }
+
+label { color: #999; }
+input + label:hover,
+input:hover + label { color: #555; }
+
+/* DISABLED */
+input:disabled + label { color: #ccc; }

@@ -1,0 +1,19 @@
+<ehcache>
+    <!-- Required elements -->
+    <diskStore path="java.io.tmpdir"/>
+    <defaultCache
+        maxElementsInMemory="10000"
+        eternal="false"
+        timeToIdleSeconds="120"
+        timeToLiveSeconds="120"
+        overflowToDisk="true"/>    
+        
+          <cache name="com.AL.V.beans.entity.SalesOrder"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="360"
+           timeToLiveSeconds="360"
+           overflowToDisk="false"
+            />
+            
+</ehcache>

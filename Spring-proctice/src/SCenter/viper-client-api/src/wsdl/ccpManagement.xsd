@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+    targetNamespace="http://xml.A.com/v4" 
+    elementFormDefault="qualified" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:ac="http://xml.A.com/v4">
+
+    <xs:include schemaLocation="order.xsd" />
+	<xs:include schemaLocation="types.xsd" />
+
+    <xs:element name="ccpRequestResponse">
+    	<xs:complexType>
+            <xs:sequence>
+				<xs:element name="GUID" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="salesContext" type="ac:salesContextType" minOccurs="0" maxOccurs="1"/>                
+				<xs:element name="transactionType" minOccurs="1" maxOccurs="1">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:token">
+                            <xs:enumeration value="processOrderBroadCast"/>
+                            <xs:enumeration value="sendACFeedBackNotification"/>                            
+                            <xs:enumeration value="resendOrderSummaryEmail"/>
+                            <xs:enumeration value="getOrderCommunicationEvents"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>				
+				<xs:element name="status" type="ac:statusType" minOccurs="0" maxOccurs="1"/>
+	                
+				<!-- Request -->
+				<xs:element name="request" minOccurs="1" maxOccurs="1">
+					<xs:complexType>
+						<xs:annotation>
+	                    	<xs:documentation>
+	                         	Contains the information for requesting a calculation of price of
+	                         	of a set of order types.
+	                     	</xs:documentation>
+	                 	</xs:annotation>
+	                 
+						<xs:sequence>
+							<xs:element name="orderManagementRequestResponse" type="ac:orderType" 
+	                                	minOccurs="0" maxOccurs="1"/>
+							<xs:element name="wdFeedBackNotification" type="ac:ccpEventNotificationType" 
+	                                	minOccurs="0" maxOccurs="1"/>    
+	                        <xs:element name="emailContentId" type="xs:long" 
+	                                	minOccurs="0" maxOccurs="1"/>       	                                    
+						</xs:sequence>
+	                </xs:complexType>                                       
+	            </xs:element>
+	
+				<!-- Response : Only needed by client when calling getOrderCommunicationEvents(orderId) -->
+				<xs:element name="response" minOccurs="0" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="communicationEvents" type="ac:ccpCommunicationEventsType" 
+										minOccurs="1" maxOccurs="1"/>
+						</xs:sequence>
+					</xs:complexType>                                       
+				</xs:element>
+			</xs:sequence>    	   
+    	</xs:complexType>
+    </xs:element>
+</xs:schema>

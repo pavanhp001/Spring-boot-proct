@@ -1,0 +1,696 @@
+<v4:providerResults xmlns:v4="http://xml.AL.com/v4"
+	xsi:type="v4:productResponseType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<v4:provider externalId="100" name="">
+		<v4:source datasource="ATTSTI">realtime</v4:source>
+	</v4:provider>
+	<v4:productInfo externalId="RTS:ATTSTI:ATT-13-3TIV-200-ELT-UNL-J">
+		<v4:product>
+			<v4:externalId>RTS:ATTSTI:ATT-13-3TIV-200-ELT-UNL-J</v4:externalId>
+			<v4:productCategoryList>
+				<v4:productCategory displayName="cableTV">cableTV
+				</v4:productCategory>
+				<v4:productCategory displayName="localPhone">localPhone
+				</v4:productCategory>
+				<v4:productCategory displayName="highSpeedInternet">highSpeedInternet
+				</v4:productCategory>
+			</v4:productCategoryList>
+			<v4:name>U-VERSE U200 TV + INTERNET ELITE + VOICE UNLIMITED</v4:name>
+			<v4:channels>
+				<v4:channel>web</v4:channel>
+				<v4:channel>callCenter</v4:channel>
+			</v4:channels>
+			<v4:provider externalId="24699452" name="">
+				<v4:source datasource="ATTSTI">realtime</v4:source>
+			</v4:provider>
+			<v4:priceInfo>
+				<v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+				<v4:baseRecurringPrice>150.0</v4:baseRecurringPrice>
+			</v4:priceInfo>
+			<v4:capabilityList>
+				<v4:capability name="fiberDataDownSpeed" />
+				<v4:capability name="fiberDataUpSpeed" />
+				<v4:capability name="voip" />
+				<v4:capability name="iptv" />
+			</v4:capabilityList>
+		</v4:product>
+				  <v4:productDetails>
+			 <v4:feature description="U-verse Internet Speed" type="U-verse Internet Speed">
+				<v4:externalId>CONN_SPEED</v4:externalId>
+				<v4:price>
+				   <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+				   <v4:baseNonRecurringPriceUnits>USD</v4:baseNonRecurringPriceUnits>
+					   <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+					   <v4:baseRecurringPriceUnits>USD</v4:baseRecurringPriceUnits>
+					   <v4:includeInTotalPrice/>
+					</v4:price>
+					<v4:included/>
+					<v4:required>false</v4:required>
+					<v4:available>true</v4:available>
+					<v4:dataConstraints>
+					   <v4:stringConstraint>
+						  <v4:value>U-verse Internet Speed</v4:value>
+					   </v4:stringConstraint>
+					</v4:dataConstraints>
+					<v4:capabilities>
+					   <v4:featureCapability name="DOWN_SPEED" value="6" xsi:nil="true"/>
+					   <v4:featureCapability name="UP_SPEED" value="1.0" xsi:nil="true"/>
+					</v4:capabilities>
+				 </v4:feature>
+				 <v4:customization externalId="ATT-VID-PG-11" required="false" displayOrder="3110">
+					<v4:name>Video Programming Options</v4:name>
+					<v4:shortDescription>Video Programming Options-Select additional programming packages at a great low monthly fee.</v4:shortDescription>
+					<v4:longDescription>You may choose from the following packages:  HBO/Cinemax®, HBO®, Cinemax®, The Movie Package (Starz®, Encore®, Showtime®, FLIX ®, TMC®), Starz®, Encore®, Showtime Unlimited® (Showtime®, FLIX ®, TMC®), The Sports Package, Paquete Espanol Package, High Definition (HD) Service, HD Service with Premium Tier, and Fox Soccer Plus HD.</v4:longDescription>
+					<v4:options min="0" max="9" type="List">
+					   <v4:choice externalId="ATT-SHOWUNL" displayOrder="3180">
+						  <v4:name>Video Programming Options</v4:name>
+						  <v4:shortDescription>Showtime Unlimited</v4:shortDescription>
+						  <v4:longDescription>Get something for everyone with SHOWTIME UNLIMITED®. Up to 29 channels from Showtime, The Movie Channel and FLIX including exclusive Hollywood hits, breakthrough original series (including Nurse Jackie, US of Tara, and The Borgias), championship boxing, family programming, special events, documentaries, and more!</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>14.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					   <v4:choice externalId="37-648" displayOrder="3210">
+						  <v4:name>Video Programming Options</v4:name>
+						  <v4:shortDescription>High Definition (HD) Service with Premium Tier</v4:shortDescription>
+						  <v4:longDescription>HDTV service offers channels with extraordinary video resolution and superior digital sound. If you have an HD-ready TV, you can enhance your entertainment experience with AT&amp;T U-verse HD service.  Also includes HD Premium Tier, which  is an add-on package of prime, high-definition channels, including: Sony Movie Channel, NFL RedZone (seasonal), Palladia HD, Smithsonian Channel HD, and more.</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>17.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					   <v4:choice externalId="ATT-SOCCER" displayOrder="3240">
+						  <v4:name>Video Programming Options</v4:name>
+						  <v4:shortDescription>Fox Soccer Plus HD - Requires subscription to HD Service ($10/month)</v4:shortDescription>
+						  <v4:longDescription>Fox Soccer Plus HD is the premium sports network that elevates the soccer experience. It delivers live, exclusive soccer matches from the best leagues in the world including: England's Barclays Premier League, the UEFA Champions League, and Italy's Serie A.</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>15.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					   <v4:choice externalId="ATT-ENCORE" displayOrder="3160">
+						  <v4:name>Video Programming Options</v4:name>
+						  <v4:shortDescription>Encore</v4:shortDescription>
+						  <v4:longDescription>Encore® Movie Package is a reliable destination for those movies we all love. Enjoy up to 10 thematic movie channels, featuring the greatest selection of movies you want to see and see again. The channels include: Encore® Action, Encore® Drama, Encore® Love, Encore® Mystery, Encore® Wam, Encore® Westerns and Encore® (east and west feeds).</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>14.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					   <v4:choice externalId="ATT-CIN" displayOrder="3140">
+						  <v4:name>Video Programming Options</v4:name>
+						  <v4:shortDescription>Cinemax</v4:shortDescription>
+						  <v4:longDescription>Up to 24 Cinemax channels. Exclusive Hollywood premieres and the biggest variety of hit First-Run Theatrical Premieres, Top Box Office Releases and Movie Favorites make Cinemax the ultimate movie service. Turn to Cinemax every night at 10 p.m. for the MaxTime Hit movie, and every Saturday night at 10 p.m. for an exclusive movie premiere. Plus, catch the monthly Reel Life series for a riveting and eclectic showcase of independent documentaries.</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>14.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					   <v4:choice externalId="37-629" displayOrder="3190">
+						  <v4:name>Video Programming Options</v4:name>
+						  <v4:shortDescription>The Sports Package</v4:shortDescription>
+						  <v4:longDescription>Includes Fox College Sports plus The Sportsman Channel, GolTV (English), Horseracing TV, and more.</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>10.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					   <v4:choice externalId="37-646" displayOrder="3150">
+						  <v4:name>Video Programming Options</v4:name>
+						  <v4:shortDescription>The Movie Package</v4:shortDescription>
+						  <v4:longDescription>Up to 53 channels of Starz, Encore, SHOWTIME, The Movie Channel (TMC), and FLIX.</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>20.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					   <v4:choice externalId="ATT-HBO" displayOrder="3120">
+						  <v4:name>Video Programming Options</v4:name>
+						  <v4:shortDescription>HBO - Free for three months</v4:shortDescription>
+						  <v4:longDescription>Up to 28 HBO® channels.  Regular price $16.  HBO® offers the most innovative, groundbreaking entertainment around with powerful, award-winning original movies, specials, and series; exclusive boxing coverage, sports series and specials; and the biggest hit movies coming out of Hollywood. On Sunday nights, HBO® showcases its award-winning original series. Saturday nights are the destination for top Hollywood hits and HBO® Films' acclaimed movies.</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					   <v4:choice externalId="38-630-FREE3" displayOrder="3110">
+						  <v4:name>Video Programming Options</v4:name>
+						  <v4:shortDescription>HBO/Cinemax Package - Free for three months</v4:shortDescription>
+						  <v4:longDescription>28 HBO Channels; 24 Cinemax Channels.  Regular price $26.</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					   <v4:choice externalId="ATT-STARZ" displayOrder="3170">
+						  <v4:name>Video Programming Options</v4:name>
+						  <v4:shortDescription>Starz</v4:shortDescription>
+						  <v4:longDescription>Up to 14 Starz® channels. Enjoy the hottest new movies on Starz® East, Starz® West, Starz® Comedy, Starz® Edge, Starz® Kids &amp; Family, Starz® InBlack and Starz® Cinema. RetroPlex is home to the best movies from '50s '60s &amp; '70s. IndiePlex offers art house and independent films.</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>14.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					   <v4:choice externalId="37-647" displayOrder="3200">
+						  <v4:name>Video Programming Options</v4:name>
+						  <v4:shortDescription>High Definition (HD) Service</v4:shortDescription>
+						  <v4:longDescription>HDTV service offers channels with extraordinary video resolution and superior digital sound. If you have an HD-ready TV, you can enhance your entertainment experience with AT&amp;T U-verse HD service.</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>10.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					   <v4:choice externalId="37-868" displayOrder="3230">
+						  <v4:name>Video Programming Options</v4:name>
+						  <v4:shortDescription>Paquete Espanol Package</v4:shortDescription>
+						  <v4:longDescription>Spanish-language package featuring novellas, movies, news, sports, children's programming, and more.</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>15.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					</v4:options>
+				 </v4:customization>
+				 <v4:customization externalId="ATT-VID-WIRELESS-RECEIVER-LOW-P" required="true" displayOrder="3002">
+					<v4:name>Video Hardware Options</v4:name>
+					<v4:shortDescription>Would you like any of your receivers to be wireless?  A $49 onetime charge applies, plus the standard $7 per month receiver fee.</v4:shortDescription>
+					<v4:longDescription>An AT&amp;T Wireless Receiver gives you the freedom to set up your TV virtually anywhere you want it - in any room, on any wall and without the need to connect to an existing TV outlet.</v4:longDescription>
+					<v4:options min="1" max="1" type="Selection">
+					   <v4:choice externalId="ATT-WIRELESS-RECEIVER-ZERO" displayOrder="3030">
+						  <v4:name>AT&amp;T U-verse Hardware Options</v4:name>
+						  <v4:shortDescription>No Wireless Receivers</v4:shortDescription>
+						  <v4:longDescription>All of your receivers will be wired.</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					   <v4:choice externalId="ATT-WIRELESS-RECEIVER-ONE" displayOrder="3031">
+						  <v4:name>AT&amp;T U-verse Hardware Options</v4:name>
+						  <v4:shortDescription>1 Wireless Receiver</v4:shortDescription>
+						  <v4:longDescription>Design your room and arrange your furniture to suit your style, since the TV is no longer tied to the TV outlet.  Have a TV in rooms not typically wired for TV.  Easily move your TV for special events or special house guests.  Use one receiver to serve multiple, less-frequented rooms in your home.</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>49.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					   <v4:choice externalId="ATT-WIRELESS-RECEIVER-TWO" displayOrder="3032">
+						  <v4:name>AT&amp;T U-verse Hardware Options</v4:name>
+						  <v4:shortDescription>2 Wireless Receivers</v4:shortDescription>
+						  <v4:longDescription>Design your room and arrange your furniture to suit your style, since the TV is no longer tied to the TV outlet.  Have a TV in rooms not typically wired for TV.  Easily move your TV for special events or special house guests.  Use one receiver to serve multiple, less-frequented rooms in your home.</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>98.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					</v4:options>
+				 </v4:customization>
+				 <v4:customization externalId="UVERSE-ACTIVATION" required="true" displayOrder="6200">
+					<v4:name>U-verse TV Activation Fee</v4:name>
+					<v4:shortDescription>$49 Required TV Activation Fee</v4:shortDescription>
+					<v4:longDescription>A one-time TV service activation fee of $49 applies.</v4:longDescription>
+					<v4:options min="1" max="1" type="Selection">
+					   <v4:choice externalId="UV-FEE-ACT" displayOrder="3500">
+						  <v4:name>U-verse Activation Fee</v4:name>
+						  <v4:shortDescription>U-verse TV Activation Fee</v4:shortDescription>
+						  <v4:longDescription>$49 Required  One Time Activation Fee</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>49.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					</v4:options>
+				 </v4:customization>
+				 <v4:customization externalId="ATT-VID-HW-1" required="true" displayOrder="3000">
+					<v4:name>Video Hardware Options</v4:name>
+					<v4:shortDescription>Select the TOTAL number of TVs to be connected to U-verse.  Each TV requires a receiver for U-verse Service.</v4:shortDescription>
+					<v4:longDescription>You have a Total Home DVR included at no charge with your package. Only 1 DVR is needed for your entire home.  Additional receivers are $7 per month each.  You can have a total of 8 receivers, including the Total Home DVR.</v4:longDescription>
+					<v4:options min="1" max="1" type="Selection">
+					   <v4:choice externalId="ATT9-6" displayOrder="3013">
+						  <v4:name>AT&amp;T U-verse Hardware Options</v4:name>
+						  <v4:shortDescription>3 TVs Total</v4:shortDescription>
+						  <v4:longDescription>1 HD-ready DVR receiver included + 2 HD-ready non-DVR receivers</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>14.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					   <v4:choice externalId="ATT9-11" displayOrder="3018">
+						  <v4:name>AT&amp;T U-verse Hardware Options</v4:name>
+						  <v4:shortDescription>8 TVs Total</v4:shortDescription>
+						  <v4:longDescription>1 HD-ready DVR receiver included + 7 HD-ready non-DVR receivers</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>49.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					   <v4:choice externalId="ATT9-10" displayOrder="3017">
+						  <v4:name>AT&amp;T U-verse Hardware Options</v4:name>
+						  <v4:shortDescription>7 TVs Total</v4:shortDescription>
+						  <v4:longDescription>1 HD-ready DVR receiver included + 6 HD-ready non-DVR receivers</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>42.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					   <v4:choice externalId="ATT9-4" displayOrder="3011">
+						  <v4:name>AT&amp;T U-verse Hardware Options</v4:name>
+						  <v4:shortDescription>1 TV Total</v4:shortDescription>
+						  <v4:longDescription>1 HD-ready DVR receiver included.</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					   <v4:choice externalId="ATT9-8" displayOrder="3015">
+						  <v4:name>AT&amp;T U-verse Hardware Options</v4:name>
+						  <v4:shortDescription>5 TVs Total</v4:shortDescription>
+						  <v4:longDescription>1 HD-ready DVR receiver included + 4 HD-ready non-DVR receivers</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>28.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					   <v4:choice externalId="ATT9-5" displayOrder="3012">
+						  <v4:name>AT&amp;T U-verse Hardware Options</v4:name>
+						  <v4:shortDescription>2 TVs Total</v4:shortDescription>
+						  <v4:longDescription>1 HD-ready DVR receiver included + 1 HD-ready non-DVR receiver</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>7.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					   <v4:choice externalId="ATT9-7" displayOrder="3014">
+						  <v4:name>AT&amp;T U-verse Hardware Options</v4:name>
+						  <v4:shortDescription>4 TVs Total</v4:shortDescription>
+						  <v4:longDescription>1 HD-ready DVR receiver included + 3 HD-ready non-DVR receivers</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>21.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					   <v4:choice externalId="ATT9-9" displayOrder="3016">
+						  <v4:name>AT&amp;T U-verse Hardware Options</v4:name>
+						  <v4:shortDescription>6 TVs Total</v4:shortDescription>
+						  <v4:longDescription>1 HD-ready DVR receiver included + 5 HD-ready non-DVR receivers</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>35.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					</v4:options>
+				 </v4:customization>
+				 <v4:customization externalId="VOIP-E911-1" required="true" displayOrder="5300">
+					<v4:name>Home Alarm Indicator</v4:name>
+					<v4:shortDescription>Do you have a monitored home alarm system?</v4:shortDescription>
+					<v4:longDescription>Please indicate whether you have a monitored home alarm system.</v4:longDescription>
+					<v4:options min="1" max="1" type="Selection">
+					   <v4:choice externalId="VOIP-E911-1-Y" displayOrder="5210">
+						  <v4:name>Home Alarm</v4:name>
+						  <v4:shortDescription>Yes, there is a monitored home alarm on the premises.</v4:shortDescription>
+						  <v4:longDescription>Select this option only if you have a monitored home alarm.</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					   <v4:choice externalId="VOIP-E911-1-N" displayOrder="5220">
+						  <v4:name>Home Alarm</v4:name>
+						  <v4:shortDescription>No, there is not a monitored home alarm on the premises.</v4:shortDescription>
+						  <v4:longDescription>Select this option if you do not have a monitored home alarm.</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					</v4:options>
+				 </v4:customization>
+				 <v4:customization externalId="VOIP-SEC-LINE" required="true" displayOrder="5500">
+					<v4:name>Choose a Second Line</v4:name>
+					<v4:shortDescription>Do you need a second line?</v4:shortDescription>
+					<v4:longDescription>Add a second phone line for just $7.50 per month for six months.  Regular price $15.</v4:longDescription>
+					<v4:options min="1" max="1" type="Selection">
+					   <v4:choice externalId="VOIPSECLINE-Y" displayOrder="5120">
+						  <v4:name>Second Line</v4:name>
+						  <v4:shortDescription>Yes second line</v4:shortDescription>
+						  <v4:longDescription>Add a second line</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>7.5</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+						  <v4:customization externalId="VOIP-DIR-LIST2" required="true" displayOrder="5600">
+							 <v4:name>Choose a Directory Listing Option - Second Line</v4:name>
+							 <v4:shortDescription>Please choose a directory listing option for your second line.</v4:shortDescription>
+							 <v4:longDescription>You can choose to have the phone number for your second line listed in the directory, unlisted, or unpublished.</v4:longDescription>
+							 <v4:options min="1" max="1" type="Selection">
+								<v4:choice externalId="V-UNLIST" displayOrder="1058">
+								   <v4:name>Local Phone Directory Listing Options</v4:name>
+								   <v4:shortDescription>Non-Listed Number</v4:shortDescription>
+								   <v4:longDescription>Non-listed Number is a directory service selection. It does not publish your name and number in the phone book. This selection keeps your name and number available to 411 Directory Assistance.</v4:longDescription>
+								   <v4:priceInfo>
+									  <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+									  <v4:baseRecurringPrice>2.25</v4:baseRecurringPrice>
+								   </v4:priceInfo>
+								</v4:choice>
+								<v4:choice externalId="V-UNPUB" displayOrder="1059">
+								   <v4:name>Local Phone Directory Listing Options</v4:name>
+								   <v4:shortDescription>Non-Published Number</v4:shortDescription>
+								   <v4:longDescription>Non-Published Number assures your name, address and phone number will not be listed in the Telephone Directory, White pages, Directory Assistance (411), and Street Address Telephone Directory.</v4:longDescription>
+								   <v4:priceInfo>
+									  <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+									  <v4:baseRecurringPrice>4.95</v4:baseRecurringPrice>
+								   </v4:priceInfo>
+								</v4:choice>
+								<v4:choice externalId="CHO_08" displayOrder="1010">
+								   <v4:name>Local Phone Directory Listing Options</v4:name>
+								   <v4:shortDescription>Listed in Directory</v4:shortDescription>
+								   <v4:longDescription>Each new phone number is entitled to a complimentary directory listing. Your name, address, and phone number will be listed in the White Pages and with Directory Assistance (calls to 411).</v4:longDescription>
+								   <v4:priceInfo>
+									  <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+									  <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+								   </v4:priceInfo>
+								</v4:choice>
+							 </v4:options>
+						  </v4:customization>
+					   </v4:choice>
+					   <v4:choice externalId="VOIPSECLINE-N" displayOrder="5110">
+						  <v4:name>Second Line</v4:name>
+						  <v4:shortDescription>No second line</v4:shortDescription>
+						  <v4:longDescription>No second line needed</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					</v4:options>
+				 </v4:customization>
+				 <v4:customization externalId="VOIP-DIR-LIST" required="true" displayOrder="5000">
+					<v4:name>Choose a Directory Listing Option</v4:name>
+					<v4:shortDescription>Please choose a directory listing option.</v4:shortDescription>
+					<v4:longDescription>You can choose to have your phone number listed in the directory, unlisted, or unpublished.</v4:longDescription>
+					<v4:options min="1" max="1" type="Selection">
+					   <v4:choice externalId="V-UNPUB" displayOrder="1059">
+						  <v4:name>Local Phone Directory Listing Options</v4:name>
+						  <v4:shortDescription>Non-Published Number</v4:shortDescription>
+						  <v4:longDescription>Non-Published Number assures your name, address and phone number will not be listed in the Telephone Directory, White pages, Directory Assistance (411), and Street Address Telephone Directory.</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>4.95</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					   <v4:choice externalId="CHO_08" displayOrder="1010">
+						  <v4:name>Local Phone Directory Listing Options</v4:name>
+						  <v4:shortDescription>Listed in Directory</v4:shortDescription>
+						  <v4:longDescription>Each new phone number is entitled to a complimentary directory listing. Your name, address, and phone number will be listed in the White Pages and with Directory Assistance (calls to 411).</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					   <v4:choice externalId="V-UNLIST" displayOrder="1058">
+						  <v4:name>Local Phone Directory Listing Options</v4:name>
+						  <v4:shortDescription>Non-Listed Number</v4:shortDescription>
+						  <v4:longDescription>Non-listed Number is a directory service selection. It does not publish your name and number in the phone book. This selection keeps your name and number available to 411 Directory Assistance.</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>2.25</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					</v4:options>
+				 </v4:customization>
+				 <v4:customization externalId="VOIP-PORT-1" required="true" displayOrder="5200">
+					<v4:name>Port Your Phone Number</v4:name>
+					<v4:shortDescription>Would you like to keep your current phone number, or get a new phone number?</v4:shortDescription>
+					<v4:longDescription>You may keep your current phone number, or you will be assigned a new number.  Important Note: Transferring of phone numbers is not guaranteed, and can not be done from one state to another.</v4:longDescription>
+					<v4:options min="1" max="1" type="Selection">
+					   <v4:choice externalId="VOIP-PORT-1-Y" displayOrder="5013">
+						  <v4:name>Phone Number</v4:name>
+						  <v4:shortDescription>Keep My Current Non-AT&amp;T Phone Number</v4:shortDescription>
+						  <v4:longDescription>You will keep your current non-AT&amp;T phone number.   Important Notes: Do not cancel your existing service. AT&amp;T will cancel your service for you on the activation date for your new service.  Transferring of phone numbers is not guaranteed, and can not be done from one state to another.</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+						  <v4:customization externalId="VOIP-PORT-4D" required="true" displayOrder="5233">
+							 <v4:name>Zip Code on Previous Phone Account</v4:name>
+							 <v4:shortDescription>Zip Code on Current Phone Account</v4:shortDescription>
+							 <v4:longDescription>Please enter the zip code from your current telephone account.</v4:longDescription>
+							 <v4:options min="1" max="1" type="Text">
+								<v4:choice externalId="VOIP-PORT-4-ZIP" displayOrder="5043">
+								   <v4:name>Port Zip Code</v4:name>
+								   <v4:shortDescription>The Zip Code of the Address on my Current Phone Account</v4:shortDescription>
+								   <v4:longDescription>Please enter the zip code on your current phone account.</v4:longDescription>
+								   <v4:priceInfo>
+									  <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+									  <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+								   </v4:priceInfo>
+								</v4:choice>
+							 </v4:options>
+						  </v4:customization>
+						  <v4:customization externalId="VOIP-PORT-4B" required="true" displayOrder="5231">
+							 <v4:name>City on Previous Phone Account</v4:name>
+							 <v4:shortDescription>City on Current Phone Account</v4:shortDescription>
+							 <v4:longDescription>Please enter the city from your current telephone account.</v4:longDescription>
+							 <v4:options min="1" max="1" type="Text">
+								<v4:choice externalId="VOIP-PORT-4-CITY" displayOrder="5041">
+								   <v4:name>Port City</v4:name>
+								   <v4:shortDescription>The City on my Current Phone Account</v4:shortDescription>
+								   <v4:longDescription>Please enter the city on your current phone account.</v4:longDescription>
+								   <v4:priceInfo>
+									  <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+									  <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+								   </v4:priceInfo>
+								</v4:choice>
+							 </v4:options>
+						  </v4:customization>
+						  <v4:customization externalId="VOIP-PORT-4C" required="true" displayOrder="5232">
+							 <v4:name>State on Previous Phone Account</v4:name>
+							 <v4:shortDescription>State on Current Phone Account</v4:shortDescription>
+							 <v4:longDescription>Please enter the two letter state abbreviation from your current telephone account.</v4:longDescription>
+							 <v4:options min="1" max="1" type="Text">
+								<v4:choice externalId="VOIP-PORT-4-STATE" displayOrder="5042">
+								   <v4:name>Port State</v4:name>
+								   <v4:shortDescription>The State on my Current Phone Account</v4:shortDescription>
+								   <v4:longDescription>Please enter the state on your current phone account.</v4:longDescription>
+								   <v4:priceInfo>
+									  <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+									  <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+								   </v4:priceInfo>
+								</v4:choice>
+							 </v4:options>
+						  </v4:customization>
+						  <v4:customization externalId="VOIP-PORT-2" required="true" displayOrder="5210">
+							 <v4:name>Phone Number to be Ported</v4:name>
+							 <v4:shortDescription>Current Phone Number</v4:shortDescription>
+							 <v4:longDescription>Please enter your current phone number that you want to keep.  Do not include any spaces, dashes or parenthesis.</v4:longDescription>
+							 <v4:options min="1" max="1" type="Text">
+								<v4:choice externalId="VOIP-PORT-2-NUMBER" displayOrder="5020">
+								   <v4:name>Phone Number</v4:name>
+								   <v4:shortDescription>My Current Phone Number</v4:shortDescription>
+								   <v4:longDescription>Please enter your current phone number.  Do not include any spaces, dashes or parenthesis.</v4:longDescription>
+								   <v4:priceInfo>
+									  <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+									  <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+								   </v4:priceInfo>
+								</v4:choice>
+							 </v4:options>
+						  </v4:customization>
+						  <v4:customization externalId="VOIP-PORT-3" required="true" displayOrder="5220">
+							 <v4:name>Name on Previous Phone Account</v4:name>
+							 <v4:shortDescription>Name on Current Phone Account</v4:shortDescription>
+							 <v4:longDescription>Please enter the name on  your current telephone account.</v4:longDescription>
+							 <v4:options min="1" max="1" type="Text">
+								<v4:choice externalId="VOIP-PORT-3-NAME" displayOrder="5030">
+								   <v4:name>Name</v4:name>
+								   <v4:shortDescription>The Name on my Current Phone Account</v4:shortDescription>
+								   <v4:longDescription>Please enter the name on your current phone account.</v4:longDescription>
+								   <v4:priceInfo>
+									  <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+									  <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+								   </v4:priceInfo>
+								</v4:choice>
+							 </v4:options>
+						  </v4:customization>
+						  <v4:customization externalId="VOIP-PORT-5" required="true" displayOrder="5240">
+							 <v4:name>Acknowledge Disconnect</v4:name>
+							 <v4:shortDescription>Acknowledge Disconnect of Current Phone Account</v4:shortDescription>
+							 <v4:longDescription>Please check here to acknowledge that your phone service will be disconnected from your current provider.</v4:longDescription>
+							 <v4:options min="1" max="1" type="Selection">
+								<v4:choice externalId="VOIP-PORT-5-ACKNOWLEDGE" displayOrder="5050">
+								   <v4:name>Acknowledge</v4:name>
+								   <v4:shortDescription>Acknowledge Disconnect of Previous Phone</v4:shortDescription>
+								   <v4:longDescription>I acknowledge that my phone service will be disconnected from my previous provider.</v4:longDescription>
+								   <v4:priceInfo>
+									  <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+									  <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+								   </v4:priceInfo>
+								</v4:choice>
+							 </v4:options>
+						  </v4:customization>
+						  <v4:customization externalId="VOIP-PORT-4A" required="true" displayOrder="5230">
+							 <v4:name>Address Line 1 on Previous Phone Account</v4:name>
+							 <v4:shortDescription>First Line of Address on Current Phone Account</v4:shortDescription>
+							 <v4:longDescription>Please enter the first line of the address from your current telephone account.</v4:longDescription>
+							 <v4:options min="1" max="1" type="Text">
+								<v4:choice externalId="VOIP-PORT-4-LINE1" displayOrder="5040">
+								   <v4:name>Port Address Line 1</v4:name>
+								   <v4:shortDescription>The First Line of the Address on my Current Phone Account</v4:shortDescription>
+								   <v4:longDescription>Please enter the first line of the address on your current phone account.</v4:longDescription>
+								   <v4:priceInfo>
+									  <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+									  <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+								   </v4:priceInfo>
+								</v4:choice>
+							 </v4:options>
+						  </v4:customization>
+					   </v4:choice>
+					   <v4:choice externalId="VOIP-PORT-1-N" displayOrder="5011">
+						  <v4:name>Phone Number</v4:name>
+						  <v4:shortDescription>Get a New Number</v4:shortDescription>
+						  <v4:longDescription>You will be assigned a new phone number.</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					   <v4:choice externalId="VOIP-PORT-1-ATT" displayOrder="5012">
+						  <v4:name>Phone Number</v4:name>
+						  <v4:shortDescription>Keep My Current AT&amp;T Phone Number</v4:shortDescription>
+						  <v4:longDescription>You will keep your current AT&amp;T phone number.  Important Note: Transferring of phone numbers is not guaranteed, and can not be done from one state to another.</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+						  <v4:customization externalId="VOIP-PORT-2" required="true" displayOrder="5210">
+							 <v4:name>Phone Number to be Ported</v4:name>
+							 <v4:shortDescription>Current Phone Number</v4:shortDescription>
+							 <v4:longDescription>Please enter your current phone number that you want to keep.  Do not include any spaces, dashes or parenthesis.</v4:longDescription>
+							 <v4:options min="1" max="1" type="Text">
+								<v4:choice externalId="VOIP-PORT-2-NUMBER" displayOrder="5020">
+								   <v4:name>Phone Number</v4:name>
+								   <v4:shortDescription>My Current Phone Number</v4:shortDescription>
+								   <v4:longDescription>Please enter your current phone number.  Do not include any spaces, dashes or parenthesis.</v4:longDescription>
+								   <v4:priceInfo>
+									  <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+									  <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+								   </v4:priceInfo>
+								</v4:choice>
+							 </v4:options>
+						  </v4:customization>
+					   </v4:choice>
+					</v4:options>
+				 </v4:customization>
+				 <v4:customization externalId="UVERSE-INT-FEE" required="true" displayOrder="6301">
+					<v4:name>U-verse Monthly Internet Equipment Fee</v4:name>
+					<v4:shortDescription>$6 Required Monthly U-verse High Speed Internet Equipment Fee</v4:shortDescription>
+					<v4:longDescription>A $6 monthly High Speed Internet equipment fee applies.</v4:longDescription>
+					<v4:options min="1" max="1" type="Selection">
+					   <v4:choice externalId="UV-INT-FEE" displayOrder="4001">
+						  <v4:name>U-verse Internet Equipment Fee</v4:name>
+						  <v4:shortDescription>U-verse Internet Equipment Fee.</v4:shortDescription>
+						  <v4:longDescription>$6 Required U-verse Monthly Equipment Fee</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>6.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					</v4:options>
+				 </v4:customization>
+				 <v4:customization externalId="ATT-VID-300-31-P" required="true" displayOrder="2">
+					<v4:name>Choose your Promotion</v4:name>
+					<v4:shortDescription>Choose between $31 off your bill for twenty-four months or a $300 Reward Card from AT&amp;T</v4:shortDescription>
+					<v4:longDescription>You can choose to get $31 off your bill for the first twenty-four months, or you can get a $300 Reward Card from AT&amp;T.</v4:longDescription>
+					<v4:options min="1" max="1" type="Selection">
+					   <v4:choice externalId="ATT-VID-31-24" displayOrder="1">
+						  <v4:name>Promotion Options</v4:name>
+						  <v4:shortDescription>$31 Off for Twenty-Four Months</v4:shortDescription>
+						  <v4:longDescription>Discounted price will be reflected on your first bill.</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>-31.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					   <v4:choice externalId="ATT-VID-300" displayOrder="3">
+						  <v4:name>Promotion Options</v4:name>
+						  <v4:shortDescription>$300 Reward Card</v4:shortDescription>
+						  <v4:longDescription>Get a $300 Reward Card from AT&amp;T</v4:longDescription>
+						  <v4:priceInfo>
+							 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+							 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+						  </v4:priceInfo>
+					   </v4:choice>
+					</v4:options>
+				 </v4:customization>
+				 <v4:marketingHighlights>
+					<v4:marketingHighlight>Subject to taxes and fees</v4:marketingHighlight>
+					<v4:marketingHighlight>Low international rates at no additional monthly charge</v4:marketingHighlight>
+					<v4:marketingHighlight>Convenient Billing: All U-verse services provided on the same bill.  A one-time TV service activation fee of $49 and $6 monthly High Speed Internet equipment fee applies.</v4:marketingHighlight>
+					<v4:marketingHighlight>Includes over 20 features including advanced features that integrate with U-verse TV, Internet and AT&amp;T Wireless</v4:marketingHighlight>
+					<v4:marketingHighlight>Professional standard installation included.</v4:marketingHighlight>
+					<v4:marketingHighlight>Up to 6.0 Mbps downstream</v4:marketingHighlight>
+					<v4:marketingHighlight>100% Digital Picture and Sound</v4:marketingHighlight>
+					<v4:marketingHighlight>Unlimited nationwide calling in the U.S., U.S. territories and Canada.</v4:marketingHighlight>
+					<v4:marketingHighlight>24/7</v4:marketingHighlight>
+					<v4:marketingHighlight>Please note: It may be necessary for an AT&amp;T representative to contact you before your order can be completed.</v4:marketingHighlight>
+				 </v4:marketingHighlights>
+				 <v4:descriptiveInfo type="longDescription">
+					<v4:value>The AT&amp;T U-verse Triple Pack offers a bundled package for your convenience. This bundle provides Digital TV service, High-Speed Internet and Voice Unlimited.U-verse TV offers a crystal-clear picture, choice programming, access to a robust HD channel lineup, large On Demand selection, Total Home DVR, exciting interactive features like our new award-winning Multiview, and so much more. U-verse High Speed Internet offers powerful security features, a wide range of downstream speeds, wireless home networking capability, and virtually unlimited email storage.  Includes on-the-go access to the entire national AT&amp;T Wi-Fi Hotspot network, at no extra charge.  U-verse Voice is our digital home phone service.  When you add it to your TV and Internet services, you get:  Over 20 calling features, including traditional favorites like Caller ID, Call Waiting, and Three-Way Calling, powerful advanced features like Do Not Disturb, Locate Me, Caller ID on TV, Click to Call, AT&amp;T U-verse MessagingSM, and lots more.</v4:value>
+				 </v4:descriptiveInfo>
+				 <v4:descriptiveInfo type="termsAndConditions">
+					<v4:value><![CDATA[AT&T U-verse: Pricing excludes taxes, fees and other charges, including city video cost-recovery fees, where applicable.  A one-time TV Service Activation Fee of $49 applies.  Residential customers only. Prices, programming and offers subject to change without notice. Credit restrictions may apply.  Channel counts include optional channels.  Total Home DVR functionality is available on up to 8 TVs, and requires a receiver for each additional TV at $7/mo. each.  AT&T U-verse High Speed Internet: Internet speed claim(s) represent maximum downstream and/or upstream speed capabilities. Speeds may vary and are not guaranteed. Many factors can affect actual speeds including the use of other U-verse services. Purchase of U-verse TV required to order AT&T U-verse High Speed Internet. A $6 monthly High Speed Internet equipment fee applies.  U-verse price includes 250 GB of data/mo. For more information, go to www.att.com/internet-usage.  Access includes AT&T Wi-Fi Basic. Wi-Fi enabled device required. Other restrictions apply. See www.attwifi.com for details and locations. Use of Wi-Fi at home will count toward your AT&T High Speed Internet usage allowance. AT&T U-Verse Voice: Prices subject to change. Residential customers only. Installation, taxes, fees, and other charges apply. International calls billed at additional per-minute rates; higher rates may apply for calls terminating on mobile phones or other wireless devices. U-verse Voice, including 911 dialing, will not function during a power outage without battery backup power. Non-returned equipment charges will apply if equipment is not returned within required timeframe upon disconnect of services. Service is not portable; will function only in your home. Compatible with many monitored home alarms and medical monitoring systems. Refer to Learn More pages for U-verse Voice at http://www.uverse.att.com for more information on 911, battery backup, and home alarms. Acceptance of Terms of Service and 911 Acknowledgement required. Credit and other restrictions apply.  AT&T U-verse Messaging may not be fully compatible with all AT&T wireless voice mail systems.   Some call information may be blocked or otherwise not displayed, including information for some calls originating outside of AT&T's network and calls carried over facilities that do not transmit Caller ID information.  Unlimited Plan: Includes unlimited calling within the U.S. and to Canada and U.S. Territories. International calls billed at additional per-minute rates; higher rates may apply for calls terminating on mobile phones or other wireless devices.  Bundle Offer: Offer ends 11/3/12. After 24 months, standard rates apply unless cancelled by customer.  Must maintain qualifying services for continued receipt of credit(s).  An early termination fee of up to $180 may apply if U-verse services are terminated within first 12 months.  Bundle Offer: Offer ends 11/3/12. New residential U-verse customers with new or existing Nation 450 wireless. Af ter 24 months, standard rates apply unless cancelled by customer. Must maintain qualifying services for continued receipt of credit.  An early termination fee of up to $180 may apply  if U-verse services are disconnected in the first 12 months.  $300 in AT&T U-verse Reward Card available to new U-verse residential customers for minimum purchase of U-family TV, U-verse Internet Pro, and U-verse Voice 250 or Nation 450 wireless plan.  May not be combined with promotional bundle offers.  Offer ends 11/3/12.  $400 AT&T Reward Card available to new U-verse residential customers for minimum  of U-family TV, U-verse Internet Pro, U-verse Voice 250 and Nation 450  wireless plan . May not be combined with promotional bundle offers. Offer ends 12/31/12.  Card redemption required. Card sent 4-6 weeks after redemption to customers who retain qualifying service(s). Not redeemable for cash, for use at automated gasoline pumps or for cash withdrawal at ATMs. Card expires 90 days after issuance. For cardholder agreement/terms and conditions go to http://rewardcenter.att.com/myrewardcard/agreement.pdf. Cards are issued by U.S. Bank National Association, pursuant to a license from Visa U.S.A. Inc.  Installation Included with Most Packages: Offer ends 11/3/12.  Credit qualified customers only. Installation not included with U-basic package.  3 Months Free HBO®/Cinemax® Offer: Offer ends 11/3/12. U-verse TV customers adding HBO®/Cinemax®. After 3 months, standard rates apply unless cancelled by customer. HBO®, Cinemax® and related channels and service marks are the property of Home Box Office Inc.  AT&T U-verse Voice Additional Line 50% off: Offer ends 11/3/12.  Available for new U-verse Voice customers ordering a new U-verse Voice customers ordering a new U-verse Voice Additional Line.  Discount applied via 6 monthly $7.50 bill credits that will begin within 2 billing cycles following your order.  After 6 months, standard rates will apply.  © 2012 AT&T Intellectual Property. AT&T, AT&T U-verse, the AT&T logo and all other AT&T marks contained herein are trademarks of AT&T Intellectual Property and/or AT&T affiliated companies. All rights reserved. Subsidiaries and affiliates of AT&T Inc. provide products and services under the AT&T brand.]]></v4:value>
+				 </v4:descriptiveInfo>
+				 <v4:descriptiveInfo type="disclosures">
+					<v4:value>Transport Type:FTTN</v4:value>
+				 </v4:descriptiveInfo>
+				 <v4:promotion>
+					<v4:externalId>Additional Line Fifty Percent</v4:externalId>
+					<v4:promoCode>Additional Line Fifty Percent</v4:promoCode>
+					<v4:shortDescription>Order now and get a second line for only $7.50 per month for six months.</v4:shortDescription>
+					<v4:description>New U-verse Voice customers adding a second line. After 6 months, standard rate of $15 per month applies.  Offer ends 11/3/2012.</v4:description>
+					<v4:qualification>N/A</v4:qualification>
+					<v4:conditions>AT&amp;T U-verse Voice Additional Line 50% off: Offer ends 11/3/2012. Available for new U-verse Voice customers ordering a new U-verse Voice Additional Line.  Discount applied via 6 monthly $7.50 bill credits that will begin within 2 billing cycles following your order.  After 6 months, standard rates will apply.</v4:conditions>
+					<v4:type>baseMonthlyDiscount</v4:type>
+					<v4:priceValueType>unspecifiedPriceValueType</v4:priceValueType>
+					<v4:priceValue>0.0</v4:priceValue>
+					<v4:promotionDuration>P6M</v4:promotionDuration>
+				 </v4:promotion>
+				 <v4:promotion>
+					<v4:externalId>HBO Cinemax Free Three Months</v4:externalId>
+					<v4:promoCode>HBO Cinemax Free Three Months</v4:promoCode>
+					<v4:shortDescription>Order now and get three months of HBO® or HBO®/Cinemax® for free!</v4:shortDescription>
+					<v4:description>New U-verse TV customers adding HBO or HBO®/Cinemax®. After 3 months, services will be billed at then existing standard rates unless cancelled by customer before end of term. HBO®, Cinemax® and related channels and service marks are the property of Home Box Office Inc.  Offer ends 11/3/2012.</v4:description>
+					<v4:qualification>N/A</v4:qualification>
+					<v4:conditions>3 Months Free HBO®/Cinemax® Offer: Offer ends 11/3/2012.  U-verse TV customers adding HBO®/Cinemax®. After 3 months, standard rates apply unless cancelled by customer. HBO®, Cinemax® and related channels and service marks are the property of Home Box Office Inc.</v4:conditions>
+					<v4:type>informationalPromotion</v4:type>
+					<v4:priceValueType>unspecifiedPriceValueType</v4:priceValueType>
+					<v4:priceValue>0.0</v4:priceValue>
+					<v4:promotionDuration>P3M</v4:promotionDuration>
+				 </v4:promotion>
+				 <v4:promotion>
+					<v4:externalId>Prof Install Included</v4:externalId>
+					<v4:promoCode>Prof Install Included</v4:promoCode>
+					<v4:shortDescription>Professional Standard Installation Included with U-family and higher TV plan.</v4:shortDescription>
+					<v4:description>Applies to standard installation for customers ordering new AT&amp;T U-verse - TV, TV and Internet, or TV, Internet and Voice</v4:description>
+					<v4:qualification>N/A</v4:qualification>
+					<v4:conditions>Installation Included with Most Packages: Offer ends 11/3/2012.  Credit qualified customers only. Installation not included with U-basic package.  </v4:conditions>
+					<v4:type>unspecifiedType</v4:type>
+					<v4:priceValueType>unspecifiedPriceValueType</v4:priceValueType>
+					<v4:priceValue>0.0</v4:priceValue>
+					<v4:promotionDuration>PT0S</v4:promotionDuration>
+				 </v4:promotion>
+				 <v4:promotion>
+					<v4:externalId>Three Hundred Or Thirty One-P</v4:externalId>
+					<v4:promoCode>Three Hundred Or Thirty One-P</v4:promoCode>
+					<v4:shortDescription>Choose between $31 off for twenty-four months with same price for 2 years (one year term required) or a $300 Reward Card from AT&amp;T.</v4:shortDescription>
+					<v4:description>Order a U-verse Triple Pack and choose either $31 off your bill for 24 months or a $300 AT&amp;T Reward Card.  For new residential U-verse customers.  One year term required.  An early termination fee of up to $180 may apply.</v4:description>
+					<v4:qualification>N/A</v4:qualification>
+					<v4:conditions>$300 in AT&amp;T U-verse Reward Card available to new U-verse residential customers for minimum purchase of U-family TV, U-verse Internet Pro, and U-verse Voice 250 or Nation 450 wireless plan.  May not be combined with promotional bundle offers.  Offer ends 11/3/12. Card redemption required. Card sent 4-6 weeks after redemption to customers who retain qualifying service(s). Not redeemable for cash, for use at automated gasoline pumps or for cash withdrawal at ATMs. Card expires 90 days after issuance. For cardholder agreement/terms and conditions go to http://rewardcenter.att.com/myrewardcard/agreement.pdf. Cards are issued by U.S. Bank National Association, pursuant to a license from Visa U.S.A. Inc.  Bundle Offer: Offer ends 11/3/12. New residential U-verse customers. An early termination fee of up to $180 may apply if U-verse services are terminated before end of term. After 24 months, standard rates apply unless cancelled by customer. Must maintain qualifying services for continued receipt of credit.</v4:conditions>
+					<v4:type>unspecifiedType</v4:type>
+					<v4:priceValueType>unspecifiedPriceValueType</v4:priceValueType>
+					<v4:priceValue>0.0</v4:priceValue>
+					<v4:promotionDuration>P24M</v4:promotionDuration>
+				 </v4:promotion>
+		</v4:productDetails>
+	</v4:productInfo>
+</v4:providerResults>
+	 

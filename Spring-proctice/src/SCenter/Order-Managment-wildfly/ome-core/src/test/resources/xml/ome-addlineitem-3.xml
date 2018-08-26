@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<v4:orderManagementRequestResponse
+	xmlns:v4="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xml.AL.com/v4 orderManagement.xsd ">
+	<v4:transactionType>addLineItem</v4:transactionType>
+	<v4:request>
+		<v4:orderId>1</v4:orderId>
+		<v4:afterLineItemNumber>4</v4:afterLineItemNumber>
+		<v4:newLineItem>
+			<v4:externalId>1</v4:externalId>
+			<v4:providerConfirmationNumber>333</v4:providerConfirmationNumber>
+			<v4:howLongAtAddress>5 Years</v4:howLongAtAddress>
+			<v4:providerCustomerAccountNumber>333
+			</v4:providerCustomerAccountNumber>
+			<v4:serviceOrDeliveryAddress>
+				<v4:prefixDirectional>aaa</v4:prefixDirectional>
+				<v4:streetNumber>streetNumber</v4:streetNumber>
+				<v4:streetName>streetName</v4:streetName>
+				<v4:streetType>234</v4:streetType>
+				<v4:line2>line2</v4:line2>
+				<v4:postfixDirectional>postFixDirectional
+				</v4:postfixDirectional>
+				<v4:city>city</v4:city>
+				<v4:stateOrProvince>stateOrProvince
+				</v4:stateOrProvince>
+				<v4:postalCode>posta</v4:postalCode>
+				<v4:country>country</v4:country>
+				<v4:countyParishBorough>countyParish
+				</v4:countyParishBorough>
+				<v4:addressBlock>address Block</v4:addressBlock>
+			</v4:serviceOrDeliveryAddress>
+			<v4:billingInfo xmlns:v4="http://xml.AL.com/v4">
+				<v4:billingMethod>billingMethod</v4:billingMethod>
+				<v4:creditCardNumber>creditCardNumber
+				</v4:creditCardNumber>
+				<v4:verificationCode>verificationCode
+				</v4:verificationCode>
+				<v4:checkingAccountNumber>checkingAccountNumber
+				</v4:checkingAccountNumber>
+				<v4:routingNumber>routingNumber</v4:routingNumber>
+
+				<v4:billingAddress>
+					<v4:prefixDirectional>prefixDirectional
+					</v4:prefixDirectional>
+					<v4:streetNumber>streetNumber</v4:streetNumber>
+					<v4:streetName>streetName</v4:streetName>
+					<v4:streetType>streetType</v4:streetType>
+					<v4:line2>line2</v4:line2>
+					<v4:postfixDirectional>postfixDirectional
+					</v4:postfixDirectional>
+					<v4:city>city</v4:city>
+					<v4:stateOrProvince>stateOrProvince
+					</v4:stateOrProvince>
+					<v4:postalCode>postalCode</v4:postalCode>
+					<v4:country>country</v4:country>
+					<v4:countyParishBorough>countyParishBorough
+					</v4:countyParishBorough>
+					<v4:addressBlock>addressBlock</v4:addressBlock>
+				</v4:billingAddress>
+
+			</v4:billingInfo>
+			<v4:marketItem>
+				<v4:externalId xmlns:v4="http://xml.AL.com/v4">P3-ESSBUNDLE-CA
+				</v4:externalId>
+				<v4:channels xmlns:v4="http://xml.AL.com/v4">
+					<v4:channel>callCenter</v4:channel>
+				</v4:channels>
+				<v4:accordChangeStamp xmlns:v4="http://xml.AL.com/v4">1264433861859
+				</v4:accordChangeStamp>
+				<v4:providerId xmlns:v4="http://xml.AL.com/v4">4353598
+						</v4:providerId>
+				<v4:providerName xmlns:v4="http://xml.AL.com/v4">Verizon
+				</v4:providerName>
+				<v4:priceInfo xmlns:v4="http://xml.AL.com/v4">
+					<v4:baseNonRecurringPrice>11.0</v4:baseNonRecurringPrice>
+					<v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+				</v4:priceInfo>
+				<v4:item xmlns:v4="http://xml.AL.com/v4">
+					<v4:name>Triple Freedom with Freedom Essentials, FiOS 15M
+						and
+						FiOS TV Essentials</v4:name>
+					<v4:providerId>4353598</v4:providerId>
+					<v4:providerName>Verizon</v4:providerName>
+					<v4:category>bundles</v4:category>
+					<v4:priceInfo>
+						<v4:baseNonRecurringPrice>11.0</v4:baseNonRecurringPrice>
+						<v4:baseRecurringPrice>22.0</v4:baseRecurringPrice>
+					</v4:priceInfo>
+				</v4:item>
+			</v4:marketItem>
+			<v4:desiredStartDate>
+				<v4:date xmlns:v4="http://xml.AL.com/v4">2010-01-25-05:00
+					</v4:date>
+				<v4:time xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+				</v4:time>
+				<v4:startTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+				</v4:startTime>
+				<v4:endTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+				</v4:endTime>
+			</v4:desiredStartDate>
+			<v4:scheduledStartDate>
+				<v4:date xmlns:v4="http://xml.AL.com/v4">2010-01-25-05:00
+					</v4:date>
+				<v4:time xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+				</v4:time>
+				<v4:startTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+				</v4:startTime>
+				<v4:endTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+				</v4:endTime>
+			</v4:scheduledStartDate>
+			<v4:actualStartDate>
+				<v4:date xmlns:v4="http://xml.AL.com/v4">2010-01-25-05:00
+					</v4:date>
+				<v4:time xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+				</v4:time>
+				<v4:startTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+				</v4:startTime>
+				<v4:endTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+				</v4:endTime>
+			</v4:actualStartDate>
+			<v4:lineItemStatus xmlns:v4="http://xml.AL.com/v4" />
+			<v4:lineItemStatusHistory />
+
+		</v4:newLineItem>
+	</v4:request>
+</v4:orderManagementRequestResponse>

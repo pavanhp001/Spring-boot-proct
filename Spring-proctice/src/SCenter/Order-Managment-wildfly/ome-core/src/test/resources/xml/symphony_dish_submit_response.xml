@@ -1,0 +1,551 @@
+<ac:orderManagementRequestResponse
+	xmlns:ac="http://xml.AL.com/v4">
+	<ac:correlationId>81b34dd1-00d2-11e2-a5ca-e914e112d543
+	</ac:correlationId>
+	<ac:transactionTimeStamp>2012-08-31</ac:transactionTimeStamp>
+	<ac:sessionId>sessionId</ac:sessionId>
+	<ac:transactionId>17201241</ac:transactionId>
+	<ac:status>
+		<ac:statusCode>0</ac:statusCode>
+		<ac:processingMessages>
+			<ac:message>
+				<ac:code>0.101</ac:code>
+				<ac:text>update order:12582 status:sales</ac:text>
+			</ac:message>
+			<ac:message>
+				<ac:code>0.1</ac:code>
+				<ac:text>order status updated:12582</ac:text>
+			</ac:message>
+		</ac:processingMessages>
+		<ac:statusMsg>INFO</ac:statusMsg>
+	</ac:status>
+	<v4:request xmlns:v4="http://xml.AL.com/v4"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<v4:orderId>12582</v4:orderId>
+		<v4:lineitemId>13131</v4:lineitemId>
+		<v4:agentId>default</v4:agentId>
+	</v4:request>
+	<ac:response>
+		<ac:salesContext>
+			<ac:orderSource>0</ac:orderSource>
+			<ac:entity name="Test2">
+				<ac:attribute name="neighborhood" value="rich" />
+			</ac:entity>
+			<ac:entity name="Test1">
+				<ac:attribute name="credit score" value="750" />
+				<ac:attribute name="dwelling type" value="house" />
+			</ac:entity>
+			<ac:entity name="Test2">
+				<ac:attribute name="customerType" value="High Income" />
+			</ac:entity>
+		</ac:salesContext>
+		<ac:orderId>12582</ac:orderId>
+		<ac:orderInfo>
+			<ac:lineItems>
+				<ac:lineItem>
+					<ac:externalId>13131</ac:externalId>
+					<ac:lineItemNumber>0</ac:lineItemNumber>
+					<ac:providerConfirmationNumber />
+					<ac:providerCustomerAccountNumber />
+					<ac:svcAddressExtId>19293</ac:svcAddressExtId>
+					<ac:billingInfoExtId>15193</ac:billingInfoExtId>
+					<ac:productDatasource>realtime</ac:productDatasource>
+					<ac:leadId>0</ac:leadId>
+					<ac:lineItemAttributes>
+						<ac:entity source="ConnectionDetails">
+							<ac:attribute>
+								<ac:name>Provider</ac:name>
+								<ac:value>AL</ac:value>
+								<ac:description xsi:nil="true"
+									xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							</ac:attribute>
+							<ac:attribute>
+								<ac:name>ConnectionType</ac:name>
+								<ac:value>NONE</ac:value>
+								<ac:description xsi:nil="true"
+									xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							</ac:attribute>
+						</ac:entity>
+						<ac:entity source="Miscellaneous">
+							<ac:attribute>
+								<ac:name>NewsletterSelected</ac:name>
+								<ac:value>true</ac:value>
+								<ac:description xsi:nil="true"
+									xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							</ac:attribute>
+							<ac:attribute>
+								<ac:name>DISHCinemaSelected</ac:name>
+								<ac:value>true</ac:value>
+								<ac:description xsi:nil="true"
+									xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							</ac:attribute>
+						</ac:entity>
+						<ac:entity source="SecurityInfo">
+							<ac:attribute>
+								<ac:name>FirstName</ac:name>
+								<ac:value>Harrison</ac:value>
+								<ac:description xsi:nil="true"
+									xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							</ac:attribute>
+							<ac:attribute>
+								<ac:name>PIN</ac:name>
+								<ac:value>1328</ac:value>
+								<ac:description xsi:nil="true"
+									xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							</ac:attribute>
+							<ac:attribute>
+								<ac:name>LastName</ac:name>
+								<ac:value>Forder</ac:value>
+								<ac:description xsi:nil="true"
+									xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							</ac:attribute>
+							<ac:attribute>
+								<ac:name>PINHint</ac:name>
+								<ac:value>Number sequesnce</ac:value>
+								<ac:description xsi:nil="true"
+									xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							</ac:attribute>
+						</ac:entity>
+					</ac:lineItemAttributes>
+					<ac:lineItemDetail>
+						<ac:detailType>product</ac:detailType>
+						<ac:detail>
+							<ac:productLineItem>
+								<ac:externalId>RTS:DISH:CORE_233422</ac:externalId>
+								<ac:productCategoryList>
+									<ac:productCategory displayName="satelliteTV" />
+								</ac:productCategoryList>
+								<ac:name>RTS:DISH:CORE_233422</ac:name>
+								<ac:channels>
+									<ac:channel>3</ac:channel>
+								</ac:channels>
+								<ac:provider externalId="27010360" />
+							</ac:productLineItem>
+						</ac:detail>
+						<ac:productUniqueId>7938</ac:productUniqueId>
+					</ac:lineItemDetail>
+					<ac:partnerExternalId>27010360</ac:partnerExternalId>
+					<ac:selectedFeatures>
+						<ac:features>
+							<ac:featureValue externalId="RTS:DISH:ADD_239392"
+								value="37" type="integer" />
+							<ac:featureValue externalId="RTS:DISH:ADD_247922"
+								value="3" type="integer" />
+						</ac:features>
+					</ac:selectedFeatures>
+					<ac:lineItemStatus dateTimeStamp="2012-09-17T10:32:30.698-04:00"
+						agentId="1" statusCode="sales_new_order" />
+					<ac:lineItemStatusHistory />
+					<ac:SchedulingInfo appointmentComment="Testing Appointment Comment"
+						installationFee="49.00" billingInstallments="true" residenceType="house"
+						earlierAppointmentDate="true">
+						<ac:desiredStartDate>
+							<ac:date>2012-09-17-04:00</ac:date>
+							<ac:time>10:33:44.256-04:00</ac:time>
+							<ac:startTime>10:33:44.256-04:00</ac:startTime>
+							<ac:endTime>10:33:44.256-04:00</ac:endTime>
+						</ac:desiredStartDate>
+						<ac:scheduledStartDate>
+							<ac:date>2012-09-15-04:00</ac:date>
+							<ac:time>02:30:00.000-04:00</ac:time>
+							<ac:startTime>02:30:00.000-04:00</ac:startTime>
+							<ac:endTime>02:30:00.000-04:00</ac:endTime>
+						</ac:scheduledStartDate>
+						<ac:actualStartDate>
+							<ac:date>2012-09-23-04:00</ac:date>
+							<ac:time>03:30:00.000-04:00</ac:time>
+							<ac:startTime>03:30:00.000-04:00</ac:startTime>
+							<ac:endTime>03:30:00.000-04:00</ac:endTime>
+						</ac:actualStartDate>
+						<ac:disconnectDate>
+							<ac:date xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							<ac:time xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							<ac:startTime xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							<ac:endTime xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+						</ac:disconnectDate>
+						<ac:orderDate>
+							<ac:date xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							<ac:time xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							<ac:startTime xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							<ac:endTime xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+						</ac:orderDate>
+						<ac:ScheduleAsSoonAsPossible>false</ac:ScheduleAsSoonAsPossible>
+					</ac:SchedulingInfo>
+					<ac:lineItemPriceInfo>
+						<ac:baseNonRecurringPrice>0.0</ac:baseNonRecurringPrice>
+						<ac:baseRecurringPrice>109.96</ac:baseRecurringPrice>
+						<ac:onDeliveryPrice>0.00</ac:onDeliveryPrice>
+					</ac:lineItemPriceInfo>
+					<ac:activeDialogs>
+						<ac:dialogs>
+							<ac:dialog>
+								<ac:externalId>dishRoom1</ac:externalId>
+								<ac:dialogueDate>2012-09-17T10:32:30.654-04:00</ac:dialogueDate>
+								<ac:value selected="true" type="string">HD_DVR</ac:value>
+							</ac:dialog>
+							<ac:dialog>
+								<ac:externalId>dishRoom2</ac:externalId>
+								<ac:dialogueDate>2012-09-17T10:32:30.654-04:00</ac:dialogueDate>
+								<ac:value selected="true" type="string">HD_DVR</ac:value>
+							</ac:dialog>
+							<ac:dialog>
+								<ac:externalId>dishRoom3</ac:externalId>
+								<ac:dialogueDate>2012-09-17T10:32:30.654-04:00</ac:dialogueDate>
+								<ac:value selected="true" type="string">HD_DVR</ac:value>
+							</ac:dialog>
+						</ac:dialogs>
+					</ac:activeDialogs>
+					<ac:customSelections>
+						<ac:selections />
+					</ac:customSelections>
+					<v4:transientResponseContainer
+						xmlns:com="http://xml.AL.com/common" xmlns:v4="http://xml.AL.com/v4"
+						xmlns:ord="http://xml.AL.com/v4/orderFulfillment"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+						<v4:transientResponse>
+							<v4:submitOrderResponse>
+								<v4:providerResponseInfo source="DISH">
+									<v4:entity>
+										<v4:name>SubscriberId</v4:name>
+										<v4:value>8046909753773689</v4:value>
+									</v4:entity>
+									<v4:entity>
+										<v4:name>WorkOrderNumber</v4:name>
+										<v4:value>1000004985303015</v4:value>
+									</v4:entity>
+									<v4:entity>
+										<v4:name>AuthNumber</v4:name>
+										<v4:value>111111</v4:value>
+									</v4:entity>
+									<v4:billingAdress>
+										<v4:address>
+											<v4:LineOne>910 BROADWAY</v4:LineOne>
+											<v4:LineTwo />
+											<v4:City>SAN DIEGO</v4:City>
+											<v4:State>CA</v4:State>
+											<v4:Zip>92101</v4:Zip>
+										</v4:address>
+										<v4:AddressValidFlag>true</v4:AddressValidFlag>
+									</v4:billingAdress>
+								</v4:providerResponseInfo>
+							</v4:submitOrderResponse>
+							<v4:providerLineItemStatus>
+								<v4:processingStatusCode>INFO</v4:processingStatusCode>
+								<v4:lineItemStatusCode>order_submitted</v4:lineItemStatusCode>
+							</v4:providerLineItemStatus>
+						</v4:transientResponse>
+					</v4:transientResponseContainer>
+					<ac:notificationEvents>
+						<ac:event uniqueId="1347892456906-06B26D3DE4A085"
+							dateTimeStamp="2012-09-17T10:34:16.906-04:00" source="ome">
+							<ac:code>1</ac:code>
+							<ac:reason>1</ac:reason>
+							<ac:comment>process line item to provider</ac:comment>
+							<ac:acknowledged>false</ac:acknowledged>
+						</ac:event>
+					</ac:notificationEvents>
+					<ac:partnerName>DISH Network</ac:partnerName>
+				</ac:lineItem>
+				<ac:lineItem>
+					<ac:externalId>13133</ac:externalId>
+					<ac:lineItemNumber>1</ac:lineItemNumber>
+					<ac:providerConfirmationNumber
+						xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+					<ac:providerCustomerAccountNumber
+						xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+					<ac:svcAddressExtId>19293</ac:svcAddressExtId>
+					<ac:billingInfoExtId>15193</ac:billingInfoExtId>
+					<ac:productDatasource>realtime</ac:productDatasource>
+					<ac:leadId>0</ac:leadId>
+					<ac:lineItemAttributes>
+						<ac:entity />
+					</ac:lineItemAttributes>
+					<ac:lineItemDetail>
+						<ac:detailType>productPromotion</ac:detailType>
+						<ac:detail>
+							<ac:promotionLineItem>
+								<ac:appliesTo>0</ac:appliesTo>
+								<ac:promotion>
+									<ac:externalId>6290</ac:externalId>
+									<ac:promoCode>6290</ac:promoCode>
+									<ac:description>24 Month Commitment - Best Customer Offer! Up
+										to 6 TVs FREE. No Activation Fee.</ac:description>
+									<ac:conditions xsi:nil="true"
+										xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+									<ac:priceValue>0.0</ac:priceValue>
+								</ac:promotion>
+							</ac:promotionLineItem>
+						</ac:detail>
+						<ac:productUniqueId>7938</ac:productUniqueId>
+					</ac:lineItemDetail>
+					<ac:selectedFeatures />
+					<ac:lineItemStatus dateTimeStamp="2012-09-17T10:32:30.698-04:00"
+						agentId="1" statusCode="sales_new_order" />
+					<ac:lineItemStatusHistory />
+					<ac:SchedulingInfo appointmentComment=""
+						installationFee="0.00" billingInstallments="false" residenceType=""
+						earlierAppointmentDate="false">
+						<ac:desiredStartDate>
+							<ac:date xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							<ac:time xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							<ac:startTime xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							<ac:endTime xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+						</ac:desiredStartDate>
+						<ac:scheduledStartDate>
+							<ac:date xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							<ac:time xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							<ac:startTime xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							<ac:endTime xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+						</ac:scheduledStartDate>
+						<ac:actualStartDate>
+							<ac:date xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							<ac:time xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							<ac:startTime xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							<ac:endTime xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+						</ac:actualStartDate>
+						<ac:disconnectDate>
+							<ac:date xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							<ac:time xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							<ac:startTime xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							<ac:endTime xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+						</ac:disconnectDate>
+						<ac:orderDate>
+							<ac:date xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							<ac:time xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							<ac:startTime xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+							<ac:endTime xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+						</ac:orderDate>
+						<ac:ScheduleAsSoonAsPossible>false</ac:ScheduleAsSoonAsPossible>
+					</ac:SchedulingInfo>
+					<ac:lineItemPriceInfo>
+						<ac:baseNonRecurringPrice>0.0</ac:baseNonRecurringPrice>
+						<ac:baseRecurringPrice>0.0</ac:baseRecurringPrice>
+						<ac:onDeliveryPrice>0.00</ac:onDeliveryPrice>
+					</ac:lineItemPriceInfo>
+					<ac:activeDialogs>
+						<ac:dialogs>
+							<ac:dialog>
+								<ac:externalId>DLG101</ac:externalId>
+								<ac:dialogueDate>2012-09-17T10:32:30.660-04:00</ac:dialogueDate>
+								<ac:value selected="true" type="string">Option1</ac:value>
+							</ac:dialog>
+						</ac:dialogs>
+					</ac:activeDialogs>
+					<ac:customSelections>
+						<ac:selections />
+					</ac:customSelections>
+				</ac:lineItem>
+			</ac:lineItems>
+			<ac:orderStatus>
+				<ac:status>sales</ac:status>
+				<ac:reason>999</ac:reason>
+				<ac:dateTimeStamp>2012-09-17T10:34:16.775-04:00</ac:dateTimeStamp>
+				<ac:agentId>1</ac:agentId>
+			</ac:orderStatus>
+			<ac:orderStatusHistory>
+				<ac:previousStatus>
+					<ac:status>sales</ac:status>
+					<ac:dateTimeStamp>2012-09-17T10:33:57.754-04:00</ac:dateTimeStamp>
+				</ac:previousStatus>
+				<ac:previousStatus>
+					<ac:status>submitted</ac:status>
+					<ac:reason>999</ac:reason>
+					<ac:dateTimeStamp>2012-09-17T10:33:57.754-04:00</ac:dateTimeStamp>
+				</ac:previousStatus>
+			</ac:orderStatusHistory>
+			<ac:externalId>12582</ac:externalId>
+			<ac:source>Web</ac:source>
+			<ac:orderDate>2012-09-17-04:00</ac:orderDate>
+			<ac:referrerId>108</ac:referrerId>
+			<ac:associatedWithMove>true</ac:associatedWithMove>
+			<ac:moveDate xsi:nil="true"
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+			<ac:whenToCallBack xsi:nil="true"
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+			<ac:campaignId>Dish</ac:campaignId>
+			<ac:customerInformation>
+				<ac:customer>
+					<ac:externalId>22002</ac:externalId>
+					<ac:referrerId>0</ac:referrerId>
+					<ac:partnerAccountId>0</ac:partnerAccountId>
+					<ac:dtAgentId />
+					<ac:dtCreated>2012-09-17-04:00</ac:dtCreated>
+					<ac:agentId>default</ac:agentId>
+					<ac:title>Mr.</ac:title>
+					<ac:firstName>ANDREWl</ac:firstName>
+					<ac:lastName>MANNl</ac:lastName>
+					<ac:middleName>R</ac:middleName>
+					<ac:nameSuffix>N/A</ac:nameSuffix>
+					<ac:gender>M</ac:gender>
+					<ac:dob>1975-05-16-04:00</ac:dob>
+					<ac:ssn>256256997</ac:ssn>
+					<ac:nonBuyerWebOptIn>false</ac:nonBuyerWebOptIn>
+					<ac:directMailOptIn>true</ac:directMailOptIn>
+					<ac:eMailOptIn>true</ac:eMailOptIn>
+					<ac:phoneContactOptIn>true</ac:phoneContactOptIn>
+					<ac:eMailProductUpdatesOptIn>true</ac:eMailProductUpdatesOptIn>
+					<ac:marketingOptIn>false</ac:marketingOptIn>
+					<ac:bestTimeToCall1>2011-08-24T11:17:11.000-04:00
+					</ac:bestTimeToCall1>
+					<ac:bestTimeToCall2>2011-08-24T11:17:11.000-04:00
+					</ac:bestTimeToCall2>
+					<ac:bestTimeToCallPhone>111-223-3333</ac:bestTimeToCallPhone>
+					<ac:bestEmailContact>abc@test.com</ac:bestEmailContact>
+					<ac:ALCustomerNumber>AC-134789234792222001
+					</ac:ALCustomerNumber>
+					<ac:homePhoneNumber>
+						<ac:value>4087139794</ac:value>
+						<ac:order>0</ac:order>
+						<ac:desc>home</ac:desc>
+					</ac:homePhoneNumber>
+					<ac:cellPhoneNumber>
+						<ac:value>6784448778</ac:value>
+						<ac:order>1</ac:order>
+						<ac:desc>cell</ac:desc>
+					</ac:cellPhoneNumber>
+					<ac:workPhoneNumber>
+						<ac:value>4046270192</ac:value>
+						<ac:order>2</ac:order>
+						<ac:desc>work</ac:desc>
+					</ac:workPhoneNumber>
+					<ac:homeEMail>
+						<ac:value>sachin@home.com</ac:value>
+						<ac:order>3</ac:order>
+						<ac:desc>homeEMail</ac:desc>
+					</ac:homeEMail>
+					<ac:workEMail>
+						<ac:value>test@bcci.com</ac:value>
+						<ac:order>4</ac:order>
+						<ac:desc>workEMail</ac:desc>
+					</ac:workEMail>
+					<ac:landlordInfo>
+						<ac:landlordName>NONE</ac:landlordName>
+						<ac:landlordPhoneNumber>0000000000</ac:landlordPhoneNumber>
+					</ac:landlordInfo>
+					<ac:driverLicense>
+						<ac:LicenseNumber>123456789</ac:LicenseNumber>
+						<ac:State>Georgia</ac:State>
+						<ac:LicenseExpirationDate>2021-01-01-05:00
+						</ac:LicenseExpirationDate>
+					</ac:driverLicense>
+					<ac:stateId>
+						<ac:IdNumber>123456789</ac:IdNumber>
+						<ac:State>Georgia</ac:State>
+					</ac:stateId>
+					<ac:primaryLanguage>0</ac:primaryLanguage>
+					<ac:payments />
+					<ac:financialInfo>
+						<ac:employed>
+							<ac:businessName>AL</ac:businessName>
+							<ac:businessPhoneNum>5555555556</ac:businessPhoneNum>
+							<ac:occupation>tester</ac:occupation>
+						</ac:employed>
+						<ac:employed />
+						<ac:student />
+						<ac:retired />
+						<ac:bankOrMortgageInstitution>N/A</ac:bankOrMortgageInstitution>
+						<ac:otherIncomeSource>Business</ac:otherIncomeSource>
+					</ac:financialInfo>
+					<ac:billingInfoList>
+						<ac:billingInfo>
+							<ac:addressRef>SVC1347892961483</ac:addressRef>
+							<ac:billingMethod>CreditCard</ac:billingMethod>
+							<ac:creditCardNumber>4111111111111111</ac:creditCardNumber>
+							<ac:creditCardType>Visa</ac:creditCardType>
+							<ac:expirationYearMonth>2030-01-05:00</ac:expirationYearMonth>
+							<ac:cardHolderName>Stevenar Smith</ac:cardHolderName>
+							<ac:verificationCode>321</ac:verificationCode>
+							<ac:checkingAccountNumber>4321-4321-4321-1234
+							</ac:checkingAccountNumber>
+							<ac:routingNumber>654322</ac:routingNumber>
+							<ac:externalId>15193</ac:externalId>
+							<ac:billingUniqueId>BLG1347892961483</ac:billingUniqueId>
+						</ac:billingInfo>
+					</ac:billingInfoList>
+					<ac:addressList>
+						<ac:customerAddress>
+							<ac:addressRoles>
+								<ac:role>ServiceAddress</ac:role>
+								<ac:role>CurrentAddress</ac:role>
+								<ac:role>PreviousAddress</ac:role>
+								<ac:role>BillingAddress</ac:role>
+							</ac:addressRoles>
+							<ac:addressUniqueId>SVC1347892961483</ac:addressUniqueId>
+							<ac:status>active</ac:status>
+							<ac:address>
+								<ac:externalId>19293</ac:externalId>
+								<ac:prefixDirectional />
+								<ac:streetNumber>910</ac:streetNumber>
+								<ac:streetName>BROADWAY</ac:streetName>
+								<ac:streetType />
+								<ac:line2 />
+								<ac:postfixDirectional />
+								<ac:city>San Diego</ac:city>
+								<ac:stateOrProvince>CA</ac:stateOrProvince>
+								<ac:postalCode>92101-5514</ac:postalCode>
+								<ac:country>USA</ac:country>
+								<ac:countyParishBorough>Cobb</ac:countyParishBorough>
+								<ac:addressBlock>addr block</ac:addressBlock>
+								<ac:howLongAtAddress>P10Y</ac:howLongAtAddress>
+								<ac:dwellingType>house</ac:dwellingType>
+								<ac:inEffect>2001-01-01-05:00</ac:inEffect>
+								<ac:gasStartAt xsi:nil="true"
+									xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+								<ac:electricityStartAt xsi:nil="true"
+									xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+								<ac:changeType>chtype</ac:changeType>
+								<ac:hasHadServicePreviously>false</ac:hasHadServicePreviously>
+								<ac:cityAlias>santa Maria</ac:cityAlias>
+								<ac:addressOwnership>own</ac:addressOwnership>
+							</ac:address>
+						</ac:customerAddress>
+					</ac:addressList>
+					<ac:securityVerificationInfo>
+						<ac:pin>1234</ac:pin>
+						<ac:securityQuestion>Quesiton1</ac:securityQuestion>
+						<ac:securityAnswer>Answer1</ac:securityAnswer>
+					</ac:securityVerificationInfo>
+					<ac:billingDeliveryPreference>paper</ac:billingDeliveryPreference>
+				</ac:customer>
+			</ac:customerInformation>
+			<ac:agentId>default</ac:agentId>
+			<ac:agentName>default</ac:agentName>
+			<ac:ALConfirmationNumber>CNF-134789235086112583
+			</ac:ALConfirmationNumber>
+			<ac:ALCustomerAccountNumber
+				xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+			<ac:totalPriceInfo>
+				<ac:baseNonRecurringPrice>0.0</ac:baseNonRecurringPrice>
+				<ac:baseRecurringPrice>109.96</ac:baseRecurringPrice>
+			</ac:totalPriceInfo>
+		</ac:orderInfo>
+	</ac:response>
+</ac:orderManagementRequestResponse>

@@ -1,0 +1,1 @@
+for /R . %1 in (*.EXT) do svn delete %1

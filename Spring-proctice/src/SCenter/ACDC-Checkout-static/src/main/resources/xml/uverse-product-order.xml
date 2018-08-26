@@ -1,0 +1,474 @@
+<v4:orderInfo  xmlns:v4="http://xml.AL.com/v4"
+	xsi:type="v4:orderType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<v4:lineItems>
+		<v4:lineItem>
+			<v4:externalId>14917</v4:externalId>
+			<v4:lineItemNumber>0</v4:lineItemNumber>
+			<v4:providerConfirmationNumber />
+			<v4:providerCustomerAccountNumber />
+			<v4:svcAddressExtId>22139</v4:svcAddressExtId>
+			<v4:billingInfoExtId>17677</v4:billingInfoExtId>
+			<v4:productDatasource>realtime</v4:productDatasource>
+			<v4:leadId>0</v4:leadId>
+			<v4:lineItemAttributes>
+				<v4:entity />
+			</v4:lineItemAttributes>
+			<v4:lineItemDetail>
+				<v4:detailType>product</v4:detailType>
+				<v4:detail>
+					<v4:productLineItem>
+						<v4:externalId>RTS:ATTSTI:ATT-13-3TIV-200-ELT-UNL-J</v4:externalId>
+						<v4:productCategoryList>
+							<v4:productCategory displayName="cableTV|localPhone|highSpeedInternet" />
+						</v4:productCategoryList>
+						<v4:name>U-VERSE U200 TV + INTERNET ELITE + VOICE UNLIMITED</v4:name>
+						<v4:channels>
+							<v4:channel>3</v4:channel>
+						</v4:channels>
+						<v4:provider externalId="24699452" />
+					</v4:productLineItem>
+				</v4:detail>
+				<v4:productUniqueId>9937</v4:productUniqueId>
+			</v4:lineItemDetail>
+			<v4:partnerExternalId>24699452</v4:partnerExternalId>
+			<v4:selectedFeatures>
+				<v4:features>
+					<v4:featureValue externalId="CONN_SPEED"
+						value="U-verse Internet Speed" type="string" />
+				</v4:features>
+			</v4:selectedFeatures>
+			<v4:lineItemStatus dateTimeStamp="2012-09-28T11:28:14.974-04:00"
+				agentId="1" statusCode="sales_new_order">
+				<v4:reason>0</v4:reason>
+			</v4:lineItemStatus>
+			<v4:lineItemStatusHistory />
+			<v4:SchedulingInfo appointmentComment="Test Comment"
+				installationFee="29.99" billingInstallments="true" residenceType="HOUSE"
+				earlierAppointmentDate="true">
+				<v4:desiredStartDate>
+					<v4:date>2012-07-24-04:00</v4:date>
+					<v4:time>01:30:00.000-04:00</v4:time>
+					<v4:startTime>01:30:00.000-04:00</v4:startTime>
+					<v4:endTime>01:30:00.000-04:00</v4:endTime>
+				</v4:desiredStartDate>
+				<v4:scheduledStartDate>
+					<v4:date>2012-07-24-04:00</v4:date>
+					<v4:time>02:30:00.000-04:00</v4:time>
+					<v4:startTime>02:30:00.000-04:00</v4:startTime>
+					<v4:endTime>02:30:00.000-04:00</v4:endTime>
+				</v4:scheduledStartDate>
+				<v4:actualStartDate>
+					<v4:date>2012-07-24-04:00</v4:date>
+					<v4:time>08:00:00.000-04:00</v4:time>
+					<v4:startTime>08:00:00.000-04:00</v4:startTime>
+					<v4:endTime>08:00:00.000-04:00</v4:endTime>
+				</v4:actualStartDate>
+				<v4:disconnectDate>
+					<v4:date xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+					<v4:time xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+					<v4:startTime xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+					<v4:endTime xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+				</v4:disconnectDate>
+				<v4:orderDate>
+					<v4:date xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+					<v4:time xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+					<v4:startTime xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+					<v4:endTime xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+				</v4:orderDate>
+				<v4:ScheduleAsSoonAsPossible>true</v4:ScheduleAsSoonAsPossible>
+			</v4:SchedulingInfo>
+			<v4:lineItemPriceInfo>
+				<v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+				<v4:baseNonRecurringPriceUnits>USD
+				</v4:baseNonRecurringPriceUnits>
+				<v4:baseRecurringPrice>217.0</v4:baseRecurringPrice>
+				<v4:baseRecurringPriceUnits>USD</v4:baseRecurringPriceUnits>
+				<v4:onDeliveryPrice>0.00</v4:onDeliveryPrice>
+			</v4:lineItemPriceInfo>
+			<v4:activeDialogs>
+				<v4:dialogs>
+					<v4:dialog>
+						<v4:externalId>DLG101</v4:externalId>
+						<v4:dialogueDate>2012-09-28T11:28:14.974-04:00
+						</v4:dialogueDate>
+						<v4:value selected="true" type="string">Option1</v4:value>
+					</v4:dialog>
+				</v4:dialogs>
+			</v4:activeDialogs>
+			<v4:customSelections>
+				<v4:selections>
+					<v4:selection externalId="ATT-TV-RECEIVERS-300-PLUS"
+						parentChoiceExternalId="">
+						<v4:selectionChoice externalId="TV-Receivers-300-Plus-1">
+							<v4:detail xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+						</v4:selectionChoice>
+					</v4:selection>
+					<v4:selection externalId="ATT-VID-300-41-DVC-Q"
+						parentChoiceExternalId="">
+						<v4:selectionChoice externalId="ATT-VID-300">
+							<v4:detail xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+						</v4:selectionChoice>
+					</v4:selection>
+					<v4:selection externalId="ATT-VID-WIRELESS-RECEIVER-HIGH-P"
+						parentChoiceExternalId="">
+						<v4:selectionChoice externalId="ATT-WIRELESS-REC-HIGH-0-P">
+							<v4:detail xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+						</v4:selectionChoice>
+					</v4:selection>
+					<v4:selection externalId="UVERSE-ACTIVATION"
+						parentChoiceExternalId="">
+						<v4:selectionChoice externalId="UV-FEE-ACT">
+							<v4:detail xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+						</v4:selectionChoice>
+					</v4:selection>
+					<v4:selection externalId="UVERSE-INT-FEE"
+						parentChoiceExternalId="">
+						<v4:selectionChoice externalId="UV-INT-FEE">
+							<v4:detail xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+						</v4:selectionChoice>
+					</v4:selection>
+					<v4:selection externalId="VOIP-DIR-LIST"
+						parentChoiceExternalId="">
+						<v4:selectionChoice externalId="V-UNPUB">
+							<v4:detail xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+						</v4:selectionChoice>
+					</v4:selection>
+					<v4:selection externalId="VOIP-DIR-LIST2"
+						parentChoiceExternalId="VOIPSECLINE-Y">
+						<v4:selectionChoice externalId="V-UNLIST">
+							<v4:detail xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+						</v4:selectionChoice>
+					</v4:selection>
+					<v4:selection externalId="VOIP-E911-1"
+						parentChoiceExternalId="">
+						<v4:selectionChoice externalId="VOIP-E911-1-Y">
+							<v4:detail xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+						</v4:selectionChoice>
+					</v4:selection>
+					<v4:selection externalId="VOIP-PORT-1"
+						parentChoiceExternalId="">
+						<v4:selectionChoice externalId="VOIP-PORT-1-N">
+							<v4:detail xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+						</v4:selectionChoice>
+					</v4:selection>
+					<v4:selection externalId="VOIP-SEC-LINE"
+						parentChoiceExternalId="">
+						<v4:selectionChoice externalId="VOIPSECLINE-Y">
+							<v4:detail xsi:nil="true"
+								xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+						</v4:selectionChoice>
+					</v4:selection>
+				</v4:selections>
+			</v4:customSelections>
+		</v4:lineItem>
+		<v4:lineItem>
+			<v4:externalId>14919</v4:externalId>
+			<v4:lineItemNumber>1</v4:lineItemNumber>
+			<v4:providerConfirmationNumber xsi:nil="true"
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+			<v4:providerCustomerAccountNumber
+				xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+			<v4:svcAddressExtId>22139</v4:svcAddressExtId>
+			<v4:billingInfoExtId>17677</v4:billingInfoExtId>
+			<v4:productDatasource>internal</v4:productDatasource>
+			<v4:leadId>0</v4:leadId>
+			<v4:lineItemAttributes>
+				<v4:entity />
+			</v4:lineItemAttributes>
+			<v4:lineItemDetail>
+				<v4:detailType>productPromotion</v4:detailType>
+				<v4:detail>
+					<v4:promotionLineItem>
+						<v4:appliesTo>0</v4:appliesTo>
+						<v4:promotion>
+							<v4:externalId>Additional Line Fifty Percent</v4:externalId>
+							<v4:promoCode>Additional Line Fifty Percent</v4:promoCode>
+							<v4:description>New U-verse Voice customers adding a second
+								line. After 6 months, standard rate of $15 per month
+								applies. Offer ends 11/3/2012.</v4:description>
+							<v4:conditions>AT&amp;T U-verse Voice Additional Line 50%
+								off: Offer ends 11/3/2012. Available for new U-verse Voice
+								customers ordering a new U-verse Voice Additional Line.
+								Discount applied via 6 monthly $7.50 bill credits that will
+								begin within 2 billing cycles following your order. After 6
+								months, standard rates will apply.</v4:conditions>
+							<v4:priceValue>0.0</v4:priceValue>
+						</v4:promotion>
+					</v4:promotionLineItem>
+				</v4:detail>
+				<v4:productUniqueId>9937</v4:productUniqueId>
+			</v4:lineItemDetail>
+			<v4:selectedFeatures />
+			<v4:lineItemStatus dateTimeStamp="2012-09-28T11:28:15.017-04:00"
+				agentId="1" statusCode="sales_new_order">
+				<v4:reason>0</v4:reason>
+			</v4:lineItemStatus>
+			<v4:lineItemStatusHistory />
+			<v4:SchedulingInfo appointmentComment=""
+				installationFee="0.00" billingInstallments="false" residenceType=""
+				earlierAppointmentDate="false">
+				<v4:desiredStartDate>
+					<v4:date xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+					<v4:time xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+					<v4:startTime xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+					<v4:endTime xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+				</v4:desiredStartDate>
+				<v4:scheduledStartDate>
+					<v4:date xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+					<v4:time xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+					<v4:startTime xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+					<v4:endTime xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+				</v4:scheduledStartDate>
+				<v4:actualStartDate>
+					<v4:date xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+					<v4:time xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+					<v4:startTime xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+					<v4:endTime xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+				</v4:actualStartDate>
+				<v4:disconnectDate>
+					<v4:date xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+					<v4:time xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+					<v4:startTime xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+					<v4:endTime xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+				</v4:disconnectDate>
+				<v4:orderDate>
+					<v4:date xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+					<v4:time xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+					<v4:startTime xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+					<v4:endTime xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+				</v4:orderDate>
+				<v4:ScheduleAsSoonAsPossible>false</v4:ScheduleAsSoonAsPossible>
+			</v4:SchedulingInfo>
+			<v4:lineItemPriceInfo>
+				<v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+				<v4:baseNonRecurringPriceUnits>USD
+				</v4:baseNonRecurringPriceUnits>
+				<v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+				<v4:baseRecurringPriceUnits>USD</v4:baseRecurringPriceUnits>
+				<v4:onDeliveryPrice>0.00</v4:onDeliveryPrice>
+			</v4:lineItemPriceInfo>
+			<v4:activeDialogs>
+				<v4:dialogs />
+			</v4:activeDialogs>
+			<v4:customSelections>
+				<v4:selections />
+			</v4:customSelections>
+		</v4:lineItem>
+	</v4:lineItems>
+	<v4:orderStatus>
+		<v4:status>sales</v4:status>
+		<v4:reason>0</v4:reason>
+		<v4:dateTimeStamp>2012-09-28T11:28:14.932-04:00</v4:dateTimeStamp>
+	</v4:orderStatus>
+	<v4:orderStatusHistory />
+	<v4:externalId>14231</v4:externalId>
+	<v4:source>Web</v4:source>
+	<v4:orderDate>2012-09-28-04:00</v4:orderDate>
+	<v4:referrerId>108</v4:referrerId>
+	<v4:associatedWithMove>true</v4:associatedWithMove>
+	<v4:moveDate xsi:nil="true"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+	<v4:whenToCallBack xsi:nil="true"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+	<v4:campaignId>ATT</v4:campaignId>
+	<v4:customerInformation>
+		<v4:customer>
+			<v4:externalId>25368</v4:externalId>
+			<v4:referrerId>0</v4:referrerId>
+			<v4:partnerAccountId />
+			<v4:dtAgentId />
+			<v4:agentId>default</v4:agentId>
+			<v4:title>Mr.</v4:title>
+			<v4:firstName>James</v4:firstName>
+			<v4:lastName>Naismith</v4:lastName>
+			<v4:middleName>R</v4:middleName>
+			<v4:nameSuffix>N/A</v4:nameSuffix>
+			<v4:gender>M</v4:gender>
+			<v4:dob>1974-04-25-04:00</v4:dob>
+			<v4:ssn>212210219</v4:ssn>
+			<v4:nonBuyerWebOptIn>false</v4:nonBuyerWebOptIn>
+			<v4:directMailOptIn>true</v4:directMailOptIn>
+			<v4:eMailOptIn>true</v4:eMailOptIn>
+			<v4:phoneContactOptIn>true</v4:phoneContactOptIn>
+			<v4:eMailProductUpdatesOptIn>true</v4:eMailProductUpdatesOptIn>
+			<v4:marketingOptIn>false</v4:marketingOptIn>
+			<v4:bestTimeToCall1>2011-05-24T11:17:11.000-04:00
+			</v4:bestTimeToCall1>
+			<v4:bestTimeToCall2>2011-05-24T11:17:11.000-04:00
+			</v4:bestTimeToCall2>
+			<v4:bestTimeToCallPhone xsi:nil="true"
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+			<v4:bestEmailContact xsi:nil="true"
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+			<v4:ALCustomerNumber>v4-134884608810725367
+			</v4:ALCustomerNumber>
+			<v4:homePhoneNumber>
+				<v4:value>4041110213</v4:value>
+				<v4:order>0</v4:order>
+				<v4:desc>home</v4:desc>
+			</v4:homePhoneNumber>
+			<v4:cellPhoneNumber>
+				<v4:value>7552222222</v4:value>
+				<v4:order>1</v4:order>
+				<v4:desc>cell</v4:desc>
+			</v4:cellPhoneNumber>
+			<v4:workPhoneNumber>
+				<v4:value>5663333333</v4:value>
+				<v4:order>2</v4:order>
+				<v4:desc>work</v4:desc>
+			</v4:workPhoneNumber>
+			<v4:homeEMail>
+				<v4:value>sachin@home.com</v4:value>
+				<v4:order>3</v4:order>
+				<v4:desc>homeEMail</v4:desc>
+			</v4:homeEMail>
+			<v4:workEMail>
+				<v4:value>test@bcci.com</v4:value>
+				<v4:order>4</v4:order>
+				<v4:desc>workEMail</v4:desc>
+			</v4:workEMail>
+			<v4:landlordInfo>
+				<v4:landlordName>NONE</v4:landlordName>
+				<v4:landlordPhoneNumber>0000000000</v4:landlordPhoneNumber>
+			</v4:landlordInfo>
+			<v4:driverLicense>
+				<v4:LicenseNumber>123456789</v4:LicenseNumber>
+				<v4:State>Georgia</v4:State>
+				<v4:LicenseExpirationDate>2021-01-01-05:00
+				</v4:LicenseExpirationDate>
+			</v4:driverLicense>
+			<v4:stateId>
+				<v4:IdNumber>123456789</v4:IdNumber>
+				<v4:State>Georgia</v4:State>
+			</v4:stateId>
+			<v4:primaryLanguage>0</v4:primaryLanguage>
+			<v4:payments />
+			<v4:financialInfo>
+				<v4:employed>
+					<v4:businessName>AL</v4:businessName>
+					<v4:businessPhoneNum>5555555555</v4:businessPhoneNum>
+					<v4:occupation>tester</v4:occupation>
+				</v4:employed>
+				<v4:employed />
+				<v4:student />
+				<v4:retired />
+				<v4:bankOrMortgageInstitution>N/A</v4:bankOrMortgageInstitution>
+				<v4:otherIncomeSource>Business</v4:otherIncomeSource>
+			</v4:financialInfo>
+			<v4:billingInfoList>
+				<v4:billingInfo>
+					<v4:addressRef>BLG1348845985017</v4:addressRef>
+					<v4:billingMethod>Credit Card</v4:billingMethod>
+					<v4:creditCardNumber>1111-2222-3333-4444</v4:creditCardNumber>
+					<v4:creditCardType xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+					<v4:cardHolderName xsi:nil="true"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+					<v4:verificationCode>123</v4:verificationCode>
+					<v4:checkingAccountNumber>1234-1234-1234-1234
+					</v4:checkingAccountNumber>
+					<v4:routingNumber>123456</v4:routingNumber>
+					<v4:externalId>17677</v4:externalId>
+					<v4:billingUniqueId>BI1348845985016</v4:billingUniqueId>
+				</v4:billingInfo>
+			</v4:billingInfoList>
+			<v4:addressList>
+				<v4:customerAddress>
+					<v4:addressRoles>
+						<v4:role>BillingAddress</v4:role>
+						<v4:role>ServiceAddress</v4:role>
+						<v4:role>CurrentAddress</v4:role>
+						<v4:role>PreviousAddress</v4:role>
+					</v4:addressRoles>
+					<v4:addressUniqueId>BLG1348845985017</v4:addressUniqueId>
+					<v4:status>active</v4:status>
+					<v4:address>
+						<v4:externalId>22139</v4:externalId>
+						<v4:prefixDirectional />
+						<v4:streetNumber >3144 N</v4:streetNumber>
+						<v4:streetName >LAYMAN AVE</v4:streetName>
+						<v4:streetType />
+						<v4:line2>N/A</v4:line2>
+						<v4:postfixDirectional />
+						<v4:city>INDIANAPOLIS</v4:city>
+						<v4:stateOrProvince>IN</v4:stateOrProvince>
+						<v4:postalCode>46218</v4:postalCode>
+						<v4:country>USA</v4:country>
+						<v4:countyParishBorough>Gwinnet</v4:countyParishBorough>
+						<v4:addressBlock>3144 N LAYMAN AVE , INDIANAPOLIS IN 46218</v4:addressBlock>
+						<v4:howLongAtAddress>P10Y</v4:howLongAtAddress>
+						<v4:dwellingType>house</v4:dwellingType>
+						<v4:inEffect>2001-01-01-05:00</v4:inEffect>
+						<v4:gasStartAt xsi:nil="true"
+							xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+						<v4:electricityStartAt xsi:nil="true"
+							xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+						<v4:expiration>2051-01-01-05:00</v4:expiration>
+						<v4:changeType>chtype</v4:changeType>
+						<v4:hasHadServicePreviously>false</v4:hasHadServicePreviously>
+						<v4:cityAlias>Columbia</v4:cityAlias>
+						<v4:addressOwnership>own</v4:addressOwnership>
+					</v4:address>
+				</v4:customerAddress>
+			</v4:addressList>
+			<v4:securityVerificationInfo>
+				<v4:pin>1234</v4:pin>
+				<v4:securityQuestion>Quesiton1</v4:securityQuestion>
+				<v4:securityAnswer>Answer1</v4:securityAnswer>
+			</v4:securityVerificationInfo>
+			<v4:billingDeliveryPreference>paper
+			</v4:billingDeliveryPreference>
+		</v4:customer>
+	</v4:customerInformation>
+	<v4:agentId>default</v4:agentId>
+	<v4:agentName>default</v4:agentName>
+	<v4:ALConfirmationNumber>CNF-134884609578514232
+	</v4:ALConfirmationNumber>
+	<v4:ALCustomerAccountNumber
+		xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+	<v4:totalPriceInfo>
+		<v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+		<v4:baseNonRecurringPriceUnits xsi:nil="true"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+		<v4:baseRecurringPrice>217.0</v4:baseRecurringPrice>
+		<v4:baseRecurringPriceUnits xsi:nil="true"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+	</v4:totalPriceInfo>
+</v4:orderInfo>

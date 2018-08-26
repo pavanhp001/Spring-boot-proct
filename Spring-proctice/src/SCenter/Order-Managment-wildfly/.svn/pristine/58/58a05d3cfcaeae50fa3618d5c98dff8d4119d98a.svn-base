@@ -1,0 +1,1 @@
+ALTER TABLE uam_resource  ALTER COLUMN resource_name TYPE character varying(35);

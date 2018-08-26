@@ -1,0 +1,201 @@
+.pc_pdetails_cont .pc_steps {
+  width: 95px !important;
+}
+  fieldset.pc_fldset legend {
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 16px;
+}
+fieldset.pc_fldset legend {
+        border: 1px solid #999;
+    border-radius: 5px 5px 0 0;
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 16px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+input{
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    clear: both;
+    -width: 65%;
+}
+fieldset.pc_fldset legend div {
+    padding: 10px;
+}
+
+.pc_fldset_data_item{
+ padding: 5px;
+}
+.pc_fldset{
+    border: medium none;
+    margin: 0 0 10px;
+    padding: 0;
+    width: auto;
+}
+.pc_fldset_cont{
+     border: 1px solid #999;
+    margin: 0;
+    overflow: hidden;
+    padding: 1px;
+}
+.pc_fldset_data_item_cont {
+    background-color: #efefef;
+    border: 1px solid #616264;
+    border-radius: 5px;
+    clear: both;
+    margin: 12px 26px;
+    padding: 8px 10px;
+    width: auto;;
+}
+.pc_frameblk_title row{
+    font-weight: bold;
+    padding: 0 0 11px 3px;
+
+}
+.label {
+    color: #666;
+    font-size: 90%;
+    line-height: 1;
+    text-align: left;
+    white-space: nowrap;
+}
+.info_type_label {
+    -color: #9dc45f;
+    font-size: 14px;
+    font-weight: bold;
+    text-indent: 50px;
+     padding: 5px;
+}
+.pc_pdetails_logo.col-md-2{
+	width: 11%;
+}
+.pName{
+	padding: 1px 0px 0px 8px;
+}
+.label_desc img{
+	float: left;
+}
+/*######## Smart Green ########*/
+.AL-green {
+	margin-left:auto;
+	margin-right:auto;
+    -max-width: 60%;
+    -background: #F8F8F8;
+    padding: 30px 30px 20px 30px;
+    font: 12px Arial, Helvetica, sans-serif;
+    color: #666;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+.AL-green legend {
+    font: 24px "Trebuchet MS", Arial, Helvetica, sans-serif;
+    padding: 20px 0px 20px 40px;
+    display: block;
+    margin: -30px -30px 10px -30px;
+    color: #FFF;
+    background: #9DC45F;
+    -text-shadow: 1px 1px 1px #949494;
+    border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+    border-bottom:1px solid #89AF4C;
+}
+.AL-green legend > div {
+    -background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #f8ffe8 3%, #e3f5ab 26%, #b7df2d 100%) repeat scroll 0 0;
+    border-radius: 5px 5px 0 0;
+    -color: #222;
+    display: block;
+    font-size: 14px;
+}
+
+.AL-green label {
+    display: block;
+    margin: 0px 0px 5px;
+    white-space: normal;
+}
+.AL-green label>span {
+    float: left;
+    margin-top: 10px;
+    color: #5E5E5E;
+}
+.AL-green input[type="text"], .AL-green input[type="email"], .AL-green textarea, .AL-green select {
+    color: #555;
+    height: 30px;
+	line-height:15px;
+    width: 100%;
+    padding: 0px 0px 0px 10px;
+    margin-top: 2px;
+    border: 1px solid #cdcdcd;
+    background: #FBFBFB;
+    outline: 0;
+    -webkit-box-shadow: inset 1px 1px 2px rgba(238, 238, 238, 0.2);
+    box-shadow: inset 1px 1px 2px rgba(238, 238, 238, 0.2);
+    font: normal 14px/14px Arial, Helvetica, sans-serif;
+}
+
+.AL-green textarea{
+    height:100px;
+    padding-top: 10px;
+}
+.AL-green select {
+    background: url('../../image/acdc/select-dropdown.png') no-repeat right, -moz-linear-gradient(top, #FBFBFB 0%, #E9E9E9 100%);
+    background: url('../../image/acdc/select-dropdown.png') no-repeat right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FBFBFB), color-stop(100%,#E9E9E9));
+   appearance:none;
+    -webkit-appearance:none; 
+   -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+    width:100%;
+    height:30px;
+	max-width: 100% !important;
+}
+.AL-green .button {
+    -background-color: #9DC45F;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-border-radius: 5px;
+    border: none;
+    padding: 10px 25px 10px 25px;
+    -color: #FFF;
+    -text-shadow: 1px 1px 1px #949494;
+	font-weight: bold;
+}
+.AL-green .button:hover {
+    background-color:#80A24A;
+}
+ 
+ 
+ .value select{
+ 	height: 24px;
+ }
+ .pc_fldset_data_item span.value{
+ 	 width: 38% !important;
+ }
+ span.label{
+ 	color: grey;
+    float: left;
+    padding: 9px;
+    width: 60%;
+ }
+.value {
+    float: left;
+    padding: 0 0 6px 2px;
+   min-width: 23%;
+}
+
+@media (max-width:768px){
+	.pc_fldset_data_item .value {
+		float: none !important;
+	}
+	.pc_fldset_data_item span.label{
+		float: none !important;
+	}
+
+}

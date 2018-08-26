@@ -1,0 +1,267 @@
+@charset "utf-8";
+.contentwrapper {
+    height: 594px;
+    position: relative;
+    width: 1005px;
+	font-family: Arial, Helvetica, sans-serif, Verdana;
+}
+#action_wrapper {
+    height: 587px;
+    width: 1005px;
+	margin: 0;
+	position: static;
+}
+.widget_container {
+    float: left;
+    height: 533px;
+    width: 981px;
+	background-color: #fff;
+	overflow: hidden;
+	padding: 12px;
+}
+.pc_pdetails{
+	display: inline-block;
+	width: 100%;
+	line-height: 18px;
+	font-family: Arial, Helvetica, sans-serif, Verdana;
+}
+.pc_pdetails_logo{
+	background: url("images/dish-logo.gif") no-repeat;
+	float: left;
+	width: 107px;
+	height: 54px;
+	margin-right: 10px;
+	text-align: center;
+}
+.pc_pdetails_logo div{
+	width: 107px;
+	height: 54px;
+	vertical-align: middle;
+	display: table-cell;
+}
+.pc_pdetails_logo img{
+	display: inline-block;
+	max-width: 104px;
+	max-height: 52px;
+	background-size: cover;
+}
+.pc_pdetails_info{
+	float: left;
+	display: inline-block;
+	width: 860px;
+	line-height: 18px;
+}
+.pc_pdetails .label{
+	float: left;
+	width: 172px;
+	font-size: 14px;
+	font-weight: bold;
+}
+.pc_pdetails .value{
+	float: left;	
+	width: 160px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #000;
+}
+.pc_pdetails .valuePromo{
+	float: left;	
+	width: 72%;
+	font-size: 14px;
+	font-weight: bold;
+	color: #000;
+}
+/*Below css classes copied from Dish CKO of file CKO_base.css. */
+.styledWidth100 {
+  white-space: wrap  ;
+  width: 100%;
+ }
+  
+.addressLabel {
+    margin-left: 3px;
+    margin-top: 4px;
+}
+
+.dlLabel {
+    width: 170px;
+}
+
+.cFieldClass {
+    background-color: #F1F1F1;
+    border: medium none;
+    border-radius: 5px 5px 5px 5px;
+    padding: 5px;
+}
+
+.cLegendClass{
+	margin-left: 2%;
+    width: 90%;
+}
+
+.spanIsText {
+    float: left;
+    width: 170px;  
+}
+.labelIsText {
+    width: 50%;
+}
+.featureAlign {
+    float: left;
+    margin-left: 5px;
+    width: 55%;
+}
+.featureAlign1 {
+    float: left;
+    margin-left: 5px;
+    width: 55%;
+}
+.featureAlignWidth {
+    float: left;
+    margin-left: 5px;
+    width: 70%;
+}
+
+.featureAlignPadding10 {
+    float: left;
+    margin-left: 5px;
+    width: 60%;
+    padding-left: 10px; 
+}
+
+.spanLeft {
+    float: left;
+    width: 40%;
+}
+
+.spanLeft50 {
+    float: left;
+    width: 50%;
+}
+
+.spanRight {
+    float: left;
+    width: 60%;
+}
+
+.spanRight50 {
+    float: left;
+    width: 50%;
+}
+
+.textCenter
+{
+	text-align : center;
+}
+
+.spanLeftWidth10 {
+    float: left;
+    width: 10%;
+}
+
+.spanCenterWidth10 {
+    float: center;
+    width: 10%;
+}
+.fieldAlign {
+    margin-left: 85%;
+}
+.divTable
+    {
+        display:  table;       
+        background-color:#eee;
+        border:2px solid  #000000;
+        border-spacing:3px;/*cellspacing:poor IE support for  this*/
+       /* border-collapse:separate;*/
+    }
+
+.divRow
+    {
+       display:table-row;
+       width:auto;
+	   border:1px solid  #000000;
+    }
+
+.divCell
+    {
+        float:left;/*fix for  buggy browsers*/
+        display:table-column;
+        width:100px;        
+		border:1px solid  #000000;
+    }
+.labelwidth {
+    width: 100%; 
+}
+.divCellHdr
+    {
+        float:left;/*fix for  buggy browsers*/
+        display:table-column;
+        width:100px;
+        background-color:#ccc;
+        border:1px solid  #000000;
+
+    }
+.fieldRightAlign {
+   float: right;
+   margin-right: -60%;
+   margin-top: -2%;
+}
+.buttonRightAlign {
+   float: right;
+   margin-top: -25px;
+}
+.divMaxCellSize
+ {
+        float:left;/*fix for  buggy browsers*/
+        display:table-column;
+        width:250px;        
+		border:1px solid  #000000;
+}
+
+.fontColorRed{
+	color:Red;
+}
+.leftLabelWidth {   
+    width: 60%;
+}
+.rightLabelWidth {   
+    width: 60%;
+}
+.hide {
+display: none;
+ }
+ 
+.labelRightAlign {
+    margin-left: 70%;
+}
+.displayInline
+{
+	display: inline;
+}
+.freeHd{
+	white-space: wrap  ;
+	float: left;
+}
+.Hd200{
+	white-space: wrap  ;
+	float: left;
+}
+.iPadMini{
+	white-space: wrap  ;
+	float: left;	
+}
+.Intro{
+	white-space: wrap  ;
+	float: left;
+}
+.iPad2{
+	white-space: wrap  ;
+	float: left;
+}
+#dishnext {
+    background-color: #A1A1A1;
+    border: 1px solid #9A9A9A;
+    border-radius: 4px 4px 4px 4px;
+    color: #000000;
+    cursor: pointer;
+    padding: 0px;
+}

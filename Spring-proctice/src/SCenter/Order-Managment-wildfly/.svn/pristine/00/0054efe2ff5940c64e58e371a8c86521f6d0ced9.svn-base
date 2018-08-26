@@ -1,0 +1,13 @@
+endpoint.ccp.out=ccp.in.q
+host=jms.ln
+port=61616
+communicationType=JMS
+vendor=ActiveMQ
+jndiName=
+transacted=
+persist=
+timeToLive=300
+username=V
+password=V
+redeliveryMax=5
+jndiConnectionFactoryName=ccp

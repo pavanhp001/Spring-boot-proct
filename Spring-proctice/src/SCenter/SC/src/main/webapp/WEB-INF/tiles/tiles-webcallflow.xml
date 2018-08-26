@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+     <definition
+        name="webCallFlow.base.definition.nonav.basicinfo"
+        template="/WEB-INF/flows/jsp/layout/layout_nonav_basicInfo.jsp" >
+        <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+    </definition>
+	
+	
+	<definition name="webCallFlow.base.definition.realtimestatus" template="/WEB-INF/flows/jsp/layout/layout_sales_realtime.jsp">
+		 <put-attribute name="sales_summary_content" value="/WEB-INF/flows/jsp/common/sales_customer_summary_quick.jsp" />
+		 <put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+		 <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+	</definition>
+	<definition name="webCallFlow.view" extends="webCallFlow.base.definition.nonav.basicinfo">
+		<put-attribute name="discovery_notepad"
+			value="/WEB-INF/jsp/sales/empty_notepad.jsp" />
+		<put-attribute name="main_content"
+			value="/WEB-INF/flows/jsp/common/greeting.jsp" />
+	</definition>
+	<definition name="mdu.view" extends="webCallFlow.base.definition.nonav.basicinfo">
+		<put-attribute name="discovery_notepad"
+			value="/WEB-INF/jsp/sales/empty_notepad.jsp" />
+		<put-attribute name="main_content"
+			value="/WEB-INF/flows/mdu/common/greeting.jsp" />
+	</definition>	
+	
+	<definition
+        name="webCallFlow.base.definition.nav.basicinfo"
+        template="/WEB-INF/jsp/common/layout/layout_nav_basicInfo.jsp" >
+        <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+    </definition>
+
+	
+	<definition name="webCallFlow.basic_information" extends="webCallFlow.base.definition.nonav.basicinfo">
+    	<put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/flows/webCallFlow/common/basic_information.jsp" />
+	</definition>
+	
+    <definition name="webCallFlow.isValidAddress" extends="webCallFlow.base.definition.nonav.basicinfo">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/addressFound.jsp" />
+	</definition>
+	
+	<definition name="webCallFlow.isInvalidAddress" extends="webCallFlow.base.definition.nonav.basicinfo">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/addressNotFound.jsp" />
+	</definition>
+	
+	<definition name="webCallFlow.isMultipleAddress" extends="webCallFlow.base.definition.nonav.basicinfo">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/multipleAddress.jsp" />
+	</definition>
+	
+	<definition name="webCallFlow.base.definition.realtimestatusforconfirmation" template="/WEB-INF/flows/jsp/layout/layout_sales_realtime_confirmation.jsp">
+		 <put-attribute name="sales_cust_summary_content" value="/WEB-INF/flows/jsp/common/sales_customer_summary_quick.jsp" />
+		 <put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+		 <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+	</definition>
+		
+	<definition name="webCallFlow.confirmation" extends="webCallFlow.base.definition.realtimestatusforconfirmation">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/confirmation.jsp" />
+	</definition>
+	
+	<definition name="webCallFlow.offer" extends="webCallFlow.base.definition.realtimestatus">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/dynamic_offer.jsp" />
+	</definition>
+			
+	<definition name="webCallFlow.qualification" extends="webCallFlow.base.definition.realtimestatus">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/qualification.jsp" />
+	</definition>
+	
+	<definition name="webCallFlow.qualificationMoveInDelta" extends="webCallFlow.base.definition.realtimestatus">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/qualificationMoveInDelta.jsp" />
+	</definition>
+	
+	<definition name="webCallFlow.discoveryA" extends="webCallFlow.base.definition.realtimestatus">
+	 	<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/discoveryNew.jsp" />  
+	</definition>
+	
+	<definition name="webCallFlow.discoveryB" extends="webCallFlow.base.definition.realtimestatus">
+        <put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/discoveryTransfer.jsp" />
+	</definition>
+	
+	<definition name="webCallFlow.discoveryMoveInDelta" extends="webCallFlow.base.definition.realtimestatus">
+        <put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/discoveryMoveInDelta.jsp" />
+	</definition>
+	
+	<definition name="webCallFlow.base.definition.realtimestatus" template="/WEB-INF/flows/jsp/layout/layout_sales_realtime.jsp">
+		 <put-attribute name="sales_summary_content" value="/WEB-INF/flows/jsp/common/sales_customer_summary_quick.jsp" />
+		  <put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+		  <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+	</definition>
+	
+   <definition name="webCallFlow.base.definition.lineItem" template="/WEB-INF/flows/jsp/layout/layoutnav_lineitem.jsp">
+   		<put-attribute name="product_menu_content"	value="/WEB-INF/flows/jsp/common/product_menu_content.jsp" />
+	</definition>
+	
+
+    <definition name="webCallFlow.recommendations" extends="webCallFlow.base.definition.lineItem">
+	 	<put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+        <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/recommendations.jsp" />
+       <put-attribute name="cust_summary_content"
+			value="/WEB-INF/flows/jsp/common/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />   
+	</definition>
+	
+	<definition name="webCallFlow.recommendationsbyCategory" extends="webCallFlow.base.definition.lineItem">
+	 	<put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+         <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/recommendationsbyCategory.jsp" />
+        <put-attribute name="cust_summary_content" value="/WEB-INF/flows/jsp/common/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />   
+	</definition>
+	
+	<definition name="webCallFlow.syntheticBundles" extends="webCallFlow.base.definition.lineItem">
+	 	<put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+         <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/syntheticBundles.jsp" />
+        <put-attribute name="cust_summary_content" value="/WEB-INF/flows/jsp/common/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />    
+	</definition>
+	
+	<definition name="webCallFlow.orderSummary" extends="webCallFlow.base.definition.summary">
+		<put-attribute name="main_content"
+			value="/WEB-INF/flows/jsp/common/order_summary.jsp" />
+		<put-attribute name="cust_summary_content"
+			value="/WEB-INF/flows/jsp/common/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />
+	</definition>
+	
+	<definition name="webCallFlow.base.definition.orderquick"
+		template="/WEB-INF/flows/jsp/layout/layout_orderquick.jsp">
+		<put-attribute name="product_menu_content"
+			value="/WEB-INF/flows/jsp/common/product_menu_content.jsp" />
+		<put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />	
+	</definition>
+	
+	<!-- Order Recap Page -->
+	<definition name="webCallFlow.orderRecap" extends="webCallFlow.base.definition.orderquick">
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/order_recap.jsp" />
+		<put-attribute name="product_menu_content"
+			value="/WEB-INF/flows/jsp/common/product_menu_content.jsp" />		
+		<put-attribute name="cust_summary_content"
+			value="/WEB-INF/flows/jsp/common/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />
+	</definition>
+	
+	<definition name="webCallFlow.base.definition.closeCallSale"
+		template="/WEB-INF/flows/jsp/layout/layout_closeCallSale.jsp">
+	</definition>
+	
+	<!-- Close Call Sale Page -->
+	<definition name="webCallFlow.closeCallSale" extends="webCallFlow.base.definition.closeCallSale">
+		<put-attribute name="main_content"	value="/WEB-INF/jsp/cart/order_conclusion.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />  
+	</definition>
+	
+ 	<definition name="webCallFlow.closingcallnosale" extends="webCallFlow.base.definition.nav.basicinfo">
+        <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/empty_notepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/flows/jsp/common/closingCallNoSale.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />  
+	</definition> 
+	
+	<definition
+        name="webCallFlow.base.definition.nonav.dispostions"
+        template="/WEB-INF/flows/jsp/layout/layout_nonav_dispostions.jsp" >
+        <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+    </definition>
+    
+	<definition name="webCallFlow.dispositions" extends="webCallFlow.base.definition.nonav.dispostions">
+	    <put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/empty_notepad.jsp" />
+		<put-attribute name="main_content" value="/WEB-INF/jsp/sales/dispositions.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />  		
+	</definition>
+	
+	<definition name="webCallFlow.base.definition.summary"
+		template="/WEB-INF/flows/jsp/layout/layout_summary.jsp">
+		<put-attribute name="product_menu_content"
+			value="/WEB-INF/flows/jsp/common/product_menu_content.jsp" />
+		<put-attribute name="discovery_notepad" value="/WEB-INF/jsp/sales/discoveryNotepad.jsp" />
+		<put-attribute name="realtime_content" value="/WEB-INF/flows/jsp/common/realtimecontent.jsp" />
+	</definition>
+	
+	<definition name="webCallFlow.CKO_start" extends="webCallFlow.base.definition.summary">
+		<put-attribute name="main_content"
+			value="/WEB-INF/flows/jsp/common/CKO_container.jsp" />
+		<put-attribute name="cust_summary_content"
+		value="/WEB-INF/flows/jsp/common/order_summary_quick.jsp" />
+		<put-attribute name="order_summary_content"
+			value="/WEB-INF/flows/jsp/common/customer_summary_quick.jsp" />	
+	</definition>
+	
+</tiles-definitions>

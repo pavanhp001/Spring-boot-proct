@@ -1,0 +1,271 @@
+<v4:serviceabilityEnterpriseResponse xmlns:v4="http://xml.A.com/v4">
+         <v4:GUID>d5ce06cb-189c-11e2-99a3-ad952dddb39e</v4:GUID>
+         <v4:status>
+            <v4:statusCode>4</v4:statusCode>
+            <v4:processingMessages>
+               <v4:message>
+                  <v4:code>1.1</v4:code>
+                  <v4:text>Non-Exact Match</v4:text>
+               </v4:message>
+               <v4:message>
+                  <v4:code>18.3</v4:code>
+                  <v4:text>ZIP code changed</v4:text>
+               </v4:message>
+            </v4:processingMessages>
+         </v4:status>
+         <v4:request>
+            <ac:salesContext xmlns:ac="http://xml.A.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+               <v4:orderSource>0</v4:orderSource>
+               <v4:entity name="dwelling">
+                  <v4:attribute name="dwelling.dwellingType" value="apartment"/>
+                  <v4:attribute name="dwelling.derivedDwellingType" value="apartment"/>
+               </v4:entity>
+               <v4:entity name="orderSource">
+                  <v4:attribute name="orderSource.referrer" value="31726"/>
+                  <v4:attribute name="orderSource.channel" value="3"/>
+               </v4:entity>
+            </ac:salesContext>
+         </v4:request>
+         <v4:response xsi:type="v4:serviceabilityResponseType2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <v4:inputAddressString>15 DECATUR ST SE , Atlanta GA 30303</v4:inputAddressString>
+            <v4:serviceabilityTransactionType>normal</v4:serviceabilityTransactionType>
+            <v4:correctedAddress>
+               <v4:streetNumber>15</v4:streetNumber>
+               <v4:streetName>DECATUR</v4:streetName>
+               <v4:streetType>ST</v4:streetType>
+               <v4:postfixDirectional>SE</v4:postfixDirectional>
+               <v4:city>ATLANTA</v4:city>
+               <v4:stateOrProvince>GA</v4:stateOrProvince>
+               <v4:postalCode>30303-2906</v4:postalCode>
+               <v4:addressBlock>15 DECATUR ST SE, ATLANTA GA 30303-2906</v4:addressBlock>
+            </v4:correctedAddress>
+            <v4:messageOrigin>None</v4:messageOrigin>
+            <v4:candidateAddressList/>
+            <v4:rtimRequestResponseCriteria>
+               <v4:providerCriteria>
+                  <v4:provider name="">
+                     <v4:attribute name="externalId" value=""/>
+                     <v4:attribute name="guid" value="d5ce06cb-189c-11e2-99a3-ad952dddb39e"/>
+                     <v4:attribute name="status" value="Pending"/>
+                     <v4:attribute name="statusMessage" value="Serviceability successfully sent request to RTIM: RTIM-DISH message processing in-progress"/>
+                     <v4:attribute name="phoneNumber" value=""/>
+                  </v4:provider>
+                  <v4:provider name="G2B-Comcast">
+                     <v4:attribute name="externalId" value="26069940"/>
+                     <v4:attribute name="guid" value="d5ce06cb-189c-11e2-99a3-ad952dddb39e"/>
+                     <v4:attribute name="status" value="Pending"/>
+                     <v4:attribute name="statusMessage" value="Serviceability successfully sent request to RTIM: RTIM-G2B message processing in-progress"/>
+                     <v4:attribute name="phoneNumber" value=""/>
+                  </v4:provider>
+                  <v4:provider name="ATTSTI">
+                     <v4:attribute name="externalId" value="24699452"/>
+                     <v4:attribute name="guid" value="d5ce06cb-189c-11e2-99a3-ad952dddb39e"/>
+                     <v4:attribute name="status" value="Success"/>
+                     <v4:attribute name="statusMessage" value="SUCCESS"/>
+                     <v4:attribute name="phoneNumber" value=""/>
+                  </v4:provider>
+               </v4:providerCriteria>
+            </v4:rtimRequestResponseCriteria>
+            <v4:providerList>
+               <v4:provider externalId="6401" name="A">
+                  <v4:source datasource="">internal</v4:source>
+                  <v4:parent name="A" externalId="6401"/>
+                  <v4:capabilityList>
+                     <v4:capability name="offers"/>
+                  </v4:capabilityList>
+               </v4:provider>
+               <v4:provider externalId="5853" name="AT&amp;T Southeast">
+                  <v4:source datasource="">internal</v4:source>
+                  <v4:parent name="AT&amp;T" externalId="100"/>
+                  <v4:capabilityList>
+                     <v4:capability name="wiredDataUpSpeed"/>
+                     <v4:capability name="satellite"/>
+                     <v4:capability name="localPhone"/>
+                     <v4:capability name="longDistancePhone"/>
+                     <v4:capability name="wiredDataDownSpeed"/>
+                  </v4:capabilityList>
+               </v4:provider>
+               <v4:provider externalId="18063259" name="DISH NETWORK">
+                  <v4:source datasource="">internal</v4:source>
+                  <v4:parent name="DISH NETWORK" externalId="18063259"/>
+                  <v4:capabilityList>
+                     <v4:capability name="satellite"/>
+                  </v4:capabilityList>
+               </v4:provider>
+               <v4:provider externalId="3766981" name="Georgia Natural Gas">
+                  <v4:source datasource="">internal</v4:source>
+                  <v4:parent name="Georgia Natural Gas" externalId="3766981"/>
+                  <v4:capabilityList>
+                     <v4:capability name="naturalGas"/>
+                  </v4:capabilityList>
+               </v4:provider>
+               <v4:provider externalId="5780" name="Comcast - Atlanta">
+                  <v4:source datasource="">internal</v4:source>
+                  <v4:parent name="Comcast" externalId="104"/>
+                  <v4:capabilityList>
+                     <v4:capability name="wiredDataUpSpeed"/>
+                     <v4:capability name="localPhone"/>
+                     <v4:capability name="analogCable"/>
+                     <v4:capability name="longDistancePhone"/>
+                     <v4:capability name="wiredDataDownSpeed"/>
+                     <v4:capability name="digitalCable"/>
+                  </v4:capabilityList>
+               </v4:provider>
+               <v4:provider externalId="2314635" name="DIRECTV">
+                  <v4:source datasource="">internal</v4:source>
+                  <v4:parent name="DIRECTV" externalId="2314635"/>
+                  <v4:capabilityList>
+                     <v4:capability name="satellite"/>
+                  </v4:capabilityList>
+               </v4:provider>
+               <v4:provider externalId="1105026" name="Gas South">
+                  <v4:source datasource="">internal</v4:source>
+                  <v4:parent name="Gas South" externalId="1105026"/>
+                  <v4:capabilityList>
+                     <v4:capability name="naturalGas"/>
+                  </v4:capabilityList>
+               </v4:provider>
+               <v4:provider externalId="5773" name="SCANA Energy">
+                  <v4:source datasource="">internal</v4:source>
+                  <v4:parent name="SCANA Energy" externalId="5773"/>
+                  <v4:capabilityList>
+                     <v4:capability name="naturalGas"/>
+                  </v4:capabilityList>
+               </v4:provider>
+               <v4:provider externalId="3336287" name="Lowe's">
+                  <v4:source datasource="">internal</v4:source>
+                  <v4:parent name="Lowe's" externalId="3336287"/>
+                  <v4:capabilityList>
+                     <v4:capability name="offers"/>
+                  </v4:capabilityList>
+               </v4:provider>
+               <v4:provider externalId="5755" name="Georgia Power">
+                  <v4:source datasource="">internal</v4:source>
+                  <v4:parent name="Georgia Power" externalId="5755"/>
+                  <v4:capabilityList>
+                     <v4:capability name="electricity"/>
+                     <v4:capability name="warranty"/>
+                  </v4:capabilityList>
+               </v4:provider>
+               <v4:provider externalId="25199176" name="MINGO WIRELESS">
+                  <v4:source datasource="">internal</v4:source>
+                  <v4:parent name="MINGO WIRELESS" externalId="25199176"/>
+                  <v4:capabilityList>
+                     <v4:capability name="wirelessPhone"/>
+                  </v4:capabilityList>
+               </v4:provider>
+               <v4:provider externalId="16658857" name="CITY of ATLANTA">
+                  <v4:source datasource="">internal</v4:source>
+                  <v4:parent name="US Information Only Utilities" externalId="109"/>
+                  <v4:capabilityList>
+                     <v4:capability name="wasteRemoval"/>
+                  </v4:capabilityList>
+               </v4:provider>
+               <v4:provider externalId="18486164" name="HOME DEPOT">
+                  <v4:source datasource="">internal</v4:source>
+                  <v4:parent name="HOME DEPOT" externalId="18486164"/>
+                  <v4:capabilityList>
+                     <v4:capability name="offers"/>
+                  </v4:capabilityList>
+               </v4:provider>
+               <v4:provider externalId="7457524" name="Progress Florida HW and SP">
+                  <v4:source datasource="">internal</v4:source>
+                  <v4:parent name="Progress Energy" externalId="112"/>
+                  <v4:capabilityList>
+                     <v4:capability name="offers"/>
+                  </v4:capabilityList>
+               </v4:provider>
+               <v4:provider externalId="1675269" name="PeoplePC">
+                  <v4:source datasource="">internal</v4:source>
+                  <v4:parent name="PeoplePC" externalId="1675269"/>
+                  <v4:capabilityList>
+                     <v4:capability name="dialUpInternet"/>
+                  </v4:capabilityList>
+               </v4:provider>
+               <v4:provider externalId="19824709" name="Advanced Support">
+                  <v4:source datasource="">internal</v4:source>
+                  <v4:parent name="Advanced Support" externalId="19824709"/>
+                  <v4:capabilityList>
+                     <v4:capability name="homeSecurity"/>
+                  </v4:capabilityList>
+               </v4:provider>
+               <v4:provider externalId="21770432" name="Living Social">
+                  <v4:source datasource="">internal</v4:source>
+                  <v4:parent name="Living Social" externalId="21770432"/>
+                  <v4:capabilityList>
+                     <v4:capability name="offers"/>
+                  </v4:capabilityList>
+               </v4:provider>
+               <v4:provider externalId="23453" name="Portland General Electric">
+                  <v4:source datasource="">internal</v4:source>
+                  <v4:parent name="Portland General Electric" externalId="23453"/>
+                  <v4:capabilityList>
+                     <v4:capability name="offers"/>
+                  </v4:capabilityList>
+               </v4:provider>
+               <v4:provider externalId="1335105" name="Newspaper Subscription Services">
+                  <v4:source datasource="">internal</v4:source>
+                  <v4:parent name="Newspaper Subscription Services" externalId="1335105"/>
+                  <v4:capabilityList>
+                     <v4:capability name="localNewspaper"/>
+                  </v4:capabilityList>
+               </v4:provider>
+               <v4:provider externalId="1794433" name="no">
+                  <v4:source datasource="">internal</v4:source>
+                  <v4:parent name="no" externalId="1794433"/>
+                  <v4:capabilityList>
+                     <v4:capability name="longDistancePhone"/>
+                  </v4:capabilityList>
+               </v4:provider>
+               <v4:provider externalId="25786501" name="Progress Florida - Energy Wise">
+                  <v4:source datasource="">internal</v4:source>
+                  <v4:parent name="Progress Energy" externalId="112"/>
+                  <v4:capabilityList>
+                     <v4:capability name="offers"/>
+                  </v4:capabilityList>
+               </v4:provider>
+               <v4:provider externalId="4142189" name="ADT - Security Choice">
+                  <v4:source datasource="">internal</v4:source>
+                  <v4:parent name="ADT - Security Choice" externalId="4142189"/>
+                  <v4:capabilityList>
+                     <v4:capability name="homeSecurity"/>
+                  </v4:capabilityList>
+               </v4:provider>
+               <v4:provider externalId="7457475" name="Progress Carolinas HW and SP">
+                  <v4:source datasource="">internal</v4:source>
+                  <v4:parent name="Progress Energy" externalId="112"/>
+                  <v4:capabilityList>
+                     <v4:capability name="offers"/>
+                  </v4:capabilityList>
+               </v4:provider>
+               <v4:provider externalId="16663135" name="CITY of ATLANTA">
+                  <v4:source datasource="">internal</v4:source>
+                  <v4:parent name="US Information Only Utilities" externalId="109"/>
+                  <v4:capabilityList>
+                     <v4:capability name="water"/>
+                  </v4:capabilityList>
+               </v4:provider>
+               <v4:provider externalId="11633482" name="Nicor Warranty Services">
+                  <v4:source datasource="">internal</v4:source>
+                  <v4:parent name="Nicor Warranty Services" externalId="11633482"/>
+                  <v4:capabilityList>
+                     <v4:capability name="warranty"/>
+                  </v4:capabilityList>
+               </v4:provider>
+               <v4:provider externalId="1946747" name="other">
+                  <v4:source datasource="">internal</v4:source>
+                  <v4:parent name="other" externalId="1946747"/>
+                  <v4:capabilityList>
+                     <v4:capability name="longDistancePhone"/>
+                  </v4:capabilityList>
+               </v4:provider>
+               <v4:provider externalId="20114346" name="Nisource Retail">
+                  <v4:source datasource="">internal</v4:source>
+                  <v4:parent name="Nisource Retail" externalId="20114346"/>
+                  <v4:capabilityList>
+                     <v4:capability name="offers"/>
+                  </v4:capabilityList>
+               </v4:provider>
+            </v4:providerList>
+         </v4:response>
+      </v4:serviceabilityEnterpriseResponse>

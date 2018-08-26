@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" targetNamespace="http://xml.A.com/v4"
+	xmlns:ac="http://xml.A.com/v4" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:include schemaLocation="address.xsd" />
+	<xs:include schemaLocation="types.xsd" />
+
+	<xs:element name="consumer" type="ac:consumerType" />
+
+	<xs:complexType name="consumerType">
+		<xs:sequence>
+			<xs:element name="externalId" type="xs:string" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element ref="ac:title" minOccurs="0" maxOccurs="1" />
+			<xs:element ref="ac:firstName" minOccurs="1" maxOccurs="1" />
+			<xs:element ref="ac:lastName" minOccurs="1" maxOccurs="1" />
+			<xs:element ref="ac:middleName" minOccurs="0" maxOccurs="1" />
+			<xs:element ref="ac:nameSuffix" minOccurs="0" maxOccurs="1" />
+			<xs:element ref="ac:gender" minOccurs="0" maxOccurs="1" />
+			<xs:element name="dob" type="xs:date" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element ref="ac:ssn" minOccurs="0" maxOccurs="1" />
+			<xs:element name="directMailOptIn" type="xs:boolean"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="eMailOptIn" type="xs:boolean" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="phoneContactOptIn" type="xs:boolean"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="eMailProductUpdatesOptIn" type="xs:boolean"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="howLongAtPreviousAddress" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="ACustomerNumber" type="xs:string"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="previousAddress" type="ac:addressType"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="address" type="ac:addressType"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="financialInfo" type="ac:consumerFinancialInfoType"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="homePhoneNumber" type="ac:phoneNumberType"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="cellPhoneNumber" type="ac:phoneNumberType"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="workPhoneNumber" type="ac:phoneNumberType"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="homeEMail" type="ac:eMailAddressType"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="workEMail" type="ac:eMailAddressType"
+				minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="consumerFinancialInfoType">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="employed" minOccurs="0" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="businessName" type="xs:string"
+								minOccurs="0" maxOccurs="1" />
+							<xs:element name="businessPhoneNum" type="xs:string"
+								minOccurs="0" maxOccurs="1" />
+							<xs:element name="occupation" type="xs:string"
+								minOccurs="0" maxOccurs="1" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="unemployed" type="ac:emptyElementType"
+					minOccurs="0" maxOccurs="1" />
+			</xs:choice>
+			<xs:element name="student" type="ac:emptyElementType"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="retired" type="ac:emptyElementType"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="bankOrMortgageInstitution" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="otherIncomeSource" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

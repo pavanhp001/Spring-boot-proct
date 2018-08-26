@@ -1,0 +1,1 @@
+drop table V_tx.om_V_accord_order_mapping;

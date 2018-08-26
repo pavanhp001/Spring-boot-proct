@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" targetNamespace="http://xml.A.com/v3"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ac="http://xml.A.com/v3">
+
+
+	<xs:include schemaLocation="address.xsd" />
+	<xs:include schemaLocation="baseTypes.xsd" />
+
+	<xs:complexType name="statusType">
+		<xs:sequence>
+			<xs:element name="statusCode" type="xs:int" minOccurs="0"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A value that represents the high-level outcome of
+						the request
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice>
+				<xs:element name="processingMessages">
+					<xs:annotation>
+						<xs:documentation>
+							A set of message elements that each contain a
+							code and related
+							explanation text. 
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="message" type="ac:processingMessage"
+								minOccurs="0" maxOccurs="unbounded" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="statusMsg" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>
+							A message describing in text the same information encoded in the
+							status code.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="processingMessage">
+		<xs:sequence>
+			<xs:element name="code" type="xs:double" />
+			<xs:element name="text" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="orderStatusHistoryType">
+		<xs:sequence>
+			<xs:element name="previousStatus" type="ac:orderStatusWithTypeType"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="orderStatusWithTypeType">
+		<xs:sequence>
+			<xs:element name="status" type="xs:int" minOccurs="1" maxOccurs="1" />
+			<xs:element name="reason" type="xs:int" minOccurs="1" maxOccurs="unbounded" />
+			<xs:element name="dateTimeStamp" type="xs:dateTime"	minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="coreMarketItemType">
+		<xs:sequence>
+			<xs:element name="externalId" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="channels" type="ac:channelType"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="accordChangeStamp" type="xs:long"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="accordPlanId" type="xs:int" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="serviceabilitySource" minOccurs="0"
+				maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:enumeration value="internal" />
+						<xs:enumeration value="realtime" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="providerId" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="providerName" type="xs:string"
+				minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The name of the provider of the marketItem. This
+						is separate from the name in the associated item,
+						since some
+						vendors have different names depending
+						on the market they are
+						offering services in.
+						This mostly happens in
+						relation to a parent
+						provider
+						and its subsidiaries, i.e. AT&amp;T and BellSouth.
+						</xs:documentation>
+					</xs:annotation>
+			</xs:element>
+			<xs:element name="priceInfo" type="ac:priceInfoType"
+				minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="marketItemType">
+		<xs:complexContent>
+			<xs:extension base="ac:coreMarketItemType">
+				<xs:sequence>
+					<xs:element name="item" type="ac:itemType" minOccurs="1"
+						maxOccurs="1" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="marketItemWithCapabilitiesType">
+		<xs:complexContent>
+			<xs:extension base="ac:coreMarketItemType">
+				<xs:sequence>
+					<xs:element name="item" type="ac:externalItemType"
+						minOccurs="1" maxOccurs="1" />
+					<xs:element name="capabilityList">
+						<xs:annotation>
+							<xs:documentation>
+							A list of elements which have a name attribute that describes 
+							which capability of the service that the market item offers. 
+							</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="capability" type="ac:capabilityType"
+									minOccurs="0" maxOccurs="unbounded" />
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="itemType">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="1"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The name of the Item. Ex:
+						<B>AT&amp;T Extreme 6.0 DSL</B>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="providerId" type="xs:string"
+				minOccurs="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+					The external id of the provider.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="providerName" type="xs:string"
+				minOccurs="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+						The business name of the provider of the item.  Ex: <B>AT&amp;T</B>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="itemCategory" type="ac:itemCategory" minOccurs="1"
+				maxOccurs="1"/>
+			<xs:element name="priceInfo" type="ac:priceInfoType"
+				minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="itemCategory">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:annotation>
+					<xs:documentation>
+					Current possible values are:
+					<OL>
+						 <LI>Bundles</LI>               
+						 <LI>Electricity</LI>           
+						 <LI>Local Phone</LI>           
+						 <LI>Long Distance Phone</LI>   
+						 <LI>Home Wire Protection</LI>  
+						 <LI>Wireless Phone</LI>        
+						 <LI>Cable TV</LI>              
+						 <LI>Satellite TV</LI>          
+						 <LI>High Speed Internet</LI>   
+						 <LI>Dial Up Internet</LI>      
+						 <LI>Local News Paper</LI>      
+						 <LI>National News Paper</LI>   
+						 <LI>Personal Checks</LI>       
+						 <LI>Washer / Dryer Rental</LI> 
+						 <LI>Warranty</LI>              
+						 <LI>Home Security</LI>         
+						 <LI>Waste Removal</LI>         
+						 <LI>Natural Gas</LI>           
+						 <LI>Energy Conservation</LI>   
+						 <LI>Offers</LI>                
+						 <LI>Second Call</LI>           
+						 <LI>Water</LI>                 
+						 <LI>Appliance Protection</LI> 
+					</OL>
+					</xs:documentation>
+				</xs:annotation>
+				<xs:attribute name="displayName" type="xs:string" use="optional">
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+
+	<xs:complexType name="externalItemType">
+		<xs:complexContent>
+			<xs:extension base="ac:itemType">
+				<xs:sequence>
+					<xs:element name="externalId" type="xs:string" minOccurs="1" 
+						maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+							The external id of the item.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					
+					<xs:element name="marketingHighlight" type="xs:string"
+						minOccurs="0" maxOccurs="10" >
+						<xs:annotation>
+							<xs:documentation>
+							Textual bullet points that highlight aspects of the item that the service provider 
+							has chosen for marketing purposes.  
+							Ex:  <B>"Blazing Download Speeds"</B>, or <B>"Static IP address included"</B>. 
+							Up to 10 instances of this element are possible in one item.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+
+	<xs:complexType name="capabilityType">
+		<xs:attribute name="name" type="xs:string" use="required" >
+			<xs:annotation>
+				<xs:documentation>
+					Current possible values are:
+					<OL>
+						<LI>satellite</LI>
+						<LI>analogCable</LI>
+						<LI>digitalCable</LI>
+						<LI>hdtv</LI>
+						<LI>fiberDataDownSpeed</LI>
+						<LI>fiberDataUpSpeed</LI>
+						<LI>wiredDataUpSpeed</LI>
+						<LI>wiredDataDownSpeed</LI>
+						<LI>dialUpInternet</LI>
+						<LI>electricity</LI>
+						<LI>naturalGas</LI>
+						<LI>localPhone</LI>
+						<LI>longDistancePhone</LI>
+						<LI>homeWireProtection</LI>
+						<LI>wirelessPhone</LI>
+   						<LI>wasteRemoval</LI>
+   						<LI>localNewspaper</LI>
+   						<LI>nationalNewspaper</LI>
+   						<LI>homeSecurity</LI>
+   						<LI>water</LI>
+  						<LI>offers</LI>
+  						<LI>voip</LI>
+  						<LI>iptv</LI>
+  						<LI>warranty</LI>
+  						<LI>energyManagement</LI>
+					</OL>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="channelType">
+		<xs:sequence>
+			<xs:element name="channel" type="xs:string" minOccurs="1"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="billingInfo" type="ac:billingInfoType" />
+
+	<xs:complexType name="billingInfoType">
+		<xs:sequence>
+			<xs:element name="billingAddress" type="ac:mailingAddressType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="billingMethod" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="creditCardNumber" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="verificationCode" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="checkingAccountNumber" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="routingNumber" type="xs:string" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="referrer" type="ac:businessPartyType" />
+
+	<xs:complexType name="unconstrainedBusinessPartyType">
+		<xs:all>
+			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="externalId" type="xs:string" minOccurs="0" maxOccurs="1" />
+		</xs:all>
+	</xs:complexType>
+	
+
+	<xs:complexType name="businessPartyType">
+		<xs:complexContent>
+			<xs:restriction base="ac:unconstrainedBusinessPartyType">
+				<xs:all>
+					<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1" />
+					<xs:element name="externalId" type="xs:string" minOccurs="1" maxOccurs="1" />
+				</xs:all>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:element name="price" type="ac:priceInfoType" />
+
+	<xs:complexType name="priceInfoType">
+		<xs:annotation>
+			<xs:documentation>
+			This container contains all of the pricing information used by various entities.
+			each contains a dollar amount representing the one-time price and the (typically monthly) recurring price of the service.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="baseNonRecurringPrice" type="xs:double"
+				minOccurs="0" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+					The dollar amount representing the one-time price.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="baseNonRecurringPriceUnits" type="xs:string" 
+				minOccurs="0" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+					The units representing any multiplier for the non-recurring price for the service, 
+					i.e. install change per number of outlets, etc.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="baseRecurringPrice" type="xs:double"
+				minOccurs="0" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+					The dollar amount representing the recurring charges for the service.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="baseRecurringPriceUnits" type="xs:string" 
+				minOccurs="0" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+					The units representing any multiplier for the non-recurring price for the service, 
+					i.e. per month, per quarter, etc.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="includeInTotalPrice" type="ac:emptyElementType" 
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+					Flag to indicate whether or not to include this pricing information into any total price calculations.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

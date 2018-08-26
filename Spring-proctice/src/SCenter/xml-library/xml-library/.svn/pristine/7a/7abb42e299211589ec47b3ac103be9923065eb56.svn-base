@@ -1,0 +1,196 @@
+<xs:schema 		
+	attributeFormDefault="unqualified" 
+	elementFormDefault="unqualified"
+	targetNamespace="http://xml.A.com/v2"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:ac="http://xml.A.com/v2" >
+
+	<xs:include schemaLocation="types.xsd" />
+	
+	<xs:element name="serviceabilityRequestResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="transactionId" type="xs:int" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="transactionType" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:token">
+							<xs:enumeration value="normal" />
+							<xs:enumeration value="zipfallback" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="messageOrigin" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="status" type="ac:statusType" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="inputAddressString" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="filterCriteria" type="ac:filterCriteriaType" minOccurs="0" maxOccurs="1" />
+				<xs:element name="correctedAddress" type="ac:addressType" minOccurs="0" maxOccurs="1"/>
+				
+				<xs:element name="candidateAddressList" minOccurs="0" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="candidateAddress" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:complexContent>
+								 		<xs:extension base="ac:addressType" >
+											<xs:attribute name="matchScore" type="xs:int" use="optional"/>
+										</xs:extension>
+									</xs:complexContent>							
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				
+				<xs:element name="serviceableMarketItems" minOccurs="0" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="marketItemInfo" type="ac:marketItemInfoType" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="statusType">
+		<xs:sequence>
+			<xs:element name="statusCode" type="xs:int" minOccurs="0" maxOccurs="1"/>
+			<xs:choice>
+				<xs:element name="processingMessages">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="message" type="ac:processingMessage" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="statusMsg" type="xs:string"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="processingMessage">
+		<xs:sequence>
+			<xs:element name="code" type="xs:double"/>
+			<xs:element name="text" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="filterCriteriaType">
+		<xs:sequence>
+			<xs:element name="address" type="ac:addressType" minOccurs="0" maxOccurs="1" />
+			<xs:element name="filteringType" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:enumeration value="accord" />
+						<xs:enumeration value="sift" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="dwellingType" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:enumeration value="apartment" />
+						<xs:enumeration value="house" />
+						<xs:enumeration value="new_construction" />
+						<xs:enumeration value="condo/townhouse" />
+						<xs:enumeration value="business" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="referrerId" type="xs:int" minOccurs="0" maxOccurs="1" />
+			<xs:element name="agentId" type="xs:int" minOccurs="0" maxOccurs="1" />
+			<xs:element name="serviceTypeId" type="xs:int" minOccurs="0" maxOccurs="1" />
+			<xs:element name="addressChanged" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+			<xs:element name="channelServiceability" type="xs:int" minOccurs="0" maxOccurs="1" />
+			<xs:element name="forceNonConfirm" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+			<xs:element name="storeAvailableProviders" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+			<xs:element name="temporalEventTypeId" type="xs:int" minOccurs="0" maxOccurs="1" />
+			
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="marketItemInfoType">
+		<xs:sequence>
+			<xs:element name="marketItem" type="ac:marketItemType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="serviceAddress" type="ac:addressType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="serviceabilityRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="serviceAddress" type="ac:addressType" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="serviceabilityResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="marketItem" type="ac:marketItemType" minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="marketItemType">
+		<xs:sequence>
+			<xs:element name="item" type="ac:itemType" minOccurs="1" maxOccurs="1" />
+			<xs:element name="externalId" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="channels" type="ac:channelType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="accordChangeStamp" type="xs:long" minOccurs="0" maxOccurs="1" />
+			<xs:element name="accordPlanId" type="xs:int" minOccurs="0" maxOccurs="1" />
+			<xs:element name="serviceabilitySource" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:enumeration value="internal" />
+						<xs:enumeration value="realtime" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="providerId" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="providerName" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="priceInfo" type="ac:priceInfoType" minOccurs="1" maxOccurs="1" />
+			<xs:element name="capabilityList">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="capability" type="ac:capabilityType" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="channelType">
+		<xs:sequence>
+			<xs:element name="channel" type="xs:string" minOccurs="1" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="itemType">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="providerId" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="providerName" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="category" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="priceInfo" type="ac:priceInfoType" minOccurs="1" maxOccurs="1" />
+			<xs:element name="marketingHighlight" type="xs:string" minOccurs="0" maxOccurs="10" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	<xs:complexType name="capabilityType">
+		<xs:sequence>
+			<xs:element name="feature" type="ac:featureType" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="featureType" >
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="name" type="xs:string" use="required" />
+			</xs:extension>
+		</xs:simpleContent>		
+	</xs:complexType>
+
+</xs:schema>

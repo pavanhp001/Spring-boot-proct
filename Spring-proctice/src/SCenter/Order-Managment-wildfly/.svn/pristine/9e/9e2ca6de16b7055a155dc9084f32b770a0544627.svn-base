@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns3:orderManagementRequestResponse xmlns:ns2="http://xml.AL.com/common"
+ xmlns:ns3="http://xml.AL.com/v4">
+    <ns3:correlationId>9ce0ce6b-6145-474b-9a55-8eaa6d48d87e</ns3:correlationId>
+    <ns3:transactionId>752906693</ns3:transactionId>
+    <ns3:transactionType>taskJob</ns3:transactionType>
+    <ns3:request>
+        <ns3:jobAction>findByContextStatus</ns3:jobAction>
+        <ns3:jobs>
+            <ns3:job>
+                <ns3:externalId>0</ns3:externalId>
+                <ns3:context>19824709</ns3:context>
+                <ns3:statusQueued>hold_order_pending_problem,processing_problem_
+ordered_vru_failed,hold_customer_action,hold_authorization_pending,hold_provider
+,hold_order,submit_failed</ns3:statusQueued>
+            </ns3:job>
+        </ns3:jobs>
+    </ns3:request>
+</ns3:orderManagementRequestResponse>

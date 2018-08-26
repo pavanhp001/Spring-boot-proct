@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.A.com/v4"
+	xmlns:tns="http://xml.A.com/v4" elementFormDefault="qualified"
+	xmlns:ac="http://xml.A.com/v4">
+
+	<include schemaLocation="types.xsd" />
+
+	<complexType name="Credential">
+		<sequence>
+			<element name="credentialName" type="tns:credentialNameType" />
+		</sequence>
+	</complexType>
+
+	<simpleType name="credentialNameType">
+		<restriction base="string">
+			<minLength value="5" />
+			<maxLength value="10" />
+		</restriction>
+	</simpleType>
+
+	<complexType name="RoleResourcesType">
+		<sequence>
+			<element name="resourceName" type="string" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="UserResourcesType">
+		<sequence>
+			<element name="resource" type="tns:UserResourceType" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="UserResourceType">
+		<attribute name="name" type="string" use="required"/> 
+		<attribute name="userLevel" type="integer" use="optional"/> 
+	</complexType>
+	
+	
+	<complexType name="UserRolesType">
+		<sequence>
+			<element name="roleName" type="string" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	
+	<complexType name="FaultInfo">
+		<sequence>
+			<element name="errorCode" type="string" />
+			<element name="message" type="string" />
+			<element maxOccurs="unbounded" minOccurs="0" name="messages"
+				type="string" />
+		</sequence>
+	</complexType>
+
+
+	<complexType name="AuthenticateUserRequest">
+		<sequence>
+			<element name="userName" type="string" />
+			<element name="credentials" type="tns:Credential" />
+			<element name="superVisorUserName" type="string" maxOccurs="1"
+				minOccurs="0" />
+
+			<element name="superVisorCredentials" type="tns:Credential"
+				maxOccurs="1" minOccurs="0" />
+
+		</sequence>
+	</complexType>
+
+	<complexType name="AuthenticateUserResponse">
+		<sequence>
+			<element name="userName" type="string" />
+			<element name="userLogin" type="string" />
+			<element name="userLevel" type="integer" />
+			<element name="userActive" type="string" />
+			<element name="userType" type="integer" />
+			<element name="userUpdated" type="date" />
+			<element name="userResources" type="tns:UserResourcesType"
+				maxOccurs="1" minOccurs="0" />
+			<element name="metadataList" type="ac:metaDataListType"  maxOccurs="1" 
+				minOccurs="0"/>
+			<element name="userGroups" type="ac:userGroupListType"  maxOccurs="1" 
+				minOccurs="0"/>
+		</sequence>
+	</complexType>
+	 	
+	<complexType name="ValidateUserRequest">
+		<sequence>
+			<element name="userLogin" type="string" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	
+	<complexType name="ValidateUserResponse">
+		<sequence>
+			<element name="validatedUsersList" type="tns:ValidatedUsers" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="ValidatedUsers">
+		<sequence>
+			<element name="userLogin" type="string" minOccurs="0" maxOccurs="1" />
+			<element name="isValid" type="boolean" minOccurs="0" maxOccurs="1" />
+		</sequence>
+	</complexType>
+	
+	<complexType name="ValidateUserRequestResponseType">
+		<sequence>
+			<element name="request" type="tns:ValidateUserRequestType"
+				maxOccurs="1" minOccurs="0" />
+			<element name="response" type="tns:ValidateUserResponseType"
+				maxOccurs="1" minOccurs="0" />
+		</sequence>
+	</complexType>
+
+	<complexType name="ValidateUserRequestType">
+		<complexContent>
+			<extension base="ac:abstractRequestType">
+				<sequence>
+					<element name="validateUserRequest" type="tns:ValidateUserRequest" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="ValidateUserResponseType">
+		<complexContent>
+			<extension base="ac:abstractResponseType">
+				<sequence>
+					<element name="validateUserResponse" type="tns:ValidateUserResponse" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="AuthenticateUserRequestResponseType">
+		<sequence>
+			<element name="request" type="tns:AuthenticateUserRequestType"
+				maxOccurs="1" minOccurs="0" />
+			<element name="response" type="tns:AuthenticateUserResponseType"
+				maxOccurs="1" minOccurs="0" />
+		</sequence>
+	</complexType>
+
+	<complexType name="AuthenticateUserRequestType">
+		<complexContent>
+			<extension base="ac:abstractRequestType">
+				<sequence>
+					<element name="authenticateUserRequest" type="tns:AuthenticateUserRequest" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="AuthenticateUserResponseType">
+		<complexContent>
+			<extension base="ac:abstractResponseType">
+				<sequence>
+					<element name="authenticateUserResponse" type="tns:AuthenticateUserResponse" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="CreateUserRequest">
+		<sequence>
+			<element name="userName" type="string" />
+			<element name="userLogin" type="string" />
+			<element name="userLevel" type="integer" maxOccurs="1"
+				minOccurs="0" />
+			<element name="userActive" type="string" maxOccurs="1"
+				minOccurs="0" />
+			<element name="userType" type="integer" maxOccurs="1"
+				minOccurs="0" />
+			<element name="userUpdated" type="date" maxOccurs="1"
+				minOccurs="0" />
+			<element name="userResources" type="tns:UserResourcesType"
+				maxOccurs="1" minOccurs="0" />
+			<element name="userRoles" type="tns:UserRolesType" maxOccurs="1"
+				minOccurs="0" />
+			<element name="metadataList" type="ac:metaDataListType"  maxOccurs="1" 
+				minOccurs="0"/>
+			<element name="userGroups" type="ac:userGroupListType"  maxOccurs="1" 
+				minOccurs="0"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="CreateUserResponse">
+		<sequence>
+			<element name="userCreated" type="boolean" />
+		</sequence>
+	</complexType>
+
+
+	<complexType name="CreateUserRequestType">
+		<complexContent>
+			<extension base="ac:abstractRequestType">
+				<sequence>
+					<element name="createUserRequest" type="tns:CreateUserRequest" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="CreateUserResponseType">
+		<complexContent>
+			<extension base="ac:abstractResponseType">
+				<sequence>
+					<element name="createUserResponse" type="tns:CreateUserResponse" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="CreateUserRequestResponseType">
+		<sequence>
+			<element name="request" type="tns:CreateUserRequestType"
+				maxOccurs="1" minOccurs="0" />
+			<element name="response" type="tns:CreateUserResponseType"
+				maxOccurs="1" minOccurs="0" />
+		</sequence>
+	</complexType>
+
+	<complexType name="CreateRoleRequest">
+		<sequence>
+			<element name="roleName" type="string" />
+			<element name="roleDesc" type="string" />
+			<element name="roleOwnerExternalId" type="string" />
+			<element name="roleResources" type="tns:RoleResourcesType"
+				maxOccurs="1" minOccurs="0" />
+		</sequence>
+	</complexType>
+
+	<complexType name="CreateRoleResponse">
+		<sequence>
+			<element name="roleCreated" type="boolean" />
+		</sequence>
+	</complexType>
+
+	<complexType name="CreateRoleRequestType">
+		<complexContent>
+			<extension base="ac:abstractRequestType">
+				<sequence>
+					<element name="createRoleRequest" type="tns:CreateRoleRequest" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="CreateRoleResponseType">
+		<complexContent>
+			<extension base="ac:abstractResponseType">
+				<sequence>
+					<element name="createRoleResponse" type="tns:CreateRoleResponse" />
+				</sequence>
+			</extension>
+		</complexContent>
+
+	</complexType>
+	<complexType name="CreateRoleRequestResponseType">
+		<sequence>
+			<element name="request" type="tns:CreateRoleRequestType"
+				maxOccurs="1" minOccurs="0" />
+			<element name="response" type="tns:CreateRoleResponseType"
+				maxOccurs="1" minOccurs="0" />
+		</sequence>
+	</complexType>
+
+
+	<complexType name="AttachRoleToUserRequest">
+		<sequence>
+			<element name="roleName" type="string" />
+			<element name="userLogin" type="string" />
+		</sequence>
+	</complexType>
+
+	<complexType name="AttachRoleToUserResponse">
+		<sequence>
+			<element name="roleAttachedToUser" type="boolean" />
+		</sequence>
+	</complexType>
+
+	<complexType name="AttachRoleToUserRequestType">
+		<complexContent>
+			<extension base="ac:abstractRequestType">
+				<sequence>
+					<element name="attachRoleToUserRequest" type="tns:AttachRoleToUserRequest" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="AttachRoleToUserResponseType">
+		<complexContent>
+			<extension base="ac:abstractResponseType">
+				<sequence>
+					<element name="attachRoleToUserResponse" type="tns:AttachRoleToUserResponse" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="AttachRoleToUserRequestResponseType">
+		<sequence>
+			<element name="request" type="tns:AttachRoleToUserRequestType"
+				maxOccurs="1" minOccurs="0" />
+			<element name="response" type="tns:AttachRoleToUserResponseType"
+				maxOccurs="1" minOccurs="0" />
+		</sequence>
+	</complexType>
+
+
+	<complexType name="DetachRoleFromUserRequest">
+		<sequence>
+			<element name="roleName" type="string" />
+			<element name="userLogin" type="string" />
+		</sequence>
+	</complexType>
+
+	<complexType name="DetachRoleFromUserResponse">
+		<sequence>
+			<element name="roleDetachedFromUser" type="boolean" />
+		</sequence>
+	</complexType>
+
+	<complexType name="DetachRoleFromUserRequestType">
+		<complexContent>
+			<extension base="ac:abstractRequestType">
+				<sequence>
+					<element name="detachRoleFromUserRequest" type="tns:DetachRoleFromUserRequest" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="DetachRoleFromUserResponseType">
+		<complexContent>
+			<extension base="ac:abstractResponseType">
+				<sequence>
+					<element name="detachRoleFromUserResponse" type="tns:DetachRoleFromUserResponse" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+
+	<complexType name="DetachRoleFromUserRequestResponseType">
+		<sequence>
+			<element name="request" type="tns:DetachRoleFromUserRequestType"
+				maxOccurs="1" minOccurs="0" />
+			<element name="response" type="tns:DetachRoleFromUserResponseType"
+				maxOccurs="1" minOccurs="0" />
+		</sequence>
+	</complexType>
+
+
+	<complexType name="CreateResourceRequest">
+		<sequence>
+			<element name="resourceName" type="string" />
+			<element name="resourceDesc" type="string" />
+			<element name="resourceRule" type="string" />
+			<element name="providerExternalId" type="string" />
+		</sequence>
+	</complexType>
+
+
+	<complexType name="CreateResourceResponse">
+		<sequence>
+			<element name="resourceCreated" type="boolean" />
+		</sequence>
+	</complexType>
+
+	<complexType name="CreateResourceRequestType">
+		<complexContent>
+			<extension base="ac:abstractRequestType">
+				<sequence>
+					<element name="createResourceRequest" type="tns:CreateResourceRequest" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="CreateResourceResponseType">
+		<complexContent>
+			<extension base="ac:abstractResponseType">
+				<sequence>
+					<element name="createResourceResponse" type="tns:CreateResourceResponse" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="CreateResourceRequestResponseType">
+		<sequence>
+			<element name="request" type="tns:CreateResourceRequestType"
+				maxOccurs="1" minOccurs="0" />
+			<element name="response" type="tns:CreateResourceResponseType"
+				maxOccurs="1" minOccurs="0" />
+		</sequence>
+	</complexType>
+
+
+	<complexType name="AttachResourceToUserRequest">
+		<complexContent>
+			<extension base="ac:abstractRequestType">
+				<sequence>
+					<element name="resource" type="tns:UserResourceType" />
+					<element name="userLogin" type="string" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="AttachResourceToUserResponse">
+		<sequence>
+			<element name="resourceAttachedToUser" type="boolean" />
+		</sequence>
+	</complexType>
+
+	<complexType name="AttachResourceToUserRequestType">
+		<complexContent>
+			<extension base="ac:abstractRequestType">
+				<sequence>
+					<element name="attachResourceToUserRequest" type="tns:AttachResourceToUserRequest" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="AttachResourceToUserResponseType">
+		<complexContent>
+			<extension base="ac:abstractResponseType">
+				<sequence>
+					<element name="attachResourceToUserResponse" type="tns:AttachResourceToUserResponse" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="AttachResourceToRoleRequest">
+		<sequence>
+			<element name="resourceName" type="string" />
+			<element name="roleName" type="string" />
+		</sequence>
+	</complexType>
+
+	<complexType name="AttachResourceToRoleResponse">
+		<sequence>
+			<element name="resourceAttachedToRole" type="boolean" />
+		</sequence>
+	</complexType>
+
+	<complexType name="AttachResourceToRoleRequestType">
+		<complexContent>
+			<extension base="ac:abstractRequestType">
+				<sequence>
+					<element name="attachResourceToRoleRequest" type="tns:AttachResourceToRoleRequest" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="AttachResourceToRoleResponseType">
+		<complexContent>
+			<extension base="ac:abstractResponseType">
+				<sequence>
+					<element name="attachResourceToRoleResponse" type="tns:AttachResourceToRoleResponse" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+
+	<complexType name="DetachResourceFromRoleRequest">
+		<sequence>
+			<element name="resourceName" type="string" />
+			<element name="roleName" type="string" />
+		</sequence>
+	</complexType>
+
+
+	<complexType name="DetachResourceFromRoleResponse">
+		<sequence>
+			<element name="resourceDetachedFromRole" type="boolean" />
+		</sequence>
+	</complexType>
+
+	<complexType name="DetachResourceFromRoleRequestType">
+		<complexContent>
+			<extension base="ac:abstractRequestType">
+				<sequence>
+					<element name="detachResourceFromRoleRequest" type="tns:DetachResourceFromRoleRequest" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="DetachResourceFromRoleResponseType">
+		<complexContent>
+			<extension base="ac:abstractResponseType">
+				<sequence>
+					<element name="detachResourceFromRoleResponse" type="tns:DetachResourceFromRoleResponse" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="DetachResourceFromUserRequest">
+		<sequence>
+			<element name="resourceName" type="string" />
+			<element name="userLogin" type="string" />
+		</sequence>
+	</complexType>
+
+	<complexType name="DetachResourceFromUserResponse">
+		<sequence>
+			<element name="resourceDetachedFromUser" type="boolean" />
+		</sequence>
+	</complexType>
+
+	<complexType name="DetachResourceFromUserRequestType">
+		<complexContent>
+			<extension base="ac:abstractRequestType">
+				<sequence>
+					<element name="detachResourceFromUserRequest" type="tns:DetachResourceFromUserRequest" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="DetachResourceFromUserResponseType">
+		<complexContent>
+			<extension base="ac:abstractResponseType">
+				<sequence>
+					<element name="detachResourceFromUserResponse" type="tns:DetachResourceFromUserResponse" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="AttachResourceToUserRequestResponseType">
+		<sequence>
+			<element name="request" type="tns:AttachResourceToUserRequestType"
+				maxOccurs="1" minOccurs="0" />
+			<element name="response" type="tns:AttachResourceToUserResponseType"
+				maxOccurs="1" minOccurs="0" />
+		</sequence>
+	</complexType>
+
+	<complexType name="AttachResourceToRoleRequestResponseType">
+		<sequence>
+			<element name="request" type="tns:AttachResourceToRoleRequestType"
+				maxOccurs="1" minOccurs="0" />
+			<element name="response" type="tns:AttachResourceToRoleResponseType"
+				maxOccurs="1" minOccurs="0" />
+		</sequence>
+	</complexType>
+
+
+	<complexType name="DetachResourceFromUserRequestResponseType">
+		<sequence>
+			<element name="request" type="tns:DetachResourceFromUserRequestType"
+				maxOccurs="1" minOccurs="0" />
+			<element name="response" type="tns:DetachResourceFromUserResponseType"
+				maxOccurs="1" minOccurs="0" />
+		</sequence>
+	</complexType>
+
+	<complexType name="DetachResourceFromRoleRequestResponseType">
+		<sequence>
+			<element name="request" type="tns:DetachResourceFromRoleRequestType"
+				maxOccurs="1" minOccurs="0" />
+			<element name="response" type="tns:DetachResourceFromRoleResponseType"
+				maxOccurs="1" minOccurs="0" />
+		</sequence>
+	</complexType>
+	
+	<element name="validateUserRequest" type="tns:ValidateUserRequestType" />
+	<element name="validateUserResponse" type="tns:ValidateUserResponseType" />
+
+	<element name="authenticateUserRequest" type="tns:AuthenticateUserRequestType" />
+	<element name="authenticateUserResponse" type="tns:AuthenticateUserResponseType" />
+
+	<element name="createUserRequest" type="tns:CreateUserRequestType" />
+	<element name="createUserResponse" type="tns:CreateUserResponseType" />
+
+	<element name="createRoleRequest" type="tns:CreateRoleRequestType" />
+	<element name="createRoleResponse" type="tns:CreateRoleResponseType" />
+
+	<element name="createResourceRequest" type="tns:CreateResourceRequestType" />
+	<element name="createResourceResponse" type="tns:CreateResourceResponseType" />
+
+	<element name="attachResourceToUserRequest" type="tns:AttachResourceToUserRequestType" />
+	<element name="attachResourceToUserResponse" type="tns:AttachResourceToUserResponseType" />
+
+	<element name="attachResourceToRoleRequest" type="tns:AttachResourceToRoleRequestType" />
+	<element name="attachResourceToRoleResponse" type="tns:AttachResourceToRoleResponseType" />
+
+	<element name="attachRoleToUserRequest" type="tns:AttachRoleToUserRequestType" />
+	<element name="attachRoleToUserResponse" type="tns:AttachRoleToUserResponseType" />
+
+	<element name="detachResourceFromUserRequest" type="tns:DetachResourceFromUserRequestType" />
+	<element name="detachResourceFromUserResponse" type="tns:DetachResourceFromUserResponseType" />
+
+	<element name="detachResourceFromRoleRequest" type="tns:DetachResourceFromRoleRequestType" />
+	<element name="detachResourceFromRoleResponse" type="tns:DetachResourceFromRoleResponseType" />
+
+	<element name="detachRoleFromUserRequest" type="tns:DetachRoleFromUserRequestType" />
+	<element name="detachRoleFromUserResponse" type="tns:DetachRoleFromUserResponseType" />
+</schema>

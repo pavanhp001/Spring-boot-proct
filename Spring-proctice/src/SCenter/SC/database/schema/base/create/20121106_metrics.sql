@@ -1,0 +1,9 @@
+create table WEB_METRIC 
+(id int8 not null AUTO_INCREMENT, 
+CREATED_ON timestamp, 
+NAME VARCHAR(20), 
+MEASURED_VALUE float8, 
+PAGE VARCHAR(20), 
+PROVIDER int8,
+SALES_SESSION_ID BIGINT,
+AGENT VARCHAR(20), primary key (id));

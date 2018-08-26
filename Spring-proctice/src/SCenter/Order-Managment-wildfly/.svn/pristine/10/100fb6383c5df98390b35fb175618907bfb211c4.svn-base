@@ -1,0 +1,1 @@
+select realtime_provider as actual , 2 as expected from businessparty where externalid=3766981;

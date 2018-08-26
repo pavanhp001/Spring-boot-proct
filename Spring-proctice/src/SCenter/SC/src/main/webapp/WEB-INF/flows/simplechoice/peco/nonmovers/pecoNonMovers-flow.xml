@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+	<action-state id="greetingAction">
+		<evaluate
+			expression="greetingWebflowController.showGreetingInfo(externalContext.nativeRequest, externalContext.nativeResponse, flowRequestContext)" />
+		<transition on="basicInfoEvent" to="performBasicInformationAction" />
+		<transition on="greetingViewEvent" to="greetings" />
+	</action-state>
+
+
+	<view-state id="greetings" view="pecoEnergy.view">
+		<transition on="greeting" to="performBasicInformationAction" />
+		<transition on="endCallEvent" to="EndCallView" />
+	</view-state>
+
+
+	<action-state id="performBasicInformationAction">
+		<evaluate expression="BasicInformationController"></evaluate>
+		<transition on="basicViewEvent" to="basicInfoView"></transition>
+		<transition on="endCallEvent" to="EndCallView" />
+	</action-state>
+
+	<view-state id="basicInfoView" view="pecoEnergy.basic_information">
+		<transition on="basicInfoEvent" to="performValidAddressAction" />
+		<transition on="endCallEvent" to="EndCallView" />
+	</view-state>
+
+	<action-state id="performValidAddressAction">
+		<evaluate expression="ValidAddressController"></evaluate>
+		<transition on="validAddressEvent" to="validAddressView"></transition>
+		<transition on="invalidAddressEvent" to="invalidAddressView"></transition>
+		<transition on="multipleAddressEvent" to="multipleAddressView"></transition>
+	</action-state>
+
+	<view-state id="validAddressView" view="pecoEnergy.isValidAddress">
+		<transition on="addressFoundEvent" to="supplierAction" />
+		<transition on="endCallEvent" to="EndCallView" />
+	</view-state>
+
+	<view-state id="invalidAddressView" view="pecoEnergy.isInvalidAddress">
+		<transition on="addressNotFoundEvent" to="performValidAddressAction" />
+		<transition on="endCallEvent" to="EndCallView" />
+	</view-state>
+
+	<view-state id="multipleAddressView" view="pecoEnergy.isMultipleAddress">
+		<transition on="multipleAddressEvent" to="performValidAddressAction" />
+		<transition on="endCallEvent" to="EndCallView" />
+	</view-state>
+	
+	<action-state id="supplierAction">
+		<evaluate expression="SupplierController.showSupplierData(flowRequestContext)"></evaluate>
+		<transition on="supplierViewEventForDrupal" to="supplierViewForDrupal"/>
+		<transition on="supplierViewEvent" to="supplierView"/>
+	</action-state>
+
+	<view-state id="supplierView" view="pecoEnergy.supplierInfo">
+		<transition on="existingCustomerEvent" to="existingCustomerCKOView" />
+		<transition on="supplierEvent" to="saveSupplier" />
+		<transition on="endCallEvent" to="EndCallView" />
+	</view-state>
+	
+	<view-state id="supplierViewForDrupal" view="pecoEnergy.supplierInfoFroDrupal">
+		<transition on="existingCustomerEvent" to="existingCustomerCKOView" />
+		<transition on="supplierEvent" to="saveSupplier" />
+		<transition on="endCallEvent" to="EndCallView" />
+	</view-state>
+	
+	<action-state id="saveSupplier">
+		<evaluate expression="SupplierController.savePECOSupplierDataOnOrder(flowRequestContext)"></evaluate>
+		<transition to="EndCallView"/>
+	</action-state>
+
+	<view-state  id="EndCallView" view="pecoEnergy.closingcall">
+		<on-entry>
+			<evaluate expression="EndCallController" />
+		</on-entry>
+		<transition on="warmTransferEvent" to="dynamic-flow-warmTransferView" />
+		<transition on="dispositionsEvent" to="DispositionView" />
+	</view-state>
+	
+	<view-state id="warmTransferView" view="firstEnergy.warmTransfer">
+		<transition on="saveWarmTransferEvent" to="saveWarmTransferAction" />
+	</view-state>
+	
+	<action-state id="saveWarmTransferAction">
+		<evaluate expression="WarmTransferController.saveWarmTransferDetails(externalContext.nativeRequest)"></evaluate>
+		<transition  to="DispositionView" />
+	</action-state>
+	
+	<view-state id="dynamic-flow-warmTransferView" view="dynamicFlow.warmTransfer">
+		   <on-entry>
+				<evaluate expression="WarmTransferController.showWarmTransfer(flowRequestContext,externalContext.nativeRequest)" />
+			</on-entry>
+		<transition on="saveWarmTransferEvent" to="dynamic-flow-saveWarmTransferAction" />
+	</view-state>
+	
+   <action-state id="dynamic-flow-saveWarmTransferAction">
+		<evaluate expression="WarmTransferController.saveWarmTransferDetails(externalContext.nativeRequest)"></evaluate>
+		<transition to="DispositionView" />
+	</action-state>
+	
+	<end-state  id="DispositionView" view="pecoEnergy.dispositions">
+		<on-entry>
+			<evaluate expression="DispositionController" />
+		</on-entry>
+	</end-state>
+	
+	<end-state id="unRecoverableEvent" view="webflow.Unrecoverable" />
+		
+	<end-state id="recoverableEvent" view="webflow.recoverable" />
+		
+	<end-state id="errorEvent" view="webflow.error" />
+		
+	<global-transitions>
+		<transition on-exception="com.AL.V.exception.UnRecoverableException" to="unRecoverableEvent"/>
+		<transition on-exception="com.AL.V.exception.RecoverableException" to="recoverableEvent"/>
+		<transition on-exception="java.lang.Exception" to="errorEvent"/>
+	</global-transitions>
+	
+</flow>

@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<parent>
+        <groupId>com.AL.V</groupId>
+        <artifactId>ome-app-parent</artifactId>
+        <version>01.04.27</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<packaging>jar</packaging>
+	<artifactId>ome-core</artifactId>
+	<name>Order Management Core Library</name>
+	<url>http://maven.apache.org</url>
+
+	<scm>
+		<connection>scm:svn:http://svn/svn/services/OrderManagement/trunk/ome-core</connection>
+		<developerConnection>scm:svn:http://svn/svn/services/OrderManagement/trunk/ome-core</developerConnection>
+	</scm>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/META-INF/MANIFEST.MF</include>
+					<include>**/ehcache.xml</include>
+					<!-- <include>**/import.sql</include> -->
+					<include>**/seam.properties</include>
+					<include>**/META-INF/persistence.xml</include>
+					<include>**/META-INF/persistence-logical.xml</include>
+					<include>**/META-INF/persistence-reference.xml</include>
+					<include>**/META-INF/persistence-transactional.xml</include>
+					<include>**/order-validation.xml</include>
+					<!-- <include>**/pricing.properties</include>
+					<include>**/ome.properties</include> -->					
+					<!-- <include>**/rts.properties</include> -->
+					<!-- <include>**/customer.properties</include>
+					<include>**/integration.properties</include>
+					<include>**/product.properties</include>
+					<include>**/broadcast.properties</include>
+					<include>**/op.properties</include> -->
+					<!-- <include>**/ccp.properties</include> -->
+					<include>**/ejb-jar.xml</include>
+					<include>**/spring/omeContext.xml</include>
+					<include>**/spring/app-context.xml</include>
+					<include>**/spring/arbiterContext.xml</include>
+					<include>**/spring/applicationContext-logical.xml</include>
+					<include>**/spring/applicationContext-transactional.xml</include>
+					<include>**/spring/applicationContext-transactional.xml</include>
+					<include>**/spring/omeBeans.xml</include>
+					<include>**/log4j.xml</include>
+					<include>**/ds-location.properties</include>
+				</includes>
+				<excludes>
+					<exclude>**/log4j.properties</exclude>
+					<exclude>**/log4j.xml</exclude>
+				</excludes>
+			</resource>
+
+			<!--<resource>
+				<directory>src/test/resources</directory>
+				<includes>
+					<include>**/applicationContextTest.xml</include>
+					<include>**/applicationContextTest-logical.xml</include>
+					<include>**/applicationContextTest-transactional.xml</include>
+					<include>**/META-INF/persistenceTest-logical.xml</include>
+					<include>**/META-INF/persistenceTest-transactional.xml</include>
+				</includes>
+			</resource>-->
+
+		</resources>
+		<plugins>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src/main/java</source>
+								<source>src/test/java</source>
+								<source>src/main/resources</source>
+								<source>src/test/resources</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<inherited>true</inherited>
+
+				<configuration>
+					<archive>
+						<addMavenDescriptor>false</addMavenDescriptor>
+						<manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+					</archive>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+
+	<dependencies>
+		
+		<!-- AL components dependency -->
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>ome-ie</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>V-common</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>V-rules</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>V-dao</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>V-marshaller</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>ALXMLBeans</artifactId>
+			<version>${AL.xmlbeans.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>ALLogicalModel</artifactId>
+			<version>${AL.logical.version}</version>
+			<type>ejb</type>
+			<exclusions>
+				<exclusion>
+					<groupId>ac-eap</groupId>
+					<artifactId>spring</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.AL.geocoder</groupId>
+					<artifactId>AL-Geocoder</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>ALReferenceModel</artifactId>
+			<version>${AL.reference.version}</version>
+			<type>ejb</type>
+			<exclusions>
+				<exclusion>  <!-- declare the exclusion here -->
+					<groupId>ac-eap</groupId>
+					<artifactId>spring</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.AL.geocoder</groupId>
+					<artifactId>AL-Geocoder</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<!-- AL reason status codes -->
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>ac-codes</artifactId>
+			<version>01.00.07</version>
+		</dependency>
+		
+		<!-- JEE EJB -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>7.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.ejb3</groupId>
+			<artifactId>jboss-ejb3-ext-api</artifactId>
+			<version>2.2.0.Final</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- Hibernate validator -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>4.2.0.Final</version>
+		    <!-- <scope>provided</scope> -->
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- <dependency>
+			<groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		    <version>5.0.9.Final</version>
+			<scope>provided</scope>
+		</dependency> -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-entitymanager</artifactId>
+		    <version>3.5.1-Final</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- Web service -->
+		<dependency>
+			<groupId>org.jboss.ws</groupId>
+			<artifactId>jbossws-api</artifactId>
+			<version>1.0.3.Final</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<exclusions>
+				<exclusion>
+					<artifactId>jms</artifactId>
+					<groupId>javax.jms</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jmxtools</artifactId>
+					<groupId>com.sun.jdmk</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jmxri</artifactId>
+					<groupId>com.sun.jmx</groupId>
+				</exclusion>
+			</exclusions>	
+		</dependency>
+		
+		<!-- commons -->
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- C3P0 -->
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.1.2</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		
+		<!-- active mq 5.2.0 is needed due to communication manager -->
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-core</artifactId>
+			<version>5.2.0</version>
+		</dependency>
+		
+		<!-- Needed this for run time dependency  -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.framework.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>com.springsource.org.apache.commons.logging
+                       </artifactId>
+					<groupId>org.apache.commons</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>com.springsource.org.aopalliance
+                       </artifactId>
+					<groupId>org.aopalliance</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>com.springsource.org.antlr
+                       </artifactId>
+					<groupId>org.antlr</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<!-- RDS postgresql -->
+		<dependency>
+		    <groupId>org.postgresql</groupId>
+		    <artifactId>postgresql</artifactId>
+		    <scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>
+

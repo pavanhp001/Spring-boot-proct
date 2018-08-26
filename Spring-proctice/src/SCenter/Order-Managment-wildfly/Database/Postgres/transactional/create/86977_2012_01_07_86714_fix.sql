@@ -1,0 +1,1 @@
+ALTER TABLE cm_consumer ALTER COLUMN best_email_contact TYPE character varying(120);

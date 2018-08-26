@@ -1,0 +1,7 @@
+@charset "utf-8";
+.widget_container {
+    background-color: #fff;
+    float: left;
+    height: 324px;
+    width: 999px;
+}

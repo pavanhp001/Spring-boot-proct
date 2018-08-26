@@ -1,0 +1,17 @@
+<projectDescription>
+  <name>ome-app</name>
+  <comment>NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
+  <projects>
+    <project>ome-core</project>
+    <project>ome-web</project>
+  </projects>
+  <buildSpec>
+    <buildCommand>
+      <name>org.eclipse.wst.validation.validationbuilder</name>
+    </buildCommand>
+  </buildSpec>
+  <natures>
+    <nature>org.eclipse.wst.common.project.facet.core.nature</nature>
+    <nature>org.eclipse.wst.common.modulecore.ModuleCoreNature</nature>
+  </natures>
+</projectDescription>

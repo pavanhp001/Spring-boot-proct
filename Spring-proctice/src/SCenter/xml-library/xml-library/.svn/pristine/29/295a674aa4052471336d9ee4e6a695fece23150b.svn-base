@@ -1,0 +1,46 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+				  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+				  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+				  xmlns:ns1="http://schemas.xmlsoap.org/soap/http" 
+				  xmlns:ac="http://xml.A.com/partner/v1" 
+				  xmlns:tns="http://xml.A.com/partner/v1"
+				  name="ExternalServiceabilityService" 
+				  targetNamespace="http://xml.A.com/partner/v1" >
+	
+   <wsdl:types>
+      <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema">
+         <xsd:import namespace="http://xml.A.com/partner/v1" 
+         	schemaLocation="http://xml.A.com/partner/v1/AServiceability.xsd"/>
+      </xsd:schema>
+   </wsdl:types>
+   
+   <wsdl:message name="AServiceability">
+      <wsdl:part name="parameters" element="ac:AServiceability"/>
+   </wsdl:message>	
+   
+   <wsdl:portType name="ExternalServiceabilityServicePortType">
+      <wsdl:operation name="GetServiceability">
+         <wsdl:input name="serviceabilityRequest" message="ac:AServiceability"/>
+         <wsdl:output name="serviceabilityResponse" message="ac:AServiceability"/>
+      </wsdl:operation>
+   </wsdl:portType>
+   
+   <wsdl:binding name="ExternalServiceabilityServiceSoapBinding" type="tns:ExternalServiceabilityServicePortType">
+      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+      <wsdl:operation name="GetServiceability">
+         <soap:operation soapAction="http://wsgateway.ps2.A.com/xse/getExternalServiceability"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   
+   <wsdl:service name="ExternalServiceabilityService">
+      <wsdl:port name="ExternalServiceabilityService" binding="tns:ExternalServiceabilityServiceSoapBinding">
+         <soap:address location="http://wsgateway.ps2.A.com/xse/getExternalServiceability"/>
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

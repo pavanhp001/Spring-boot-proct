@@ -1,0 +1,172 @@
+<v4:productEnterpriseResponse xmlns:v4="http://xml.AL.com/v4">
+ <v4:GUID>711e501a-f77d-11e1-bd56-bf32d2af32ed</v4:GUID>
+ <v4:status>
+	<v4:statusCode>0</v4:statusCode>
+	<v4:processingMessages>
+	   <v4:message>
+		  <v4:code>0.0</v4:code>
+		  <v4:text>All entities requested were found</v4:text>
+	   </v4:message>
+	</v4:processingMessages>
+ </v4:status>
+ <v4:response xsi:type="v4:productResponseType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<v4:providerResults>
+	   <v4:provider externalId="100" name="">
+		  <v4:source datasource="ATTSTI">realtime</v4:source>
+	   </v4:provider>
+	   <v4:productInfo externalId="RTS:ATTSTI:ATT-13-LSR-EXP-H">
+		  <v4:product>
+			 <v4:externalId>RTS:ATTSTI:ATT-13-LSR-EXP-H</v4:externalId>
+			 <v4:productCategoryList>
+				<v4:productCategory displayName="highSpeedInternet">highSpeedInternet</v4:productCategory>
+				<v4:productCategory displayName="Line Share">Line Share</v4:productCategory>
+			 </v4:productCategoryList>
+			 <v4:name>EXPRESS DSL (UP TO 1.5 MBPS)</v4:name>
+			 <v4:channels>
+				<v4:channel>web</v4:channel>
+				<v4:channel>callCenter</v4:channel>
+			 </v4:channels>
+			 <v4:provider externalId="24699452" name="">
+				<v4:source datasource="ATTSTI">realtime</v4:source>
+			 </v4:provider>
+			 <v4:priceInfo>
+				<v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+				<v4:baseRecurringPrice>14.95</v4:baseRecurringPrice>
+			 </v4:priceInfo>
+			 <v4:capabilityList>
+				<v4:capability name="wiredDataUpSpeed"/>
+				<v4:capability name="wiredDataDownSpeed"/>
+			 </v4:capabilityList>
+		  </v4:product>
+		  <v4:productDetails>
+			 <v4:feature description="EXPRESS DSL (UP TO 1.5 MBPS)" type="EXPRESS DSL (UP TO 1.5 MBPS)">
+				<v4:externalId>CONN_SPEED</v4:externalId>
+				<v4:price>
+				   <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+				   <v4:baseNonRecurringPriceUnits>USD</v4:baseNonRecurringPriceUnits>
+				   <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+				   <v4:baseRecurringPriceUnits>USD</v4:baseRecurringPriceUnits>
+				   <v4:includeInTotalPrice/>
+				</v4:price>
+				<v4:included/>
+				<v4:required>false</v4:required>
+				<v4:available>true</v4:available>
+				<v4:dataConstraints>
+				   <v4:stringConstraint comparableValue="0.375">
+					  <v4:value>EXPRESS DSL (UP TO 1.5 MBPS)</v4:value>
+				   </v4:stringConstraint>
+				</v4:dataConstraints>
+				<v4:capabilities>
+				   <v4:featureCapability name="UP_SPEED" value="0.375" xsi:nil="true"/>
+				   <v4:featureCapability name="DOWN_SPEED" value="1.5" xsi:nil="true"/>
+				</v4:capabilities>
+			 </v4:feature>
+			 <v4:customization externalId="ATT-HSI-HW-6" required="true" displayOrder="2104">
+				<v4:name>High Speed Internet Hardware Options</v4:name>
+				<v4:shortDescription>Select the type of hardware for your High Speed Internet service.</v4:shortDescription>
+				<v4:longDescription>Choose a Modem if you are only connecting a single computer to the internet.  Choose a Wireless Gateway to create multiple Internet connections and connect to the Internet wirelessly.  Use your own equipment if you already have a Modem or Wireless Gateway.</v4:longDescription>
+				<v4:options min="1" max="1" type="Selection">
+				   <v4:choice externalId="11-81-6" displayOrder="2012">
+					  <v4:name>High Speed Internet Hardware Options</v4:name>
+					  <v4:shortDescription>AT&amp;T Wireless Gateway</v4:shortDescription>
+					  <v4:longDescription>Get the most out of your high-speed Internet connection with our Wireless Gateway - an affordable, all-in-one wireless networking solution. Connect one or multiple desktop and/or laptops via a wired or wireless connection. (Standard shipping included, taxes will apply)</v4:longDescription>
+					  <v4:priceInfo>
+						 <v4:baseNonRecurringPrice>100.0</v4:baseNonRecurringPrice>
+						 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+					  </v4:priceInfo>
+				   </v4:choice>
+				   <v4:choice externalId="11-80-6" displayOrder="2022">
+					  <v4:name>High Speed Internet Hardware Options</v4:name>
+					  <v4:shortDescription>AT&amp;T Modem</v4:shortDescription>
+					  <v4:longDescription>Secure, reliable modem for high-speed Internet connectivity.  (Standard shipping included, taxes will apply)</v4:longDescription>
+					  <v4:priceInfo>
+						 <v4:baseNonRecurringPrice>75.0</v4:baseNonRecurringPrice>
+						 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+					  </v4:priceInfo>
+				   </v4:choice>
+				   <v4:choice externalId="11-935-5" displayOrder="2031">
+					  <v4:name>High Speed Internet Hardware Options</v4:name>
+					  <v4:shortDescription>Already have equipment</v4:shortDescription>
+					  <v4:longDescription>If you already have a modem or wireless gateway</v4:longDescription>
+					  <v4:priceInfo>
+						 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+						 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+					  </v4:priceInfo>
+				   </v4:choice>
+				</v4:options>
+			 </v4:customization>
+			 <v4:customization externalId="ATT-DSL-INS-4" required="true" displayOrder="2003">
+				<v4:name>High Speed Internet Order Install Types</v4:name>
+				<v4:shortDescription>High Speed Internet Order Install Types-Choose your type of installation: Professional or Self-install?</v4:shortDescription>
+				<v4:longDescription>The installation of AT&amp;T High Speed Internet will be free if you self-install your service. There is a free customer support number you can call with any questions. If you are still having problems after speaking to the helpdesk, or are not comfortable continuing with the installation, we can send a technician to complete the installation for you (there is a charge for this service).  If a technician performs the installation, there is a service activation and installation charge.</v4:longDescription>
+				<v4:options min="1" max="1" type="Selection">
+				   <v4:choice externalId="13-79-4" displayOrder="2122">
+					  <v4:name>High Speed Internet Order Install Types</v4:name>
+					  <v4:shortDescription>Professional Install</v4:shortDescription>
+					  <v4:longDescription>A service technician visits your location and installs your Internet service.</v4:longDescription>
+					  <v4:priceInfo>
+						 <v4:baseNonRecurringPrice>149.0</v4:baseNonRecurringPrice>
+						 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+					  </v4:priceInfo>
+				   </v4:choice>
+				   <v4:choice externalId="13-78-4" displayOrder="2112">
+					  <v4:name>High Speed Internet Order Install Types</v4:name>
+					  <v4:shortDescription>Self-Install</v4:shortDescription>
+					  <v4:longDescription>Install your Internet service yourself and save money.  As part of your order, you'll receive a Self Installation Kit with easy-to-follow instructions on how to connect your Internet equipment and register your account.  You should receive your equipment and self-install kit within 5-7 days.</v4:longDescription>
+					  <v4:priceInfo>
+						 <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+						 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+					  </v4:priceInfo>
+				   </v4:choice>
+				</v4:options>
+			 </v4:customization>
+			 <v4:marketingHighlights>
+				<v4:marketingHighlight>Up to 1.5 Mbps downstream</v4:marketingHighlight>
+				<v4:marketingHighlight>Service Requires: DSL modem or gateway/router.</v4:marketingHighlight>
+				<v4:marketingHighlight>11 accounts each with virtually unlimited storage</v4:marketingHighlight>
+				<v4:marketingHighlight>Includes on-the-go access to the entire national AT&amp;T Wi-Fi Hotspot network, at no extra charge.</v4:marketingHighlight>
+				<v4:marketingHighlight>Traditional monthly billing on your AT&amp;T monthly telephone bill. AT&amp;T Local and AT&amp;T Long Distance charges are provided on the same bill for your convenience.</v4:marketingHighlight>
+				<v4:marketingHighlight>Please note: It may be necessary for an AT&amp;T representative to contact you before your order can be completed.</v4:marketingHighlight>
+				<v4:marketingHighlight>24/7</v4:marketingHighlight>
+				<v4:marketingHighlight>10 MB of personal web space</v4:marketingHighlight>
+				<v4:marketingHighlight>AT&amp;T High Speed Internet Minimum System Requirements:  Windows:  Windows 7 - Memory:  1 GB; Processor Speed Required:  1 GHz or faster;  Free Disk Space:  125 MB; CD-ROM Drive:  Yes; Network Interface for Home Networking:  Available Ethernet Port; Video Display Adapter:  Standard VGA/SVGA;  Audio:  Audio output capability.  Windows Vista -  Memory:  512 MB; Processor Speed Required:  800 MHz or faster;  Free Disk Space:  125 MB; CD-ROM Drive:  Yes; Network Interface for Home Networking:  Available Ethernet Port; Video Display Adapter:  Standard VGA/SVGA;  Audio:  Audio output capability.  Windows XP -  Memory:  128 MB; Processor Speed Required:  300 MHz or faster;  Free Disk Space:  100 MB; CD-ROM Drive:  Yes; Network Interface for Home Networking:  Available Ethernet Port; Video Display Adapter:  Included with OS requirements;  Audio:  Included with OS requirements. Macintosh:  Mac OS X v10.3 Panther OS - Processor:  PowerPC (G3, G4, G5); CD-ROM Media:  CD-Rom or DVD Drive; Disk Space:  100 MB of free disk space; Memory:  64 MB of RAM (128 MB recommended); Video Display Adapter:  Standard; Audio:  Audio output capability.  Mac OS X v10.4 Tiger and above OS - Processor:  Included with OS requirements; CD-ROM Media:  Included with OS requirements; Disk Space:  Included with OS requirements; Memory:  1 GB of RAM (recommended); Video Display Adapter:  Included with OS requirements; Audio:  Included with OS requirements.</v4:marketingHighlight>
+				<v4:marketingHighlight>Subject to taxes and fees</v4:marketingHighlight>
+			 </v4:marketingHighlights>
+			 <v4:descriptiveInfo type="longDescription">
+				<v4:value>Want a faster connection? With Express DSL (downstream speed up to 1.5 Mbps), you can do everything you can with Basic DSL and more.  Express DSL service is ideal for social networking, sharing photos, downloading music, email, and web surfing.DSL for existing AT&amp;T Home Phone customers - ideal for email and web surfing.</v4:value>
+			 </v4:descriptiveInfo>
+			 <v4:descriptiveInfo type="termsAndConditions">
+				<v4:value><![CDATA[AT&T High Speed Internet Service requires DSL modem/router and local access line. Taxes, excessive usage and other charges may apply.  Speed claim(s) represent maximum downstream and/or upstream speed capabilities which may vary and are not guaranteed.  Many factors can affect actual speeds.  In order to enhance reliability and consistency of performance, some lines may be provisioned at less than the maximum speed capability but within the range of speed purchased.  See the Terms of Service, www.att.yahoo.com/terms.  Internet speed options not available in all areas.  DSL price includes 150 GB of data/mo. Additional $10 charge per each 50 GB of data usage in excess of allowance. For more information, go to  www.att.com/internet-usage.  $14.95 Internet Offer:  Offer available for new AT&T Internet customers only.  Offer applies up to 3.0 Mbps Internet service after monthly bill credit.  After 12 months, standard rate applies unless canceled by customer.  Requires AT&T home phone service.  Promotional rates may no longer apply if customer changes their speed tier during term.  Residential customers only.  Modem/gateway required.  Taxes apply.  Internet price includes 150 GB of data/mo. Additional $10 charge per each 50 GB of data usage in excess of allowance. For more information, go to www.att.com/internet-usage.  Speed claim(s) represent maximum downstream and/or upstream speed capabilities which may vary and are not guaranteed.  Offer expires 12/31/12.   $38/$50 AT&T Reward Card for purchase of a modem or wireless gateway and high speed Internet from AT&T:  Available to new or existing AT&T wireless customers. Offer ends 12/31/12.   Applicable taxes and fees will be based on the full monthly price of products and services.  Redemption Terms:  Card redemption required. Card sent 4-6 weeks after redemption to customers who retain qualifying service(s).� Not redeemable for cash, for use at automated gasoline pumps or for cash withdrawal at ATMs.  Card expires 90 days after issuance. For cardholder agreement/terms and conditions go to http://rewardcenter.att.com/myrewardcard/agreement.pdf. �Cards issued by U.S. Bank National Association, pursuant to a license from Visa U.S.A. Inc.  DSL price includes 150 GB of data/mo. Additional $10 charge per each 50 GB of data usage in excess of allowance. For more information, go to www.att.com/internet-usage.  Access includes AT&T Wi-Fi Basic. Wi-Fi enabled device required. Other restrictions apply. See www.attwifi.com for details and locations.  Use of Wi-Fi at home will count toward your AT&T High Speed Internet usage allowance.  Advertised services and Internet speed options not available in all areas.  Offers may be modified or discontinued at any time without notice.  Other conditions may apply to all offers.   � 2012 AT&T Intellectual Property.  AT&T, the AT&T logo and all other AT&T marks contained herein are trademarks of AT&T Intellectual Property and/or AT&T affiliated companies.  All rights reserved .  Subsidiaries and affiliates of AT&T Inc. provide products and services under the AT&T brand.]]></v4:value>
+			 </v4:descriptiveInfo>
+			 <v4:descriptiveInfo type="disclosures">
+				<v4:value/>
+			 </v4:descriptiveInfo>
+			 <v4:promotion>
+				<v4:externalId>DSL Half CPE Rebate</v4:externalId>
+				<v4:promoCode>DSL Half CPE Rebate</v4:promoCode>
+				<v4:shortDescription>If you have AT&amp;T wireless service, you may be eligible to receive an AT&amp;T Visa� Reward Card to offset 50% of the cost of your new Internet equipment.  Please visit att.com/equipmentoffer to see how to qualify.</v4:shortDescription>
+				<v4:description>Rebate is available to customers who purchase new Internet service from AT&amp;T.  Rebate will be in the form of an AT&amp;T Reward Card.  Offer ends 12/31/2012.</v4:description>
+				<v4:qualification>N/A</v4:qualification>
+				<v4:conditions>$38/$50 AT&amp;T Reward Card for purchase of a modem or wireless gateway and high speed Internet from AT&amp;T.  Available to new or existing AT&amp;T wireless customers. Offer ends 12/31/12.   Applicable taxes and fees will be based on the full monthly price of products and services.  Redemption Terms:  Card redemption required. Card sent 4-6 weeks after redemption to customers who retain qualifying service(s).� Not redeemable for cash, for use at automated gasoline pumps or for cash withdrawal at ATMs.  Card expires 90 days after issuance. For cardholder agreement/terms and conditions go to http://rewardcenter.att.com/myrewardcard/agreement.pdf. �Cards issued by U.S. Bank National Association, pursuant to a license from Visa U.S.A. Inc.</v4:conditions>
+				<v4:type>unspecifiedType</v4:type>
+				<v4:priceValueType>unspecifiedPriceValueType</v4:priceValueType>
+				<v4:priceValue>0.0</v4:priceValue>
+				<v4:promotionDuration>PT0S</v4:promotionDuration>
+			 </v4:promotion>
+			 <v4:promotion>
+				<v4:externalId>DSL LSR EXP AGG-N</v4:externalId>
+				<v4:promoCode>DSL LSR EXP AGG-N</v4:promoCode>
+				<v4:shortDescription>Fast, affordable Internet with speeds up to 1.5 Mbps at an unbeatable low price for a full 12 months!  New price $14.95 per month.</v4:shortDescription>
+				<v4:description>Regular price $33/month.  New DSL customers only.  Downstream  up to 1.5 Mbps.</v4:description>
+				<v4:qualification>N/A</v4:qualification>
+				<v4:conditions>$14.95 Internet Offer:  Offer available for new AT&amp;T Internet customers only.  Offer applies up to 3.0 Mbps Internet service after monthly bill credit.  After12 months, standard rate applies unless canceled by customer.  Requires AT&amp;T home phone service.  Promotional rates may no longer apply if customer changes their speed tier during term.  Residential customers only.  Modem/gateway required.  Taxes apply.  Internet price includes 150 GB of data/mo. Additional $10 charge per each 50 GB of data usage in excess of allowance. For more information, go to www.att.com/internet-usage.  Speed claim(s) represent maximum downstream and/or upstream speed capabilities which may vary and are not guaranteed.  Offer expires 12/31/12.</v4:conditions>
+				<v4:type>baseMonthlyDiscount</v4:type>
+				<v4:priceValueType>unspecifiedPriceValueType</v4:priceValueType>
+				<v4:priceValue>14.95</v4:priceValue>
+				<v4:promotionDuration>P12M</v4:promotionDuration>
+			 </v4:promotion>
+		  </v4:productDetails>
+	   </v4:productInfo>
+	</v4:providerResults>
+ </v4:response>
+</v4:productEnterpriseResponse>

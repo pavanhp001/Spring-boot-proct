@@ -1,0 +1,300 @@
+<ac:acMessage xmlns:ac="http://xml.A.com/v4">
+  <ac:msgType>response</ac:msgType>
+  <ac:actionType>query</ac:actionType>
+  <ac:payloadType>OrderResponseDocument</ac:payloadType>
+  <ac:payload>
+    <ac:orderManagementRequestResponse>
+      <ac:status>
+        <ac:statusCode>0</ac:statusCode>
+        <ac:processingMessages>
+          <ac:message>
+            <ac:code>0.0</ac:code>
+            <ac:text>request completed</ac:text>
+          </ac:message>
+        </ac:processingMessages>
+        <ac:statusMsg>INFO</ac:statusMsg>
+      </ac:status>
+      <ns3:request xmlns:ns2="http://xml.A.com/common" xmlns:ns3="http://xml.A.com/v4">
+        <ns3:orderId>17405</ns3:orderId>
+      </ns3:request>
+      <ac:response>
+        <ac:salesContext>
+          <ac:orderSource>0</ac:orderSource>
+          <ac:entity name="Test2">
+            <ac:attribute name="neighborhood" value="rich"/>
+            <ac:attribute name="customerType" value="High Income"/>
+          </ac:entity>
+          <ac:entity name="Test1">
+            <ac:attribute name="credit score" value="750"/>
+            <ac:attribute name="dwelling type" value="house"/>
+          </ac:entity>
+        </ac:salesContext>
+        <ac:orderInfo>
+          <ac:lineItems>
+            <ac:lineItem>
+              <ac:externalId>17953</ac:externalId>
+              <ac:lineItemNumber>0</ac:lineItemNumber>
+              <ac:providerConfirmationNumber/>
+              <ac:providerCustomerAccountNumber/>
+              <ac:svcAddressExtId>22881</ac:svcAddressExtId>
+              <ac:billingInfoExtId>18303</ac:billingInfoExtId>
+              <ac:productDatasource>realtime</ac:productDatasource>
+              <ac:leadId>0</ac:leadId>
+              <ac:lineItemAttributes>
+                <ac:entity/>
+              </ac:lineItemAttributes>
+              <ac:lineItemDetail>
+                <ac:detailType>product</ac:detailType>
+                <ac:detail>
+                  <ac:productLineItem>
+                    <ac:externalId>RTS:ATTSTI:ATT-9-2TV-200-UNL-I</ac:externalId>
+                    <ac:productCategoryList>
+                      <ac:productCategory displayName="cableTV|localPhone"/>
+                    </ac:productCategoryList>
+                    <ac:name>RTS:ATTSTI:ATT-9-2TV-200-UNL-I</ac:name>
+                    <ac:channels>
+                      <ac:channel>3</ac:channel>
+                    </ac:channels>
+                    <ac:provider externalId="24699452"/>
+                  </ac:productLineItem>
+                </ac:detail>
+                <ac:productUniqueId>10976</ac:productUniqueId>
+              </ac:lineItemDetail>
+              <ac:partnerExternalId>24699452</ac:partnerExternalId>
+              <ac:selectedFeatures/>
+              <ac:lineItemStatus dateTimeStamp="2012-10-05T17:44:25.214-04:00" agentId="1" statusCode="sales_new_order">
+                <ac:reason>0</ac:reason>
+              </ac:lineItemStatus>
+              <ac:lineItemStatusHistory>
+                <ac:previousStatus dateTimeStamp="2012-10-05T17:44:25.214-04:00" agentId="1" statusCode="sales_new_order">
+                  <ac:reason>0</ac:reason>
+                </ac:previousStatus>
+              </ac:lineItemStatusHistory>
+              <ac:SchedulingInfo appointmentComment="Test Comment" installationFee="29.99" billingInstallments="true" residenceType="HOUSE" earlierAppointmentDate="true">
+                <ac:desiredStartDate>
+                  <ac:date>2012-07-24-04:00</ac:date>
+                  <ac:time>01:30:00.000-04:00</ac:time>
+                  <ac:startTime>01:30:00.000-04:00</ac:startTime>
+                  <ac:endTime>01:30:00.000-04:00</ac:endTime>
+                </ac:desiredStartDate>
+                <ac:scheduledStartDate>
+                  <ac:date>2012-07-24-04:00</ac:date>
+                  <ac:time>02:30:00.000-04:00</ac:time>
+                  <ac:startTime>02:30:00.000-04:00</ac:startTime>
+                  <ac:endTime>02:30:00.000-04:00</ac:endTime>
+                </ac:scheduledStartDate>
+                <ac:actualStartDate>
+                  <ac:date>2012-07-24-04:00</ac:date>
+                  <ac:time>08:00:00.000-04:00</ac:time>
+                  <ac:startTime>08:00:00.000-04:00</ac:startTime>
+                  <ac:endTime>08:00:00.000-04:00</ac:endTime>
+                </ac:actualStartDate>
+                <ac:disconnectDate>
+                  <ac:date xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                  <ac:time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                  <ac:startTime xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                  <ac:endTime xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                </ac:disconnectDate>
+                <ac:orderDate>
+                  <ac:date xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                  <ac:time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                  <ac:startTime xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                  <ac:endTime xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                </ac:orderDate>
+                <ac:ScheduleAsSoonAsPossible>true</ac:ScheduleAsSoonAsPossible>
+              </ac:SchedulingInfo>
+              <ac:lineItemPriceInfo>
+                <ac:baseNonRecurringPrice>0.0</ac:baseNonRecurringPrice>
+                <ac:baseNonRecurringPriceUnits xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <ac:baseRecurringPrice>107.0</ac:baseRecurringPrice>
+                <ac:baseRecurringPriceUnits xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <ac:onDeliveryPrice>0.00</ac:onDeliveryPrice>
+              </ac:lineItemPriceInfo>
+              <ac:activeDialogs>
+                <ac:dialogs>
+                  <ac:dialog>
+                    <ac:externalId>DLG101</ac:externalId>
+                    <ac:dialogueDate>2012-10-05T17:44:25.214-04:00</ac:dialogueDate>
+                    <ac:value selected="true" type="string">Option1</ac:value>
+                  </ac:dialog>
+                </ac:dialogs>
+              </ac:activeDialogs>
+              <ac:customSelections>
+                <ac:selections/>
+              </ac:customSelections>
+            </ac:lineItem>
+          </ac:lineItems>
+          <ac:orderStatus>
+            <ac:status>sales</ac:status>
+            <ac:reason>5001</ac:reason>
+            <ac:dateTimeStamp>2012-10-05T17:44:25.252-04:00</ac:dateTimeStamp>
+          </ac:orderStatus>
+          <ac:orderStatusHistory>
+            <ac:previousStatus>
+              <ac:status>sales</ac:status>
+              <ac:reason>5001</ac:reason>
+              <ac:dateTimeStamp>2012-10-05T17:44:25.252-04:00</ac:dateTimeStamp>
+            </ac:previousStatus>
+          </ac:orderStatusHistory>
+          <ac:externalId>17405</ac:externalId>
+          <ac:source>Web</ac:source>
+          <ac:orderDate>2012-10-05-04:00</ac:orderDate>
+          <ac:referrerId>108</ac:referrerId>
+          <ac:associatedWithMove>true</ac:associatedWithMove>
+          <ac:moveDate xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+          <ac:whenToCallBack xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+          <ac:campaignId>ATT</ac:campaignId>
+          <ac:customerInformation>
+            <ac:customer>
+              <ac:externalId>27334</ac:externalId>
+              <ac:referrerId>0</ac:referrerId>
+              <ac:partnerAccountId>0</ac:partnerAccountId>
+              <ac:dtAgentId>UP123</ac:dtAgentId>
+              <ac:dtCreated>2012-08-20-04:00</ac:dtCreated>
+              <ac:agentId>default</ac:agentId>
+              <ac:title>Mr.</ac:title>
+              <ac:firstName>Steven</ac:firstName>
+              <ac:lastName>Grebner</ac:lastName>
+              <ac:middleName>R</ac:middleName>
+              <ac:nameSuffix>N/A</ac:nameSuffix>
+              <ac:gender>M</ac:gender>
+              <ac:dob>1974-04-25-04:00</ac:dob>
+              <ac:ssn>237276237</ac:ssn>
+              <ac:nonBuyerWebOptIn>false</ac:nonBuyerWebOptIn>
+              <ac:directMailOptIn>true</ac:directMailOptIn>
+              <ac:eMailOptIn>true</ac:eMailOptIn>
+              <ac:phoneContactOptIn>true</ac:phoneContactOptIn>
+              <ac:eMailProductUpdatesOptIn>true</ac:eMailProductUpdatesOptIn>
+              <ac:marketingOptIn>false</ac:marketingOptIn>
+              <ac:bestTimeToCall1>2011-05-24T11:17:11.000-04:00</ac:bestTimeToCall1>
+              <ac:bestTimeToCall2>2011-05-24T11:17:11.000-04:00</ac:bestTimeToCall2>
+              <ac:bestTimeToCallPhone xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+              <ac:bestEmailContact>abc@test.com</ac:bestEmailContact>
+              <ac:ACustomerNumber>AC-134947345717327333</ac:ACustomerNumber>
+              <ac:homePhoneNumber>
+                <ac:value>4041110213</ac:value>
+                <ac:order>0</ac:order>
+                <ac:desc>home</ac:desc>
+              </ac:homePhoneNumber>
+              <ac:cellPhoneNumber>
+                <ac:value>7552222222</ac:value>
+                <ac:order>1</ac:order>
+                <ac:desc>cell</ac:desc>
+              </ac:cellPhoneNumber>
+              <ac:workPhoneNumber>
+                <ac:value>5663333333</ac:value>
+                <ac:order>2</ac:order>
+                <ac:desc>work</ac:desc>
+              </ac:workPhoneNumber>
+              <ac:homeEMail>
+                <ac:value>sachin@home.com</ac:value>
+                <ac:order>3</ac:order>
+                <ac:desc>homeEMail</ac:desc>
+              </ac:homeEMail>
+              <ac:workEMail>
+                <ac:value>test@bcci.com</ac:value>
+                <ac:order>4</ac:order>
+                <ac:desc>workEMail</ac:desc>
+              </ac:workEMail>
+              <ac:landlordInfo>
+                <ac:landlordName>NONE</ac:landlordName>
+                <ac:landlordPhoneNumber>0000000000</ac:landlordPhoneNumber>
+              </ac:landlordInfo>
+              <ac:driverLicense>
+                <ac:LicenseNumber>123456789</ac:LicenseNumber>
+                <ac:State>Georgia</ac:State>
+                <ac:LicenseExpirationDate>2021-01-01-05:00</ac:LicenseExpirationDate>
+              </ac:driverLicense>
+              <ac:stateId>
+                <ac:IdNumber>123456789</ac:IdNumber>
+                <ac:State>Georgia</ac:State>
+              </ac:stateId>
+              <ac:primaryLanguage>0</ac:primaryLanguage>
+              <ac:payments/>
+              <ac:financialInfo>
+                <ac:employed>
+                  <ac:businessName>A</ac:businessName>
+                  <ac:businessPhoneNum>5555555555</ac:businessPhoneNum>
+                  <ac:occupation>tester</ac:occupation>
+                </ac:employed>
+                <ac:employed/>
+                <ac:student/>
+                <ac:retired/>
+                <ac:bankOrMortgageInstitution>N/A</ac:bankOrMortgageInstitution>
+                <ac:otherIncomeSource>Business</ac:otherIncomeSource>
+              </ac:financialInfo>
+              <ac:billingInfoList>
+                <ac:billingInfo>
+                  <ac:addressRef>BLG1349473456849</ac:addressRef>
+                  <ac:billingMethod>Credit Card</ac:billingMethod>
+                  <ac:creditCardNumber>1111-2222-3333-4444</ac:creditCardNumber>
+                  <ac:creditCardType>Visa</ac:creditCardType>
+                  <ac:expirationYearMonth>2030-01-05:00</ac:expirationYearMonth>
+                  <ac:cardHolderName>Steven Grebner</ac:cardHolderName>
+                  <ac:verificationCode>123</ac:verificationCode>
+                  <ac:checkingAccountNumber>1234-1234-1234-1234</ac:checkingAccountNumber>
+                  <ac:routingNumber>123456</ac:routingNumber>
+                  <ac:externalId>18303</ac:externalId>
+                  <ac:billingUniqueId>BI1349473456845</ac:billingUniqueId>
+                </ac:billingInfo>
+              </ac:billingInfoList>
+              <ac:addressList>
+                <ac:customerAddress>
+                  <ac:addressRoles>
+                    <ac:role>BillingAddress</ac:role>
+                    <ac:role>CurrentAddress</ac:role>
+                    <ac:role>PreviousAddress</ac:role>
+                    <ac:role>ServiceAddress</ac:role>
+                  </ac:addressRoles>
+                  <ac:addressUniqueId>BLG1349473456849</ac:addressUniqueId>
+                  <ac:status>active</ac:status>
+                  <ac:address>
+                    <ac:externalId>22881</ac:externalId>
+                    <ac:prefixDirectional/>
+                    <ac:streetNumber>13</ac:streetNumber>
+                    <ac:streetName>DECATUR ST SE</ac:streetName>
+                    <ac:streetType/>
+                    <ac:line2>N/A</ac:line2>
+                    <ac:postfixDirectional/>
+                    <ac:city>Atlanta</ac:city>
+                    <ac:stateOrProvince>GA</ac:stateOrProvince>
+                    <ac:postalCode>30303</ac:postalCode>
+                    <ac:country>USA</ac:country>
+                    <ac:countyParishBorough>Gwinnet</ac:countyParishBorough>
+                    <ac:addressBlock>13 DECATUR ST SE , Atlanta GA 30303</ac:addressBlock>
+                    <ac:howLongAtAddress>P10Y</ac:howLongAtAddress>
+                    <ac:dwellingType>house</ac:dwellingType>
+                    <ac:inEffect>2001-01-01-05:00</ac:inEffect>
+                    <ac:gasStartAt xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    <ac:electricityStartAt xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                    <ac:expiration>2051-01-01-05:00</ac:expiration>
+                    <ac:changeType>chtype</ac:changeType>
+                    <ac:hasHadServicePreviously>false</ac:hasHadServicePreviously>
+                    <ac:cityAlias>Columbia</ac:cityAlias>
+                    <ac:addressOwnership>own</ac:addressOwnership>
+                  </ac:address>
+                </ac:customerAddress>
+              </ac:addressList>
+              <ac:securityVerificationInfo>
+                <ac:pin>1234</ac:pin>
+                <ac:securityQuestion>Quesiton1</ac:securityQuestion>
+                <ac:securityAnswer>Answer1</ac:securityAnswer>
+              </ac:securityVerificationInfo>
+              <ac:billingDeliveryPreference>paper</ac:billingDeliveryPreference>
+            </ac:customer>
+          </ac:customerInformation>
+          <ac:agentId>default</ac:agentId>
+          <ac:agentName>default</ac:agentName>
+          <ac:AConfirmationNumber>CNF-134947346571517406</ac:AConfirmationNumber>
+          <ac:ACustomerAccountNumber xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+          <ac:totalPriceInfo>
+            <ac:baseNonRecurringPrice>0.0</ac:baseNonRecurringPrice>
+            <ac:baseNonRecurringPriceUnits xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+            <ac:baseRecurringPrice>107.0</ac:baseRecurringPrice>
+            <ac:baseRecurringPriceUnits xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+          </ac:totalPriceInfo>
+        </ac:orderInfo>
+      </ac:response>
+    </ac:orderManagementRequestResponse>
+  </ac:payload>
+</ac:acMessage>

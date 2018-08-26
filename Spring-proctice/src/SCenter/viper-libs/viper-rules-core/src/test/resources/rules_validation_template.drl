@@ -1,0 +1,29 @@
+package A.ome.validation;
+
+import org.drools.runtime.rule.RuleContext;
+import com.A.rules.util.*;
+import com.A.rules.domain.Message;
+import com.A.validation.ReportFactory;
+import com.A.validation.ValidationReport;
+import com.A.V.beans.entity.SalesOrder;
+import com.A.V.beans.entity.LineItem;
+import com.A.V.beans.entity.StatusRecordBean;
+import function  com.A.rules.core.impl.RuleValidationHelper.error;
+import function  com.A.rules.core.impl.RuleValidationHelper.warning;
+import function  com.A.rules.core.impl.RuleValidationHelper.outcome;
+
+import java.util.ArrayList;
+
+global com.A.validation.ReportFactory reportFactory;
+global com.A.validation.ValidationReport validationReport;
+	
+	rule "rule.1.invalid.external.id"
+	    salience 100
+	    when
+ 		so : SalesOrder( externalId == null)  
+	    then 
+            error(kcontext, "sales order external id is null");
+            for (int i=0; i<100; i++)
+            System.out.println("###########################");
+	end 
+

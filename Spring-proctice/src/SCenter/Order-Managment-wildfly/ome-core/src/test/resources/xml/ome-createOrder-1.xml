@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<v4:orderManagementRequestResponse
+	xmlns:v4="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xml.AL.com/v4 orderManagement.xsd ">
+	<v4:transactionType>createOrder</v4:transactionType>
+	<v4:request>
+		<v4:newOrderInfo>
+			<v4:externalId></v4:externalId>
+			<v4:source>Wed</v4:source>
+			<v4:referrerId>108</v4:referrerId>
+			<v4:associatedWithMove>true</v4:associatedWithMove>
+			<v4:directMailOptIn>true</v4:directMailOptIn>
+			<v4:eMailOptIn>true</v4:eMailOptIn>
+			<v4:campaignId>campaignId</v4:campaignId>
+			<v4:consumer>
+				<v4:title>Sir</v4:title>
+				<v4:firstName>John</v4:firstName>
+				<v4:lastName>Doe</v4:lastName>
+				<v4:middleName>Kennedy</v4:middleName>
+				<v4:nameSuffix>Jr.</v4:nameSuffix>
+				<v4:gender>M</v4:gender>
+				<v4:dob>2001-01-01</v4:dob>
+				<v4:ssn>111-222-3333</v4:ssn>
+				<v4:ALCustomerNumber>111222333
+				</v4:ALCustomerNumber>
+				<v4:homePhoneNumber>
+					<v4:value>1-800-hom-fone</v4:value>
+					<v4:order>0</v4:order>
+					<v4:desc>Home Phone Number</v4:desc>
+				</v4:homePhoneNumber>
+				<v4:cellPhoneNumber>
+					<v4:value>1-800-cel-fone</v4:value>
+					<v4:order>1</v4:order>
+					<v4:desc>CELL Phone Number</v4:desc>
+				</v4:cellPhoneNumber>
+				<v4:workPhoneNumber>
+					<v4:value>1-800-wrk-fone</v4:value>
+					<v4:order>2</v4:order>
+					<v4:desc>Work Phone Number</v4:desc>
+				</v4:workPhoneNumber>
+				<v4:homeEMail>
+					<v4:value>ebthomas3@home.com</v4:value>
+					<v4:order>3</v4:order>
+					<v4:desc>v4:desc</v4:desc>
+				</v4:homeEMail>
+				<v4:workEMail>
+					<v4:value>ebthomas3@work.com</v4:value>
+					<v4:order>0</v4:order>
+					<v4:desc>v4:desc</v4:desc>
+				</v4:workEMail>
+				<v4:address>
+					<v4:prefixDirectional>consumer.prefixDirectional.Addr</v4:prefixDirectional>
+					<v4:streetNumber>consumer.539</v4:streetNumber>
+					<v4:streetName>consumer.Jones Street</v4:streetName>
+					<v4:streetType>consumer.Court</v4:streetType>
+					<v4:line2>consumer.Apt. 102</v4:line2>
+					<v4:postfixDirectional>consumer.postfixDirectional.Addr</v4:postfixDirectional>
+					<v4:city>consumer.Alpharetta</v4:city>
+					<v4:stateOrProvince>consumer.Georgia</v4:stateOrProvince>
+					<v4:postalCode>12345</v4:postalCode>
+					<v4:country>consumer.United States</v4:country>
+					<v4:countyParishBorough>consumer.Dade</v4:countyParishBorough>
+					<v4:addressBlock>consumer.addressBlock
+					</v4:addressBlock>
+					<v4:hasHadServicePreviously>true</v4:hasHadServicePreviously>
+					<v4:howLongAtAddress>1</v4:howLongAtAddress>
+				</v4:address>
+				<v4:previousAddress>
+					<v4:prefixDirectional>consumer.p.prefix
+					</v4:prefixDirectional>
+					<v4:streetNumber>consumer.p.streetNumber
+					</v4:streetNumber>
+					<v4:streetName>consumer.p.streetName
+					</v4:streetName>
+					<v4:streetType>consumer</v4:streetType>
+					<v4:line2>consumer</v4:line2>
+					<v4:postfixDirectional>postFixDirectional
+					</v4:postfixDirectional>
+					<v4:city>p.alpharetta</v4:city>
+					<v4:stateOrProvince>p.Georgia</v4:stateOrProvince>
+					<v4:postalCode>30009</v4:postalCode>
+					<v4:country>United States</v4:country>
+					<v4:countyParishBorough>countyParish
+					</v4:countyParishBorough>
+					<v4:addressBlock>address Block</v4:addressBlock>
+				</v4:previousAddress>
+				<v4:financialInfo>
+					<v4:employed>
+						<v4:businessName>Working Inc.</v4:businessName>
+						<v4:businessPhoneNum>1-800-work-hard
+						</v4:businessPhoneNum>
+						<v4:occupation>QA Engineer</v4:occupation>
+					</v4:employed>
+					<v4:student xsi:nil="false" />
+					<v4:retired xsi:nil="true" />
+					<v4:bankOrMortgageInstitution>Mortgage R US
+					</v4:bankOrMortgageInstitution>
+					<v4:otherIncomeSource>Source Other Income
+					</v4:otherIncomeSource>
+				</v4:financialInfo>
+			</v4:consumer>
+			<v4:agentId>5</v4:agentId>
+			<v4:ALConfirmationNumber>ALConfirmationNumber
+			</v4:ALConfirmationNumber>
+			<v4:ALCustomerAccountNumber>ALCustomerAccountNumber
+			</v4:ALCustomerAccountNumber>
+			<v4:totalPriceInfo>
+				<v4:baseNonRecurringPrice>111.0</v4:baseNonRecurringPrice>
+				<v4:baseRecurringPrice>123.0</v4:baseRecurringPrice>
+			</v4:totalPriceInfo>
+			<v4:orderStatus>
+				<v4:status>v4:status</v4:status>
+				<v4:reason>v4:reason</v4:reason>
+				<v4:dateTimeStamp>2001-12-31T12:00:00
+				</v4:dateTimeStamp>
+			</v4:orderStatus>
+			<v4:orderStatusHistory>
+				<v4:previousStatus>
+					<v4:status>v4:status</v4:status>
+					<v4:reason>v4:reason</v4:reason>
+					<v4:dateTimeStamp>2001-12-31T12:00:00
+					</v4:dateTimeStamp>
+				</v4:previousStatus>
+			</v4:orderStatusHistory>
+			<v4:secondCallInfo>
+				<v4:whenToCallBack>
+					<v4:date>2001-01-01</v4:date>
+					<v4:time>12:00:00</v4:time>
+				</v4:whenToCallBack>
+				<v4:firstPhoneNumber>
+					<v4:value>token</v4:value>
+					<v4:order>0</v4:order>
+					<v4:desc>v4:desc</v4:desc>
+				</v4:firstPhoneNumber>
+				<v4:secondPhoneNumber>
+					<v4:value>token</v4:value>
+					<v4:order>0</v4:order>
+					<v4:desc>v4:desc</v4:desc>
+				</v4:secondPhoneNumber>
+			</v4:secondCallInfo>
+			<v4:billingInfo>
+				<v4:billingMethod>order.billingMethod
+				</v4:billingMethod>
+				<v4:creditCardNumber>order.creditCardNumber
+				</v4:creditCardNumber>
+				<v4:verificationCode>order.verificationCode
+				</v4:verificationCode>
+				<v4:checkingAccountNumber>order.checkingAccountNumber
+				</v4:checkingAccountNumber>
+				<v4:routingNumber>order.routingNumber
+				</v4:routingNumber>
+				<v4:billingAddress>
+					<v4:prefixDirectional>order.prefixBillingAddress
+					</v4:prefixDirectional>
+					<v4:streetNumber>order.streetNumber
+					</v4:streetNumber>
+					<v4:streetName>order.streetName</v4:streetName>
+					<v4:streetType>order.streetType</v4:streetType>
+					<v4:line2>order.line2</v4:line2>
+					<v4:postfixDirectional>order.postfixDirectional
+					</v4:postfixDirectional>
+					<v4:city>order.city</v4:city>
+					<v4:stateOrProvince>order.stateOrProvince
+					</v4:stateOrProvince>
+					<v4:postalCode>order.postalCode</v4:postalCode>
+					<v4:country>order.country</v4:country>
+					<v4:countyParishBorough>order.countyParishBorough
+					</v4:countyParishBorough>
+					<v4:addressBlock>order.addressBlock
+					</v4:addressBlock>
+				</v4:billingAddress>
+			</v4:billingInfo>
+			<v4:lineItems>
+				<v4:lineItem>
+					<v4:externalId>111</v4:externalId>
+					<v4:providerConfirmationNumber>111
+					</v4:providerConfirmationNumber>
+					<v4:howLongAtAddress>3 Years</v4:howLongAtAddress>
+					<v4:providerCustomerAccountNumber>111
+					</v4:providerCustomerAccountNumber>
+					<v4:serviceOrDeliveryAddress>
+						<v4:prefixDirectional>aaa</v4:prefixDirectional>
+						<v4:streetNumber>streetNumber</v4:streetNumber>
+						<v4:streetName>streetName</v4:streetName>
+						<v4:streetType>234</v4:streetType>
+						<v4:line2>line2</v4:line2>
+						<v4:postfixDirectional>postFixDirectional
+						</v4:postfixDirectional>
+						<v4:city>city</v4:city>
+						<v4:stateOrProvince>stateOrProvince
+						</v4:stateOrProvince>
+						<v4:postalCode>posta</v4:postalCode>
+						<v4:country>country</v4:country>
+						<v4:countyParishBorough>countyParish
+						</v4:countyParishBorough>
+						<v4:addressBlock>address Block</v4:addressBlock>
+					</v4:serviceOrDeliveryAddress>
+					<v4:billingInfo>
+						<v4:billingMethod>billingMethod</v4:billingMethod>
+						<v4:creditCardNumber>creditCardNumber
+						</v4:creditCardNumber>
+						<v4:verificationCode>verificationCode
+						</v4:verificationCode>
+						<v4:checkingAccountNumber>checkingAccountNumber
+						</v4:checkingAccountNumber>
+						<v4:routingNumber>routingNumber</v4:routingNumber>
+						<v4:billingAddress>
+							<v4:prefixDirectional>prefixBillingAddress
+							</v4:prefixDirectional>
+							<v4:streetNumber>ba.streetNumber</v4:streetNumber>
+							<v4:streetName>ba.streetName</v4:streetName>
+							<v4:streetType>ba.streetType</v4:streetType>
+							<v4:line2>ba.line2</v4:line2>
+							<v4:postfixDirectional>ba.postfixDirectional
+							</v4:postfixDirectional>
+							<v4:city>ba.city</v4:city>
+							<v4:stateOrProvince>ba.stateOrProvince
+							</v4:stateOrProvince>
+							<v4:postalCode>ba.postalCode</v4:postalCode>
+							<v4:country>ba.country</v4:country>
+							<v4:countyParishBorough>ba.countyParishBorough
+							</v4:countyParishBorough>
+							<v4:addressBlock>ba.addressBlock</v4:addressBlock>
+						</v4:billingAddress>
+					</v4:billingInfo>
+					<v4:marketItem>
+						<v4:externalId xmlns:v4="http://xml.AL.com/v4">P3-ESSBUNDLE-CA
+						</v4:externalId>
+						<v4:channels xmlns:v4="http://xml.AL.com/v4">
+							<v4:channel>callCenter</v4:channel>
+						</v4:channels>
+						<v4:accordChangeStamp xmlns:v4="http://xml.AL.com/v4">1264433861859
+						</v4:accordChangeStamp>
+						<v4:providerId xmlns:v4="http://xml.AL.com/v4">4353598
+						</v4:providerId>
+						<v4:providerName xmlns:v4="http://xml.AL.com/v4">Verizon
+						</v4:providerName>
+						<v4:priceInfo xmlns:v4="http://xml.AL.com/v4">
+							<v4:baseNonRecurringPrice>11.0</v4:baseNonRecurringPrice>
+							<v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+						</v4:priceInfo>
+						<v4:item xmlns:v4="http://xml.AL.com/v4">
+							<v4:name>Triple Freedom with Freedom Essentials, FiOS 15M
+								and
+								FiOS TV Essentials</v4:name>
+							<v4:providerId>4353598</v4:providerId>
+							<v4:providerName>Verizon</v4:providerName>
+							<v4:category>bundles</v4:category>
+							<v4:priceInfo>
+								<v4:baseNonRecurringPrice>11.0</v4:baseNonRecurringPrice>
+								<v4:baseRecurringPrice>22.0</v4:baseRecurringPrice>
+							</v4:priceInfo>
+						</v4:item>
+					</v4:marketItem>
+					<v4:desiredStartDate>
+						<v4:date xmlns:v4="http://xml.AL.com/v4">2010-01-25-05:00
+						</v4:date>
+						<v4:time xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</v4:time>
+						<v4:startTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</v4:startTime>
+						<v4:endTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</v4:endTime>
+					</v4:desiredStartDate>
+					<v4:scheduledStartDate>
+						<v4:date xmlns:v4="http://xml.AL.com/v4">2010-01-25-05:00
+						</v4:date>
+						<v4:time xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</v4:time>
+						<v4:startTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</v4:startTime>
+						<v4:endTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</v4:endTime>
+					</v4:scheduledStartDate>
+					<v4:actualStartDate>
+						<v4:date xmlns:v4="http://xml.AL.com/v4">2010-01-25-05:00
+						</v4:date>
+						<v4:time xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</v4:time>
+						<v4:startTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</v4:startTime>
+						<v4:endTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</v4:endTime>
+					</v4:actualStartDate> 
+					<v4:lineItemStatus>
+						<v4:status>lineitemStatus</v4:status>
+						<v4:reason>lineItemStatusReason</v4:reason>
+						<v4:dateTimeStamp>2001-12-31T12:00:00
+						</v4:dateTimeStamp>
+					</v4:lineItemStatus>
+					<v4:lineItemStatusHistory>
+						<v4:previousStatus>
+							<v4:status>Line.Item.Prev.v4:status</v4:status>
+							<v4:reason>Line.Item.Prev.v4:reason</v4:reason>
+							<v4:dateTimeStamp>2001-12-31T12:00:00
+							</v4:dateTimeStamp>
+						</v4:previousStatus>
+					</v4:lineItemStatusHistory>
+				</v4:lineItem>
+				<v4:lineItem>
+					<v4:externalId>222</v4:externalId>
+					<v4:providerConfirmationNumber>222
+					</v4:providerConfirmationNumber>
+					<v4:howLongAtAddress>22 Years</v4:howLongAtAddress>
+					<v4:providerCustomerAccountNumber>222
+					</v4:providerCustomerAccountNumber>
+					<v4:serviceOrDeliveryAddress>
+						<v4:prefixDirectional>2aaa</v4:prefixDirectional>
+						<v4:streetNumber>2streetNumber</v4:streetNumber>
+						<v4:streetName>2streetName</v4:streetName>
+						<v4:streetType>222234</v4:streetType>
+						<v4:line2>2line2</v4:line2>
+						<v4:postfixDirectional>2postFixDirectional
+						</v4:postfixDirectional>
+						<v4:city>2city</v4:city>
+						<v4:stateOrProvince>2stateOrProvince
+						</v4:stateOrProvince>
+						<v4:postalCode>2posta</v4:postalCode>
+						<v4:country>2country</v4:country>
+						<v4:countyParishBorough>2countyParish
+						</v4:countyParishBorough>
+						<v4:addressBlock>2address Block</v4:addressBlock>
+					</v4:serviceOrDeliveryAddress>
+					<v4:billingInfo>
+						<v4:billingMethod>2billingMethod</v4:billingMethod>
+						<v4:creditCardNumber>2creditCardNumber
+						</v4:creditCardNumber>
+						<v4:verificationCode>2verificationCode
+						</v4:verificationCode>
+						<v4:checkingAccountNumber>2checkingAccountNumber
+						</v4:checkingAccountNumber>
+						<v4:routingNumber>2routingNumber</v4:routingNumber>
+						<v4:billingAddress>
+							<v4:prefixDirectional>2refixDirectional
+							</v4:prefixDirectional>
+							<v4:streetNumber>2streetNumber</v4:streetNumber>
+							<v4:streetName>2streetName</v4:streetName>
+							<v4:streetType>2streetType</v4:streetType>
+							<v4:line2>2line2</v4:line2>
+							<v4:postfixDirectional>2postfixDirectional
+							</v4:postfixDirectional>
+							<v4:city>2city</v4:city>
+							<v4:stateOrProvince>2stateOrProvince
+							</v4:stateOrProvince>
+							<v4:postalCode>2postalCode</v4:postalCode>
+							<v4:country>2country</v4:country>
+							<v4:countyParishBorough>2countyParishBorough
+							</v4:countyParishBorough>
+							<v4:addressBlock>2addressBlock</v4:addressBlock>
+						</v4:billingAddress>
+					</v4:billingInfo>
+					<v4:marketItem>
+						<v4:externalId xmlns:v4="http://xml.AL.com/v4">P3-ESSBUNDLE-CA
+						</v4:externalId>
+						<v4:channels xmlns:v4="http://xml.AL.com/v4">
+							<v4:channel>callCenter</v4:channel>
+						</v4:channels>
+						<v4:accordChangeStamp xmlns:v4="http://xml.AL.com/v4">1264433861859
+						</v4:accordChangeStamp>
+						<v4:providerId xmlns:v4="http://xml.AL.com/v4">4353598
+						</v4:providerId>
+						<v4:providerName xmlns:v4="http://xml.AL.com/v4">Verizon
+						</v4:providerName>
+						<v4:priceInfo xmlns:v4="http://xml.AL.com/v4">
+							<v4:baseNonRecurringPrice>11.0</v4:baseNonRecurringPrice>
+							<v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+						</v4:priceInfo>
+						<v4:item xmlns:v4="http://xml.AL.com/v4">
+							<v4:name>Triple Freedom with Freedom Essentials, FiOS 15M
+								and
+								FiOS TV Essentials</v4:name>
+							<v4:providerId>4353598</v4:providerId>
+							<v4:providerName>Verizon</v4:providerName>
+							<v4:category>bundles</v4:category>
+							<v4:priceInfo>
+								<v4:baseNonRecurringPrice>11.0</v4:baseNonRecurringPrice>
+								<v4:baseRecurringPrice>22.0</v4:baseRecurringPrice>
+							</v4:priceInfo>
+						</v4:item>
+					</v4:marketItem>
+					<v4:desiredStartDate>
+						<v4:date xmlns:v4="http://xml.AL.com/v4">2010-01-25-05:00
+						</v4:date>
+						<v4:time xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</v4:time>
+						<v4:startTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</v4:startTime>
+						<v4:endTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</v4:endTime>
+					</v4:desiredStartDate>
+					<v4:scheduledStartDate>
+						<v4:date xmlns:v4="http://xml.AL.com/v4">2010-01-25-05:00
+						</v4:date>
+						<v4:time xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</v4:time>
+						<v4:startTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</v4:startTime>
+						<v4:endTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</v4:endTime>
+					</v4:scheduledStartDate>
+					<v4:actualStartDate>
+						<v4:date xmlns:v4="http://xml.AL.com/v4">2010-01-25-05:00
+						</v4:date>
+						<v4:time xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</v4:time>
+						<v4:startTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</v4:startTime>
+						<v4:endTime xmlns:v4="http://xml.AL.com/v4">10:21:54.546-05:00
+						</v4:endTime>
+					</v4:actualStartDate>
+					<v4:lineItemStatus>
+						<v4:status>2lineitemStatus</v4:status>
+						<v4:reason>2lineItemStatusReason</v4:reason>
+						<v4:dateTimeStamp>2001-12-31T12:00:00
+						</v4:dateTimeStamp>
+					</v4:lineItemStatus>
+					<v4:lineItemStatusHistory>
+						<v4:previousStatus>
+							<v4:status>2Line.Item.Prev.v4:status</v4:status>
+							<v4:reason>2Line.Item.Prev.v4:reason</v4:reason>
+							<v4:dateTimeStamp>2001-12-31T12:00:00
+							</v4:dateTimeStamp>
+						</v4:previousStatus>
+					</v4:lineItemStatusHistory>
+				</v4:lineItem>
+			</v4:lineItems>
+		</v4:newOrderInfo>
+	</v4:request>
+</v4:orderManagementRequestResponse>

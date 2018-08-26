@@ -1,0 +1,11 @@
+delete from WEB_PROVIDER;
+insert into `WEB_PROVIDER` (`id`, `PROVIDER`, `URL`, `CERTIFICATE`) values('1','24699452','http://cko.symqap001.AL.com/CKO-att/att/CKO','ABC123');
+insert into `WEB_PROVIDER` (`id`, `PROVIDER`, `URL`, `CERTIFICATE`) values('2','19824709','http://cko.symqap001.AL.com/CKO-dish/dish/customerInfo','ABC123');
+insert into `WEB_PROVIDER` (`id`, `PROVIDER`, `URL`, `CERTIFICATE`) values('3','27010360','http://cko.symqap001.AL.com/CKO-dish/dish/customerInfo','ABC123');
+insert into `WEB_PROVIDER` (`id`, `PROVIDER`, `URL`, `CERTIFICATE`) values('4','1','http://cko.symqap001.AL.com/CKO-static/static/CKO','ABC123');
+insert into `WEB_PROVIDER` (`id`, `PROVIDER`, `URL`, `CERTIFICATE`) values('5','2314635','http://cko.symqap001.AL.com/CKO-directstar/directstar/CKO','ABC123');
+insert into `WEB_PROVIDER` (`id`, `PROVIDER`, `URL`, `CERTIFICATE`) values('6','26069940','http://cko.symqap001.AL.com/CKO-g2b/g2b/CKO','ABC123');
+insert into `WEB_PROVIDER` (`id`, `PROVIDER`, `URL`, `CERTIFICATE`) values('7','4353598','http://cko.symqap001.AL.com/CKO-vz/vz/CKO','ABC123');
+insert into `WEB_PROVIDER` (`id`, `PROVIDER`, `URL`, `CERTIFICATE`) values('8','0','http://sym.symqap001.AL.com/amb','ABC123');
+INSERT INTO `WEB_PROVIDER` (`id`, `PROVIDER`, `URL`, `CERTIFICATE`) VALUES('9','26069942','http://cko.symqap001.AL.com/CKO-comcast/comcast/CKO','ABC123');
+ALTER TABLE WEB_PROVIDER ADD CONSTRAINT unique_provider UNIQUE (PROVIDER);

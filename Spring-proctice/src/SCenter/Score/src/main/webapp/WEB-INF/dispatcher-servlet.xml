@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd
+		http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+	<!-- Configures the @Controller programming model -->
+	<mvc:annotation-driven />
+	<mvc:resources mapping="/rest/customer/style/**"
+		location="/style/" />
+
+	<context:component-scan base-package="com.AL.controller" />
+
+
+	<!-- Forwards requests to the "/" resource to the "welcome" view -->
+	<mvc:view-controller path="/" view-name="welcome" />
+
+	<!-- Saves a locale change using a cookie -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<bean id="tilesViewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.tiles2.TilesView" />
+		<property name="contentType" value="text/html;charset=UTF-8" />
+		<property name="cache" value="true" />
+		<property name="prefix" value="" />
+		<property name="order" value="1"></property>
+		<property name="suffix" value="" />
+	</bean>
+
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles/tiles.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>file:///${score.resources.dir}/score-db.mysql.properties</value>
+				<value>file:///${score.resources.dir}/score-credentials.properties</value>
+				<value>file:///${score.resources.dir}/score.properties</value>
+				<value>/WEB-INF/classes/config.properties</value>
+			</list>
+		</property>
+		<property name="ignoreUnresolvablePlaceholders" value="false" />
+		<property name="order" value="0" />
+	</bean>
+
+	<bean id="log4jInitialization"
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetClass" value="org.springframework.util.Log4jConfigurer" />
+		<property name="targetMethod" value="initLogging" />
+		<property name="arguments">
+			<list>
+				<value>file:///${log4jDir}/log4j.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="locale/messages" />
+	</bean>
+	
+	<bean id="amazonS3" class="com.AL.factory.AmazonS3Factory">
+		<constructor-arg value="${accessKey}" />
+		<constructor-arg value="${secretKey}" />
+		<constructor-arg value="${credentials.source}" />
+	</bean>
+	
+	<!-- Amazon s3 Connection -->
+	<bean id="repositoryService" class="com.AL.service.impl.RepositoryAmazonS3Impl"	depends-on="amazonS3" >
+		<constructor-arg value="#{amazonS3.getAmazonS3Client()}" />
+		<property name="bucket" value="${score.s3.bucket.name}"/>
+		<property name="key" value="${score.s3.key.prefix}"/>	
+	</bean> 
+
+	<context:annotation-config />
+	<context:component-scan base-package="com.AL" />
+	<task:annotation-driven />
+
+	<bean
+		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor">
+		<property name="defaultPersistenceUnitName" value="transactional_pu" />
+	</bean>
+	<bean id="pum"
+		class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
+		<property name="persistenceXmlLocations">
+			<list>
+				<value>classpath:META-INF/persistence.xml</value>
+			</list>
+		</property>
+		<property name="dataSources">
+			<map>
+				<entry key="transactionalDatasource" value-ref="transactionalDatasource" />
+			</map>
+		</property>
+	</bean>
+
+	<tx:annotation-driven transaction-manager="transactionalTransactionManager" />
+	<context:annotation-config />
+
+	<bean id="transactionalDatasource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${score.mysql.db.driver}" />
+		<property name="jdbcUrl" value="${score.mysql.db.url}" />
+		<property name="user" value="${score.mysql.db.userName}" />
+		<property name="password" value="${score.mysql.db.passWord}" />
+		<property name="initialPoolSize" value="${score.mysql.db.poolsize.min}" />
+		<property name="minPoolSize" value="${score.mysql.db.poolsize.min}" />
+		<property name="maxPoolSize" value="${score.mysql.db.poolsize.max}" />
+		<property name="maxConnectionAge" value="${score.mysql.db.max.conn.age}" />
+		<property name="acquireRetryAttempts" value="${score.mysql.db.acquire.retry.attempts}" />
+		<property name="maxIdleTimeExcessConnections" value="${score.mysql.db.max.idle.time}" />
+		<property name="CKOTimeout" value="${score.mysql.db.CKO.timeout}" />
+	</bean>
+
+	<bean id="transactionalEntityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitManager" ref="pum" />
+		<property name="persistenceUnitName" value="transactional_pu" />
+		<property name="dataSource" ref="transactionalDatasource" />
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+			</bean>
+		</property>
+
+		<property name="loadTimeWeaver">
+			<bean
+				class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver" />
+		</property>
+		<property name="jpaDialect">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect">
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="transactionalTransactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="transactionalEntityManagerFactory" />
+		<qualifier value="transactional" />
+		<property name="jpaDialect">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect" />
+		</property>
+	</bean>
+	
+	<bean id="applicationName" class="com.AL.util.GetAppName"
+		scope="singleton">
+		<constructor-arg name="appName" value="score/" />
+	</bean>
+</beans>

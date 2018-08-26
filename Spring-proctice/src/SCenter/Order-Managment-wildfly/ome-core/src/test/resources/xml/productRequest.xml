@@ -1,0 +1,19 @@
+<ac:acMessage xmlns:ac="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xml.AL.com/v4/acMessageWrapper.xsd "> <ac:source>source</ac:source><ac:msgType>request</ac:msgType><ac:actionType>query</ac:actionType> <ac:payloadType>ProductRequestDocument</ac:payloadType><ac:payload>
+
+
+<productEnterpriseRequest xmlns="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <GUID>123456789</GUID>
+  <transactionType xsi:type="v4:productTransactionTypeType" xmlns:v4="http://xml.AL.com/v4">
+    <productTransactionType>catalogProducts</productTransactionType>
+  </transactionType>
+  <salesContext/>
+  <request xsi:type="v4:productRequestType" xmlns:v4="http://xml.AL.com/v4">
+    <productList>
+      <productId externalId="DIRECTSTAR-DTV-1-WEB" providerExternalId="2314635" instanceId="0"/>
+    </productList>
+  </request>
+</productEnterpriseRequest>
+
+
+
+</ac:payload></ac:acMessage>

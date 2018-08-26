@@ -1,0 +1,12 @@
+alter table V_tx.OM_CUST_SELECTION add column SELECTION_DISPLAY_ORDER bigint;
+alter table V_tx.OM_CUST_SELECTION add column  SELECTION_TYPE varchar2(250);
+alter table V_tx.OM_CUST_SELECTION add column SELECTION_SHORT_DESC varchar2(250);
+alter table V_tx.OM_CUST_SELECTION add column SELECTION_NAME varchar2(250);
+alter table V_tx.OM_CUST_SELECTION add column CHIOCE_DISPLAY_ORDER bigint;
+alter table V_tx.OM_CUST_SELECTION add column CHIOCE_SHORT_DESC varchar2(250);
+alter table V_tx.OM_CUST_SELECTION add column CHIOCE_NAME varchar2(250);
+alter table V_tx.OM_CUST_SELECTION add column BASE_NONRECURRING_PRICE  number(16,4);
+alter table V_tx.OM_CUST_SELECTION add column BASE_RECURRING_PRICE number(16,4);
+alter table V_tx.OM_CUST_SELECTION add column BASE_NONRECURRING_PRICE_UNITS varchar2(250);
+alter table V_tx.OM_CUST_SELECTION add column BASE_RECURRING_PRICE_UNITS varchar2(250);
+alter table V_tx.OM_CUST_SELECTION add column INCLUDEIN_TOTAL_PRICE boolean;

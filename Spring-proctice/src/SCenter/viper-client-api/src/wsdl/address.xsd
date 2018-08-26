@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" targetNamespace="http://xml.A.com/v4"
+	xmlns:ac="http://xml.A.com/v4" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:include schemaLocation="baseTypes.xsd" />
+
+	<xs:element name="referredAddress" type="ac:addressType" />
+	<xs:element name="serviceableAddress" type="ac:addressType" />
+
+	<xs:complexType name="mailingAddressType">
+		<xs:complexContent>
+			<xs:restriction base="ac:addressType">
+				<xs:sequence>
+					<xs:element name="externalId" type="xs:long" minOccurs="1"
+						maxOccurs="1">
+					</xs:element>
+					<xs:element name="prefixDirectional" type="xs:string"
+						minOccurs="0" maxOccurs="1">
+					</xs:element>
+					<xs:element name="streetNumber" type="xs:string"
+						minOccurs="1" maxOccurs="1">
+					</xs:element>
+					<xs:element name="streetName" type="xs:string"
+						minOccurs="1" maxOccurs="1">
+					</xs:element>
+					<xs:element name="streetType" type="xs:string"
+						minOccurs="0" maxOccurs="1">
+					</xs:element>
+					<xs:element name="line2" type="xs:string" minOccurs="0"
+						maxOccurs="1">
+					</xs:element>
+					<xs:element name="postfixDirectional" type="xs:string"
+						minOccurs="0" maxOccurs="1">
+					</xs:element>
+					<xs:element name="city" type="xs:string" minOccurs="1"
+						maxOccurs="1">
+					</xs:element>
+					<xs:element name="stateOrProvince" type="xs:string"
+						minOccurs="1" maxOccurs="1">
+					</xs:element>
+					<xs:element name="postalCode" type="xs:string"
+						minOccurs="1" maxOccurs="1">
+					</xs:element>
+					<xs:element name="country" type="xs:string" minOccurs="0"
+						maxOccurs="1">
+					</xs:element>
+					<xs:element name="countyParishBorough" type="xs:string"
+						minOccurs="0" maxOccurs="1">
+					</xs:element>
+					<xs:element name="addressBlock" type="xs:string"
+						minOccurs="0" maxOccurs="1">
+					</xs:element>
+					<xs:element name="inEffect" type="xs:date" minOccurs="0"
+						maxOccurs="1" nillable="true" />
+					<xs:element name="expiration" type="xs:date" minOccurs="0"
+						maxOccurs="1" nillable="true" />
+					<xs:element name="hasHadServicePreviously" type="xs:boolean"
+						minOccurs="0" maxOccurs="1">
+					</xs:element>
+					<xs:element name="addressOwnership" minOccurs="1"
+						maxOccurs="1" type="ac:ownershipType" />
+
+
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="addressType">
+
+		<xs:sequence>
+			<xs:element name="externalId" type="xs:long" minOccurs="1"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						External Id of the address
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="prefixDirectional" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The address prefix directional value. Value
+						values are "N", "NE",
+						"E", "SE", "S", "SW", "W" and "NW". Ex:
+						123
+						<B>S</B>
+						Broad St.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="streetNumber" type="xs:string"
+				minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						This is the number that specifies the address' position along
+						the
+						street. Ex:
+						<B>123</B>
+						S Broad St.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="streetName" type="xs:string" minOccurs="1"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The name of the street on which the address is located.
+						Ex: 123 S
+						<B>Broad</B>
+						St.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="streetType" type="xs:string" minOccurs="0"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The USPS-accepted abbreviation for the street or thoroughfare
+						type. Ex: 123 S Broad
+						<B>St.</B>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="line2" type="xs:string" minOccurs="0"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Any additional address information, such as an apartment or unit
+						number in a multi-unit dwelling or a building number in a large
+						complex, is found in this field.
+						Ex: 123 S Broad St.
+						<B>Apt 23</B>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="postfixDirectional" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The address postfix directional value. Value values are "N",
+						"NE",
+						"E", "SE", "S", "SW", "W" and "NW". Ex: 123 Broad St.
+						<B>NE</B>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="city" type="xs:string" minOccurs="1"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The name of the city where the address is
+						located. This may be that
+						official name of the city boundary
+						within
+						which the address is
+						located or any of the officially USPS
+						accepted
+						aliases for the
+						city.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="stateOrProvince" type="xs:string"
+				minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The USPS-accepted abbreviation of the state (or
+						in the future -
+						province) where the address is located.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="postalCode" type="xs:string" minOccurs="1"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The official USPS postal code (or in the future
+						location specific
+						offical postal code). For U.S. address this can
+						include the +4
+						designation, though it is not required.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="country" type="xs:string" minOccurs="0"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The country in which the address is located.
+						<B>
+							<I> This value is not currently populated. </I>
+						</B>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="countyParishBorough" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The county, parish or borough in which this address is located.
+						<B>
+							<I>This value is not currently populated.</I>
+						</B>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="addressBlock" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A condensed, single-line version of the
+						corrected
+						address
+						information.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="howLongAtAddress" type="xs:duration"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A duration value indicating how long the related
+						consumer has resided at this address.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dwellingType" type="ac:dwellingType"
+				minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="inEffect" type="xs:date" minOccurs="0"
+				maxOccurs="1" nillable="true" />
+
+			<xs:element name="gasStartAt" type="xs:date" minOccurs="0"
+				maxOccurs="1" nillable="true" />
+
+			<xs:element name="electricityStartAt" type="xs:date"
+				minOccurs="0" maxOccurs="1" nillable="true" />
+
+			<xs:element name="expiration" type="xs:date" minOccurs="0"
+				maxOccurs="1" nillable="true">
+			</xs:element>
+			<xs:element name="changeType" type="xs:string" minOccurs="0"
+				maxOccurs="1">
+			</xs:element>
+			<xs:element name="hasHadServicePreviously" type="xs:boolean"
+				minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="cityAlias" type="xs:string" minOccurs="0"
+				maxOccurs="1">
+			</xs:element>
+			<xs:element name="providerExternalId" type="xs:string" minOccurs="0"
+				maxOccurs="1">
+			</xs:element>
+			<xs:element name="addressOwnership" minOccurs="1"
+				maxOccurs="1" type="ac:ownershipType">
+				<xs:annotation>
+					<xs:documentation>
+						Consumer's address ownership information which
+						explains whether consumer own this
+						address or renting.
+			</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+
+	</xs:complexType>
+
+	<xs:simpleType name="ownershipType">
+
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="own" />
+			<xs:enumeration value="rent" />
+		</xs:restriction>
+	</xs:simpleType>
+
+
+
+</xs:schema>

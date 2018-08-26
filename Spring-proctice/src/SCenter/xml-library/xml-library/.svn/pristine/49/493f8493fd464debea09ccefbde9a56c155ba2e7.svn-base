@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.A</groupId>  
+		<artifactId>AParent</artifactId>
+		<version>1.1</version>
+	</parent>	
+	<groupId>com.A.V</groupId>  
+	<artifactId>xml-library</artifactId>
+<!--
+Test by daver
+-->
+	<packaging>pom</packaging>
+	<version>01.01.78</version>
+	<name>A-XML Library</name>
+	<url>http://maven.apache.org</url>
+	<modules>
+		<module>AXMLBeans</module>
+	</modules>
+
+<!--
+	SCM info - please see Dave Riches if you intend to change any of these values
+-->
+
+	<scm>
+		<connection>scm:svn:http://svn/svn/tools/XML-Library/trunk</connection>
+		<developerConnection>scm:svn:http://svn/svn/tools/XML-Library/trunk</developerConnection>
+	</scm>
+	
+	<distributionManagement>
+	  <site>
+		<id>Site</id>
+		<name>XML Library</name>
+		<url>XMLLibrary</url>
+	  </site>
+	</distributionManagement>
+	
+	<profiles>
+		<profile>
+			<id>prod</id>
+		</profile>
+	</profiles>
+<!--
+	End SCM info
+-->
+
+	<build>
+		<plugins>
+					<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.4.3</version>
+				<executions>
+					<execution>
+						<id>replace-pom-placeholder</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<resources>
+								<resource>
+									<directory>${basedir}</directory>
+									<includes>
+										<include>pom.xml</include>
+									</includes>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+							<outputDirectory>${project.build.directory}/pom-install-deploy-fix</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+<!--
+Copy pom file to safe version in case release copy is needed during install phase
+-->
+			<plugin>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>2.3.1</version>
+				<executions>
+					<execution>
+						<id>overwrite-pom</id>
+						<phase>install</phase>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<configuration>
+							<packaging>pom</packaging>
+							<file>target/pom-install-deploy-fix/pom.xml</file>
+							<pomFile>target/pom-install-deploy-fix/pom.xml</pomFile>
+							<version>${project.version}</version>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+<!--
+When running deploy step on release code, update pom file with release version
+-->
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.5</version>
+				<executions>
+					<execution>
+						<id>overwrite-pom</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>deploy-file</goal>
+						</goals>
+						<configuration>
+							<packaging>pom</packaging>
+							<file>target/pom-install-deploy-fix/pom.xml</file>
+							<pomFile>target/pom-install-deploy-fix/pom.xml</pomFile>
+							<url>${deployRepoUrl}</url>
+							<version>${project.version}</version>
+							<updateReleaseInfo>${isRelease}</updateReleaseInfo>
+							<uniqueVersion>false</uniqueVersion>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+<!--
+Define SVN tag format, based on version number
+-->
+			<plugin>
+				<artifactId>maven-scm-plugin</artifactId>
+				<version>1.4</version>
+				<configuration>
+					<tag>${VERSION_NUMBER}</tag>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+				  <tagBase>http://svn/svn/tools/XML-Library/tags</tagBase>
+				  <tagNameFormat>@{project.version}</tagNameFormat>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<properties>
+		<checkstyle.version>5.0-beta01</checkstyle.version>
+		<commons.io.version>1.4</commons.io.version>
+	</properties>
+</project>

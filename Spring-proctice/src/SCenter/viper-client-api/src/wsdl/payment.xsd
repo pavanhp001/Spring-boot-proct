@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" targetNamespace="http://xml.A.com/v4"
+	xmlns:ac="http://xml.A.com/v4" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:include schemaLocation="baseTypes.xsd" />
+	<xs:include schemaLocation="address.xsd" />
+
+	<xs:simpleType name="creditCardTypeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="American Express" />
+			<xs:enumeration value="Discover" />
+			<xs:enumeration value="Master Card" />
+			<xs:enumeration value="Visa" />
+			<xs:enumeration value="DINER'S CLUB" />
+			<xs:enumeration value="Optima" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="paymentEventType">
+		<xs:sequence>
+		<xs:element name="externalId" type="xs:string"
+				minOccurs="1" maxOccurs="1" />
+				
+			<xs:element name="billingInfoId" type="xs:string"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="Event" type="ac:paymentEventTypeType"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="CVV" type="ac:CVVType" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="Amount" type="ac:currencyType"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="ConfirmNumber" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="transactionDate" type="xs:date"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="paymentStatus" type="ac:paymentStatusWithTypeType"
+				minOccurs="0" maxOccurs="unbounded" /> 
+			<xs:element name="OrderId" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="LineItemId" type="xs:string" minOccurs="0"
+				maxOccurs="1" />	
+		</xs:sequence>
+		<xs:attribute name="custAgreedCCDisclosure" type="xs:string"
+			use="optional" />
+	</xs:complexType>
+	
+	<xs:simpleType name="billingAccountTypeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ACH" />
+			<xs:enumeration value="CreditCard" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="currencyType">
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="2" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="paymentStatusWithTypeType">
+		<xs:sequence>
+		<xs:element name="externalId" type="xs:long" minOccurs="1"
+				maxOccurs="1" />
+				
+			<xs:element name="status" type="xs:int" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="reason" type="xs:int" minOccurs="1"
+				maxOccurs="unbounded" />
+			<xs:element name="dateTimeStamp" type="xs:dateTime"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="providerId" type="xs:int" minOccurs="1"
+				maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="CVVType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="3" />
+			<xs:maxLength value="4" />
+			<xs:pattern value="[0-9]{3}([0-9]{1})?" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="paymentEventTypeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ADVANCED" />
+			<xs:enumeration value="AUTO" />
+			<xs:enumeration value="DEPOSIT" />
+			<xs:enumeration value="ONETIME" />
+			<xs:enumeration value="ONETIME_DTV" />
+			<xs:enumeration value="RECURRING" />
+			<xs:enumeration value="OUTSTANDING_BALANCE" />
+			<xs:enumeration value="HOUSE_DEBT" />
+			<xs:enumeration value="CUSTOMER_DEBT" />
+			<xs:enumeration value="PAST_DUE" />
+			<xs:enumeration value="EQUIPMENT" />
+			<xs:enumeration value="PRE_PAYMENT" />
+		</xs:restriction>
+	</xs:simpleType>
+
+
+	<xs:complexType name="paymentsType">
+		<xs:sequence> 
+		<xs:element name="PaymentEvent" type="ac:paymentEventType"
+				minOccurs="1" maxOccurs="unbounded" /> 
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	<xs:simpleType name="creditStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Approved"/>
+      <xs:enumeration value="Deposit"/>
+      <xs:enumeration value="Pending"/>
+      <xs:enumeration value="Review"/>
+      <xs:enumeration value="Declined"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

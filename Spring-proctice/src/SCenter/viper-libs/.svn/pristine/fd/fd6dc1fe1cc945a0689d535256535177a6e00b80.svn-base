@@ -1,0 +1,32 @@
+package A.ome.validation;
+
+import org.drools.runtime.rule.RuleContext;
+import com.A.rules.util.*;
+import com.A.rules.domain.Message;
+import com.A.validation.ReportFactory;
+import com.A.validation.ValidationReport;
+import com.A.V.beans.entity.SalesOrder;
+import com.A.V.beans.entity.LineItem;
+import com.A.V.beans.entity.StatusRecordBean;
+import function  com.A.rules.core.impl.RuleValidationHelper.info;
+import function  com.A.rules.core.impl.RuleValidationHelper.error;
+import function  com.A.rules.core.impl.RuleValidationHelper.warning;
+import function  com.A.rules.core.impl.RuleValidationHelper.outcome;
+import java.util.ArrayList;
+
+global com.A.validation.ReportFactory reportFactory;
+global com.A.validation.ValidationReport validationReport;
+	
+	rule "rule.1.sales.order"
+	    salience 100
+	    when
+ 		so : SalesOrder()
+		liList: ArrayList() from collect (LineItem() from so.lineItems)
+		li: LineItem() from so.lineItems
+		newStatus : StatusRecordBean()
+		
+	    then 
+            info(kcontext, "sales order examine"+li.getExternalId());  
+  //newStatus.getReasons().add("2");
+	//		newStatus.setStatus("sales_rules");
+	end 

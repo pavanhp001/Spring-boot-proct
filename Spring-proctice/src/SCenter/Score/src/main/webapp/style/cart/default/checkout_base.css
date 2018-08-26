@@ -1,0 +1,88 @@
+body {
+	font: 0.8em/21px arial,sans-serif;
+}
+
+label {
+	float:left;
+	width:90%;
+	}
+
+.checkbox, .radio {
+	width: 19px;
+	height: 25px;
+	padding: 0 5px 0 0;
+	background: url(http://ryanfait.com/resources/custom-checkboxes-and-radio-buttons/checkbox.png) no-repeat;
+	display: block;
+	clear: left;
+	float: left;
+	
+}
+.radio {
+	background: url(http://ryanfait.com/resources/custom-checkboxes-and-radio-buttons/radio.png) no-repeat;
+}
+.select {
+	position: absolute;
+	width: 158px; /* With the padding included, the width is 190 pixels: the actual width of the image. */
+	height: 21px;
+	padding: 0 24px 0 8px;
+	color: #fff;
+	font: 12px/21px arial,sans-serif;
+	background: url(http://ryanfait.com/resources/custom-checkboxes-and-radio-buttons/select.png) no-repeat;
+	overflow: hidden;
+}
+
+
+fieldset { border:1px solid #333333;
+margin:20px 10px 30px 10px;
+
+}
+
+legend {
+  padding: 0.2em 0.5em;
+  border:1px solid #333333;
+  color:#333333;
+  font-size:90%;
+  text-align:left;
+  font-weight:bold;
+  background: #FFFFCC;
+  width: 97%;
+  }
+  
+  .instructions {
+  color:red;
+  clear:both;
+  width:100%;
+  display:block;
+  }
+  
+  .styled {
+  white-space: wrap  ;
+	 
+  }
+  
+.custom_padding {
+	clear: both;
+    padding: 5px 0 5px 5px;
+}
+
+.width70Pc {
+    width: 70% !important;
+}
+.cancel {
+  background-color: #AED4E4;
+  background-image: url("../../../images/button3.png");
+  background-repeat: repeat-x;
+  border: 1px solid #BDBDBD;
+  color: #424242;
+  cursor: pointer;
+  font-family: "Lucida Grande",Tahoma,Arial,Verdana,sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  height: 26px;
+  overflow: visible;
+  padding: 2px 7px 3px;
+  width: 90px;
+  margin-top: 3px;
+}
+
+

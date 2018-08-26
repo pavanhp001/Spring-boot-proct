@@ -1,0 +1,14 @@
+endpoint.ie.in=rtim.proxy.in.q
+host=main-jms.ln
+port=61616
+communicationType=JMS
+vendor=ActiveMQ
+jndiName=
+transacted=
+persist=
+timeToLive=300
+username=${rtim.proxy.in.q.username}
+password=${rtim.proxy.in.q.password}
+redeliveryMax=5
+jndiConnectionFactoryName=proxy
+url=${main.jms.q.url}

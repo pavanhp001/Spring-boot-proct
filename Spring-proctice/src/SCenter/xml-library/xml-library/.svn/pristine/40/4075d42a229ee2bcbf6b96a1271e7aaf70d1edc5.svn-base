@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" targetNamespace="http://xml.A.com/v4"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ac="http://xml.A.com/v4">
+
+	<xs:include schemaLocation="types.xsd" />
+	<xs:include schemaLocation="customer.xsd" />
+
+	<xs:element name="customerManagementRequestResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="correlationId" type="xs:string"
+					minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							A system-generated unique identifier. Since
+							the
+							service is stateless, the coorelation id is not used to
+							reload any
+							previous state, just to identify a particular
+							invocation of the
+							service, or to connect multiple invocations
+							as part of the same
+							global action.
+                        </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+
+				<xs:element name="transactionId" type="xs:int" minOccurs="0"
+					maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Client specified value, used
+							to track this
+							request/response pair.
+                        </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+
+				<xs:element name="transactionType" minOccurs="1"
+					maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:token">
+							<xs:enumeration value="createCustomer" />
+							<xs:enumeration value="locateCustomer" />
+							<xs:enumeration value="deleteCustomer" />
+							<xs:enumeration value="updateCustomer" />
+							<xs:enumeration value="addAddress" />
+							<xs:enumeration value="getAddressById" />
+							<xs:enumeration value="getAddressByCustomerId" />
+							<xs:enumeration value="getCustomerById" />
+							<xs:enumeration value="getCustomerByCustomerNum" />
+							<xs:enumeration value="getContactInfoByCustomerId" />
+							<xs:enumeration value="getCustomerByContact" />
+							<xs:enumeration value="addCustomerInteraction" />
+							<xs:enumeration value="getInteractionByCustomerId" />
+							<xs:enumeration value="getInteractionByAgentId" />
+							<xs:enumeration value="searchCustomer" />
+							<!-- Order Related Functionality -->
+							<!-- <xs:enumeration value="getCustomerByAgentId" /> -->
+							<xs:enumeration value="eventNotification" />
+
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+
+				<xs:element name="status" type="ac:statusType" minOccurs="0"
+					maxOccurs="1" />
+
+				<xs:element name="pagingDetail">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="offSet" type="xs:int" />
+							<xs:element name="totalRows" type="xs:int" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="request">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="customerContext" type="ac:customerContextType"	minOccurs="0" maxOccurs="1" />
+							<xs:element name="notificationEventCollection" type="ac:notificationEventCollectionType" />
+							<xs:element name="customerContactInfo" type="xs:string"
+								minOccurs="0" maxOccurs="1">
+								<xs:annotation>
+									<xs:documentation>
+										Customer Contact Information is Email or
+										Phone.
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+
+							<xs:element name="customerId" type="xs:string"
+								minOccurs="0" maxOccurs="1" />
+							<xs:element name="addressId" type="xs:string"
+								minOccurs="0" maxOccurs="1" />
+							<xs:element name="agentId" type="xs:string" minOccurs="0"
+								maxOccurs="1" />
+							<xs:element name="includeAccountHolders" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+							<xs:choice maxOccurs="1" minOccurs="0">
+
+								<xs:sequence>
+									<xs:annotation>
+										<xs:documentation>
+											This sequence is for Add Address request
+										</xs:documentation>
+									</xs:annotation>
+									<xs:element name="addressInfo" type="ac:addressListType"
+										minOccurs="1" maxOccurs="1" />
+								</xs:sequence>
+
+								<xs:sequence>
+									<xs:annotation>
+										<xs:documentation>
+											This sequence is for create customer
+											request.
+										</xs:documentation>
+									</xs:annotation>
+									<xs:element name="customerInfo" type="ac:customerType"
+										minOccurs="1" maxOccurs="1" />
+								</xs:sequence>
+
+
+
+								<!-- LOCATE CUSTOMER REQUEST -->
+								<xs:sequence>
+									<xs:annotation>
+										<xs:documentation>
+											This sequence is for locate customer
+											request.
+									</xs:documentation>
+									</xs:annotation>
+									<xs:element name="firstName" type="xs:string"
+										minOccurs="0" maxOccurs="1" />
+									<xs:element name="status" type="xs:string"
+										minOccurs="0" maxOccurs="unbounded" />
+									<xs:element name="reasonCode" type="xs:string"
+										minOccurs="0" maxOccurs="unbounded" />
+									<xs:element name="lastName" type="xs:string"
+										minOccurs="0" maxOccurs="1" />
+									<xs:element name="partialSSN" type="xs:string"
+										minOccurs="0" maxOccurs="1" />
+									<xs:element name="city" type="xs:string" minOccurs="0"
+										maxOccurs="1" />
+									<xs:element name="state" type="xs:string" minOccurs="0"
+										maxOccurs="1" />
+									<xs:element name="zipcode" type="xs:string"
+										minOccurs="0" maxOccurs="1" />
+									<xs:element name="streetAddress" type="xs:string"
+										minOccurs="0" maxOccurs="1" />
+									<xs:element name="confirmationNumber" type="xs:string"
+										minOccurs="0" maxOccurs="1" />
+									<xs:element name="customerNumber" type="xs:string"
+										minOccurs="0" maxOccurs="1" />
+									<xs:element name="providerExtId" type="xs:string"
+										minOccurs="0" maxOccurs="1" />
+									<xs:element name="referrerId" type="xs:string"
+										minOccurs="0" maxOccurs="1" />
+									<xs:element name="orderStartDate" type="xs:date"
+										minOccurs="0" maxOccurs="1" />
+									<xs:element name="orderEndDate" type="xs:date"
+										minOccurs="0" maxOccurs="1" />
+									<xs:element name="emailId" minOccurs="0" maxOccurs="1">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:pattern
+													value="[A-Za-z0-9!#-'\*\+\-/=\?\^_`\{-~]+(\.[A-Za-z0-9!#-'\*\+\-/=\?\^_`\{-~]+)*@[A-Za-z0-9!#-'\*\+\-/=\?\^_`\{-~]+(\.[A-Za-z0-9!#-'\*\+\-/=\?\^_`\{-~]+)*" />
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="phoneNumber" minOccurs="0"
+										maxOccurs="1">
+										<xs:simpleType>
+											<xs:restriction base="xs:token">
+												<xs:pattern
+													value="(1\s*[-]?)?(\((\d{3})\)|(\d{3}))\s*[-]?\s*(\d{3})\s*[-]?\s*(\d{4})\s*(([xX]|[eE][xX][tT])\.?\s*(\d+))*" />
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="isAccountHolderSearch" type="xs:string"
+										minOccurs="0" maxOccurs="1" />
+								</xs:sequence>
+							</xs:choice>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+				<xs:element name="response">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:annotation>
+								<xs:documentation>
+									A response will consist of either the updated
+									customer, or the id of the customer.
+							</xs:documentation>
+							</xs:annotation>
+							<xs:element name="customerContext" type="ac:customerContextType" minOccurs="0" maxOccurs="1" />
+							<xs:element name="notificationEvents" type="ac:notificationEventCollectionType"
+								minOccurs="0" maxOccurs="1" />
+
+							<xs:choice>
+								<xs:element name="customerSearchResult" type="ac:customerSearch" minOccurs="1" maxOccurs="1" />
+								<xs:element name="accountHolderSearchResult" type="ac:accountHolderSearch" minOccurs="1" maxOccurs="1" />
+								<xs:element name="customerInfo" type="ac:customerType"
+									minOccurs="1" maxOccurs="unbounded" />
+
+								<xs:element name="addressInfo" type="ac:addressType"
+									minOccurs="1" maxOccurs="unbounded" />
+
+								<xs:element name="customerContact" type="ac:contactType"
+									minOccurs="0" maxOccurs="1" />
+							</xs:choice>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+			</xs:sequence>
+
+		</xs:complexType>
+	</xs:element>
+
+
+
+
+
+</xs:schema>

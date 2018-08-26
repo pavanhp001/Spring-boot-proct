@@ -1,0 +1,18 @@
+<orderManagementRequestResponse xmlns="http://xml.AL.com/v4">
+  <status>
+    <statusCode>1</statusCode>
+    <processingMessages>
+      <message>
+        <code>1.1</code>
+        <text>Removed Sales Order #145</text>
+      </message>
+    </processingMessages>
+    <statusMsg>INFO</statusMsg>
+  </status>
+  <request xmlns:v4="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <v4:orderId>145</v4:orderId>
+  </request>
+  <response>
+    <newOrderInfo/>
+  </response>
+</orderManagementRequestResponse>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" targetNamespace="http://xml.A.com/v3"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ac="http://xml.A.com/v3">
+
+	<xs:include schemaLocation="detail.xsd" />
+
+	<xs:element name="detailsRequestResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="transactionId" type="xs:int" minOccurs="0"
+					maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Client specified value, used
+							to track this request/response pair. 
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="transactionType" minOccurs="1"
+					maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Used to communicate the desired request action.
+							</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:token">
+							<xs:enumeration value="getAllDetails">
+								<xs:annotation>
+									<xs:documentation>
+										Used to request all of the available
+										detail
+										elements that exist for the given object. 
+									</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="getFeatureDetails">
+								<xs:annotation>
+									<xs:documentation>
+										Used to request just the feature
+										detail
+										elements that exist for the given object(s).
+									</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="getDescriptiveInfoDetails">
+								<xs:annotation>
+									<xs:documentation>
+										Used to request just the descriptive info
+										detail elements that exist for the given object(s).
+									</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="getMarketingHighlightDetails">
+								<xs:annotation>
+									<xs:documentation>
+										Used to request just the marketing highlight
+										detail elements that exist for the given object(s).
+									</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+							<xs:enumeration value="getReferenceData">
+								<xs:annotation>
+									<xs:documentation>
+										Used to request a list of all the current
+										item categories.
+									</xs:documentation>
+								</xs:annotation>
+							</xs:enumeration>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="status" type="ac:statusType" minOccurs="0"
+					maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							For the detail service, the following status values and
+							processing codes may be returned:
+							<B>
+								<I>This is currently TBD</I>
+							</B>
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+
+				<xs:element name="request" minOccurs="1" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Contains the information for requesting detail information.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="detailRequestElement" type="ac:detailElementType"
+								minOccurs="1" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation>
+										Object type and ID used to look up the object
+										to query for details.
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+
+				<xs:element name="response" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Contains the information requested in the corresponding request.
+							It should be noted that the result elements contain the matching
+							request object info to assist the client in
+							processing the response.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence maxOccurs="unbounded" minOccurs="1">
+							<xs:element name="detailResultElement" type="ac:detailResultType"
+								minOccurs="1" maxOccurs="unbounded" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

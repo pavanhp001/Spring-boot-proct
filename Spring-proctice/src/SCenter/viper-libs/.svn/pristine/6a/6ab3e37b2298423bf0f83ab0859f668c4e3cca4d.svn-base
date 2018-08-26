@@ -1,0 +1,9 @@
+rule "Give a gift to the customer if order total is more than $100"
+when
+ $order : Order( total > 100 )
+ $gift     : Gift( ) from accumulate(
+                          $i : Gift( available == true ),
+                          randomSelect( $i ) )
+then
+ $order.add( $gift );
+end

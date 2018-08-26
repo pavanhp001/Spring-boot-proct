@@ -1,0 +1,1 @@
+drop index V_tx.om_li_providerid_idx01;

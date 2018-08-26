@@ -1,0 +1,1 @@
+ALTER TABLE V_tx.om_line_item ALTER COLUMN event_type DROP DEFAULT;

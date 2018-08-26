@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://xml.A.com/v4/OrderProvisioning/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="orderProvisioning" targetNamespace="http://xml.A.com/v4/OrderProvisioning/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://xml.A.com/v4/OrderProvisioning/">
+      <xsd:include schemaLocation="orderProvisioning.xsd"/> 
+      
+      <xsd:element name="opResponse" type="tns:OpResponse"/>
+      <xsd:element name="opRequest" type="tns:OpRequest"/>
+      <xsd:complexType name="OpRequest">
+         <xsd:sequence>
+           <xsd:element name="in" type="xsd:string" minOccurs="1"/>
+         </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OpResponse">
+         <xsd:sequence>
+           <xsd:element name="out" type="xsd:string" minOccurs="0"/>
+         </xsd:sequence>
+       </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="orderProvisioningRequest">
+    <wsdl:part element="tns:opRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="orderProvisioningResponse">
+    <wsdl:part element="tns:opResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="orderProvisioning">
+    <wsdl:operation name="processRequest">
+      <wsdl:input message="tns:orderProvisioningRequest"/>
+      <wsdl:output message="tns:orderProvisioningResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="orderProvisioningSOAP" type="tns:orderProvisioning">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="processRequest">
+      <soap:operation soapAction="http://www.example.org/orderProvisioning/NewOperation"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OrderProvisioningWebServiceClient">
+    <wsdl:port binding="tns:orderProvisioningSOAP" name="orderProvisioningSOAPPort">
+      <soap:address location="http://localhost:8080/ope/OrderProvisioningWS"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

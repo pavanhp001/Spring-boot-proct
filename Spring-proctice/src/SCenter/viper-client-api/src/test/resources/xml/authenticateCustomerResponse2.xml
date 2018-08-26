@@ -1,0 +1,11 @@
+<ord:OrderProvisioningResponse xmlns:ord="http://xml.A.com/v4/OrderProvisioning/">
+	<responseStatus xmlns:com="http://xml.A.com/common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<com:statusCode>9999</com:statusCode>
+		<com:opMessage>
+			<com:code>1</com:code>
+			<com:text>Not Authnticated</com:text>
+		</com:opMessage>
+		<com:status>ERROR</com:status>
+	</responseStatus>
+	<response xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+</ord:OrderProvisioningResponse>

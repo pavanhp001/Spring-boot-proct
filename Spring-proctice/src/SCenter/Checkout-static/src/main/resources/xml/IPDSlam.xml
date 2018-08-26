@@ -1,0 +1,143 @@
+<v4:productEnterpriseResponse xmlns:v4="http://xml.AL.com/v4">
+ <v4:GUID>31eba72c-f77f-11e1-bd56-bf32d2af32ed</v4:GUID>
+ <v4:status>
+	<v4:statusCode>0</v4:statusCode>
+	<v4:processingMessages>
+	   <v4:message>
+		  <v4:code>0.0</v4:code>
+		  <v4:text>All entities requested were found</v4:text>
+	   </v4:message>
+	</v4:processingMessages>
+ </v4:status>
+ <v4:response xsi:type="v4:productResponseType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<v4:providerResults>
+	   <v4:provider externalId="100" name="">
+		  <v4:source datasource="ATTSTI">realtime</v4:source>
+	   </v4:provider>
+	   <v4:productInfo externalId="RTS:ATTSTI:ATT-9-IPD-PLSD-I">
+		  <v4:product>
+			 <v4:externalId>RTS:ATTSTI:ATT-9-IPD-PLSD-I</v4:externalId>
+			 <v4:productCategoryList>
+				<v4:productCategory displayName="highSpeedInternet">highSpeedInternet</v4:productCategory>
+			 </v4:productCategoryList>
+			 <v4:name>U-VERSE HIGH SPEED INTERNET MAX PLUS - D</v4:name>
+			 <v4:channels>
+				<v4:channel>web</v4:channel>
+				<v4:channel>callCenter</v4:channel>
+			 </v4:channels>
+			 <v4:provider externalId="24699452" name="">
+				<v4:source datasource="ATTSTI">realtime</v4:source>
+			 </v4:provider>
+			 <v4:priceInfo>
+				<v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+				<v4:baseRecurringPrice>34.95</v4:baseRecurringPrice>
+			 </v4:priceInfo>
+			 <v4:capabilityList>
+				<v4:capability name="ipDslamDataDownSpeed"/>
+				<v4:capability name="ipDslamDataUpSpeed"/>
+			 </v4:capabilityList>
+		  </v4:product>
+		  <v4:productDetails>
+			 <v4:feature description="U-verse Internet Speed" type="U-verse Internet Speed">
+				<v4:externalId>CONN_SPEED</v4:externalId>
+				<v4:price>
+				   <v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+				   <v4:baseNonRecurringPriceUnits>USD</v4:baseNonRecurringPriceUnits>
+				   <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+				   <v4:baseRecurringPriceUnits>USD</v4:baseRecurringPriceUnits>
+				   <v4:includeInTotalPrice/>
+				</v4:price>
+				<v4:included/>
+				<v4:required>false</v4:required>
+				<v4:available>true</v4:available>
+				<v4:dataConstraints>
+				   <v4:stringConstraint>
+					  <v4:value>U-verse Internet Speed</v4:value>
+				   </v4:stringConstraint>
+				</v4:dataConstraints>
+				<v4:capabilities>
+				   <v4:featureCapability name="DOWN_SPEED" value="18" xsi:nil="true"/>
+				   <v4:featureCapability name="UP_SPEED" value="1.0" xsi:nil="true"/>
+				</v4:capabilities>
+			 </v4:feature>
+			 <v4:customization externalId="IPDSL-D-GATEWAY" required="true" displayOrder="6060">
+				<v4:name>U-verse Internet Equipment</v4:name>
+				<v4:shortDescription>You must purchase a U-verse Wireless Gateway</v4:shortDescription>
+				<v4:longDescription>The wireless gateway allows connectivity to your U-verse High Speed Internet connection.  The device will provide set-up of several devices including computers, printers, and gaming systems in your home.  The wireless gateway will either be shipped to your home address for self installation orders or brought by the technician for professional installation orders.</v4:longDescription>
+				<v4:options min="1" max="1" type="Selection">
+				   <v4:choice externalId="IPDSL-GATEWAY" displayOrder="6061">
+					  <v4:name>U-verse Internet Equipment</v4:name>
+					  <v4:shortDescription>Required Wireless Gateway</v4:shortDescription>
+					  <v4:longDescription>The device will provide set-up of several devices including computers, printers and gaming systems in your home.</v4:longDescription>
+					  <v4:priceInfo>
+						 <v4:baseNonRecurringPrice>100.0</v4:baseNonRecurringPrice>
+						 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+					  </v4:priceInfo>
+				   </v4:choice>
+				</v4:options>
+			 </v4:customization>
+			 <v4:customization externalId="IPDSLAM-D-INSTALL-TONLY" required="true" displayOrder="6055">
+				<v4:name>U-verse Order Install Type</v4:name>
+				<v4:shortDescription>Please Select Professional Install</v4:shortDescription>
+				<v4:longDescription>You must choose Professional Install for this offer.</v4:longDescription>
+				<v4:options min="1" max="1" type="Selection">
+				   <v4:choice externalId="IPDSLAM-INSTALL-PROFESSIONAL" displayOrder="6057">
+					  <v4:name>U-verse Install Types</v4:name>
+					  <v4:shortDescription>Professional Install</v4:shortDescription>
+					  <v4:longDescription>A service technician visits your location and installs your Internet service.</v4:longDescription>
+					  <v4:priceInfo>
+						 <v4:baseNonRecurringPrice>149.0</v4:baseNonRecurringPrice>
+						 <v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+					  </v4:priceInfo>
+				   </v4:choice>
+				</v4:options>
+			 </v4:customization>
+			 <v4:marketingHighlights>
+				<v4:marketingHighlight>Email service includes 11 email ID's</v4:marketingHighlight>
+				<v4:marketingHighlight>Up to 18.0 Mbps downstream</v4:marketingHighlight>
+				<v4:marketingHighlight>Subject to taxes and fees</v4:marketingHighlight>
+				<v4:marketingHighlight>Connect up to 10 wired/wireless computers to the Internet simultaneously</v4:marketingHighlight>
+				<v4:marketingHighlight>Includes on-the-go access to the entire national AT&amp;T Wi-Fi Hotspot network, at no extra charge.</v4:marketingHighlight>
+				<v4:marketingHighlight>Please note: It may be necessary for an AT&amp;T representative to contact you before your order can be completed.</v4:marketingHighlight>
+				<v4:marketingHighlight>AT&amp;T U-verse Minimum System Requirements:  Windows - Processor: 1 GHz 32-bit (x86) or 64-bit (x64); Operating System: Windows XP, Vista (32- &amp; 64-bit), Windows 7 (32- &amp; 64-bit); Disk Space: 2 GB of hard drive capacity (if you want all accompanying software); Memory: 1 GB of system memory recommended.  Macintosh - Processor: PowerPC (G3, G4, G5, iMac); Operating System: Mac OS 9 to OS X 10.6 (a.k.a. Snow Leopard) excluding 10.0 (a.k.a. Puma); Disk Space: 100 MB of free disk space; Memory: 512 MB of system memory recommended.</v4:marketingHighlight>
+				<v4:marketingHighlight>A working jack is required for self installation.</v4:marketingHighlight>
+				<v4:marketingHighlight>24/7</v4:marketingHighlight>
+			 </v4:marketingHighlights>
+			 <v4:descriptiveInfo type="longDescription">
+				<v4:value>With AT&amp;T U-verse High Speed Internet Max Plus - D, you can enjoy all the benefits of AT&amp;T High Speed Internet without the need to get home phone service. AT&amp;T U-verse High Speed Internet provides the security, protection, and amazing speed you deserve.  Includes on-the-go access to the entire national AT&amp;T Wi-Fi Hotspot network, at no extra charge.High speed  internet without a phone line - best suited for downloading multimedia files like movies and music or uploading huge files without getting bogged down.</v4:value>
+			 </v4:descriptiveInfo>
+			 <v4:descriptiveInfo type="termsAndConditions">
+				<v4:value><![CDATA[AT&T U-verse: Pricing excludes taxes, fees and other charges, where applicable.  A $49 service activation fee may apply.  Residential customers only.  Prices, programming and offers subject to change without notice. Credit restrictions may apply.  AT&T U-verse High Speed Internet:  Internet speed claim(s) represent maximum downstream speed capabilities. Speeds may vary and are not guaranteed. Many factors can affect actual speeds including the use of other U-verse services. Credit and other restrictions apply. A one-time equipment charge of $100 will apply to Gateway.  U-verse price includes 250 GB of data/mo. For more information, go to www.att.com/internet-usage.  Access includes AT&T Wi-Fi Basic. Wi-Fi enabled device required. Other restrictions apply. See www.attwifi.com for details and locations. Use of Wi-Fi at home will count toward your AT&T High Speed Internet usage allowance.  $34.95 Internet Offer:  Offer available for new AT&T Internet customers only.  Offer applies to up to 18.0 Mbps Internet service after monthly bill credit. After 12 months, standard rate applies unless canceled by customer.  Qualifying AT&T home phone service required.  Promotional rates may no longer apply if customer changes their speed tier during term. 12 month term required.  Up to $180 early termination fee applies.   Residential customers only.  Internet gateway required.  Taxes apply. A $49 service activation fee may apply.  U-verse price includes 250 GB of data/mo.  For more information, go to www.att.com/internet-usage.  Speed claim(s) represent maximum downstream and/or upstream speed capabilities which may vary and are not guaranteed.  Offer expires 11/3/2012.  $50 AT&T Reward Card for purchase of a wireless gateway and high speed Internet from AT&T:  Available to new or existing AT&T wireless customers. Offer ends 12/31/12.   Applicable taxes and fees will be based on the full monthly price of products and services.  Redemption Terms:  Card redemption required. Card sent 4-6 weeks after redemption to customers who retain qualifying service(s).� Not redeemable for cash, for use at automated gasoline pumps or for cash withdrawal at ATMs.  Card expires 90 days after issuance. For cardholder agreement/terms and conditions go to http://rewardcenter.att.com/myrewardcard/agreement.pdf. �Cards issued by U.S. Bank National Association, pursuant to a license from Visa U.S.A. Inc.   U-verse price includes 250 GB of data/mo.  For more information, go to www.att.com/internet-usage.  � 2012 AT&T Intellectual Property. AT&T, AT&T U-verse, the AT&T logo and all other AT&T marks contained herein are trademarks of AT&T Intellectual Property and/or AT&T affiliated companies. All rights reserved. Subsidiaries and affiliates of AT&T Inc. provide products and services under the AT&T brand.]]></v4:value>
+			 </v4:descriptiveInfo>
+			 <v4:descriptiveInfo type="disclosures">
+				<v4:value>Transport Type:IPDSLAM</v4:value>
+			 </v4:descriptiveInfo>
+			 <v4:promotion>
+				<v4:externalId>Half CPE Rebate</v4:externalId>
+				<v4:promoCode>Half CPE Rebate</v4:promoCode>
+				<v4:shortDescription>If you have AT&amp;T wireless service, you may be eligible to receive an AT&amp;T Visa� Reward Card to offset 50% of the cost of your new Internet equipment.  Please visit att.com/equipmentoffer to see how to qualify.</v4:shortDescription>
+				<v4:description>Rebate is available to customers who purchase new Internet service from AT&amp;T.  Rebate will be in the form of an AT&amp;T Reward Card.  Offer ends 12/31/2012.</v4:description>
+				<v4:qualification>N/A</v4:qualification>
+				<v4:conditions>$50 AT&amp;T Reward Card for purchase of a wireless gateway and high speed Internet from AT&amp;T.  Available to new or existing AT&amp;T wireless customers. Offer ends 12/31/12.   Applicable taxes and fees will be based on the full monthly price of products and services.  Redemption Terms:  Card redemption required. Card sent 4-6 weeks after redemption to customers who retain qualifying service(s).� Not redeemable for cash, for use at automated gasoline pumps or for cash withdrawal at ATMs.  Card expires 90 days after issuance. For cardholder agreement/terms and conditions go to http://rewardcenter.att.com/myrewardcard/agreement.pdf. �Cards issued by U.S. Bank National Association, pursuant to a license from Visa U.S.A. Inc.</v4:conditions>
+				<v4:type>unspecifiedType</v4:type>
+				<v4:priceValueType>unspecifiedPriceValueType</v4:priceValueType>
+				<v4:priceValue>0.0</v4:priceValue>
+				<v4:promotionDuration>PT0S</v4:promotionDuration>
+			 </v4:promotion>
+			 <v4:promotion>
+				<v4:externalId>IPDSL-PLS-D-N</v4:externalId>
+				<v4:promoCode>IPDSL-PLS-D-N</v4:promoCode>
+				<v4:shortDescription>Subscribe to U-verse High Speed Internet Max Plus and pay only $34.95 per month for 12 months.</v4:shortDescription>
+				<v4:description>AT&amp;T U-verse High Speed Internet provides the security, protection, and amazing speed you deserve, along with built-in wireless home networking capability.  Get downstream speeds up to 18.0 Mbps for only $34.95 per month for 12 months.</v4:description>
+				<v4:qualification>N/A</v4:qualification>
+				<v4:conditions>$34.95 Internet Offer:  Offer available for new AT&amp;T Internet customers only.  Offer applies to up to 18.0 Mbps Internet service after monthly bill credit. After12 months, standard rate applies unless canceled by customer.  Qualifying AT&amp;T home phone service required.  Promotional rates may no longer apply if customer changes their speed tier during term. 12 month term required.  Up to $180 early termination fee applies.   Residential customers only.  Internet gateway required.  Taxes apply. A $49 service activation fee may apply.  U-verse price includes 250 GB of data/mo.  For more information, go to www.att.com/internet-usage.  Speed claim(s) represent maximum downstream and/or upstream speed capabilities which may vary and are not guaranteed.  Offer expires 11/3/2012.</v4:conditions>
+				<v4:type>baseMonthlyDiscount</v4:type>
+				<v4:priceValueType>unspecifiedPriceValueType</v4:priceValueType>
+				<v4:priceValue>34.95</v4:priceValue>
+				<v4:promotionDuration>P12M</v4:promotionDuration>
+			 </v4:promotion>
+		  </v4:productDetails>
+	   </v4:productInfo>
+	</v4:providerResults>
+ </v4:response>
+</v4:productEnterpriseResponse>

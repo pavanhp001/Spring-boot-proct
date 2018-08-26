@@ -1,0 +1,28 @@
+package AL.ome.validation;
+
+import org.drools.runtime.rule.RuleContext;
+import com.AL.rules.util.*;
+import com.AL.rules.domain.Message;
+import com.AL.validation.ReportFactory;
+import com.AL.validation.ValidationReport;
+import com.AL.V.beans.entity.SalesOrder;
+import com.AL.V.beans.entity.LineItem;
+import com.AL.V.beans.entity.StatusRecordBean;
+import function  com.AL.rules.core.impl.RuleValidationHelper.info;
+import function  com.AL.rules.core.impl.RuleValidationHelper.error;
+import function  com.AL.rules.core.impl.RuleValidationHelper.warning;
+import function  com.AL.rules.core.impl.RuleValidationHelper.outcome;
+
+import java.util.ArrayList;
+
+global com.AL.validation.ReportFactory reportFactory;
+global com.AL.validation.ValidationReport validationReport;
+	
+	rule "rule.1.invalid.external.id"
+	    salience 100
+	    when
+ 		so : SalesOrder( externalId == null)  
+	    then 
+            error(kcontext, "sales order external id is null"); 
+	end 
+

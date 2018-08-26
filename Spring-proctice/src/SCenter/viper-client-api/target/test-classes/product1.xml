@@ -1,0 +1,34 @@
+<ac:acMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ac="http://xml.A.com/v4"> 
+			 <ac:msgType>request</ac:msgType> 
+			 <ac:actionType>query</ac:actionType> 
+			 <ac:payloadType>ProductEnterpriseRequestDocument</ac:payloadType> 
+			 <ac:payload>  
+ <ac:productEnterpriseRequest debug="false">
+	<ac:GUID>1342465395724850160254468175226100163607F4DA</ac:GUID>
+	<ac:transactionType   xsi:type="ac:productTransactionTypeType">
+		<ac:productTransactionType>
+			getProductDetails
+	  </ac:productTransactionType>
+	</ac:transactionType>
+	<salesContext>
+		<entity name="orderSource">
+			<attribute name="channel" value="web"/>
+		</entity>
+	</salesContext>
+	<ac:request xsi:type="ac:productRequestType">		
+		<ac:requestedDetails>
+			<ac:detail level="basic"/>
+			<ac:detail level="features"/>
+			<ac:detail level="customizations"/>
+			<ac:detail level="promotions"/> 
+			<ac:detail level="descriptiveInfo"/>
+			<ac:detail level="marketingHighlights"/>
+		</ac:requestedDetails>
+		<ac:productList>
+			 <ac:productId externalId="TW-CHARLOTTE-BUNDLE3" providerExternalId="12228509"/>
+		</ac:productList>
+	</ac:request>
+</ac:productEnterpriseRequest>
+ </ac:payload> </ac:acMessage>
+ 
+ 

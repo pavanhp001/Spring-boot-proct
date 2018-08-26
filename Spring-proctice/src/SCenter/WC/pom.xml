@@ -1,0 +1,833 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.A</groupId>
+		<artifactId>AParent</artifactId>
+		<version>1.2</version>
+	</parent>
+	<groupId>com.A.V</groupId>
+	<artifactId>web-core</artifactId>
+	<packaging>jar</packaging>
+	<version>01.10.00-SNAPSHOT</version> 
+	<name>Web Core</name>
+	<url>http://maven.apache.org</url>
+
+	<organization>
+		<name>A</name> 
+		<url>www.A.com</url> 
+	</organization>
+	<scm>
+		<connection>scm:svn:${svn.location}${svn.module}/${svn.project}/${svn.release}</connection>
+		<developerConnection>scm:svn:${svn.location}${svn.module}/${svn.project}/${svn.release}</developerConnection>
+	</scm>
+ 
+	<profiles>
+		<profile>
+			<id>dev</id>
+			 <activation>
+<property>
+<name>!foo.bar</name>
+</property>
+</activation>
+			<properties>
+				<deployment.directory>./</deployment.directory>
+			 
+			</properties>
+		</profile>
+
+		<profile>
+			<id>devint</id>
+			<properties>
+				<deployment.directory>./</deployment.directory>
+				 
+			</properties>
+		</profile>
+		<profile>
+			<id>qa</id>
+			<properties>
+				<deployment.directory>./</deployment.directory>
+				 
+			</properties>
+		</profile>
+		<profile>
+			<id>stage</id>
+			<properties>
+				<deployment.directory>./</deployment.directory>
+				 
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<deployment.directory>./</deployment.directory>
+				 
+			</properties>
+		</profile>
+	</profiles>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<configuration>
+					<wtpversion>1.0</wtpversion>
+				</configuration>
+			</plugin>
+
+			  
+		</plugins>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.xml</include>
+					<include>**/*.properties</include>
+					<include>**/*.conf</include>
+					<include>**/*.vm</include>
+				</includes>
+ <filtering>true</filtering>
+				<excludes>
+					<exclude>db.properties</exclude>
+				</excludes>
+
+			</resource>
+		</resources>
+	</build>
+	<!-- Project dependencies -->
+	<dependencies>
+
+
+
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${org.springframework.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>com.springsource.org.apache.commons.logging
+					</artifactId>
+					<groupId>org.apache.commons</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework.version}</version>
+
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jms</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${org.springframework.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>com.springsource.org.apache.commons.logging
+					</artifactId>
+					<groupId>org.apache.commons</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>com.springsource.org.aopalliance
+                        </artifactId>
+					<groupId>org.aopalliance</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>com.springsource.org.antlr
+                        </artifactId>
+					<groupId>org.antlr</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-oxm</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>xalan</groupId>
+			<artifactId>xalan</artifactId>
+			<version>${xalan.version}</version>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>${commons.lang.version}</version>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>${commons.logging.version}</version>
+		</dependency>
+
+		<!--<dependency>
+			<groupId>javax.xml</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>${jaxb.version}</version>
+		</dependency>
+
+		--><dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>${commons.httpclient.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>backport-util-concurrent</groupId>
+			<artifactId>backport-util-concurrent</artifactId>
+			<version>${backport.concurrent.version}</version>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons.io.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-math</groupId>
+			<artifactId>commons-math</artifactId>
+			<version>${commons.math.version}</version>
+		</dependency>
+
+		<!--<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>${jaxb.xml.bind.api.version}</version>
+		</dependency>
+
+		--><dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>${mockito.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>${c3p0.version}</version>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>${json.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.googlecode.ehcache-spring-annotations</groupId>
+			<artifactId>ehcache-spring-annotations</artifactId>
+			<version>${ehcache-spring-annotations.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>quartz</groupId>
+			<artifactId>quartz</artifactId>
+			<version>${quartz.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
+			<version>${jta.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>antlr</groupId>
+			<artifactId>antlr</artifactId>
+			<version>${antlr.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>${velocity.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>jdom</groupId>
+			<artifactId>jdom</artifactId>
+			<version>${jdom.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>checkstyle</groupId>
+			<artifactId>checkstyle</artifactId>
+			<version>${checkstyle.version}</version>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-velocity</artifactId>
+			<version>${tiles.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-jsp</artifactId>
+			<version>${tiles.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-template</artifactId>
+			<version>${tiles.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-extras</artifactId>
+			<version>${tiles.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-api</artifactId>
+			<version>${tiles.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-compat</artifactId>
+			<version>${tiles.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-core</artifactId>
+			<version>${tiles.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-el</artifactId>
+			<version>${tiles.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-mvel</artifactId>
+			<version>${tiles.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-ognl</artifactId>
+			<version>${tiles.version}</version>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>concurrent</groupId>
+			<artifactId>concurrent</artifactId>
+			<version>${concurrent.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>excalibur-store</groupId>
+			<artifactId>excalibur-store</artifactId>
+			<version>${excalibur.store.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>avalon-framework</groupId>
+			<artifactId>avalon-framework</artifactId>
+			<version>${avalon.version}</version>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>jsr94</groupId>
+			<artifactId>jsr94</artifactId>
+			<version>${jsr.api.version}</version>
+		</dependency>
+
+
+
+
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>${google.json.simple.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>${xstream.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>xpp3</groupId>
+			<artifactId>xpp3</artifactId>
+			<version>${xpp.version}</version>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>${servlet-api.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>sk.openhouse</groupId>
+			<artifactId>openhouse-web</artifactId>
+			<version>${openhouse-web.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>struts</groupId>
+			<artifactId>struts</artifactId>
+			<version>${struts.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.xml.messaging.saaj</groupId>
+			<artifactId>saaj-impl</artifactId>
+			<version>${saaj-api.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>${commons-dbcp.version}</version>
+			<exclusions>
+    <exclusion>
+                 <groupId>xerces</groupId>  
+              <artifactId>xercesImpl</artifactId> 
+             </exclusion>    
+   </exclusions>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>${commons-fileupload.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity-tools</artifactId>
+			<version>${velocity-tools.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>${commons-codec.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.tanesha.recaptcha4j</groupId>
+			<artifactId>recaptcha4j</artifactId>
+			<version>${recaptcha4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>${commons-collections.version}</version>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>commons-digester</groupId>
+			<artifactId>commons-digester</artifactId>
+			<version>${commons-digester.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit-dep</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>${httpclient.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-core</artifactId>
+			<version>${shiro-core.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-ehcache</artifactId>
+			<version>${shiro-ehcache.version}</version>
+		</dependency>
+
+
+<dependency>
+			<groupId>org.codehaus.gmaven.runtime</groupId>
+			<artifactId>gmaven-runtime-1.7</artifactId>
+			<version>1.3</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.codehaus.groovy</groupId>
+					<artifactId>groovy-all</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>${taglib.standard.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${postgresql.version}</version>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+			<version>${ehcache.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate-entitymanager.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j-api.version}</version>
+
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j-log4j12.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.A.V</groupId>
+			<artifactId>V-client-api</artifactId>
+			<version>${V-client-api.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
+			<version>${jettyVersion}</version>
+		</dependency>
+
+
+		<!-- Gson: Java to Json conversion -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>${gson.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<!-- Joda Time -->
+
+		<!-- Jackson JSON Mapper -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>${jackson-mapper-asl.version}</version>
+		</dependency>
+
+
+		<!-- Servlet -->
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>${jsp-api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+		</dependency>
+
+
+		<!--<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>${jaxb-impl.version}</version>
+		</dependency>
+
+		--><dependency>
+			<groupId>javax.xml.soap</groupId>
+			<artifactId>saaj-api</artifactId>
+			<version>${saaj-api.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk16</artifactId>
+			<version>${bouncy.castle.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcpg-jdk16</artifactId>
+			<version>${bouncy.castle.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.jettison</groupId>
+			<artifactId>jettison</artifactId>
+			<version>${jettison.version}</version>
+		</dependency>
+
+
+
+
+
+		<!-- URL Rewrite -->
+		<dependency>
+			<groupId>org.tuckey</groupId>
+			<artifactId>urlrewritefilter</artifactId>
+			<version>${urlrewritefilter.version}</version>
+		</dependency>
+
+
+<dependency>
+                  <groupId>com.eds</groupId>
+                  <artifactId>edb</artifactId>
+                  <version>jdbc14</version>
+            </dependency>
+
+<dependency>
+	<groupId>org.jsoup</groupId>
+	<artifactId>jsoup</artifactId>
+	<version>1.7.2</version>
+</dependency>
+
+
+	</dependencies>
+
+	<properties>
+		<asm>3.2</asm>
+		<antlr.version>2.7.7</antlr.version>
+		<avalon.version>20020627</avalon.version>
+		<backport.concurrent.version>3.1</backport.concurrent.version>
+		<bcprov-jdk16.version>1.46</bcprov-jdk16.version>
+		<bcpg-jdk16.version>1.46</bcpg-jdk16.version>
+		<bouncy.castle.version>1.46</bouncy.castle.version>
+		<c3p0.version>0.9.1.2</c3p0.version>
+		<checkstyle.version>5.0-beta01</checkstyle.version>
+		<commons-digester.version>1.8</commons-digester.version>
+		<commons-cli.version>1.2</commons-cli.version>
+		<commons-collections.version>3.2.1</commons-collections.version>
+		<commons.httpclient.version>3.1</commons.httpclient.version>
+		<commons.lang.version>2.2</commons.lang.version>
+		<commons.math.version>1.1</commons.math.version>
+		<commons.io.version>1.4</commons.io.version>
+		<commons.logging.version>1.1.1</commons.logging.version>
+		<commons-codec.version>1.4</commons-codec.version>
+		<commons-dbcp.version>1.2.1</commons-dbcp.version>
+		<commons-fileupload.version>1.2.1</commons-fileupload.version>
+		<concurrent.version>1.3.4</concurrent.version>
+		<ehcache.version>1.2.4</ehcache.version>
+		<ehcache-spring-annotations.version>1.1.2
+		</ehcache-spring-annotations.version>
+		<el.api.version>2.2</el.api.version>
+		<excalibur.store.version>20020820</excalibur.store.version>
+		<google.json.simple.version>1.1</google.json.simple.version>
+
+		<gson.version>1.6</gson.version>
+		<hibernate-entitymanager.version>3.5.1-Final
+		</hibernate-entitymanager.version>
+		<httpclient.version>4.1.1</httpclient.version>
+		<jackson-mapper-asl.version>1.5.3</jackson-mapper-asl.version>
+		<jaxb.version>2.1</jaxb.version>
+		<jaxb-impl.version>2.0.3</jaxb-impl.version>
+		<jaxb.xml.bind.api.version>2.0</jaxb.xml.bind.api.version>
+		<jdom.version>b9</jdom.version>
+		<jettyVersion>7.2.0.v20101020</jettyVersion>
+		<jetty.scan.interval>10</jetty.scan.interval>
+		<jettison.version>1.0</jettison.version>
+		<json.version>20080701</json.version>
+		<jsr.api.version>1.1</jsr.api.version>
+		<jsp-api.version>2.1</jsp-api.version>
+		<jstl.version>1.2</jstl.version>
+		<jstl.version>1.2</jstl.version>
+		<jta.version>1.1</jta.version>
+		<junit.version>4.8.1</junit.version>
+		<log4j.version>1.2.13</log4j.version>
+		<maven.war.plugin>2.1-alpha-1</maven.war.plugin>
+		<mockito.version>1.7</mockito.version>
+		<openhouse-web.version>1.0.0</openhouse-web.version>
+		<org.springframework.version>3.1.1.RELEASE
+		</org.springframework.version>
+		<port.number>8098</port.number>
+		<postgresql.version>8.4-702.jdbc4</postgresql.version>
+		<project.build.sourceEncoding>
+			UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>
+			UTF-8
+		</project.reporting.outputEncoding>
+		<quartz.version>1.5.2</quartz.version>
+		<recaptcha4j.version>0.0.7</recaptcha4j.version>
+		<saaj-api.version>1.3</saaj-api.version>
+		<shiro-core.version>1.2.0</shiro-core.version>
+		<shiro-ehcache.version>1.2.0</shiro-ehcache.version>
+		<servlet.version>2.5</servlet.version>
+		<servlet-api.version>2.5</servlet-api.version>
+		<slf4j-api.version>1.5.8</slf4j-api.version>
+		<slf4j-log4j12.version>1.5.8</slf4j-log4j12.version>
+		<struts.version>1.2.9</struts.version>
+		<standard.version>1.1.2</standard.version> 
+		<saaj-impl.version>1.3</saaj-impl.version>
+		<svn.location>http://svn/svn/</svn.location>
+		<svn.module>services</svn.module>
+		<svn.project>web-core</svn.project>
+		<svn.release>trunk</svn.release>
+		<taglib.standard.version>1.1.2</taglib.standard.version>
+		<tiles.version>2.2.2</tiles.version>
+		<tuckey.version>4.0.3</tuckey.version>
+		<velocity.version>1.7</velocity.version>
+		<velocity-tools.version>2.0</velocity-tools.version> 
+		<xalan.version>2.7.1</xalan.version>
+		<xpp.version>1.1.4c</xpp.version>
+		<xstream.version>1.4.2</xstream.version>
+		<urlrewritefilter.version>3.1.0</urlrewritefilter.version>
+		<V-client-api.version>01.10.00-SNAPSHOT</V-client-api.version>
+	</properties>
+</project>
+

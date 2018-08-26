@@ -1,0 +1,27 @@
+mvn install activemq:run -Dmaven.test.skip
+
+mvn clean compile exec:java -Dexec.mainClass=class-with-main
+
+mvn test-compile
+
+http://localhost:8161/demo
+
+mvn archetype:generate
+
+<?xml version="1.0" encoding="UTF-8"?>
+you may need an encoding, again at the top most line.
+
+
+
+rm -rf 'find . -type d -name .svn'
+
+======================================================================
+RTS Integration
+logical name that contains "xxx" is updated with designation selector 
+======================================================================
+.att. = attsti
+.rts. = attsti
+.dish. = dish
+.verizon. = verizon
+======================================================================
+

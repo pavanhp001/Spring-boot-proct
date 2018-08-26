@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Created with Liquid XML Studio Designer Edition 8.0.11.2171 (http://www.liquid-technologies.com)-->
+<wsdl:definitions xmlns:tns="http://xml.A.com/v3" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ac="http://xml.A.com/v3" name="WebServiceProxyService" targetNamespace="http://xml.A.com/v3" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+	<wsdl:types>
+		<xsd:schema xmlns:tns="http://xml.A.com/v3" targetNamespace="http://xml.A.com/v3">
+			<xsd:include schemaLocation="http://xml.A.com/v3/pcode.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="PcodeRequestResponseMessage">
+		<wsdl:part name="parameters" element="ac:pcodeRequestResponse" />
+	</wsdl:message>
+	<wsdl:portType name="WebServiceProxyServicePortType">
+		<wsdl:operation name="GetPcodes">
+			<wsdl:input name="pcodeRequest" message="ac:PcodeRequestResponseMessage" />
+			<wsdl:output name="pcodeResponse" message="ac:PcodeRequestResponseMessage" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="WebServiceProxyServiceSoapBinding" type="ac:WebServiceProxyServicePortType">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="GetPcodes">
+			<soap:operation soapAction="http://sgdv3vm1.A.com:8802/services/pcode" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="WebServiceProxyService">
+		<wsdl:port name="WebServiceProxyServicePort" binding="ac:WebServiceProxyServiceSoapBinding">
+			<soap:address location="http://sgdv3vm1.A.com:8802/services/pcode" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

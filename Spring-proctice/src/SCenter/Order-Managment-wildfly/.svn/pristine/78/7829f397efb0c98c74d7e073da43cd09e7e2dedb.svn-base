@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ac:orderManagementRequestResponse xmlns:ac="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xml.AL.com/v4 orderManagement.xsd ">
+  <ac:correlationId>12345</ac:correlationId>
+  <ac:transactionType>updateOrder</ac:transactionType>
+  <ac:request>
+  	<ac:orderId>159</ac:orderId>
+     <ac:updatedOrderInfo>
+      <ac:externalId>1001</ac:externalId>
+      <ac:directMailOptIn>true</ac:directMailOptIn>
+      <ac:eMailOptIn>true</ac:eMailOptIn>
+      <ac:agentId>5</ac:agentId>
+      <ac:referrerId>104</ac:referrerId>
+      <ac:source>Sales Center</ac:source>
+      <ac:secondCallInfo>
+        <ac:whenToCallBack>
+          <ac:date>2011-04-01</ac:date>
+          <ac:time>17:30:00</ac:time>
+        </ac:whenToCallBack>
+        <ac:firstPhoneNumber>
+          <ac:value>8889998888</ac:value>
+          <ac:order>1</ac:order>
+          <ac:desc>Home Phone</ac:desc>
+        </ac:firstPhoneNumber>
+        <ac:secondPhoneNumber>
+          <ac:value></ac:value>
+          <ac:order></ac:order>
+          <ac:desc></ac:desc>
+        </ac:secondPhoneNumber>
+      </ac:secondCallInfo>
+      <ac:consumer>
+        <ac:title>Mr</ac:title>
+        <ac:firstName>Amitabh</ac:firstName>
+        <ac:lastName>Bacchan</ac:lastName>
+        <ac:middleName>H</ac:middleName>
+        <ac:nameSuffix>Mr</ac:nameSuffix>
+        <ac:gender>M</ac:gender>
+        <ac:dob>1965-05-25</ac:dob>
+        <ac:ssn>999-99-9999</ac:ssn>
+        <ac:ALCustomerNumber>11122233</ac:ALCustomerNumber>
+        <ac:previousAddress xsi:type="ac:addressType">
+          <ac:prefixDirectional>Test</ac:prefixDirectional>
+          <ac:streetNumber>201</ac:streetNumber>
+          <ac:streetName>Colony Creet Ct.</ac:streetName>
+          <ac:streetType>court</ac:streetType>
+          <ac:line2>2011</ac:line2>
+          <ac:postfixDirectional>TestPostfixDir</ac:postfixDirectional>
+          <ac:city>Duluth</ac:city>
+          <ac:stateOrProvince>Georgia</ac:stateOrProvince>
+          <ac:postalCode>30096</ac:postalCode>
+          <ac:country>United States</ac:country>
+          <ac:countyParishBorough>Gwinnet</ac:countyParishBorough>
+          <ac:addressBlock>Adblock</ac:addressBlock>
+          <ac:howLongAtAddress>10</ac:howLongAtAddress>
+          <ac:dwellingType>apartment</ac:dwellingType>
+        </ac:previousAddress>
+        <ac:address xsi:type="ac:addressType">
+          <ac:prefixDirectional>PrefixDir</ac:prefixDirectional>
+          <ac:streetNumber>101</ac:streetNumber>
+          <ac:streetName>Dunleaf arc way</ac:streetName>
+          <ac:streetType>Road</ac:streetType>
+          <ac:line2>101</ac:line2>
+          <ac:postfixDirectional>testPrefix</ac:postfixDirectional>
+          <ac:city>Norcross</ac:city>
+          <ac:stateOrProvince>Georgia</ac:stateOrProvince>
+          <ac:postalCode>30093</ac:postalCode>
+          <ac:country>United States</ac:country>
+          <ac:countyParishBorough>Gwinnet</ac:countyParishBorough>
+          <ac:addressBlock>Atl</ac:addressBlock>
+          <ac:howLongAtAddress>1</ac:howLongAtAddress>
+          <ac:dwellingType>house</ac:dwellingType>
+        </ac:address>
+        <ac:financialInfo>
+          <ac:employed>
+            <ac:businessName>IBM Corp</ac:businessName>
+            <ac:businessPhoneNum>1112221111</ac:businessPhoneNum>
+            <ac:occupation>Accountant</ac:occupation>
+          </ac:employed>
+          <ac:student/>
+          <ac:retired/>
+          <ac:bankOrMortgageInstitution>Wells Fargo</ac:bankOrMortgageInstitution>
+          <ac:otherIncomeSource>Rental</ac:otherIncomeSource>
+        </ac:financialInfo>
+        <ac:homePhoneNumber>
+          <ac:value>7776661414</ac:value>
+          <ac:order>1</ac:order>
+          <ac:desc>Home Phone Number</ac:desc>
+        </ac:homePhoneNumber>
+        <ac:cellPhoneNumber>
+          <ac:value>4445556666</ac:value>
+          <ac:order>2</ac:order>
+          <ac:desc>Cell Phone</ac:desc>
+        </ac:cellPhoneNumber>
+        <ac:workPhoneNumber>
+          <ac:value>8889998888</ac:value>
+          <ac:order>3</ac:order>
+          <ac:desc>Work Phone Number</ac:desc>
+        </ac:workPhoneNumber>
+        <ac:homeEMail>
+          <ac:value>willsmith@gmail.com</ac:value>
+          <ac:order>2</ac:order>
+          <ac:desc>Home Email Address</ac:desc>
+        </ac:homeEMail>
+        <ac:workEMail>
+          <ac:value>willsmith@hollywood.com</ac:value>
+          <ac:order>1</ac:order>
+          <ac:desc>Work Email Address</ac:desc>
+        </ac:workEMail>
+      </ac:consumer>
+	      
+      
+      <ac:billingInfo>
+        <ac:billingAddress>
+          <ac:prefixDirectional>1</ac:prefixDirectional>
+          <ac:streetNumber>444</ac:streetNumber>
+          <ac:streetName>Lakeside way</ac:streetName>
+          <ac:streetType>Road</ac:streetType>
+          <ac:line2>606</ac:line2>
+          <ac:postfixDirectional>postfixDir</ac:postfixDirectional>
+          <ac:city>Newnan</ac:city>
+          <ac:stateOrProvince>Alabama</ac:stateOrProvince>
+          <ac:postalCode>23304</ac:postalCode>
+          <ac:country>United States</ac:country>
+          <ac:countyParishBorough>Henry</ac:countyParishBorough>
+          <ac:addressBlock>TestBlock</ac:addressBlock>
+        </ac:billingAddress>
+        <ac:billingMethod>creditcard</ac:billingMethod>
+        <ac:creditCardNumber>1234-1234-1234-1234</ac:creditCardNumber>
+        <ac:verificationCode>000</ac:verificationCode>
+        <ac:checkingAccountNumber>5555-6666-7777-8888</ac:checkingAccountNumber>
+        <ac:routingNumber>22221111</ac:routingNumber>
+      </ac:billingInfo>
+      
+      
+    </ac:updatedOrderInfo>
+  </ac:request>
+  <ac:response>
+  </ac:response>
+</ac:orderManagementRequestResponse>

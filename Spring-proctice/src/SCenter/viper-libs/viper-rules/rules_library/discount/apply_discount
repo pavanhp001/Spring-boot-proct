@@ -1,0 +1,26 @@
+rule "Discount for orders that include US$100,00 of toys"
+when
+$o : Order()
+$toysTotal : Number( doubleValue > 100 )
+  from accumulate( OrderItem( order == $o, type == "toy", $value : value ),
+                     init( double total = 0; ),
+                   action( total += $value; ),
+                   reverse( total -= $value; ),
+                   result( new Double( total ) ) )
+then
+ $o.setDiscountPercentage( 10 );
+end
+
+
+
+rule "Discount for orders that include US$100,00 of toys"
+when
+$o : Order()
+$toysTotal : Number( doubleValue > 100 )
+             from accumulate( OrderItem( order == $o, type == "toy", $value : value ),
+                              sum( $value ) )
+then
+$o.setDiscountPercentage( 10 );
+end
+
+

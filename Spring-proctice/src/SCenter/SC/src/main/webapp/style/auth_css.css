@@ -1,0 +1,343 @@
+.height_30 {
+	color: #006633; line-height: 30px; margin-left: 5px;
+	float:left;
+	}
+
+.left_15 {
+	
+	margin: 15px 0 0 0px; float: left;
+	}
+
+#reg_form_box {
+	width: 100%;
+	}
+
+.fbHelpDivider {
+    font-size: 13px;
+    line-height: 14px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    position: relative;
+    width: 300px;
+}
+
+.fbHelpDivider {
+    font-size: 13px;
+    line-height: 14px;
+}
+
+.line {
+    background-color: #808080;
+    height: 1px;
+    width: 100%;
+    float:left; 
+    margin:5px 5px 0px 5px;
+}
+
+.margin_15_left {
+	
+	margin: 15px 0 0 0px; 
+	float: left;
+	
+	}
+
+.persistent {
+    color: #333333;
+    font-size: 11px;
+    font-weight: normal;
+    line-height: 16px;
+} 
+ 
+ 
+#reg_box label {
+    color:  #666666;;
+    font-weight: bold;
+    vertical-align: middle;
+}
+ 
+.uiButtonSpecial {
+    background-color: #69A74E;
+    background-position: 0 -96px;
+    border-color: #3B6E22 #3B6E22 #2C5115;
+}
+ 
+.uiButton, .uiButtonSuppressed:active, .uiButtonSuppressed:focus, .uiButtonSuppressed:hover {
+    -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    background: url("https://s-static.ak.facebook.com/rsrc.php/v1/zD/r/B4K_BWwP7P5.png") repeat scroll 0 0 #EEEEEE;
+    border-color: #999999 #999999 #888888;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: normal !important;
+    padding: 2px 6px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+
+.reg_btn {
+	margin: 10px 0 10px 0px;
+	}
+
+
+.field_container {
+margin: 2px 0 1px;
+
+display: inline-block;
+    position: relative;
+    width: auto;
+     font-size: 11px;
+    text-align: left;
+     border-collapse: collapse;
+    border-spacing: 0; 
+	}
+	
+	.field_container_50 {
+margin: 2px 0 1px;
+
+display: inline-block;
+    position: relative;
+    width: 50%;
+     font-size: 11px;
+    text-align: left;
+     border-collapse: collapse;
+    border-spacing: 0;
+    
+     
+	}
+	
+
+.field_container   input {
+    font-size: 16px;
+    padding: 6px;
+    width: 250px;
+    border-color: #BDC7D8;
+    margin: 0;
+     margin-top: 2px;
+     padding-bottom: 3px;
+     border-collapse: collapse;
+    border-spacing: 0;
+    color: #333333;
+    direction: ltr;
+    border: 1px solid #BDC7D8;
+     text-align: left;
+     
+      border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.field_container   select {
+    font-size: 16px;
+    padding: 6px;
+    width: 85px;
+    border-color: #BDC7D8;
+    margin: 0;
+     margin-top: 2px;
+     padding-bottom: 3px;
+     border-collapse: collapse;
+    border-spacing: 0;
+    color: #333333;
+    direction: ltr;
+    border: 1px solid #BDC7D8;
+     text-align: left;
+     
+      border-collapse: collapse;
+    border-spacing: 0;
+    
+     font-size: 13px;
+    height: 30px;
+    padding: 5px;
+    
+      border-color: #96A6C5;
+        margin: 1px 0;
+        
+        border: 1px solid #BDC7D8;
+      
+}
+
+.field_container   select option {
+	padding-left:6px;
+	}
+ 
+.registration #reg_box .inputtext, .registration #reg_box .inputpassword {
+    border-color: #BDC7D8;
+    margin: 0;
+}
+
+#reg_box #reg   {
+    font-size: 13px;
+    padding-right: 3px;
+    width: 105px;
+}
+ 
+.registration #reg_box .label {
+    color: #666666;
+    font-weight: bold;
+    padding: 6px 10px 0 0;
+}
+ 
+#reg_box .label {
+    color: #1D2A5B;
+    padding-right: 3px;
+    text-align: right;
+    width: 90px;
+}
+
+
+
+.registration #reg_box label {
+    color: #666666;
+}
+
+.clearfix {
+    display: block;
+}
+ 
+.UIContentTopper {
+    border-top: 2px solid #D3DAE6;
+    margin: 50px auto 15px;
+    padding: 14px 0 0 1px;
+    width:100%;
+}
+
+#main_container {
+    margin: 0 auto 30px;
+    width: auto;
+}
+
+
+.UIFullPage_Container {
+    margin: 20px auto 0;
+    padding: 0 12px;
+    width: 90%;
+}
+
+
+.clearfix {
+    display: block;
+}
+ 
+ 
+
+.UIContentTopper_thumbnail {
+    float: left;
+    margin: 0 15px 0 0;
+}
+ 
+img {
+    border: 0 none;
+}
+
+
+#persistent_login_text {
+	line-height: 36px;
+	
+	}
+.UIContentTopper_text_headline {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.UIContentTopper_text {
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+#main_container .UIWindowShade {
+	width:90%;
+    padding-top: 20px;
+    border-radius: 5px 5px 5px 5px; 
+    counter-reset: fieldsets; 
+    padding: 20px;
+}
+ 
+.UIWindowShade {
+    background-color: #DDDDDD;
+    border-top: 1px solid #D0D0D0;
+     padding: 20px;
+}
+
+.simple_registration_container {
+    margin: 0 auto;
+    padding-bottom: 30px;
+    width: 400px;
+}
+
+#reg_box {
+    margin: 0;
+    padding: 0;
+}
+
+#reg_box #reg   {
+    font-size: 13px;
+    padding-right: 3px;
+    width: 105px;
+}
+.registration #reg_box   {
+    color: #666666;
+    font-weight: bold;
+    padding: 6px 10px 0 0;
+}
+#reg_box .label {
+    color: #1D2A5B;
+    padding-right: 3px;
+    text-align: right;
+    width: 90px;
+}
+.editor .label {
+    white-space: nowrap;
+}
+
+
+#leftCol {
+    word-wrap: break-word;
+}
+ 
+ 
+#content {
+    text-align: left;
+}
+
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+ 
+* {
+    margin: 0;
+    padding: 0;
+}
+ 
+ 
+#content {
+    text-align: left;
+}
+
+
+#reg_box .label {
+	 font-size: 13px;
+    color: #666666;
+    padding-right: 3px;
+    text-align: right;
+    width: 90px;
+     direction: ltr;
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    font-size: 13px;
+    padding-right: 3px;
+    width: 105px;
+     color: #666666;
+    font-weight: bold;
+    padding: 6px 10px 0 0;
+   
+}
+ 
+.editor .label {
+    white-space: nowrap;
+}
+ 

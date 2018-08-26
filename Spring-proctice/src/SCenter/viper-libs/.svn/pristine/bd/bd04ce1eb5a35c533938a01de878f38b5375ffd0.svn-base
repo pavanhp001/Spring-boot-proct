@@ -1,0 +1,15 @@
+global ValididationErrors errors;
+ 
+rule "age needs to be less than 101"
+	when
+	  Profile( age > 100 )
+	then
+	  errors.add("If you are older than 100, you need to contact your local sales consultant.", Ids.BIRTHDAY);
+end
+ 
+rule "Birthday needs to be in the past"
+	when
+	  Profile( birthday > today )
+	then
+	  errors.add("We can only provide a calculation for already born people.", Ids.BIRTHDAY);
+end

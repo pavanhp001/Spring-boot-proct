@@ -1,0 +1,13 @@
+<v4:orderManagementRequestResponse xmlns:v4="http://xml.AL.com/v4" xsi:schemaLocation="http://xml.AL.com/ac orderManagement.xsd "
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         <v4:correlationId>1234</v4:correlationId>
+
+         <v4:transactionTimeStamp>2001-01-01</v4:transactionTimeStamp>
+         <v4:transactionId>1</v4:transactionId>
+         <v4:transactionType>submit</v4:transactionType>
+         <v4:request>
+            <v4:orderId>14702</v4:orderId>
+            <v4:agentId>default</v4:agentId>
+            <v4:lineitemId>15371</v4:lineitemId>
+         </v4:request>
+      </v4:orderManagementRequestResponse>

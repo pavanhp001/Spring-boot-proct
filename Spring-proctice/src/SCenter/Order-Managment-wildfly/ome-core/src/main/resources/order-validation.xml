@@ -1,0 +1,42 @@
+<constraint-mappings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     xsi:schemaLocation="http://jboss.org/xml/ns/javax/validation/mapping validation-mapping-1.0.xsd"
+                     xmlns="http://jboss.org/xml/ns/javax/validation/mapping">
+    <default-package>com.AL.V.beans.entity</default-package>
+    <bean class="SalesOrder" ignore-annotations="false"    > <!--  ignore-annotations default is true -->
+    	
+    	<field name="agentId"  >
+            <constraint annotation="javax.validation.constraints.NotNull">
+            	<message>Agent Id should not be null!!</message>
+            </constraint>
+        </field>
+        
+        <field name="source"  >
+            <constraint annotation="javax.validation.constraints.NotNull">
+            	<message>Order Source cannot be null!!!</message>
+            </constraint>
+            <constraint annotation="org.hibernate.validator.constraints.NotBlank">
+            	<message>Order Source cannot be empty!!!</message>
+            </constraint>
+        </field>
+        
+        <!--  
+        
+        <field name="moveDate">
+			<constraint annotation="javax.validation.constraints.Future" >
+				<message>Move date must be in the future date!!!</message>
+			</constraint>
+		</field>
+		
+		<field name="whenToCallBack">
+			<constraint annotation="javax.validation.constraints.Future" >
+				<message>When to call back date must be in the future date!!!</message>
+			</constraint>
+		</field>
+		
+		-->
+		<field name="lineItems">
+			<valid/>
+		</field>
+    </bean>
+    
+</constraint-mappings>

@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" targetNamespace="http://xml.A.com/v4"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ac="http://xml.A.com/v4">
+
+	<xs:include schemaLocation="order.xsd" />
+	<xs:include schemaLocation="types.xsd" />
+	<xs:import schemaLocation="orderProvisioning.xsd" namespace="http://xml.A.com/v4/OrderProvisioning/" />
+
+
+	<xs:complexType name="parameterType" abstract="true">
+		<xs:sequence>
+			<xs:element name="orderId" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="orderManagementRequestResponse">
+
+
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="correlationId" type="xs:string"
+					minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							A system-generated unique identifier. Since
+							the
+							service is stateless, the coorelation id is not used to
+							reload any
+							previous state, just to identify a particular
+							invocation of the
+							service, or to connect multiple invocations
+							as part of the same
+							global action.
+                        </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="transactionTimeStamp" type="xs:date"
+					minOccurs="0" maxOccurs="1" />
+				<xs:element name="sessionId" type="xs:string" minOccurs="0"
+					maxOccurs="1" />
+				<xs:element name="transactionId" type="xs:int" minOccurs="0"
+					maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Client specified value, used
+							to track this
+							request/response pair. 
+                        </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+
+				<xs:element name="region" type="xs:string" minOccurs="0"
+					maxOccurs="1" />
+				<xs:element name="affiliateName" type="xs:string"
+					minOccurs="0" maxOccurs="1" />
+				<xs:element name="salesCode" type="xs:string" minOccurs="0"
+					maxOccurs="1" />
+
+
+
+
+				<xs:element name="transactionType" minOccurs="1"
+					maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:token">
+							<!-- *************************** -->
+							<!-- Order Management  ELEMENTS -->
+							<!-- *************************** -->
+							<xs:enumeration value="addLineItem" />
+							<xs:enumeration value="updateLineItemStatus" />
+							<xs:enumeration value="updateLineItem" />
+							<xs:enumeration value="updateLineItemLW" />
+							<xs:enumeration value="createOrder" />
+							<xs:enumeration value="getOrderByDate" />
+							<xs:enumeration value="getOrderByScheduleDate" />
+							<xs:enumeration value="delete" />
+							<xs:enumeration value="updateOrderStatus" />
+							<xs:enumeration value="updateOrder" />
+							<xs:enumeration value="getOrder" />
+							<xs:enumeration value="getOrderByStatus" />
+							<xs:enumeration value="getOrderByCustomer" />
+							<xs:enumeration value="getOrderByConfirmationNumber" />
+							<xs:enumeration value="submit" />
+							<xs:enumeration value="eventNotification" />
+							<xs:enumeration value="getOrderByLineItem" />
+							<xs:enumeration value="getOrderByProvider" />
+							<xs:enumeration value="orderSearch" />
+							<!-- *************************** -->
+							<!-- Scheduler ELEMENTS -->
+							<!-- *************************** -->
+							<xs:enumeration value="taskJob" />
+							<!-- Account holders -->
+							<xs:enumeration value="getAllAccountHolders" />
+							
+							<!-- *************************** -->
+							<!-- Metrics Engine ELEMENTS -->
+							<!-- *************************** -->
+							<xs:enumeration value="getMetrics" />
+							
+							<!-- *************************** -->
+							<!-- Rules Engine ELEMENTS -->
+							<!-- *************************** -->
+							<xs:enumeration value="rules" />
+							
+							<!-- *************************** -->
+							<!-- Integration Engine ELEMENTS -->
+							<!-- *************************** -->
+							<xs:enumeration value="orderQualification" />
+							<xs:enumeration value="orderSubmission" />
+							<xs:enumeration value="orderStatus" />
+							<xs:enumeration value="getProductCatalog" />
+							<xs:enumeration value="serviceQualification" />
+							<xs:enumeration value="creditQualification" />
+							<xs:enumeration value="updateOrder" />
+							<xs:enumeration value="orderDateQualification" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="status" type="ac:statusType" minOccurs="0"
+					maxOccurs="1" />
+
+				<xs:element name="pagingDetail" minOccurs="0" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="offSet" type="xs:int" />
+							<xs:element name="totalRows" type="xs:int" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="request">
+					<xs:complexType>
+						<xs:annotation>
+							<xs:documentation>
+								The order id by itself is sufficient for the
+								delete and getOrder requests.
+								It is required, along with some
+								additional data (listed below) for addLineItem,
+								updateOrderStatus
+								and updateLineItemStatus.
+							</xs:documentation>
+						</xs:annotation>
+						<xs:sequence>
+						
+						<xs:element name="lineitemId" minOccurs="0" maxOccurs="unbounded"
+								type="xs:string" />
+
+							<xs:element name="rulesAction" minOccurs="0"
+								maxOccurs="1">
+								<xs:simpleType>
+									<xs:restriction base="xs:token">
+										<xs:enumeration value="clearMemoryCache" />
+										<xs:enumeration value="clearStorageCache" />
+										<xs:enumeration value="validate" />
+										<xs:enumeration value="find" />
+										<xs:enumeration value="findById" />
+										<xs:enumeration value="findByName" />
+										<xs:enumeration value="getAll" />
+										<xs:enumeration value="update" />
+										<xs:enumeration value="save" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+
+							<xs:element name="jobAction" minOccurs="0" maxOccurs="1">
+								<xs:simpleType>
+									<xs:restriction base="xs:token">
+										<xs:enumeration value="update" />
+										<xs:enumeration value="save" />
+										<xs:enumeration value="deleteAll" />
+										<xs:enumeration value="deleteJob" />
+										<xs:enumeration value="lock" />
+										<xs:enumeration value="isLocked" />
+<xs:enumeration value="findNextAndOffer" />
+	<xs:enumeration value="findNextAndProcess" />
+	<xs:enumeration value="findByExternalId" />
+	<xs:enumeration value="findByContextStatus" />
+	<xs:enumeration value="findByOrderLineItem" />
+
+										<xs:enumeration value="cancel" />
+										<xs:enumeration value="complete" />
+										<xs:enumeration value="activate" />
+										<xs:enumeration value="schedule" />
+										<xs:enumeration value="create" />
+										 
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							
+							
+
+							<xs:element name="jobs" type="ac:jobCollectionType"
+								minOccurs="0" maxOccurs="1" />
+
+							
+							<xs:element name="salesContext" type="ac:salesContextType"
+								minOccurs="0" maxOccurs="1" />
+							<xs:element name="notificationEvents" type="ac:notificationEventCollectionType"
+								minOccurs="0" maxOccurs="1" />
+
+							<xs:element name="dateFilter" type="ac:dateTimeOrTimeRangeType"
+								minOccurs="0" maxOccurs="1" />
+							<xs:element name="orderId" type="xs:string" />
+							<xs:element name="providerId" type="xs:string" />
+							<xs:element name="agentId" type="xs:string" />
+							<xs:element name="customerId" minOccurs="0" maxOccurs="1"
+								type="xs:string" />
+
+							<xs:element name="confirmationNumber" minOccurs="0"
+								maxOccurs="1" type="xs:string" />
+
+							<xs:element name="criteria" type="xs:string" minOccurs="0" maxOccurs="1" />
+
+							<!-- New element added for Encore search ticket AM-2025 -->
+							<xs:element name="channelType" type="xs:int" minOccurs="0" maxOccurs="1" />
+
+							<xs:choice minOccurs="0" maxOccurs="1">
+
+								<xs:sequence>
+									<xs:annotation>
+										<xs:documentation>
+											This sequence is for add line items
+											requests.
+									</xs:documentation>
+									</xs:annotation>
+									<xs:element name="afterLineItemNumber" type="xs:int"
+										minOccurs="1" maxOccurs="1" />
+									<xs:element name="isAppliesToLineItemIncluded" type="xs:boolean"
+										minOccurs="1" maxOccurs="1" />
+									<xs:element name="newLineItems" type="ac:lineItemCollectionType"
+										minOccurs="1" maxOccurs="1" />
+								</xs:sequence>
+
+								<xs:sequence>
+									<xs:annotation>
+										<xs:documentation>
+											allow searches and filtering based on the
+											status and reason code
+											of the orders
+											also allows searches for
+											status and reason on a specific date.
+										</xs:documentation>
+									</xs:annotation>
+									<xs:element name="scheduleDate" type="ac:dateTimeOrTimeRangeType"
+										minOccurs="0" maxOccurs="1" />
+									<xs:element name="status" type="xs:string"
+										minOccurs="0" maxOccurs="unbounded" />
+									<xs:element name="reason" type="xs:string"
+										minOccurs="0" maxOccurs="unbounded" />
+									<xs:element name="scheduledStartDate" type="xs:date"
+										minOccurs="0" maxOccurs="1" />
+									<xs:element name="orderDate" type="xs:date"
+										minOccurs="0" maxOccurs="1" />
+									<xs:element name="lineItemCreateDate" type="xs:date"
+										minOccurs="0" maxOccurs="1" />
+								</xs:sequence>
+
+
+								<xs:sequence>
+									<xs:annotation>
+										<xs:documentation>
+											This sequence is for create order requests.
+										</xs:documentation>
+									</xs:annotation>
+									<xs:element name="orderInfo" type="ac:orderType"
+										minOccurs="1" maxOccurs="1" />
+								</xs:sequence>
+
+								<xs:sequence>
+									<xs:annotation>
+										<xs:documentation>
+											This sequence is for update order status
+											requests.
+											</xs:documentation>
+									</xs:annotation>
+
+									<xs:element name="newOrderStatus" type="ac:orderStatusWithTypeType"
+										minOccurs="1" maxOccurs="1" />
+								</xs:sequence>
+
+								<xs:sequence>
+									<xs:annotation>
+										<xs:documentation>
+											Update the status of the line item.
+										</xs:documentation>
+									</xs:annotation>
+									<xs:element name="lineItemId" type="xs:string" />
+									<xs:element name="newLineItemStatus" type="ac:lineItemStatusType"
+										minOccurs="1" maxOccurs="1" />
+								</xs:sequence>
+
+
+
+
+								<xs:sequence>
+									<xs:annotation>
+										<xs:documentation>
+											This sequence is for update order requests.
+										</xs:documentation>
+									</xs:annotation>
+									<xs:element name="updateOrderInfo" type="ac:orderType"
+										minOccurs="1" maxOccurs="1" />
+								</xs:sequence>
+
+								<xs:sequence>
+									<xs:annotation>
+										<xs:documentation>
+											This sequence is for update line item status
+											requests, or update line item requests.
+											</xs:documentation>
+									</xs:annotation>
+									<!-- <xs:element name="lineItemNumber" type="xs:int" minOccurs="1" 
+										maxOccurs="1" /> -->
+									<xs:choice>
+										<xs:element name="updatedLineItemInfo" type="ac:lineItemCollectionType"
+											minOccurs="1" maxOccurs="1" />
+									</xs:choice>
+								</xs:sequence>
+							</xs:choice>
+						<xs:element name="accountHolder" type="ac:accountHolderType" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="includeAccountHolders" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+
+
+
+
+				<xs:element name="response" minOccurs="0" maxOccurs="1">
+					<xs:complexType>
+						<xs:annotation>
+							<xs:documentation>
+								A response will consist of either the updated
+								order, or the id of the order.
+							</xs:documentation>
+						</xs:annotation>
+						<xs:sequence>
+							<xs:element name="salesContext" type="ac:salesContextType"
+								minOccurs="1" maxOccurs="1" />
+							<xs:element name="notificationEvents" type="ac:notificationEventCollectionType"
+								minOccurs="0" maxOccurs="1" />
+							<xs:element name="jobs" type="ac:jobCollectionType"
+								minOccurs="0" maxOccurs="1" />
+
+							<xs:choice>
+								<xs:element name="orderInfo" type="ac:orderType"
+									minOccurs="1" maxOccurs="unbounded" />
+								<xs:element name="orderId" type="xs:string"
+									minOccurs="1" maxOccurs="1" />
+								<xs:element name="orderSearchResult" type="ac:OrderSearch" 
+									minOccurs="1" maxOccurs="1" />
+							</xs:choice>
+							<xs:element name="accountHolder" type="ac:accountHolderType" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+			</xs:sequence>
+		</xs:complexType>
+
+	</xs:element>
+
+
+</xs:schema>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <v4:orderManagementRequestResponse xsi:schemaLocation="http://xml.AL.com/v4 orderManagement.xsd " xmlns:v4="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         <v4:correlationId>68e92224-bb6f-47b9-999c-d4dfac9986b5</v4:correlationId>
+         <v4:transactionTimeStamp>2011-11-01</v4:transactionTimeStamp>
+         <v4:transactionId>0</v4:transactionId>
+         <v4:transactionType>updateLineItem</v4:transactionType>
+         <v4:request>
+            <v4:orderId>7071</v4:orderId>
+            <v4:updatedLineItemInfo>
+               <v4:lineItem>
+                  <v4:productDatasource dataSource="">internal</v4:productDatasource>
+                  <v4:lineItemDetail>
+                     <!--Product Unique Id-->
+                     <v4:productUniqueId>3958</v4:productUniqueId>
+                  </v4:lineItemDetail>
+                  <!--Lineitem External Id-->
+                  <v4:externalId>5677</v4:externalId>
+                 <v4:lineItemAttributes>
+                        <v4:entity source="SourceA">
+                           <v4:attribute>
+                              <v4:name>A1</v4:name>
+                              <v4:value>A123</v4:value>
+                              <v4:description/>
+                           </v4:attribute>
+                        </v4:entity>
+                        <v4:entity source="SourceB">
+                           <v4:attribute>
+                              <v4:name>B1</v4:name>
+                              <v4:value>B12333</v4:value>
+                              <v4:description/>
+                           </v4:attribute>
+                           <v4:attribute>
+                              <v4:name>B2</v4:name>
+                              <v4:value>B23444</v4:value>
+                              <v4:description/>
+                           </v4:attribute>
+                        </v4:entity>
+                        <v4:entity source="SourceC">
+                           <v4:attribute>
+                              <v4:name>C1</v4:name>
+                              <v4:value>C123</v4:value>
+                              <v4:description/>
+                           </v4:attribute>
+                        </v4:entity>
+                     </v4:lineItemAttributes>
+               </v4:lineItem>
+            </v4:updatedLineItemInfo>
+         </v4:request>
+      </v4:orderManagementRequestResponse>

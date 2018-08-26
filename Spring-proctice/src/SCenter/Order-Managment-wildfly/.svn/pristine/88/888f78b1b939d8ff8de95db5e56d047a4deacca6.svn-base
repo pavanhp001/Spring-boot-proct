@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<v4:orderManagementRequestResponse
+	xmlns:v4="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xml.AL.com/v4 orderManagement.xsd ">
+	<v4:correlationId>12345</v4:correlationId>
+	<v4:transactionType>updateLineItem</v4:transactionType>
+	<v4:request>
+		<v4:orderId>6283</v4:orderId>
+		<v4:updatedLineItemInfo>
+			<v4:lineItem>
+				<v4:externalId>5125</v4:externalId>
+				<v4:newPhone>111-222-3355</v4:newPhone>
+				<v4:productDatasource dataSource="">internal</v4:productDatasource>
+				<!-- <v4:svcAddressExtId>4409</v4:svcAddressExtId>
+				<v4:billingInfoExtId>2309</v4:billingInfoExtId> -->
+				<v4:lineItemDetail>
+					<!--Product Unique Id -->
+					<v4:productUniqueId>3437</v4:productUniqueId>
+				</v4:lineItemDetail>
+				<!-- <v4:selectedFeatures>
+					<v4:features>
+						<v4:featureValue externalId="HD_RCVR" value="1"
+							type="integer" />
+					</v4:features>
+				</v4:selectedFeatures> -->
+			</v4:lineItem>
+		</v4:updatedLineItemInfo>
+	</v4:request>
+</v4:orderManagementRequestResponse>

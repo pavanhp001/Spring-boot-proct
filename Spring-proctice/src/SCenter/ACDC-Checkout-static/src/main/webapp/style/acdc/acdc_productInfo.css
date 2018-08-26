@@ -1,0 +1,293 @@
+.included .feature_item_Value{display:block;margin:0 5px;padding:0 0 0 15px;text-indent:initial;width:auto}
+
+#accordion .tv_features_list .glyphicon{color:#81bc3e;float:left;font-weight:normal;margin-right:5px}
+
+.promotionInputSpan{float:left}
+
+.promotiontext { margin-left: 27px; margin-top: 10px; text-align: justify; }
+
+.termsandcondition { font-weight: bold; }
+
+.promotionSD{font-weight:bold;margin-left:26px;padding:2px}
+
+.promotionInfo{background-color:#f1f1f1;padding:5px 10px;border:1px solid #ccc;overflow: hidden;}
+
+.dataFieldCont{float:left;width:53%}
+
+.validCont{display:none;margin:40px 0 0}
+
+#left_sec_content #bottom-footer .next_step span{width:165px;height:34px;background-color:#81bd41;color:#fff;display:table-cell;cursor:pointer;vertical-align:middle;text-align:center;font-size:18px;font-weight:bold;border-radius:5px;text-decoration:none}
+
+#customizations .next_step span{width:165px;height:34px;background-color:#81bd41;color:#fff;display:table-cell;cursor:pointer;vertical-align:middle;text-align:center;font-size:18px;font-weight:bold;border-radius:5px;text-decoration:none}
+
+.dropdownAling{margin:0 0 0 -5px;padding:8px 1px 2px 0}
+
+.feature_item .alert{border:1px solid transparent;border-radius:4px;margin-bottom:4px;margin-top:8px;padding:15px}
+
+.radioPromation{border-bottom:1px dashed #999;font-weight:bold;padding:5px 5px 10px 2px}
+
+.promotionRadioInfo{background:#eee none repeat scroll 0 0;margin:0 0 10px}
+
+.checkboxPromation{border-bottom:1px dashed #999;font-weight:bold;padding:5px 5px 10px 10px}
+
+.promotionCheckBoxInfo{margin:0 0 10px}
+
+.tabspace{margin-left:25px}
+.home-services-options.noPromotions.row {padding: 4px;text-align: center;}
+
+
+
+.tabspace {
+  margin-left: 15px;
+}
+
+  .No_of_tvs{
+    border-radius: 4px;
+    display: inline-block;
+    width: 100%;
+}
+.tv_items {
+    text-align: center;
+}
+
+.tv_item {   
+    border-radius: 10px;
+    text-align: center;
+    width: auto;
+}
+
+.listing_type.active{
+	background-color:#81bd41;color:#fff;
+}
+.tv_item.active{
+	background-color:#333;color:#fff;
+}
+.tv_items.active{
+	background-color:#333;color:#fff;
+}
+
+.feature_item_Value.featureDataField {
+    float: left;
+    left: 0;
+    /* margin-top: -104px; */
+    position: absolute;
+}
+.nav > li {
+    display: block;
+    position: relative;
+}
+.nav-tabs > li {
+    margin-bottom: 0;
+}
+#accordion .panel-body .home-services-options .home-services-body .nav-tabs > li a.selectedTv{
+	 background: #545557 none repeat scroll 0 0;
+    color: #fff;
+    font-weight: bold;
+	
+}
+#accordion .panel-body .home-services-options .home-services-body .nav-tabs > li a{
+	background-color: #f1f1f1;
+    border: 1px solid;
+    border-block-start-width: 1px;
+    border-radius: 4px;
+    color: #545557;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: normal;
+    margin-right: 0;
+    min-height: 46px;
+    min-width: 114px;
+    padding: 7px;
+    text-align: center;
+}
+
+.receiverContent {
+    border: 1px solid #ccc;
+    padding: 10px;
+    clear: both;
+     overflow: hidden;
+}
+.tvOptions {
+    padding: 4px;
+}
+.receiverText {
+    font-size: 12px;
+    font-weight: normal;
+    margin: 5px;
+}
+.tvOptionsCont{
+	  float: left;
+    margin-top: 8px;
+    margin-right: 10px;
+    width: 27%;
+}
+.moreTvs {
+    width: 150px;
+}
+.playbackReceiver{
+	display : none;
+}
+.configureContent{
+	background-color: #81bd41;
+    border: 1px solid #aeaeae;
+    color: #fff;
+    float: left;
+    font-size: 13px;
+    font-weight: bold;
+    height: auto;
+    margin: 10px 10px 10px 0;
+    padding: 12px;
+    width: 150px;
+}
+.configureContentImage {
+    text-align: center;
+}
+
+#accordion .tv_features_list .noOfTvOptions .error_tooltip .error_tooltip_lbl {
+min-width: auto !important;
+}
+img.configure {
+    height: 35px;
+}
+.configureNoOfTvs{
+	color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+.configureHead {
+    font-weight: bold;
+    margin: 20px 0 5px;
+    padding: 5px 0;
+}
+
+.listing_type{
+	border: 1px solid #000;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    height: 80px;
+    line-height: normal;
+    margin: 30px 9px 7px 0;
+    min-width: 20%;
+    padding: 20px;
+    text-align: center;
+    width: auto;
+    cursor:pointer;
+}
+.listing_type.active{
+	background-color:#81bd41;color:#fff;
+}
+.moreTvsText {
+    padding: 0 50px 0 0;
+}
+.detailsAndTerms {
+    display: none;
+    margin-top: 15px;
+}
+.detailsAndTermsLink {
+    cursor: pointer;
+    float: right;
+    font-weight: bold;
+    text-decoration: underline;
+    color: #444;
+    font-size: 12px;
+}
+.termsAndConditionLink{
+	cursor: pointer;
+    float: left;
+    font-weight: bold;
+    text-decoration: underline;
+    color: #444;
+    font-size: 12px;
+}
+.termsAndCondition {
+	display: none;
+    margin-top: 20px;
+}
+.plusToggle {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 4px;
+    text-decoration: none;
+}
+.termsAndConditionLink .glyphicon.glyphicon-plus,.termsAndConditionLink .glyphicon.glyphicon-minus {
+	color: #777 !important;
+    float: left;
+    margin: 1px 3px 2px 5px;
+    padding: 0;
+}
+.detailsAndTermsLink .glyphicon.glyphicon-plus , .detailsAndTermsLink .glyphicon.glyphicon-minus{
+	color: #777 !important;
+    float: left;
+    margin: 1px 3px 2px 5px;
+    padding: 0;
+}
+
+
+.need_help_ordering_addtvs{ width: 600px; }
+#left_sec_content .home-services-body-content .need_help_ordering{margin:20px 0;}
+#left_sec_content .home-services-body-content .need_help_ordering button{
+	margin-right:6px;background-color:#637e91;color:#fff;font-size:20px;font-weight:bold;width:33px;height:33px;border:none;border-radius:4px;
+}
+#left_sec_content .home-services-body-content .need_help_ordering span{}
+#left_sec_content .home-services-body-content .need_help_ordering span span{display:table;color:#647e8f;font-size:12px;line-height: 14px;}
+#left_sec_content .home-services-body-content .need_help_ordering span.need_help_ordering_title{
+	font-size:14px;font-weight:bold;line-height: 16px;padding-bottom:4px;
+}
+
+#left_sec_content .need_help_ordering_addtvs{ margin:9px 0 0 1px; color:#222 !important; font-size:12px; }
+#left_sec_content .need_help_ordering_addtvs button{
+	margin-right:5px;background-color:#637e91;color:#fff;font-size:14px;font-weight:bold;width:20px;height:20px;border:none;border-radius:3px;
+}
+.tooltipContent { clear: both; padding-top: 10px; }
+.house-dvr-help-icon { background-color: #999; border-radius: 72px; color: #fff; display: inline-block; font-size: 10px; font-weight: normal; height: 13px; margin: -2px 0 0 1px; position: absolute; text-align: center; text-decoration: none !important; vertical-align: inherit; width: 13px; }
+.feature_item_Value a{
+   cursor: pointer;
+   }
+   
+   .mandatory {
+    color: #ff0000;
+    display: inline;
+    float: left;
+    font-weight: bold;
+    margin-left: 4px;
+    margin-right: 5px;
+}
+ #accordion .tv_features_list .error_tooltip .glyphicon {
+    color: #fed5d0;
+    float: none !important;
+    font-weight: normal;
+    margin-right: 5px;
+}
+.validationMsgCont {clear: both;}
+div.tv_item ul li {
+    margin-left: 10px;
+}
+div.tv_item  ul.nav.nav-tabs li:first-child {
+    margin-left: 0;
+}
+.noOfTvOptions {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+@media ( max-width : 500px ) {
+	.noOfTvOptions {
+		font-size: 11px;
+	}
+	#optionContent {
+		width: 47% !important;
+	}
+	.receiverText {
+		font-size: 11px;
+	}
+	.receiverContent {
+		padding: 6px;
+	}
+	#accordion .panel-body .home-services-options .home-services-body .nav-tabs > li a {
+		min-width: 79px !important;
+	}
+}

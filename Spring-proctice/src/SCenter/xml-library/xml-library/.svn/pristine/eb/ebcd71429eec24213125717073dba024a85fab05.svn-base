@@ -1,0 +1,734 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" targetNamespace="http://xml.A.com/v4"
+	xmlns:ac="http://xml.A.com/v4" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:include schemaLocation="payment.xsd" />
+	<xs:include schemaLocation="address.xsd" />
+	<xs:include schemaLocation="types.xsd" />
+
+
+	<xs:element name="customer">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="ac:customerType">
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+
+
+<xs:element name="partnerInformation">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ac:customer" minOccurs="1" maxOccurs="unbounded"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="customerType">
+		<xs:sequence>
+
+		<xs:element ref="ac:partnerInformation" minOccurs="0"
+				maxOccurs="1" />
+
+
+
+			<xs:element name="externalId" type="xs:long" minOccurs="0"
+				maxOccurs="1" />
+
+			<xs:element name="customerCreateDate" type="xs:dateTime"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Date when customer was created
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="referrerId" type="xs:long" minOccurs="0"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Referrer Ext id who has transferred customer to
+						A.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="referrerGeneralName" type="xs:string" minOccurs="0"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Referrer general name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="partnerId" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Partner id
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="partnerAccountId" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Referrer account id who has transferred customer
+						to A.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dtAgentId" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Referrer AgentId who transferred customer
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dtCreated" type="xs:dateTime"
+				minOccurs="0" maxOccurs="1" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Date when referrer/utility partner transferred customer
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="agentId" type="xs:string" minOccurs="1"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Agent Id who is creating customer profile.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="agentName" type="xs:string" minOccurs="0"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Agent Name who is creating customer profile.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="ac:title" minOccurs="0" maxOccurs="1" />
+			<xs:element ref="ac:firstName" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Customer's first name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="ac:lastName" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Customer's last name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="ac:middleName" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Customer's middle name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="ac:nameSuffix" minOccurs="0" maxOccurs="1" />
+
+			<xs:element ref="ac:gender" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Customer's geneder.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dob" type="xs:date" minOccurs="0"
+				maxOccurs="1" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Customer's date of birth. Valid format for date
+						is yyyy-MM-dd. For eg. 1968-10-03</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="ac:ssn" minOccurs="0" maxOccurs="1" />
+
+			<xs:element name="nonBuyerWebOptIn" type="xs:boolean"
+				minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Is customer opting to receieve updated other then
+						web email like SMS? Valid values are 'true' or 'false'
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="directMailOptIn" type="xs:boolean"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="eMailOptIn" type="xs:boolean" minOccurs="1"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Is customer optiong for email updated? Valid
+						values are 'true' or 'false'.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="phoneContactOptIn" type="xs:boolean"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="eMailProductUpdatesOptIn" type="xs:boolean"
+				minOccurs="1" maxOccurs="1" />
+
+			<xs:element name="marketingOptIn" type="xs:boolean"
+				minOccurs="1" maxOccurs="1" />
+
+
+			<xs:element name="offersPresented" type="xs:string"   minOccurs="0" maxOccurs="1" nillable="true"/>
+
+			<xs:element name="howLongAtPreviousAddress" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+
+			<xs:element name="bestTimeToCall1" type="xs:dateTime"
+				minOccurs="0" maxOccurs="1" nillable="true">
+				<xs:annotation>
+					<xs:documentation> Best time to call</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="bestTimeToCall2" type="xs:dateTime"
+				minOccurs="0" maxOccurs="1" nillable="true">
+				<xs:annotation>
+					<xs:documentation> Best time to call</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="bestTimeToCallPhone" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation> Best time to call phone number
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="bestEmailContact" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation> Best email contact</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+
+			<xs:element name="bestPhoneContact" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation> Best phone contact</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="partnerName" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation> Partner Name or Roommate Name.  Spouse.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="partnerSSN" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation> Partner SSN.  Spouse or Roommate</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+				<xs:element name="secondPhone" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation> Second Phone</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			 <xs:element name="contractAccountNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                     <xs:documentation>Data Exchage customer contract account number</xs:documentation>
+                 </xs:annotation>
+             </xs:element>
+
+			<xs:element name="ACustomerNumber" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="homePhoneNumber" type="ac:phoneNumberType"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Contact details for home phone no.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="cellPhoneNumber" type="ac:phoneNumberType"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Contact details for cell phone no.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="workPhoneNumber" type="ac:phoneNumberType"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Contact details for work phone no.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="workPhoneNumberExtn" type="xs:int" minOccurs="0" maxOccurs="1" />
+			
+			<xs:element name="homeEMail" type="ac:eMailAddressType"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Contact details for home email.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="workEMail" type="ac:eMailAddressType"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Contact details for work email address.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="region" type="ac:regionType" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="landlordInfo" type="ac:landlordInfoType"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="driverLicense" type="ac:driverLicenseType"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="stateId" type="ac:stateIdType"
+				minOccurs="0" maxOccurs="1" />
+
+			<xs:element name="primaryLanguage" type="xs:int"
+				minOccurs="0" maxOccurs="1" default="0" />
+
+			<xs:element name="payments" type="ac:paymentsType"
+				minOccurs="0" maxOccurs="1" />
+
+			<xs:element name="csatSurveys" type="ac:csatSurveysType"
+				minOccurs="0" maxOccurs="1" />
+
+			<xs:element name="providerCustomerType" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="NEW" />
+						<xs:enumeration value="EXISTING" />
+						<xs:enumeration value="WINBACK" />
+						<xs:enumeration value="TRANSFER" />
+						<xs:enumeration value="DISCONNECT" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+
+
+			<xs:element name="accounts" type="ac:accounts"
+				minOccurs="0" maxOccurs="1" />
+
+				<xs:element name="attributes" type="ac:attributes"
+				minOccurs="0" maxOccurs="1" />
+
+
+			<xs:element name="financialInfo" type="ac:customerFinancialInfoType"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="billingInfoList" type="ac:billingInfoList"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="addressList" type="ac:addressListType"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="securityVerificationInfo" type="ac:securityVerificationType"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="billingDeliveryPreference">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="paper" />
+						<xs:enumeration value="electronic" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+			<xs:element name="customerInteractionList" type="ac:customerInteractionList" />
+			<xs:element name="eventNotification" type="ac:notificationEventType"
+				minOccurs="0" maxOccurs="1" />
+			<!-- <xs:element name="customerAttributes" type="ac:customerAttributeType"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						This element can be used to store extra
+						information about customer.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element> -->
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<!-- <xs:complexType name="customerAttributeType">
+		<xs:sequence>
+			<xs:element name="attribute" type="ac:custAttributeDetailType"
+				minOccurs="1" maxOccurs="unbounded" nillable="true" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+
+	<xs:complexType name="custAttributeDetailType">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" />
+			<xs:element name="value" type="xs:string" />
+			<xs:element name="description" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType> -->
+
+
+	<xs:complexType name="customerInteractionList">
+		<xs:sequence>
+			<xs:element name="customerInteraction" type="ac:customerInteractionType"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="customerInteractionType">
+		<xs:sequence>
+			<xs:element name="customerId" type="xs:long" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="agentId" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="orderId" type="xs:long" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="providerId" type="xs:long" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="lineItemId" type="xs:long" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="reasons" type="xs:string" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="source" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="interactionDate" type="xs:dateTime"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="notes" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="agentName" type="xs:string" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="customerFullName" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="externalId" type="xs:long" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="serviceType" type="xs:string" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="billingInfoList">
+		<xs:sequence>
+			<xs:element name="billingInfo" type="ac:custBillingInfoType"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="accounts">
+		<xs:sequence>
+			<xs:element name="account" type="ac:AccountType"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+		<xs:complexType name="attributes">
+		<xs:sequence>
+			<xs:element name="attribute" type="ac:CustomerAttributeType"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="custBillingInfoType">
+		<xs:sequence>
+			<xs:element name="addressRef" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="billingAccountType" type="ac:billingAccountTypeType"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="billingMethod" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="creditCardNumber" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="creditCardType" type="ac:creditCardTypeType"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="expirationYearMonth" minOccurs="0"
+				maxOccurs="1" type="xs:gYearMonth" />
+			<xs:element name="cardHolderName" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="verificationCode" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="checkingAccountNumber" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="routingNumber" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+				<xs:element name="isChecking" type="xs:int"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="status" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="externalId" type="xs:long" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="billingUniqueId" type="xs:string"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="accountHolderUniqueId" type="xs:string"
+    			minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="addressListType">
+		<xs:sequence>
+			<xs:element name="customerAddress" type="ac:custAddress"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="roleType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CurrentAddress" />
+			<xs:enumeration value="ServiceAddress" />
+			<xs:enumeration value="BillingAddress" />
+			<xs:enumeration value="PreviousAddress" />
+			<xs:enumeration value="MailingAddress" />
+			<xs:enumeration value="HomeAddress" />
+			<xs:enumeration value="ShippingAddress" />
+			<xs:enumeration value="CorrectedAddress" />
+			<xs:enumeration value="DTAddress" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="custAddress">
+		<xs:sequence>
+			<xs:element name="addressRoles" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="role" type="ac:roleType" />
+					</xs:choice>
+				</xs:complexType>
+
+			</xs:element>
+
+			<xs:element name="addressUniqueId" type="xs:string"
+				minOccurs="1" maxOccurs="1" />
+
+			<xs:element name="comment" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+
+
+			<xs:element name="status" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="active" />
+						<xs:enumeration value="inactive" />
+						<xs:enumeration value="deleted" />
+						<xs:enumeration value="prospect" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="address" type="ac:addressType"
+				minOccurs="1" maxOccurs="1" />
+
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="customerFinancialInfoType">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="employed" minOccurs="0" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="businessName" type="xs:string"
+								minOccurs="0" maxOccurs="1" />
+							<xs:element name="businessPhoneNum" type="xs:string"
+								minOccurs="0" maxOccurs="1" />
+							<xs:element name="occupation" type="xs:string"
+								minOccurs="0" maxOccurs="1" />
+
+							<xs:element name="howLongWithCurrentEmployerMonth"
+								type="xs:string" minOccurs="0" maxOccurs="1" default="0" />
+
+							<xs:element name="howLongWithCurrentEmployerYear"
+								type="xs:string" minOccurs="0" maxOccurs="1" default="0" />
+
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="unemployed" type="ac:emptyElementType"
+					minOccurs="0" maxOccurs="1" />
+			</xs:choice>
+			<xs:element name="student" type="ac:emptyElementType"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="retired" type="ac:emptyElementType"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="bankOrMortgageInstitution" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="otherIncomeSource" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+
+	<xs:complexType name="securityVerificationType">
+		<xs:sequence>
+			<xs:element name="pin" type="xs:string" />
+			<xs:element name="securityQuestion" type="xs:string" />
+			<xs:element name="securityAnswer" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="landlordInfoType">
+		<xs:sequence>
+			<xs:element name="landlordName" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="landlordPhoneNumber" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="driverLicenseType">
+		<xs:sequence>
+			<xs:element name="LicenseNumber" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="State" type="xs:string" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="LicenseExpirationDate" type="xs:date"
+				minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="stateIdType">
+		<xs:sequence>
+			<xs:element name="IdNumber" type="xs:string" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="State" type="xs:string" minOccurs="0"
+				maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="accountsType">
+		<xs:sequence>
+			<xs:element name="Account" type="ac:AccountType"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xs:element name="PaymentEventType" type="ac:paymentEventTypeType"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xs:element name="OrderId" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="CustomerId" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="AccountType">
+		<xs:sequence>
+		<xs:element name="externalId" type="xs:string" />
+			<xs:element name="providerType" type="xs:string" />
+			<xs:element name="accountType" type="xs:string" />
+			<xs:element name="billingAccountNumber" type="xs:string" />
+			<xs:element name="billingAccountTelephoneNumber" type="xs:string" />
+			<xs:element name="addressExtId" type="xs:string" />
+			<xs:element name="consumerExtId" type="xs:string" />
+			<xs:element name="authentication" type="ac:securityVerificationType"
+				minOccurs="0" />
+			<xs:element name="existingLast4SSN" type="xs:string" />
+			<xs:element name="securityCreditCard" type="ac:SecurityCreditCardType" />
+			<xs:element name="prevAddressIndicator" type="xs:boolean" />
+			<xs:element name="creditCheck" type="xs:string" />
+			<xs:element name="creditAlert" type="xs:string" />
+		</xs:sequence>
+		<xs:attribute name="suppressionIndicator" use="optional" type="xs:string" />
+		<xs:attribute name="consentToCC" type="xs:string" use="optional" />
+		<xs:attribute name="accountStatus" type="xs:string" />
+		<xs:attribute name="accountTypeIndicator" use="required" />
+	</xs:complexType>
+
+
+	<xs:complexType name="SecurityCreditCardType">
+		<xs:sequence>
+			<xs:element name="securityTCAccepted" type="xs:string" />
+			<xs:element name="isAuthorized" type="xs:string" />
+			<xs:element name="creditCardRef" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="contactType">
+		<xs:sequence>
+			<xs:element name="phoneNumber" type="ac:phoneNumberType"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="eMailAddress" type="ac:eMailAddressType"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="customerSearch">
+		<xs:sequence>
+			<xs:element name="totalRows" type="xs:int"  minOccurs="1" maxOccurs="1"/>
+			<xs:element name="searchResult" type="ac:customerData"  minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="customerData">
+		<xs:sequence>
+			<xs:element name="externalId" type="xs:string"	minOccurs="0" maxOccurs="1" />
+			<xs:element name="firstName" type="xs:string"	minOccurs="0" maxOccurs="1" />
+			<xs:element name="lastName" type="xs:string"	minOccurs="0" maxOccurs="1" />
+			<xs:element name="homePhone" type="xs:string"	minOccurs="0" maxOccurs="1" />
+			<xs:element name="workPhone" type="xs:string"	minOccurs="0" maxOccurs="1" />
+			<xs:element name="cellPhone" type="xs:string"	minOccurs="0" maxOccurs="1" />
+			<xs:element name="bestPhoneContact" type="xs:string"	minOccurs="0" maxOccurs="1" />
+			<xs:element name="secondPhone" type="xs:string"	minOccurs="0" maxOccurs="1" />
+			<xs:element name="homeEmail" type="xs:string"	minOccurs="0" maxOccurs="1" />
+			<xs:element name="workEmail" type="xs:string"	minOccurs="0" maxOccurs="1" />
+			<xs:element name="address" type="xs:string"	minOccurs="0" maxOccurs="1" />
+			<xs:element name="ACustNumber" type="xs:string"	minOccurs="0" maxOccurs="1" />
+			<xs:element name="dtCreated" type="xs:string"	minOccurs="0" maxOccurs="1" />
+
+			<xs:element name="orderId" type="xs:long" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="orderDate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="agentId" type="xs:string" minOccurs="0" maxOccurs="1"/>
+
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CustomerAttributeType">
+		<xs:sequence>
+			<xs:element name="entity" type="ac:CustomerAttributeEntityType"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CustomerAttributeEntityType">
+		<xs:sequence>
+			<xs:element name="attribute" type="ac:CustomerAttributeDetailType"
+				minOccurs="1" maxOccurs="unbounded" nillable="true" />
+		</xs:sequence>
+		<xs:attribute name="source" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:pattern value="[\w\d\\.]+"></xs:pattern>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="CustomerAttributeDetailType">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" />
+			<xs:element name="value" type="xs:string" />
+			<xs:element name="description" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="csatSurveysType">
+		<xs:sequence>
+			<xs:element name="csatSurvey" type="ac:csatSurveyType"	minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="csatSurveyType">
+		<xs:sequence>
+			<xs:element name="id" type="xs:int" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="accountHolderSearch">
+		<xs:sequence>
+			<xs:element name="totalRows" type="xs:int"  minOccurs="1" maxOccurs="1"/>
+			<xs:element name="searchResult" type="ac:accountHolderData"  minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="accountHolderData">
+		<xs:sequence>
+			<xs:element name="customerId" type="xs:string"	minOccurs="0" maxOccurs="1" />
+			<xs:element name="customerName" type="xs:string"	minOccurs="0" maxOccurs="1" />
+			<xs:element name="accountName" type="xs:string"	minOccurs="0" maxOccurs="1" />
+			<xs:element name="ssn" type="xs:string"	minOccurs="0" maxOccurs="1" />
+			<xs:element name="productName" type="xs:string"	minOccurs="0" maxOccurs="1" />
+			<xs:element name="address" type="xs:string"	minOccurs="0" maxOccurs="1" />
+			<xs:element name="orderId" type="xs:long"	minOccurs="0" maxOccurs="1" />
+			<xs:element name="lineItemId" type="xs:long"	minOccurs="0" maxOccurs="1" />
+			<xs:element name="status" type="xs:string"	minOccurs="0" maxOccurs="1" />
+			<xs:element name="providerId" type="xs:string"	minOccurs="0" maxOccurs="1" />
+			<xs:element name="agentId" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="accntHolderId" type="xs:string"	minOccurs="0" maxOccurs="1" />
+			<xs:element name="customerSsn" type="xs:string"	minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

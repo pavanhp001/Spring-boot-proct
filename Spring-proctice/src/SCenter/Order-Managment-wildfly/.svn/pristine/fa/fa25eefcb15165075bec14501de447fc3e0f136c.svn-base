@@ -1,0 +1,21 @@
+<v4:orderManagementRequestResponse xmlns:v4="http://xml.AL.com/v4" xmlns:ac="http://xml.AL.com/v4">
+	<v4:correlationId>ed877215-b365-46ba-8656-987b230db9ce</v4:correlationId>
+	<v4:transactionTimeStamp>2014-11-13-05:00</v4:transactionTimeStamp>
+	<v4:transactionType>updateLineItemStatusLW</v4:transactionType>
+	<v4:request>
+		<v4:salesContext>
+			<v4:entity name="SYP">
+				<v4:attribute name="source" value="V"/>
+				<v4:attribute name="updatedBy" value="ext_process"/>
+				<v4:attribute name="sessionStatus" value="completed"/>
+				<v4:attribute name="transactionId" value="2000374421416332528761"/>
+			</v4:entity>
+		</v4:salesContext>
+		<v4:orderId>200059949</v4:orderId>
+		<v4:lineitemId>200040464</v4:lineitemId>
+		<v4:agentId>external</v4:agentId>
+		<v4:newLineItemStatus statusCode="hold_order" dateTimeStamp="2014-11-13T08:47:37.024-05:00" agentId="external">
+			<v4:reason>0</v4:reason>
+		</v4:newLineItemStatus>
+	</v4:request>
+</v4:orderManagementRequestResponse>

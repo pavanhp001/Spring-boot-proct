@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" targetNamespace="http://xml.A.com/v4"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ac="http://xml.A.com/v4">
+
+	<xs:include schemaLocation="types.xsd" />
+
+	<xs:complexType name="merchandisedProductType">
+		<xs:sequence>
+			<xs:element name="attribute" type="ac:nameValuePairType" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="externalId" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:pattern value="[\w\d\-:_]+"></xs:pattern>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="type" use="required">
+			<xs:simpleType>
+						<xs:restriction base="xs:token">
+							<xs:enumeration value="product" />
+							<xs:enumeration value="bundle" />
+						</xs:restriction>
+					</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="priority" use="optional">
+			<xs:simpleType>
+				<xs:restriction base="xs:double">
+					<xs:maxInclusive value="100000"></xs:maxInclusive>
+					<xs:minInclusive value="-100000"></xs:minInclusive>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="sellable" type="xs:boolean" use="optional" />
+	</xs:complexType>
+
+</xs:schema>

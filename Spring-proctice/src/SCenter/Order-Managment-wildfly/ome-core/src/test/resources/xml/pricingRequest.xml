@@ -1,0 +1,69 @@
+
+<ac:acMessage xmlns:ac="http://xml.AL.com/v4"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xml.AL.com/v4/acMessageWrapper.xsd ">
+	<ac:source>source</ac:source>
+	<ac:msgType>request</ac:msgType>
+	<ac:actionType>query</ac:actionType>
+	<ac:payloadType>PricingRequestResponseDocument</ac:payloadType>
+	<ac:payload>
+		<pricingRequestResponse xmlns="http://xml.AL.com/v4"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+			<GUID>a3117503-ca3f-42db-b0ee-2191c0963855</GUID>
+			<transactionType>calculateOrderPrice</transactionType>
+			<request>
+				<pricingRequestOrderElement>
+					<lineItems>
+						<lineItem>
+							<productDatasource>internal</productDatasource>
+							<lineItemNumber>0</lineItemNumber>
+							<lineItemStatus agentId="0" dateTimeStamp="2001-12-31T12:00:00"
+								statusCode="processing_schedule_confirmed"
+								statusCodeDescription=""
+								xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+								xmlns:v4="http://xml.AL.com/v4" xmlns:ac="http://xml.AL.com/v4">
+								<v4:reason>0</v4:reason>
+							</lineItemStatus>
+							<lineItemDetail xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+								xmlns:v4="http://xml.AL.com/v4" xmlns:ac="http://xml.AL.com/v4">
+								<v4:detailType>product</v4:detailType>
+								<v4:detail>
+									<v4:productLineItem>
+										<v4:externalId>DIRECTSTAR-DTV-1-WEB</v4:externalId>
+										<v4:productCategory displayName="">TV
+										</v4:productCategory>
+										<v4:name>DTV</v4:name>
+										<v4:channels>
+											<v4:channel>Web</v4:channel>
+										</v4:channels>
+										<v4:provider externalId="2314635" name="DTV">
+											<v4:source datasource="DTV">internal</v4:source>
+											<v4:parent externalId="" name="" />
+											<v4:capabilityList>
+												<v4:capability name="" />
+											</v4:capabilityList>
+										</v4:provider>
+										<v4:priceInfo>
+											<v4:baseNonRecurringPrice>0.0</v4:baseNonRecurringPrice>
+											<v4:baseNonRecurringPriceUnits>v4:baseNonRecurringPriceUnits
+											</v4:baseNonRecurringPriceUnits>
+											<v4:baseRecurringPrice>0.0</v4:baseRecurringPrice>
+											<v4:baseRecurringPriceUnits>v4:baseRecurringPriceUnits
+											</v4:baseRecurringPriceUnits>
+											<v4:includeInTotalPrice />
+										</v4:priceInfo>
+										<v4:capabilityList>
+											<v4:capability name="" />
+										</v4:capabilityList>
+									</v4:productLineItem>
+								</v4:detail>
+								<productUniqueId>2976</productUniqueId>
+							</lineItemDetail>
+							<selectedFeatures xsi:nil="true" />
+						</lineItem>
+					</lineItems>
+				</pricingRequestOrderElement>
+			</request>
+		</pricingRequestResponse>
+	</ac:payload>
+</ac:acMessage>

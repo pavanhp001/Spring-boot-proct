@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://xml.A.com/partner/v1"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ac="http://xml.A.com/partner/v1">
+
+    <xs:include schemaLocation="address.xsd" />
+
+	<xs:element name="AServiceability">
+		<xs:complexType>
+			<xs:sequence>
+
+				<xs:element name="input" minOccurs="1" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="clientInfo" type="ac:clientInfoType"
+								minOccurs="1" maxOccurs="1">
+								<xs:annotation>
+									<xs:documentation>
+										This element contains information required by
+										the service to
+										identify and authenticate the caller
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="referenceId" type="xs:string"
+								minOccurs="0" maxOccurs="1">
+								<xs:annotation>
+									<xs:documentation>
+										An optional field for partners to propagate
+										an identifier that
+										is unique to their systems as part of the
+										request. This could
+										be an ID of an agent whose sales call
+										generated this request,
+										or a transaction ID that a partner’s
+										system uses to track
+										calls made to the service. The service
+										doesn’t use or modify
+										the information, but will ensure that it
+										is present in the
+										response that is generated.
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="transactionType" minOccurs="1"
+								maxOccurs="1">
+								<xs:annotation>
+									<xs:documentation>
+										The transaction type value will determine how
+										to handle the
+										request. Currently, there are only two types that
+										are handled,
+										normal and zipfallback.  
+									</xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:token">
+										<xs:enumeration value="normal">
+											<xs:annotation>
+												<xs:documentation>
+													A standard request, where if there is no
+													exact match, then
+													address candidates are returned. If there
+													are no address
+													candidates, then a “no match found” message
+													is returned.
+												</xs:documentation>
+											</xs:annotation>
+										</xs:enumeration>
+										<xs:enumeration value="zipfallback">
+											<xs:annotation>
+												<xs:documentation>
+													Similar to the normal type, except that if
+													there is no match and
+													no candidates returned then it will
+													attempt to use the zip
+													code only to perform serviceability.
+												</xs:documentation>
+											</xs:annotation>
+										</xs:enumeration>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="inputAddressString" type="xs:string"
+								minOccurs="1" maxOccurs="1">
+								<xs:annotation>
+									<xs:documentation>
+										The address for which the partner wishes to
+										obtain serviceability
+										information. The address should be as
+										well-formed as possible:
+										no extraneous whitespace at the ends
+										or between the components
+										of it, a comma between the end of the
+										street address
+										(including any apartment numbering) and the
+										city/state/zip
+										portion, and no special characters.
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="dwellingType" minOccurs="1"
+								maxOccurs="1">
+								<xs:annotation>
+									<xs:documentation>
+										Dwelling type identifies the type of customer
+										premise, if known. The
+										service uses this data to filter results
+										so that it does not
+										return services that are not appropriate
+										for the given
+										dwelling type. This value is selected from the
+										following:
+										apartment, house, new_construction, condo/townhouse,
+										business.
+									</xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:token">
+										<xs:enumeration value="apartment" />
+										<xs:enumeration value="house" />
+										<xs:enumeration value="new_construction" />
+										<xs:enumeration value="condo/townhouse" />
+										<xs:enumeration value="business" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+				<xs:element name="output" minOccurs="0" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="transactionId" type="xs:int"
+								minOccurs="0" maxOccurs="1">
+								<xs:annotation>
+									<xs:documentation>
+										A system-generated unique identifier. Since
+										the service is
+										stateless, the TransactionId is not used to
+										reload any
+										previous state, just to identify a particular
+										invocation of
+										the service
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="status" type="ac:statusType"
+								minOccurs="0" maxOccurs="1">
+								<xs:annotation>
+									<xs:documentation>
+										A container element for the status code and
+										processing
+										messages.
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="correctedAddress" type="ac:addressType"
+								minOccurs="0" maxOccurs="1">
+								<xs:annotation>
+									<xs:documentation>
+										When the service is able to find a single
+										address match for the
+										given address information, then this
+										element is populated with
+										the address data from the database.
+										In the case where the
+										address passed is exactly the same as the
+										address that it was
+										matched against, the data is the same.
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="candidateAddressList" minOccurs="0"
+								maxOccurs="1">
+								<xs:annotation>
+									<xs:documentation>
+										When the service is unable to find a single
+										address match for the
+										given address information, then this
+										element is populated with
+										the suggested address data from the
+										database. 
+									</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="candidateAddress" minOccurs="0"
+											maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation>
+													Candidate addresses contain all of the
+													information in the
+													addressType and adds a matching score
+													which indicates how
+													well we consider this candidate to
+													match the input address.
+													<B>Note: You should not base any solutions on any
+														particular values, as the algorithm is constantly reviewed
+														and adjusted. You should base all logic only on the order
+														implied in the list by these values.</B>
+												</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:complexContent>
+													<xs:extension base="ac:addressType">
+														<xs:attribute name="matchScore" type="xs:int"
+															use="optional" />
+													</xs:extension>
+												</xs:complexContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+
+							<xs:element name="serviceableMarketItems" minOccurs="0"
+								maxOccurs="1">
+								<xs:annotation>
+									<xs:documentation>
+										A list of market items, which represent the
+										set of serviceable
+										items at the matched address.
+									</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:annotation>
+										<xs:documentation>
+											A market item is an item that is serviceable
+											within a given
+											market.
+										</xs:documentation>
+									</xs:annotation>
+									<xs:sequence>
+										<xs:element name="marketItem" type="ac:marketItemType"
+											minOccurs="0" maxOccurs="unbounded" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="statusType">
+		<xs:sequence>
+			<xs:element name="statusCode" type="xs:int" minOccurs="0"
+				maxOccurs="1" />
+			<xs:choice>
+				<xs:element name="processingMessages">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="message" type="ac:processingMessage"
+								minOccurs="0" maxOccurs="unbounded" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="statusMsg" type="xs:string" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="clientInfoType">
+		<xs:sequence>
+			<xs:element name="partnerId" type="xs:int" minOccurs="1"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The unique identifier used to identify which
+						A partner is making this request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="userId" type="xs:string" minOccurs="1"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The first part of a typical credential pair. The
+						UserId supplied must be valid for the given PartnerId value. This
+						value will allow the differentiation of calls from different
+						users,
+						if needed. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="password" type="xs:string" minOccurs="1"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The second part of the credential pair used
+						by the
+						service to make sure that it is only
+						used by authorized parties.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="processingMessage">
+		<xs:sequence>
+			<xs:element name="code" type="xs:double" />
+			<xs:element name="text" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="marketItemType">
+		<xs:annotation>
+			<xs:documentation>
+				A market item is an item that is serviceable within
+				a given market.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="item" type="ac:itemType" minOccurs="1"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						An item is a service that is offered by a service
+						provider.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="serviceabilitySource" minOccurs="0"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A string value representing the source via which
+						the returned
+						marketItem was determined to be serviceable. Current
+						valid values
+						include: “internal” and “realtime”. A value of
+						“internal”
+						indicates that serviceability was determined from data
+						that
+						A has in-house; “realtime” indicates that it was
+						determined from a realtime callout to a provider integration.
+					</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:enumeration value="internal" />
+						<xs:enumeration value="realtime" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="providerName" type="xs:string"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="priceInfo" type="ac:priceInfoType"
+				minOccurs="1" maxOccurs="1" nillable="true" />
+			<xs:element name="capabilityList" nillable="true">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="capability" type="ac:capabilityType"
+							minOccurs="0" maxOccurs="unbounded" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="itemType">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="1"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The name of the Item. Ex:
+						<B>AT&amp;T Extreme 6.0 DSL</B>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="providerName" type="xs:string"
+				minOccurs="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+					The business name of the provider of the item.  Ex: <B>AT&amp;T</B>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="category" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="marketingHighlight" type="xs:string"
+				minOccurs="0" maxOccurs="10" nillable="true" >
+				<xs:annotation>
+					<xs:documentation>
+					Textual bullet points that highlight aspects of the item that the service provider 
+					has chosen for marketing purposes.  
+					Ex:  <B>“Blazing Download Speeds”</B>, or <B>“Static IP address included”</B>. 
+					Up to 10 instances of this element are possible in one item.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="priceInfoType">
+		<xs:sequence>
+			<xs:element name="baseNonRecurringPrice" type="xs:double"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="baseRecurringPrice" type="xs:double"
+				minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="capabilityType">
+		<xs:sequence>
+			<xs:element name="feature" type="ac:featureType"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="featureType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="name" type="xs:string" use="required" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+</xs:schema>

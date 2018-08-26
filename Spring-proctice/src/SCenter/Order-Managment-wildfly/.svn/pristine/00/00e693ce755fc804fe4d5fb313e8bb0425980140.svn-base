@@ -1,0 +1,79 @@
+<ns3:orderManagementRequestResponse xmlns:ns2="http://xml.AL.com/common" xmlns:ns3="http://xml.AL.com/v4">
+    <ns3:correlationId>d1ee8ac5-a548-4380-810c-a01a2d2b30f8</ns3:correlationId>
+    <ns3:transactionId>1904521525</ns3:transactionId>
+    <ns3:transactionType>addLineItem</ns3:transactionType>
+    <ns3:request>
+        <ns3:salesContext>
+            <ns3:orderSource>0</ns3:orderSource>
+            <ns3:entity name="source">
+                <ns3:attribute value="SYP" name="source"/>
+            </ns3:entity>
+            <ns3:entity name="CKO">
+                <ns3:attribute value="SYP" name="source"/>
+                <ns3:attribute value="d1ee8ac5-a548-4380-810c-a01a2d2b30f8" name="GUID"/>
+            </ns3:entity>
+        </ns3:salesContext>
+        <ns3:orderId>58877</ns3:orderId>
+        <ns3:agentId>default</ns3:agentId>
+        <ns3:afterLineItemNumber>9999</ns3:afterLineItemNumber>
+        <ns3:isAppliesToLineItemIncluded>false</ns3:isAppliesToLineItemIncluded>
+        <ns3:newLineItems>
+            <ns3:lineItem>
+                <ns3:partnerName>Time Warner Cable - Carolinas</ns3:partnerName>
+                <ns3:partnerExternalId>23928</ns3:partnerExternalId>
+               <!--  <ns3:productDatasource datasource="Time Warner Cable - Carolinas">internal</ns3:productDatasource> -->
+                <ns3:lineItemNumber>0</ns3:lineItemNumber>
+                <ns3:lineItemDetail>
+                    <ns3:detailType>product</ns3:detailType>
+                    <ns3:detail>
+                        <ns3:productLineItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns3:linkableType">
+                            <ns3:externalId>TW-CHARLOTTE-BUNDLE3</ns3:externalId>
+                            <ns3:name>Digital Trio</ns3:name>
+                            <ns3:provider name="Time Warner Cable - Carolinas" externalId="23928"/>
+                        </ns3:productLineItem>
+                    </ns3:detail>
+                </ns3:lineItemDetail>
+                <ns3:lineItemPriceInfo>
+                    <ns3:baseNonRecurringPrice>29.99</ns3:baseNonRecurringPrice>
+                    <ns3:baseRecurringPrice>129.99</ns3:baseRecurringPrice>
+                </ns3:lineItemPriceInfo>
+                <ns3:externalId>0</ns3:externalId>
+                <ns3:svcAddressExtId>58193</ns3:svcAddressExtId>
+                <ns3:billingInfoExtId>43201</ns3:billingInfoExtId>
+                <ns3:state>1</ns3:state>
+                <ns3:selectedFeatures/>
+                <ns3:service>BUSINESS</ns3:service>
+                <ns3:lineItemAttributes>
+                    <ns3:entity source="PROVIDER_NAME">
+                        <ns3:attribute>
+                            <ns3:name>name</ns3:name>
+                            <ns3:value>Time Warner Cable - Carolinas</ns3:value>
+                            <ns3:description></ns3:description>
+                        </ns3:attribute>
+                    </ns3:entity>
+                    <ns3:entity source="PRODUCT_NAME">
+                        <ns3:attribute>
+                            <ns3:name>name</ns3:name>
+                            <ns3:value>Digital Trio</ns3:value>
+                            <ns3:description></ns3:description>
+                        </ns3:attribute>
+                    </ns3:entity>
+                    <ns3:entity source="PRODUCT_CATEGORY">
+                        <ns3:attribute>
+                            <ns3:name>productType</ns3:name>
+                            <ns3:value>TRIPLE_PLAY</ns3:value>
+                            <ns3:description></ns3:description>
+                        </ns3:attribute>
+                    </ns3:entity>
+                    <ns3:entity source="CKO">
+                        <ns3:attribute>
+                            <ns3:name>STATUS</ns3:name>
+                            <ns3:value>CKOReady</ns3:value>
+                            <ns3:description>LINEITEM IS READY FOR CKO PROCESSING</ns3:description>
+                        </ns3:attribute>
+                    </ns3:entity>
+                </ns3:lineItemAttributes>
+            </ns3:lineItem>
+        </ns3:newLineItems>
+    </ns3:request>
+</ns3:orderManagementRequestResponse>

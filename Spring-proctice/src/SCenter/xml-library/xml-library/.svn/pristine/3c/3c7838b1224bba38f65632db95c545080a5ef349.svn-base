@@ -1,0 +1,150 @@
+<project name="xmlLibrary" default="compile" basedir=".">
+
+	<!-- Bring in user-spec properties from the build properties file -->
+	<property file="${basedir}/build.properties" />
+
+	<!-- set global properties for this build -->
+	<property name="schemaDir" location="schemas"/>
+	<property name="lib.dir"   location="lib"/>
+	<property name="build.dir" location="build"/>
+	<property name="dist.dir"  location="dist"/>
+	<property name="axis.home" location ="${axis2.home.dir}"/>
+
+
+	<fileset id="lib" dir="lib">
+		<include name="*.jar" />
+	</fileset>
+
+	<path id="build.classpath">
+		<fileset refid="lib" />
+	</path>
+
+	<!-- Import the 'xmlbean' Ant task -->
+	<taskdef name="xmlbean"
+	  classname="org.apache.xmlbeans.impl.tool.XMLBean"
+	  classpath="${xmlbeans.lib.dir}/xbean.jar:${xmlbeans.lib.dir}/jsr173_1.0_api.jar" />
+
+	<!-- Import the axis2 codegen Ant task library-->
+	<path id="axis.classpath">
+		<fileset dir="${axis.home}/lib">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<!-- Task to build Pcode, Details, Context service mule clients via wsdl2java w/Axis2 -->
+	<target name="codeGen">
+
+		<!-- details client -->
+		<delete dir="${build.dir}/detailsClient" />
+		<mkdir dir="${build.dir}/detailsClient/classes" />
+		<!-- generate java for client from wsdl -->
+		<java classname="org.apache.axis2.wsdl.WSDL2Java" fork="true">
+			<classpath refid="axis.classpath" />
+			<arg value="-d" />
+			<arg value="xmlbeans" />
+			<arg value="-uri" />
+			<arg file="${wsdl.details.home}" />
+			<arg value="-o" />
+			<arg file="${build.dir}/detailsClient" />
+			<arg value="-Ejavaversion" />
+			<arg value="1.5" />			
+		</java>
+		<!-- compile classes -->
+		<javac classpathref="axis.classpath" destdir="${build.dir}/detailsClient/classes" debug="${javac.debug}" deprecation="${javac.deprecation}" nowarn="on">
+			<src path="build/detailsClient" />
+		</javac>
+		<mkdir dir="${dist.dir}/details/" />
+		<!-- jar the distribution -->
+		<jar jarfile="${dist.dir}/details/detailsAxis2Client.jar">
+			<fileset dir="${build.dir}/detailsClient/classes"/>
+			<fileset dir="${build.dir}/detailsClient/resources"/>
+		</jar>
+		<delete dir="${build.dir}/detailsClient" />
+
+		<!-- repeat for pcode -->
+
+		<delete dir="${build.dir}/pcodeClient" />
+		<mkdir dir="${build.dir}/pcodeClient/classes" />
+		<!-- generate java for client from wsdl, rename output package to avoid namespace collision w/Details client classes -->
+		<java classname="org.apache.axis2.wsdl.WSDL2Java" fork="true">
+			<classpath refid="axis.classpath" />
+			<arg value="-d" />
+			<arg value="xmlbeans" />
+			<arg value="-uri" />
+			<arg file="${wsdl.pcode.home}" />
+			<arg value="-o" />
+			<arg file="${build.dir}/pcodeClient" />
+			<arg value="-p" />
+			<arg value="com.A.xml.v3.pcode" />
+			<arg value="-Ejavaversion" />
+			<arg value="1.5" />
+		</java>
+		<!-- compile classes -->
+		<javac classpathref="axis.classpath" destdir="${build.dir}/pcodeClient/classes" debug="${javac.debug}" deprecation="${javac.deprecation}" nowarn="on">
+			<src path="${build.dir}/pcodeClient" />
+		</javac>
+		<mkdir dir="${dist.dir}/pcode" />
+		<!-- jar the distribution -->
+		<jar jarfile="${dist.dir}/pcode/pcodeAxis2Client.jar">
+			<fileset dir="${build.dir}/pcodeClient/classes"/>
+			<fileset dir="${build.dir}/pcodeClient/resources"/>
+		</jar>
+		<delete dir="${build.dir}/pcodeClient" />
+		
+				<!-- repeat for context -->
+
+		<delete dir="${build.dir}/contextClient" />
+		<mkdir dir="${build.dir}/contextClient/classes" />
+		<!-- generate java for client from wsdl, rename output package to avoid namespace collision w/Details client classes -->
+		<java classname="org.apache.axis2.wsdl.WSDL2Java" fork="true">
+			<classpath refid="axis.classpath" />
+			<arg value="-d" />
+			<arg value="xmlbeans" />
+			<arg value="-uri" />
+			<arg file="${wsdl.context.home}" />
+			<arg value="-o" />
+			<arg file="${build.dir}/contextClient" />
+			<arg value="-p" />
+			<arg value="com.A.xml.v4.context" />
+			<arg value="-Ejavaversion" />
+			<arg value="1.5" />
+		</java>
+		<!-- compile classes -->
+		<javac classpathref="axis.classpath" destdir="${build.dir}/contextClient/classes" debug="${javac.debug}" deprecation="${javac.deprecation}" nowarn="on">
+			<src path="${build.dir}/contextClient" />
+		</javac>
+		<mkdir dir="${dist.dir}/context" />
+		<!-- jar the distribution -->
+		<jar jarfile="${dist.dir}/context/contextAxis2Client.jar">
+			<fileset dir="${build.dir}/contextClient/classes"/>
+			<fileset dir="${build.dir}/contextClient/resources"/>
+		</jar>
+		<delete dir="${build.dir}/contextClient" />
+	</target>
+
+	<target name="init">
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${dist.dir}" />
+	</target>
+
+	<target name="compile" depends="init,codeGen" description="compile the schemas to XMLBeans ">
+		<!-- Convert the schemas from ${schemaDir} into Java code in ${build} -->
+		<xmlbean schema="${schemaDir}" 
+  		classpath="${xmlbeans.lib.dir}/xbean.jar"
+  		download="true"  
+  		srcgendir="${build.dir}"
+  		javasource="1.5"
+  		destfile="${dist.dir}/AXMLBeans.jar"/>
+
+	</target>
+
+	<target name="clean" description="clean up" >
+
+		<!-- Delete the ${build} and ${dist} directory trees -->
+		<delete dir="${build.dir}"/>
+		<delete dir="${dist.dir}"/>
+
+	</target>
+	
+</project>

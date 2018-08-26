@@ -1,0 +1,42 @@
+<productEnterpriseRequest xmlns="http://xml.A.com/v4">
+  <GUID>1343318393026537810747303662276106B26D010CAF</GUID>
+  <transactionType xsi:type="v4:productTransactionTypeType" xmlns:v4="http://xml.A.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <productTransactionType>getProducts</productTransactionType>
+  </transactionType>
+  <salesContext>
+    <entity name="dwelling">
+      <attribute name="dwelling.dwellingType" value="House"/>
+    </entity>
+    <entity name="orderSource">
+      <attribute name="orderSource.referrer" value=""/>
+      <attribute name="orderSource.channel" value="3"/>
+    </entity>
+  </salesContext>
+  <request xsi:type="v4:productRequestType" xmlns:v4="http://xml.A.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <correctedAddress>      
+      <streetNumber>1106</streetNumber>
+      <streetName>GREGG</streetName>
+      <streetType>ST</streetType>
+      <city>COLUMBIA</city>
+      <stateOrProvince>SC</stateOrProvince>
+      <postalCode>29201-3825</postalCode>
+      <addressBlock>1106 GREGG ST, COLUMBIA SC 29201-3825</addressBlock>
+    </correctedAddress>
+    <requestedDetails>
+     <detail level="basic"/>
+  <!--   <detail level="features"/>
+    <detail level="customizations"/>
+     <detail level="promotions"/>
+     <detail level="descriptiveInfo"/>
+     <detail level="marketingHighlights"/>-->
+    </requestedDetails>
+    <providerList>
+      <provider externalId="24699452" name="ATTSTI">
+        <source datasource="ATTSTI">realtime</source>
+      </provider>
+     <provider externalId="26069940" name="G2B-Comcast">
+        <source datasource="G2B">realtime</source>
+      </provider>
+    </providerList>
+  </request>
+</productEnterpriseRequest>

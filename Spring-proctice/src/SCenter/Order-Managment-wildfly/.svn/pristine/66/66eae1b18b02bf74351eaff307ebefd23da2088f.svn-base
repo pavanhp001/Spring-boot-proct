@@ -1,0 +1,1 @@
+ALTER TABLE V_tx.cm_consumer DROP COLUMN offers_presented;

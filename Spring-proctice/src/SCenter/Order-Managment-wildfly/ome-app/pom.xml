@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+        <groupId>com.AL.V</groupId>
+        <artifactId>ome-app-parent</artifactId>
+        <version>01.04.27</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<packaging>ear</packaging>
+	<artifactId>ome-app</artifactId>
+	<name>Order Management Application</name>
+	<url>http://maven.apache.org</url>
+
+	<scm>
+		<connection>scm:svn:http://svn/svn/services/OrderManagement/trunk/ome-app</connection>
+		<developerConnection>scm:svn:http://svn/svn/services/OrderManagement/trunk/ome-app</developerConnection>
+	</scm>
+
+
+	<build>
+		<resources>
+			<resource>
+				<directory>../resources</directory>
+				<includes>
+					<include>**/application.xml</include>
+					<include>**/jboss-app.xml</include>
+					<include>**/MANIFEST.MF</include>
+					<include>**/standard-jaxws-endpoint-config.xml</include>
+				</includes>
+			</resource>
+		</resources>
+
+
+		<plugins>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<!-- Copy ear file to deployment directory -->
+					<execution>
+						<phase>install</phase>
+						<configuration>
+							<target>
+								<copy todir="${deployment.directory}">
+									<fileset dir="target">
+										<include name="**/*.ear" />
+									</fileset>
+								</copy>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+					<!-- Remove Special DOS commands from Files -->
+					<execution>
+						<id>ant-unix-fixcrlf</id>
+						<phase>package</phase>
+						<configuration>
+							<tasks>
+								<fixcrlf srcdir="${basedir}"
+									includes="**/*.properties,**/*.xml,**/*.drl,**/*.wsdl,**/*.MF"
+									eol="unix" />
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.6</version>
+				<!-- configuring the ear plugin -->
+				<configuration>
+					<displayName>${artifact.name}</displayName>
+					<jboss>
+						<version>5</version>
+						<library>lib</library>
+						<!-- <loader-repository>ome-app:archive=ome-app-${VERSION_NUMBER}.ear</loader-repository>
+						<loader-repository-config>java2ParentDelegation=true</loader-repository-config> -->
+					</jboss>
+					<archive>
+						<addMavenDescriptor>false</addMavenDescriptor>
+					</archive>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<modules>
+						<ejbModule>
+							<groupId>com.AL.V</groupId>
+							<artifactId>ALLogicalModel</artifactId>
+							<bundleDir>/</bundleDir>
+						</ejbModule>
+						
+						<ejbModule>
+							<groupId>com.AL.V</groupId>
+							<artifactId>ALGeocoder</artifactId>
+							<bundleDir>/</bundleDir>
+						</ejbModule>
+
+						<webModule>
+							<groupId>com.AL.V</groupId>
+							<artifactId>ome-metrics</artifactId>
+							<contextRoot>/ome-metrics</contextRoot>
+							<unpack>true</unpack>
+							<excluded>false</excluded>
+						</webModule>
+
+						<ejbModule>
+							<groupId>com.AL.V</groupId>
+							<artifactId>ome-core</artifactId>
+							<unpack>true</unpack>
+							<bundleDir>/</bundleDir>
+						</ejbModule>
+
+						<ejbModule>
+							<groupId>com.AL.V</groupId>
+							<artifactId>ome-ie</artifactId>
+							<unpack>true</unpack>
+							<bundleDir>/</bundleDir>
+						</ejbModule>
+
+
+						<ejbModule>
+							<groupId>com.AL.V</groupId>
+							<artifactId>V-rules</artifactId>
+							<unpack>true</unpack>
+							<bundleDir>/</bundleDir>
+						</ejbModule>
+
+						<jarModule>
+							<groupId>com.AL.V</groupId>
+							<artifactId>V-dao</artifactId>
+							<unpack>false</unpack>
+						</jarModule>
+
+						<jarModule>
+							<groupId>com.AL.V</groupId>
+							<artifactId>cm-core</artifactId>
+							<unpack>false</unpack>
+						</jarModule>
+					</modules>
+					<filtering>true</filtering>
+					<filters>
+						<filter>${basedir}/src/main/application/ds-location.properties</filter>
+					</filters>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jboss-maven-plugin</artifactId>
+				<version>1.5.0</version>
+				<configuration>
+					<hostName>localhost</hostName>
+					<port>8080</port>
+					<fileNames>
+						<fileName>target/${project.artifactId}-${project.version}.ear</fileName>
+					</fileNames>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+	<dependencies>
+			
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>V-rules</artifactId>
+            <version>${V.library.version}</version>
+			<type>ejb</type>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.activemq</groupId>
+					<artifactId>activeio-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.activemq</groupId>
+					<artifactId>activemq-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.activemq</groupId>
+					<artifactId>activemq-pool</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.hibernate</groupId>
+					<artifactId>hibernate-validator</artifactId>
+				</exclusion>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>core</artifactId>
+					<groupId>org.eclipse.jdt</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>V-dao</artifactId>
+            <version>${V.library.version}</version>
+            <exclusions>
+				<exclusion>
+					<groupId>junit</groupId>
+					<artifactId>junit</artifactId>
+				</exclusion>
+            </exclusions>	
+		</dependency>
+		
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>cm-core</artifactId>
+			<version>${AL.cm-core.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.activemq</groupId>
+					<artifactId>activeio-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.activemq</groupId>
+					<artifactId>activemq-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.activemq</groupId>
+					<artifactId>activemq-pool</artifactId>
+				</exclusion>
+			</exclusions>	
+		</dependency>
+
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>ome-metrics</artifactId>
+            <version>${project.version}</version>
+			<type>war</type>
+		</dependency>
+
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>ome-core</artifactId>
+            <version>${project.version}</version>
+			<type>ejb</type>
+			<exclusions>
+				<exclusion>
+					<groupId>org.mockito</groupId>
+					<artifactId>mockito-all</artifactId>
+				</exclusion>  
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<artifactId>commons-collections</artifactId>
+					<groupId>commons-collections</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>ehcache</artifactId>
+					<groupId>net.sf.ehcache</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>ome-ie</artifactId>
+            <version>${project.version}</version>
+			<type>ejb</type>
+			<exclusions>
+				<exclusion>
+					<groupId>org.mockito</groupId>
+					<artifactId>mockito-all</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>V-common</artifactId>
+            <version>${V.library.version}</version>
+			<type>jar</type>
+			<exclusions>
+				<exclusion>
+					<groupId>junit</groupId>
+					<artifactId>junit</artifactId>
+				</exclusion>
+			</exclusions>	
+		</dependency>
+
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>ALLogicalModel</artifactId>
+			<version>${AL.logical.version}</version>
+			<type>ejb</type>
+			<exclusions>
+				<exclusion>
+					<groupId>ac-eap</groupId>
+					<artifactId>spring</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.AL.geocoder</groupId>
+					<artifactId>AL-Geocoder</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>ALReferenceModel</artifactId>
+			<version>${AL.reference.version}</version>
+			<type>jar</type>
+			<exclusions>
+				<exclusion>  <!-- declare the exclusion here -->
+					<groupId>ac-eap</groupId>
+					<artifactId>spring</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.AL.geocoder</groupId>
+					<artifactId>AL-Geocoder</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>ALGeocoder</artifactId>
+			<version>${AL.geocoder.version}</version>
+			<type>ejb</type>
+		</dependency>
+		
+		<dependency>
+			<artifactId>commons-collections</artifactId>
+			<groupId>commons-collections</groupId>
+			<version>3.2.1</version>
+			<type>jar</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.AL.V</groupId>
+			<artifactId>ALXMLBeans</artifactId>
+			<version>${AL.xmlbeans.version}</version>
+		</dependency>
+		<dependency>
+			<artifactId>hibernate-ehcache</artifactId>
+			<groupId>org.hibernate</groupId>
+			<version>5.1.0.Final</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>hibernate-core</artifactId>
+					<groupId>org.hibernate</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>
+						hibernate-commons-annotations
+					</artifactId>
+					<groupId>org.hibernate.common</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>hibernate-jpa-2.0-api</artifactId>
+					<groupId>org.hibernate.javax.persistence</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jboss-logging</artifactId>
+					<groupId>org.jboss.logging</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpclient</artifactId>
+				<version>${httpclient.version}</version>
+			</dependency>
+		
+		<!-- log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<exclusions>
+				<exclusion>
+					<artifactId>jms</artifactId>
+					<groupId>javax.jms</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jmxtools</artifactId>
+					<groupId>com.sun.jdmk</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jmxri</artifactId>
+					<groupId>com.sun.jmx</groupId>
+				</exclusion>
+			</exclusions>	
+		</dependency>
+	</dependencies>
+</project>
+

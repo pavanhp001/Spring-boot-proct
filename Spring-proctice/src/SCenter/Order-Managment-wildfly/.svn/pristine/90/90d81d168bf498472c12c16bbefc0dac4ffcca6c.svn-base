@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ac:orderManagementRequestResponse xmlns:ac="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xml.AL.com/v4 orderManagement.xsd ">
+  <ac:correlationId>12345</ac:correlationId>
+  <ac:transactionType>createOrder</ac:transactionType>
+  <ac:status>
+    <ac:statusCode>0</ac:statusCode>
+    <ac:processingMessages>
+      <ac:message>
+        <ac:code>1.0</ac:code>
+        <ac:text>New Order</ac:text>
+      </ac:message>
+    </ac:processingMessages>
+  </ac:status>
+  
+  <ac:request>
+  	<ac:salesContext>
+			<ac:entity name="Test1">
+				<ac:attribute name="credit score" value="750" />
+				<ac:attribute name="dwelling type" value="house" />
+			</ac:entity>
+			<ac:entity name="Test2">
+				<ac:attribute name="neighborhood" value="rich" />
+				<ac:attribute name="customerType" value="High Income" />
+			</ac:entity>
+	</ac:salesContext>
+     <ac:orderInfo>
+      <ac:externalId>ZZZZZZZZ</ac:externalId>
+      <ac:source>Web</ac:source>
+      <ac:referrerId>108</ac:referrerId>
+      <ac:associatedWithMove>true</ac:associatedWithMove>
+      <ac:campaignId>ATT</ac:campaignId>
+      <ac:customerInformation>
+        <ac:action>referenceCustomer</ac:action>
+        <ac:customer>
+          <ac:externalId>55</ac:externalId>
+        </ac:customer>
+      </ac:customerInformation>
+      <ac:agentId>1</ac:agentId>
+      <ac:ALConfirmationNumber></ac:ALConfirmationNumber>
+      <ac:ALCustomerAccountNumber></ac:ALCustomerAccountNumber>
+      <ac:totalPriceInfo>
+        <ac:baseNonRecurringPrice>100.25</ac:baseNonRecurringPrice>
+        <ac:baseNonRecurringPriceUnits>Dollar</ac:baseNonRecurringPriceUnits>
+        <ac:baseRecurringPrice>150.50</ac:baseRecurringPrice>
+        <ac:baseRecurringPriceUnits>Dollar</ac:baseRecurringPriceUnits>
+        <ac:includeInTotalPrice/>
+      </ac:totalPriceInfo>
+      <ac:lineItems>
+        <ac:lineItem>
+          <ac:partnerName>Test Partner</ac:partnerName>
+          <ac:provider>
+            <ac:name>ATT</ac:name>
+            <ac:externalId>111</ac:externalId>
+          </ac:provider>
+          <ac:providerConfirmationNumber></ac:providerConfirmationNumber>
+          <ac:providerCustomerAccountNumber></ac:providerCustomerAccountNumber>
+          <ac:lineItemNumber>0</ac:lineItemNumber>
+          <ac:lineItemStatus agentId="0" dateTimeStamp="2001-12-31T12:00:00" statusCode="0" statusCodeDescription="">
+            <ac:reason>0</ac:reason>
+          </ac:lineItemStatus>
+          <ac:lineItemStatusHistory>
+            <ac:previousStatus agentId="0" dateTimeStamp="2001-12-31T12:00:00" statusCode="0" statusCodeDescription="">
+              <ac:reason>0</ac:reason>
+            </ac:previousStatus>
+          </ac:lineItemStatusHistory>
+          <ac:lineItemDetail>
+            <ac:detailType>marketItem</ac:detailType>
+            <ac:detail>
+              <ac:marketItemLineItem>
+                <ac:externalId>DIRECTSTAR-DTV-1-WEB</ac:externalId>
+                <ac:channels>
+                  <ac:channel>1</ac:channel>
+                </ac:channels>
+                <ac:providerId>2314635</ac:providerId>
+                <ac:providerName>DTV</ac:providerName>
+                <ac:priceInfo/>
+                <ac:item xsi:type="ac:itemType">
+                  <ac:name>DirecTV</ac:name>
+                  <ac:providerId>DTV1001</ac:providerId>
+                  <ac:providerName>DTV</ac:providerName>
+                  <ac:itemCategory displayName="">ac:itemCategory</ac:itemCategory>
+                  <ac:priceInfo/>
+                </ac:item>
+              </ac:marketItemLineItem>
+            </ac:detail>
+          </ac:lineItemDetail>
+          <ac:lineItemPriceInfo>
+            <ac:baseNonRecurringPrice>99.0</ac:baseNonRecurringPrice>
+            <ac:baseNonRecurringPriceUnits>ac:baseNonRecurringPriceUnits</ac:baseNonRecurringPriceUnits>
+            <ac:baseRecurringPrice>99.0</ac:baseRecurringPrice>
+            <ac:baseRecurringPriceUnits>ac:baseRecurringPriceUnits</ac:baseRecurringPriceUnits>
+            <ac:includeInTotalPrice/>
+            <ac:priceInfoStatus>
+              <ac:statusCode>0</ac:statusCode>
+              <ac:processingMessages>
+                <ac:message>
+                  <ac:code>0.0</ac:code>
+                  <ac:text>ac:text</ac:text>
+                </ac:message>
+              </ac:processingMessages>
+            </ac:priceInfoStatus>
+            <ac:pricingDate>2001-12-31T12:00:00</ac:pricingDate>
+          </ac:lineItemPriceInfo>
+          <ac:externalId>ac:externalId</ac:externalId>
+          <ac:svcAddressExtId>43</ac:svcAddressExtId>
+          <ac:billingInfoExtId>43</ac:billingInfoExtId>
+          <ac:SchedulingInfo appointmentComment="Test Comment" billingInstallments="true" earlierAppointmentDate="true" installationFee="29.99" residenceType="HOUSE">
+            <ac:desiredStartDate>
+              <ac:date>2011-01-01</ac:date>
+              <ac:time>1:30:00</ac:time>
+            </ac:desiredStartDate>
+            <ac:scheduledStartDate>
+              <ac:date>2011-02-02</ac:date>
+              <ac:time>2:30:00</ac:time>
+            </ac:scheduledStartDate>
+            <ac:actualStartDate>
+              <ac:date>2011-03-03</ac:date>
+              <ac:time>3:30:00</ac:time>
+            </ac:actualStartDate>
+            <ac:ScheduleAsSoonAsPossible>true</ac:ScheduleAsSoonAsPossible>
+          </ac:SchedulingInfo>
+          <ac:selectedFeatures>
+				<ac:features>				 
+				  <ac:featureValue externalId="THREE_WAY_CALL" value="true" type="boolean" />
+				  <ac:featureValue externalId="VOICE_MAIL" value="true" type="boolean" />
+				  <ac:featureValue externalId="DOM_LONG_DIST" value="Available a la carte" type="string" />
+				</ac:features>
+			</ac:selectedFeatures>
+          <ac:howLongAtAddress>ac:howLongAtAddress</ac:howLongAtAddress>
+          <ac:service>BUSINESS</ac:service>
+          <ac:creditStatus>Approved</ac:creditStatus>
+          <ac:lineItemEvents source="">
+            <ac:LineItemEvent>
+              <ac:values>ac:values</ac:values>
+            </ac:LineItemEvent>
+          </ac:lineItemEvents>
+          <ac:lineItemStatus>
+        	<ac:status>1</ac:status>
+        	<ac:reason>1</ac:reason>
+        	<ac:dateTimeStamp>2001-12-31T12:00:00</ac:dateTimeStamp>
+        	<ac:agentId>1</ac:agentId>
+      		</ac:lineItemStatus>
+        </ac:lineItem>
+      </ac:lineItems>
+      <ac:orderStatus>
+        <ac:status>0</ac:status>
+        <ac:reason>0</ac:reason>
+        <ac:dateTimeStamp>2001-12-31T12:00:00</ac:dateTimeStamp>
+        <ac:agentId>0</ac:agentId>
+      </ac:orderStatus>
+      <ac:orderStatusHistory>
+        <ac:previousStatus>
+          <ac:status>0</ac:status>
+          <ac:reason>0</ac:reason>
+          <ac:dateTimeStamp>2001-12-31T12:00:00</ac:dateTimeStamp>
+          <ac:agentId>0</ac:agentId>
+        </ac:previousStatus>
+      </ac:orderStatusHistory>
+    </ac:orderInfo>
+  </ac:request>
+  <ac:response>
+   
+  </ac:response>
+</ac:orderManagementRequestResponse>

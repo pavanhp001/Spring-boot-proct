@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ac:marshaller xmlns:ac="http://xml.AL.com/v4"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xml.AL.com/v4 ../../../xml-library/schemas/v4/marshaller.xsd ">
+	<ac:clazz>
+		<ac:name>com.AL.xml.v4.MailingAddressType</ac:name>
+		 
+
+		<ac:attribute>
+			<ac:name>country</ac:name>
+			<ac:constraint>mandatory</ac:constraint>
+			<ac:validations>
+				<ac:validation>
+					<ac:name>ensureValidCountry</ac:name>
+					<ac:validationClazz>com.AL.validation.ValidCountry</ac:validationClazz>
+				</ac:validation>
+			</ac:validations>
+		</ac:attribute>
+ 
+		<ac:attribute>
+			<ac:name>streetType</ac:name>
+			<ac:constraint>mandatory</ac:constraint> 
+		</ac:attribute>
+
+		<ac:attribute>
+			<ac:name>line2</ac:name>
+			<ac:constraint>optional</ac:constraint> 
+		</ac:attribute>
+
+
+
+		<ac:attribute>
+			<ac:name>city</ac:name>
+			<ac:constraint>mandatory</ac:constraint> 
+		</ac:attribute>
+
+
+
+		<ac:attribute>
+			<ac:name>stateOrProvince</ac:name>
+			<ac:constraint>mandatory</ac:constraint> 
+		</ac:attribute>
+
+		<ac:attribute>
+			<ac:name>streetNumber</ac:name>
+			<ac:constraint>mandatory</ac:constraint> 
+		</ac:attribute>
+		
+		
+		  
+        
+        
+ 
+	</ac:clazz>
+
+
+</ac:marshaller>

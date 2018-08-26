@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+	attributeFormDefault="unqualified" 
+	elementFormDefault="qualified"
+	targetNamespace="http://xml.A.com/v3"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:ac="http://xml.A.com/v3">
+	
+	<xs:include schemaLocation="types.xsd"/>
+
+	<xs:simpleType name="couponPromoObjectType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="item" />
+			<xs:enumeration value="marketItem" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="couponPromoElementType">
+		<xs:choice maxOccurs="1" minOccurs="1">
+			<xs:sequence>
+				<xs:element name="couponPromoType" minOccurs="1" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+						Contains the object type for which details are being requested.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="ac:couponPromoObjectType">
+								<xs:attribute name="externalId" type="xs:string" use="required" >
+									<xs:annotation>
+										<xs:documentation>
+										Contains the external id of the object being requested. 
+										</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:choice>
+	</xs:complexType>
+
+	<xs:complexType name="couponPromoResultType">
+		<xs:annotation>
+			<xs:documentation>
+			Contains the specialized result type for the requested type and external id.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="itemResult" type="ac:itemPromoType"
+					minOccurs="1" maxOccurs="1">
+				</xs:element>
+			</xs:sequence>
+			<xs:sequence>
+				<xs:element name="marketItemResult" type="ac:marketItemPromoType"
+					minOccurs="1" maxOccurs="1">
+				</xs:element>
+			</xs:sequence>
+		</xs:choice>
+	</xs:complexType>
+
+	<xs:complexType name="itemPromoType">
+		<xs:sequence>
+			<xs:element name="requestedFor" type="ac:couponPromoElementType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+					Contains the detail element that contains what was requested.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:sequence>
+				<xs:element name="promotion" type="ac:promotionType" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>
+						Contains the promotions for the marketItem requested.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="marketItemPromoType">
+		<xs:sequence>
+			<xs:element name="requestedFor" type="ac:couponPromoElementType" minOccurs="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+					Contains the detail element that contains what was requested.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:sequence>
+				<xs:element name="promotion" type="ac:promotionType" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>
+						Contains the promotions for the marketItem requested.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="promotionType">
+		<xs:sequence>
+			<xs:element name="externalId" type="xs:string" minOccurs="1" maxOccurs="1">
+			</xs:element>
+			<xs:element name="promoCode" type="xs:string" minOccurs="1" maxOccurs="1">
+			</xs:element>
+			<xs:element name="inEffect" type="xs:dateTime" minOccurs="1" maxOccurs="1">
+			</xs:element>
+			<xs:element name="expiration" type="xs:dateTime" minOccurs="1" maxOccurs="1">
+			</xs:element>
+			<xs:element name="shortDescription" type="xs:string" minOccurs="1" maxOccurs="1">
+			</xs:element>
+			<xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1">
+			</xs:element>
+			<xs:element name="qualification" type="xs:string" minOccurs="1" maxOccurs="1">
+			</xs:element>
+			<xs:element name="conditions" type="xs:string" minOccurs="1" maxOccurs="1">
+			</xs:element>
+			<xs:element name="type" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:enumeration value="informationalPromotion" />
+						<xs:enumeration value="baseMonthlyDiscount"  />
+						<xs:enumeration value="oneTimeFeeDiscount" />
+						<xs:enumeration value="unspecifiedType" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="priceValueType" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:enumeration value="absolute"  />
+						<xs:enumeration value="relative" />
+						<xs:enumeration value="relativePercentage" />
+						<xs:enumeration value="unspecifiedPriceValueType" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="priceValue" type="xs:float" minOccurs="0" maxOccurs="1" >
+			</xs:element>
+			<xs:element name="promotionDuration" type="xs:duration" nillable="true">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

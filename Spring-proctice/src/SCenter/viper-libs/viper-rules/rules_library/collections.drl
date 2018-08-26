@@ -1,0 +1,56 @@
+import java.util.ArrayList
+
+rule "Raise priority if system has more than 3 pending alarms"
+when
+    $system : System()
+    $alarms : ArrayList( size >= 3 )
+              from collect( Alarm( system == $system, status == 'pending' ) )
+then
+    # Raise priority, because system $system has
+    # 3 or more alarms pending. The pending alarms
+    # are $alarms.
+end
+
+
+
+
+import java.util.LinkedList;
+
+rule "Send a message to all mothers"
+when
+    $town : Town( name == 'Paris' )
+    $mothers : LinkedList() 
+               from collect( Person( gender == 'F', children > 0 ) 
+                             from $town.getPeople() 
+                           )
+then
+    # send a message to all mothers
+end
+
+
+rule "Apply 10% discount to orders over US$ 100,00"
+when
+    $order : Order()
+    $total : Number( doubleValue > 100 ) 
+             from accumulate( OrderItem( order == $order, $value : value ),
+                              sum( $value ) )
+then
+    # apply discount to $order
+end
+
+
+rule "Average profit"
+when
+    $order : Order()
+    $profit : Number() 
+              from accumulate( OrderItem( order == $order, $cost : cost, $price : price )
+                               average( 1 - $cost / $price ) )
+then
+    # average profit for $order is $profit
+end
+
+
+
+
+
+

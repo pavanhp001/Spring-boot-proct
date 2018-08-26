@@ -1,0 +1,53 @@
+<definitions name='OrderManagement' targetNamespace='http://xml.A.com/v4' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:tns='http://xml.A.com/v4' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+ <types>
+  <xs:schema targetNamespace='http://xml.A.com/v4' version='1.0' xmlns:tns='http://xml.A.com/v4' xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+    <xsd:include schemaLocation="orderManagement.xsd"/> 
+   <xs:element name='processRequest' type='tns:processRequest'/>
+   <xs:element name='processRequestResponse' type='tns:processRequestResponse'/>
+   <xs:complexType name='processRequest'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='arg0' type='xs:string'/>
+    </xs:sequence>
+
+   </xs:complexType>
+   <xs:complexType name='processRequestResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='return' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+  </xs:schema>
+ </types>
+ <message name='orderManagementWS_processRequest'>
+
+  <part element='tns:processRequest' name='processRequest'></part>
+ </message>
+ <message name='orderManagementWS_processRequestResponse'>
+  <part element='tns:processRequestResponse' name='processRequestResponse'></part>
+ </message>
+ <portType name='orderManagementWS'>
+  <operation name='processRequest' parameterOrder='processRequest'>
+   <input message='tns:orderManagementWS_processRequest'></input>
+   <output message='tns:orderManagementWS_processRequestResponse'></output>
+
+  </operation>
+ </portType>
+ <binding name='orderManagementWSBinding' type='tns:orderManagementWS'>
+  <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http'/>
+  <operation name='processRequest'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+ </binding>
+ <service name='OrderManagementWebServiceClient'>
+  <port binding='tns:orderManagementWSBinding' name='orderManagementWSPort'>
+   <soap:address location='http://localhost:8080/ome/OrderManagementWS'/>
+  </port>
+
+ </service>
+</definitions>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" 
+	targetNamespace="http://xml.A.com/v4"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:ac="http://xml.A.com/v4">
+
+	<xs:include schemaLocation="dialogue.xsd" />
+	<xs:include schemaLocation="types.xsd" />
+	
+	<xs:element name="dialogueEnterpriseRequest" type="ac:enterpriseRequestDocumentType">
+	</xs:element>
+	<xs:element name="dialogueEnterpriseResponse" type="ac:enterpriseResponseDocumentType">
+	</xs:element>
+
+	<xs:complexType name="dialogueTransactionTypeType">
+		<xs:complexContent>
+			<xs:extension base="ac:abstractTransactionTypeType">
+				<xs:sequence>
+					<xs:annotation>
+						<xs:documentation>
+							Used to communicate the desired request action.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:element name="dialogueTransactionType">
+						<xs:simpleType>
+							<xs:restriction base="xs:token">
+								<xs:enumeration value="getDialogues">
+									<xs:annotation>
+										<xs:documentation>
+											Retrieve dialogues against sales context
+										</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="dialogueRequestType">
+		<xs:complexContent>
+			<xs:extension base="ac:abstractRequestType"></xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="dialogueResponseType">
+		<xs:complexContent>
+			<xs:extension base="ac:abstractResponseType">
+				<xs:sequence>
+					<xs:element name="results" minOccurs="1" maxOccurs="1">
+						<xs:complexType>
+							<xs:sequence>							
+								<xs:element name="dialogueList" type="ac:dialogueListType" minOccurs="0" maxOccurs="1" />
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>	
+</xs:schema>

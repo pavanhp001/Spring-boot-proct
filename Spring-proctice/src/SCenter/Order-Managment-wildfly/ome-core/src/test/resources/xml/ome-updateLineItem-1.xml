@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<v4:orderManagementRequestResponse
+	xmlns:v4="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xml.AL.com/v4 orderManagement.xsd ">
+	<v4:transactionType>updateLineItem</v4:transactionType>
+	<v4:request>
+		<v4:orderId>763</v4:orderId>
+		<v4:updatedLineItemInfo>
+			<v4:lineItem>
+				<v4:externalId>639</v4:externalId>
+				<v4:lineItemDetail>
+					<v4:productUniqueId>671</v4:productUniqueId>
+				</v4:lineItemDetail>
+				<v4:selectedFeatures>
+					<v4:features>
+						<v4:featureValue externalId="HD_RCVR" value="1"
+							type="integer" />
+					</v4:features>
+				</v4:selectedFeatures>
+				<v4:SchedulingInfo appointmentComment=""
+					billingInstallments="true" earlierAppointmentDate="true"
+					installationFee="0.0" residenceType="">
+					<v4:desiredStartDate>
+						<v4:date>2011-11-11</v4:date>
+						<v4:time>12:00:00</v4:time>
+					</v4:desiredStartDate>
+					<v4:scheduledStartDate>
+						<v4:date>2011-12-12</v4:date>
+						<v4:time>12:00:00</v4:time>
+					</v4:scheduledStartDate>
+					<v4:actualStartDate>
+						<v4:date>2011-09-09</v4:date>
+						<v4:time>12:00:00</v4:time>
+					</v4:actualStartDate>
+					<v4:ScheduleAsSoonAsPossible>true</v4:ScheduleAsSoonAsPossible>
+				</v4:SchedulingInfo>
+			</v4:lineItem>
+
+		</v4:updatedLineItemInfo>
+	</v4:request>
+</v4:orderManagementRequestResponse>

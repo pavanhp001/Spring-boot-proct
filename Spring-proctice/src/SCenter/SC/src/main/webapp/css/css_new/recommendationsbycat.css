@@ -1,0 +1,89 @@
+@charset "utf-8";
+.contentwrapperrec {
+    height: 594px;
+    position: relative;
+    width: 1005px;
+}
+#action_wrapper {
+    height: 587px;
+    width: 1005px;
+	margin: 0;
+	position: static;
+}
+.widget_container {
+    float: left;
+    height: 551px;
+    width: 997px;
+	background-color: #e5e0d9;
+	margin: 3px 3px 3px 3px;
+	border: 1px solid #616264;
+	overflow-y: auto;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0)
+{
+	.widget_container {
+		margin: 0px 3px 3px 3px;
+	}	
+}
+
+/* Tabs */
+.tabsWrapper {
+    color: #5A5B5D;
+    float: left;
+	margin: 3px;
+    padding: 0;
+	width: 965px;
+}
+.tabs {	
+	float: left;
+	z-index: 1000;
+	width: 965px;
+}
+.content {
+    float: left;
+    margin-top: 0px;
+	margin-bottom: 4px;
+    -width: 985px;
+    width:967px;
+	/*height: 83px;*/
+	z-index: 5;
+    box-shadow: 0 -2px 3px -2px rgba(0,0,0,0.2), 0 2px 2px rgba(0,0,0,0.1);
+	color: #5a5b5d;
+	background:#ffffff;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+.productIcons {
+	position: absolute;
+	left: 693px;
+	top: 4px;
+	margin-right: auto;
+}
+.row1{
+	height: 33px;
+	position: relative;
+	width: 774px;
+	overflow: hidden;
+}
+.row2{
+	height: 60px;
+	position: relative;
+	width: 774px;
+	overflow: hidden;
+	font-size: 12px;
+}
+.VZPricingGridContent{
+	margin:0px 2px 0px 10px;
+	color:green;
+}
+.VZBasePriceContent{
+	margin:2px 0px 0px 25px;
+	color:green;
+	font-size:12px;
+}
+.DiscountTextMessage
+{
+	color: #009900;
+	font-size:15px;
+	background-color: #fff;
+}
+/* End Tabs */

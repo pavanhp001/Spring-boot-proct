@@ -1,0 +1,80 @@
+ <v4:pricingRequestResponse xmlns:v4="http://xml.A.com/v4">
+            <v4:GUID>12345</v4:GUID>
+            <v4:status>
+                <v4:statusCode>-500</v4:statusCode>
+                <v4:processingMessages>
+                    <v4:message>
+                        <v4:text>ORDER ID : 0 FAILED. See Line Item
+Errors</v4:text>
+                    </v4:message>
+                </v4:processingMessages>
+                <v4:statusMsg>ERROR_ORDER_NONE_PRICED</v4:statusMsg>
+            </v4:status>
+            <v4:response>
+                <v4:pricingResponseOrderElement>
+                    <ac:lineItems xmlns:ac="http://xml.A.com/v4"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                        <ac:lineItem>
+                           
+<ac:productDatasource>internal</ac:productDatasource>
+                            <ac:lineItemNumber>0</ac:lineItemNumber>
+                            <ac:lineItemStatus xsi:nil="true"/>
+                            <ac:lineItemDetail
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+                                <v4:detailType>product</v4:detailType>
+                                <v4:detail>
+                                    <v4:productLineItem>
+                                       
+<v4:externalId>TWCHAR-DP1000-WEB</v4:externalId>
+                                        <v4:productCategory
+displayName="">cableTV</v4:productCategory>
+                                        <v4:name>cableTV</v4:name>
+                                        <v4:channels>
+                                           <v4:channel>Web</v4:channel>
+                                        </v4:channels>
+                                        <v4:provider externalId="23928"
+name="cableTV">
+                                            <v4:source
+datasource="cableTV">internal</v4:source>
+                                            <v4:parent externalId="" name=""/>
+                                        </v4:provider>
+                                    </v4:productLineItem>
+                                </v4:detail>
+                                <ac:productUniqueId>15939</ac:productUniqueId>
+                            </ac:lineItemDetail>
+                            <ac:selectedFeatures
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+                                <v4:features>
+                                    <v4:featureValue externalId="DIG_RCVR"
+value="0" type="integer"/>
+                                </v4:features>
+                            </ac:selectedFeatures>
+                            <ac:lineItemPriceInfo>
+                               
+<ac:baseNonRecurringPrice>42.5</ac:baseNonRecurringPrice>
+                               
+<ac:baseRecurringPrice>85.49</ac:baseRecurringPrice>
+                                <ac:priceInfoStatus>
+                                    <ac:statusCode>80</ac:statusCode>
+                                    <ac:processingMessages>
+                                        <ac:message>
+                                            <ac:code>60.0</ac:code>
+                                            <ac:text>EMPTY_REASON</ac:text>
+                                        </ac:message>
+                                        <ac:message>
+                                            <ac:code>400.0</ac:code>
+                                           
+<ac:text>FEATURE_MIN_VIOLATION</ac:text>
+                                        </ac:message>
+                                    </ac:processingMessages>
+                                   
+<ac:statusMsg>LINE_ITEM_INVALID</ac:statusMsg>
+                                </ac:priceInfoStatus>
+                            </ac:lineItemPriceInfo>
+                        </ac:lineItem>
+                    </ac:lineItems>
+                    <v4:totalPriceInfo
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+                </v4:pricingResponseOrderElement>
+            </v4:response>
+        </v4:pricingRequestResponse>

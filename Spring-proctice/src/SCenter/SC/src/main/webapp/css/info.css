@@ -1,0 +1,23 @@
+.bottomDweller {position: absolute; top:562px;}
+
+.videoCapable{
+	display: block;
+	float:left;
+	background:url("../images/img/pp_screen.png") no-repeat;
+	border: none;
+	margin-right: 3px;
+}
+.internetCapable{
+	display: block;
+	float:left;
+	background:url("../images/img/pp_world.png") no-repeat;
+	border: none;
+	margin-right: 3px;
+}
+.phoneCapable{
+	display: block;
+	float:left;
+	background:url("../images/img/pp_phone.png") no-repeat;
+	border: none;
+	margin-right: 3px;
+}

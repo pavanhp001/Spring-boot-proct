@@ -1,0 +1,43 @@
+rule assignFirstSeat
+    when
+        context : Context( state == Context.START_UP )
+        guest : Guest()
+        count : Count()
+    then
+        String guestName = guest.getName();        
+
+        insert( new Seating( count.getValue(), 1, true, 1, guestName, 1, guestName) );        
+        insert( new Path( count.getValue(), 1, guestName ) );        
+
+        count.setValue(  count.getValue() + 1 );        
+        update( count );
+        context.setState( Context.ASSIGN_SEATS );       
+        update( context );
+end
+
+
+rule findSeating
+   when 
+       context : Context( state == Context.ASSIGN_SEATS )
+       $s      : Seating( pathDone == true )
+       $g1     : Guest( name == $s.rightGuestName )
+       $g2     : Guest( sex != $g1.sex, hobby == $g1.hobby )
+       count   : Count()
+       not ( Path( id == $s.id, guestName == $g2.name) )
+       not ( Chosen( id == $s.id, guestName == $g2.name, hobby == $g1.hobby) )
+   then
+       int rightSeat = $s.getRightSeat();
+       int seatId = $s.getId();
+       int countValue = count.getValue();
+       
+       insert( new Seating( countValue, seatId, false, rightSeat, $s.getRightGuestName(), rightSeat + 1, $g2.getName() ) );                                
+       insert( new Path( countValue, rightSeat + 1, $g2.getName() ) );       
+       insert( new Chosen( seatId, $g2.getName(), $g1.getHobby() ) );
+
+       count.setValue(  countValue + 1 );
+       update( count );       
+       context.setState( Context.MAKE_PATH );
+       update( context );
+end
+
+

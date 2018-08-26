@@ -1,0 +1,77 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+	version="1.0">
+
+	<persistence-unit name="transactional_pu"
+		transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<non-jta-data-source>transactionalDatasource</non-jta-data-source>
+		<class>com.AL.V.beans.entity.AccountHolder</class>
+		<class>com.AL.V.beans.entity.StatusRecordBean</class>
+		<class>com.AL.V.beans.entity.SalesOrder</class>
+		<class>com.AL.V.beans.entity.BillingInformation</class>
+		<class>com.AL.V.beans.entity.AddressBean</class>
+		<class>com.AL.V.beans.entity.Consumer</class>
+		<class>com.AL.V.beans.entity.PhoneContactChannel</class>
+		<class>com.AL.V.beans.entity.EMailContactChannel</class>
+		<class>com.AL.V.beans.PriceInfo</class>
+		<class>com.AL.V.beans.entity.LineItem</class>
+		<class>com.AL.V.beans.entity.LineItemDetail</class>
+		<class>com.AL.V.beans.entity.SelectedFeatureValue</class>
+		<class>com.AL.V.beans.entity.OrderAudit</class>
+		<class>com.AL.V.beans.entity.Rules</class>
+		<class>com.AL.V.beans.entity.RulesSet</class>
+		<class>com.AL.V.beans.entity.RuleStorage</class>
+		<class>com.AL.V.beans.entity.CustomerAddressAssociation</class>
+		<class>com.AL.V.beans.entity.CustomerAddressAssociationPK</class>
+		<class>com.AL.V.beans.entity.CustomerAudit</class>
+		<class>com.AL.V.beans.entity.CustomerInteraction</class>
+		<class>com.AL.V.beans.entity.CustomerContext</class>
+		<class>com.AL.V.beans.job.Job</class>
+		<class>com.AL.V.beans.entity.Account</class>
+		<class>com.AL.V.beans.entity.SalesOrderContext</class>
+		<class>com.AL.V.beans.entity.Product</class>
+		<class>com.AL.V.beans.entity.ProductCustomization</class>
+		<class>com.AL.V.beans.entity.ProductChoice</class>
+		<class>com.AL.V.beans.entity.ProductFeature</class>
+		<class>com.AL.V.beans.entity.ProductPromotion</class>
+		<class>com.AL.V.beans.ProductBase</class>
+		<class>com.AL.V.beans.ProductCustomizationBase</class>
+		<class>com.AL.V.beans.ProductChoiceBase</class>
+		<class>com.AL.V.beans.ProductFeatureBase</class>
+		<class>com.AL.V.beans.ProductDCValue</class>
+		<class>com.AL.V.beans.entity.SelectedDialogue</class>
+		<class>com.AL.V.beans.entity.CustomSelection</class>
+		<class>com.AL.V.beans.entity.User</class>
+		<class>com.AL.V.beans.entity.LineItemAttribute</class>
+		<class>com.AL.V.beans.entity.CustomerPaymentEvent</class>
+		<class>com.AL.V.beans.entity.CustomerPaymentEventStatus</class>
+		 <class>com.AL.V.beans.entity.VOrderMapping</class>
+		 <class>com.AL.V.beans.entity.UserResource</class>
+		 <class>com.AL.V.beans.entity.Resource</class>
+		 <class>com.AL.V.beans.entity.Role</class>
+		 <class>com.AL.V.beans.entity.CustomerAttribute</class>
+		 <class>com.AL.V.beans.entity.Broadcast</class>
+		 <class>com.AL.V.beans.entity.CustomerSurvey</class>
+		 <class>com.AL.V.beans.entity.ReasonBean</class>
+        <class>com.AL.V.beans.entity.CoachingBean</class>
+		<properties>
+			<property name="hibernate.hbm2ddl.auto" value="none" />
+			<property name="hibernate.cache.provider_class"
+				value="net.sf.ehcache.hibernate.SingletonEhCacheProvider" />
+			<property name="hibernate.cache.use_second_level_cache"
+				value="true" />
+			<property name="hibernate.mapping.precedence" value="class" />
+			<property name="net.sf.ehcache.configurationResourceName"
+				value="/ehcache.xml" />
+			<property name="hibernate.cache.use_query_cache" value="true" />
+			<property name="hibernate.generate_statistics" value="true" />
+			<property name="hibernate.transaction.flush_before_completion"
+				value="true" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgresPlusDialect" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+		</properties>
+	</persistence-unit>
+</persistence>

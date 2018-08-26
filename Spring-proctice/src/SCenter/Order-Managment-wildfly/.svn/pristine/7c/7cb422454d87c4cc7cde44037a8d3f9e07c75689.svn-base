@@ -1,0 +1,12 @@
+alter table V_tx.OM_CUST_SELECTION drop column SELECTION_DISPLAY_ORDER;
+alter table V_tx.OM_CUST_SELECTION drop column SELECTION_TYPE;
+alter table V_tx.OM_CUST_SELECTION drop column SELECTION_SHORT_DESC;
+alter table V_tx.OM_CUST_SELECTION drop column SELECTION_NAME;
+alter table V_tx.OM_CUST_SELECTION drop column CHIOCE_DISPLAY_ORDER;
+alter table V_tx.OM_CUST_SELECTION drop column CHIOCE_SHORT_DESC;
+alter table V_tx.OM_CUST_SELECTION drop column CHIOCE_NAME;
+alter table V_tx.OM_CUST_SELECTION drop column BASE_NONRECURRING_PRICE;
+alter table V_tx.OM_CUST_SELECTION drop column BASE_RECURRING_PRICE;
+alter table V_tx.OM_CUST_SELECTION drop column BASE_NONRECURRING_PRICE_UNITS;
+alter table V_tx.OM_CUST_SELECTION drop column BASE_RECURRING_PRICE_UNITS;
+alter table V_tx.OM_CUST_SELECTION drop column INCLUDEIN_TOTAL_PRICE;

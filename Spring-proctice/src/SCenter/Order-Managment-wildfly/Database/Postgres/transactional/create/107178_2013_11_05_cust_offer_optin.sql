@@ -1,0 +1,1 @@
+ALTER TABLE V_tx.cm_consumer ADD COLUMN offers_presented character varying(10);

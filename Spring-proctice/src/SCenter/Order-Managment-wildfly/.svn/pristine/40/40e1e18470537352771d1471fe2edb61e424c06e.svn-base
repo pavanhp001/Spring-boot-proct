@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<v4:orderManagementRequestResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                         xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                                         xmlns:v4="http://xml.AL.com/v4"
+                                         xsi:schemaLocation="http://xml.AL.com/v4 orderManagement.xsd ">
+         <v4:transactionType>updateLineItemStatus</v4:transactionType>
+         <v4:request>
+            <v4:salesContext>
+               <v4:entity name="harmony">
+                  <v4:attribute name="source" value="accord"/>
+               </v4:entity>
+            </v4:salesContext>
+            <v4:agentId>153174877</v4:agentId>
+            <v4:orderId>58297</v4:orderId>
+            <v4:lineItemId>52411</v4:lineItemId>
+            <v4:newLineItemStatus statusCode="hold_customer_action" dateTimeStamp="2013-02-22T16:30:00" statusCodeDescription="description"
+                                  agentId="153174877">
+               <v4:reason>2</v4:reason>
+            </v4:newLineItemStatus>
+         </v4:request>
+      </v4:orderManagementRequestResponse>
+
+

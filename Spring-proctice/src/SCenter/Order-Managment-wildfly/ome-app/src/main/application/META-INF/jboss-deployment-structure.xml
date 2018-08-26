@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.2">
+	
+	<!-- Make sub deployments isolated by default, so they cannot see each others classes without a Class-Path entry -->
+  	<ear-subdeployments-isolated>false</ear-subdeployments-isolated>
+  	
+  	<!-- This corresponds to the top level deployment. For a war this is the war's module, for an ear -->
+  	<!-- This is the top level ear module, which contains all the classes in the EAR's lib folder     -->
+    <deployment>
+    	
+    	<dependencies>
+    		<!-- <module name="org.apache.activemq" /> -->
+    		<module name="org.hibernate" annotations="true" export="true"/>
+        	<module name="com.edb.jdbc" export="true"/>
+        	<module name="org.postgresql" export="true"/>
+        	<module name="org.apache.commons.lang" export="true"/>
+    		
+			<module name="com.amazonaws.aws-java-sdk-core" export="true"/>
+			<module name="com.amazonaws.aws-java-sdk-s3" export="true" />
+    		<module name="com.amazonaws.aws-java-sdk-kms" export="true" />
+    		<module name="com.amazonaws.aws-java-sdk-dynamodb" export="true" />
+    		<!-- <module name="org.apache.xmlbeans" services="export" />
+    		<module name="org.jboss.ws.jaxws-client" services="export" /> -->
+    	</dependencies>
+        
+        <exclude-subsystems>  
+	      <subsystem name="jaxrs" />  
+	      <subsystem name="webservices" />  
+	    </exclude-subsystems>
+    
+        <!-- Exclusions allow you to prevent the server from automatically adding some dependencies     -->
+        <!-- <exclusions>
+           Exclude Version cxf of JBOSS
+           <module name="org.apache.cxf" />
+           <module name="org.jboss.ws.cxf.jbossws-cxf-client" />
+        </exclusions> -->
+        
+    </deployment>
+</jboss-deployment-structure>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<v4:customerManagementRequestResponse
+	xmlns:v4="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xml.AL.com/v4 customerManagement.xsd ">
+	<v4:correlationId>v4:correlationId</v4:correlationId>
+	<v4:transactionId>0</v4:transactionId>
+	<v4:transactionType>updateCustomer</v4:transactionType>
+	<v4:request>
+	    <v4:salesContext>
+			<v4:entity name="source">
+				<v4:attribute name="source" value="accord" />
+			</v4:entity>
+		</v4:salesContext>
+		<v4:customerId>157</v4:customerId>
+		<v4:agentId>default</v4:agentId>
+		<v4:customerInfo>
+			<v4:payments>
+				<v4:PaymentEvent custAgreedCCDisclosure="true">
+					<v4:externalId>0</v4:externalId>
+					<v4:billingInfoId>1</v4:billingInfoId>
+					<v4:Event>ADVANCED</v4:Event>
+					<v4:CVV>899</v4:CVV>
+					<v4:Amount>10.0</v4:Amount>
+					<v4:ConfirmNumber>v4:ConfirmNumber</v4:ConfirmNumber>
+					<v4:transactionDate>2001-01-01</v4:transactionDate>
+					<v4:paymentStatus>
+						<v4:status>0</v4:status>
+						<v4:reason>0</v4:reason>
+						<v4:dateTimeStamp>2001-12-31T12:00:00</v4:dateTimeStamp>
+						<v4:providerId>0</v4:providerId>
+					</v4:paymentStatus>
+					<v4:OrderId>11111</v4:OrderId>
+					<v4:LineItemId>2222222</v4:LineItemId>
+				</v4:PaymentEvent>
+			</v4:payments>
+		</v4:customerInfo>
+	</v4:request>
+</v4:customerManagementRequestResponse>

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" targetNamespace="http://xml.A.com/v3"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ac="http://xml.A.com/v3">
+
+	<xs:include schemaLocation="types.xsd" />
+
+	<xs:element name="contextNode" type="ac:contextNodeType" />
+	<xs:element name="contextNodePolicy" type="ac:contextNodePolicyType" />
+	<xs:element name="contextNodeCollection" type="ac:contextNodeCollectionType" />
+	<xs:element name="contextNodePolicyCollection" type="ac:contextNodePolicyCollectionType" />
+	<xs:element name="contextKey" type="ac:contextKeyCollectionType" />
+
+
+	<xs:complexType name="contextKeyCollectionType">
+		<xs:annotation>
+			<xs:documentation>
+				Collection of String based keys that identifies a
+				node or policy
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="key" type="xs:string" minOccurs="3"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+
+	<xs:complexType name="contextNodeCollectionType">
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>
+					Collection of Context Node. Context Nodes
+					represent data elements that may be leaf elements.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:element name="contentNode" type="ac:contextNodeType"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="contextNodePolicyCollectionType">
+		<xs:annotation>
+			<xs:documentation>
+				Collection of Context Policies.
+	</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="contentNodePolicy" type="ac:contextNodePolicyType"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+
+	<xs:complexType name="contextNodeType">
+		<xs:all>
+			<xs:element name="id" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="encryptKey" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="orderId" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="parentId" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="policyId" type="xs:int" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="policy" type="ac:contextNodePolicyType"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="root" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="key" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="dateCreated" type="xs:date" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="dateExpire" type="xs:date" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="ancestorPath" type="xs:string"
+				minOccurs="1" maxOccurs="1" />
+
+			<xs:element name="ancestorPathName" type="xs:string"
+				minOccurs="1" maxOccurs="1" />
+
+			<xs:element name="value" type="xs:string" minOccurs="1"
+				maxOccurs="1" />
+		</xs:all>
+	</xs:complexType>
+
+
+
+
+
+	<xs:complexType name="contextNodePolicyType">
+		<xs:all>
+			<xs:element name="id" type="xs:int" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="root" type="xs:int" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="desc" type="xs:string" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="relativePath" type="xs:string"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="nodeType" type="xs:int" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="isActive" type="xs:int" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="timeToLive" type="xs:int" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="dateCreated" type="xs:date" minOccurs="0"
+				maxOccurs="1" />
+		</xs:all>
+	</xs:complexType>
+
+
+	<xs:simpleType name="rootEnum">
+		<xs:annotation>
+			<xs:documentation>defines root folders. root is the default.
+				Allows segmentation of the data</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+
+
+
+
+	<xs:element name="contextRequestResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="transactionId" type="xs:int" minOccurs="0"
+					maxOccurs="1" />
+				<xs:element name="transactionType" minOccurs="1"
+					maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:token">
+							<xs:enumeration value="putNode" />
+							<xs:enumeration value="putNodeTTL" />
+							<xs:enumeration value="putNodes" />
+							<xs:enumeration value="putNodesTTL" />
+							<xs:enumeration value="getNodesByKey" />
+							<xs:enumeration value="getNodesByKeys" />
+							<xs:enumeration value="getNodeByPath" />
+							<xs:enumeration value="getNodesAll" />
+							<xs:enumeration value="getPolicyByKey" />
+							<xs:enumeration value="getPolicyByType" />
+							<xs:enumeration value="contains" />
+							<xs:enumeration value="deleteNode" />
+							<xs:enumeration value="deleteAllNodes" />
+							<xs:enumeration value="clearAll" />
+							<xs:enumeration value="getPolicyAll" />
+							<xs:enumeration value="load" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+
+				<xs:element name="status" type="ac:statusType" minOccurs="0"
+					maxOccurs="1" />
+
+				<xs:element name="request">
+					<xs:complexType>
+						<xs:annotation>
+							<xs:documentation>
+								The request that accesses and executes the
+								ContextService API
+							</xs:documentation>
+						</xs:annotation>
+						<xs:sequence>
+
+							<xs:element name="timeToLive" type="xs:int" minOccurs="0"
+								maxOccurs="1" />
+							<xs:element name="keys" type="ac:contextKeyCollectionType"
+								minOccurs="0" maxOccurs="1" />
+
+
+							<xs:element name="root" type="ac:rootEnum" minOccurs="0"
+								maxOccurs="1" />
+
+							<xs:element name="orderId" type="xs:string" minOccurs="0"
+								maxOccurs="1" />
+
+
+							<xs:element name="includeChildren" type="xs:boolean"
+								minOccurs="0" maxOccurs="1" />
+
+							<xs:choice maxOccurs="1" minOccurs="0">
+								<xs:sequence>
+									<xs:annotation>
+										<xs:documentation>
+
+										</xs:documentation>
+									</xs:annotation>
+									<xs:element name="nodes" type="ac:contextNodeCollectionType"
+										minOccurs="0" maxOccurs="1" />
+								</xs:sequence>
+
+								<xs:sequence>
+									<xs:annotation>
+										<xs:documentation>
+											Context Parameters
+										</xs:documentation>
+									</xs:annotation>
+								</xs:sequence>
+
+
+								<xs:sequence>
+									<xs:annotation>
+										<xs:documentation>
+											input parameter for context service
+										</xs:documentation>
+									</xs:annotation>
+									<xs:element name="node" type="ac:contextNodeType"
+										minOccurs="0" maxOccurs="1" />
+								</xs:sequence>
+
+
+								<xs:sequence>
+									<xs:annotation>
+										<xs:documentation>
+
+										</xs:documentation>
+									</xs:annotation>
+									<xs:element name="policyNode" type="ac:contextNodePolicyType"
+										minOccurs="0" maxOccurs="1" />
+								</xs:sequence>
+
+								<xs:sequence>
+									<xs:annotation>
+										<xs:documentation>
+
+										</xs:documentation>
+									</xs:annotation>
+									<xs:element name="policyNodes"
+										type="ac:contextNodePolicyCollectionType" minOccurs="0"
+										maxOccurs="1" />
+								</xs:sequence>
+							</xs:choice>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+
+				<xs:element name="response">
+					<xs:complexType>
+						<xs:annotation>
+							<xs:documentation>
+								Response for the request.
+							</xs:documentation>
+						</xs:annotation>
+						<xs:all> 
+								<xs:element name="resultNodeCollection" type="ac:contextNodeCollectionType"
+									minOccurs="0" maxOccurs="1" />
+							 
+								<xs:element name="resultPolicyCollection" type="ac:contextNodePolicyCollectionType"
+									minOccurs="0" maxOccurs="1" />
+							 
+								<xs:element name="resultInteger" type="xs:int"
+									minOccurs="0" maxOccurs="1" />
+							 
+								<xs:element name="resultBoolean" type="xs:boolean"
+									minOccurs="0" maxOccurs="1" /> 
+						</xs:all>
+					</xs:complexType>
+				</xs:element>
+
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

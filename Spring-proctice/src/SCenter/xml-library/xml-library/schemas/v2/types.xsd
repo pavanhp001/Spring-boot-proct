@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" targetNamespace="http://xml.A.com/v2"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ac="http://xml.A.com/v2">
+	
+	<xs:include schemaLocation="address.xsd" />
+
+	<xs:complexType name="emptyElementType">
+		<xs:complexContent>
+			<xs:restriction base="xs:anyType" />
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="arbitraryXML">
+		<xs:sequence>
+			<xs:any processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="idType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d{1,25}" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="lineItemCollectionType">
+		<xs:sequence>
+			<xs:element name="lineItem" type="ac:lineItemType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+		
+	<xs:complexType name="lineItemType">
+		<xs:sequence>
+			<xs:element ref="ac:serviceableAddress" minOccurs="1" maxOccurs="1" />
+			<xs:element ref="ac:billingInfo" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="billingInfoType">
+	    <xs:sequence>
+	    	<xs:element ref="ac:id" maxOccurs="1" minOccurs="1" />
+			<xs:element name="billingMethod" type="xs:string"/>
+			<xs:element name="creditCardNumber" type="xs:string"/>
+			<xs:element name="verificationCode" type="xs:string"/>
+			<xs:element name="checkingAccountNumber" type="xs:string"/>
+ 			<xs:element name="routingNumber" type="xs:string"/>
+ 			<xs:element name="billingAddress" type="ac:addressType" />
+ 		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="businessPartyType">
+		<xs:sequence>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="priceInfoType">
+		<xs:sequence>
+			<xs:element name="baseNonRecurringPrice" type="xs:double" minOccurs="0" maxOccurs="1" />
+			<xs:element name="baseRecurringPrice" type="xs:double" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	<!--  Standard Vocabulary for Terms -->
+	
+	<!--  Name-related elements  -->
+	<xs:element name="title" type="xs:string" />
+	<xs:element name="firstName" type="xs:string" />
+	<xs:element name="lastName" type="xs:string" />
+	<xs:element name="middleName" type="xs:string" />
+	<xs:element name="nameSuffix" type="xs:string" />
+	<xs:element name="gender">
+		<xs:simpleType>
+			<xs:restriction base="xs:token">
+				<xs:enumeration value="M"  />
+				<xs:enumeration value="F"  />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	
+	<xs:element name="billingInfo" type="ac:billingInfoType"/>	
+	<xs:element name="entryType" type="xs:string" /> <!-- ENUM -->
+	<xs:element name="id" type="ac:idType" />
+
+	<xs:element name="moveDate" type="xs:string"/> <!-- DATE -->
+	<xs:element name="orderStatus" type="xs:string" /> <!-- ENUM -->
+	<xs:element name="price" type="ac:priceInfoType"/>
+	<xs:element name="referrer" type="ac:businessPartyType"/>
+	<xs:element name="referredAddress" type="ac:addressType" />
+	<xs:element name="serviceableAddress" type="ac:addressType" />
+	<xs:element name="encryptedPassword" type="xs:string" />
+	
+	<xs:element name="agentUserName" type="xs:string"/>
+	<xs:element name="extension" >
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value="(\d){1,6}"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+			
+</xs:schema>

@@ -1,0 +1,512 @@
+      <v4:detailsRequestResponse xmlns:v4="http://xml.A.com/v4">
+         <v4:correlationId>123456</v4:correlationId>
+         <v4:transactionType>getAllOrderSources</v4:transactionType>
+         <v4:status>
+            <v4:statusCode>0</v4:statusCode>
+            <v4:processingMessages>
+               <v4:message>
+                  <v4:code>0.0</v4:code>
+                  <v4:text>All entities requested were found</v4:text>
+               </v4:message>
+            </v4:processingMessages>
+         </v4:status>
+         <v4:request>
+            <ac:orderSourceRequestElement xmlns:ac="http://xml.A.com/v4"/>
+         </v4:request>
+         <v4:response>
+            <v4:detailResultElement/>
+            <v4:orderSourceResultElement>
+               <v4:orderSource>
+                  <v4:sourceCode>FE_Cleveland_Movers_OS</v4:sourceCode>
+                  <v4:name>First Energy (Cleveland) Movers OS</v4:name>
+                  <v4:program>
+                     <v4:externalId>FE_Cleveland_Movers</v4:externalId>
+                     <v4:name>First Energy (Cleveland) Movers</v4:name>
+                     <v4:metadataList>
+                        <v4:metadata name="type" value="Movers"/>
+                        <v4:metadata name="channel" value="CallCenter"/>
+                     </v4:metadataList>
+                  </v4:program>
+                  <v4:businessParty>
+                     <v4:externalId>3882568</v4:externalId>
+                     <v4:name>First Energy (Cleveland)</v4:name>
+                     <v4:metadataList/>
+                  </v4:businessParty>
+                  <v4:telephonyList>
+                     <v4:telephony>
+                        <v4:phoneNumber>782984563</v4:phoneNumber>
+                        <v4:vdn>FE_Eng_CC</v4:vdn>
+                        <v4:language>English</v4:language>
+                        <v4:callType>Sales</v4:callType>
+                     </v4:telephony>
+                  </v4:telephonyList>
+                  <v4:channel>CallCenter</v4:channel>
+                  <v4:imageUrl>\var\images\FE.jpg</v4:imageUrl>
+               </v4:orderSource>
+            </v4:orderSourceResultElement>
+            <v4:orderSourceResultElement>
+               <v4:orderSource>
+                  <v4:sourceCode>PE_Movers_CallCenter_OS</v4:sourceCode>
+                  <v4:name>Progress Energy Movers Order Source</v4:name>
+                  <v4:program>
+                     <v4:externalId>PE_Movers</v4:externalId>
+                     <v4:name>Progress Energy Movers</v4:name>
+                     <v4:metadataList>
+                        <v4:metadata name="type" value="Movers"/>
+                        <v4:metadata name="channel" value="CallCenter"/>
+                     </v4:metadataList>
+                  </v4:program>
+                  <v4:businessParty>
+                     <v4:externalId>112</v4:externalId>
+                     <v4:name>Progress Energy</v4:name>
+                     <v4:metadataList/>
+                  </v4:businessParty>
+                  <v4:telephonyList>
+                     <v4:telephony>
+                        <v4:phoneNumber>782984777</v4:phoneNumber>
+                        <v4:vdn>PE_Eng_Sales</v4:vdn>
+                        <v4:language>English</v4:language>
+                        <v4:callType>Sales</v4:callType>
+                     </v4:telephony>
+                  </v4:telephonyList>
+                  <v4:channel>CallCenter</v4:channel>
+                  <v4:imageUrl>\var\images\PE.jpg</v4:imageUrl>
+               </v4:orderSource>
+            </v4:orderSourceResultElement>
+            <v4:orderSourceResultElement>
+               <v4:orderSource>
+                  <v4:sourceCode>Nisource_Retail_Movers_OS</v4:sourceCode>
+                  <v4:name>Nisource Retail Movers</v4:name>
+                  <v4:program>
+                     <v4:externalId>Nisource_Retail_Movers</v4:externalId>
+                     <v4:name>Nisource Retail Movers</v4:name>
+                     <v4:metadataList>
+                        <v4:metadata name="type" value="Movers"/>
+                        <v4:metadata name="channel" value="Web"/>
+                     </v4:metadataList>
+                  </v4:program>
+                  <v4:businessParty>
+                     <v4:externalId>20114346</v4:externalId>
+                     <v4:name>Nisource Retail</v4:name>
+                     <v4:metadataList/>
+                  </v4:businessParty>
+                  <v4:telephonyList>
+                     <v4:telephony>
+                        <v4:phoneNumber>782984563</v4:phoneNumber>
+                        <v4:vdn>2</v4:vdn>
+                        <v4:language>English</v4:language>
+                        <v4:callType>CustomerCare</v4:callType>
+                     </v4:telephony>
+                  </v4:telephonyList>
+                  <v4:channel>Web</v4:channel>
+                  <v4:imageUrl>\var\images\CD.jpg</v4:imageUrl>
+               </v4:orderSource>
+            </v4:orderSourceResultElement>
+            <v4:orderSourceResultElement>
+               <v4:orderSource>
+                  <v4:sourceCode>Portlan_Genera_Electric_Movers_OS</v4:sourceCode>
+                  <v4:name>Portland General Electric Movers</v4:name>
+                  <v4:program>
+                     <v4:externalId>Portlan_Genera_Electric_Movers</v4:externalId>
+                     <v4:name>Portland General Electric Movers</v4:name>
+                     <v4:metadataList>
+                        <v4:metadata name="type" value="Movers"/>
+                        <v4:metadata name="channel" value="Web"/>
+                     </v4:metadataList>
+                  </v4:program>
+                  <v4:businessParty>
+                     <v4:externalId>23453</v4:externalId>
+                     <v4:name>Portland General Electric</v4:name>
+                     <v4:metadataList/>
+                  </v4:businessParty>
+                  <v4:telephonyList>
+                     <v4:telephony>
+                        <v4:phoneNumber>782984563</v4:phoneNumber>
+                        <v4:vdn>3</v4:vdn>
+                        <v4:language>Spanish</v4:language>
+                        <v4:callType>Sales</v4:callType>
+                     </v4:telephony>
+                  </v4:telephonyList>
+                  <v4:channel>Web</v4:channel>
+                  <v4:imageUrl>\var\images\EF.jpg</v4:imageUrl>
+               </v4:orderSource>
+            </v4:orderSourceResultElement>
+            <v4:orderSourceResultElement>
+               <v4:orderSource>
+                  <v4:sourceCode>Reliant_Energy_Movers_OS</v4:sourceCode>
+                  <v4:name>Reliant Energy - Deregulated Electricity Movers</v4:name>
+                  <v4:program>
+                     <v4:externalId>Reliant_Energy_Movers</v4:externalId>
+                     <v4:name>Reliant Energy - Deregulated Electricity Movers</v4:name>
+                     <v4:metadataList>
+                        <v4:metadata name="type" value="Movers"/>
+                        <v4:metadata name="channel" value="Web"/>
+                     </v4:metadataList>
+                  </v4:program>
+                  <v4:businessParty>
+                     <v4:externalId>10454404</v4:externalId>
+                     <v4:name>Reliant Energy - Deregulated Electricity</v4:name>
+                     <v4:metadataList/>
+                  </v4:businessParty>
+                  <v4:telephonyList>
+                     <v4:telephony>
+                        <v4:phoneNumber>782984563</v4:phoneNumber>
+                        <v4:vdn>4</v4:vdn>
+                        <v4:language>Spanish</v4:language>
+                        <v4:callType>CustomerCare</v4:callType>
+                     </v4:telephony>
+                  </v4:telephonyList>
+                  <v4:channel>Web</v4:channel>
+                  <v4:imageUrl>\var\images\GH.jpg</v4:imageUrl>
+               </v4:orderSource>
+            </v4:orderSourceResultElement>
+            <v4:orderSourceResultElement>
+               <v4:orderSource>
+                  <v4:sourceCode>Verizon_Movers_OS</v4:sourceCode>
+                  <v4:name>Verizon Movers</v4:name>
+                  <v4:program>
+                     <v4:externalId>Verizon_Movers</v4:externalId>
+                     <v4:name>Verizon Movers</v4:name>
+                     <v4:metadataList>
+                        <v4:metadata name="type" value="Movers"/>
+                        <v4:metadata name="channel" value="Web"/>
+                     </v4:metadataList>
+                  </v4:program>
+                  <v4:businessParty>
+                     <v4:externalId>4353598</v4:externalId>
+                     <v4:name>Verizon</v4:name>
+                     <v4:metadataList/>
+                  </v4:businessParty>
+                  <v4:telephonyList>
+                     <v4:telephony>
+                        <v4:phoneNumber>782984563</v4:phoneNumber>
+                        <v4:vdn>5</v4:vdn>
+                        <v4:language>English</v4:language>
+                        <v4:callType>Sales</v4:callType>
+                     </v4:telephony>
+                  </v4:telephonyList>
+                  <v4:channel>Web</v4:channel>
+                  <v4:imageUrl>\var\images\AB.jpg</v4:imageUrl>
+               </v4:orderSource>
+            </v4:orderSourceResultElement>
+            <v4:orderSourceResultElement>
+               <v4:orderSource>
+                  <v4:sourceCode>Nisource_Retail_Shoppers</v4:sourceCode>
+                  <v4:name>Nisource Retail Shoppers</v4:name>
+                  <v4:program>
+                     <v4:externalId>Nisource_Retail_Shoppers</v4:externalId>
+                     <v4:name>Nisource Retail Shoppers</v4:name>
+                     <v4:metadataList>
+                        <v4:metadata name="type" value="Shoppers"/>
+                        <v4:metadata name="channel" value="CallCenter"/>
+                     </v4:metadataList>
+                  </v4:program>
+                  <v4:businessParty>
+                     <v4:externalId>20114346</v4:externalId>
+                     <v4:name>Nisource Retail</v4:name>
+                     <v4:metadataList/>
+                  </v4:businessParty>
+                  <v4:telephonyList>
+                     <v4:telephony>
+                        <v4:phoneNumber>782984563</v4:phoneNumber>
+                        <v4:vdn>7</v4:vdn>
+                        <v4:language>Spanish</v4:language>
+                        <v4:callType>Sales</v4:callType>
+                     </v4:telephony>
+                  </v4:telephonyList>
+                  <v4:channel>CallCenter</v4:channel>
+                  <v4:imageUrl>\var\images\EF.jpg</v4:imageUrl>
+               </v4:orderSource>
+            </v4:orderSourceResultElement>
+            <v4:orderSourceResultElement>
+               <v4:orderSource>
+                  <v4:sourceCode>Portlan_Genera_Electric_Shoppers</v4:sourceCode>
+                  <v4:name>Portland General Electric Shoppers</v4:name>
+                  <v4:program>
+                     <v4:externalId>Portlan_Genera_Electric_Shoppers</v4:externalId>
+                     <v4:name>Portland General Electric Shoppers</v4:name>
+                     <v4:metadataList>
+                        <v4:metadata name="type" value="Shoppers"/>
+                        <v4:metadata name="channel" value="CallCenter"/>
+                     </v4:metadataList>
+                  </v4:program>
+                  <v4:businessParty>
+                     <v4:externalId>23453</v4:externalId>
+                     <v4:name>Portland General Electric</v4:name>
+                     <v4:metadataList/>
+                  </v4:businessParty>
+                  <v4:telephonyList>
+                     <v4:telephony>
+                        <v4:phoneNumber>782984563</v4:phoneNumber>
+                        <v4:vdn>8</v4:vdn>
+                        <v4:language>Spanish</v4:language>
+                        <v4:callType>CustomerCare</v4:callType>
+                     </v4:telephony>
+                  </v4:telephonyList>
+                  <v4:channel>CallCenter</v4:channel>
+                  <v4:imageUrl>\var\images\GH.jpg</v4:imageUrl>
+               </v4:orderSource>
+            </v4:orderSourceResultElement>
+            <v4:orderSourceResultElement>
+               <v4:orderSource>
+                  <v4:sourceCode>Reliant_Energy_Shoppers</v4:sourceCode>
+                  <v4:name>Reliant Energy - Deregulated Electricity Shoppers</v4:name>
+                  <v4:program>
+                     <v4:externalId>Reliant_Energy_Shoppers</v4:externalId>
+                     <v4:name>Reliant Energy - Deregulated Electricity Shoppers</v4:name>
+                     <v4:metadataList>
+                        <v4:metadata name="type" value="Shoppers"/>
+                        <v4:metadata name="channel" value="CallCenter"/>
+                     </v4:metadataList>
+                  </v4:program>
+                  <v4:businessParty>
+                     <v4:externalId>10454404</v4:externalId>
+                     <v4:name>Reliant Energy - Deregulated Electricity</v4:name>
+                     <v4:metadataList/>
+                  </v4:businessParty>
+                  <v4:telephonyList>
+                     <v4:telephony>
+                        <v4:phoneNumber>782984563</v4:phoneNumber>
+                        <v4:vdn>9</v4:vdn>
+                        <v4:language>English</v4:language>
+                        <v4:callType>Sales</v4:callType>
+                     </v4:telephony>
+                  </v4:telephonyList>
+                  <v4:channel>CallCenter</v4:channel>
+                  <v4:imageUrl>\var\images\AB.jpg</v4:imageUrl>
+               </v4:orderSource>
+            </v4:orderSourceResultElement>
+            <v4:orderSourceResultElement>
+               <v4:orderSource>
+                  <v4:sourceCode>Verizon_Shoppers</v4:sourceCode>
+                  <v4:name>Verizon Shoppers</v4:name>
+                  <v4:program>
+                     <v4:externalId>Verizon_Shoppers</v4:externalId>
+                     <v4:name>Verizon Shoppers</v4:name>
+                     <v4:metadataList>
+                        <v4:metadata name="type" value="Shoppers"/>
+                        <v4:metadata name="channel" value="CallCenter"/>
+                     </v4:metadataList>
+                  </v4:program>
+                  <v4:businessParty>
+                     <v4:externalId>4353598</v4:externalId>
+                     <v4:name>Verizon</v4:name>
+                     <v4:metadataList/>
+                  </v4:businessParty>
+                  <v4:telephonyList>
+                     <v4:telephony>
+                        <v4:phoneNumber>782984563</v4:phoneNumber>
+                        <v4:vdn>10</v4:vdn>
+                        <v4:language>English</v4:language>
+                        <v4:callType>CustomerCare</v4:callType>
+                     </v4:telephony>
+                  </v4:telephonyList>
+                  <v4:channel>CallCenter</v4:channel>
+                  <v4:imageUrl>\var\images\CD.jpg</v4:imageUrl>
+               </v4:orderSource>
+            </v4:orderSourceResultElement>
+            <v4:orderSourceResultElement>
+               <v4:orderSource>
+                  <v4:sourceCode>Nisource_Retail_Program</v4:sourceCode>
+                  <v4:name>Nisource Retail Program</v4:name>
+                  <v4:program>
+                     <v4:externalId>Nisource_Retail_Program</v4:externalId>
+                     <v4:name>Nisource Retail Program</v4:name>
+                     <v4:metadataList>
+                        <v4:metadata name="type" value="Program"/>
+                        <v4:metadata name="channel" value="CustomerCare"/>
+                     </v4:metadataList>
+                  </v4:program>
+                  <v4:businessParty>
+                     <v4:externalId>20114346</v4:externalId>
+                     <v4:name>Nisource Retail</v4:name>
+                     <v4:metadataList/>
+                  </v4:businessParty>
+                  <v4:telephonyList>
+                     <v4:telephony>
+                        <v4:phoneNumber>782984563</v4:phoneNumber>
+                        <v4:vdn>12</v4:vdn>
+                        <v4:language>Spanish</v4:language>
+                        <v4:callType>CustomerCare</v4:callType>
+                     </v4:telephony>
+                  </v4:telephonyList>
+                  <v4:channel>CustomerCare</v4:channel>
+                  <v4:imageUrl>\var\images\GH.jpg</v4:imageUrl>
+               </v4:orderSource>
+            </v4:orderSourceResultElement>
+            <v4:orderSourceResultElement>
+               <v4:orderSource>
+                  <v4:sourceCode>Portlan_Genera_Electric_Program</v4:sourceCode>
+                  <v4:name>Portland General Electric Program</v4:name>
+                  <v4:program>
+                     <v4:externalId>Portlan_Genera_Electric_Program</v4:externalId>
+                     <v4:name>Portland General Electric Program</v4:name>
+                     <v4:metadataList>
+                        <v4:metadata name="type" value="Program"/>
+                        <v4:metadata name="channel" value="CustomerCare"/>
+                     </v4:metadataList>
+                  </v4:program>
+                  <v4:businessParty>
+                     <v4:externalId>23453</v4:externalId>
+                     <v4:name>Portland General Electric</v4:name>
+                     <v4:metadataList/>
+                  </v4:businessParty>
+                  <v4:telephonyList>
+                     <v4:telephony>
+                        <v4:phoneNumber>782984563</v4:phoneNumber>
+                        <v4:vdn>13</v4:vdn>
+                        <v4:language>English</v4:language>
+                        <v4:callType>Sales</v4:callType>
+                     </v4:telephony>
+                  </v4:telephonyList>
+                  <v4:channel>CustomerCare</v4:channel>
+                  <v4:imageUrl>\var\images\AB.jpg</v4:imageUrl>
+               </v4:orderSource>
+            </v4:orderSourceResultElement>
+            <v4:orderSourceResultElement>
+               <v4:orderSource>
+                  <v4:sourceCode>Reliant_Energy_Program</v4:sourceCode>
+                  <v4:name>Reliant Energy - Deregulated Electricity Program</v4:name>
+                  <v4:program>
+                     <v4:externalId>Reliant_Energy_Program</v4:externalId>
+                     <v4:name>Reliant Energy - Deregulated Electricity Program</v4:name>
+                     <v4:metadataList>
+                        <v4:metadata name="type" value="Program"/>
+                        <v4:metadata name="channel" value="CustomerCare"/>
+                     </v4:metadataList>
+                  </v4:program>
+                  <v4:businessParty>
+                     <v4:externalId>10454404</v4:externalId>
+                     <v4:name>Reliant Energy - Deregulated Electricity</v4:name>
+                     <v4:metadataList/>
+                  </v4:businessParty>
+                  <v4:telephonyList>
+                     <v4:telephony>
+                        <v4:phoneNumber>782984563</v4:phoneNumber>
+                        <v4:vdn>14</v4:vdn>
+                        <v4:language>English</v4:language>
+                        <v4:callType>CustomerCare</v4:callType>
+                     </v4:telephony>
+                  </v4:telephonyList>
+                  <v4:channel>CustomerCare</v4:channel>
+                  <v4:imageUrl>\var\images\CD.jpg</v4:imageUrl>
+               </v4:orderSource>
+            </v4:orderSourceResultElement>
+            <v4:orderSourceResultElement>
+               <v4:orderSource>
+                  <v4:sourceCode>Verizon_Program</v4:sourceCode>
+                  <v4:name>Verizon Program</v4:name>
+                  <v4:program>
+                     <v4:externalId>Verizon_Program</v4:externalId>
+                     <v4:name>Verizon Program</v4:name>
+                     <v4:metadataList>
+                        <v4:metadata name="type" value="Program"/>
+                        <v4:metadata name="channel" value="CustomerCare"/>
+                     </v4:metadataList>
+                  </v4:program>
+                  <v4:businessParty>
+                     <v4:externalId>4353598</v4:externalId>
+                     <v4:name>Verizon</v4:name>
+                     <v4:metadataList/>
+                  </v4:businessParty>
+                  <v4:telephonyList>
+                     <v4:telephony>
+                        <v4:phoneNumber>782984563</v4:phoneNumber>
+                        <v4:vdn>15</v4:vdn>
+                        <v4:language>Spanish</v4:language>
+                        <v4:callType>Sales</v4:callType>
+                     </v4:telephony>
+                  </v4:telephonyList>
+                  <v4:channel>CustomerCare</v4:channel>
+                  <v4:imageUrl>\var\images\EF.jpg</v4:imageUrl>
+               </v4:orderSource>
+            </v4:orderSourceResultElement>
+            <v4:orderSourceResultElement>
+               <v4:orderSource>
+                  <v4:sourceCode>Xcel_Energy_Movers_OS</v4:sourceCode>
+                  <v4:name>Xcel Energy  Movers</v4:name>
+                  <v4:program>
+                     <v4:externalId>Xcel_Energy_Movers</v4:externalId>
+                     <v4:name>Xcel Energy  Movers</v4:name>
+                     <v4:metadataList>
+                        <v4:metadata name="type" value="Movers"/>
+                        <v4:metadata name="channel" value="Web"/>
+                     </v4:metadataList>
+                  </v4:program>
+                  <v4:businessParty>
+                     <v4:externalId>113</v4:externalId>
+                     <v4:name>Xcel Energy</v4:name>
+                     <v4:metadataList/>
+                  </v4:businessParty>
+                  <v4:telephonyList>
+                     <v4:telephony>
+                        <v4:phoneNumber>782984563</v4:phoneNumber>
+                        <v4:vdn>1</v4:vdn>
+                        <v4:language>English</v4:language>
+                        <v4:callType>Sales</v4:callType>
+                     </v4:telephony>
+                  </v4:telephonyList>
+                  <v4:channel>Web</v4:channel>
+                  <v4:imageUrl>\var\images\AB.jpg</v4:imageUrl>
+               </v4:orderSource>
+            </v4:orderSourceResultElement>
+            <v4:orderSourceResultElement>
+               <v4:orderSource>
+                  <v4:sourceCode>Xcel_Energy_Shoppers</v4:sourceCode>
+                  <v4:name>Xcel Energy  Shoppers</v4:name>
+                  <v4:program>
+                     <v4:externalId>Xcel_Energy_Shoppers</v4:externalId>
+                     <v4:name>Xcel Energy  Shoppers</v4:name>
+                     <v4:metadataList>
+                        <v4:metadata name="type" value="Shoppers"/>
+                        <v4:metadata name="channel" value="CallCenter"/>
+                     </v4:metadataList>
+                  </v4:program>
+                  <v4:businessParty>
+                     <v4:externalId>113</v4:externalId>
+                     <v4:name>Xcel Energy</v4:name>
+                     <v4:metadataList/>
+                  </v4:businessParty>
+                  <v4:telephonyList>
+                     <v4:telephony>
+                        <v4:phoneNumber>782984563</v4:phoneNumber>
+                        <v4:vdn>6</v4:vdn>
+                        <v4:language>English</v4:language>
+                        <v4:callType>CustomerCare</v4:callType>
+                     </v4:telephony>
+                  </v4:telephonyList>
+                  <v4:channel>CallCenter</v4:channel>
+                  <v4:imageUrl>\var\images\CD.jpg</v4:imageUrl>
+               </v4:orderSource>
+            </v4:orderSourceResultElement>
+            <v4:orderSourceResultElement>
+               <v4:orderSource>
+                  <v4:sourceCode>Xcel_Energy_Program</v4:sourceCode>
+                  <v4:name>Xcel Energy  Program</v4:name>
+                  <v4:program>
+                     <v4:externalId>Xcel_Energy_Program</v4:externalId>
+                     <v4:name>Xcel Energy  Program</v4:name>
+                     <v4:metadataList>
+                        <v4:metadata name="type" value="Program"/>
+                        <v4:metadata name="channel" value="CustomerCare"/>
+                     </v4:metadataList>
+                  </v4:program>
+                  <v4:businessParty>
+                     <v4:externalId>113</v4:externalId>
+                     <v4:name>Xcel Energy</v4:name>
+                     <v4:metadataList/>
+                  </v4:businessParty>
+                  <v4:telephonyList>
+                     <v4:telephony>
+                        <v4:phoneNumber>782984563</v4:phoneNumber>
+                        <v4:vdn>11</v4:vdn>
+                        <v4:language>Spanish</v4:language>
+                        <v4:callType>Sales</v4:callType>
+                     </v4:telephony>
+                  </v4:telephonyList>
+                  <v4:channel>CustomerCare</v4:channel>
+                  <v4:imageUrl>\var\images\EF.jpg</v4:imageUrl>
+               </v4:orderSource>
+            </v4:orderSourceResultElement>
+         </v4:response>
+      </v4:detailsRequestResponse>

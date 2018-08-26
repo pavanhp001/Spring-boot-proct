@@ -1,0 +1,7 @@
+#Properties for datasource file location for OME
+
+#property for Transactional datasource
+transactional.ds.file.name=${ome.transactional.ds.file.name}
+
+#Property for Non-Transactional datasource
+logical.ds.file.name=${ome.logical.ds.file.name}

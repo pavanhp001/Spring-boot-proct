@@ -1,0 +1,44 @@
+<v4:orderManagementRequestResponse
+	xsi:schemaLocation="http://xml.AL.com/v4 orderManagement.xsd "
+	xmlns:v4="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<v4:transactionType>updateLineItem</v4:transactionType>
+	<v4:request>
+		<v4:agentId>default</v4:agentId>
+		<v4:orderId>30824</v4:orderId>
+		<v4:updatedLineItemInfo>
+			<!-- <v4:lineItem>
+				<v4:externalId>34573</v4:externalId>
+				<v4:lineItemPriceInfo>
+					<v4:baseNonRecurringPrice>10.00</v4:baseNonRecurringPrice>
+					<v4:baseNonRecurringPriceUnits>USD</v4:baseNonRecurringPriceUnits>
+					<v4:baseRecurringPrice>100.00</v4:baseRecurringPrice>
+					<v4:baseRecurringPriceUnits>USD</v4:baseRecurringPriceUnits>
+					<v4:onDeliveryPrice>0.00</v4:onDeliveryPrice>
+				</v4:lineItemPriceInfo>
+			</v4:lineItem>
+
+			<v4:lineItem>
+				<v4:externalId>34575</v4:externalId>
+				<v4:lineItemPriceInfo>
+					<v4:baseNonRecurringPrice>20.00</v4:baseNonRecurringPrice>
+					<v4:baseNonRecurringPriceUnits>USD</v4:baseNonRecurringPriceUnits>
+					<v4:baseRecurringPrice>200.00</v4:baseRecurringPrice>
+					<v4:baseRecurringPriceUnits>USD</v4:baseRecurringPriceUnits>
+					<v4:onDeliveryPrice>0.00</v4:onDeliveryPrice>
+				</v4:lineItemPriceInfo>
+			</v4:lineItem> -->
+
+			<v4:lineItem>
+				<v4:externalId>34577</v4:externalId>
+				<v4:lineItemPriceInfo>
+					<v4:baseNonRecurringPrice>40.00</v4:baseNonRecurringPrice>
+					<v4:baseNonRecurringPriceUnits>USD</v4:baseNonRecurringPriceUnits>
+					<v4:baseRecurringPrice>400.00</v4:baseRecurringPrice>
+					<v4:baseRecurringPriceUnits>USD</v4:baseRecurringPriceUnits>
+					<v4:onDeliveryPrice>0.00</v4:onDeliveryPrice>
+				</v4:lineItemPriceInfo>
+			</v4:lineItem>
+
+		</v4:updatedLineItemInfo>
+	</v4:request>
+</v4:orderManagementRequestResponse>

@@ -1,0 +1,308 @@
+<customerManagementRequestResponse>
+	<correlationId>15540381-00fa-4cd4-9172-f629052dab7c</correlationId>
+	<transactionId>1</transactionId>
+	<transactionType>searchCustomer</transactionType>
+	<status>
+		<statusCode>0</statusCode>
+		<processingMessages>
+			<message>
+				<code>0.0</code>
+				<text>request completed</text>
+			</message>
+		</processingMessages>
+		<statusMsg>INFO</statusMsg>
+	</status>
+	<response>
+		<customerSearchResult>
+			<searchResult>
+				<externalId>200004847</externalId>
+				<firstName>PRITESH</firstName>
+				<lastName>PATEL</lastName>
+				<address>2701 HOMESTEAD RD , COLUMBIA, SC 29201</address>
+				<orderId>200003943</orderId>
+				<orderDate>2014-01-21T14:10:18.000-05:00</orderDate>
+				<agentId>62203</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004844</externalId>
+				<firstName>TEST</firstName>
+				<lastName>TEST</lastName>
+				<address>2701 HOMESTEAD RD , CHAPEL HILL, NC 27516-8753</address>
+				<orderId>200003940</orderId>
+				<orderDate>2014-01-21T14:09:16.000-05:00</orderDate>
+				<agentId>62203</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004821</externalId>
+				<firstName>SKKU</firstName>
+				<lastName>FGFGFG</lastName>
+				<address>212 HIGHLAND PARK Trl, ATLANTA, GA 30350-3309</address>
+				<orderId>200003906</orderId>
+				<orderDate>2014-01-20T14:06:15.000-05:00</orderDate>
+				<agentId>bramning</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004808</externalId>
+				<firstName>MIRIYAL</firstName>
+				<lastName>NARSH</lastName>
+				<address>5691 CAMPUS Dr, VIRGINIA BEACH, VA 23462-7309</address>
+				<orderId>200003898</orderId>
+				<orderDate>2014-01-20T10:33:37.000-05:00</orderDate>
+				<agentId>mnagineni</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004805</externalId>
+				<firstName>KARTEEK</firstName>
+				<lastName>IRUKULLA</lastName>
+				<address>5691 CAMPUS Dr, VIRGINIA BEACH, VA 23462-7309</address>
+				<orderId>200003895</orderId>
+				<orderDate>2014-01-20T10:32:39.000-05:00</orderDate>
+				<agentId>kirukulla</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004802</externalId>
+				<firstName>MIRIYAL</firstName>
+				<lastName>NARESH</lastName>
+				<address>702 MARSH ELDER Trl, CARROLLTON, VA 23314-3540</address>
+				<orderId>200003892</orderId>
+				<orderDate>2014-01-20T10:31:57.000-05:00</orderDate>
+				<agentId>mnagineni</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004781</externalId>
+				<firstName>KARTEEK</firstName>
+				<lastName>IRUKULLA</lastName>
+				<address>4621 KALISPELL Rd, KISSIMMEE, FL 34758-2517</address>
+				<orderId>200003889</orderId>
+				<orderDate>2014-01-20T10:08:28.000-05:00</orderDate>
+				<agentId>mnagineni</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004779</externalId>
+				<firstName>DEFAULT</firstName>
+				<lastName>CUSTOMER</lastName>
+				<address>null</address>
+				<orderId>200003903</orderId>
+				<orderDate>2014-01-20T10:25:14.000-05:00</orderDate>
+				<agentId>mnagineni</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004776</externalId>
+				<firstName>KARTEEK</firstName>
+				<lastName>IRUKULLA</lastName>
+				<address>702 MARSH ELDER Trl, CARROLLTON, VA 23314-3540</address>
+				<orderId>200003872</orderId>
+				<orderDate>2014-01-20T10:27:46.000-05:00</orderDate>
+				<agentId>mnagineni</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004773</externalId>
+				<firstName>NARESH</firstName>
+				<lastName>MIRIYAL</lastName>
+				<address>4621 KALISPELL Rd, KISSIMMEE, FL 34758-2517</address>
+				<orderId>200003900</orderId>
+				<orderDate>2014-01-20T10:21:54.000-05:00</orderDate>
+				<agentId>mnagineni</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004770</externalId>
+				<firstName>KARTEEK</firstName>
+				<lastName>IRUKULLA</lastName>
+				<address>5926 MOUNT WATER Trl, BUFORD, GA 30518-6857</address>
+				<orderId>200003886</orderId>
+				<orderDate>2014-01-20T10:05:23.000-05:00</orderDate>
+				<agentId>mnagineni</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004767</externalId>
+				<firstName>NARESH</firstName>
+				<lastName>KUMAR</lastName>
+				<address>501 CEDAR GLEN Cir, CLEVELAND, NC 27013-8604</address>
+				<orderId>200003883</orderId>
+				<orderDate>2014-01-20T10:10:26.000-05:00</orderDate>
+				<agentId>mnagineni</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004764</externalId>
+				<firstName>TEST</firstName>
+				<lastName>NAGINENI</lastName>
+				<address>1106 GREGG St, COLUMBIA, SC 29201-3825</address>
+				<orderId>200003880</orderId>
+				<orderDate>2014-01-20T10:08:28.000-05:00</orderDate>
+				<agentId>mnagineni</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004761</externalId>
+				<firstName>MAHESH</firstName>
+				<lastName>NAGINENI</lastName>
+				<address>1106 GREGG St, COLUMBIA, SC 29201-3825</address>
+				<orderId>200003869</orderId>
+				<orderDate>2014-01-20T09:59:21.000-05:00</orderDate>
+				<agentId>mnagineni</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004747</externalId>
+				<firstName>NARESH</firstName>
+				<lastName>KUMAR</lastName>
+				<address>501 CEDAR GLEN Cir, CLEVELAND, NC 27013-8604</address>
+				<orderId>200003866</orderId>
+				<orderDate>2014-01-20T10:02:06.000-05:00</orderDate>
+				<agentId>mnagineni</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004744</externalId>
+				<firstName>KARTEEK</firstName>
+				<lastName>IRUKULLA</lastName>
+				<address>5926 MOUNT WATER Trl, BUFORD, GA 30518-6857</address>
+				<orderId>200003863</orderId>
+				<orderDate>2014-01-20T10:04:17.000-05:00</orderDate>
+				<agentId>kirukulla</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004741</externalId>
+				<firstName>DEFAULT</firstName>
+				<lastName>CUSTOMER</lastName>
+				<address>null</address>
+				<orderId>200003860</orderId>
+				<orderDate>2014-01-20T09:49:01.000-05:00</orderDate>
+				<agentId>mnagineni</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004724</externalId>
+				<firstName>PRITESH</firstName>
+				<lastName>PATEL</lastName>
+				<address>2701 HOMESTEAD RD , COLUMBIA, SC 29201</address>
+				<orderId>200003840</orderId>
+				<orderDate>2013-07-30T11:08:00.000-04:00</orderDate>
+				<agentId>62203</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004716</externalId>
+				<firstName>TEST</firstName>
+				<lastName>TEST</lastName>
+				<address>2701 HOMESTEAD RD , CHAPEL HILL, NC 27516-8753</address>
+				<orderId>200003820</orderId>
+				<orderDate>2014-01-17T09:33:46.000-05:00</orderDate>
+				<agentId>62203</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004713</externalId>
+				<firstName>TEST</firstName>
+				<lastName>TEST</lastName>
+				<address>2701 HOMESTEAD RD , CHAPEL HILL, NC 27516-8753</address>
+				<orderId>200003806</orderId>
+				<orderDate>2014-01-17T09:32:06.000-05:00</orderDate>
+				<agentId>62203</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004710</externalId>
+				<firstName>TEST</firstName>
+				<lastName>TEST</lastName>
+				<address>2701 HOMESTEAD RD , CHAPEL HILL, NC 27516-8753</address>
+				<orderId>200003803</orderId>
+				<orderDate>2014-01-17T09:37:05.000-05:00</orderDate>
+				<agentId>62203</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004704</externalId>
+				<firstName>TEST</firstName>
+				<lastName>TEST</lastName>
+				<address>2701 HOMESTEAD RD , CHAPEL HILL, NC 27516-8753</address>
+				<orderId>200003800</orderId>
+				<orderDate>2014-01-17T09:42:04.000-05:00</orderDate>
+				<agentId>62203</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004693</externalId>
+				<firstName>TEST</firstName>
+				<lastName>TEST</lastName>
+				<address>2701 HOMESTEAD RD , CHAPEL HILL, NC 27516-8753</address>
+				<orderId>200003792</orderId>
+				<orderDate>2014-01-15T14:03:06.000-05:00</orderDate>
+				<agentId>62203</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004690</externalId>
+				<firstName>TEST</firstName>
+				<lastName>TEST</lastName>
+				<address>2701 HOMESTEAD RD , CHAPEL HILL, NC 27516-8753</address>
+				<orderId>200003789</orderId>
+				<orderDate>2014-01-15T14:16:56.000-05:00</orderDate>
+				<agentId>62203</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004687</externalId>
+				<firstName>TEST</firstName>
+				<lastName>TEST</lastName>
+				<address>2701 HOMESTEAD RD , CHAPEL HILL, NC 27516-8753</address>
+				<orderId>200003786</orderId>
+				<orderDate>2014-01-15T14:00:04.000-05:00</orderDate>
+				<agentId>62203</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004684</externalId>
+				<firstName>TEST</firstName>
+				<lastName>TEST</lastName>
+				<address>2701 HOMESTEAD RD , CHAPEL HILL, NC 27516-8753</address>
+				<orderId>200003783</orderId>
+				<orderDate>2014-01-15T14:09:58.000-05:00</orderDate>
+				<agentId>62203</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004681</externalId>
+				<firstName>TEST</firstName>
+				<lastName>TEST</lastName>
+				<address>2701 HOMESTEAD RD , CHAPEL HILL, NC 27516-8753</address>
+				<orderId>200003780</orderId>
+				<orderDate>2014-01-15T14:03:52.000-05:00</orderDate>
+				<agentId>62203</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004667</externalId>
+				<firstName>TEST</firstName>
+				<lastName>TEST</lastName>
+				<address>2701 HOMESTEAD RD , CHAPEL HILL, NC 27516-8753</address>
+				<orderId>200003766</orderId>
+				<orderDate>2014-01-15T13:55:14.000-05:00</orderDate>
+				<agentId>62203</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004664</externalId>
+				<firstName>TEST</firstName>
+				<lastName>TEST</lastName>
+				<address>2701 HOMESTEAD RD , CHAPEL HILL, NC 27516-8753</address>
+				<orderId>200003763</orderId>
+				<orderDate>2014-01-15T13:56:18.000-05:00</orderDate>
+				<agentId>62203</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004661</externalId>
+				<firstName>TEST</firstName>
+				<lastName>TEST</lastName>
+				<address>2701 HOMESTEAD RD , CHAPEL HILL, NC 27516-8753</address>
+				<orderId>200003760</orderId>
+				<orderDate>2014-01-15T14:01:18.000-05:00</orderDate>
+				<agentId>62203</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004641</externalId>
+				<firstName>TEST</firstName>
+				<lastName>TEST</lastName>
+				<address>2701 HOMESTEAD RD , CHAPEL HILL, NC 27516-8753</address>
+				<orderId>200003740</orderId>
+				<orderDate>2014-01-15T10:52:25.000-05:00</orderDate>
+				<agentId>62203</agentId>
+			</searchResult>
+			<searchResult>
+				<externalId>200004621</externalId>
+				<firstName>TEST</firstName>
+				<lastName>TEST</lastName>
+				<address>101 LAWRENCEVILLE HWY hwy, NORCROSS, GEORGIA 30093
+				</address>
+				<orderId>200003720</orderId>
+				<orderDate>2014-01-15T07:31:15.000-05:00</orderDate>
+				<agentId>ppatel</agentId>
+			</searchResult>
+		</customerSearchResult>
+	</response>
+</customerManagementRequestResponse>

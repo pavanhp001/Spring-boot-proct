@@ -1,0 +1,26 @@
+<ac:acMessage xmlns:ac="http://xml.A.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xml.A.com/v4/acMessageWrapper.xsd "> <ac:source>source</ac:source><ac:msgType>request</ac:msgType><ac:actionType>query</ac:actionType> <ac:payloadType>ProductRequestDocument</ac:payloadType><ac:payload>
+<productEnterpriseRequest xmlns="http://xml.A.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <GUID>1342465395724850160254468175226100163607F4DA</GUID>
+  <transactionType xsi:type="v4:productTransactionTypeType" xmlns:v4="http://xml.A.com/v4">
+    <productTransactionType>getProductDetails</productTransactionType>
+  </transactionType>
+	<salesContext>
+		<entity name="orderSource">
+			<attribute name="channel" value="web"/>
+		</entity>
+	</salesContext>
+  <request xsi:type="v4:productRequestType" xmlns:v4="http://xml.A.com/v4">	
+		<requestedDetails>
+			<detail level="basic"/>
+			<detail level="features"/>
+			<detail level="customizations"/>
+			<detail level="promotions"/> 
+			<detail level="descriptiveInfo"/>
+			<detail level="marketingHighlights"/>
+		</requestedDetails>
+		<productList>
+			 <productId externalId="TW-CHARLOTTE-BUNDLE3" providerExternalId="12228509"/>
+		</productList>
+	</request>
+</productEnterpriseRequest>
+</ac:payload></ac:acMessage>

@@ -1,0 +1,9 @@
+rule "Max, min and average" 
+    when
+        accumulate( Cheese( $price : price ),
+                    $max : max( $price ),
+                    $min : min( $price ),
+                    $avg : average( $price ) )
+    then
+        // do something
+end 

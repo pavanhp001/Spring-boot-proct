@@ -1,0 +1,14 @@
+endpoint.ome.out=ome.broadcast.out.q
+host=backend-jms.ln
+port=61616
+communicationType=JMS
+vendor=ActiveMQ
+jndiName=
+transacted=
+persist=
+timeToLive=300
+username=${broadcast.jms.q.username}
+password=${broadcast.jms.q.password}
+redeliveryMax=5
+jndiConnectionFactoryName=broadcast
+url=${backend.jms.q.url}

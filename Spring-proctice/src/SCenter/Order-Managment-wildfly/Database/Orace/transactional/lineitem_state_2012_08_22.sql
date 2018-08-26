@@ -1,0 +1,4 @@
+
+ALTER TABLE OM_LINE_ITEM  ADD (LI_STATE NUMBER default 0   );
+
+ 

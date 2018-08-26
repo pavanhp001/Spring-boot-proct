@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ac:orderManagementRequestResponse xmlns:ac="http://xml.AL.com/v4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xml.AL.com/v4 orderManagement.xsd ">
+  <ac:correlationId>12345</ac:correlationId>
+  <ac:transactionType>createOrder</ac:transactionType>
+  <ac:status>
+    <ac:statusCode>0</ac:statusCode>
+    <ac:processingMessages>
+      <ac:message>
+        <ac:code>1.0</ac:code>
+        <ac:text>New Order</ac:text>
+      </ac:message>
+    </ac:processingMessages>
+  </ac:status>
+  
+  <ac:request>
+     <ac:orderInfo>
+      <ac:externalId>ZZZZZZZZ</ac:externalId>
+      <ac:source>Web</ac:source>
+      <ac:referrerId>108</ac:referrerId>
+      <ac:associatedWithMove>true</ac:associatedWithMove>
+      <ac:campaignId>ATT</ac:campaignId>
+      <ac:customerInformation>
+        <ac:action>updateCustomer</ac:action>
+        <ac:customer>
+          <ac:externalId>310</ac:externalId>
+          <ac:title>Mr.</ac:title>
+          <ac:firstName>John</ac:firstName>
+          <ac:lastName>Doe</ac:lastName>
+          <ac:middleName>R</ac:middleName>
+          <ac:nameSuffix>N/A</ac:nameSuffix>
+          <ac:gender>M</ac:gender>
+          <ac:dob>1974-04-25</ac:dob>
+          <ac:ssn>000-00-0000</ac:ssn>
+          <ac:directMailOptIn>true</ac:directMailOptIn>
+          <ac:eMailOptIn>true</ac:eMailOptIn>
+          <ac:phoneContactOptIn>true</ac:phoneContactOptIn>
+          <ac:eMailProductUpdatesOptIn>true</ac:eMailProductUpdatesOptIn>
+          <ac:howLongAtPreviousAddress>10</ac:howLongAtPreviousAddress>
+          <ac:ALCustomerNumber>0</ac:ALCustomerNumber>
+          <ac:homePhoneNumber>
+            <ac:value>111-111-1111</ac:value>
+            <ac:order>1</ac:order>
+            <ac:desc>Home Phone</ac:desc>
+          </ac:homePhoneNumber>
+          <ac:cellPhoneNumber>
+            <ac:value>222-222-2222</ac:value>
+            <ac:order>2</ac:order>
+            <ac:desc>Cell Phone</ac:desc>
+          </ac:cellPhoneNumber>
+          <ac:workPhoneNumber>
+            <ac:value>333-333-3333</ac:value>
+            <ac:order>3</ac:order>
+            <ac:desc>Work Phone</ac:desc>
+          </ac:workPhoneNumber>
+          <ac:homeEMail>
+            <ac:value>sachin@home.com</ac:value>
+            <ac:order>1</ac:order>
+            <ac:desc>Home Email</ac:desc>
+          </ac:homeEMail>
+          <ac:workEMail>
+            <ac:value>sachin@bcci.com</ac:value>
+            <ac:order>2</ac:order>
+            <ac:desc>work email</ac:desc>
+          </ac:workEMail>
+          <ac:region>SOUTHWEST</ac:region>
+          <ac:landlordInfo>
+            <ac:landlordName>Ramesh Tendulkar</ac:landlordName>
+            <ac:landlordPhoneNumber>444-444-4444</ac:landlordPhoneNumber>
+          </ac:landlordInfo>
+          <ac:driverLicense>
+            <ac:LicenseNumber>123456789</ac:LicenseNumber>
+            <ac:State>Georgia</ac:State>
+            <ac:LicenseExpirationDate>2021-01-01</ac:LicenseExpirationDate>
+          </ac:driverLicense>
+          <ac:stateId>
+            <ac:IdNumber>123456789</ac:IdNumber>
+            <ac:State>Georgia</ac:State>
+          </ac:stateId>
+          <ac:payments>
+            <ac:PaymentEvent custAgreedCCDisclosure="true">
+              <ac:billingInfoId>ac:billingInfoId</ac:billingInfoId>
+              <ac:Event>ADVANCED</ac:Event>
+              <ac:CVV>ac:CVV</ac:CVV>
+              <ac:Amount>0.0</ac:Amount>
+              <ac:ConfirmNumber>ac:ConfirmNumber</ac:ConfirmNumber>
+              <ac:transactionDate>2001-01-01</ac:transactionDate>
+              <ac:paymentStatus>
+                <ac:status>0</ac:status>
+                <ac:reason>0</ac:reason>
+                <ac:dateTimeStamp>2001-12-31T12:00:00</ac:dateTimeStamp>
+                <ac:providerId>0</ac:providerId>
+              </ac:paymentStatus>
+            </ac:PaymentEvent>
+            <ac:OrderId>ac:OrderId</ac:OrderId>
+            <ac:CustomerId>ac:CustomerId</ac:CustomerId>
+          </ac:payments>
+          <ac:accounts accountStatus="" accountTypeIndicator="" consentToCC="" suppressionIndicator="">
+            <ac:ProviderType>ac:ProviderType</ac:ProviderType>
+            <ac:AccountType>ac:AccountType</ac:AccountType>
+            <ac:BillingAccountNumber>ac:BillingAccountNumber</ac:BillingAccountNumber>
+            <ac:BillingAccountTelephoneNumber>ac:BillingAccountTelephoneNumber</ac:BillingAccountTelephoneNumber>
+            <ac:AddressRef>ac:AddressRef</ac:AddressRef>
+            <ac:ConsumerRef>ac:ConsumerRef</ac:ConsumerRef>
+            <ac:Authentication>
+              <ac:pin>ac:pin</ac:pin>
+              <ac:securityQuestion>ac:securityQuestion</ac:securityQuestion>
+              <ac:securityAnswer>ac:securityAnswer</ac:securityAnswer>
+            </ac:Authentication>
+            <ac:ExistingLast4SSN>ac:ExistingLast4SSN</ac:ExistingLast4SSN>
+            <ac:SecurityCreditCard>
+              <ac:SecurityTCAccepted>ac:SecurityTCAccepted</ac:SecurityTCAccepted>
+              <ac:IsAuthorized>ac:IsAuthorized</ac:IsAuthorized>
+              <ac:CreditCardRef>ac:CreditCardRef</ac:CreditCardRef>
+            </ac:SecurityCreditCard>
+            <ac:PrevAddressIndicator>true</ac:PrevAddressIndicator>
+            <ac:CreditCheck>ac:CreditCheck</ac:CreditCheck>
+            <ac:CreditAlert>ac:CreditAlert</ac:CreditAlert>
+          </ac:accounts>
+          <ac:financialInfo>
+            <ac:employed>
+              <ac:businessName>Tendulkar Restaurant</ac:businessName>
+              <ac:businessPhoneNum>555-555-5555</ac:businessPhoneNum>
+              <ac:occupation>Cricketer</ac:occupation>
+            </ac:employed>
+            <ac:student/>
+            <ac:retired/>
+            <ac:bankOrMortgageInstitution>N/A</ac:bankOrMortgageInstitution>
+            <ac:otherIncomeSource>Business</ac:otherIncomeSource>
+          </ac:financialInfo>
+          <ac:billingInfoList>
+            <ac:billingInfo>
+              <ac:billingUniqueId>B1</ac:billingUniqueId>
+              <ac:addressRef>BA1</ac:addressRef>
+              <ac:billingMethod>Credit Cardaaa</ac:billingMethod>
+              <ac:creditCardNumber>1111-2222-3333-4444</ac:creditCardNumber>
+              <ac:verificationCode>123</ac:verificationCode>
+              <ac:checkingAccountNumber>1234-1234-1234-1234</ac:checkingAccountNumber>
+              <ac:routingNumber>123456</ac:routingNumber>
+              <ac:status>Active</ac:status>
+              <ac:externalId>214</ac:externalId>
+            </ac:billingInfo>
+          </ac:billingInfoList>
+          <ac:addressList>
+            <ac:customerAddress>
+              <ac:addressRoles>billingAddress serviceAddress currentAddress</ac:addressRoles>
+              <ac:addressUniqueId>BA1</ac:addressUniqueId>
+              <ac:status>active</ac:status>
+              <ac:address xsi:type="ac:addressType">
+                <ac:externalId>556</ac:externalId>
+                <ac:prefixDirectional>prefix</ac:prefixDirectional>
+                <ac:streetNumber>111</ac:streetNumber>
+                <ac:streetName>Lawrenceville Hwyaaa</ac:streetName>
+                <ac:streetType>Hwyaaa</ac:streetType>
+                <ac:line2>N/A</ac:line2>
+                <ac:postfixDirectional>postfixaaa</ac:postfixDirectional>
+                <ac:city>Larenceville</ac:city>
+                <ac:stateOrProvince>Georgia</ac:stateOrProvince>
+                <ac:postalCode>30031</ac:postalCode>
+                <ac:country>USA</ac:country>
+                <ac:countyParishBorough>Gwinnet</ac:countyParishBorough>
+                <ac:addressBlock>addr block</ac:addressBlock>
+                <ac:howLongAtAddress>10</ac:howLongAtAddress>
+                <ac:dwellingType>apartment</ac:dwellingType>
+                <ac:inEffect>2001-01-01</ac:inEffect>
+                <ac:expiration>2051-01-01</ac:expiration>
+                <ac:changeType>chtype</ac:changeType>
+                <ac:hasHadServicePreviously>false</ac:hasHadServicePreviously>
+                <ac:cityAlias>lawrenceville</ac:cityAlias>
+              </ac:address>
+            </ac:customerAddress>
+          </ac:addressList>
+          <ac:securityVerificationInfo>
+            <ac:pin>1234</ac:pin>
+            <ac:securityQuestion>Quesiton1</ac:securityQuestion>
+            <ac:securityAnswer>Answer1</ac:securityAnswer>
+          </ac:securityVerificationInfo>
+          <ac:billingDeliveryPreference>paper</ac:billingDeliveryPreference>
+        </ac:customer>
+      </ac:customerInformation>
+      <ac:agentId>1</ac:agentId>
+      <ac:ALConfirmationNumber></ac:ALConfirmationNumber>
+      <ac:ALCustomerAccountNumber></ac:ALCustomerAccountNumber>
+      <ac:totalPriceInfo>
+        <ac:baseNonRecurringPrice>100.25</ac:baseNonRecurringPrice>
+        <ac:baseNonRecurringPriceUnits>Dollar</ac:baseNonRecurringPriceUnits>
+        <ac:baseRecurringPrice>150.50</ac:baseRecurringPrice>
+        <ac:baseRecurringPriceUnits>Dollar</ac:baseRecurringPriceUnits>
+        <ac:includeInTotalPrice/>
+      </ac:totalPriceInfo>
+      <ac:secondCallInfo>
+        <ac:whenToCallBack>
+          <ac:date>2011-04-01</ac:date>
+          <ac:time>12:00:00</ac:time>
+        </ac:whenToCallBack>
+        <ac:firstPhoneNumber>
+          <ac:value>1112223333</ac:value>
+          <ac:order>1</ac:order>
+          <ac:desc>Home Phone</ac:desc>
+        </ac:firstPhoneNumber>
+        <ac:secondPhoneNumber>
+          <ac:value>1112224444</ac:value>
+          <ac:order>2</ac:order>
+          <ac:desc>Cell Phone</ac:desc>
+        </ac:secondPhoneNumber>
+      </ac:secondCallInfo>
+      <ac:lineItems>
+        <ac:lineItem>
+          <ac:partnerName>Test Partner</ac:partnerName>
+          <ac:provider>
+            <ac:name>ATT</ac:name>
+            <ac:externalId>111</ac:externalId>
+          </ac:provider>
+          <ac:providerConfirmationNumber></ac:providerConfirmationNumber>
+          <ac:providerCustomerAccountNumber></ac:providerCustomerAccountNumber>
+          <ac:lineItemNumber>0</ac:lineItemNumber>
+          <ac:lineItemStatus agentId="0" dateTimeStamp="2001-12-31T12:00:00" statusCode="0" statusCodeDescription="">
+            <ac:reason>0</ac:reason>
+          </ac:lineItemStatus>
+          <ac:lineItemStatusHistory>
+            <ac:previousStatus agentId="0" dateTimeStamp="2001-12-31T12:00:00" statusCode="0" statusCodeDescription="">
+              <ac:reason>0</ac:reason>
+            </ac:previousStatus>
+          </ac:lineItemStatusHistory>
+          <ac:lineItemDetail>
+            <ac:detailType>marketItem</ac:detailType>
+            <ac:detail>
+              <ac:marketItemLineItem>
+                <ac:externalId>ACCESS-DOE-FL</ac:externalId>
+                <ac:channels>
+                  <ac:channel>1</ac:channel>
+                </ac:channels>
+                <ac:providerId>5000615</ac:providerId>
+                <ac:providerName>DTV</ac:providerName>
+                <ac:priceInfo/>
+                <ac:item xsi:type="ac:itemType">
+                  <ac:name>DirecTV</ac:name>
+                  <ac:providerId>DTV1001</ac:providerId>
+                  <ac:providerName>DTV</ac:providerName>
+                  <ac:itemCategory displayName="">ac:itemCategory</ac:itemCategory>
+                  <ac:priceInfo/>
+                </ac:item>
+              </ac:marketItemLineItem>
+            </ac:detail>
+          </ac:lineItemDetail>
+          <ac:lineItemPriceInfo>
+            <ac:baseNonRecurringPrice>99.0</ac:baseNonRecurringPrice>
+            <ac:baseNonRecurringPriceUnits>ac:baseNonRecurringPriceUnits</ac:baseNonRecurringPriceUnits>
+            <ac:baseRecurringPrice>99.0</ac:baseRecurringPrice>
+            <ac:baseRecurringPriceUnits>ac:baseRecurringPriceUnits</ac:baseRecurringPriceUnits>
+            <ac:includeInTotalPrice/>
+            <ac:priceInfoStatus>
+              <ac:statusCode>0</ac:statusCode>
+              <ac:processingMessages>
+                <ac:message>
+                  <ac:code>0.0</ac:code>
+                  <ac:text>ac:text</ac:text>
+                </ac:message>
+              </ac:processingMessages>
+            </ac:priceInfoStatus>
+            <ac:pricingDate>2001-12-31T12:00:00</ac:pricingDate>
+          </ac:lineItemPriceInfo>
+          <ac:externalId>ac:externalId</ac:externalId>
+          <ac:svcAddressExtId></ac:svcAddressExtId>
+          <ac:svcAddressRef>BA1</ac:svcAddressRef>
+          <ac:billingInfoExtId></ac:billingInfoExtId>
+          <ac:billingInfoRef>B1</ac:billingInfoRef>
+          <ac:SchedulingInfo appointmentComment="" billingInstallments="true" earlierAppointmentDate="true" installationFee="0.0" residenceType="">
+            <ac:desiredStartDate>
+              <ac:date>2011-01-01</ac:date>
+              <ac:time>12:00:00</ac:time>
+            </ac:desiredStartDate>
+            <ac:scheduledStartDate>
+              <ac:date>2011-01-01</ac:date>
+              <ac:time>12:00:00</ac:time>
+            </ac:scheduledStartDate>
+            <ac:actualStartDate>
+              <ac:date>2011-01-01</ac:date>
+              <ac:time>12:00:00</ac:time>
+            </ac:actualStartDate>
+            <ac:ScheduleAsSoonAsPossible>true</ac:ScheduleAsSoonAsPossible>
+          </ac:SchedulingInfo>
+          <ac:selectedFeatureContainers>
+            <ac:featureContainer containerExternalId="" containerType="noGroup" containerValue="">
+              <ac:featureValue featureExternalId="1" type="integer" value=""/>
+            </ac:featureContainer>
+          </ac:selectedFeatureContainers>
+          <ac:howLongAtAddress>ac:howLongAtAddress</ac:howLongAtAddress>
+          <ac:service>BUSINESS</ac:service>
+          <ac:creditStatus>Approved</ac:creditStatus>
+          <ac:lineItemEvents source="">
+            <ac:LineItemEvent>
+              <ac:values>ac:values</ac:values>
+            </ac:LineItemEvent>
+          </ac:lineItemEvents>
+        </ac:lineItem>
+      </ac:lineItems>
+      <ac:orderStatus>
+        <ac:status>0</ac:status>
+        <ac:reason>0</ac:reason>
+        <ac:dateTimeStamp>2001-12-31T12:00:00</ac:dateTimeStamp>
+        <ac:agentId>0</ac:agentId>
+      </ac:orderStatus>
+      <ac:orderStatusHistory>
+        <ac:previousStatus>
+          <ac:status>0</ac:status>
+          <ac:reason>0</ac:reason>
+          <ac:dateTimeStamp>2001-12-31T12:00:00</ac:dateTimeStamp>
+          <ac:agentId>0</ac:agentId>
+        </ac:previousStatus>
+      </ac:orderStatusHistory>
+    </ac:orderInfo>
+  </ac:request>
+  <ac:response>
+   
+  </ac:response>
+</ac:orderManagementRequestResponse>
