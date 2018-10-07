@@ -1,0 +1,13 @@
+<setSelectField description="set user role" htmlId="roleSelect" value="INT"/>
+<setInputField description="set username" htmlId="username" value="CANOOTESTUSER"/>
+<setInputField description="set given name" htmlId="forename" value="CANOO"/>
+<setInputField description="set family name" name="user.lastname" value="TESTUSER"/>
+<setInputField description="set email" name="user.email" value="tamas.barak@xyz.aero"/>
+<setInputField description="set mobile number" name="user.mobileNumber" value="0123456789"/>
+<setSelectField description="set airport" htmlId="location" value="DOH"/>
+<setSelectField description="set status" htmlId="userStatus" value="1"/>
+
+<clickButton description="click the Search button" htmlId="btnSearchForUsers"/>
+<sleep seconds="3"/>
+
+<verifyText description="Confirm search results are displayed" text="searchResultsDiv" />

@@ -1,0 +1,3 @@
+<setInputField description="set user name" name="josso_username" value="${sup.login.name}"/>
+<setInputField description="set password" name="josso_password" value="${sup.login.password}"/>
+<clickButton description="click the Login button" label="Login"/>

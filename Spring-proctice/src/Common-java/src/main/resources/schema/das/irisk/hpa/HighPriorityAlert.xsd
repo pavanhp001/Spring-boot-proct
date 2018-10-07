@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" 
+			elementFormDefault="unqualified"
+			attributeFormDefault="unqualified"
+			xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+			xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"  
+			jaxb:extensionBindingPrefixes="xjc"
+			jaxb:version="2.0" 
+			xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:nu="numeric-types"
+>
+
+
+  <!-- -->
+  <!-- -->
+  <xs:annotation>
+    <xs:appinfo>
+      <jaxb:schemaBindings>
+        <jaxb:package name="com.xyz.pts.bms.idetectdas.model.generated.output.irisk.hpa"/>
+      </jaxb:schemaBindings>
+    </xs:appinfo>
+  </xs:annotation>
+  <!-- -->
+  <xs:import namespace="numeric-types" schemaLocation="../../common/numeric-types.xsd"/>
+  <!-- -->
+  <!-- -->
+  <!-- High Priority Alert message definition -->
+  <!-- -->
+  <xs:element name="HighPriorityAlert">
+  <!-- -->
+  	<xs:complexType>
+     <xs:sequence>
+      <xs:element name="flightSegId" type="PrimaryIdType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="sequenceNumber" type="nu:INT5_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="status" type="AlarmType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="flightType" type="FlightType" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  	</xs:complexType>
+  </xs:element>
+  <!-- -->
+  <xs:simpleType name="PrimaryIdType">
+    <xs:restriction base="xs:long">
+      <xs:minInclusive value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- -->
+  <xs:simpleType name="FlightType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1"/>
+      <xs:enumeration value="I"/>
+      <xs:enumeration value="O"/>
+      <xs:enumeration value="D"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- -->
+  <xs:simpleType name="AlarmType">
+    <xs:restriction base="xs:int">
+      <xs:enumeration value="0"/>
+      <xs:enumeration value="1"/>
+      <xs:enumeration value="2"/>
+      <xs:enumeration value="3"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- -->
+</xs:schema>

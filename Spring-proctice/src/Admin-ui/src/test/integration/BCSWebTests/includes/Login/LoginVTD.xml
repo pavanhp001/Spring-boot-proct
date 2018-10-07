@@ -1,0 +1,3 @@
+<setInputField description="set user name" name="josso_username" value="${vtd.login.name}"/>
+<setInputField description="set password" name="josso_password" value="${vtd.login.password}"/>
+<clickButton description="click the Login button" label="Login"/>

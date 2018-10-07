@@ -1,0 +1,37 @@
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="unqualified" attributeFormDefault="unqualified">
+
+  <xs:element name="DbAlertInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="FlightSegId" type="xs:long"/>
+        <xs:element name="FlightId" type="xs:long"/>
+        <xs:element name="AlertType" type="xs:string"/>
+        <xs:element name="TravellerAlertInfo" type="travellerAlertInfoType" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+    <xs:complexType name="travellerAlertInfoType">
+      <xs:sequence>
+        <xs:element name="traId" type="xs:long"/>
+        <xs:element name="LatestUpdateType" type="xs:string" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="ApiId" type="xs:long" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="DcsId" type="xs:long" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="PnrId" type="xs:long" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="NameId" type="xs:long" minOccurs="0" maxOccurs="1"/>
+		<xs:element name="TraaId" type="xs:long" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+
+   <xs:element name="FlightAssessment">
+   	<xs:complexType>
+      <xs:sequence>
+        <xs:element name="FlightSegId" type="xs:long" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="AssessmentStatus" type="xs:string" minOccurs="1" maxOccurs="1" />
+        <xs:element name="AssessmentSeqNo" type="xs:long" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+   	</xs:complexType>
+   </xs:element>
+</xs:schema>

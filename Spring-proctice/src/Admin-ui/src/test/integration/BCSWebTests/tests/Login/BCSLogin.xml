@@ -1,0 +1,13 @@
+<!DOCTYPE project SYSTEM "../../dtd/Project.dtd">
+
+<project default="logintest">
+  <target name="logintest">
+   <webtest name="Check the user can login">
+	<config basepath="${canoo.config.basepath}" host="${canoo.config.host}" saveresponse="${canoo.config.saveresponse}" browser="${canoo.config.browser}" showhtmlparseroutput="${canoo.config.showhtmlparseroutput}"/>
+       &GoToLoginPage;
+       &LoginSUP;
+       &CheckLogin;
+       &Logout;
+ </webtest>
+  </target>
+</project>

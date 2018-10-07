@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ ****************************************************************************
+ *                                                            *
+ * **************************************************************************
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+   <bean id="roleMapper" class="abc.xyz.pts.bcs.common.bean.mapper.RoleMapper">
+     <property name="roleMap">
+           <map>
+           	<entry key="AP.Super.User" value="SUP" />
+               <entry key="AP.System.Administrator" value="ADM" />
+               <entry key="AP.Auditor" value="AUD" />
+               <entry key="AP.Security.Analyst" value="SAN" />
+               <entry key="AP.Alerts.Officer" value="INT" />
+               <entry key="AP.Security.Manager" value="BAM" />
+               <entry key="AP.Operations.Centre.Agent" value="OCO" />
+               <entry key="AP.Operations.Centre.Supervisor" value="OCS" />
+               <entry key="AP.Watch.List.Administrator" value="CWI" />
+               <entry key="AP.Travel.Data.Analyst" value="VTD" />
+           </map>
+     </property>  
+   </bean>
+   
+   <bean id="locCodeMapper" class="abc.xyz.pts.bcs.common.bean.mapper.LocationCodeMapper">   
+   		<property name="locCodeMap">
+                <map>
+                    <entry key="5701" value="AHB" />
+                    <entry key="5702" value="AHB" />
+                    <entry key="5703" value="AHB" />
+                    <entry key="3713" value="AJF" />
+                    <entry key="1715" value="AKH" />
+                    <entry key="2713" value="AQI" />
+                    <entry key="5723" value="BHH" />
+                    <entry key="2703" value="DHA" />
+                    <entry key="2705" value="DHA" />
+                    <entry key="2704" value="DHA" />
+                    <entry key="2701" value="DHA" />
+                    <entry key="2712" value="DMM" />
+                    <entry key="1716" value="DWD" />
+                    <entry key="5722" value="EAM" />
+                    <entry key="3715" value="EJH" />
+                    <entry key="1712" value="ELQ" />
+                    <entry key="5712" value="GIZ" />
+                    <entry key="5713" value="GIZ" />
+                    <entry key="1714" value="HAS" />
+                    <entry key="4702" value="JED" />
+                    <entry key="4708" value="JED" />
+                    <entry key="4719" value="JED" />
+                    <entry key="4718" value="JED" />
+                    <entry key="4717" value="JED" />
+                    <entry key="4716" value="JED" />
+                    <entry key="4715" value="JED" />
+                    <entry key="4714" value="JED" />
+                    <entry key="4705" value="JED" />
+                    <entry key="4706" value="JED" />
+                    <entry key="4703" value="JED" />
+                    <entry key="4709" value="JED" />
+                    <entry key="4707" value="JED" />
+                    <entry key="4701" value="JED" />
+                    <entry key="4704" value="JED" />
+                    <entry key="2714" value="KMC" />
+                    <entry key="4711" value="MED" />
+                    <entry key="4712" value="MED" />
+                    <entry key="4713" value="MED" />
+                    <entry key="3705" value="RAE" />
+                    <entry key="3707" value="RAH" />
+                    <entry key="1707" value="RUH" />
+                    <entry key="1701" value="RUH" />
+                    <entry key="1703" value="RUH" />
+                    <entry key="1706" value="RUH" />
+                    <entry key="1705" value="RUH" />
+                    <entry key="1721" value="RUH" />
+                    <entry key="1722" value="RUH" />
+                    <entry key="1723" value="RUH" />
+                    <entry key="1724" value="RUH" />
+                    <entry key="1725" value="RUH" />
+                    <entry key="1726" value="RUH" />
+                    <entry key="1704" value="RUH" />
+                    <entry key="1702" value="RUH" />
+                    <entry key="4721" value="TIF" />
+                    <entry key="4722" value="TIF" />
+                    <entry key="4723" value="TIF" />
+                    <entry key="3712" value="TUI" />
+                    <entry key="3701" value="TUU" />
+                    <entry key="3702" value="TUU" />
+                    <entry key="3703" value="TUU" />
+                    <entry key="4724" value="YNB" />
+                </map>
+          </property>
+   
+   </bean>
+   
+</beans>

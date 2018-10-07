@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="1.2.9"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" 
+			xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
+			jaxb:version="2.0" 
+			targetNamespace="http://xyz.aero/irisk/sdinsis/types" 
+			xmlns:sdi="http://xyz.aero/bcs/sdinsis"
+			xmlns:irs="http://xyz.aero/irisk/sdinsis/types"> 
+   
+	<!-- Date of Birth Quality Indicator Types -->
+	<xs:complexType name="dataNascitaType">
+        <xs:annotation>
+        	<xs:documentation>
+        		Data di nascita [l'anno è obbligatorio]
+        	</xs:documentation>
+			<xs:appinfo>
+				<jaxb:class name="DateOfBirth" />
+			</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+			<xs:element name="anno" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						maxlength=4. Deve essere > 1900
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="Year" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="mese" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>maxlength=2</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="Month" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="giorno" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>maxlength=2</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="Day" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="indiNascita" type="xs:int" default="1">
+			<xs:annotation>
+				<xs:appinfo>
+					<jaxb:property name="DobQualityIndicator" />
+				</xs:appinfo>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:simpleType name="messaggioIdType">
+		<xs:restriction base="xs:NMTOKEN"/>
+	</xs:simpleType>
+ 	<xs:simpleType name="traIdType">
+		<xs:restriction base="xs:long"/>
+	</xs:simpleType>
+	<xs:simpleType name="codiceNazioneType">
+		<xs:restriction base="xs:int"/>
+	</xs:simpleType>
+	<xs:simpleType name="luogoProvinciaType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="codiceComuneType">
+		<xs:restriction base="xs:int"/>
+	</xs:simpleType>
+	<xs:simpleType name="isoCodiceNazioniType">
+        <xs:annotation>
+        	<xs:documentation>maxlength=3</xs:documentation>
+        </xs:annotation>
+		<xs:restriction base="xs:NMTOKEN"/>
+	</xs:simpleType>
+	<xs:complexType name="documentoType">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="SdiNsisDocumentRequest" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="codiceTipo" type="xs:string" minOccurs="1"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Codice IATA tipo documento, maxlength=1
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="DocumentType" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="descrizioneTipo" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                	<xs:documentation>
+                		descrizione del tipo di documento. maxlength=25
+                	</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="DocumentTypeDesc" />
+					</xs:appinfo>
+                </xs:annotation>
+			</xs:element>
+			<xs:element name="numero" type="xs:string" minOccurs="1"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Numero identificativo del documento.
+						maxlength=20
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="DocumentNumber" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="codiceNazioneRilascio"
+				type="irs:isoCodiceNazioniType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Codice ISO della nazione di rilascio del
+						documento [se sconosciuta inserire la
+						nazionalità del passeggero], maxlength=3
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="DocumentIssueCountry" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+
+
+			<xs:element name="descrizioneNazioneRilascio"
+				type="xs:string" maxOccurs="1" minOccurs="0">
+                <xs:annotation>
+                	<xs:documentation>
+                		Descrizione del Codice ISO della nazione di
+                		rilascio del documento. Maxlength=38
+                	</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="IsoDocumentIssueCountry" />
+					</xs:appinfo>
+                </xs:annotation>
+			</xs:element>
+			<xs:element name="descrizioneComuneRilascio"
+				type="xs:string" maxOccurs="1" minOccurs="0">
+                <xs:annotation>
+                	<xs:documentation>
+                		Descrizione del comune di rilascio cosí come
+                		fornita al sistema BCS ai vettori aerei.
+                		Maxlength=38
+                	</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="DocumentIssueCity" />
+					</xs:appinfo>
+                </xs:annotation>
+			</xs:element>
+			<xs:element name="siglaProvincia"
+				type="irs:siglaProvinciaType" maxOccurs="1" minOccurs="0">
+                <xs:annotation>
+                	<xs:documentation>
+                		Sigla della provincia di rilascio. Maxlength=2
+                	</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="DocumentIssueProvince" />
+					</xs:appinfo>
+                </xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:simpleType name="siglaProvinciaType">
+        <xs:annotation>
+        	<xs:documentation>maxlength=2</xs:documentation>
+        </xs:annotation>
+		<xs:restriction base="xs:string"></xs:restriction>
+	</xs:simpleType>
+	<!-- Date of Birth Quality Indicator Types -->
+	<xs:simpleType name="DobQualityType">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:typesafeEnumClass name="DobQualityType">
+					<jaxb:typesafeEnumMember name="SURE_DATE" value="1" />
+					<jaxb:typesafeEnumMember name="YR_CERT" value="2" />
+					<jaxb:typesafeEnumMember name="MTH_CERT" value="3" />
+				</jaxb:typesafeEnumClass>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:int">
+			<xs:enumeration value="1" />
+			<xs:enumeration value="2" />
+			<xs:enumeration value="3" />
+		</xs:restriction>
+	</xs:simpleType>
+ 	<xs:complexType name="RiskMessageType">
+	     <xs:sequence>
+	         <xs:element name="errorField" nillable="true" type="xs:string"/>
+	         <xs:element name="errorCode" nillable="true" type="xs:string"/>
+	         <xs:element name="message" nillable="true" type="xs:string"/>
+	     </xs:sequence>
+  	</xs:complexType>
+<!-- Below are added from Schema verion 1 requried to run old and and new version -->
+	<xs:complexType name="utente">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="User" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="nomeUtente" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="UserName" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="sdiUserId" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="SdiUserId" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="sdiPassword" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="sdiPassword" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="codiceFisc" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="UserTaxCode" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Aeroporto" type="irs:aeroportoType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="Airport" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+		
+	<xs:simpleType name="nomeType">
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+	<xs:simpleType name="nazionalitaType">
+		<xs:restriction base="xs:int" />
+	</xs:simpleType>
+	<xs:simpleType name="luogoNascitaType">
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+<!-- 
+	<xs:simpleType name="siglaProvinciaType">
+		<xs:restriction base="xs:NMTOKEN" />
+	</xs:simpleType>
+ -->
+ 	<xs:simpleType name="aeroportoType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Z]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="isoCodiceNazionalitaType"><!-- iso nationality code -->
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Z]{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="isoCodicePaeseType"><!-- iso country code -->
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Z]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="descrFinalita"> <!-- Reason of the lookup -->
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+	<xs:simpleType name="messagioIdType">
+		<xs:restriction base="xs:NMTOKEN" />
+	</xs:simpleType>
+
+</xs:schema>

@@ -1,0 +1,230 @@
+<!--
+ ****************************************************************************
+ *                                                            *
+ * ************************************************************************** 
+-->
+<project name="Common-java" default="quick-build" basedir=".">
+
+  	<property name="common.tools.dir" value="../Common-tools"/>
+	<import file="${common.tools.dir}/base-build.xml"/>
+
+	<property file="build.properties"/>
+
+	<property name="schemagen.basedir" location="${base.dir}/${common.java.dir}/${main.resources.dir}/schema" />
+
+	<target name="clean">
+		<antcall target="base-build.clean"/>
+		<delete dir="${generated.src.dir}" failonerror="false"/>
+	</target>
+
+	<target name="setup">
+		<antcall target="base-build.setup"/>
+		<antcall target="generate-schema-source-audit"/>
+		<antcall target="generate-schema-source-irisk"/>
+		<antcall target="generate-schema-source-scheduler"/>
+		<antcall target="generate-schema-source-samis-interface"/>
+	</target>
+
+	<target name="compile">
+		<antcall target="base-build.compile"/>
+		<copy todir="${test.classes.dir}">
+			<fileset dir="${test.resources.dir}">
+				<include name="**/*.*"/>
+			</fileset>
+		</copy>
+ 	</target>	
+	
+	<target name="generate-schema-source-audit" description="generate audit beans">
+		<mkdir dir="${generated.src.dir}"/>
+		<xjc destdir="${generated.src.dir}">
+			<schema file="${schemagen.basedir}/auditMessages.xsd" />
+			<depends dir="${schemagen.basedir}" />
+			<produces dir="${generated.src.dir}"/>
+			<arg value="-camelcase-always"/>
+			<arg value="-extension" />
+			<arg value="-nv" />
+			<arg value="-npa" />
+		</xjc>
+	</target>
+
+	<target name="generate-schema-source-scheduler" description="generate Scheduler beans">
+		<mkdir dir="${generated.src.dir}"/>
+		<xjc destdir="${generated.src.dir}">
+			<schema file="${schemagen.basedir}/das/db/PreDepartureScanRequest.xsd" />
+			<depends dir="${schemagen.basedir}/das/common" />
+			<produces dir="${generated.src.dir}/schema/das/db" />
+			<arg value="-camelcase-always"/>
+			<arg value="-bcsxjc-plugin" />
+			<arg value="-extension" />
+			<arg value="-nv" />
+			<arg value="-npa" />
+			<arg value="-b" />
+			<arg value="${schemagen.basedir}/binding/binding.xml" />
+		</xjc>
+		<xjc destdir="${generated.src.dir}">
+			<schema file="${schemagen.basedir}/das/db/PreDepartureScanResponse.xsd" />
+			<depends dir="${schemagen.basedir}/das/common" />
+			<produces dir="${generated.src.dir}/schema/das/db" />
+			<arg value="-camelcase-always"/>
+			<arg value="-bcsxjc-plugin" />
+			<arg value="-extension" />
+			<arg value="-nv" />
+			<arg value="-npa" />
+			<arg value="-b" />
+			<arg value="${schemagen.basedir}/binding/binding.xml" />
+		</xjc>
+        <xjc destdir="${generated.src.dir}">
+            <schema file="${schemagen.basedir}/scheduler/ScheduleInformation.xsd" />
+            <produces dir="${generated.src.dir}/scheduler" />
+            <arg value="-camelcase-always"/>
+            <arg value="-bcsxjc-plugin" />
+            <arg value="-extension" />
+            <arg value="-nv" />
+            <arg value="-npa" />
+            <arg value="-b" />
+            <arg value="${schemagen.basedir}/binding/binding.xml" />
+        </xjc>		
+	</target>	
+	
+	   <target name="generate-schema-source-samis-interface" description="generate SAMIS Interface beans">
+	        <mkdir dir="${generated.src.dir}"/>
+	        <xjc destdir="${generated.src.dir}">
+	            <schema file="${schemagen.basedir}/samis/photointerface/GetPhotoRequest.xsd" />
+	            <depends dir="${schemagen.basedir}/das/common" />
+	            <produces dir="${generated.src.dir}/schema/samis/photointerface" />
+	            <arg value="-camelcase-always"/>
+	            <arg value="-bcsxjc-plugin" />
+	            <arg value="-extension" />
+	            <arg value="-nv" />
+	            <arg value="-npa" />
+	            <arg value="-b" />
+	            <arg value="${schemagen.basedir}/binding/binding.xml" />
+	        </xjc>
+            <xjc destdir="${generated.src.dir}">
+                <schema file="${schemagen.basedir}/samis/photointerface/GetPhotoResponse.xsd" />
+                <depends dir="${schemagen.basedir}/das/common" />
+                <produces dir="${generated.src.dir}/schema/samis/photointerface" />
+                <arg value="-camelcase-always"/>
+                <arg value="-bcsxjc-plugin" />
+                <arg value="-extension" />
+                <arg value="-nv" />
+                <arg value="-npa" />
+                <arg value="-b" />
+                <arg value="${schemagen.basedir}/binding/binding.xml" />
+            </xjc>
+            <xjc destdir="${generated.src.dir}">
+                <schema file="${schemagen.basedir}/samis/movement/ExportMovement.xsd" />
+                <depends dir="${schemagen.basedir}/das/common" />
+                <produces dir="${generated.src.dir}/schema/samis/movement" />
+                <arg value="-camelcase-always"/>
+                <arg value="-bcsxjc-plugin" />
+                <arg value="-extension" />
+                <arg value="-nv" />
+                <arg value="-npa" />
+                <arg value="-b" />
+                <arg value="${schemagen.basedir}/binding/binding.xml" />
+            </xjc> 	   	
+	    </target>
+	
+	<target name="generate-schema-source-irisk" description="build iRisk beans">
+		<mkdir dir="${generated.src.dir}"/>
+		<xjc destdir="${generated.src.dir}">
+			<schema file="${schemagen.basedir}/irisk/common/flightSegmentSummary.xsd" />
+			<depends dir="${schemagen.basedir}/irisk/common" />
+			<produces dir="${generated.src.dir}/schema/irisk/common" />
+			<arg value="-camelcase-always"/>
+			<arg value="-bcsxjc-plugin" />
+			<arg value="-extension" />
+			<arg value="-nv" />
+			<arg value="-npa" />
+			<arg value="-b" />
+			<arg value="${schemagen.basedir}/binding/binding.xml" />
+		</xjc>		
+		<xjc destdir="${generated.src.dir}">
+			<schema file="${schemagen.basedir}/xmlschema/xmlschema.xsd" />
+			<depends dir="${schemagen.basedir}/xmlschema" />
+			<produces dir="${generated.src.dir}/schema/xmlschema" />
+			<arg value="-camelcase-always"/>
+			<arg value="-bcsxjc-plugin" />
+			<arg value="-extension" />
+			<arg value="-nv" />
+			<arg value="-npa" />
+			<arg value="-b" />
+			<arg value="${schemagen.basedir}/binding/binding.xml" />
+		</xjc>
+		<xjc destdir="${generated.src.dir}"
+			 package="abc.xyz.pts.bcs.irisk.mvo.pta">
+			<schema file="${schemagen.basedir}/irisk/pta/*.xsd" />
+			<depends dir="${schemagen.basedir}/irisk/pta" />
+			<produces dir="${generated.src.dir}/schema/irisk/pta" />
+			<arg value="-camelcase-always"/>
+			<arg value="-bcsxjc-plugin" />
+			<arg value="-extension" />
+			<arg value="-nv" />
+			<arg value="-npa" />
+			<arg value="-b" />
+			<arg value="${schemagen.basedir}/binding/binding.xml" />
+		</xjc>
+		<xjc destdir="${generated.src.dir}">
+			<schema file="${schemagen.basedir}/irisk/riskmatch/*.xsd" />
+			<depends dir="${schemagen.basedir}/irisk/riskmatch" />
+			<produces dir="${generated.src.dir}/schema/irisk/riskmatch" />
+			<arg value="-camelcase-always"/>
+			<arg value="-bcsxjc-plugin" />
+			<arg value="-extension" />
+			<arg value="-nv" />
+			<arg value="-npa" />
+			<arg value="-b" />
+			<arg value="${schemagen.basedir}/binding/binding.xml" />
+		</xjc>
+		<xjc destdir="${generated.src.dir}">
+			<schema file="${schemagen.basedir}/irisk/wi-interface/*.xsd" />
+			<depends dir="${schemagen.basedir}/irisk/wi-interface" />
+			<produces dir="${generated.src.dir}/schema/irisk/wi-interface" />
+			<arg value="-camelcase-always"/>
+			<arg value="-bcsxjc-plugin" />
+			<arg value="-extension" />
+			<arg value="-nv" />
+			<arg value="-npa" />
+			<arg value="-b" />
+			<arg value="${schemagen.basedir}/binding/binding.xml" />
+		</xjc>
+		<xjc destdir="${generated.src.dir}"
+			 package="abc.xyz.pts.bcs.irisk.mvo.ap">
+			<schema file="${schemagen.basedir}/irisk/ap/APRiskRequest.xsd" />
+			<depends dir="${schemagen.basedir}/irisk/ap" />
+			<produces dir="${generated.src.dir}/schema/irisk/ap" />
+			<arg value="-camelcase-always"/>
+			<arg value="-bcsxjc-plugin" />
+			<arg value="-extension" />
+			<arg value="-nv" />
+			<arg value="-npa" />
+			<arg value="-b" />
+			<arg value="${schemagen.basedir}/binding/binding.xml" />
+		</xjc>
+		<xjc destdir="${generated.src.dir}"
+			 package="abc.xyz.pts.bcs.irisk.mvo.ap">
+			<schema file="${schemagen.basedir}/irisk/ap/APRiskResponse.xsd" />
+			<depends dir="${schemagen.basedir}/irisk/ap" />
+			<produces dir="${generated.src.dir}/schema/irisk/ap" />
+			<arg value="-camelcase-always"/>
+			<arg value="-bcsxjc-plugin" />
+			<arg value="-extension" />
+			<arg value="-nv" />
+			<arg value="-npa" />
+			<arg value="-b" />
+			<arg value="${schemagen.basedir}/binding/binding.xml" />
+		</xjc>		
+	
+	</target>
+
+	<target name="war">
+		<antcall target="jar"/>
+	</target>
+
+	<target name="jar">
+		<antcall target="manifest-create"/>
+		<jar destfile="${output.dir}/${app.name}.jar" basedir="${classes.dir}" manifest="${manifest.file}"/>
+	</target>
+	
+</project>

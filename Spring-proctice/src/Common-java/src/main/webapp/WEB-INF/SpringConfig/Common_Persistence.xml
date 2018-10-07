@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ ****************************************************************************
+ *                                                            *
+ * **************************************************************************
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="abstractDAO" class="abc.xyz.pts.bcs.common.dao.support.AbstractDAO" abstract="true">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean class="abc.xyz.pts.bcs.common.bean.DataSourceBeanPostProcessor"/>
+
+    <!--  Common WI DAO -->
+    <bean id="wiJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    <bean id="wiJdbcUtilDelegate" class="abc.xyz.pts.bcs.common.dao.delegate.JdbcUtilDelegate"/>
+    
+    <bean id="daoSupport" class="abc.xyz.pts.bcs.common.dao.support.JdbcTransactionDaoSupport">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="watchlistSearchDao" class="abc.xyz.pts.bcs.wi.dao.impl.WatchlistSearchDaoImpl">
+        <property name="jdbcTemplate" ref="wiJdbcTemplate" />
+        <property name="jdbcUtilDelegate" ref="wiJdbcUtilDelegate" />
+    </bean>
+    
+    <bean id="importTargetSearchDao" class="abc.xyz.pts.bcs.wi.dao.impl.ImportTargetSearchDaoImpl">
+        <property name="daoSupport" ref="daoSupport" />
+    </bean>
+    
+    <bean id="watchlistDocSearchDao" class="abc.xyz.pts.bcs.wi.dao.impl.WatchlistDocSearchDaoImpl">
+        <property name="daoSupport" ref="daoSupport" />
+        <property name="lookupDataService" ref="lookupDataService" />  
+    </bean>
+
+	<!-- QAT-609 added bean to support cleared document matching -->
+    <bean id="clearedDocumentsSearchDao" class="abc.xyz.pts.bcs.wi.dao.impl.ClearedDocumentsSearchDaoImpl">
+    	<property name="daoSupport" ref="daoSupport" />
+    </bean>
+        
+    <bean id="watchlistWeightingsDao" class="abc.xyz.pts.bcs.wi.dao.impl.WatchlistWeightingsDaoImpl">
+        <property name="daoSupport" ref="daoSupport" />
+    </bean>
+    
+    <bean id="carrierTypesDao" class="abc.xyz.pts.bcs.common.dao.CarrierTypesDao">
+        <property name="daoSupport" ref="daoSupport" />
+    </bean>
+
+    <bean id="prWatchListNameDao" class="abc.xyz.pts.bcs.wi.dao.impl.PrWatchListNameDaoImpl" parent="abstractDAO" />
+    <bean id="prSeverityReasonDao" class="abc.xyz.pts.bcs.wi.dao.impl.PrSeverityReasonDaoImpl" parent="abstractDAO" />
+    <bean id="prRecommendedActionDao" class="abc.xyz.pts.bcs.wi.dao.impl.PrRecommendedActionDaoImpl" parent="abstractDAO" />
+    
+    <bean id="travellerDAO" class="abc.xyz.pts.bcs.common.irisk.dao.TravellerDAO">
+        <property name="daoSupport" ref="daoSupport" />
+    </bean>
+
+	<bean id="countryDao" class="abc.xyz.pts.bcs.cpr.dao.impl.CountryDaoImpl">
+        <property name="daoSupport" ref="daoSupport" />
+    </bean>
+    
+    <bean name="lookupDataService" class="abc.xyz.pts.bcs.common.business.lookup.impl.LookupDataServiceImpl">
+        <property name="watchlistWeightingsDao" ref="watchlistWeightingsDao" />
+        <property name="carrierTypesDao" ref="carrierTypesDao" />
+        <property name="countryDao" ref="countryDao" />
+        <property name="cPRDataSourceDao" ref="cPRDataSourceDao" />
+    </bean>   
+    
+    <bean id="watchListRequestDAO" class="abc.xyz.pts.bcs.common.referral.dao.WatchListRequestDAO">
+		<property name="daoSupport" ref="daoSupport" />
+	</bean>	
+	
+    <bean id="referralHitDAO" class="abc.xyz.pts.bcs.common.referral.dao.impl.ReferralHitDaoImpl">
+        <property name="daoSupport" ref="daoSupport" />
+    </bean>    
+        
+    <bean id="referralDAO" class="abc.xyz.pts.bcs.common.referral.dao.ReferralDAO">
+    	<property name="daoSupport" ref="daoSupport" />
+    </bean>
+    
+    <bean id="referralLogDAO" class="abc.xyz.pts.bcs.common.referral.dao.ReferralLogDAO">
+        <property name="daoSupport" ref="daoSupport" />
+    </bean>
+    
+    <bean id="flightSegmentsDAO" class="abc.xyz.pts.bcs.common.dao.impl.FlightSegmentsDAO">
+        <property name="daoSupport" ref="daoSupport" />
+    </bean>
+
+	<bean name="referenceDataService" class="abc.xyz.pts.bcs.common.business.lookup.impl.ReferenceDataServiceImpl">
+        <property name="prRecommendedActionDao" ref="prRecommendedActionDao" />
+    </bean> 
+	<bean id="cPRDataSourceDao" class="abc.xyz.pts.bcs.common.dao.CPRDataSourceDao">
+        <property name="daoSupport" ref="daoSupport" />
+    </bean>
+</beans>	

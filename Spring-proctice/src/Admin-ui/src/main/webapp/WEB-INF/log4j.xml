@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="MainLogFile" class="org.apache.log4j.RollingFileAppender"> 
+	    <param name="file" value="../logs/admin.log"/>
+	    <param name="MaxFileSize" value="10MB"/>
+	    <param name="MaxBackupIndex" value="5"/>
+	    <layout class="org.apache.log4j.PatternLayout"> 
+	      <param name="ConversionPattern" value="%-5p [%d{ISO8601}][%t] %m%n"/> 
+	    </layout> 
+	 </appender>
+
+	<!--
+	<appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p [%d{ISO8601}][%t][%C{1}.%M(%L)] %m%n"/>
+		</layout>
+	</appender>
+	-->
+	
+	<category name="org.apache.commons.validator">
+		<priority value="ERROR"/>
+	</category>
+	
+	<category name="org.apache.tiles">
+		<priority value="ERROR"/>
+	</category>
+	
+	<category name="org.springframework">
+		<priority value="ERROR"/>
+	</category>
+	
+	<category name="org.apache.commons.digester">
+		<priority value="ERROR"/>
+	</category>
+	
+	<category name="org.springframework.beans">
+		<priority value="ERROR"/>
+	</category>
+	
+	<category name="org.apache.commons.beanutils">
+		<priority value="ERROR"/>
+	</category>
+	
+	<category name="net.sf.jasperreports">
+		<priority value="ERROR"/>
+	</category>
+	
+	<!-- Setting this to WARN will enable exceptions caught by the Exception resolver to be logged. -->
+	<category name="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<priority value="WARN"/>
+	</category>
+	
+	<root>
+		<level value="ERROR"/>
+		<appender-ref ref="MainLogFile"/>
+		<!--<appender-ref ref="STDOUT"/>-->
+	</root>
+
+</log4j:configuration>

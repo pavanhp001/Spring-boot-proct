@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<project default="test">
+	<target name="test" description="runs all the tests">
+
+		<ant antfile="Login/BCSLoginPage.xml" />
+		<ant antfile="Login/BCSInvalidLogin.xml" />
+		<ant antfile="Login/BCSLogin.xml" />
+
+		<ant antfile="AddUser/AddUser.xml" />
+		<ant antfile="AddUser/DuplicateUser.xml" />
+		<ant antfile="SearchUser/SearchUser.xml" />
+		<ant antfile="SearchUser/SearchUserNoMatch.xml" />
+		<ant antfile="SearchUser/SearchUserFull.xml" />
+            <ant antfile="SearchUser/SearchUserValidationUserName.xml" />
+		<ant antfile="SearchUser/SearchUserValidationGivenName.xml" />
+		<ant antfile="SearchUser/SearchUserValidationFamilyName.xml" />
+		<!-- ant antfile="SearchUser/SearchUserValidationEmail.xml" /-->
+		<ant antfile="SearchUser/SearchUserValidationMobileNumber.xml" />
+		<ant antfile="SearchUser/SearchUserSortFields.xml" />
+
+		<!--ant antfile="UpdateUser/UpdateUser.xml" /--><!-- JS broken -->
+		<ant antfile="UpdateUser/UpdateUserValidationGivenName.xml" />
+		<ant antfile="UpdateUser/UpdateUserValidationFamilyName.xml" />
+		<ant antfile="UpdateUser/UpdateUserValidationMobileNumber.xml" />
+		<!-- ant antfile="UpdateUser/UpdateUserValidationEmail.xml" /-->
+		<ant antfile="UpdateUser/UpdateUserDetails.xml" />
+		
+		<ant antfile="DeleteUser/DeleteUser.xml" />
+
+		<ant antfile="ChangePassword/ChangePasswordEmpty.xml" />
+		<ant antfile="ChangePassword/ChangePasswordNotMatching.xml" />
+		<ant antfile="ChangePassword/ChangePasswordNoChange.xml" />
+		<ant antfile="ChangePassword/ChangePasswordThreePlusConsecutiveCharsFromUsername.xml" />
+		<ant antfile="ChangePassword/ChangePasswordInvalidOld.xml" />
+		<ant antfile="ViewUser/ViewUserCheckSysAdmRoleAccess.xml" />
+		<ant antfile="ViewUser/ViewUser.xml" />
+	</target>
+</project>

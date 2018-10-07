@@ -1,0 +1,13 @@
+<!DOCTYPE project SYSTEM "../../dtd/Project.dtd">
+
+<project default="logintest">
+	<target name="logintest">
+		<webtest name="Search for a user which not in the system">
+			<config basepath="${canoo.config.basepath}" host="${canoo.config.host}" saveresponse="${canoo.config.saveresponse}" browser="${canoo.config.browser}" showhtmlparseroutput="${canoo.config.showhtmlparseroutput}"/>
+		       &GoToLoginPage;
+		       &Login;
+			   &SearchUserNoMatch;
+		       &Logout;
+ 		</webtest>
+	</target>
+</project>

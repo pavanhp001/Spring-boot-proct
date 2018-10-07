@@ -1,0 +1,6 @@
+<setInputField description="set username" htmlId="username" value="CANOOSUP"/>
+
+<clickButton description="click the Serch button" htmlId="btnSearchForUsers"/>
+<sleep seconds="3"/>
+
+<verifyText description="Confirm search results are displayed" text="searchResultsDiv" />

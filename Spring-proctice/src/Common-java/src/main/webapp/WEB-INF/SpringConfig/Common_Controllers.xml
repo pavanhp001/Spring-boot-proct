@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ****************************************************************************
+  *                                                            *
+  * **************************************************************************
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+	<import resource="Common_Cache.xml"/>
+	<import resource="Common_Properties.xml"/>
+
+<!-- The Cookie locale resolver -->
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver"/>
+
+  <bean id="abstractDataController"
+    class="abc.xyz.pts.bcs.common.web.controller.AbstractDataController"
+    abstract="true">
+  </bean>
+
+  <!--
+    The login.
+  -->
+  <bean name="/login.form"
+    class="abc.xyz.pts.bcs.common.web.controller.Login">
+    <property name="loginView" value="login.view" />
+    <!--
+      This will not be used if the user originally entered an URL other than .../login.form
+      as the container will redirect the user to the originally requested page.
+    -->
+    <property name="postLoginView" value="forward:checkLogin.form" />
+  </bean>
+
+  <!--
+    The login retry.
+  -->
+  <bean name="/loginRetry.form"
+    class="abc.xyz.pts.bcs.common.web.controller.LoginRetry">
+    <property name="loginView" value="login.view" />
+  </bean>
+
+  <!--
+    The logout.
+  -->
+  <bean name="/logout.form"
+    class="abc.xyz.pts.bcs.common.web.controller.Logout">
+    <property name="logoutView" value="redirect:/home/logout.form" />
+  </bean>
+
+  <!--
+    First action after a successful login.
+  -->
+  <bean name="/checkLogin.form" id="checkLogin"
+    class="abc.xyz.pts.bcs.common.web.controller.CheckLogin">
+    <property name="defaultView" value="redirect:../home/home.form?homePage=true" />
+    <!--
+    	ITBCS-230 roleStartPages are removed. To direct a role to a paticular page
+    	add an entry similar to below for the desired role.
+    -->
+    <property name="roleStartPages">
+      <map key-type="java.lang.String"
+        value-type="java.lang.String">
+        <!--entry key="SUP"
+          value="redirect:../irisk/iRiskActiveAlerts.form?homePage=true" />
+        <entry key="PPA"
+          value="redirect:../irisk/iRiskPassportControl.form?homePage=true" />
+        <entry key="HOS"
+          value="redirect:../irisk/iRiskActiveAlerts.form?homePage=true" />
+        <entry key="INT"
+          value="redirect:../irisk/iRiskActiveAlerts.form?homePage=true" />
+        <entry key="BAM"
+          value="redirect:../irisk/iRiskActiveAlerts.form?homePage=true" />
+        <entry key="ADR"
+          value="redirect:../irisk/iRiskActiveAlerts.form?homePage=true" />
+        <entry key="CBA"
+          value="redirect:../irisk/iRiskActiveAlerts.form?homePage=true" />
+        <entry key="AUD"
+          value="redirect:../audit/auditSearch.form?homePage=true" />
+        <entry key="ADM"
+          value="redirect:../admin/adminUserSearch.form?homePage=true" /-->
+
+      </map>
+    </property>
+  </bean>
+
+  <!--
+    Set up the controller for the font test report.
+  -->
+  <bean name="/viewFontTestReport.form"
+    class="abc.xyz.pts.bcs.common.web.controller.ViewNoDataReport">
+    <property name="reportView" value="fontTest.report" />
+    <property name="formatParameter" value="format" />
+    <property name="defaultFormat" value="html" />
+    <property name="reportDataKey" value="reportData" />
+  </bean>
+
+  <!--
+    Set up the controller for the internationalised header footer report.
+  -->
+  <bean name="/viewI18nHeaderFooterReport.form"
+    class="abc.xyz.pts.bcs.common.web.controller.ViewNoDataReport">
+    <property name="reportView"
+      value="internationalisedHeaderFooter.report" />
+    <property name="formatParameter" value="format" />
+    <property name="defaultFormat" value="html" />
+    <property name="reportDataKey" value="reportData" />
+  </bean>
+
+     <bean name="/pageNotFoundError.form" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName"><value>page.not.found.error.view</value></property>
+    </bean>
+
+    <bean name="/pageForbiddenError.form" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName"><value>page.forbidden.error.view</value></property>
+    </bean>
+
+  <!--
+    ERROR HANDLING
+   -->
+  <bean name="/serverError.form" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+        <property name="viewName"><value>server.error.view</value></property>
+  </bean>
+
+  <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+    <property name="exceptionMappings">
+      <map>
+      <entry key="Exception" value="server.error.view"/>
+      </map>
+    </property>
+    <property name="defaultErrorView" value="server.error.view" />
+    <property name="warnLogCategory" value="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"/>
+  </bean>
+
+  <bean name="unimplemented"
+    class="abc.xyz.pts.bcs.common.web.controller.Unimplemented">
+    <property name="unimplementedView" value="unimplemented.view" />
+  </bean>
+
+	<!-- Commented out so that it can be used in a future release see ITBCS-148
+	<bean name="importTagConfiguration" class="abc.xyz.pts.bcs.common.web.tag.ImportTagConfiguration">
+		<property name="baseUrl" value="${import.tag.baseUrl}"/>
+		<property name="cacheAdministrator" ref="cacheAdministrator"/>
+	</bean>
+	-->
+</beans>

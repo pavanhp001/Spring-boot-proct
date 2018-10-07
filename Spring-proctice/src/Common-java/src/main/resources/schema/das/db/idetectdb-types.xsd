@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			elementFormDefault="unqualified"
+			attributeFormDefault="unqualified"			
+
+           	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+            jaxb:version="2.0"
+
+	        xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+
+            xmlns:ext="http://tools.bms.pts.xyz.com/xjcplugin/markentities"
+            xmlns:ext2="http://tools.bms.pts.xyz.com/xjcplugin/markentities/entity"
+		    jaxb:extensionBindingPrefixes="xjc ext ext2"
+
+
+			targetNamespace="db-types"
+			xmlns:db="db-types"
+
+			xmlns:st="string-types"
+			xmlns:nu="numeric-types"
+            xmlns:da="datetime-types"
+            xmlns:do="domain-types" >
+	<!-- -->
+	<!-- -->
+  <xs:annotation>
+    <xs:appinfo>
+      <jaxb:schemaBindings>
+        <jaxb:package name="abc.xyz.pts.bcs.scheduler.das"/>
+      </jaxb:schemaBindings>
+       <jaxb:property>
+        <jaxb:javadoc>entity,violations,errorreporting</jaxb:javadoc>
+      </jaxb:property>
+      
+    </xs:appinfo>
+  </xs:annotation>
+  <!-- -->
+  <xs:import namespace="string-types" schemaLocation="../common/string-types.xsd"/>
+  <xs:import namespace="datetime-types" schemaLocation="../common/datetime-types.xsd"/>
+  <xs:import namespace="numeric-types" schemaLocation="../common/numeric-types.xsd"/>
+  <xs:import namespace="domain-types" schemaLocation="../common/domain-types.xsd"/>
+  <!-- -->
+
+  <!-- Data status: P-Parsed, N-Not expected, E-Expected, F - Filtered, X-Errors encountered parsing -->
+  <xs:simpleType name="DataStatusType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1"/>
+      <xs:enumeration value="P"/>
+      <xs:enumeration value="N"/>
+      <xs:enumeration value="E"/>
+      <xs:enumeration value="X"/>
+      <xs:enumeration value="F"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- Data status: P-Parsed, N-Not expected, F-Filtered, E-Expected -->
+  <xs:simpleType name="ApiDataStatusType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1"/>
+      <xs:enumeration value="P"/>
+      <xs:enumeration value="N"/>
+      <xs:enumeration value="E"/>
+      <xs:enumeration value="F"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- Percentage number -->
+  <xs:simpleType name="PercentageType">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- Flight Type indicates flight is Inbound, Outbound or Domestic -->
+  <xs:simpleType name="FlightType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1"/>
+      <xs:enumeration value="I"/>
+      <xs:enumeration value="O"/>
+      <xs:enumeration value="D"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- Flight Status - extend from CATM flight status to include U for unknown -->
+  <xs:simpleType name="FlightStatusType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1"/>
+      <xs:enumeration value="P"/>
+      <xs:enumeration value="C"/>
+      <xs:enumeration value="D"/>
+      <xs:enumeration value="L"/>
+      <xs:enumeration value="T"/>
+      <xs:enumeration value="E"/>
+      <xs:enumeration value="U"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- High Priority Alarm types: 0 - No Alarm, 1 - Hijack, 2 - Radio Failure, 3 - General Failure -->
+  <xs:simpleType name="AlarmType">
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value="0"/>
+      <xs:enumeration value="1"/>
+      <xs:enumeration value="2"/>
+      <xs:enumeration value="3"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  FlightCodeSharesList -->
+  <xs:complexType name="FlightCodeShareList">
+    <xs:sequence>
+      <xs:element name="FlightCodeShare" type="db:FlightCodeShareType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!-- FlightCodeSharesType definition -->
+  <xs:complexType name="FlightCodeShareType">
+    <xs:sequence>
+      <xs:element name="CarrierCode" type="do:CARRIER_CODE_TYPE" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="FlightNo" type="do:FLIGHT_NUMBER_TYPE" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="FlightType" type="db:FlightFlagType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="FlightFlagType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1"/>
+      <xs:enumeration value="O"/>
+      <xs:enumeration value="M"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+ <!-- ********* PreDepartureScan types ********** -->
+  <xs:simpleType name="PreDepScanType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1"/>
+      <xs:enumeration value="A"/>
+      <xs:enumeration value="N"/>
+      <xs:enumeration value="L"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PreDepRequestType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1"/>
+      <xs:enumeration value="V"/>
+      <xs:enumeration value="E"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PreDepStatusCode">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1"/>
+      <xs:enumeration value="F"/>
+      <xs:enumeration value="H"/>
+      <xs:enumeration value="U"/>
+      <xs:enumeration value="D"/>
+      <xs:enumeration value="N"/>
+      <xs:enumeration value="B"/>
+      <xs:enumeration value="V"/>
+      <xs:enumeration value="E"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="PnrLocatorList">
+    <xs:sequence>
+      <xs:element name="BookingRefNumber" type="st:STR10_TYPE" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0"
+           elementFormDefault="unqualified"
+           attributeFormDefault="unqualified"	
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	       xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+           jaxb:version="2.0"
+           xmlns:ext="http://tools.bms.pts.xyz.com/xjcplugin/markentities"
+           xmlns:ext2="http://tools.bms.pts.xyz.com/xjcplugin/markentities/entity"
+		   jaxb:extensionBindingPrefixes="xjc ext ext2"
+           xmlns:api="api"
+           targetNamespace="api"
+           xmlns:st="string-types"
+		   xmlns:da="datetime-types"
+           xmlns:nu="numeric-types"
+           xmlns:do="domain-types">
+
+	<!-- -->
+	<!-- -->
+  <xs:annotation>
+    <xs:appinfo>
+      <jaxb:schemaBindings>
+        <jaxb:package name="com.xyz.pts.bms.idetectdas.model.generated.output.idetectdb"/>
+      </jaxb:schemaBindings>
+      <jaxb:property>
+        <jaxb:javadoc>entity,violations,errorreporting</jaxb:javadoc>
+      </jaxb:property>
+    </xs:appinfo>
+  </xs:annotation>
+  <!-- -->
+  <xs:import namespace="string-types" schemaLocation="../common/string-types.xsd"/>
+  <xs:import namespace="datetime-types" schemaLocation="../common/datetime-types.xsd"/>
+  <xs:import namespace="numeric-types" schemaLocation="../common/numeric-types.xsd"/>
+  <xs:import namespace="domain-types" schemaLocation="../common/domain-types.xsd"/>
+  <!-- -->
+  <xs:element name="Api" type="api:Api"/>
+  <xs:complexType name="Api">
+    <xs:sequence>
+      <xs:element name="ApiId" type="nu:PrimaryIdType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Lastname" type="st:STR80_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Forename" type="st:STR80_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="MiddleName" type="st:STR80_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="BirthDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="BirthCountry" type="do:ISO_COUNTRY_CODE_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="BirthPlace" type="st:STR80_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="BirthPlaceProvinceCode" type="st:STR2_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Gender" type="do:GENDER_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Nationality" type="do:ISO_COUNTRY_CODE_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PriAddrCityName" type="st:STR35_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PriAddrCntryCode" type="do:ISO_COUNTRY_CODE_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PriAddrPostcode" type="st:STR17_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PriAddrState" type="st:STR35_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PriAddrStateCode" type="st:STR9_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PriAddrStreetNameNo" type="st:STR200_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="OriginAirportCode" type="do:AIRPORT_CODE_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="DestAirportCode" type="do:AIRPORT_CODE_TYPE" minOccurs="0"/>
+      <xs:element name="ClearanceAirportCode" type="do:AIRPORT_CODE_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ResidentCntryCode" type="do:ISO_COUNTRY_CODE_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="BookingRefNo" type="st:STR35_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="TravelDocumentList" type="do:ApiTravelDocumentsListType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="TravellerType" type="do:TRAVELLER_TYPE" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
+

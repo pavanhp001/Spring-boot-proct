@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/aop 
+        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<context:annotation-config/>
+    <context:component-scan base-package="abc.xyz.pts.bcs.common">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+    </context:component-scan>
+    <context:component-scan base-package="abc.xyz.pts.bcs.wi.dao">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+    </context:component-scan>
+    
+    
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    	<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
+    	<property name="location" value="classpath:datasource_dbunit.properties"/>
+	</bean>
+
+	<!-- JDBC Datasource -->
+	
+	<bean id="dataSource" class="oracle.jdbc.pool.OracleDataSource" destroy-method="close">
+		<property name="URL" value="jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=cadb1-vip)(PORT=1521))(LOAD_BALANCE=yes)(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=devdb11g)))" />
+		<property name="connectionCachingEnabled" value="true" />
+		<property name="implicitCachingEnabled" value="false" />
+		<property name="maxStatements" value="150" />
+		<property name="user" value="RMCOREDEV35" />
+		<property name="password" value="RMCOREDEV35" />
+	</bean>
+	
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
+	
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource"><ref local="dataSource"/></property>
+	</bean>
+    <bean id="daoSupport" class="abc.xyz.pts.bcs.common.dao.support.JdbcTransactionDaoSupport">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <aop:aspectj-autoproxy/>
+
+    <bean id="dataSourceAOP" class="abc.xyz.pts.bcs.common.dao.session.DataSourceSessionSettingAspect">
+       <property name="provider" ref="coreUserDetails"/>
+       <property name="sessionContextShared" value="true" />
+    </bean>
+
+	<bean id="coreUserDetails" class="abc.xyz.pts.bcs.common.bean.UserDetails" scope="singleton">
+		<property name="name" value="WORKFLOWS"/>
+		<property name="airport" value="WF"/>
+		<property name="ipAddress" value="test"/>
+		<property name="sessionId" value="IRISK_SYSTEM_SESSION" />
+		<property name="roles"><list><value>IRISK_SYSTEM</value></list></property>
+	</bean>
+	
+	    <bean id="abstractDAO" class="abc.xyz.pts.bcs.common.dao.support.AbstractDAO" abstract="true">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean class="abc.xyz.pts.bcs.common.bean.DataSourceBeanPostProcessor"/>
+
+    <!--  Common WI DAO -->
+    <bean id="wiJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    <bean id="wiJdbcUtilDelegate" class="abc.xyz.pts.bcs.common.dao.delegate.JdbcUtilDelegate"/>    
+    <bean id="watchlistSearchDao" class="abc.xyz.pts.bcs.wi.dao.impl.WatchlistSearchDaoImpl">
+        <property name="jdbcTemplate" ref="wiJdbcTemplate" />
+        <property name="jdbcUtilDelegate" ref="wiJdbcUtilDelegate" />
+    </bean>    
+    
+    <bean id="watchlistDocSearchDao" class="abc.xyz.pts.bcs.wi.dao.impl.WatchlistDocSearchDaoImpl">
+        <property name="daoSupport" ref="daoSupport" />
+        <property name="lookupDataService" ref="lookupDataService" />  
+    </bean>
+
+	<!-- QAT-609 added bean to support cleared document matching -->
+    <bean id="clearedDocumentsSearchDao" class="abc.xyz.pts.bcs.wi.dao.impl.ClearedDocumentsSearchDaoImpl">
+    	<property name="daoSupport" ref="daoSupport" />
+    </bean>
+        
+    <bean id="watchlistWeightingsDao" class="abc.xyz.pts.bcs.wi.dao.impl.WatchlistWeightingsDaoImpl">
+        <property name="daoSupport" ref="daoSupport" />
+    </bean>
+
+    <bean id="prWatchListNameDao" class="abc.xyz.pts.bcs.wi.dao.impl.PrWatchListNameDaoImpl" parent="abstractDAO" />
+    <bean id="prSeverityReasonDao" class="abc.xyz.pts.bcs.wi.dao.impl.PrSeverityReasonDaoImpl" parent="abstractDAO" />
+    <bean id="prRecommendedActionDao" class="abc.xyz.pts.bcs.wi.dao.impl.PrRecommendedActionDaoImpl" parent="abstractDAO" />
+    
+    <bean id="travellerDAO" class="abc.xyz.pts.bcs.common.irisk.dao.TravellerDAO">
+        <property name="daoSupport" ref="daoSupport" />
+    </bean>
+
+    <bean name="lookupDataService" class="abc.xyz.pts.bcs.common.business.lookup.impl.LookupDataServiceImpl">
+        <property name="watchlistWeightingsDao" ref="watchlistWeightingsDao" />
+    </bean>   
+    
+    <bean id="watchListRequestDAO" class="abc.xyz.pts.bcs.common.referral.dao.WatchListRequestDAO">
+		<property name="daoSupport" ref="daoSupport" />
+	</bean>	
+	
+    <bean id="referralHitDAO" class="abc.xyz.pts.bcs.common.referral.dao.impl.ReferralHitDaoImpl">
+        <property name="daoSupport" ref="daoSupport" />
+    </bean>    
+        
+    <bean id="referralDAO" class="abc.xyz.pts.bcs.common.referral.dao.ReferralDAO">
+    	<property name="daoSupport" ref="daoSupport" />
+    </bean>
+    
+    <bean id="referralLogDAO" class="abc.xyz.pts.bcs.common.referral.dao.ReferralLogDAO">
+        <property name="daoSupport" ref="daoSupport" />
+    </bean>
+    
+    <bean id="flightSegmentsDAO" class="abc.xyz.pts.bcs.common.dao.impl.FlightSegmentsDAO">
+        <property name="daoSupport" ref="daoSupport" />
+    </bean>
+
+	<bean name="referenceDataService" class="abc.xyz.pts.bcs.common.business.impl.lookup.ReferenceDataServiceImpl">
+        <property name="prRecommendedActionDao" ref="prRecommendedActionDao" />
+    </bean> 
+    <!-- Notification request message sender setup -->
+	<bean id="referralAddHitNotifcationRequestSender" class="abc.xyz.pts.bcs.common.messaging.JMSSender">
+		<property name="jmsTemplate" ref="referralNotifcationJmsTemplate" />
+		<property name="destination" ref="referralAddHitNotifcationRequestQueue" />
+	</bean>
+
+
+	<bean id="referralNotifcationRequestSender" class="abc.xyz.pts.bcs.common.messaging.JMSSender">
+		<property name="jmsTemplate" ref="referralNotifcationJmsTemplate" />
+		<property name="destination" ref="referralNotifcationRequestQueue" />
+	</bean>
+	
+	<bean id="referralNotifcationJmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="referralNotifcationCachedConnectionFactory" />
+		<property name="sessionTransacted" value="true" />
+	</bean>
+
+	<bean id="referralAddHitNotifcationRequestQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="ADDHIT.NOTIF.REQ" />
+	</bean>
+
+	<bean id="referralNotifcationRequestQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="START.NOTIF.REQ" />
+	</bean>
+
+	<bean id="referralNotifcationCachedConnectionFactory" class="org.springframework.jms.connection.CachingConnectionFactory" >
+		<property name="targetConnectionFactory">
+			<bean class="org.apache.activemq.ActiveMQConnectionFactory">
+				<property name="brokerURL">
+					<value>failover://tcp://localhost:61616?randomize=false</value>
+				</property>
+			</bean>
+		</property>
+		<property name="reconnectOnException" value="true" />
+		<property name="sessionCacheSize" value="5" />
+	</bean>
+	
+	<bean id="referralNotificationService"
+		class="abc.xyz.pts.bcs.common.referral.workflows.notification.ReferralNotificationServiceImpl">
+		<property name="travellerDAO" ref="travellerDAO" />
+		<property name="referralNotifcationRequestSender" ref="referralNotifcationRequestSender" />
+		<property name="referralAddHitNotifcationRequestSender" ref="referralAddHitNotifcationRequestSender" />
+	</bean>
+	<bean id="referralStateService" class="abc.xyz.pts.bcs.common.referral.ReferralStateService">
+		<property name="referralService" ref="referralService" />
+        <property name="referralNotificationService" ref="referralNotificationService" />
+	</bean>
+	
+	<bean id="referralService" class="abc.xyz.pts.bcs.common.referral.ReferralServiceImpl">
+		<property name="referralDAO" ref="referralDAO" />
+		<property name="prRecommendedActionDao" ref="prRecommendedActionDao" />
+		<property name="referralLogDAO" ref="referralLogDAO" />		
+		<property name="referralHitDAO" ref="referralHitDAO" />				
+		<property name="appHitScore" value="100" />
+		<property name="appRecommendedActionCode" value="APPRH" />
+		<property name="appSeverityLevel" value="1" />
+		<property name="maxSeverityLevel" value="5" />
+		<property name="travellerDAO" ref="travellerDAO" />
+		<property name="flightSegmentsDAO" ref="flightSegmentsDAO" />
+		<property name="referralNotificationService" ref="referralNotificationService" />
+	</bean>
+
+</beans>

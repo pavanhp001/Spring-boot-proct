@@ -1,0 +1,2 @@
+<verifyText description="Validation failure" text="pageErrors" />
+<verifyText description="Add user failure message" text="${user.already.exists}" />

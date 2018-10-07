@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+* **************************************************************************
+*                                                            *
+* **************************************************************************
+* This code contains copyright information which is the proprietary property
+* of xyz Application Solutions. No part of this code may be reproduced,
+* stored or transmitted in any form without the prior written permission of
+* xyz Application Solutions.
+*
+* Copyright xyz Application Solutions 2008
+* All rights reserved.
+*
+-->
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+    <!--  Old page structure -->
+    <definition name="common.page.structure" template="/WEB-INF/jsp/PageLayout.jsp">
+        <put-attribute name="page.header" value="/WEB-INF/jsp/Header.jsp"/>
+        <put-attribute name="page.menu" value="/WEB-INF/jsp/Menu.jsp"/>
+        <put-attribute name="page.footer" value="/WEB-INF/jsp/Footer.jsp"/>
+        <put-attribute name="pdf.print.url" value=""/>
+        <put-attribute name="xls.export.url" value=""/>
+        <put-attribute name="request.bundle.key" value="abc.xyz.pts.bcs.common.Default"/>
+        <put-attribute name="page.css.key" value=""/>
+    </definition>
+
+    <!-- QAT-848: New page layout referenced here; as we redo each project, their
+         tiledefs will be amended to point to this structure. At the end of the process
+         we'll zip through all the tiledefs and rename  -->
+    <definition name="common.page.structure.new" template="/WEB-INF/jsp/PageLayoutNew.jsp">
+        <!-- No longer use header element in the pages -->
+        <put-attribute name="page.menu" value="/WEB-INF/jsp/MenuNew.jsp"/>
+        <put-attribute name="page.footer" value="/WEB-INF/jsp/FooterNew.jsp"/>
+        <put-attribute name="pdf.print.url" value=""/>
+        <put-attribute name="xls.export.url" value=""/>
+        <put-attribute name="request.bundle.key" value="abc.xyz.pts.bcs.common.Default"/>
+        <put-attribute name="page.css.key" value=""/>
+    </definition>
+
+
+    <definition name="login.view" template="/WEB-INF/jsp/Login.jsp"/>
+
+    <definition name="unimplemented.view" template="/WEB-INF/jsp/Unimplemented.jsp"/>
+
+    <!--
+    Define the overall header for the application set. This menu will contain links to multiple applications
+    and may cause problems in the future if the applications ever are released independently.
+    -->
+    <definition name="menu.header" template="/WEB-INF/jsp/Menu.jsp">
+        <put-attribute name="file.menu.item" value="/WEB-INF/jsp/menuitem/File.jsp"/>
+        <put-attribute name="data.menu.item" value="/WEB-INF/jsp/menuitem/Data.jsp"/>
+        <put-attribute name="risk.management.menu.item" value="/WEB-INF/jsp/menuitem/RiskManagement.jsp"/>
+        <put-attribute name="search.menu.item" value="/WEB-INF/jsp/menuitem/Search.jsp"/>
+        <put-attribute name="warnings.index.target.list.menu.item" value="/WEB-INF/jsp/menuitem/TargetList.jsp"/>
+        <put-attribute name="reports.menu.item" value="/WEB-INF/jsp/menuitem/Reports.jsp"/>
+        <put-attribute name="admin.menu.item" value="/WEB-INF/jsp/menuitem/Admin.jsp"/>
+        <put-attribute name="configuration.menu.item" value="/WEB-INF/jsp/menuitem/Configuration.jsp"/>
+        <put-attribute name="imonitor.menu.item" value="/WEB-INF/jsp/menuitem/IMonitor.jsp"/>
+        <put-attribute name="ref.key.menu.item" value="/WEB-INF/jsp/menuitem/RefKey.jsp"/>
+        <put-attribute name="home.menu.item" value="/WEB-INF/jsp/menuitem/Home.jsp"/>
+        <put-attribute name="back.menu.item" value="/WEB-INF/jsp/menuitem/Back.jsp"/>
+        <put-attribute name="help.menu.item" value="/WEB-INF/jsp/menuitem/Help.jsp"/>
+        <put-attribute name="logout.menu.item" value="/WEB-INF/jsp/menuitem/Logout.jsp"/>
+        <put-attribute name="msgboard.menu.item" value="/WEB-INF/jsp/menuitem/MsgBoard.jsp"/>
+    </definition>
+
+    <!--
+    Define the basic page, defaulting in an application css and ResourceBundle.
+    -->
+    <definition name="common.basic.page" template="/WEB-INF/jsp/BasicPage.jsp">
+        <put-attribute name="request.bundle.key" value="abc.xyz.pts.bcs.common.Default"/>
+        <put-attribute name="page.css.key" value="default.css"/>
+
+        <!--  Override in application tiledefs file -->
+        <put-attribute name="app.name" value="DEFAULT"/>
+        <put-attribute name="app.version" value="DEFAULT"/>
+    </definition>
+
+
+    <definition name="page.not.found.error.view" extends="common.page.structure.new">
+        <put-attribute name="page.title.key" value="error.upper"/>
+        <put-attribute name="page.body" value="/WEB-INF/jsp/PageNotFound.jsp"/>
+        <put-attribute name="help.url" value="/help/bcs/" type="string"/>
+        <put-attribute name="help.page" value="italy_bcs_csh.htm"/>
+        <put-attribute name="help.context" value="HELP_DESK"/>
+    </definition>
+
+
+    <definition name="page.forbidden.error.view" extends="common.page.structure.new">
+        <put-attribute name="page.title.key" value="error.upper"/>
+        <put-attribute name="page.body" value="/WEB-INF/jsp/PageForbidden.jsp"/>
+        <put-attribute name="help.url" value="/help/bcs/" type="string"/>
+        <put-attribute name="help.page" value="italy_bcs_csh.htm"/>
+        <put-attribute name="help.context" value="HELP_DESK"/>
+    </definition>
+
+
+    <definition name="server.error.view" extends="common.page.structure.new">
+        <put-attribute name="page.title.key" value="error.upper"/>
+        <put-attribute name="page.body" value="/WEB-INF/jsp/ServerError.jsp"/>
+        <put-attribute name="help.url" value="/help/bcs/" type="string"/>
+        <put-attribute name="help.page" value="italy_bcs_csh.htm"/>
+        <put-attribute name="help.context" value="HELP_DESK"/>
+    </definition>
+
+    <!--
+    Define the common header, it uses a menu defined in the common tiledefs as the
+    menu is held in common between the applications. This may be a problem in the future if the
+    applications ever come under separate release policies.
+    -->
+    <definition name="common.header" template="/WEB-INF/jsp/Header.jsp">
+        <put-attribute name="page.menu" value="menu.header"/>
+    </definition>
+
+    <!--
+    Define a common structure where the page is defined as having the common header and needs a body to
+    be defined.
+    -->
+    <definition name="common.header.body.structure" template="/WEB-INF/jsp/HeaderBody.jsp">
+        <put-attribute name="page.header" value="common.header"/>
+        <put-attribute name="pdf.print.url" value=""/>
+        <put-attribute name="xls.export.url" value=""/>
+        <put-attribute name="help.page" value=""/>
+    </definition>
+
+    <!-- DEfination to Hide Menu items as required by some of pages -->
+    <definition name="common.header.hide.menus" template="/WEB-INF/jsp/Header.jsp">
+    </definition>
+
+    <!--
+    Define a common structure where the page is defined as having the common header and needs a body to
+    be defined.
+    -->
+    <definition name="common.header.hide.menus.body.structure" template="/WEB-INF/jsp/HeaderBody.jsp">
+        <put-attribute name="page.header" value="common.header.hide.menus"/>
+    </definition>
+
+</tiles-definitions>

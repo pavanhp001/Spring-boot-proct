@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ****************************************************************************
+ *                                                            *
+ * **************************************************************************
+-->
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <import resource="Common_Properties.xml"/>
+    <!--
+        This bean definition defines the default settings for all Jasper reports
+        used within BCS.  It should be extended by any beans that are using
+        the multi format report.
+    -->
+    <bean id="baseReport" abstract="true" class="org.springframework.web.servlet.view.jasperreports.JasperReportsMultiFormatView">
+        <property name="reportDataKey" value="reportData"/>
+
+        <property name="exporterParameters">
+            <map>
+                <entry key="net.sf.jasperreports.engine.export.JRCsvExporterParameter.FIELD_DELIMITER" value="${export.csv.field.separator}"/>
+                <entry key="net.sf.jasperreports.engine.export.JRCsvExporterParameter.CHARACTER_ENCODING" value="${export.csv.character.encoding}"/>
+                <entry key="net.sf.jasperreports.engine.export.JRXlsAbstractExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_COLUMNS" value="true"/>    
+               <entry key="net.sf.jasperreports.engine.export.JRXlsAbstractExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_ROWS" value="true"/>  
+               <entry key="net.sf.jasperreports.engine.export.JRXlsAbstractExporterParameter.IS_DETECT_CELL_TYPE" value="true"/> 
+                <entry key="net.sf.jasperreports.engine.JRExporterParameter.FONT_MAP" value-ref="fontMap"/>
+            </map>
+        </property>
+
+        <!--
+        Set up format mappings and content dispositions suitable to the project.
+        -->
+        <property name="formatMappings" ref="formatMappings"/>
+        <property name="contentDispositionMappings" ref="contentDispositionMappings"/>
+    </bean>
+
+    <!--
+    Provide mappings for the standard fonts to the HTML fonts.
+
+    The PDF font mappings are defined in jasperreports.properties in the root package.
+
+    It is annoying that there seems to be no way of doing the HTML font mapping in the properties file,
+
+    But ho-hum.
+    -->
+    <bean name="fontMap" class="java.util.HashMap">
+        <constructor-arg>
+            <map>
+                <entry key="sansserif" value="Arial, Verdana, Tahoma"/>
+                <entry key="serif" value="Times New Roman"/>
+                <entry key="monospaced" value="Courier, Courier New"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <!--
+    Provide format mappings that includes RTF.
+    -->
+    <bean id="formatMappings" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="properties">
+            <props>
+                <prop key="csv">org.springframework.web.servlet.view.jasperreports.JasperReportsCsvView</prop>
+                <prop key="html">org.springframework.web.servlet.view.jasperreports.JasperReportsHtmlView</prop>
+                <prop key="pdf">org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView</prop>
+                <prop key="xls">org.springframework.web.servlet.view.jasperreports.JasperReportsXlsView</prop>
+                <prop key="rtf">abc.xyz.pts.bcs.common.web.JasperReportsRtfView</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!--
+    Provide content dispositions that should mean that reports will be marked for download by browser.
+    -->
+    <bean id="contentDispositionMappings" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="properties">
+            <props>
+                <prop key="csv">attachment; filename=report.csv</prop>
+                <prop key="html">attachment; filename=report.html</prop>
+                <prop key="pdf">attachment; filename=report.pdf</prop>
+                <prop key="xls">attachment; filename=report.xls</prop>
+                <prop key="rtf">attachment; filename=report.rtf</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+
+	<description>A collection of bcs utility tags</description>
+	<display-name>BCS util library</display-name>
+	<tlib-version>1.0</tlib-version>
+	<short-name>bcs</short-name>
+
+	<tag>
+		<description>Imports a html from the given url</description>
+		<name>import</name>
+		<tag-class>
+			abc.xyz.pts.bcs.common.web.tag.ImportTag
+		</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<description>
+				URL to retreive relative to the current host. Or an absolute URL.
+			</description>
+			<name>url</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+</taglib>

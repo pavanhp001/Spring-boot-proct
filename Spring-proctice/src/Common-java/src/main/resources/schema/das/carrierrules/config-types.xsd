@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			elementFormDefault="unqualified"
+			attributeFormDefault="unqualified"			
+
+           	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	        xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+            jaxb:version="2.0"
+
+            xmlns:ext="http://tools.bms.pts.xyz.com/xjcplugin/markentities"
+            xmlns:ext2="http://tools.bms.pts.xyz.com/xjcplugin/markentities/entity"
+	 	    jaxb:extensionBindingPrefixes="xjc ext ext2"
+
+			targetNamespace="config-types"
+			xmlns:ct="config-types"
+>
+
+  	<xs:annotation>
+		<xs:appinfo>
+			<jaxb:schemaBindings>
+				<jaxb:package name="com.xyz.pts.bms.idetectdas.model.generated.config"/>
+			</jaxb:schemaBindings>
+		</xs:appinfo>
+	</xs:annotation>
+  
+   <xs:simpleType name="CONFIGURATION_TYPE">
+       <xs:restriction base="xs:token">
+           <xs:enumeration value="DATA_PROTECTION_FILTER">
+               <xs:annotation>
+                   <xs:documentation>Indicates the Data protection filter configuration</xs:documentation>
+               </xs:annotation>
+           </xs:enumeration>
+       </xs:restriction>
+   </xs:simpleType>
+  
+   <!--  Domain types --> 
+  <xs:simpleType name="AIRPORT_CODE_TYPE">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(.{3,4})?">
+        <xs:annotation>
+          <xs:appinfo>
+            <ext:default/>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+
+   <xs:simpleType name="CARRIER_CODE_TYPE">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(\w{2,3})?">
+        <xs:annotation>
+          <xs:appinfo>
+            <ext:default/>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+   
+  <xs:simpleType name="FLIGHT_NUMBER_TYPE">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(.{4,5})?">
+        <xs:annotation>
+          <xs:appinfo>
+            <ext:default/>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="ISO3_COUNTRY_CODE_TYPE">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(.{3})?">
+        <xs:annotation>
+          <xs:appinfo>
+            <ext:default/>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+  
+   <!-- String types -->
+   <xs:simpleType name="STR80_TYPE">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="80"/>
+		</xs:restriction>
+   </xs:simpleType>
+   
+   <!--  numeric types -->
+   <xs:simpleType name="PrimaryIdType">
+	    <xs:restriction base="xs:long">
+	      <xs:minInclusive value="0"/>
+	    </xs:restriction>
+   </xs:simpleType>
+   
+</xs:schema>

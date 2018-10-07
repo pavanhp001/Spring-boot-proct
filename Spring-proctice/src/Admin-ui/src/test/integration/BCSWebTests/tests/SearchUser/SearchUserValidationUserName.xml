@@ -1,0 +1,18 @@
+<!DOCTYPE project SYSTEM "../../dtd/Project.dtd">
+
+<project default="logintest">
+	<target name="logintest">
+		<webtest name="Validating UserName field in Search User">
+			<config basepath="${canoo.config.basepath}" host="${canoo.config.host}" saveresponse="${canoo.config.saveresponse}" browser="${canoo.config.browser}" showhtmlparseroutput="${canoo.config.showhtmlparseroutput}"/>
+		       &GoToLoginPage;
+		       &Login;
+			   <setInputField description="set username" htmlId="username" value="CANOOSUP"/>
+			   &ClickSearchButton;
+			   <not>&ValidationFailedUserName;</not>
+			   <setInputField description="set username" htmlId="username" value="CANOOSUP*)"/>
+			   &ClickSearchButton;
+			   &ValidationFailedUserName;
+		       &Logout;
+ 		</webtest>
+	</target>
+</project>

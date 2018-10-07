@@ -1,0 +1,6 @@
+
+<invoke url="http://${test.host.name}/home/logout.form" description="Logout and go to Caine login page (in English)"/>
+<sleep seconds="1"/>
+<!--
+<verifyTitle text="Project Caine: Login" description="Caine login page Title should be seen"/>
+ -->

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" 
+			elementFormDefault="unqualified"
+			attributeFormDefault="unqualified"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	        xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+            jaxb:version="2.0"
+			xmlns:ext="http://tools.bms.pts.xyz.com/xjcplugin/markentities"
+			xmlns:ext2="http://tools.bms.pts.xyz.com/xjcplugin/markentities/entity"
+			jaxb:extensionBindingPrefixes="xjc ext ext2"
+			targetNamespace="fls-type"
+			xmlns:fls="fls-type"
+			>
+
+  <!-- -->
+  <!-- -->
+  <xs:annotation>
+    <xs:appinfo>
+      <jaxb:schemaBindings>
+        <jaxb:package name="com.xyz.pts.bcs.irisk.common"/>
+      </jaxb:schemaBindings>
+      <jaxb:property>
+        <jaxb:javadoc>entity</jaxb:javadoc>
+      </jaxb:property>
+    </xs:appinfo>
+  </xs:annotation>
+  <!--  -->
+  <!-- Flight record type -->
+  <xs:complexType name="FlightSegmentSummary">
+    <xs:annotation>
+      <xs:appinfo>
+        <ext:root/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="FlightSegId" type="xs:long"  minOccurs="1" />
+      <xs:element name="OperCarrierCode" type="fls:CARRIER_CODE_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="OperFlightNo" type="fls:FLIGHT_NUMBER_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="DepAirportCode" type="fls:AIRPORT_CODE_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ArrAirportCode" type="fls:AIRPORT_CODE_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ScheduledArrDateTime" type="fls:DATE19_TYPE" minOccurs="1" maxOccurs="1" />
+      <xs:element name="ScheduledDepDateTime" type="fls:DATE19_TYPE" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!-- FlightRouteType definition -->
+  <xs:simpleType name="CARRIER_CODE_TYPE">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(\w{2,3})">
+        <xs:annotation>
+          <xs:appinfo>
+            <ext:default/>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+	<!-- Flight Numbers support IATA and ICAO format - 4 or 5 characters -->
+  <xs:simpleType name="FLIGHT_NUMBER_TYPE">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(.{4,5})">
+        <xs:annotation>
+          <xs:appinfo>
+            <ext:default/>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- -->
+	<!-- Airport Codes support IATA and ICAO format - 3 or 4 characters -->
+  <xs:simpleType name="AIRPORT_CODE_TYPE">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(.{3,4})">
+        <xs:annotation>
+          <xs:appinfo>
+            <ext:default/>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+  	<xs:simpleType name="DATE19_TYPE">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([0-9]{4}(-[0-9]{2}){2}T[0-9]{2}(:[0-9]{2}){2})">
+				<xs:annotation>
+					<xs:appinfo>
+						<ext:default/>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+  
+</xs:schema>
+
+

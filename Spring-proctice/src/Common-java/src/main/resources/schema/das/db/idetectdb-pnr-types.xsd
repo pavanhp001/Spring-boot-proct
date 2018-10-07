@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			elementFormDefault="unqualified"
+			attributeFormDefault="unqualified"			
+
+           	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+            jaxb:version="2.0"
+
+	        xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+            xmlns:ext="http://tools.bms.pts.xyz.com/xjcplugin/markentities"
+            xmlns:ext2="http://tools.bms.pts.xyz.com/xjcplugin/markentities/entity"
+		    jaxb:extensionBindingPrefixes="xjc ext ext2"
+
+			targetNamespace="dbpnr"
+			xmlns:dbpnr="dbpnr"
+
+			xmlns:st="string-types"
+			xmlns:nu="numeric-types"
+            xmlns:da="datetime-types"
+            xmlns:do="domain-types" >
+	<!--  -->
+	<!-- -->
+  <xs:annotation>
+    <xs:appinfo>
+      <jaxb:schemaBindings>
+        <jaxb:package name="com.xyz.pts.bms.idetectdas.model.generated.output.idetectdb.pnrtypes"/>
+      </jaxb:schemaBindings>
+      <jaxb:property>
+        <jaxb:javadoc>entity,violations,errorreporting</jaxb:javadoc>
+      </jaxb:property>
+    </xs:appinfo>
+  </xs:annotation>
+  <!-- -->
+  <xs:import namespace="string-types" schemaLocation="../common/string-types.xsd"/>
+  <xs:import namespace="datetime-types" schemaLocation="../common/datetime-types.xsd"/>
+  <xs:import namespace="numeric-types" schemaLocation="../common/numeric-types.xsd"/>
+  <xs:import namespace="domain-types" schemaLocation="../common/domain-types.xsd"/>
+  <!-- -->
+
+  <!--  *********************************************   -->
+  <!--  PNR data type -->
+  <!--  *********************************************   -->
+  <xs:complexType name="AgentInfoType">
+    <xs:sequence>
+      <xs:element name="AddressStreetNameNo" type="st:STR200_TYPE" minOccurs="0"/>
+      <xs:element name="AddressCity" type="st:STR80_TYPE" minOccurs="0"/>
+      <xs:element name="AddressPostcode" type="st:STR17_TYPE" minOccurs="0"/>
+      <xs:element name="AddressArea" type="st:STR10_TYPE" minOccurs="0"/>
+      <xs:element name="AddressCountry" type="st:STR80_TYPE" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ContactDetailsListType">
+    <xs:sequence>
+      <xs:element name="ContactDetailsInfo" type="dbpnr:ContactDetailsInfoType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ContactDetailsInfoType">
+    <xs:sequence>
+      <xs:element name="SerialNumber" type="nu:INT5_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ContactName" type="st:STR200_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ContactType" type="dbpnr:ContactAddressType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="AddressType" type="nu:INT5_TYPE" minOccurs="0"/>
+      <xs:element name="AddressStreetNameNo" type="st:STR200_TYPE" minOccurs="0"/>
+      <xs:element name="AddressCity" type="st:STR80_TYPE" minOccurs="0"/>
+      <xs:element name="AddressState" type="st:STR35_TYPE" minOccurs="0"/>
+      <xs:element name="AddressPostcode" type="st:STR17_TYPE" minOccurs="0"/>
+      <xs:element name="AddressCountry" type="st:STR80_TYPE" minOccurs="0"/>
+      <xs:element name="AddressFormat" type="nu:NUMBER_TYPE" minOccurs="0"/>
+      <xs:element name="EmailUserName" type="st:STR50_TYPE" minOccurs="0"/>
+      <xs:element name="EmailDomain" type="st:STR70_TYPE" minOccurs="0"/>
+      <xs:element name="Email" type="st:STR200_TYPE" minOccurs="0"/>
+      <xs:element name="PhoneType" type="st:STR20_TYPE" minOccurs="0"/>
+      <xs:element name="PhoneNumber" type="st:STR90_TYPE" minOccurs="0"/>
+      <xs:element name="PhoneCityCode" type="st:STR10_TYPE" minOccurs="0"/>
+      <xs:element name="PhoneText" type="st:STR128_TYPE" minOccurs="0"/>
+      <xs:element name="BookingNameList" type="dbpnr:BookingNameListType" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ContactAddressType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PHO"/>
+      <xs:enumeration value="EMAIL"/>
+      <xs:enumeration value="ADDR"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="PaymentInfoListType">
+    <xs:sequence>
+      <xs:element name="Payment" type="dbpnr:PaymentInfoType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PaymentInfoType">
+    <xs:sequence>
+      <xs:element name="AccountType" type="nu:NUMBER_TYPE" minOccurs="0"/>
+      <xs:element name="AccountNos" type="st:STR500_TYPE" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="AccountFreeText" type="st:STR80_TYPE" minOccurs="0"/>
+      <xs:element name="AccountAdjustmentType" type="st:STR80_TYPE" minOccurs="0"/>
+      <xs:element name="SerialNumber" type="nu:INT5_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="CashPaymentText" type="st:STR80_TYPE" minOccurs="0"/>
+      <xs:element name="CertNumber" type="st:STR15_TYPE" minOccurs="0"/>
+      <xs:element name="CheckPaymentText" type="st:STR80_TYPE" minOccurs="0"/>
+      <xs:element name="CreditCardInfo" type="dbpnr:CreditCardInfoType" minOccurs="0"/>
+      <xs:element name="FftText" type="st:STR80_TYPE" minOccurs="0"/>
+      <xs:element name="GtrNumber" type="st:STR20_TYPE" minOccurs="0"/>
+      <xs:element name="InvoiceText" type="st:STR80_TYPE" minOccurs="0"/>
+      <xs:element name="RewardCarrierCode" type="st:STR3_TYPE" minOccurs="0"/>
+      <xs:element name="RewardVoucher" type="st:STR200_TYPE" minOccurs="0"/>
+      <xs:element name="RewardIssueCity" type="st:STR10_TYPE" minOccurs="0"/>
+      <xs:element name="RewardIssueDate" type="da:DATE10_TYPE" minOccurs="0"/>
+      <xs:element name="ExchangedTicket" type="dbpnr:ExchangedTicket" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TicketingListType">
+    <xs:sequence>
+      <xs:element name="TicketInfo" type="dbpnr:TicketInfoType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TicketInfoType">
+    <xs:sequence>
+      <xs:element name="SerialNumber" type="nu:INT5_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="TicketNo" type="st:STR22_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="BookingNameList" type="dbpnr:BookingNameListType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="IssuedDateTime" type="da:DATE19_TYPE" minOccurs="0"/>
+      <xs:element name="IssuedCity" type="st:STR10_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="CarrierCode" type="do:CARRIER_CODE_TYPE" minOccurs="0"/>
+      <xs:element name="AgentSine" type="st:STR4_TYPE" minOccurs="0"/>
+      <xs:element name="AgentIATACode" type="st:STR8_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="DutyCode" type="xs:long" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FreeText" type="st:STR64_TYPE" minOccurs="0"/>
+      <xs:element name="ConjunctionTktNo" type="st:STR22_TYPE" minOccurs="0"/>
+      <xs:element name="InvoiceNo" type="st:STR10_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ETktFlag" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PrintedTktFlag" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="VoidTktFlag" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="SettlementAuth" type="st:STR14_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Coupons" type="dbpnr:CouponListType" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CouponListType">
+    <xs:sequence>
+      <xs:element name="CouponInfo" type="dbpnr:CouponInfoType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CouponInfoType">
+    <xs:sequence>
+      <xs:element name="SerialNumber" type="nu:INT5_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="TicketNo" type="st:STR22_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="CouponNo" type="nu:INT5_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="SegmentNumber" type="st:STR22_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="SettlementAuth" type="st:STR14_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ETktStatus" type="st:STR22_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ETktStatusLineNumber" type="st:STR22_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ETktUpdateDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="CreditCardInfoType">
+    <xs:sequence>
+      <xs:element name="CardType" type="st:STR2_TYPE" minOccurs="0"/>
+      <xs:element name="Number" type="st:STR19_TYPE" minOccurs="0"/>
+      <xs:element name="IssueMonthYear" type="st:STR5_TYPE" minOccurs="0"/>
+      <xs:element name="ExpiryMonthYear" type="st:STR5_TYPE" minOccurs="0"/>
+      <xs:element name="IssueNumber" type="nu:NUMBER_TYPE" minOccurs="0"/>
+      <xs:element name="SecurityNumber" type="st:STR4_TYPE" minOccurs="0"/>
+      <xs:element name="HolderName" type="st:STR80_TYPE" minOccurs="0"/>
+      <xs:element name="CountryCode" type="do:ISO_COUNTRY_CODE_TYPE" minOccurs="0"/>
+      <xs:element name="CarrierCode" type="do:CARRIER_CODE_TYPE" minOccurs="0"/>
+      <xs:element name="IataCode" type="st:STR8_TYPE" minOccurs="0"/>
+      <xs:element name="HolderPresent" type="nu:NUMBER_TYPE" minOccurs="0"/>
+      <xs:element name="InputMethod" type="nu:NUMBER_TYPE" minOccurs="0"/>
+      <xs:element name="SuppressApprovalFlag" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="SuppressCcNoFlag" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ForceOnlineAuthFlag" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ExtendedPayment" type="nu:NUMBER_TYPE" minOccurs="0"/>
+      <xs:element name="AuthTransType" type="st:STR2_TYPE" minOccurs="0"/>
+      <xs:element name="AuthCode" type="st:STR10_TYPE" minOccurs="0"/>
+      <xs:element name="AuthMethod" type="nu:NUMBER_TYPE" minOccurs="0"/>
+      <xs:element name="AuthTransNumber" type="st:STR10_TYPE" minOccurs="0"/>
+      <xs:element name="AuthAcquirer" type="st:STR30_TYPE" minOccurs="0"/>
+      <xs:element name="AuthMessage" type="st:STR80_TYPE" minOccurs="0"/>
+      <xs:element name="FreeText" type="st:STR80_TYPE" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PnrFrequentFlyerListType">
+    <xs:sequence>
+      <xs:element name="FrequentFlyer" type="dbpnr:PnrFrequentFlyerType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PnrFrequentFlyerType">
+    <xs:sequence>
+      <xs:element name="SerialNumber" type="nu:INT5_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="BookingNameList" type="dbpnr:BookingNameType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FrequentFlyerNumber" type="st:STR32_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="OwningCarrierCode" type="do:CARRIER_CODE_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FlyingCarrierCode" type="do:CARRIER_CODE_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Status" type="st:STR2_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Text" type="st:STR80_TYPE" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OsiDetailListType">
+    <xs:sequence>
+      <xs:element name="OsiDetail" type="dbpnr:OsiDetailType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OsiDetailType">
+    <xs:sequence>
+      <xs:element name="SerialNumber" type="nu:INT5_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="BookingNameList" type="dbpnr:BookingNameType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Code" type="st:STR20_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="AirlineCode" type="st:STR3_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Text" type="st:STR256_TYPE" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SsrDetailListType">
+    <xs:sequence>
+      <xs:element name="SsrDetailInfo" type="dbpnr:SsrDetailType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SsrDetailType">
+    <xs:sequence>
+      <xs:element name="SerialNumber" type="nu:INT5_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="no" type="nu:INT5_TYPE" minOccurs="0"/>
+      <xs:element name="code" type="st:STR4_TYPE" minOccurs="0"/>
+      <xs:element name="airline" type="do:CARRIER_CODE_TYPE" minOccurs="0"/>
+      <xs:element name="status" type="st:STR2_TYPE" minOccurs="0"/>
+      <xs:element name="NoInParty" type="nu:INT5_TYPE" minOccurs="0"/>
+      <xs:element name="Segments" type="dbpnr:SegmentListType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="AllSegmentsFlag" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="BookingNameList" type="dbpnr:BookingNameListType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="AirlineText" type="st:STR256_TYPE" minOccurs="0"/>
+      <xs:element name="Text" type="st:STR256_TYPE" minOccurs="0"/>
+      <xs:element name="CodeModifier" type="st:STR18_TYPE" minOccurs="0"/>
+      <xs:element name="SsrInfo" type="dbpnr:SsrInfoType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SsrInfoType">
+    <xs:sequence>
+      <xs:element name="TravelDocuments" type="dbpnr:TravelDocumentsListType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Address" type="dbpnr:ContactDetailsInfoType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="TicketIssued" type="dbpnr:TicketingListType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="SeatDetails" type="dbpnr:BookingSeatInfoType" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TravellerName">
+    <xs:sequence>
+      <xs:element name="No" type="xs:long" minOccurs="0"/>
+      <xs:element name="Count" type="xs:long" minOccurs="0"/>
+      <xs:element name="ITCAbsoluteIndex" type="xs:long" minOccurs="0"/>
+      <xs:element name="Surname" type="st:STR80_TYPE" minOccurs="0"/>
+      <xs:element name="InitialTitle" type="st:STR80_TYPE" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="InfantFlag" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="GroupFlag" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="VipFlag" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PaxType" type="dbpnr:TravellerType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="StaffFlag" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TravellerType">
+    <xs:sequence>
+      <xs:element name="Type" type="xs:long" minOccurs="0"/>
+      <xs:element name="Age" type="xs:long" minOccurs="0"/>
+      <xs:element name="RailType" type="xs:string" minOccurs="0"/>
+      <xs:element name="AgeType" type="xs:long" minOccurs="0"/>
+      <xs:element name="Remark" type="xs:string" minOccurs="0"/>
+      <xs:element name="SecondaryType" type="xs:long" minOccurs="0"/>
+      <xs:element name="InfantIndex" type="xs:long" minOccurs="0"/>
+      <xs:element name="InfantSurname" type="st:STR80_TYPE" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RemarkListType">
+    <xs:sequence>
+      <xs:element name="Remark" type="dbpnr:RemarkType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RemarkType">
+    <xs:sequence>
+      <xs:element name="SerialNumber" type="nu:INT5_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="RemarkType" type="dbpnr:RemarkEnumerationType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="RemarkText" type="st:STR200_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="CddHeader" type="st:STR2_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Restriction" type="nu:NUMBER_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Key" type="st:STR50_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Value" type="st:STR50_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="QueBranch" type="st:STR9_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="QueType" type="st:STR4_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="QueCategory" type="st:STR10_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="QueCnt" type="nu:NUMBER_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="QueDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="QueTime" type="xs:time" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  segment stuff -->
+  <xs:simpleType name="BookingMethodType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MANUAL"/>
+      <xs:enumeration value="AUTOMATIC"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- remark types -->
+  <xs:simpleType name="RemarkEnumerationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="general"/>
+      <xs:enumeration value="queue"/>
+      <xs:enumeration value="history"/>
+      <xs:enumeration value="unknown"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="BookingSegment" abstract="true">
+    <xs:sequence>
+      <xs:element name="SegmentNo" type="nu:INT5_TYPE"/>
+      <xs:element name="SegmentUsed" type="xs:boolean" minOccurs="0" maxOccurs="1"  />
+      <xs:element name="BookingMethod" type="dbpnr:BookingMethodType" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AirSegment">
+    <xs:complexContent>
+      <xs:extension base="dbpnr:BookingSegment">
+        <xs:sequence>
+          <xs:element name="CarrierCode" type="do:CARRIER_CODE_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="FlightNumber" type="do:FLIGHT_NUMBER_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="DepartureCity" type="st:STR5_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="DepartureTime" type="xs:time" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="ArrivalDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="StatusCode" type="st:STR2_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="DateChange" type="nu:NUMBER_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="MarriedSegmentFlag" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="EtktFlag" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="FareBasis" type="st:STR25_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="OpenFlag" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="AircraftType" type="st:STR21_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="VendorResponse" type="st:STR1_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="VendorRecordLocator" type="st:STR8_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="FreeText" type="st:STR64_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="BookingClass" type="st:STR2_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="CharterFlight" type="st:STR3_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="SeatRequestAvailable" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="NativeSegmentFlag" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="SegmentSummary" type="st:STR2000_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="DepartureDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="ArrivalCity" type="st:STR5_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="ArrivalTime" type="xs:time" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="CodeShareInfo" type="st:STR5_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="AirStopNos" type="nu:NUMBER_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="AirPartyCount" type="nu:NUMBER_TYPE" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CarSegment">
+    <xs:complexContent>
+      <xs:extension base="dbpnr:BookingSegment">
+        <xs:sequence>
+          <xs:element name="VendorCode" type="st:STR8_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="StatusCode" type="st:STR2_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="NumberOfCars" type="nu:NUMBER_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="PickupLocationCity" type="st:STR10_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="PickupLocationAreaCode" type="nu:NUMBER_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="PickupLocationVendorRef" type="st:STR35_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="PickupLocationType" type="st:STR10_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="PickupLocationVacinityCode" type="nu:NUMBER_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="PickupDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="PickupTime" type="xs:time" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="DropoffLocationCity" type="st:STR10_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="DropoffLocationAreaCode" type="nu:NUMBER_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="DropoffLocationVendorRef" type="st:STR35_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="DropoffLocationType" type="st:STR10_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="DropoffLocationVacinityCode" type="nu:NUMBER_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="DropoffDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="DropoffTime" type="xs:time" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="FrequentFlyerNumber" type="st:STR18_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="FrequentTravellerNumber" type="st:STR18_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="SupplementalEquipment" type="st:STR500_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="SupplementalInfo" type="st:STR80_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="GuaranteeType" type="st:STR10_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="Guarantee" type="st:STR64_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="CreditCardType" type="st:STR2_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="CreditCardNumber" type="st:STR16_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="CreditCardIssueMonthYear" type="st:STR5_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="CreditCardExpiryMonthYear" type="st:STR5_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="CreditCardHolder" type="st:STR80_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="BookingSource" type="st:STR8_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="BookingAgent" type="st:STR200_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="CustomerName" type="st:STR80_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="ConfirmationNumber" type="st:STR80_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="FreeText" type="st:STR2000_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="LocationCode" type="st:STRING_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="Provider" type="st:STR80_TYPE" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RailSegment">
+    <xs:complexContent>
+      <xs:extension base="dbpnr:BookingSegment">
+        <xs:sequence>
+          <xs:element name="VendorCode" type="st:STR8_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="TrainNumber" type="st:STR5_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="TravelClass" type="st:STR2_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="DepartureCity" type="st:STR10_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="DepartureDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="DepartureTime" type="xs:time" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="ArrivalCity" type="st:STR10_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="ArrivalDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="ArrivalTime" type="xs:time" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="DateChange" type="nu:INT3_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="StatusCode" type="st:STR2_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="PartyCount" type="nu:NUMBER_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="FreeText" type="st:STR200_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="OpenFlag" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="HotelSegment">
+    <xs:complexContent>
+      <xs:extension base="dbpnr:BookingSegment">
+        <xs:sequence>
+          <xs:element name="PropertyNumber" type="st:STR20_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="ChainCode" type="st:STR2_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="HotelName" type="st:STR80_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="Address" type="st:STR200_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="City" type="st:STR80_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="Area" type="st:STR10_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="Postcode" type="st:STR10_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="Country" type="st:STR80_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="Location" type="st:STR60_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="PartyCount" type="nu:NUMBER_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="StatusCode" type="st:STR2_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="RoomCount" type="nu:NUMBER_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="CheckinDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="CheckoutDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="CustomerName" type="st:STR200_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="FrequentFlyerNumber" type="st:STR18_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="FrequentStayerNumber" type="st:STR20_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="GuaranteeType" type="st:STR10_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="Guarantee" type="st:STR64_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="CreditCardType" type="st:STR2_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="CreditCardNumber" type="st:STR16_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="CreditCardIssueMonthYear" type="st:STR5_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="CreditCardExpiryMonthYear" type="st:STR5_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="CreditCardHolder" type="st:STR200_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="PhoneNumber" type="st:STR25_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="FaxNumber" type="st:STR25_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="ConfirmationNumber" type="st:STR80_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="SupplimentaryNumber" type="st:STR80_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="RoomType" type="st:STR2_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="RoomDesc" type="nu:NUMBER_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="FreeText" type="st:STR200_TYPE" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="OtherSegment">
+    <xs:complexContent>
+      <xs:extension base="dbpnr:BookingSegment">
+        <xs:sequence>
+          <xs:element name="SegmentCode" type="st:STR3_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="CarrierCode" type="st:STR3_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="StatusCode" type="st:STR2_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="PartyCount" type="nu:INT5_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="Date" type="xs:date" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="City" type="st:STR10_TYPE" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="FreeText" type="st:STR200_TYPE" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ArnkSegment">
+    <xs:complexContent>
+      <xs:extension base="dbpnr:BookingSegment">
+        <xs:sequence>
+          <xs:element name="DepartureCity" type="st:STR10_TYPE" minOccurs="0"/>
+          <xs:element name="ArrivalCity" type="st:STR10_TYPE" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="UnknownSegment">
+    <xs:sequence>
+      <xs:element name="dummy" type="st:STR80_TYPE" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ExchangedTicket">
+    <xs:sequence>
+      <xs:element name="OrigTicketNumber" type="st:STR22_TYPE" minOccurs="0"/>
+      <xs:element name="OrigConjunctionTicketNumbers" type="st:STR22_TYPE" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="OrigCity" type="st:STR10_TYPE" minOccurs="0"/>
+      <xs:element name="OrigDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="OrigCarrierCode" type="st:STR3_TYPE" minOccurs="0"/>
+      <xs:element name="ExchTicketNumber" type="st:STR22_TYPE" minOccurs="0"/>
+      <xs:element name="ExchConjunctionTicketNumbers" type="st:STR22_TYPE" minOccurs="0"  maxOccurs="unbounded"/>
+      <xs:element name="ExchCity" type="st:STR10_TYPE" minOccurs="0"/>
+      <xs:element name="ExchDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="ExchCarrierCode" type="st:STR3_TYPE" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SegmentListType">
+    <xs:sequence>
+      <xs:element name="Segment" type="dbpnr:SegmentType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SegmentType">
+    <xs:choice>
+      <xs:element name="OtherSegment" type="dbpnr:OtherSegment" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="UnknownSegment" type="dbpnr:UnknownSegment" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="HotelSegment" type="dbpnr:HotelSegment" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="RailSegment" type="dbpnr:RailSegment" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="CarSegment" type="dbpnr:CarSegment" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="AirSegment" type="dbpnr:AirSegment" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="ArnkSegment" type="dbpnr:ArnkSegment" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="DividedPnrLocatorsListType">
+    <xs:sequence>
+      <xs:element name="DividedPnrLocators" type="dbpnr:DividedPnrLocators" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DividedPnrLocators">
+    <xs:sequence>
+      <xs:element name="locator" type="st:STR10_TYPE" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BookingHistoryListType">
+    <xs:sequence>
+      <xs:element name="BookingHistory" type="dbpnr:BookingHistoryType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BookingHistoryType">
+    <xs:sequence>
+      <xs:element name="EventNumber" type="nu:INT4_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="EventDateTime" type="da:DATE19_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ActionType" type="dbpnr:BookingHistoryActionType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ActionDetail" type="st:STR2000_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PnrElement" type="dbpnr:PnrElementChoiceType" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="BookingHistoryActionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MODIFY"/>
+      <xs:enumeration value="OUTGOING"/>
+      <xs:enumeration value="SEAT"/>
+      <xs:enumeration value="CHANGE"/>
+      <xs:enumeration value="CONFIRM"/>
+      <xs:enumeration value="ADD"/>
+      <xs:enumeration value="CANCEL"/>
+      <xs:enumeration value="QUE"/>
+      <xs:enumeration value="USED"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="PnrElementChoiceType">
+    <xs:choice>
+      <xs:element name="Segment" type="dbpnr:SegmentType"/>
+      <xs:element name="Remark" type="dbpnr:RemarkType"/>
+      <xs:element name="SSR" type="dbpnr:SsrDetailType"/>
+      <xs:element name="OSI" type="dbpnr:OsiDetailType"/>
+      <xs:element name="BookingNameList" type="dbpnr:BookingNameListType"/>
+      <xs:element name="TicketInfoList" type="dbpnr:TicketingListType"/>
+      <xs:element name="PaymentInfo" type="dbpnr:PaymentInfoType"/>
+      <xs:element name="DividePnr" type="dbpnr:DividedPnrLocators"/>
+      <xs:element name="Seat" type="dbpnr:BookingSeatInfoType"/>
+      <xs:element name="ContactDetails" type="dbpnr:ContactDetailsInfoType"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="BookingNameListType">
+    <xs:sequence>
+      <xs:element name="BookingName" type="dbpnr:BookingNameType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BookingNameType">
+    <xs:sequence>
+      <xs:element name="NameIndex" type="nu:INT5_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PNRNameNo" type="nu:INT5_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PNRNameCount" type="nu:INT5_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="LastName" type="st:STR80_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Forename" type="st:STR80_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="InfantFlag" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="GroupFlag" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="VipFlag" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PaxType" type="nu:NUMBER_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PaxAge" type="nu:NUMBER_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="AgeType" type="nu:NUMBER_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Remarks" type="st:STR80_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="SecType" type="nu:NUMBER_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="InfantIndex" type="nu:NUMBER_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="InfantLastName" type="st:STR80_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="StaffFlag" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TravelDocumentsListType">
+    <xs:sequence>
+      <xs:element name="TravelDocumentInfo" type="dbpnr:TravelDocumentInfoType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TravelDocumentInfoType">
+    <xs:sequence>
+      <xs:element name="SerialNumber" type="nu:INT5_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="BookingName" type="dbpnr:BookingNameType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Passport" type="dbpnr:PassportType" minOccurs="0"/>
+      <xs:element name="Visa" type="dbpnr:VisaType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PassportType">
+    <xs:sequence>
+      <xs:element name="PassportNumber" type="st:STR20_TYPE" minOccurs="0"/>
+      <xs:element name="CountryOfIssue" type="do:ISO_COUNTRY_CODE_TYPE" minOccurs="0"/>
+      <xs:element name="Holder" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="Title" type="st:STR5_TYPE" minOccurs="0"/>
+      <xs:element name="Forename" type="st:STR80_TYPE" minOccurs="0"/>
+      <xs:element name="Middlename" type="st:STR80_TYPE" minOccurs="0"/>
+      <xs:element name="LastName" type="st:STR80_TYPE" minOccurs="0"/>
+      <xs:element name="DateOfBirth" type="xs:date" minOccurs="0"/>
+      <xs:element name="Gender" type="do:GENDER_TYPE" minOccurs="0"/>
+      <xs:element name="Infant" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ExpiryDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="Nationality" type="do:ISO_COUNTRY_CODE_TYPE" minOccurs="0"/>
+      <xs:element name="PlaceOfBirth" type="st:STR30_TYPE" minOccurs="0"/>
+      <xs:element name="DocumentType" type="do:TRAVELDOC_TYPE" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VisaType">
+    <xs:sequence>
+      <xs:element name="VisaNumber" type="st:STR20_TYPE" minOccurs="0"/>
+      <xs:element name="Country" type="do:ISO_COUNTRY_CODE_TYPE" minOccurs="0"/>
+      <xs:element name="PlaceOfIssue" type="st:STR30_TYPE" minOccurs="0"/>
+      <xs:element name="IssueDate" type="xs:date" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BookingSeatListType">
+    <xs:sequence>
+      <xs:element name="BookingSeatInfo" type="dbpnr:BookingSeatInfoType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BookingSeatInfoType">
+    <xs:sequence>
+      <xs:element name="SerialNumber" type="nu:INT5_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="SeatNumber" type="dbpnr:SeatNumberType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="BookingNameList" type="dbpnr:BookingNameListType"/>
+      <xs:element name="SeatType" type="dbpnr:SeatTypeType" minOccurs="0"/>
+      <xs:element name="SeatStatus" type="st:STR2_TYPE" minOccurs="0"/>
+      <xs:element name="Comment" type="st:STR80_TYPE" minOccurs="0"/>
+      <xs:element name="SpaceType" type="st:STR6_TYPE" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SeatNumberType">
+    <xs:sequence>
+      <xs:element name="Row" type="xs:long" minOccurs="0"/>
+      <xs:element name="Column" type="st:STR3_TYPE" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SeatTypeType">
+    <xs:sequence>
+      <xs:element name="Smoking" type="nu:INDEX3_TYPE" minOccurs="0"/>
+      <xs:element name="Side" type="nu:INDEX3_TYPE" minOccurs="0"/>
+      <xs:element name="Position" type="xs:long" minOccurs="0"/>
+      <xs:element name="Section" type="xs:long" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  
+</xs:schema>
+
+

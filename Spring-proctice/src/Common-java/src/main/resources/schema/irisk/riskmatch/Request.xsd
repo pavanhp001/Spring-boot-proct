@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+	targetNamespace="travelList" xmlns:tra="travelList"
+	jaxb:version="2.0"
+	xmlns:fls="fls-type"
+>
+  <!-- -->
+  <xs:annotation>
+    <xs:appinfo>
+      <jaxb:schemaBindings>
+        <jaxb:package name="abc.xyz.pts.bcs.irisk.mvo.riskmatch"/>
+      </jaxb:schemaBindings>
+      <jaxb:property>
+        <jaxb:javadoc>entity</jaxb:javadoc>
+      </jaxb:property>
+    </xs:appinfo>
+  </xs:annotation>
+  
+  	<xs:import namespace="fls-type" schemaLocation="../common/flightSegmentSummary.xsd"/>
+	<xs:element name="request">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messageId" type="xs:string" minOccurs="1" maxOccurs="1" />
+				<xs:element name="sdiUser" type="xs:token" minOccurs="1" maxOccurs="1" />
+				<xs:element name="sdiPassword" type="xs:token" minOccurs="0" maxOccurs="1" />
+				<xs:element name="reason" type="xs:string" minOccurs="1" maxOccurs="1" />
+				<xs:element name="travellers" type="tra:Traveller" minOccurs="1" maxOccurs="unbounded" />
+				<xs:element name="flightSegmentSummary" type="fls:FlightSegmentSummary" minOccurs="1" maxOccurs="1" />
+				<xs:element name="airport" type="xs:token" minOccurs="0" maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="Traveller">
+		<xs:sequence>
+			<xs:element name="id" type="xs:long" minOccurs="1" maxOccurs="1" />
+			<xs:element name="flightSegId" type="xs:long" minOccurs="1" maxOccurs="1" />
+			<xs:element name="traId" type="xs:long" minOccurs="1" maxOccurs="1" />
+			<xs:element name="foreName" type="xs:string" />
+			<xs:element name="middleName" type="xs:string" />
+			<xs:element name="surname" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="dob" type="xs:dateTime" minOccurs="1" maxOccurs="1" />
+			<xs:element name="gender" type="xs:string" />
+			<xs:element name="placeOfBirthLocale" type="xs:string" />
+			<xs:element name="placeOfBirthProvince" type="xs:string" />
+			<xs:element name="birthCountry" type="xs:string" />
+			<xs:element name="nationality" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="boardingPoint" type="xs:string" />
+			<xs:element name="finalDestinationAirport" type="xs:string" />
+			<xs:element name="travelDocuments" type="tra:TravelDocument" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TravelDocument">
+		<xs:sequence>
+			<xs:element name="documentType" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="documentNo" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="documentIssueCity" type="xs:string" minOccurs="1" maxOccurs="1" />
+			<xs:element name="documentIssueProvince" type="xs:string" />
+			<xs:element name="documentIssueCountry" type="xs:string" />
+			<xs:element name="documentIssueDate" type="xs:string" />
+			<xs:element name="documentExpiryDate" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

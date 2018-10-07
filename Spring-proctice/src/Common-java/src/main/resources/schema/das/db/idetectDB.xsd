@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           attributeFormDefault="unqualified"
+           elementFormDefault="unqualified"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	       xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+           jaxb:version="2.0"
+           
+           xmlns:ext="http://tools.bms.pts.xyz.com/xjcplugin/markentities"
+           xmlns:ext2="http://tools.bms.pts.xyz.com/xjcplugin/markentities/entity"
+		   jaxb:extensionBindingPrefixes="xjc ext ext2"
+
+           xmlns:api="api"
+           xmlns:dcs="dcs"
+           xmlns:pnr="pnr"
+           xmlns:lnk="lnk"
+           xmlns:nu="numeric-types"
+           xmlns:da="datetime-types"
+           xmlns:do="domain-types"
+           xmlns:db="db-types">
+   
+  <!-- -->
+  <!-- -->
+  <xs:annotation>
+    <xs:appinfo>
+      <jaxb:schemaBindings>
+        <jaxb:package name="com.xyz.pts.bms.idetectdas.model.generated.output.idetectdb"/>
+      </jaxb:schemaBindings>
+      <jaxb:property>
+        <jaxb:javadoc>entity,violations,errorreporting</jaxb:javadoc>
+      </jaxb:property>
+    </xs:appinfo>
+  </xs:annotation>
+  <!-- -->
+           
+  <xs:import namespace="api" schemaLocation="Api.xsd"/>
+  <xs:import namespace="dcs" schemaLocation="Dcs.xsd"/>
+  <xs:import namespace="pnr" schemaLocation="Pnr.xsd"/>
+  <xs:import namespace="lnk" schemaLocation="Linkage.xsd"/>
+  <xs:import namespace="db-types" schemaLocation="idetectdb-types.xsd"/>
+  <xs:import namespace="datetime-types" schemaLocation="../common/datetime-types.xsd"/>
+  <xs:import namespace="numeric-types" schemaLocation="../common/numeric-types.xsd"/>
+  <xs:import namespace="domain-types" schemaLocation="../common/domain-types.xsd"/>
+  
+  <!-- DB_DATA element -->
+  <xs:element name="DbData" type="DbData"/>
+
+  <!-- definition for DB_DATA's idetect_db type-->
+  <xs:complexType name="DbData">
+	<xs:annotation><xs:appinfo><ext:root/></xs:appinfo></xs:annotation>   
+    <xs:sequence>
+      <xs:element name="CreatedDateTime" type="da:DATE19_TYPE" maxOccurs="1"/>
+      <xs:element name="FlightId" type="nu:PrimaryIdType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="FlightSegId" type="nu:PrimaryIdType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="RuleInfo" type="do:CARRIER_PROCESSING_INFO" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="NoOfPax" type="do:TravellerCountType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="NoOfCrew" type="do:TravellerCountType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="NoOfPaxApi" type="do:TravellerCountType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="NoOfPaxDcs" type="do:TravellerCountType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="NoOfPaxPnr" type="do:TravellerCountType" minOccurs="0" maxOccurs="1"/>
+      <xs:choice minOccurs="0" maxOccurs="1">
+            <xs:element name="ApiList" type="ApiListType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="DcsList" type="DcsListType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="PnrList" type="PnrListType" minOccurs="0" maxOccurs="1"/>
+      </xs:choice>
+      <xs:element name="LinkageList" type="LinkageListType" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="ApiListType">
+    <xs:sequence>
+      <xs:element name="API" type="api:Api" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="PnrListType">
+    <xs:sequence>
+      <xs:element name="PreScanId" type="nu:PrimaryIdType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PNR" type="pnr:Pnr" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="DcsListType">
+    <xs:sequence>
+      <xs:element name="DCS" type="dcs:Dcs" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="LinkageListType">
+    <xs:sequence>
+      <xs:element name="SequenceNumber" type="nu:INT5_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Linkage" type="lnk:Linkage" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  
+</xs:schema>
+
+

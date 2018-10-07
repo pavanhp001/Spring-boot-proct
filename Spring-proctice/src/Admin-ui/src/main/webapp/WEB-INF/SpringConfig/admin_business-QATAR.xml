@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	* **************************************************************************
+	*                                                            *
+	* **************************************************************************
+	* This code contains copyright information which is the proprietary property
+	* of xyz Application Solutions. No part of this code may be reproduced,
+	* stored or transmitted in any form without the prior written permission of
+	* xyz Application Solutions.
+	*
+	* Copyright xyz Application Solutions 2008
+	* All rights reserved.
+	*
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+	   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+	   http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+    
+    <bean id="userRoleService" class="abc.xyz.pts.bcs.admin.business.impl.UserRoleServiceImpl">
+        <property name="userRoleDao" ref="userRoleDao"/>
+    </bean>
+    
+	<bean id="userDao" class="abc.xyz.pts.bcs.admin.dao.UserDao">
+		<property name="ldapTemplate" ref="ldapTemplate"/>
+		<property name="pagingLdapTemplate" ref="pagingLdapTemplate"/>
+		<property name="readOnlyLdapTemplate" ref="readOnlyLdapTemplate"/>
+		<property name="userAttributesMapper" ref="userAttributesMapper"/>
+		<property name="roleAbsoluteBaseName" value="ou=BCS,dc=pts,dc=xyz,dc=aero"/>
+		<property name="usersAbsoluteBaseName" value="ou=Users,ou=BCS,dc=pts,dc=xyz,dc=aero"/>
+	</bean>
+	
+    <bean id="userRoleDao" class="abc.xyz.pts.bcs.common.ldap.dao.UserRoleDao">
+        <property name="ldapTemplate" ref="readOnlyLdapTemplate"/>
+        <property name="roleAbsoluteBaseName" value="ou=BCS,dc=pts,dc=xyz,dc=aero"/>
+        <property name="roleAttributeMapper" ref="roleAttributeMapper"/>
+    </bean>	
+	
+	<bean id="airportDao" class="abc.xyz.pts.bcs.admin.dao.AirportDao">
+		<property name="ldapTemplate" ref="readOnlyLdapTemplate"/>
+		<property name="airportBaseName" value="${ldap.country.airports.basename}"/>
+		<property name="airportAttributesMapper" ref="airportAttributesMapper"/>
+		<property name="cacheLdapTemplate" ref="cacheLdapTemplate"/>
+	</bean>	
+
+	<bean id="userAttributesMapper" class="abc.xyz.pts.bcs.admin.dao.LdapUserAttributesMapper">
+		<property name="attributeNames">
+			<map>
+				<entry key="forename" value="givenName"/>
+				<entry key="lastname" value="sn"/>
+				<entry key="username" value="uid"/>
+				<entry key="name" value="cn"/>
+				<entry key="mobileNumber" value="mobile"/>
+				<entry key="faxNumber" value="facsimileTelephoneNumber"/>
+				<entry key="email" value="mail"/>
+				<entry key="location" value="l"/>
+				<entry key="passwordChangedDate" value="pwdchangedtime"/>
+				<entry key="role" value="nsrole"/>
+				<entry key="lastLoginDate" value="${ldap.attr.lastlogin}"/>
+				<entry key="accountLocked" value="pwdAccountLockedTime"/>
+				<entry key="accountDisabled" value="${ldap.attr.accountdisabled}"/>
+				<entry key="password" value="userPassword"/>
+				<entry key="modifyTimestamp" value="modifyTimestamp"/>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="adminService" class="abc.xyz.pts.bcs.admin.business.impl.LdapAdminServiceImpl">
+		<property name="userDao" ref="userDao"/>
+		<property name="emailService" ref="adminEmailService"/> 
+		<property name="airportDao" ref="airportDao"/>
+		<property name="locale" ref="locale"/>
+	</bean>
+	
+	<bean id="untransactedAdminService" class="abc.xyz.pts.bcs.admin.business.impl.LdapAdminServiceImpl">
+		<property name="userDao" ref="untransactedUserDao"/>
+		<property name="emailService" ref="adminEmailService"/> 
+		<property name="airportDao" ref="airportDao"/> 
+		<property name="locale" ref="locale"/>
+	</bean>
+
+</beans>

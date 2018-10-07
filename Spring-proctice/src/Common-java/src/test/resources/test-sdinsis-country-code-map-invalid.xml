@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Test version of SDI-NSIS country code mapping file -->
+<countries>
+<country istat-code="-1" iso-code="ALA" />
+<country istat-code="219" iso-code="GBR" />
+</countries>
+
+

@@ -1,0 +1,17 @@
+<!DOCTYPE project SYSTEM "../../dtd/Project.dtd">
+
+<project default="logintest">
+	<target name="logintest">
+		<webtest name="Validating Mobile Number field in Update User">
+			<config basepath="${canoo.config.basepath}" host="${canoo.config.host}" saveresponse="${canoo.config.saveresponse}" browser="${canoo.config.browser}" showhtmlparseroutput="${canoo.config.showhtmlparseroutput}"/>
+			&GoToViewUser;
+			&LoginADM;
+			&ViewUser;
+		    &ClickEditButton;
+			<setInputField description="set mobile number" name="user.mobileNumber" value="0a2b4c6d8e"/>
+			<clickButton description="click the Save button" htmlId="btnUpdate"/>
+			&ValidationFailedMobileNumber;
+			&Logout;
+ 		</webtest>
+	</target>
+</project>

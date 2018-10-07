@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by Richard Skobelski (xyz) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="ApRiskResponse" 
+xmlns:ap="ApRiskResponse" 
+xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" 
+xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
+xmlns:ext="http://tools.bms.pts.xyz.com/xjcplugin/markentities" 
+xmlns:ext2="http://tools.bms.pts.xyz.com/xjcplugin/markentities/entity" 
+xmlns:utr="utr" 
+xmlns:st="string-types" 
+xmlns:da="datetime-types" 
+xmlns:nu="numeric-types" 
+xmlns:do="domain-types" 
+xmlns:at="app-types" 
+elementFormDefault="unqualified" 
+attributeFormDefault="unqualified" 
+version="1.0" 
+jaxb:version="2.0" 
+jaxb:extensionBindingPrefixes="xjc ext ext2">
+	<!-- -->
+	<!-- -->
+	<!-- -->
+	<xs:import namespace="string-types" schemaLocation="../../das/common/string-types.xsd"/>
+	<xs:import namespace="datetime-types" schemaLocation="../../das/common/datetime-types.xsd"/>
+	<xs:import namespace="numeric-types" schemaLocation="../../das/common/numeric-types.xsd"/>
+	<xs:import namespace="domain-types" schemaLocation="../../das/common/domain-types.xsd"/>
+	<xs:import namespace="app-types" schemaLocation="app-types.xsd"/>
+	<!-- APRiskResponse element -->
+	<xs:element name="ApRiskResponse">
+		<xs:annotation>
+            <xs:appinfo>
+                <jaxb:class name="ApRiskResponse"/>
+            </xs:appinfo>
+        </xs:annotation>
+		<xs:complexType>	
+			<xs:sequence>
+				<xs:element name="CreatedDateTime" type="xs:dateTime">
+					<xs:annotation>
+						<xs:documentation>Timestamp when this message created.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="RequestId" type="nu:MSGID_TYPE">
+					<xs:annotation>
+						<xs:documentation>Reference of the originating request, to which this is a response.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="PersonAlert" type="at:AlertHitType"/>
+				<xs:element name="DocumentAlert" type="at:AlertHitType"/>
+			</xs:sequence>
+		</xs:complexType>	
+	</xs:element>
+</xs:schema>

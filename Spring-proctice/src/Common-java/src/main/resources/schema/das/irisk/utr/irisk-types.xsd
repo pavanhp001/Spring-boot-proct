@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" 
+           xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
+           xmlns:ir="irisk-types" 
+           targetNamespace="irisk-types" 
+           jaxb:extensionBindingPrefixes="xjc" 
+           jaxb:version="2.0">
+	<!-- -->
+	<!-- -->
+	<xs:annotation>
+		<xs:appinfo>
+			<jaxb:schemaBindings>
+				<jaxb:package name="com.xyz.pts.bms.idetectdas.model.generated.irisk"/>
+			</jaxb:schemaBindings>
+		</xs:appinfo>
+	</xs:annotation>
+	<!-- -->
+	<!--   DataSourceType - API, DCS or PNR indicator -->
+	<xs:simpleType name="DataSourceType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="API"/>
+			<xs:enumeration value="DCS"/>
+			<xs:enumeration value="PNR"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

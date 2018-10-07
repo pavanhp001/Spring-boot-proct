@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- edited with XMLSpy v2011 (http://www.altova.com) by Richard Skobelski (xyz) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="ApRiskRequest" 
+xmlns:ap="ApRiskRequest" 
+xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
+xmlns:ext="http://tools.bms.pts.xyz.com/xjcplugin/markentities" 
+xmlns:ext2="http://tools.bms.pts.xyz.com/xjcplugin/markentities/entity" 
+xmlns:utr="utr" xmlns:st="string-types" xmlns:da="datetime-types" 
+xmlns:nu="numeric-types" xmlns:do="domain-types" 
+xmlns:at="app-types" elementFormDefault="unqualified" attributeFormDefault="unqualified" 
+jaxb:version="2.0" 
+version="1.0" 
+jaxb:extensionBindingPrefixes="xjc ext ext2">
+
+	<xs:import namespace="string-types" schemaLocation="../../das/common/string-types.xsd"/>
+	<xs:import namespace="datetime-types" schemaLocation="../../das/common/datetime-types.xsd"/>
+	<xs:import namespace="numeric-types" schemaLocation="../../das/common/numeric-types.xsd"/>
+	<xs:import namespace="domain-types" schemaLocation="../../das/common/domain-types.xsd"/>
+	<xs:import namespace="app-types" schemaLocation="app-types.xsd"/>
+	<!-- APRiskRequest element -->
+	<xs:element name="ApRiskRequest">
+	    <xs:annotation>
+            <xs:appinfo>
+                <jaxb:class name="ApRiskRequest"/>
+            </xs:appinfo>
+        </xs:annotation>
+		<xs:complexType>	
+			<xs:sequence>
+				<xs:element name="CreatedDateTime" type="xs:dateTime">
+					<xs:annotation>
+						<xs:documentation>Timestamp when message created.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="RequestId" type="nu:MSGID_TYPE">
+					<xs:annotation>
+						<xs:documentation>Unique reference for this request.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Traveller" type="at:ApTravellerType">
+					<xs:annotation>
+						<xs:documentation>Details of the Traveller being assessed.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="JourneyInformation" type="ap:JourneyInformationType">
+					<xs:annotation>
+						<xs:documentation>Details of the journey being made.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="JourneyInformationType">
+		<xs:annotation>
+			<xs:documentation>Contains the details of the Traveller journey.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MovementDirection" type="at:MovementDirectionType">
+				<xs:annotation>
+					<xs:documentation>Direction of the movement. (In / Out)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TypeOfTravel" type="at:TypeOfTravelType">
+				<xs:annotation>
+					<xs:documentation>Normal, Transit or Transfer</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TransBorderInfo" type="at:ExtraJourneyInfoType">
+				<xs:annotation>
+					<xs:documentation>Identifies:
+(1) The Trans-border Port, which is defined as:
+ (a) The first port in a country at which a traveller arrives when travelling to that country, or
+ (b) The last port in a country from which a traveller departs when travelling from that country. The traveller need not leave the aircraft or the flight at the Trans-border Port.
+(2) The flight on which a traveller crosses a country border. By definition this is an international flight.
+ (a) For an inbound traveller this will be the flight arriving at the Trans-border port.
+ (b) For an outbound traveller this will be the flight departing from the Trans-border Port.
+(3) For inbound flight, time of scheduled arrival.  For outbound flight, time of scheduled departure. (Local time) </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SegmentStopList" type="at:SegmentStopListType">
+				<xs:annotation>
+					<xs:documentation>Includes the list of flight segments belonging to this flight of interest for the traveller.
+The list must include the origin and destination points of the flight.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

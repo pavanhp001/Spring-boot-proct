@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ ****************************************************************************
+ *                                                            *
+ * **************************************************************************
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="roleAttributeMapper" class="abc.xyz.pts.bcs.common.ldap.dao.UserRoleAttributeMapper">
+        <property name="attributeNames">
+            <map>
+                <entry key="cn" value="cn" />
+                <entry key="description" value="description" />
+                <entry key="descriptionArabic" value="description;lang-ar" />
+                <entry key="businessCategory" value="businessCategory" />
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="userRoleDao" class="abc.xyz.pts.bcs.common.ldap.dao.UserRoleDao">
+        <property name="ldapTemplate" ref="untransactedLdapTemplate"/>
+        <property name="roleAbsoluteBaseName" value="ou=BCS,dc=pts,dc=xyz,dc=aero"/>
+        <property name="roleAttributeMapper" ref="roleAttributeMapper"/>
+    </bean>    
+    
+	<bean id="untransactedLdapTemplate"
+		class="org.springframework.ldap.core.simple.SimpleLdapTemplate">
+		<constructor-arg ref="contextSourceTarget" />
+	</bean>
+	
+	<bean id="contextSourceTarget"
+		class="org.springframework.ldap.core.support.LdapContextSource">
+		<property name="urls" value="${ldap.url} ${ldap.url2}" />
+		<property name="base" value="dc=pts,dc=xyz,dc=aero" />
+		<property name="userDn" value="${ldap.user}" />
+		<property name="password" value="${ldap.password}" />
+		<property name="pooled" value="false"/>
+            <property name="baseEnvironmentProperties">
+              <map>
+                <entry>
+                  <key>
+                    <value>com.sun.jndi.ldap.connect.timeout</value>
+                  </key>
+                  <value>${ldap.connect.timeout}</value>
+                </entry>
+              </map>
+            </property>
+	</bean>	    
+</beans>

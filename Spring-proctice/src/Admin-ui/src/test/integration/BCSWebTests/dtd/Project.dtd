@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!--
+This file is generated automatically from the information contained in the folder includes.
+Do not edit it else you risk to lose your changes.
+-->
+
+<!ENTITY AddUser SYSTEM "../includes/AddUser/AddUser.xml">
+<!ENTITY AddUserCheck SYSTEM "../includes/AddUser/AddUserCheck.xml">
+<!ENTITY CheckLogin SYSTEM "../includes/Login/CheckLogin.xml">
+<!ENTITY ClickSearchButton SYSTEM "../includes/ClickSearchButton.xml">
+<!ENTITY DeleteUser SYSTEM "../includes/DeleteUser/DeleteUser.xml">
+<!ENTITY DuplicateUserCheck SYSTEM "../includes/AddUser/DuplicateUserCheck.xml">
+<!ENTITY GoToLoginPage SYSTEM "../includes/GoToLoginPage.xml">
+<!ENTITY GoToViewUser SYSTEM "../includes/GoToViewUser.xml">
+<!ENTITY InvalidLogin SYSTEM "../includes/Login/InvalidLogin.xml">
+<!ENTITY Login SYSTEM "../includes/Login/Login.xml">
+<!ENTITY LoginADM SYSTEM "../includes/Login/LoginADM.xml">
+<!ENTITY LoginSUP SYSTEM "../includes/Login/LoginSUP.xml">
+<!ENTITY LoginVTD SYSTEM "../includes/Login/LoginVTD.xml">
+<!ENTITY Logout SYSTEM "../includes/Login/Logout.xml">
+<!ENTITY PasswordEmpty SYSTEM "../includes/ChangePassword/PasswordEmpty.xml">
+<!ENTITY PasswordInvalidOldPassword SYSTEM "../includes/ChangePassword/PasswordInvalidOldPassword.xml">
+<!ENTITY PasswordNoChange SYSTEM "../includes/ChangePassword/PasswordNoChange.xml">
+<!ENTITY PasswordNotMatching SYSTEM "../includes/ChangePassword/PasswordNotMatching.xml">
+<!ENTITY PasswordNotStrong SYSTEM "../includes/ChangePassword/PasswordNotStrong.xml">
+<!ENTITY PasswordThreePlusConsecutiveCharsFromUsername SYSTEM "../includes/ChangePassword/PasswordThreePlusConsecutiveCharsFromUsername.xml">
+<!ENTITY SearchUser SYSTEM "../includes/SearchUser/SearchUser.xml">
+<!ENTITY SearchUserFull SYSTEM "../includes/SearchUser/SearchUserFull.xml">
+<!ENTITY SearchUserNoMatch SYSTEM "../includes/SearchUser/SearchUserNoMatch.xml">
+<!ENTITY SearchUserSortFields SYSTEM "../includes/SearchUser/SearchUserSortFields.xml">
+<!ENTITY UpdateUser SYSTEM "../includes/UpdateUser/UpdateUser.xml">
+<!ENTITY ValidationFailedEmail SYSTEM "../includes/ValidationTexts/ValidationFailedEmail.xml">
+<!ENTITY ValidationFailedFamilyName SYSTEM "../includes/ValidationTexts/ValidationFailedFamilyName.xml">
+<!ENTITY ValidationFailedGivenName SYSTEM "../includes/ValidationTexts/ValidationFailedGivenName.xml">
+<!ENTITY ValidationFailedMobileNumber SYSTEM "../includes/ValidationTexts/ValidationFailedMobileNumber.xml">
+<!ENTITY ValidationFailedUserName SYSTEM "../includes/ValidationTexts/ValidationFailedUserName.xml">
+<!ENTITY ViewUser SYSTEM "../includes/ViewUser/ViewUser.xml">
+<!ENTITY ViewUserCheckSysAdmRoleAccess SYSTEM "../includes/ViewUser/ViewUserCheckSysAdmRoleAccess.xml">
+

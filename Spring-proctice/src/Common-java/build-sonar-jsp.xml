@@ -1,0 +1,14 @@
+<!--
+ ****************************************************************************
+ *                                                            *
+ * **************************************************************************
+--> 
+<project name="Common-java" default="build" basedir=".">
+	<property name="sonar.projectKey" value="abc.xyz.pts.bcs:common" />
+
+	<property name="sonar.language" value="web"/>
+	<property name="sonar.branch" value="web"/>
+	<property name="sonar.web.sourceDirectory" value="${basedir}/src/main/webapp/"/>
+	<property name="sonar.dynamicAnalysis" value="false"/>
+	<property name="sonar.sources" value="${basedir}/src/main/webapp/" />
+</project>

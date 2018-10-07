@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+
+           	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	        xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+            jaxb:version="2.0"
+            xmlns:ext="http://tools.bms.pts.xyz.com/xjcplugin/markentities"
+            xmlns:ext2="http://tools.bms.pts.xyz.com/xjcplugin/markentities/entity"
+	 	    jaxb:extensionBindingPrefixes="xjc ext ext2"
+
+			targetNamespace="configResponse"
+			xmlns:corp="configResponse"
+			xmlns:ct="config-types"
+>
+  	<xs:annotation>
+		<xs:appinfo>
+			<jaxb:schemaBindings>
+				<jaxb:package name="com.xyz.pts.bms.idetectdas.model.generated.config"/>
+			</jaxb:schemaBindings>
+		</xs:appinfo>
+	</xs:annotation>
+
+	<xs:import namespace="config-types" schemaLocation="config-types.xsd"/>
+	<xs:element name="ConfigurationResponse" type="corp:ConfigurationResponse"/>
+		
+	<xs:complexType name="ConfigurationResponse">
+		<xs:annotation><xs:appinfo><ext:root/></xs:appinfo></xs:annotation>
+		<xs:sequence>
+			<xs:element name="ConfigurationType" type="ct:CONFIGURATION_TYPE"/>
+			<xs:choice>
+		    	<xs:element name="DataProtectionFilterConfiguration" type="corp:DataProtectionFilterConfiguration"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+
+    <xs:complexType name="Configuration" abstract="true"/>
+
+    <xs:complexType name="DataProtectionFilterConfiguration">
+       <xs:complexContent>
+		<xs:extension base="corp:Configuration">
+		   <xs:sequence>
+		    <xs:element name="rules" type="corp:DataProtectionRuleListType"/>
+		   </xs:sequence>
+		</xs:extension>
+	   </xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="DataProtectionRuleListType">
+	    <xs:sequence>
+	        <xs:element name="rule" type="corp:DataProtectionRule" minOccurs="0" maxOccurs="unbounded"/>
+	    </xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="DataProtectionRule">
+		<xs:annotation>
+			<xs:appinfo>
+				<ext:xmltransient name="sortOrder" class="java.lang.Integer" inEquals="false"/>
+			</xs:appinfo>
+		</xs:annotation>		
+	    <xs:sequence>
+	        <xs:element name="id" minOccurs="1" maxOccurs="1" type="ct:PrimaryIdType"/>
+	        <xs:element name="originAirportCode" minOccurs="0" maxOccurs="1" type="ct:AIRPORT_CODE_TYPE"/>
+	        <xs:element name="originCountryCode" minOccurs="0" maxOccurs="1" type="ct:AIRPORT_CODE_TYPE"/>
+	        <xs:element name="destinationAirportCode" minOccurs="0" maxOccurs="1" type="ct:ISO3_COUNTRY_CODE_TYPE"/>
+	        <xs:element name="destinationCountryCode" minOccurs="0" maxOccurs="1" type="ct:ISO3_COUNTRY_CODE_TYPE"/>
+	        <xs:element name="carrierCode" minOccurs="0" maxOccurs="1" type="ct:CARRIER_CODE_TYPE"/>
+	        <xs:element name="flightNumber" minOccurs="0" maxOccurs="1" type="ct:FLIGHT_NUMBER_TYPE"/>
+	        <xs:element name="dbApiIndicator" minOccurs="1" maxOccurs="1" type="xs:boolean"/>
+	        <xs:element name="dbDcsIndicator" minOccurs="1" maxOccurs="1" type="xs:boolean"/>
+	        <xs:element name="dbPnrIndicator" minOccurs="1" maxOccurs="1" type="xs:boolean"/>
+	        <xs:element name="iRiskApiIndicator" minOccurs="1" maxOccurs="1" type="xs:boolean"/>
+	        <xs:element name="iRiskDcsIndicator" minOccurs="1" maxOccurs="1" type="xs:boolean"/>
+	        <xs:element name="iRiskPnrIndicator" minOccurs="1" maxOccurs="1" type="xs:boolean"/>
+	        <xs:element name="hpaRule" minOccurs="0" maxOccurs="1" type="xs:boolean" default="false"/>
+	        <xs:element name="bcsUsername" minOccurs="1" maxOccurs="1" type="xs:string"/>
+	    </xs:sequence>
+    </xs:complexType>    
+</xs:schema>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jasperTemplate PUBLIC "-//JasperReports//DTD Template//EN" "http://jasperreports.sourceforge.net/dtds/jaspertemplate.dtd">
+
+<jasperTemplate>
+	<style name="Default" isDefault="true" hAlign="Right" vAlign="Middle" fontName="Arial" fontSize="10">
+		<paragraph leftIndent="2" rightIndent="2"/>
+	</style>
+	<style name="Title" style="Default" hAlign="Center" fontSize="18"/>
+	<style name="TitleBox" style="Title">
+		<box>
+			<topPen lineWidth="1.5"/>
+			<bottomPen lineWidth="1.5"/>
+		</box>
+	</style>
+	<style name="TableHeader" style="Default" vAlign="Bottom"/>
+	<style name="TableTextContent" style="Default"/>
+	<style name="ColumnHeader" style="TableTextContent" mode="Opaque" backcolor="#D6EBF5">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" style="TableTextContent" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" style="TableTextContent" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="hit_table_TD" style="table_TD" mode="Opaque" backcolor="#CDCFD0"/>
+	<style name="legend" style="Default" fontSize="8"/>
+</jasperTemplate>

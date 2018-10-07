@@ -1,0 +1,17 @@
+<!DOCTYPE project SYSTEM "../../dtd/Project.dtd">
+
+<project default="logintest">
+	<target name="logintest">
+		<webtest name="Validating Family Name field in Update User">
+			<config basepath="${canoo.config.basepath}" host="${canoo.config.host}" saveresponse="${canoo.config.saveresponse}" browser="${canoo.config.browser}" showhtmlparseroutput="${canoo.config.showhtmlparseroutput}"/>
+			     &GoToViewUser;
+			     &LoginADM;
+			     &ViewUser;
+			     &ClickEditButton;
+			     <setInputField description="set family name" name="user.lastname" value="CANOOADM*)"/>
+			     <clickButton description="click the Save button" htmlId="btnUpdate"/>
+			     &ValidationFailedFamilyName;
+			     &Logout;
+ 		</webtest>
+	</target>
+</project>

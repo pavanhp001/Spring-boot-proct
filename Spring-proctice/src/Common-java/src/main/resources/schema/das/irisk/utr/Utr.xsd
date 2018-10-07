@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	   xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+           jaxb:version="2.0"
+           jaxb:extensionBindingPrefixes="xjc ext ext2"
+           xmlns:ext="http://tools.bms.pts.xyz.com/xjcplugin/markentities"
+			xmlns:ext2="http://tools.bms.pts.xyz.com/xjcplugin/markentities/entity"
+			xmlns:utr="utr"
+			xmlns:st="string-types"
+			xmlns:da="datetime-types"
+			xmlns:nu="numeric-types"
+			xmlns:do="domain-types"
+            xmlns:ir="irisk-types">
+  
+  <!-- -->
+  <!-- -->
+  <xs:annotation>
+    <xs:appinfo>
+      <jaxb:schemaBindings>
+        <jaxb:package name="com.xyz.pts.bms.idetectdas.model.generated.output.irisk.utr"/>
+      </jaxb:schemaBindings>
+
+
+	<jaxb:property>
+	        <jaxb:javadoc>entity,violations,errorreporting</jaxb:javadoc>
+	</jaxb:property>        
+    </xs:appinfo>
+  </xs:annotation>
+  <!-- -->
+  <xs:import namespace="irisk-types" schemaLocation="irisk-types.xsd"/>
+  <xs:import namespace="string-types" schemaLocation="../../common/string-types.xsd"/>
+  <xs:import namespace="datetime-types" schemaLocation="../../common/datetime-types.xsd"/>
+  <xs:import namespace="numeric-types" schemaLocation="../../common/numeric-types.xsd"/>
+  <xs:import namespace="domain-types" schemaLocation="../../common/domain-types.xsd"/>
+   <!-- TRAS element -->
+  <xs:element name="Utrs">
+    <xs:annotation>
+      <xs:appinfo>
+        <ext:root/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="CreatedDateTime" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="SequenceNumber" type="nu:INT5_TYPE" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="FlightId" type="nu:PrimaryIdType" minOccurs="1" maxOccurs="1">
+        	<xs:annotation><xs:appinfo><ext:index/></xs:appinfo></xs:annotation>
+        </xs:element>
+        <xs:element name="FlightSegId" type="nu:PrimaryIdType" minOccurs="1" maxOccurs="1">
+            <xs:annotation><xs:appinfo><ext:index/></xs:appinfo></xs:annotation>
+        </xs:element>
+        <xs:element name="RuleInfo" type="do:CARRIER_PROCESSING_INFO" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="TRA" type="TraType" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="NotPresentInLatestAPIList" type="NotPresentInLatestAPIListType" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="Totals" type="TotalsType" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!-- -->
+  <!--  UtrType definition -->
+  <xs:complexType name="TraType">
+    <xs:sequence>
+      <xs:element name="TraId" type="nu:PrimaryIdType"/>
+      <xs:element name="Lastname" type="st:STR80_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Forename" type="st:STR80_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="MiddleName" type="st:STR80_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Gender" type="do:GENDER_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="BirthDate" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="BirthPlace" type="st:STR80_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="BirthCountry" type="do:ISO_COUNTRY_CODE_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ProvinceCityCode" type="st:STR2_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Nationality" type="do:ISO_COUNTRY_CODE_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="TravelDocuments" type="do:TravelDocumentType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="DestAirportCode" type="do:AIRPORT_CODE_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="OriginAirportCode" type="do:AIRPORT_CODE_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="OriginCountryCode" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="DestCountryCode" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ApiId" type="nu:PrimaryIdType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="DcsId" type="nu:PrimaryIdType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PnrId" type="nu:PrimaryIdType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PNRNameIndex" type="nu:INT5_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PreScanFlag" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="TypeOfMovement" type="xs:string" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- Not present in API TRA Type defines for a specific TRA records are not in the most
+       recent API Transmission -->
+  <xs:complexType name="NotPresentInLatestAPIListType">
+     <xs:sequence>
+        <xs:element name="TraId" type="nu:PrimaryIdType" minOccurs="1" maxOccurs="unbounded"/>
+     </xs:sequence>
+  </xs:complexType>
+
+  <!-- List of totals required to display totals in iRisk -->
+  <xs:complexType name="TotalsType">
+     <xs:sequence>
+        <xs:element name="NoOfPax" type="do:TravellerCountType" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="NoOfCrew" type="do:TravellerCountType" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="NoOfPaxApi" type="do:TravellerCountType" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="NoOfPaxDcs" type="do:TravellerCountType" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="NoOfPaxPnr" type="do:TravellerCountType" minOccurs="0" maxOccurs="1"/>
+     </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

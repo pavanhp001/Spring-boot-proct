@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+	jaxb:version="2.0"
+	xmlns:rrm="risk-manager"
+	targetNamespace="risk-manager">
+  <xs:annotation>
+    <xs:appinfo>
+      <jaxb:schemaBindings>
+        <jaxb:package name="abc.xyz.pts.bcs.irisk.mvo.riskmatch"/>
+      </jaxb:schemaBindings>
+      <jaxb:property>
+        <jaxb:javadoc>entity</jaxb:javadoc>
+      </jaxb:property>
+    </xs:appinfo>
+  </xs:annotation>
+
+	<xs:simpleType name="RequestType">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="STOP" />
+			<xs:enumeration value="START" />
+			<xs:enumeration value="HIT_ADDED" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="AlertActionType">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="NOTIFIED" />
+			<xs:enumeration value="RENOTIFIED" />
+			<xs:enumeration value="ESCALATED" />
+			<xs:enumeration value="HITADDED" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="AlertNotificationCategory">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="TRAVELLER" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:element name="notificationRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messageId" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="requestType" type="rrm:RequestType" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="flightSegId" type="xs:long" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="traId" type="xs:long" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="alertNotificationCategory" type="rrm:AlertNotificationCategory" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="alertActionType" type="rrm:AlertActionType" minOccurs="0" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 rel. 3 (http://www.altova.com) by Richard Skobelski (xyz) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:st="string-types" xmlns:sy="system-types" xmlns:ext="http://tools.bms.pts.xyz.com/xjcplugin/markentities" targetNamespace="system-types" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:import namespace="string-types" schemaLocation="../common/string-types.xsd"/>
+	<!-- -->
+	<xs:complexType name="ExceptionType">
+		<xs:sequence>
+			<xs:element name="ExceptionCode" type="st:STR10_TYPE">
+				<xs:annotation>
+					<xs:documentation>Coded value for the Exception</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExceptionDesc" type="st:STR50_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Textual description of the Exception</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExceptionSeverity" type="sy:ExceptionSeverityType">
+				<xs:annotation>
+					<xs:documentation>Severity of Exception. Can be Warning or Error.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- -->
+	<xs:simpleType name="ExceptionSeverityType">
+		<xs:restriction base="st:STRING_TYPE">
+			<xs:enumeration value="Warning">
+				<xs:annotation>
+					<xs:documentation>Warning exception type</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Error">
+				<xs:annotation>
+					<xs:documentation>Error exception type</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

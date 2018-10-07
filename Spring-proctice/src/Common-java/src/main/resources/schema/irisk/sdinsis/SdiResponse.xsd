@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" jaxb:version="2.0" targetNamespace="http://xyz.aero/bcs/sdinsis" xmlns:sdi="http://xyz.aero/bcs/sdinsis" xmlns:irs="http://xyz.aero/irisk/sdinsis/types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:import namespace="http://xyz.aero/irisk/sdinsis/types" schemaLocation="irisk-sdinsis-types.xsd" />
+
+	<xs:element name="rispostaSdi">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="SdiResponse" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messagioId" type="irs:messagioIdType" minOccurs="1" maxOccurs="1">
+					<xs:annotation>
+						<xs:appinfo>
+							<jaxb:property name="MessageId" />
+						</xs:appinfo>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="viaggiatori" type="sdi:rispostaViaggiatore" minOccurs="1" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:appinfo>
+							<jaxb:property name="TravellerResponses" />
+						</xs:appinfo>
+					</xs:annotation>
+				</xs:element>
+				 <xs:element name="Risultato" type="sdi:RisultatoIdType" minOccurs="1" maxOccurs="1" > 
+					<xs:annotation>
+						<xs:appinfo>
+							<jaxb:property name="ResultIdType" />
+						</xs:appinfo>
+					</xs:annotation>
+				</xs:element>				
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="rispostaViaggiatore">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="SdiTravellerResponse" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="numProgViaggiatore" type="irs:traIdType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="UtrId" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="timeStamp" type="xs:dateTime" minOccurs="1" maxOccurs="1" />
+			<xs:element name="nomiPositivi" type="sdi:nomePositivo" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="NameMatches" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="docPositivi" type="sdi:docPositivo" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="DocumentMatches" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="nomePositivo">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="NameMatch" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="numSoggOmonimi" type="xs:int" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="NumHits" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="cognome" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="Surname" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="nome" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="Forename" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="nomiPositiviSchengen" type="sdi:nomePositivoSchengen" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="SchengenMatches" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="nomiPositiviSdi" type="sdi:nomePositivoSdi" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="SdiMatches" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="docPositivo">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="DocumentMatch" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="numero" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="DocumentNumber" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="tipo" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="DocumentType" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="docPositiviSchengen" type="sdi:docPositivoSchengen" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="SchengenMatches" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="docPositiviSdi" type="sdi:docPositivoSdi" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="SdiMatches" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="nomePositivoSchengen">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="SchengenNameMatch" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="dataNascita" type="xs:date" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="BirthDate" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descriLuogoNascita" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="BirthPlace" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="nazionalitaSchengen" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="Nationality" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descrNazionalitaSchengen" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="NationalityDesc" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="articoloSchengenWP" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="Article" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="reasonSchengenWP" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="crimeCode" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descrReasonSchengenWP" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="crimeCodeDesc" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="actionSchengenWP" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="ActionCode" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descrActionSchengenWP" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="ActionDesc" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="categoriaIdentita" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="IdentityCategoryCode" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descrCategoriaIdentita" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="IdentityCategoryDesc" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="caratteristicaSchengen" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="CharacteristicCode" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descrCaratteristicaSchengen" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="CharacteristicDesc" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="nomePositivoSdi">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="SdiNameMatch" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="codiceSdi" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="SdiRefNo" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="codiceFiscale" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="TaxCode" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dataNascita" type="xs:date" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="BirthDate" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="numPrecedenti" type="xs:int" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="NumPreviousCrimes" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="pesoSoggSdi" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="CrimeCode" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="motivazioneSoggSdi" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="crimeCodeDesc" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="siglaProvincia" type="irs:siglaProvinciaType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="BirthProvince" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descriLuogoNascita" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="BirthPlace" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="presPermSoggiorno" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="StayPermit" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="docPositivoSchengen">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="SchengenDocumentMatch" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="cognome" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="Surname" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="numero" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="DocumentNumber" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="luogoDiRilascio" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="DocumentIssueCity" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dataNascita" type="xs:date" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="BirthDate" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="nazionalitaSchengen" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="Nationality" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descrNazionalitaSchengen" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="NationalityDesc" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="articoloSchengenDoc" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="Article" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="reasonSchengenDoc" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="crimeCode" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descrReasonSchengenDoc" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="crimeCodeDesc" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="actionSchengenDoc" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="ActionCode" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descrActionSchengenDoc" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="ActionDesc" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descrizioneTipo" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="DocumentTypeDesc" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="docPositivoSdi">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="SdiDocumentMatch" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="codiceSdi" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="SdiRefNo" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="numero" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="DocumentNumber" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descrTipo" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="DocumentTypeDesc" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="pesoOggSdi" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="CrimeCode" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="motivazioneOggSdi" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="CrimeCodeDesc" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="siglaProvincia" type="irs:siglaProvinciaType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="DocumentIssueProvince" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="luogoDiRilascio" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="DocumentIssueCity" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+  <xs:complexType name="RisultatoIdType">
+    	<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="ResultIdType" />
+			</xs:appinfo>
+		</xs:annotation>
+        <xs:sequence>
+                     <xs:element name="Messaggi" type="sdi:MessaggioType" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:appinfo>
+								<jaxb:property name="messageType" />
+							</xs:appinfo>
+						</xs:annotation>
+					 </xs:element>					
+        </xs:sequence>
+        <xs:attribute name="esito">
+             <xs:annotation>
+            			<xs:appinfo>
+							<jaxb:property name="status" />
+						</xs:appinfo>
+                       <xs:documentation>0 OK; 1 Warning; 2 Error; 10 SDI not available</xs:documentation>
+             </xs:annotation>
+             <xs:simpleType>
+                       <xs:restriction base="xs:int">
+                           <xs:enumeration value="0"/>
+                           <xs:enumeration value="1"/>
+                           <xs:enumeration value="2"/>
+                           <xs:enumeration value="10"/>
+                       </xs:restriction>
+             </xs:simpleType>
+        </xs:attribute>
+	</xs:complexType>
+ 	<xs:complexType name="MessaggioType">
+	     <xs:annotation>
+	     	<xs:appinfo>
+				<jaxb:class name="MessageType" />
+			</xs:appinfo>
+	     <xs:documentation>campoInErrore is  set only for esito=1 codiceErrore is set only for esito=2</xs:documentation>
+	     </xs:annotation>
+	     <xs:sequence>
+	         <xs:element name="campoInErrore" nillable="true" type="xs:string">
+        		<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="errorField" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>					
+	         <xs:element name="codiceErrore" nillable="true" type="xs:string">
+	           <xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="errorCode" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="errorTrace" type="xs:string"> 
+				<xs:annotation> 
+					<xs:documentation> 
+						Trace dell'errore 
+					</xs:documentation> 
+				</xs:annotation> 
+			</xs:element> 
+	         <xs:element name="messaggio" nillable="true" type="xs:string">
+	           <xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="message" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+	     </xs:sequence>
+  	</xs:complexType>
+</xs:schema>

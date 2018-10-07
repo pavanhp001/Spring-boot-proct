@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	****************************************************************************
+	*                                                            *
+	* **************************************************************************
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    	<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
+    	<property name="ignoreUnresolvablePlaceholders" value="true"/>
+    	<property name="location" value="classpath:audit-client.properties"/>
+	</bean>
+
+	<bean id="auditMessageSender"
+		class="abc.xyz.pts.bcs.common.audit.business.impl.Log4jAuditMessageSenderImpl">
+	</bean>
+	
+	<bean id="abstractAuditAspect" class="abc.xyz.pts.bcs.common.audit.aspect.AbstractAuditAspect" abstract="true">
+		<property name="messageSender" ref="auditMessageSender" />
+	</bean>
+</beans>

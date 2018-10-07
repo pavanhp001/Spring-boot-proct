@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	* **************************************************************************
+	*                                                            *
+	* **************************************************************************
+	* This code contains copyright information which is the proprietary property
+	* of xyz Application Solutions. No part of this code may be reproduced,
+	* stored or transmitted in any form without the prior written permission of
+	* xyz Application Solutions.
+	*
+	* Copyright xyz Application Solutions 2008
+	* All rights reserved.
+	*
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+	   http://www.springframework.org/schema/beans 
+	   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	   http://www.springframework.org/schema/context 
+	   http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	   http://www.springframework.org/schema/aop 
+	   http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+	<!--
+		Import the common controllers.
+	-->
+	<import resource="Common_Controllers.xml" />
+
+	<!--
+		Import the business services.
+	-->
+    <import resource="Common_Business_Services.xml"/>
+	<import resource="audit-client-context.xml"/>
+
+
+    <aop:aspectj-autoproxy/>
+
+    <!-- Allow Annotation -->
+    <context:annotation-config/>    
+    
+    <context:component-scan base-package="abc.xyz.pts.bcs.admin"/>
+    
+    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+         <property name="alwaysUseFullPath" value="true"/>
+
+         <property name="interceptors">
+            <list>
+                <bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
+                <bean class="abc.xyz.pts.bcs.common.web.interceptor.SSOReferalInterceptor">
+                    <property name="changePasswordView" value="../admin/adminChangePassword.form?homePage=true&amp;expiry=true"/>
+                </bean>
+                <bean class="abc.xyz.pts.bcs.common.web.interceptor.SSOUserProfileInterceptor">
+                    <property name="userProfile" ref="userProfile"/>
+                </bean>
+                <bean class="abc.xyz.pts.bcs.common.web.interceptor.UserNavigationInterceptor"/>
+            </list>
+        </property>
+    </bean>
+    
+	<!--
+		#############
+		COMMON CONTROLLER
+		#############
+	-->
+
+	<bean
+		class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+		<property name="propertyEditorRegistrars">
+			<list>
+				<ref bean="customPropertyEditorRegistrar" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="customPropertyEditorRegistrar"
+		class="abc.xyz.pts.bcs.admin.web.utils.CustomPropertyEditorRegistrar">
+		<property name="userStatusEditor" ref="userStatusEditor" />
+		<property name="stringArrayEditor" ref="stringArrayEditor" />
+		<property name="actionEditor" ref="actionEditor" />
+		<property name="dateEditor" ref="dateEditor" />
+	</bean>
+
+	<bean id="userStatusEditor"
+		class="abc.xyz.pts.bcs.admin.web.utils.UserStatusEditor" />
+
+	<bean id="actionEditor"
+		class="abc.xyz.pts.bcs.admin.web.utils.ActionEditor" />
+
+	<bean id="stringArrayEditor"
+		class="abc.xyz.pts.bcs.admin.web.utils.StringArrayEditor" />
+
+	<bean id="dateEditor" class="abc.xyz.pts.bcs.admin.web.utils.DateEditor" />
+	
+	<!--
+		#################
+		USER ROLES
+		#################
+	-->
+    <bean name="userRoleListController" class="abc.xyz.pts.bcs.admin.web.controller.UserRoleListViewController">
+        <property name="userRoleService" ref="userRoleService" />
+    </bean>
+    <bean name="userRoleAddController" class="abc.xyz.pts.bcs.admin.web.controller.UserRoleAddController">
+        <property name="userRoleService" ref="userRoleService" />
+    </bean>
+    <bean name="userRoleViewController" class="abc.xyz.pts.bcs.admin.web.controller.UserRoleViewController">
+        <property name="userRoleService" ref="userRoleService" />
+    </bean>
+    <bean name="userRoleEditController" class="abc.xyz.pts.bcs.admin.web.controller.UserRoleEditController">
+        <property name="userRoleService" ref="userRoleService" />
+    </bean>
+
+	<!--
+		#################
+		CHANGE PASSWORD
+		#################
+	-->
+
+	<bean name="/adminChangePassword.form" class="abc.xyz.pts.bcs.admin.web.controller.AdminChangePasswordController">
+		<property name="adminService" ref="untransactedAdminService" />
+	</bean>
+	
+
+	<bean name="/logout.cform"
+		class="abc.xyz.pts.bcs.common.web.controller.Logout">
+		<property name="logoutView" value="redirect:josso_logout/" />
+	</bean>
+
+  <!--
+		#################
+		VALIDATOR
+		#################
+	-->
+	<bean id="validatorFactory"
+		class="org.springmodules.validation.commons.DefaultValidatorFactory">
+		<property name="validationConfigLocations">
+			<list>
+				<value>
+					/WEB-INF/validationConfig/validator-rules.xml
+				</value>
+				<value>/WEB-INF/validationConfig/validation.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="commonsValidator"
+		class="org.springmodules.validation.commons.DefaultBeanValidator">
+		<property name="validatorFactory" ref="validatorFactory" />
+	</bean>
+	
+	<bean id="abstractValidator" abstract="true" class="abc.xyz.pts.bcs.admin.web.validator.AbstractAdminValidator" >
+		<property name="messageSource" ref="messageSource" />
+	</bean>
+
+	<bean id="adminUserAddValidator"
+		class="abc.xyz.pts.bcs.admin.web.validator.AdminUserAddValidator" parent="abstractValidator"/>
+	<bean id="adminUserUpdateValidator"
+		class="abc.xyz.pts.bcs.admin.web.validator.AdminUserUpdateValidator" parent="abstractValidator"/>
+	<bean id="adminUserSearchValidator"
+		class="abc.xyz.pts.bcs.admin.web.validator.AdminSearchValidator" parent="abstractValidator"/>
+
+	<bean id="adminChangePasswordValidator"
+		class="abc.xyz.pts.bcs.admin.web.validator.AdminChangePasswordValidator" >
+	<property name="messageSource" ref="messageSource" />
+	</bean>
+	<!--
+		#################
+		SPRING RESOURCE BUNDLE
+		#################
+	-->
+ 	<bean id="messageSource" class="abc.xyz.pts.bcs.common.jndi.JndiResourceBundleMessageSource">
+		<property name="jndiTemplate" ref="jndiTemplate" />
+		<property name="basename" value="cn=Default" />
+	</bean>
+
+	<!--
+		#################
+		AUDIT SETUP
+		#################
+	-->
+
+	<aop:config>
+		<aop:aspect id="commonAuditAspect" ref="commonAudit">
+			<aop:around
+				pointcut="execution(* org.springframework.web.servlet.mvc.AbstractController.handleRequest(..)) and args(request,response) and this(controller)"
+				method="auditUserAction" />
+		</aop:aspect>
+	</aop:config>
+	
+	<bean id="commonAudit"
+		class="abc.xyz.pts.bcs.common.web.aspect.SpringMVCAuditAspect" parent="abstractAuditAspect">
+		<property name="applicationName" value="ADMIN" />
+	</bean>	
+	
+	<bean id="adminAudit" class="abc.xyz.pts.bcs.common.audit.aspect.AuditAspect" parent="abstractAuditAspect">
+	        <property name="applicationName" value="ADMIN" />
+    </bean>
+	
+
+</beans>

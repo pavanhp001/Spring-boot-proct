@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 rel. 3 (http://www.altova.com) by Richard Skobelski (xyz) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:st="string-types" xmlns:nt="numeric-types" xmlns:do="domain-types" xmlns:rt="risk-types" xmlns:ext="http://tools.bms.pts.xyz.com/xjcplugin/markentities" targetNamespace="risk-types" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:import namespace="numeric-types" schemaLocation="../common/numeric-types.xsd"/>
+	<xs:import namespace="string-types" schemaLocation="../common/string-types.xsd"/>
+	<xs:import namespace="domain-types" schemaLocation="../common/domain-types.xsd"/>
+	<!-- -->
+	<xs:simpleType name="TypeOfRiskAssessmentHitType">
+		<xs:restriction base="st:STRING_TYPE">
+			<xs:enumeration value="WatchList">
+				<xs:annotation>
+					<xs:documentation>Watch List Hit</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Profile">
+				<xs:annotation>
+					<xs:documentation>Profile Hit</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<xs:simpleType name="RiskStatusSummaryType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="Red">
+				<xs:annotation>
+					<xs:documentation>Red - High Risk</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Amber">
+				<xs:annotation>
+					<xs:documentation>Amber - Medium Risk</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Green">
+				<xs:annotation>
+					<xs:appinfo>
+						<ext:default/>
+					</xs:appinfo>
+					<xs:documentation>Green - Low/No Risk</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<xs:complexType name="RiskAssessmentHitListType">
+		<xs:sequence>
+			<xs:element name="RiskAssessmentHit" type="rt:RiskAssessmentHitType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Contains a list of Hits from risk assessment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- -->
+	<xs:complexType name="RiskAssessmentHitType">
+		<xs:sequence>
+			<xs:element name="HitType" type="rt:HitType">
+				<xs:annotation>
+					<xs:documentation>Risk Assessment Hit type. Can be WatchList or Profile</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HitSubType" type="st:STR35_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Risk Assessment Hit sub type. Can be a Watch List or Profile name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HitCategory" type="rt:HitCategory" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Identifies whether the Hit is a Person or Document Hit.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HitScore" type="nt:INT2_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Match score against the Hit target</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HitSourceId" type="nt:ReferenceIdType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Source system's identifier for this Hit.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HitReasonCode" type="st:STR10_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Code that identifies the Reason for the Hit</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HitReasonDesc" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Textual description of the reason for target inclusion on the respective Watch List</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HitSeverity" type="nt:INT2_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Severity level of the Hit</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RecommendedActionCode" type="st:STR10_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Recommended Action Code to be taken when intercepting traveller as returned by the Risk System</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RecommendedActionDesc" type="st:STR80_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Recommended Action Description to be taken when intercepting traveller as returned by the Risk System</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DepartmentSource" type="st:STR35_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Department Source of the returned Risk Data</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RequestingPartyCode" type="nt:NUMBER_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Code to identify a Requesting Party.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RequestingPartyDesc" type="st:STR45_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Description of the Requesting Party.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TargetIdentityDetails" type="do:TravellerIdentityType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Identity details of the Hit Target where applicable</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IgnoreTravelDocumentChecks" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="IgnoreVisaChecks" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="IgnoreWatchListChecks" type="rt:IgnoreWatchListChecks" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- -->
+	<xs:simpleType name="TypeOfReferenceDataType">
+		<xs:restriction base="st:STRING_TYPE">
+			<xs:enumeration value="Passport">
+				<xs:annotation>
+					<xs:documentation>Passport reference data</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Visa">
+				<xs:annotation>
+					<xs:documentation>Visa reference data</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ID">
+				<xs:annotation>
+					<xs:documentation>ID Card reference data</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<xs:complexType name="APPOverrideType">
+		<xs:annotation>
+			<xs:documentation>Details of an APP Override. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="OverrideFlag" type="rt:TypeOfOverrideType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Identifies whether this is an Agent or a Government Override.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OverrideAuthorityIdentifier" type="st:STR15_TYPE" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Override Authority ID, if provided</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AuthorityUserIdentifier" type="st:STR12_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Identifies who issued the Override.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OverrideIssuedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>When the Override was issued.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- -->
+	<xs:simpleType name="TypeOfOverrideType">
+		<xs:restriction base="st:STRING_TYPE">
+			<xs:enumeration value="Agent"/>
+			<xs:enumeration value="Govt"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TypeOfRiskDataSearchType">
+		<xs:restriction base="st:STRING_TYPE">
+			<xs:enumeration value="WatchList">
+				<xs:annotation>
+					<xs:documentation>Watch List Risk Data</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Profile">
+				<xs:annotation>
+					<xs:documentation>Profiler Risk Data</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Visa">
+				<xs:annotation>
+					<xs:documentation>Visa Risk Reference Data</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PassportOrId">
+				<xs:annotation>
+					<xs:documentation>Passport or Identity Card Risk Reference Data</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="HitCategory">
+		<xs:restriction base="st:STRING_TYPE">
+			<xs:enumeration value="D">
+				<xs:annotation>
+					<xs:documentation>Document Hit Category</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="P">
+				<xs:annotation>
+					<xs:documentation>Person Hit Category</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NotificationType">
+		<xs:restriction base="st:STRING_TYPE">
+			<xs:enumeration value="Email">
+				<xs:annotation>
+					<xs:documentation>Email Notification</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SMS">
+				<xs:annotation>
+					<xs:documentation>SMS Notification</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="HitSummaryType">
+		<xs:sequence>
+			<xs:element name="HitType" type="rt:HitType">
+				<xs:annotation>
+					<xs:documentation>Risk Assessment Hit type. Can be WatchList or Profile</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HitSubType" type="st:STR35_TYPE">
+				<xs:annotation>
+					<xs:documentation>Risk Assessment Hit sub type. Can be a Watch List or Profile name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HitStatus" type="rt:HitStatusType">
+				<xs:annotation>
+					<xs:documentation>Defines the status of the Hit search:
+- NotifyHit to notify a hit to the requesting application.
+- Stop to not allow the movement (deprecated)
+- No Hit
+- Unknown</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HitCategory" type="rt:HitCategory" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Identifies whether the Hit is a Person or Document Hit.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HitId" type="xs:long" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Can contain a reference from a Watch List module to identify one or more Hits.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HitActionCode" type="st:STR50_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Describes the Recommended Action to be taken for the Hit</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IgnoreTravelDocumentChecks" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A flag that indicates whether Travel Document check anomalies should be ignored for this traveller</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IgnoreVisaChecks" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A flag that indicates whether Visa check anomalies should be ignored for this traveller</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IgnoreWatchListChecks" type="rt:IgnoreWatchListChecks" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A flag that indicates whether Watch List Hits should be ignored for this travller</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HitSummaryListType">
+		<xs:sequence>
+			<xs:element name="HitSummary" type="rt:HitSummaryType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RiskAssessmentRefDataListType">
+		<xs:sequence>
+			<xs:element name="RiskAssessmentRefData" type="rt:RiskAssessmentRefDataType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RiskAssessmentRefDataType">
+		<xs:sequence>
+			<xs:element name="TypeOfRefData" type="rt:TypeOfReferenceDataType">
+				<xs:annotation>
+					<xs:documentation>Type of reference data being returned. Possible values are Passport, Visa and Id</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FamilyName" type="st:STR64_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Subject's Family Name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GivenNames" type="st:STR64_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Subject's Given Names</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Gender" type="do:GENDER_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Subject's Gender</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BirthDate" type="st:STR8_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Subject's DoB, in one of the following formats. YYYYMMDD, YYYYMM, YYYY.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Number" type="st:STR35_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Number of the reference data item returned. E.g. Passport number</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Status" type="do:RefDataStatusType">
+				<xs:annotation>
+					<xs:documentation>Status of the reference data item returned. E.g. Visa status</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExpiryDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Expiry date of the reference data item being returned. E.g. Passport expiry date</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Type" type="st:STR10_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Type of visa or passport as applicable</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Occupation" type="st:STR30_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Occupation of the reference data target as held on the risk systems</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="HitType">
+		<xs:restriction base="st:STRING_TYPE">
+			<xs:enumeration value="WatchList">
+				<xs:annotation>
+					<xs:documentation>Hit returned from Watch List</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Profile">
+				<xs:annotation>
+					<xs:documentation>Hit returned from the Profiler</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="HitStatusType">
+		<xs:restriction base="st:STRING_TYPE">
+			<xs:enumeration value="NotifyHit"/>
+			<xs:enumeration value="Stop"/>
+			<xs:enumeration value="Unknown"/>
+			<xs:enumeration value="NoHit"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="IgnoreWatchListChecks">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element name="WatchListName" type="st:STR50_TYPE"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

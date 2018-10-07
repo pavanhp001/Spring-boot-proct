@@ -1,0 +1,16 @@
+<!--
+ ****************************************************************************
+ *                                                            *
+ * **************************************************************************
+--> 
+<project name="Common-java" default="build" basedir=".">
+	<property name="sonar.projectKey" value="abc.xyz.pts.bcs:common" />
+
+	<property name="sonar.dynamic" value="reuseReports" />
+	<property name="sonar.surefire.reportsPath" value="build/unittest" />
+	<property name="sonar.cobertura.reportPath" value="output/reports/Cobertura/coverage.xml" />
+	<property name="sonar.sources" value="src/main/java" />
+	<property name="sonar.tests" value="src/test/java" />
+	<property name="sonar.binaries" value="build/classes,build/testclasses,../Common-java/build/classes" />
+	<property name="classes.dir" value="build/classes" />
+</project>

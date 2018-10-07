@@ -1,0 +1,13 @@
+<invoke url="/admin/adminUserAdd.form" description="Go to Add User page"/>
+<verifyTitle text="${admin.add.user}" description="Add User page Title should be seen"/>
+
+<setSelectField description="set user role" htmlId="roleSelect" value="INT"/>
+<setInputField description="set username" htmlId="username" value="CANOOTESTUSER"/>
+<setInputField description="set given name" htmlId="forename" value="CANOO"/>
+<setInputField description="set family name" name="user.lastname" value="TESTUSER"/>
+<setInputField description="set email" name="user.email" value="tamas.barak@xyz.aero"/>
+<setInputField description="set mobile number" name="user.mobileNumber" value="0123456789"/>
+<setSelectField description="set airport" htmlId="location" value="DOH"/>
+
+<clickButton description="click the Add button" htmlId="btnAdd"/>
+<sleep seconds="3"/>

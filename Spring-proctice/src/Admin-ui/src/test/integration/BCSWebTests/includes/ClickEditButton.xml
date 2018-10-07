@@ -1,0 +1,4 @@
+<clickButton description="click the Edit button" htmlId="btnUpdateUser"/>
+<sleep seconds="3"/>
+
+<verifyTitle description="Update User Title should be seen" text="${update.user}" />

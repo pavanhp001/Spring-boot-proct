@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	* **************************************************************************
+	*                                                            *
+	* **************************************************************************
+	* This code contains copyright information which is the proprietary property
+	* of xyz Application Solutions. No part of this code may be reproduced,
+	* stored or transmitted in any form without the prior written permission of
+	* xyz Application Solutions.
+	*
+	* Copyright xyz Application Solutions 2008
+	* All rights reserved.
+	*
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+	   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+	   http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<import resource="admin_business-${customer.id}.xml" />
+    
+	<bean id="untransactedUserDao" class="abc.xyz.pts.bcs.admin.dao.UserDao">
+		<property name="ldapTemplate" ref="untransactedLdapTemplate"/>
+		<property name="pagingLdapTemplate" ref="pagingLdapTemplate"/>
+		<property name="readOnlyLdapTemplate" ref="readOnlyLdapTemplate"/>
+		<property name="userAttributesMapper" ref="userAttributesMapper"/>
+		<property name="roleAbsoluteBaseName" value="ou=BCS,dc=pts,dc=xyz,dc=aero"/>
+		<property name="usersAbsoluteBaseName" value="ou=Users,ou=BCS,dc=pts,dc=xyz,dc=aero"/>
+	</bean>
+	
+	<bean id="airportAttributesMapper" class="abc.xyz.pts.bcs.admin.dao.AirportAttributesMapper">
+		<property name="attributeNames">
+			<map>
+				<entry key="icaoCode" value="destinationIndex"/>
+				<entry key="iataCode" value="ou"/>
+				<entry key="description" value="description"/>
+			</map>
+		</property>
+	</bean>	
+	
+	<bean id="adminEmailService" parent="emailService">
+		<property name="emailFromField" value="${admin.emailService.emailFromField}" />
+		<property name="emailReplyToField" value="${admin.emailService.emailFromField}" />
+	</bean>
+	
+	<!--  Beginning of dynamic Fields Definition -->
+	<bean id="locale" class="java.util.Locale">
+		<constructor-arg index="0" value="${default.locale.language}" />
+		<constructor-arg index="1" value="${default.locale.country}" />
+	</bean>
+	
+
+</beans>

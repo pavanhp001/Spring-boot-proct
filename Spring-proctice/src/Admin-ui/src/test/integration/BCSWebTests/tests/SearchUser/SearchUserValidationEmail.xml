@@ -1,0 +1,18 @@
+<!DOCTYPE project SYSTEM "../../dtd/Project.dtd">
+
+<project default="logintest">
+	<target name="logintest">
+		<webtest name="Validating Email field in Search User">
+			<config basepath="${canoo.config.basepath}" host="${canoo.config.host}" saveresponse="${canoo.config.saveresponse}" browser="${canoo.config.browser}" showhtmlparseroutput="${canoo.config.showhtmlparseroutput}"/>
+		       &GoToLoginPage;
+		       &Login;
+			   <setInputField description="set email" name="user.email" value="tamas.barak@xyz.aero"/>
+			   &ClickSearchButton;
+			   <not>&ValidationFailedEmail;</not>
+			   <setInputField description="set email" name="user.email" value="tamas.barak@xyzaero"/>
+			   &ClickSearchButton;
+			   &ValidationFailedEmail;
+		       &Logout;
+ 		</webtest>
+	</target>
+</project>

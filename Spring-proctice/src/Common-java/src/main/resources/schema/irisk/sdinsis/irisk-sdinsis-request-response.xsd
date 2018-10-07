@@ -1,0 +1,1085 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.2.9" 
+			xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" 
+			xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
+			jaxb:version="2.0" 
+			targetNamespace="http://xyz.aero/bcs/sdinsis" 
+			xmlns:sdi="http://xyz.aero/bcs/sdinsis"
+			xmlns:irs="http://xyz.aero/irisk/sdinsis/types">
+			 
+	<xs:import namespace="http://xyz.aero/irisk/sdinsis/types" schemaLocation="irisk-sdinsis-types.xsd"/>
+<!--  
+  <xs:annotation>
+    <xs:appinfo>
+      <jaxb:globalBindings>
+        <xjc:simple />
+      </jaxb:globalBindings>
+    </xs:appinfo>
+  </xs:annotation>
+-->
+<!-- Inizio -->
+<!-- 
+	<xs:element name="richiestaPrecedentazione" type="sdi:richiestaPrecedentazioneType">
+	</xs:element>
+ -->
+	<xs:complexType name="richiestaViaggiatore">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="SdiTravellerRequest" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="numProgViaggiatore" type="irs:traIdType"
+				minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Questo campo identifica univocamente il
+						nominativo richiesto e permette l’associazione
+						tra record Viaggiatore inviato da BCS a SDI e
+						dati restituiti da SDI a BCS.
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="UtrId" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="cognome" type="xs:string" minOccurs="1"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Cognome del passeggero o del membro
+						dell’equipaggio oggetto d’investigazione.
+
+						[max 50 char]
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="Surname" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="nome" type="xs:string" minOccurs="0"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Nome del passeggero o del membro dell’equipaggio
+						oggetto d’investigazione.
+
+						[max 30 char]
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="Forename" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dataNascita" type="irs:dataNascitaType"
+				minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Data di nascita del viaggiatore [l'anno di
+						nascita è obbligatorio]
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="BirthDate" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="codiceNazionalita"
+				type="irs:isoCodiceNazioniType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Codice ISO della Nazione
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="Nationality" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descrizioneNazionalita" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                	<xs:documentation>
+                		descrizione del Codice ISO della Nazione
+                	</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="NationalityDescription" />
+					</xs:appinfo>
+                </xs:annotation>
+			</xs:element>
+			<xs:element name="codiceNazioneNascita"
+				type="irs:isoCodiceNazioniType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Codice ISO della Nazione di nascita
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="CountryOfBirthCode" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descrizioneNazioneNascita"
+				type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                	<xs:documentation>
+                		descrizione del Codice ISO della Nazione di
+                		nascita
+                	</xs:documentation>
+ 					<xs:appinfo>
+						<jaxb:property name="CountryOfBirthDescription" />
+					</xs:appinfo>
+                </xs:annotation>
+			</xs:element>
+			<xs:element name="descrizioneComuneNascita" type="xs:string"
+				minOccurs="0">
+                <xs:annotation>
+                	<xs:documentation>
+                		Descrizione del comune di nascita cosí come
+                		fornita al sistema BCS dai vettori aerei
+                	</xs:documentation>
+ 					<xs:appinfo>
+						<jaxb:property name="TownOfBirth" />
+					</xs:appinfo>
+                </xs:annotation>
+			</xs:element>
+            <xs:element name="siglaProvincia" type="irs:siglaProvinciaType" maxOccurs="1" minOccurs="0">
+            	<xs:annotation>
+            		<xs:documentation>
+            			Sigla provincia di nascita, maxlength=2
+            		</xs:documentation>
+ 					<xs:appinfo>
+						<jaxb:property name="BirthProvince" />
+					</xs:appinfo>
+            	</xs:annotation>
+            </xs:element>
+            <xs:element name="listaDocumenti" type="irs:documentoType"
+				minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Documenti del viaggiatore
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="Documents" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+<!-- 2 -->	
+	<!-- SDI-NSIS Response -->
+<!-- 
+	<xs:element name="rispostaPrecedentazione" type="sdi:rispostaPrecedentazioneType">
+	</xs:element>
+-->
+
+
+	<xs:complexType name="rispostaViaggiatore">
+        <xs:annotation>
+        	<xs:documentation>
+        		Risultato della ricerca nelle basi dati SDI e Schengen
+        		per il viaggiatore
+        	</xs:documentation>
+ 			<xs:appinfo>
+				<jaxb:class name="TravellerResponse" />
+			</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+        	<xs:element name="numProgViaggiatore" type="irs:traIdType"
+        		minOccurs="1" maxOccurs="1">
+        		<xs:annotation>
+        			<xs:documentation>
+        				Questo campo identifica univocamente il
+        				nominativo richiesto e permette l’associazione
+        				tra record Viaggiatore inviato da BCS a SDI e
+        				dati restituiti da SDI a BCS.
+
+        				Progressivo all'interno del messaggio
+        			</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="UtrId" />
+					</xs:appinfo>
+        		</xs:annotation>
+        	</xs:element>
+        	<xs:element name="cognome" type="xs:string" minOccurs="1"
+        		maxOccurs="1">
+        		<xs:annotation>
+        			<xs:documentation>
+        				Cognome del soggetto [max 50 char] come da
+        				richiesta
+        			</xs:documentation>
+ 					<xs:appinfo>
+						<jaxb:property name="Surname" />
+					</xs:appinfo>
+        		</xs:annotation>
+        	</xs:element>
+        	<xs:element name="nome" type="xs:string" minOccurs="0"
+        		maxOccurs="1">
+        		<xs:annotation>
+        			<xs:documentation>
+        				Nome del soggetto [max 30 char] come da
+        				richiesta
+        			</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="Forename" />
+					</xs:appinfo>
+        		</xs:annotation>
+        	</xs:element>
+
+        	<xs:element name="dataNascita" type="irs:dataNascitaType"
+        		minOccurs="1" maxOccurs="1">
+        		<xs:annotation>
+        			<xs:documentation>
+        				Data di nascita del viaggiatore [l'anno di
+        				nascita è obbligatorio] come da richiesta
+        			</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="BirthDate" />
+					</xs:appinfo>
+        		</xs:annotation>
+        	</xs:element>
+        	<xs:element name="codiceNazionalita"
+        		type="irs:isoCodiceNazioniType" minOccurs="1" maxOccurs="1">
+        		<xs:annotation>
+        			<xs:documentation>
+        				Codice ISO della Nazione come da richiesta
+        			</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="Nationality" />
+					</xs:appinfo>
+         		</xs:annotation>
+        	</xs:element>
+        	<xs:element name="listaDocumenti"
+        		type="sdi:documentiPositivi" minOccurs="0" maxOccurs="unbounded">
+        		<xs:annotation>
+        			<xs:documentation>
+        				Risultato della ricerca
+        			</xs:documentation>
+	 				<xs:appinfo>
+						<jaxb:property name="DocumentMatches" />
+					</xs:appinfo>
+        		</xs:annotation>
+        	</xs:element>
+        	<xs:element name="listaSoggettiPositiviSdI"
+        		type="sdi:soggettoPositivoSdI" minOccurs="0"
+        		maxOccurs="unbounded">
+        		<xs:annotation>
+        			<xs:documentation>
+        				Elenco soggetti positivi individuati nella banca
+        				dati SdI
+        			</xs:documentation>
+ 					<xs:appinfo>
+						<jaxb:property name="SdiNameMatches" />
+					</xs:appinfo>
+        		</xs:annotation>
+        	</xs:element>
+        	<xs:element name="listaSoggettiPositiviSchengen"
+        		type="sdi:soggettoPositivoSchengen" minOccurs="0"
+        		maxOccurs="unbounded">
+        		<xs:annotation>
+        			<xs:documentation>
+        				Elenco soggetti positivi individuati nella banca
+        				dati Schenegen
+        			</xs:documentation>
+         			<xs:appinfo>
+						<jaxb:property name="SchengenNameMatches" />
+					</xs:appinfo>
+        		</xs:annotation>
+        	</xs:element>
+        	<xs:element name="listaExceptions" type="sdi:BCSExceptionType" minOccurs="0" maxOccurs="unbounded">
+        		<xs:annotation>
+        			<xs:documentation>
+        				Elenco errori nell'esecuzione delle
+        				interrogazioni
+        			</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="BCSExceptions" />
+					</xs:appinfo>
+        		</xs:annotation>
+        	</xs:element>
+        </xs:sequence>
+	</xs:complexType>
+
+
+
+	<xs:complexType name="soggettoPositivoSchengen">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="SchengenNameMatch" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="schengenID" type="xs:string" minOccurs="1"
+				maxOccurs="1">
+                <xs:annotation>
+                	<xs:documentation>
+                		Identificativo della segnalazione relativa al
+                		soggetto all'interno della base dati Schengen
+                		maxlength=21
+                	</xs:documentation>
+ 					<xs:appinfo>
+						<jaxb:property name="SchengenID" />
+					</xs:appinfo>
+                </xs:annotation>
+			</xs:element>
+			<xs:element name="cognome" type="xs:string" minOccurs="1"
+				maxOccurs="1">
+                <xs:annotation>
+                	<xs:documentation>
+                		Cognome del soggetto contenuto nella
+                		segnalazione all'interno della base dati
+                		Schengen maxlength=50
+                	</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="Surname" />
+					</xs:appinfo>
+                </xs:annotation>
+			</xs:element>
+			<xs:element name="nome" type="xs:string" minOccurs="0"
+				maxOccurs="1">
+                <xs:annotation>
+                	<xs:documentation>
+                		Nome del soggetto contenuto nella segnalazione
+                		all'interno della base dati Schengen
+                		maxlength=25
+                	</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="Forename" />
+					</xs:appinfo>
+                </xs:annotation>
+			</xs:element>
+			<xs:element name="dataNascita" type="irs:dataNascitaType"
+				minOccurs="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+						Data di nascita del soggetto contenuto nella
+						segnalazione all'interno della base dati
+						Schengen L'anno di nascita è obbligatorio, il
+						mese e il giorno sono opzionali
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="BirthDate" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+
+            <xs:element name="descriLuogoNascita" type="xs:string"
+				minOccurs="0" maxOccurs="1" >
+            	<xs:annotation>
+            		<xs:documentation>maxlength=25</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="BirthPlace" />
+					</xs:appinfo>
+            	</xs:annotation>
+            </xs:element>
+			<xs:element name="codiceNazionalitaSchengen"
+				type="xs:string" minOccurs="0" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>maxlength=2</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="Nationality"  />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descrizioneNazionalitaSchengen" type="xs:string"
+				minOccurs="0" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>maxlength=50</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="NationalityDesc"  />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="articoloSchengenWP" type="xs:string"
+				minOccurs="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>maxlength=6</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="Article" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="codiceReasonSchengenWP" type="xs:string"
+				minOccurs="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+						1 cifra numerica
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="CrimeCode" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descrizioneReasonSchengenWP" type="xs:string"
+				minOccurs="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>maxlength=55</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="CrimeCodeDesc" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+
+
+			<xs:element name="codiceCategoriaIdentita" type="xs:string"
+				minOccurs="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+						1 carattere numerico
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="IdentityCategoryCode" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descrizioneCategoriaIdentita" type="xs:string"
+				minOccurs="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>maxlength=20</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="IdentityCategoryDesc" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="codiceCaratteristicaSchengen"
+				type="xs:string" minOccurs="0" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+						2 caratteri numerico
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="CharacteristicCode" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descrizioneCaratteristicaSchengen"
+				type="xs:string" minOccurs="0" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>maxlength=20</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="CharacteristicDesc" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+            <xs:element name="actionSchengenWP" type="xs:string" minOccurs="0" maxOccurs="1" >
+            	<xs:annotation>
+            		<xs:documentation>
+            			2 caratteri numerici
+            		</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="ActionCode" />
+					</xs:appinfo>
+            	</xs:annotation>
+            </xs:element>
+            <xs:element name="descrizioneActionSchengenWP" type="xs:string" minOccurs="0" maxOccurs="1" >
+            	<xs:annotation>
+            		<xs:documentation>maxlength=255</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="ActionDesc" />
+					</xs:appinfo>
+            	</xs:annotation>
+            </xs:element>
+        </xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="soggettoPositivoSdI">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="SdiNameMatch" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="cognome" type="xs:string" minOccurs="1"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Cognome del soggetto positivo individuato
+						maxlength=50
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="Surname" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="nome" type="xs:string" minOccurs="0"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Nome del soggetto positivo individuato
+						maxlength=30
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="FirstName" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dataNascita" type="irs:dataNascitaType"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Data di nascita del soggetto positivo
+						individuato
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="BirthDate" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="codiceNazioneNascitaSDI"
+				type="irs:codiceNazioneType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Codice SDI della Nazione di nascita
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="BirthCountryCode" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descrizioneNazioneNascita"
+				type="xs:string" maxOccurs="1" minOccurs="0">
+                <xs:annotation>
+                	<xs:documentation>maxlength=38</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="BirthCountryCodeDesc" />
+					</xs:appinfo>
+                </xs:annotation>
+			</xs:element>
+			<xs:element name="codiceComuneNascita"
+				type="irs:codiceComuneType" maxOccurs="1" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						Codice SDI comune di nascita [per cittadini
+						italiani]
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="BirthPlaceCode" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+            <xs:element name="descrizioneComuneNascita" type="xs:string" maxOccurs="1" minOccurs="0">
+            	<xs:annotation>
+            		<xs:documentation>maxlength=38</xs:documentation>
+ 					<xs:appinfo>
+						<jaxb:property name="BirthPlace" />
+					</xs:appinfo>
+            	</xs:annotation>
+            </xs:element>
+            <xs:element name="codiceFiscale" type="xs:string"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Codice fiscale del soggetto positivo individuato
+						maxlength=16
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="TaxCode" />
+					</xs:appinfo>
+				</xs:annotation>
+            </xs:element>
+			<xs:element name="pesoSoggettoSdI" type="xs:string"
+				minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Peso della categoria operativa maxlength=2
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="CrimeCode" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+
+
+			<xs:element name="motivazioneSoggettoSdI" type="xs:string"
+				minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Motivo per cui il soggetto risulta
+						all'attenzione delle FP maxlength=50
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="CrimeCodeDesc" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="presenzaPermessoSoggiorno"
+				type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Presenza del permesso di soggiorno
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="PermitFlag" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="documentoPositivoSchengen">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="SchengenDocumentMatch" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="schengenID" type="xs:string" minOccurs="1"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Identificativo della segnalazione relativa al
+						documento all'interno della base dati Schengen,
+						maxlength=21
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="SchengenID" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="cognomeNome" type="xs:string"
+				minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						cognome e nome dell'intestatario del documento
+						all'interno della base dati Schengen,
+						maxlength=50
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="Surname" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+            <xs:element name="codiceTipo" type="xs:string" minOccurs="1" maxOccurs="1">
+            	<xs:annotation>
+            		<xs:documentation>
+            			Codifica Schengen del tipo documento. 1
+            			carattere numerico
+            		</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="SchengenDocType" />
+					</xs:appinfo>
+            	</xs:annotation>
+            </xs:element>
+            <xs:element name="descrizioneTipo" type="xs:string"
+				minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						descrizione del tipo di documento, maxlength=25
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="DocumentTypeDesc" />
+					</xs:appinfo>
+				</xs:annotation>
+            </xs:element>			<xs:element name="numero" type="xs:string" minOccurs="1"
+				maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						numero identificativo del documento,
+						maxlength=20
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="DocumentNumber" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dataNascita" type="irs:dataNascitaType"
+				minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Data di nascita dell'intestatario del documento
+						L'anno di nascita è obbligatorio, il mese e il
+						giorno sono opzionali
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="BirthDate" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="codiceNazionalitaSchengen"
+				type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Codifica Schengen della nazione che ha emesso il
+						documento, maxlength=2
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="Nationality" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="descrizioneNazionalitaSchengen"
+				type="xs:string" maxOccurs="1" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Descrizione Schengen della nazione che ha emesso
+						il documento, maxlength=50
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="NationalityDesc" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="articoloSchengenDoc" type="xs:string"
+				minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Codice articolo Schengen associato alla
+						segnalazione, maxlength=6
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="Article" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="codiceReasonSchengenDoc" type="xs:string"
+				minOccurs="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+						1 carattere numerico
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="CrimeCode" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descrizioneReasonSchengenDoc"
+				type="xs:string" minOccurs="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>maxlength=55</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="CrimeCodeDesc" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="codiceActionSchengenDoc" type="xs:string"
+				minOccurs="0" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+						2 caratteri numerici
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="ActionCode" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descrActionSchengenDoc" type="xs:string"
+				minOccurs="0" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>maxlength=255</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="ActionDesc" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="documentoPositivoSdI">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="SdiDocumentMatch" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="codiceSdi" type="xs:string" minOccurs="0" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>maxlength=5</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="SdiRefNo" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="numero" type="xs:string" minOccurs="1"
+				maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+						Numero del documento maxlength=20
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="DocNumber" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descrizioneTipo" type="xs:string"
+				minOccurs="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>maxlength=25</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="DocDesc" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="codiceNazioneRilascioSDI"
+				type="irs:codiceNazioneType" maxOccurs="1" minOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="DocIssueCountryCode" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+            <xs:element name="descrizioneNazioneRilascio" type="xs:string" maxOccurs="1" minOccurs="1">
+            	<xs:annotation>
+            		<xs:documentation>maxlength=38</xs:documentation>
+ 					<xs:appinfo>
+						<jaxb:property name="DocIssueCountryDesc" />
+					</xs:appinfo>
+            	</xs:annotation>
+            </xs:element>
+            <xs:element name="codiceComuneRilascio"
+				type="irs:codiceComuneType" maxOccurs="1" minOccurs="0">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="DocIssueCityCode" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descrizioneComuneRilascio"
+				type="xs:string" maxOccurs="1" minOccurs="0">
+                <xs:annotation>
+                	<xs:documentation>maxlength=38</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="DocIssueCityDesc" />
+					</xs:appinfo>
+                </xs:annotation>
+			</xs:element>
+			<xs:element name="siglaProvincia" type="xs:string"
+				minOccurs="0" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>maxlength=2</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="DocIssueProvince" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="pesoOggettoSdi" type="xs:int" minOccurs="1"
+				maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+						Questo e’ il codice SDI assegnato ad un dato
+						crimine/evento relativo ad un documento.
+						maxlength=2
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="CrimeCode" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="motivazioneOggSdi" type="xs:string"
+				minOccurs="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+						descrizione del codice oggetto SDI descritto nel
+						campo pesoOggettoSdi maxlength=25
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="CrimeCodeDesc" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="documentiPositivi">
+        <xs:annotation>
+        	<xs:documentation>Documento</xs:documentation>
+			<xs:appinfo>
+					<jaxb:class name="DocumentMatches" />
+			</xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+			<xs:element name="documento" type="irs:documentoType"
+				minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                	<xs:documentation>
+                		Documento del viaggiatore come da richiesta
+                	</xs:documentation>
+                	<xs:appinfo>
+						<jaxb:property name="Document" />
+					</xs:appinfo>
+                </xs:annotation>
+			</xs:element>
+			<xs:element name="listaDocumentiPositiviSdI" type="sdi:documentoPositivoSdI"
+				minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                	<xs:documentation>
+                		Documenti POSITIVI in banca dati SdI
+                	</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="SdiDocumentMatches" />
+					</xs:appinfo>
+                </xs:annotation>
+			</xs:element>
+			<xs:element name="listaDocumentiPositiviSchengen" type="sdi:documentoPositivoSchengen" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Documenti POSITIVI in banca dati Schengen
+					</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="SchengenDocumentMatches" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="BCSExceptionType"> 
+		<xs:annotation> 
+			<xs:documentation> 
+				Generico errore scaturito in fase di analisi della richiesta 
+			</xs:documentation> 
+		</xs:annotation> 
+		<xs:sequence> 
+		<xs:element name="errorCode" type="xs:string"> 
+			<xs:annotation> 
+				<xs:documentation> 
+					Codice dell'errore 
+				</xs:documentation> 
+			</xs:annotation> 
+		</xs:element> 
+		<xs:element name="errorMessage" type="xs:string"> 
+			<xs:annotation> 
+				<xs:documentation> 
+					Descrizione comprensibile dell'errore 
+				</xs:documentation> 
+			</xs:annotation> 
+		</xs:element> 
+		<xs:element name="errorTrace" type="xs:string"> 
+			<xs:annotation> 
+				<xs:documentation> 
+					Trace dell'errore 
+				</xs:documentation> 
+			</xs:annotation> 
+		</xs:element> 
+		</xs:sequence>
+	</xs:complexType> 
+
+    <xs:element name="BCSException" type="sdi:BCSExceptionType"></xs:element>
+<!-- 3 -->
+	<!-- SDINSIS Request Type -->
+    <xs:element name="richiestaPrecedentazione" >
+<!--
+    <xs:complexType name="richiestaPrecedentazioneType" >
+-->
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="SdiNsisRequest"  />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexType>
+	   	<xs:sequence>
+    		<xs:element minOccurs="1" maxOccurs="1" name="utente"
+    			type="xs:string">
+    			<xs:annotation>
+    				<xs:documentation>
+
+    					E' lo userID "già autenticato" ed "autorizzato"
+    					all'uso del servizio, a cui viene attribuita
+    					l'interrogazione sul Log Operativo.
+
+    					Il sistema SDI-NSIS si fa carico di verificare
+    					se l’utente è autorizzato ad accedere ai sistemi
+    					SDI e Schengen negando eventualmente l’accesso
+    				</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="User" />
+					</xs:appinfo>
+    			</xs:annotation>
+    		</xs:element>
+            <xs:element name="descrFinalita" type="xs:string" minOccurs="1" maxOccurs="1">
+            	<xs:annotation>
+            		<xs:documentation>
+            			Descrive la finalitá della precedentazione.
+            			Attualemente il sistema BCS, utilizzando la web
+            			interface temporanea invia la seguente stringa
+            			coma richiesto dal ministero: “Controlli alla
+            			frontiera”
+            		</xs:documentation>
+            		<xs:appinfo>
+							<jaxb:property name="Reason" />
+					</xs:appinfo>
+            	</xs:annotation>
+            </xs:element>
+            <xs:element name="luogoControllo" type="xs:string"
+    			minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                	<xs:documentation>
+                		Descrive il codice aeroportuale associato
+                		all’utente BCS che ha autorizzato la
+                		precendazione. Nel caso, l’utente BCS non abbia
+                		un codice aeroportuale associato il campo é
+                		vuoto
+                	</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="Airport" />
+					</xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+    		<xs:element minOccurs="1" maxOccurs="1" name="messaggioId"
+    			type="irs:messaggioIdType">
+    			<xs:annotation>
+    				<xs:documentation>
+    					Identificativo del messaggio iRisk
+    				</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="MessageId" />
+					</xs:appinfo>
+    			</xs:annotation>
+    		</xs:element>
+    		<xs:element minOccurs="1" maxOccurs="unbounded"
+    			name="listaViaggiatori" type="sdi:richiestaViaggiatore">
+    			<xs:annotation>
+    				<xs:documentation>
+    					Lista dei viaggiatori da controllare per questa
+    					richiesta.
+
+
+    				</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="Requests" />
+					</xs:appinfo>
+    			</xs:annotation>
+    		</xs:element>
+    	</xs:sequence>
+    </xs:complexType>
+    </xs:element>
+	<xs:element name="rispostaPrecedentazione">
+	<xs:complexType>
+<!--  
+	<xs:complexType name="rispostaPrecedentazioneType">
+-->
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="SdiNsisResponse" />
+			</xs:appinfo>
+		</xs:annotation>
+    	<xs:sequence>
+    		<xs:element minOccurs="1" maxOccurs="1" name="messaggioId"
+    			type="irs:messaggioIdType">
+    			<xs:annotation>
+    				<xs:documentation>
+    					Identificativo del messaggio iRisk
+    				</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="MessageId" />
+					</xs:appinfo>
+    			</xs:annotation>
+    		</xs:element>
+    		<xs:element minOccurs="0" maxOccurs="unbounded"
+    			name="listaViaggiatori" type="sdi:rispostaViaggiatore">
+    			<xs:annotation>
+    				<xs:documentation>
+    					Lista dei viaggiatori POSITIVI risultanti
+    					positivi all'interrogazione
+    				</xs:documentation>
+					<xs:appinfo>
+						<jaxb:property name="TravellerResponseList" />
+					</xs:appinfo>
+    			</xs:annotation>
+    		</xs:element>
+    		<xs:element minOccurs="0" name="generalBCSException"
+    			type="sdi:BCSExceptionType"/>
+    	</xs:sequence>
+    </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,12 @@
+<!DOCTYPE project SYSTEM "../../dtd/Project.dtd">
+
+<project default="logintest">
+  <target name="logintest">
+   <webtest name="Check that incorrect login results error">
+	<config basepath="${canoo.config.basepath}" host="${canoo.config.host}" saveresponse="${canoo.config.saveresponse}" browser="${canoo.config.browser}" showhtmlparseroutput="${canoo.config.showhtmlparseroutput}"/>
+      &GoToLoginPage;
+      &InvalidLogin;
+
+ </webtest>
+  </target>
+</project>

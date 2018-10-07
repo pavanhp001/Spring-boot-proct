@@ -1,0 +1,5 @@
+<setInputField description="set user name" name="josso_username" value="ABC"/>
+<setInputField description="set password" name="josso_password" value="ABC"/>
+<clickButton description="click the Login button" label="Login"/>
+<verifyTitle text="${login.page.title}"  description="Login page should be displayed with login error"/>
+<verifyText description="check if the login error text present" text="${sso.login.failed}"/>

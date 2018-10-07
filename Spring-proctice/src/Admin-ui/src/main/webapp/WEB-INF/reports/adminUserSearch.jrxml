@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="adminSearch" pageWidth="920" pageHeight="595" orientation="Landscape" columnWidth="860" leftMargin="30" rightMargin="30" topMargin="20" bottomMargin="20" resourceBundle="abc.xyz.pts.bcs.common.Default" whenResourceMissingType="Key">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<template><![CDATA["reports/BcsTemplate.jrtx"]]></template>
+	<subDataset name="usersDataset">
+		<parameter name="roleParam" class="java.lang.String"/>
+		<field name="name" class="java.lang.String"/>
+		<field name="username" class="java.lang.String"/>
+		<field name="userStatus.value" class="java.lang.Integer"/>
+		<field name="email" class="java.lang.String"/>
+		<field name="location" class="java.lang.String"/>
+		<field name="lastLoginDate" class="java.util.Date"/>
+	</subDataset>
+	<parameter name="adminSearchSubReport" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA[".\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="format" class="java.lang.String">
+		<defaultValueExpression><![CDATA[(String)$P{REPORT_PARAMETERS_MAP}.get("format")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="roleParam" class="java.lang.String"/>
+	<field name="user.username" class="java.lang.String"/>
+	<field name="user.forename" class="java.lang.String"/>
+	<field name="user.lastname" class="java.lang.String"/>
+	<field name="user.email" class="java.lang.String"/>
+	<field name="user.mobileNumber" class="java.lang.String"/>
+	<field name="user.userStatus.value" class="java.lang.Integer"/>
+	<field name="user.location" class="java.lang.String"/>
+	<field name="user.roles" class="java.lang.String[]"/>
+	<field name="records" class="java.util.List"/>
+	<variable name="CURRENT_PAGE_NUMBER" class="java.lang.Integer" resetType="Page">
+		<variableExpression><![CDATA[$V{PAGE_NUMBER}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="110" splitType="Stretch">
+			<line>
+				<reportElement key="line-1" x="0" y="29" width="860" height="1" forecolor="#000000" backcolor="#FFFFFF"/>
+			</line>
+			<line>
+				<reportElement key="line-2" x="0" y="0" width="860" height="1" forecolor="#000000" backcolor="#FFFFFF"/>
+			</line>
+			<textField isBlankWhenNull="false">
+				<reportElement key="titleLabel-1" style="Title" x="220" y="0" width="450" height="29"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$R{admin.search.user}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MM-yyyy HH:mm" isBlankWhenNull="false">
+				<reportElement key="textField" x="760" y="0" width="100" height="29" forecolor="#000000">
+					<printWhenExpression><![CDATA[$P{format}.equals("xls") ? Boolean.TRUE : Boolean.FALSE]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="foreNameLabel-1" isPrintRepeatedValues="false" mode="Transparent" x="360" y="30" width="90" height="25"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{forename}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="emailLabel-1" isPrintRepeatedValues="false" x="360" y="55" width="90" height="25"/>
+				<textElement textAlignment="Left">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{email}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="userNameLabel-1" isPrintRepeatedValues="false" x="0" y="30" width="220" height="25"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{username}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="lastNameLabel-1" isPrintRepeatedValues="false" x="670" y="30" width="90" height="25"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{lastname}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="RoleLabel-1" isPrintRepeatedValues="false" x="0" y="55" width="220" height="25"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{role}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="statusLabel-1" isPrintRepeatedValues="false" x="670" y="80" width="90" height="25"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{status}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="mobileLabel-1" isPrintRepeatedValues="false" x="670" y="55" width="90" height="25"/>
+				<textElement textAlignment="Left">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{mobile}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="450" y="30" width="220" height="25"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{user.forename}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="450" y="55" width="220" height="25"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{user.email}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="760" y="30" width="100" height="25"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{user.lastname}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="760" y="55" width="100" height="25"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{user.mobileNumber}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="airportLabel-1" isPrintRepeatedValues="false" mode="Opaque" x="360" y="80" width="90" height="25"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{airport}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="450" y="80" width="220" height="25"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{user.location}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement x="760" y="80" width="100" height="25"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[(($F{user.userStatus.value} != null && !"".equals($F{user.userStatus.value})) ?
+str("user.status."+$F{user.userStatus.value}) : "")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="220" y="30" width="140" height="25"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{user.username}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="220" y="55" width="140" height="25"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="none">
+					<font isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" rightIndent="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{user.roles} != null ?  abc.xyz.pts.bcs.common.util.ReportUtil.formatListOfStrings("user.role",new java.util.ArrayList(java.util.Arrays.asList($F{user.roles})),$P{REPORT_RESOURCE_BUNDLE}):""]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="55" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table" x="0" y="0" width="860" height="50"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="usersDataset">
+						<datasetParameter name="roleParam">
+							<datasetParameterExpression><![CDATA[$P{roleParam}]]></datasetParameterExpression>
+						</datasetParameter>
+						<dataSourceExpression><![CDATA[new JRBeanCollectionDataSource($F{records})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="220">
+						<jr:tableHeader height="1" rowSpan="1"/>
+						<jr:tableFooter height="0" rowSpan="1"/>
+						<jr:columnHeader style="ColumnHeader" height="25" rowSpan="1">
+							<textField>
+								<reportElement key="nameLabel" style="ColumnHeader" x="0" y="0" width="220" height="25"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{name}]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:columnFooter height="1" rowSpan="1"/>
+						<jr:detailCell style="table_TD" height="30" rowSpan="1">
+							<box>
+								<pen lineStyle="Solid"/>
+								<topPen lineStyle="Solid"/>
+								<leftPen lineStyle="Solid"/>
+								<bottomPen lineStyle="Solid"/>
+								<rightPen lineStyle="Solid"/>
+							</box>
+							<textField isStretchWithOverflow="true">
+								<reportElement key="name" style="TableTextContent" x="0" y="0" width="220" height="25"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="140">
+						<jr:tableHeader height="1" rowSpan="1"/>
+						<jr:tableFooter height="0" rowSpan="1"/>
+						<jr:columnHeader height="25" rowSpan="1">
+							<textField>
+								<reportElement key="usernameLabel" style="ColumnHeader" x="0" y="0" width="140" height="25"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{username}]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:columnFooter height="1" rowSpan="1"/>
+						<jr:detailCell style="table_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement key="username" style="TableTextContent" x="0" y="0" width="140" height="25"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{username}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:tableHeader height="1" rowSpan="1"/>
+						<jr:tableFooter height="0" rowSpan="1"/>
+						<jr:columnHeader height="25" rowSpan="1">
+							<textField>
+								<reportElement key="statusLabel" style="ColumnHeader" x="0" y="0" width="90" height="25"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{status}]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:columnFooter height="1" rowSpan="1"/>
+						<jr:detailCell style="table_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement key="userStatus" style="TableTextContent" x="0" y="0" width="90" height="25"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[(($F{userStatus.value} != null && !"".equals($F{userStatus.value})) ?
+str("user.status."+$F{userStatus.value}) : "")]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="220">
+						<jr:tableHeader height="1" rowSpan="1"/>
+						<jr:tableFooter height="0" rowSpan="1"/>
+						<jr:columnHeader height="25" rowSpan="1">
+							<textField>
+								<reportElement key="emailLabel" style="ColumnHeader" x="0" y="0" width="220" height="25"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{email}]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:columnFooter height="1" rowSpan="1"/>
+						<jr:detailCell style="table_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement key="email" style="TableTextContent" x="0" y="0" width="220" height="25"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90">
+						<jr:tableHeader height="1" rowSpan="1"/>
+						<jr:tableFooter height="0" rowSpan="1"/>
+						<jr:columnHeader height="25" rowSpan="1">
+							<textField>
+								<reportElement key="airportLabel" style="ColumnHeader" x="0" y="0" width="90" height="25"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{airport}]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:columnFooter height="1" rowSpan="1"/>
+						<jr:detailCell style="table_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement key="location" style="TableTextContent" x="0" y="0" width="90" height="25"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{location}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100">
+						<jr:tableHeader height="1" rowSpan="1"/>
+						<jr:tableFooter height="0" rowSpan="1"/>
+						<jr:columnHeader style="ColumnHeader" height="25" rowSpan="1">
+							<textField>
+								<reportElement key="lastLoggedOnLabel" style="ColumnHeader" x="0" y="0" width="100" height="25"/>
+								<textElement>
+									<font isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$R{last.logged.on}]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:columnFooter height="1" rowSpan="1"/>
+						<jr:detailCell style="table_TD" height="30" rowSpan="1">
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement key="lastLoginDate" style="TableTextContent" x="0" y="0" width="100" height="25"/>
+								<textElement/>
+								<textFieldExpression><![CDATA[$F{lastLoginDate} !=null ? (new java.text.SimpleDateFormat($R{report.date.time.pattern})).format($F{lastLoginDate}):""]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<printWhenExpression><![CDATA[$P{format}.equals("pdf") ? Boolean.TRUE : Boolean.FALSE]]></printWhenExpression>
+			<line>
+				<reportElement key="line-2" x="0" y="2" width="860" height="1"/>
+			</line>
+			<textField pattern="dd-MM-yyyy HH:mm" isBlankWhenNull="false">
+				<reportElement key="textField" x="670" y="5" width="190" height="20" forecolor="#000000"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" isBlankWhenNull="false">
+				<reportElement key="textField-3" positionType="FixRelativeToBottom" x="400" y="5" width="85" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField-2" positionType="FixRelativeToBottom" x="328" y="5" width="72" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$R{page}+" "+ $V{PAGE_NUMBER}+ " " + $R{of}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

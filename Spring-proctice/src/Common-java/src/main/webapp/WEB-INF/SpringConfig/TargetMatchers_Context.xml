@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+	<bean id="iirBasedTargetMatcher" class="abc.xyz.pts.bcs.wi.business.impl.IIRBasedTargetMatcher">
+		<constructor-arg ref="iirSearch" />
+		<constructor-arg ref="prWatchListNameDao" />
+		<constructor-arg ref="prSeverityReasonDao" />
+		<constructor-arg ref="prRecommendedActionDao" />
+		<constructor-arg ref="iirSearchRequestFactory" />
+	</bean>
+
+	<bean id="sqlBasedTargetMatcher" class="abc.xyz.pts.bcs.wi.business.impl.SQLBasedTargetMatcher">
+		<constructor-arg ref="watchlistSearchDao" />
+	</bean>
+
+	<bean id="importTargetsMatcher" class="abc.xyz.pts.bcs.wi.business.impl.ImportTargetsMatcher">
+		<constructor-arg ref="importTargetSearchDao" />
+	</bean>
+	
+	<bean id="weightingsBasedPersonTargetMatcher" class="abc.xyz.pts.bcs.wi.business.impl.WeightingsBasedPersonTargetMatcher">
+		<constructor-arg ref="watchlistSearchDao"/>
+		<constructor-arg ref="lookupDataService"/>
+	</bean>
+	
+
+	<bean id="iirSearchRequestFactory" class="abc.xyz.pts.bcs.wi.business.impl.IIRSearchRequestFactoryImpl" />
+
+	<bean id="iirBasedTargetMatcherRule" class="abc.xyz.pts.bcs.wi.business.impl.IIRBasedTargetMatcherRule" />
+
+	<bean id="sqlBasedTargetMatcherRule" class="abc.xyz.pts.bcs.wi.business.impl.SQLBasedTargetMatcherRule" />
+
+	<bean id="importTargetMatcherRule" class="abc.xyz.pts.bcs.wi.business.impl.ImportTargetMatcherRule" />
+	
+	<bean id="weightingsBasedPersonTargetMatcherRule" class="abc.xyz.pts.bcs.wi.business.impl.WeightingsBasedPersonTargetMatcherRule" />
+	
+	<!-- This is order dependent! So have it as LinkedHashMap -->
+	<bean id="targetMatcherResolver" class="abc.xyz.pts.bcs.wi.business.TargetMatcherResolver">
+		<constructor-arg>
+			<util:map id="resolverMap" map-class="java.util.LinkedHashMap">
+				<entry key-ref="iirBasedTargetMatcher" value-ref="iirResolverRulesList" />
+				<entry key-ref="weightingsBasedPersonTargetMatcher" value-ref="weightingsBasedPersonTargetMatcherRuleList"/>
+				<entry key-ref="sqlBasedTargetMatcher" value-ref="sqlResolverRulesList" />
+				<entry key-ref="importTargetsMatcher" value-ref="importResolverRulesList" />
+			</util:map>
+		</constructor-arg>
+	</bean>
+	
+	<util:list id="iirResolverRulesList">
+		<ref bean="iirBasedTargetMatcherRule" />
+	</util:list>
+
+	<util:list id="sqlResolverRulesList">
+		<ref bean="sqlBasedTargetMatcherRule" />
+	</util:list>
+	<util:list id="importResolverRulesList">
+		<ref bean="importTargetMatcherRule" />
+	</util:list>
+	<util:list id="weightingsBasedPersonTargetMatcherRuleList">
+		<ref bean="weightingsBasedPersonTargetMatcherRule" />
+	</util:list>
+	
+</beans>

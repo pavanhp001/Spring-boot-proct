@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+* **************************************************************************
+*                                                            *
+* **************************************************************************
+* This code contains copyright information which is the proprietary property
+* of xyz Application Solutions. No part of this code may be reproduced,
+* stored or transmitted in any form without the prior written permission of
+* xyz Application Solutions.
+*
+* Copyright xyz Application Solutions 2008
+* All rights reserved.
+*
+-->
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+
+    <!--
+    ****************
+    ADMIN SEARCH
+    ****************
+     --> 
+    <definition name="adminUserSearch.view" extends="common.page.structure.new" >
+        <put-attribute name="page.title.key"   value="admin.search.user"/>
+        <put-attribute name="page.body" value="/WEB-INF/jsp/admin/usersearch/UserSearch.jsp"/>
+        <put-attribute name="pdf.print.url" value="adminUserSearch.form?viewreport=pdf"/>
+        <put-attribute name="xls.export.url" value="adminUserSearch.form?viewreport=xls"/>
+        <put-attribute name="help.url" value="/help/admin/" type="string"/>
+        <put-attribute name="help.page" value="admin_csh.htm"/>
+        <put-attribute name="help.context" value="USER_SEARCH"/>
+    </definition>
+    
+    <!--
+    ****************
+    ADMIN UPDATE
+    ****************
+     -->
+     
+    <definition name="adminUserUpdate.view" extends="common.page.structure.new">
+        <put-attribute name="page.title.key" value="admin.update.user"/>
+        <put-attribute name="page.body" value="/WEB-INF/jsp/admin/updateuser/UserUpdate.jsp"/>
+        <put-attribute name="help.url" value="/help/admin/" type="string"/>
+        <put-attribute name="help.page" value="admin_csh.htm"/>
+ 		<put-attribute name="help.context" value="UPDATE_USER"/>
+ 	    <put-attribute name="includeDhtmlModel"   value="false"/> 	
+    </definition>
+    
+     <!--
+    ****************
+    USER PROFILE
+    ****************
+     -->
+    <definition name="adminUserProfile.view" extends="common.page.structure.new">
+        <put-attribute name="page.title.key"   value="admin.profile.user"/>
+        <put-attribute name="page.body" value="/WEB-INF/jsp/admin/userprofile/UserProfile.jsp"/>
+        <put-attribute name="help.url" value="/help/admin/" type="string"/>
+        <put-attribute name="help.page" value="admin_csh.htm"/>
+ 		<put-attribute name="help.context" value="USER_PROFILE"/>
+    </definition>
+    
+     <!--
+    ****************
+    CHANGE PASSWORD
+    ****************
+     -->
+    <definition name="adminChangePassword.view" extends="common.page.structure.new">
+        <put-attribute name="page.title.key"   value="admin.password.user"/>
+        <put-attribute name="page.body" value="/WEB-INF/jsp/admin/changepassword/ChangePassword.jsp"/>
+        <put-attribute name="help.url" value="/help/admin/" type="string"/>
+        <put-attribute name="help.page" value="admin_csh.htm"/>
+ 		<put-attribute name="help.context" value="CHANGE_PASSWORD_PAGE"/>
+ 		<put-attribute name="includeDhtmlModel"   value="false"/>  
+    </definition>
+    
+    <!--
+    ****************
+    ADMIN ADD
+    ****************
+     -->      
+    <definition name="adminUserAdd.view" extends="common.page.structure.new">
+        <put-attribute name="page.title.key" value="admin.add.user"/>
+        <put-attribute name="page.body" value="/WEB-INF/jsp/admin/adduser/UserAdd.jsp"/>
+        <put-attribute name="includeDhtmlModel"   value="false"/>        
+        <put-attribute name="help.url" value="/help/admin/" type="string"/>
+        <put-attribute name="help.page" value="admin_csh.htm"/>
+        <put-attribute name="help.context" value="ADD_USER"/>
+    </definition>
+    
+    <!--
+    ****************
+    USER ROLE LIST
+    ****************
+    --> 
+    <definition name="userRoleList.view" extends="common.page.structure.new">
+        <put-attribute name="page.title.key" value="admin.user.role.list"/>
+        <put-attribute name="page.body" value="/WEB-INF/jsp/admin/userrole/UserRoleList.jsp"/>
+        <put-attribute name="includeDhtmlModel"   value="false"/>        
+    </definition>
+    
+    <!--
+    ****************
+    ADD USER ROLE 
+    ****************
+    --> 
+    <definition name="addUserRole.view" extends="common.page.structure.new">
+        <put-attribute name="page.title.key" value="admin.user.role.add"/>
+        <put-attribute name="page.body" value="/WEB-INF/jsp/admin/userrole/AddUserRole.jsp"/>
+        <put-attribute name="includeDhtmlModel"   value="false"/>        
+    </definition>
+     
+    <!--
+    ****************
+    VIEW USER ROLE 
+    ****************
+    --> 
+    <definition name="viewUserRole.view" extends="common.page.structure.new">
+        <put-attribute name="page.title.key" value="admin.user.role.view"/>
+        <put-attribute name="page.body" value="/WEB-INF/jsp/admin/userrole/ViewUserRole.jsp"/>
+        <put-attribute name="includeDhtmlModel"   value="false"/>
+    </definition>
+
+    <!--
+    ****************
+    EDIT USER ROLE 
+    ****************
+    --> 
+    <definition name="editUserRole.view" extends="common.page.structure.new">
+        <put-attribute name="page.title.key" value="admin.user.role.update"/>
+        <put-attribute name="page.body" value="/WEB-INF/jsp/admin/userrole/EditUserRole.jsp"/>
+        <put-attribute name="includeDhtmlModel"   value="false"/>        
+    </definition>    
+     
+    <definition name="changePassword.header.body.structure" template="/WEB-INF/jsp/HeaderBody.jsp">
+        <put-attribute name="page.header" value="changepassword.header"/>
+    </definition>
+    
+    <definition name="changepassword.header" template="/WEB-INF/jsp/Header.jsp">
+        <put-attribute name="page.menu" value="menu.header"/>
+    </definition>
+
+</tiles-definitions>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema version="1.0"
+          attributeFormDefault="unqualified"
+          elementFormDefault="unqualified"
+          
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+          xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+          jaxb:version="2.0"
+          xmlns:ext="http://tools.bms.pts.xyz.com/xjcplugin/markentities"
+          xmlns:ext2="http://tools.bms.pts.xyz.com/xjcplugin/markentities/entity"
+          jaxb:extensionBindingPrefixes="xjc ext ext2"
+
+          xmlns:st="string-types"
+          xmlns:nt="numeric-types">
+	
+	
+	<xs:import namespace="string-types" schemaLocation="../common/string-types.xsd"/>
+	<xs:import namespace="numeric-types" schemaLocation="../common/numeric-types.xsd"/>
+	
+    <xs:annotation>
+        <xs:appinfo>
+            <jaxb:schemaBindings>
+                <jaxb:package name="abc.xyz.pts.bcs.samis.photointerface" />
+            </jaxb:schemaBindings>
+            <jaxb:property>
+                <jaxb:javadoc>entity</jaxb:javadoc>
+            </jaxb:property>
+        </xs:appinfo>
+    </xs:annotation>	
+	
+	<xs:element name="GetPhotoRequest">
+		<xs:annotation>
+			<xs:documentation>Request element for the GetPhoto service
+			</xs:documentation>
+		</xs:annotation>
+	<!-- -->
+	<xs:complexType>
+	       <xs:annotation>
+      <xs:appinfo>
+        <ext:root/>
+      </xs:appinfo>
+    </xs:annotation>
+		<xs:sequence>
+			<xs:element name="MessageId" type="nt:MSGID_TYPE">
+				<xs:annotation>
+					<xs:documentation>Message Identifier used to track the message
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RequestTimestamp" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Timestamp at which the request was created by the
+						originating system</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UserCivilId" type="st:STR10_TYPE">
+				<xs:annotation>
+					<xs:documentation>User's Civil Id/SAMIS Id</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GovtLocation" type="st:STR4_TYPE">
+				<xs:annotation>
+					<xs:documentation>User's 4 digit Government Location code (from
+						Active Directory)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PersonExternalId" type="st:STR10_TYPE">
+				<xs:annotation>
+					<xs:documentation>Traveller's Government/SAMIS Id
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+    </xs:element>
+</xs:schema>

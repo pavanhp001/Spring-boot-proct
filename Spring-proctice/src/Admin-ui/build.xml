@@ -1,0 +1,67 @@
+<!--
+ ****************************************************************************
+ *                                                            *
+ * **************************************************************************
+--> 
+<project name="Admin-ui" default="quick-build" basedir=".">
+	<property file="build.properties"/>
+	<import file="${common.tools.dir}/base-build.xml"/>
+
+	<path id="app.classpath">
+		<fileset dir="${main.lib.dir}">
+			<include name="displaytag-*.jar"/>
+			<include name="dom4j-*.jar"/>
+			<include name="jakarta-oro-*.jar"/>
+			<include name="jaxen-*.jar"/>
+			<include name="jcommon-*.jar"/>
+			<include name="jdtcore_*.jar"/>
+			<include name="jfreechart-*.jar"/>
+			<include name="jmxri-*.jar"/>
+			<include name="jmxtools-*.jar"/>
+			<include name="jxl-*.jar"/>
+			<include name="logkit-*.jar"/>
+			<include name="slf4j-*.jar"/>
+			<include name="stax-api-*.jar"/>
+			<include name="xml-apis-*.jar"/>
+			<include name="ldapbp-*.jar"/>
+		</fileset>
+		<fileset dir="lib">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+	
+	<target name="war">
+		<jar destfile="${output.dir}/${valve.jar.name}" basedir="${classes.dir}" includes="${valve.package}/*.*"/>
+		<antcall target="base-build.war"/>
+	</target>
+	
+	<target name="instrument">
+		<antcall target="deploy.instrument"/>
+		<echo message="Instrument ${valve.jar.name}" />
+		<mkdir dir="${temp.deployment.dir}"/>
+		<cobertura-instrument datafile="${temp.deployment.dir}/cobertura.ser" todir="${temp.deployment.dir}">
+			<includeClasses regex="aero\.xyz\.pts\.bcs\.${package.name}.*" />
+			<excludeClasses regex="aero\.xyz.*\$.*" />
+			<fileset dir="${output.dir}">
+				<include name="${valve.jar.name}" />
+			</fileset>
+		</cobertura-instrument>
+	</target>
+	
+	<target name="copy-remote-files-ui" if="nightly.deploy">
+		<antcall target="deploy.copy-remote-files-ui"/>
+		<property name="deploy.dir" value="${output.dir}"/>
+		<echo message="Upload ${valve.jar.name}" />
+		<scp file="${deploy.dir}/${valve.jar.name}" todir="${deploy.username}:${deploy.password}@${deploy.server}:${tomcat.server.dir}/lib" trust="true"/>
+	</target>
+	
+	<target name="dev-env-deploy-war" description="Deploying the war file into the development environmet">
+		<antcall target="deploy.dev-env-deploy-war"/>
+		<copy todir="${local.tomcat.location}/lib">
+			<fileset dir="${output.dir}">
+				<include name="admin-valve.jar" />
+			</fileset>
+		</copy>
+	</target>
+
+</project>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	        xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+            jaxb:version="2.0"
+            jaxb:extensionBindingPrefixes="xjc"
+            xmlns:nu="numeric-types" 
+			targetNamespace="numeric-types"
+>
+
+	<!-- -->
+	<!-- -->
+    <xs:annotation>
+       <xs:appinfo>
+          <jaxb:schemaBindings>
+           <jaxb:package name="abc.xyz.pts.bcs.samis.model.generated.output.common"/>
+          </jaxb:schemaBindings>
+       </xs:appinfo>
+    </xs:annotation>
+	<!-- -->
+	<!-- -->
+	<!-- Integer Numeric(1) -->
+	<xs:simpleType name="INT1_TYPE">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="9"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<!-- Integer Numeric(2) -->
+	<xs:simpleType name="INT2_TYPE">
+		<xs:restriction base="xs:integer">
+			<xs:maxInclusive value="99"/>
+			<xs:minInclusive value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<!-- Integer Numeric(3) -->
+	<xs:simpleType name="INT3_TYPE">
+		<xs:restriction base="xs:integer">
+			<xs:maxInclusive value="999"/>
+			<xs:minInclusive value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<!-- Integer Numeric(4) -->
+	<xs:simpleType name="INT4_TYPE">
+		<xs:restriction base="xs:integer">
+			<xs:maxInclusive value="9999"/>
+			<xs:minInclusive value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<!-- Integer Numeric(5) -->
+	<xs:simpleType name="INT5_TYPE">
+		<xs:restriction base="xs:integer">
+			<xs:maxInclusive value="99999"/>
+			<xs:minInclusive value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<!-- Index number Numeric(2) -->
+	<xs:simpleType name="INDEX2_TYPE">
+		<xs:restriction base="xs:integer">
+			<xs:maxInclusive value="99"/>
+			<xs:minInclusive value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<!-- Index number Numeric(3) -->
+	<xs:simpleType name="INDEX3_TYPE">
+		<xs:restriction base="xs:integer">
+			<xs:maxInclusive value="999"/>
+			<xs:minInclusive value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<!-- Index number Numeric(4) -->
+	<xs:simpleType name="INDEX4_TYPE">
+		<xs:restriction base="xs:integer">
+			<xs:maxInclusive value="9999"/>
+			<xs:minInclusive value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<!-- Unique message id for retransmit requests etc. Numeric -->
+	<xs:simpleType name="MSGID_TYPE">
+		<xs:restriction base="xs:long"/>
+	</xs:simpleType>
+	<!-- -->
+	<!-- General Numeric() -->
+	<xs:simpleType name="NUMBER_TYPE">
+		<xs:restriction base="xs:decimal"/>
+	</xs:simpleType>
+	<!-- -->
+	<!-- -->
+	<!-- PrimaryIdType used to define unique IDs/keys -->
+	<xs:simpleType name="PrimaryIdType">
+		<xs:restriction base="xs:long">
+			<xs:minInclusive value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<!-- ReferenceIdType used to define unique IDs/keys -->
+	<xs:simpleType name="ReferenceIdType">
+		<xs:restriction base="xs:long">
+			<xs:minInclusive value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

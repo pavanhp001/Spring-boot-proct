@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	* **************************************************************************
+	*                                                            *
+	* **************************************************************************
+	* This code contains copyright information which is the proprietary property
+	* of xyz Application Solutions. No part of this code may be reproduced,
+	* stored or transmitted in any form without the prior written permission of
+	* xyz Application Solutions.
+	*
+	* Copyright xyz Application Solutions 2008
+	* All rights reserved.
+	*
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+	   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+	   http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	   http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+	
+	<import resource="Common_mapper-SAUDI.xml"/>
+	
+	<bean id="userRoleService" class="abc.xyz.pts.bcs.admin.business.impl.UserRoleServiceImpl">
+        <property name="userRoleDao" ref="userRoleDao"/>
+    </bean>
+	
+	<bean id="userDao" class="abc.xyz.pts.bcs.admin.dao.ActiveDirectoryUserDao">
+		<property name="ldapTemplate" ref="readOnlyLdapTemplate"/>
+		<property name="userAttributesMapper" ref="userAttributesMapper"/>
+		<property name="usersAbsoluteBaseName" value="CN=Users,DC=nicwan,DC=com"/>	
+	</bean>
+    	
+	<bean id="userAttributesMapper" class="abc.xyz.pts.bcs.admin.dao.ActiveDirectoryUserAttributesMapper">	   
+		<property name="attributeNames">
+			<map>
+				<entry key="forename" value="givenName"/>				 
+				<entry key="lastname" value="sn"/>
+				<entry key="username" value="sAMAccountName"/>
+				<entry key="name" value="cn"/>
+				<entry key="mobileNumber" value="mobile"/>				
+				<entry key="email" value="mail"/>				
+				<entry key="location" value="department"/>
+				<entry key="passwordChangedDate" value="pwdLastSet"/>
+				<entry key="role" value="memberOf"/>
+				<entry key="lastLoginDate" value="lastLogon"/>
+				<entry key="modifyTimestamp" value="whenChanged"/>				
+				<entry key="faxNumber" value="facsimileTelephoneNumber"/>
+				<entry key="accountDisabled" value="ms-DS-User-Account-Disabled"/>
+				<entry key="accountLocked" value="badPasswordTime"/>
+			</map>
+		</property>
+		 <property name="roleMapper" ref="roleMapper"/>
+         <property name="locCodeMapper" ref="locCodeMapper"/>
+	</bean>	 
+	
+	 <bean id="adminService" class="abc.xyz.pts.bcs.admin.business.impl.LdapAdminServiceImpl">
+		<property name="userDao" ref="userDao"/>		
+		<property name="locale" ref="locale"/>
+	</bean>
+	
+	<bean id="untransactedAdminService" class="abc.xyz.pts.bcs.admin.business.impl.LdapAdminServiceImpl">
+		<property name="userDao" ref="untransactedUserDao"/>	
+		<property name="locale" ref="locale"/>
+	</bean> 
+	<!-- not transacted readonly template -->
+    <bean id="readOnlyLdapTemplate"
+		class="org.springframework.ldap.core.simple.SimpleLdapTemplate">
+		<constructor-arg ref="readOnlyContextSource" />
+	</bean>
+	
+	<bean id="readOnlyContextSource" class="org.springframework.ldap.pool.factory.MutablePoolingContextSource">
+	   <property name="contextSource" ref="contextSourceTarget" />
+	   <property name="dirContextValidator">
+	      <bean class="org.springframework.ldap.pool.validation.DefaultDirContextValidator" >
+	      	<property name="base" value="DC=nicwan,DC=com" />
+	      </bean>
+	   </property>
+	   <property name="maxTotal" value="5" />
+	   <property name="maxIdle" value="2"/>
+	   <property name="maxActive" value="5"/>
+	   <property name="minIdle" value="1"/>
+	   <property name="testOnBorrow" value="true"/>
+	   <property name="testWhileIdle" value="false"/>
+	   <property name="testOnReturn" value="false"/>
+	   <property name="whenExhaustedAction">
+	   		<util:constant static-field="org.apache.commons.pool.impl.GenericKeyedObjectPool.WHEN_EXHAUSTED_BLOCK" />
+	   </property>
+	</bean>
+	<bean id="contextSourceTarget"
+		class="org.springframework.ldap.core.support.LdapContextSource">
+		<property name="urls" value="ldap://57.5.178.183:389 ldap://57.5.178.183:389" />
+		<property name="base" value="DC=nicwan,DC=com" />
+		<property name="userDn" value="bcsadmin" />
+		<property name="password" value="P4ssw0rd" />
+		<property name="pooled" value="false"/>
+            <property name="baseEnvironmentProperties">
+              <map>
+                <entry>
+                  <key>
+                    <value>com.sun.jndi.ldap.connect.timeout</value>
+                  </key>
+                  <value>1000</value>
+                </entry>
+              </map>
+            </property>
+	</bean>       
+</beans>

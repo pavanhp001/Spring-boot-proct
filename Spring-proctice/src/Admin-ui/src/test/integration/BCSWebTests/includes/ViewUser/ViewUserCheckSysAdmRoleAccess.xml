@@ -1,0 +1,6 @@
+<clickElement description="select first result" xpath="//td[@class='results'][1]" />
+
+<clickButton description="click the View button" htmlId="btnViewUser"/>
+<sleep seconds="3"/>
+
+<verifyTitle description="View User Profile Title should be seen" text="${view.user.profile}" />

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<provinces>
+<province istat-code="001" code="TO" />
+<province istat-code="002" code="VC" />
+<province istat-code="003" code="NO" />
+<province istat-code="004" code="CN" />
+<province istat-code="005" code="AT" />
+<province istat-code="006" code="AL" />
+<province istat-code="007" code="AO" />
+<province istat-code="008" code="IM" />
+<province istat-code="009" code="SV" />
+<province istat-code="010" code="GE" />
+</provinces>

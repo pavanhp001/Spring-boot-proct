@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : binding.xml
+    Created on : 29 May 2008, 15:44
+    Author     : jbenson
+    Description:
+        Forces implementation of java.io.Serializable.
+        Provides mapping from XMLGregorianCalendar to Calendar.
+-->
+
+<jaxb:bindings xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xs="http://www.w3.org/2001/XMLSchema" jaxb:version="2.0">
+            <jaxb:globalBindings>
+            	<jaxb:serializable/>
+                <jaxb:javaType name="java.util.Calendar" xmlType="xs:dateTime"
+                               parseMethod="javax.xml.bind.DatatypeConverter.parseDateTime"
+                               printMethod="javax.xml.bind.DatatypeConverter.printDateTime"
+                />
+                <jaxb:javaType name="java.util.Calendar" xmlType="xs:date"
+                               parseMethod="javax.xml.bind.DatatypeConverter.parseDate"
+                               printMethod="javax.xml.bind.DatatypeConverter.printDate"
+                />
+                <jaxb:javaType name="java.lang.Integer" xmlType="xs:integer"
+                               parseMethod="javax.xml.bind.DatatypeConverter.parseInt"
+                               printMethod="javax.xml.bind.DatatypeConverter.printInt"
+                />
+                <jaxb:javaType name="java.lang.Boolean" xmlType="xs:boolean"
+                               parseMethod="javax.xml.bind.DatatypeConverter.parseBoolean"
+                               printMethod="javax.xml.bind.DatatypeConverter.printBoolean"
+                />
+            </jaxb:globalBindings>
+</jaxb:bindings>

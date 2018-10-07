@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:amq="http://activemq.org/config/1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+  <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
+  </bean>
+
+  <bean id="jmsTemplate"
+    class="org.springframework.jms.core.JmsTemplate">
+    <property name="connectionFactory">
+      <ref local="connectionFactorySecure" />
+    </property>
+    <property name="defaultDestination" ref="MQDestination"/>
+  </bean>
+
+
+    <!--  JMS Connection -->
+    <bean id="connectionFactorySecure" class="org.springframework.jms.connection.UserCredentialsConnectionFactoryAdapter">
+        <property name="targetConnectionFactory" ref="MQConnectionFactory" />
+        <property name="username" value="mqm" />
+        <property name="password" value="mqm" />
+    </bean>
+
+  <bean id="MQConnectionFactory" class="com.ibm.mq.jms.MQQueueConnectionFactory">
+    <property name="port" value="${data.injection.mq.port}" />
+    <property name="channel" value="${data.injection.mq.channel}" />
+    <property name="hostName" value="${data.injection.mq.host}" />
+    <property name="queueManager" value="${data.injection.mq.qm}" />
+    <property name="transportType" value="1" />
+  </bean>
+
+  <bean id="MQDestination" class="com.ibm.mq.jms.MQQueue" depends-on="MQConnectionFactory">
+    <property name="baseQueueManagerName" value="${data.injection.mq.qm}" />
+    <property name="baseQueueName" value="${data.injection.mq.queue}" />
+    <property name="targetClient" value="1" />
+  </bean>
+
+</beans>

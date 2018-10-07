@@ -1,0 +1,3 @@
+
+<invoke url="/admin/adminUserSearch.form" description="Go to Caine login page (in English)"/>
+<verifyTitle text="${login.page.title}" description="Caine login page Title should be seen"/>

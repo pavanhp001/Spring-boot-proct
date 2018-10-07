@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xs:schema version="1.0"
+           attributeFormDefault="unqualified"
+           elementFormDefault="unqualified"
+           
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	       xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+           jaxb:version="2.0"
+           xmlns:ext="http://tools.bms.pts.xyz.com/xjcplugin/markentities"
+           xmlns:ext2="http://tools.bms.pts.xyz.com/xjcplugin/markentities/entity"
+		   jaxb:extensionBindingPrefixes="xjc ext ext2"
+
+		   xmlns:st="string-types"
+		   xmlns:nu="numeric-types"
+		   xmlns:da="datetime-types"
+		   xmlns:do="domain-types"		
+		   xmlns:db="db-types">
+		
+  <!--  -->
+  <!-- -->
+  <xs:annotation>
+    <xs:appinfo>
+      <jaxb:schemaBindings>
+        <jaxb:package name="abc.xyz.pts.bcs.scheduler.das"/>
+      </jaxb:schemaBindings>
+            <jaxb:property>
+        <jaxb:javadoc>entity,violations,errorreporting</jaxb:javadoc>
+      </jaxb:property>
+      
+    </xs:appinfo>
+  </xs:annotation>
+  <!-- -->
+  
+  <xs:import namespace="db-types" schemaLocation="idetectdb-types.xsd"/>
+  <xs:import namespace="string-types" schemaLocation="../common/string-types.xsd"/>
+  <xs:import namespace="datetime-types" schemaLocation="../common/datetime-types.xsd"/>
+  <xs:import namespace="numeric-types" schemaLocation="../common/numeric-types.xsd"/>
+  <xs:import namespace="domain-types" schemaLocation="../common/domain-types.xsd"/>
+  <!--  -->
+ 
+    <!-- PreDepartureScanResponse definition -->
+  <!-- StatusCode indicates scan request status, one of: 'F'light not found, -->
+  <!-- 'H'ost not available, No 'C'arrier data available, No 'D'ata available -->
+  <!-- or An 'E'rror occured -->
+  <xs:element name="PreDepartureScanResponse">
+  <xs:complexType>
+    <xs:annotation>
+      <xs:appinfo>
+        <ext:root/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="PreScanID" type="nu:PrimaryIdType" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="CreatedDateTime" type="xs:dateTime" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="StatusCode" type="db:PreDepStatusCode" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="FlightCodeShareList" type="db:FlightCodeShareList" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  </xs:element>
+</xs:schema>

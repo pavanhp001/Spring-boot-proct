@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ****************************************************************************
+ *                                                            *
+ * **************************************************************************
+-->
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <!--
+    This file contains the configuration of the user profile management bean.
+    The beans configured in this file should be made available
+    -->
+
+    <!--
+    Bean that manages the user profile. User's security principal is set in the web application in
+    an interceptor and thus will be made available to all classes that refer to this bean. This bean also
+    makes access to the user's profile attributes feasible as well as maintenance of a few of them.
+
+    This bean is not the administrative user maintenance bean.
+
+    TODO consider moving some of the bean attributes that are set using system properties into this file.
+    -->
+
+    <bean id="userProfile" class="abc.xyz.pts.bcs.common.business.impl.SSOUserProfile" />
+</beans>

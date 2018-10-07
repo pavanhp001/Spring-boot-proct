@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!--
+		****************************************************************************
+		* xyz - CONFIDENTIAL *
+		****************************************************************************
+	-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="listTargetItemsWrapper"
+		class="abc.xyz.pts.bcs.wi.dao.impl.DefaultListTargetItemsWrapper">
+		<constructor-arg ref="targetMatcherResolver" index="0" />
+		<constructor-arg value="${iir.service.enabled}" index="1" />
+	</bean>
+
+
+	<bean id="iirConnectionPool" class="abc.xyz.pts.bcs.wi.iir.connection.IIRConnectionPool"
+		destroy-method="closeAllConnections" scope="singleton">
+		<constructor-arg index="0"
+			value="${iir.connectionserver.primary.host}" type="java.lang.String" />
+		<constructor-arg index="1"
+			value="${iir.connectionserver.primary.port}" type="java.lang.Integer" />
+		<constructor-arg index="2"
+			value="${iir.connectionserver.secondary.host}" type="java.lang.String" />
+		<constructor-arg index="3"
+			value="${iir.connectionserver.secondary.port}" type="java.lang.Integer" />
+		<constructor-arg index="4" value="${iir.system.name}"
+			type="java.lang.String" />
+		<constructor-arg index="5" value="${iir.username}"
+			type="java.lang.String" />
+		<constructor-arg index="6" value="${iir.password}"
+			type="java.lang.String" />
+		<constructor-arg index="7" value="${iir.rulebase.number}"
+			type="java.lang.Integer" />
+		<constructor-arg index="8" value="${iir.service}"
+			type="java.lang.String" />
+		<constructor-arg index="9" value="${iir.timeout.milliseconds}"
+			type="java.lang.Integer" />
+		<constructor-arg index="10" value="${iir.poolsize.initial}"
+			type="java.lang.Integer" />
+		<constructor-arg index="11" value="${iir.poolsize.max}"
+			type="java.lang.Integer" />
+		<constructor-arg index="12" value="" type="java.lang.String" /> <!--  iir.system.options? -->
+	</bean>
+
+	<bean id="iirSearch" class="abc.xyz.pts.bcs.wi.iir.search.IIRSearchImpl">
+		<property name="iirConnectionPool" ref="iirConnectionPool" />
+		<property name="iirSearchName" value="${iir.searchname.default}" />
+		<property name="iirSearchWidth" value="${iir.searchwidth}" />
+		<property name="iirMatchTolerance" value="${iir.match.tolerance}" />
+	</bean>
+
+	<bean id="watchlistSearch" class="abc.xyz.pts.bcs.wi.business.impl.WatchlistSearchImpl">
+		<property name="thresholdDocSearch" value="${wi.threshold.doc.search}" />
+		<property name="thresholdIIRSearch" value="${wi.threshold.iir.search}" />
+	</bean>
+
+</beans>
+

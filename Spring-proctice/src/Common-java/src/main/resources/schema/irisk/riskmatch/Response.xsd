@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+	jaxb:version="2.0"
+	xmlns:sdii="sdi-interface"
+	xmlns:tra="travelList"
+	xmlns:fls="fls-type"
+	targetNamespace="sdi-interface">
+	
+
+	<xs:import namespace="travelList" schemaLocation="Request.xsd" />
+	  <xs:annotation>
+	    <xs:appinfo>
+	      <jaxb:schemaBindings>
+	        <jaxb:package name="abc.xyz.pts.bcs.irisk.mvo.riskmatch"/>
+	      </jaxb:schemaBindings>
+	      <jaxb:property>
+	        <jaxb:javadoc>entity</jaxb:javadoc>
+	      </jaxb:property>
+	    </xs:appinfo>
+	  </xs:annotation>
+	
+	<xs:import namespace="fls-type" schemaLocation="../common/flightSegmentSummary.xsd"/>
+	<xs:element name="response">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="messageId" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="serviceType" type="sdii:ServiceType" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="travellerMatches" type="sdii:TravellerMatch" minOccurs="0" maxOccurs="unbounded"/>
+				<!-- Only used by screen scrapping solution -->
+  				<xs:element name="resultsType" type="sdii:ResultsType" minOccurs="1" maxOccurs="1" />
+				<xs:element name="request" type="tra:Traveller" minOccurs="1" maxOccurs="unbounded" />
+				<xs:element name="flightSegmentSummary" type="fls:FlightSegmentSummary" minOccurs="1" maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:simpleType name="ServiceType">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="WI" />
+			<xs:enumeration value="APP" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ResponseStatusType">
+		<xs:restriction   base="xs:NMTOKEN">
+				<xs:enumeration value="SUCCESS"/>
+				<xs:enumeration value="FAILURE"/>
+				<xs:enumeration value="PARTIAL"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="TravellerMatch">
+		<xs:sequence>
+				<xs:element name="traId" type="xs:long" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="nameMatches" type="sdii:NameMatch" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="documentMatches" type="sdii:DocumentMatch" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="wiMatches" type="sdii:Match" minOccurs="0" maxOccurs="unbounded"/>
+				<!-- Only used by IBM solution -->
+				<xs:element name="errorMessages" type="sdii:RiskMessageType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="NameMatch">
+		<xs:sequence>
+		
+			<!--  COMMON PROPERTIES -->			
+			<xs:element name="crimeCode" type="xs:string" minOccurs="0" maxOccurs="1"/>			
+			<xs:element name="crimeCodeDesc" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="birthDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
+  			<!-- Begin BirthDay fields -->
+			<xs:element name="birthDateIndicator" type="xs:int" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="birthYear" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="birthMonth" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="birthDay" type="xs:string" minOccurs="0" maxOccurs="1"/>
+  			<!-- End BirthDay fields -->
+			<xs:element name="source" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="sourceType" type="xs:string" minOccurs="0" maxOccurs="1"/>			
+			<xs:element name="forename" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="lastName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<!-- Only used by IBM solution -->
+			<xs:element name="schengenId" type="xs:string" minOccurs="0" maxOccurs="1" />
+			
+			<!-- SDI EXCLUSIVE PROPERTIES -->			
+			<xs:element name="sdiRefNo" type="xs:string" minOccurs="0" maxOccurs="1"/>				
+			<xs:element name="taxCode" type="xs:string" minOccurs="0" maxOccurs="1"/>				
+			<!-- Only used by screen scrapping solution -->
+			<xs:element name="noOfPreviousCrimes" type="xs:int" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="birthProvinceCode" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="permitFlag" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<!-- BEGIN Only used by IBM solution -->
+			<xs:element name="birthPlaceCode" type="xs:long" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="birthCntryCode" type="xs:long" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="birthCntryDesc" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<!-- END Only used by IBM -->
+
+			<!-- NSIS EXCLUSIVE PROPERTIES -->		
+			<xs:element name="identityCategoryCode" type="xs:string" minOccurs="0" maxOccurs="1"/>	
+			<xs:element name="identityCategoryDesc" type="xs:string" minOccurs="0" maxOccurs="1"/>				
+			<xs:element name="characteristicCode" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="characteristicDesc" type="xs:string" minOccurs="0" maxOccurs="1"/>	
+			<xs:element name="birthPlace" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="nationality" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="nationalityDesc" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="articleCode" type="xs:string" minOccurs="0" maxOccurs="1"/>		
+			<xs:element name="actionCode" type="xs:string" minOccurs="0" maxOccurs="1"/>						
+			<xs:element name="actionToBeTaken" type="xs:string" minOccurs="0" maxOccurs="1"/>
+						
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="DocumentMatch">
+		<xs:sequence>
+			<!--  COMMON PROPERTIES -->	
+			<xs:element name="crimeCode" type="xs:string" minOccurs="0" maxOccurs="1"/>			
+			<xs:element name="crimeCodeDesc" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="source" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="sourceType" type="xs:string" minOccurs="0" maxOccurs="1"/>			
+  			<xs:element name="birthDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
+  			<!-- Begin BirthDay fields -->
+			<xs:element name="birthDateIndicator" type="xs:int" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="birthYear" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="birthMonth" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="birthDay" type="xs:string" minOccurs="0" maxOccurs="1"/>
+  			<!-- End BirthDay fields -->
+			<xs:element name="docNo" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="docDesc" type="xs:string" minOccurs="0" maxOccurs="1"/>			
+			<xs:element name="docIssueCityCode" type="xs:long" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="docIssueCityDesc" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="docType" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			
+			<!-- SDI EXCLUSIVE PROPERTIES -->			
+			<xs:element name="sdiRefNo" type="xs:string" minOccurs="0" maxOccurs="1"/>		
+			<xs:element name="docIssueProvinceCode" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="docIssueCntryCode" type="xs:long" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="docIssueCntryDesc" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="birthCountryCode" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="birthCountryDesc" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="birthPlace" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			
+			<!-- NSIS EXCLUSIVE PROPERTIES -->	
+			<xs:element name="schengenId" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="surname" type="xs:string" minOccurs="0" maxOccurs="1"/>						
+			<xs:element name="nationality" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="nationalityDesc" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="articleCode" type="xs:string" minOccurs="0" maxOccurs="1"/>					
+			<xs:element name="actionCode" type="xs:string" minOccurs="0" maxOccurs="1"/>						
+			<xs:element name="actionToBeTaken" type="xs:string" minOccurs="0" maxOccurs="1"/>			
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Match">
+		<xs:sequence>
+			<xs:element name="forename" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="lastName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="percentageMatch" type="xs:double" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="lastUpdated" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="birthDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="alertMatchType" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="birthCountry" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="documentIssueCountry" type="xs:string" minOccurs="0" maxOccurs="1"/>		
+			<xs:element name="birthPlace" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="nationality" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="actionToBeTaken" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="gender" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="docType" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="docNo" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="protocolNumber" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="rescCode" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="severityLevel" type="xs:long" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="watlName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="clearedDocumentsId" type="xs:long" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="autoQualify" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="id" type="xs:long" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+<!-- Only used by screen scrapping solution -->
+    <xs:complexType name="ResultsType">
+        <xs:sequence>
+                     <xs:element name="messageType" type="sdii:RiskMessageType" minOccurs="0" maxOccurs="unbounded"/>				
+        </xs:sequence>
+        <xs:attribute name="status" type="sdii:ResponseStatusType"/>        
+	</xs:complexType>
+
+ 	<xs:complexType name="RiskMessageType">
+	     <xs:sequence>
+	         <xs:element name="errorField" nillable="true" type="xs:string"/>
+	         <xs:element name="errorCode" nillable="true" type="xs:string"/>
+	         <xs:element name="message" nillable="true" type="xs:string"/>
+	         <xs:element name="errorTrace" nillable="true" type="xs:string"/>
+	         <!-- Search Response Id -->
+	         <xs:element name="searId" nillable="true" type="xs:long" />
+	     </xs:sequence>
+  	</xs:complexType>
+</xs:schema>

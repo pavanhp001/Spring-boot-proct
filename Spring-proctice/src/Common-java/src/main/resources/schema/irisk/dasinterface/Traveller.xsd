@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+	targetNamespace="traveller" xmlns:utr="traveller"
+	jaxb:version="2.0">
+
+	
+	<!-- Essential utr message specific to irisk  -->
+	<xs:element name="traveller">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="flightSegId" type="xs:long" minOccurs="1" maxOccurs="1" />
+				<xs:element name="traId" type="xs:long" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

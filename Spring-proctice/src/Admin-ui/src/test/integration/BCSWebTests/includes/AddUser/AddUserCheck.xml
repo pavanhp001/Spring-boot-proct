@@ -1,0 +1,3 @@
+<not description="No validation failure">
+	<verifyText description="Validation failure" text="pageErrors" />
+</not>

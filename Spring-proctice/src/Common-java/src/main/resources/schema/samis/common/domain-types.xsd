@@ -1,0 +1,853 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 rel. 3 sp1 (http://www.altova.com) by Mohammad Hassan (xyz) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:ext="http://tools.bms.pts.xyz.com/xjcplugin/markentities" xmlns:ext2="http://tools.bms.pts.xyz.com/xjcplugin/markentities/entity" xmlns:do="domain-types" xmlns:st="string-types" xmlns:nt="numeric-types" xmlns:dt="datetime-types" targetNamespace="domain-types" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.1" jaxb:version="2.0" jaxb:extensionBindingPrefixes="xjc ext ext2">
+	<!-- -->
+	<!-- -->
+	<xs:annotation>
+		<xs:appinfo>
+			<jaxb:schemaBindings>
+				<jaxb:package name="abc.xyz.pts.bcs.samis.model.generated.output.common"/>
+			</jaxb:schemaBindings>
+			<jaxb:property>
+				<jaxb:javadoc>entity,violations,errorreporting</jaxb:javadoc>
+			</jaxb:property>
+		</xs:appinfo>
+	</xs:annotation>
+	<!-- -->
+	<!-- -->
+	<xs:import namespace="string-types" schemaLocation="../common/string-types.xsd"/>
+	<xs:import namespace="numeric-types" schemaLocation="../common/numeric-types.xsd"/>
+	<xs:import namespace="datetime-types" schemaLocation="../common/datetime-types.xsd"/>
+	<!--
+	<xs:import namespace="risk-types" schemaLocation="../common/risk-types.xsd"/>
+	 -->
+	<!-- -->
+	<!-- -->
+	<!-- Airline code 2 letters or 3 letters AN(3) -->
+	<!-- Airline code 3 letters AN(3) -->
+	<xs:simpleType name="CARRIER_CODE_TYPE">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(\w{2,3})">
+				<xs:annotation>
+					<xs:appinfo>
+						<ext:default/>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<!-- fare_basis.  AN(25) -->
+	<xs:simpleType name="FARE_BASE_TYPE">
+		<xs:restriction base="xs:string">
+			<xs:pattern value=".{0,25}">
+				<xs:annotation>
+					<xs:appinfo>
+						<ext:default/>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<!-- Flight Numbers support IATA and ICAO format - 4 or 5 characters -->
+	<xs:simpleType name="FLIGHT_NUMBER_TYPE">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(.{4,5})">
+				<xs:annotation>
+					<xs:appinfo>
+						<ext:default/>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<!-- Transport ID. Can be flight, vessel or bus number depending on transportation type -->
+	<xs:simpleType name="ServiceNumberType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(.{1,10})">
+				<xs:annotation>
+					<xs:appinfo>
+						<ext:default/>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<!-- Transport Name. Can be vessel name (sea transport)  -->
+	<xs:simpleType name="ServiceNameType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(.{1,20})">
+				<xs:annotation>
+					<xs:appinfo>
+						<ext:default/>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<!-- Airport Codes support IATA and ICAO format - 3 or 4 characters -->
+	<xs:simpleType name="AIRPORT_CODE_TYPE">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(.{3,4})">
+				<xs:annotation>
+					<xs:appinfo>
+						<ext:default/>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- IATA Country code, Alpha(2) -->
+	<xs:simpleType name="IATA_COUNTRY_CODE_TYPE">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([a-z,A-Z]{2})">
+				<xs:annotation>
+					<xs:appinfo>
+						<ext:default/>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<!-- Generally ISO 3166 Country code, Alpha(3), with additions as defined by ICAO Document 9303 -->
+	<!-- GBD: British dependent territories citizen(note: the country code of the overseas territory is presently used to indicate issuing authority and nationality of BOTC) -->
+	<!-- GBN: British National (Overseas) -->
+	<!-- GBO: British Overseas citizen -->
+	<!-- GBP: British protected person -->
+	<!-- GBS: British subject -->
+	<!-- UNA: specialized agency of the United Nations -->
+	<!-- UNK: resident of Kosovo to whom a travel document has been issued by the United Nations Interim Administration Mission in Kosovo (UNMIK) -->
+	<!-- UNO: United Nations Organization -->
+	<!-- XOM: Sovereign Military Order of Malta -->
+	<!-- XXA: stateless person, as per the 1954 Convention Relating to the Status of Stateless Persons -->
+	<!-- XXB: refugee, as per the 1951 Convention Relating to the Status of Refugees -->
+	<!-- XXC: refugee, other than defined above -->
+	<!-- XXX: unspecified nationality -->
+	<!-- -->
+	<!-- Please note, Germany is sent as DEU  -->
+	<!-- -->
+	<xs:simpleType name="ISO_COUNTRY_CODE_TYPE">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(.{3})">
+				<xs:annotation>
+					<xs:appinfo>
+						<ext:default/>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<!-- IATA Airport code, Alpha(3) -->
+	<xs:simpleType name="IATA_AIRPORT_CODE_TYPE">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([a-z,A-Z]{3})">
+				<xs:annotation>
+					<xs:appinfo>
+						<ext:default/>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<!-- -->
+	<!-- Travel Document Types -->
+	<xs:simpleType name="TRAVELDOC_TYPE">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="P">
+				<xs:annotation>
+					<xs:documentation>Passport</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="O">
+				<xs:annotation>
+					<xs:documentation>Other (Can be used in APP to mean "not a Passport")</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="V">
+				<xs:annotation>
+					<xs:documentation>Visa</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="A">
+				<xs:annotation>
+					<xs:documentation>AlienReg</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="F">
+				<xs:annotation>
+					<xs:documentation>FacilDoc</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="M">
+				<xs:annotation>
+					<xs:documentation>MilitID</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="T">
+				<xs:annotation>
+					<xs:documentation>TravDoc</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="C">
+				<xs:annotation>
+					<xs:documentation>PermRes</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="U">
+				<xs:annotation>
+					<xs:appinfo>
+						<ext:default/>
+					</xs:appinfo>
+					<xs:documentation>Unknown</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="I">
+				<xs:annotation>
+					<xs:appinfo>
+						<ext:default/>
+					</xs:appinfo>
+					<xs:documentation>ID Card</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<xs:simpleType name="GENDER_TYPE">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="M"/>
+			<xs:enumeration value="F"/>
+			<xs:enumeration value="U">
+				<xs:annotation>
+					<xs:appinfo>
+						<ext:default/>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<xs:simpleType name="STATUS_TYPE">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="PAX"/>
+			<xs:enumeration value="CRW"/>
+			<xs:enumeration value="ITP"/>
+			<xs:enumeration value="ITC"/>
+			<xs:enumeration value="">
+				<xs:annotation>
+					<xs:appinfo>
+						<ext:default/>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<xs:simpleType name="LINKAGE_TYPE">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="9"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<xs:simpleType name="TAG_TYPE">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="L"/>
+			<xs:enumeration value="T"/>
+			<xs:enumeration value="C"/>
+			<xs:enumeration value="M"/>
+			<xs:enumeration value="E"/>
+			<xs:enumeration value="I"/>
+			<xs:enumeration value="R"/>
+			<xs:enumeration value="A"/>
+			<xs:enumeration value="O"/>
+			<xs:enumeration value="">
+				<xs:annotation>
+					<xs:appinfo>
+						<ext:default/>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<!-- Included for TCCI reg test -->
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<xs:simpleType name="TKT_STATUS_TYPE">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="OK"/>
+			<xs:enumeration value="WL"/>
+			<xs:enumeration value="SA"/>
+			<xs:enumeration value="OP"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<xs:simpleType name="ERRSEV_TYPE">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="I"/>
+			<xs:enumeration value="W"/>
+			<xs:enumeration value="E"/>
+			<xs:enumeration value="S"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<xs:complexType name="AMOUNT_TYPE">
+		<xs:sequence>
+			<xs:element name="currency" type="do:CURRENCY_TYPE" minOccurs="0"/>
+			<xs:element name="dollars" type="do:DOLLARS_TYPE" minOccurs="0"/>
+			<xs:element name="cents" type="do:CENTS_TYPE" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- -->
+	<xs:simpleType name="CURRENCY_TYPE">
+		<xs:restriction base="xs:string">
+			<xs:pattern value=".{0,3}">
+				<xs:annotation>
+					<xs:appinfo>
+						<ext:default/>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<xs:simpleType name="DOLLARS_TYPE">
+		<xs:restriction base="xs:decimal"/>
+	</xs:simpleType>
+	<!-- -->
+	<xs:simpleType name="CENTS_TYPE">
+		<xs:restriction base="xs:decimal"/>
+	</xs:simpleType>
+	<!-- -->
+	<xs:simpleType name="Codeshare_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Parent"/>
+			<xs:enumeration value="Child"/>
+			<xs:enumeration value="NA">
+				<xs:annotation>
+					<xs:appinfo>
+						<ext:default/>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<!-- iDetect DB TRAVELLER_TYPE used in place of STATUS_TYPE -->
+	<xs:simpleType name="TRAVELLER_TYPE">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="U">
+				<xs:annotation>
+					<xs:appinfo>
+						<ext:default/>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="P"/>
+			<xs:enumeration value="C"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- iDetect DB TRAVELLER_SUB_TYPE used to qualify the TRAVELLER_TYPE -->
+	<xs:simpleType name="TRAVELLER_SUB_TYPE">
+		<xs:annotation>
+			<xs:documentation>“P” = Passenger
+“C” = Operating crew
+“X” = Positioning crew
+"Y" = Unknown</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="U">
+				<xs:annotation>
+					<xs:appinfo>
+						<ext:default/>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="P"/>
+			<xs:enumeration value="C"/>
+			<xs:enumeration value="X"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--  Carrier Processing Information on data permitted for processing -->
+	<xs:complexType name="CARRIER_PROCESSING_INFO">
+		<xs:sequence>
+			<xs:element name="RuleId" type="nt:PrimaryIdType"/>
+			<xs:element name="BCSUserName" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- xs:complexType name="IRISK_CARRIER_PROCESSING_INFO">
+    <xs:complexContent>
+      <xs:extension base="do:CARRIER_PROCESSING_INFO">
+        <xs:sequence>
+          <xs:element name="SDIUserName" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType-->
+	<!-- TravelDocumentList and TravelDocument complexTypes -->
+	<xs:complexType name="TravelDocumentsListType">
+		<xs:sequence>
+			<xs:element name="TravelDocument" type="do:TravelDocumentType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--  -->
+	<xs:complexType name="TravelDocumentType">
+		<xs:sequence>
+			<xs:element name="DocumentType" type="do:TRAVELDOC_TYPE" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Type of Travel Document.
+Possible values:
+
+P - Passport
+O - Other
+V - Visa
+A - Alien Registration
+F - Facil Document
+M - Military ID
+T - Travel Document
+C - Permenant Residence
+U - Unknown
+I - ID Card
+
+
+</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DocumentSubType" type="st:STR10_TYPE" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Optional sub-type. Could identify a type of visa for instance.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DocumentNo" type="st:STR35_TYPE" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Travel document number</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DocumentIssuePlace" type="st:STR80_TYPE" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Travel document place of issue</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DocumentProvince" type="st:STR2_TYPE" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Travel document province of issue</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DocumentIssueCountry" type="do:ISO_COUNTRY_CODE_TYPE" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Travel document country of issue</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DocumentNationality" type="do:ISO_COUNTRY_CODE_TYPE" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Document nationality as ISO country code</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DocumentGender" type="do:GENDER_TYPE" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Gender of document holder.
+Possible values:
+
+M - Male
+F - Female
+U - Unknown</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DocumentIssueDate" type="xs:date" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Travel Document Issue Date</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DocumentExpiryDate" type="xs:date" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Travel Document Expiry Date</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DocumentStatus" type="do:RefDataStatusType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Calculated status of Travel Document data.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!--  -->
+	<!--  -->
+	<!-- Traveller Count -->
+	<xs:simpleType name="TravellerCountType">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--  -->
+	<xs:complexType name="ExtraJourneyInfoType">
+		<xs:sequence>
+			<xs:element name="Port" type="do:LocationCode">
+				<xs:annotation>
+					<xs:documentation>Location code.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CarrierCode" type="do:CarrierCodeType">
+				<xs:annotation>
+					<xs:documentation>Unique identifier for the transportation Carrier</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ServiceNumber" type="do:ServiceNumberType">
+				<xs:annotation>
+					<xs:documentation>Unique identifier for the service
+Air - Flight number
+General Aviation - Aircraft Call Sign
+Sea - IMO number
+Land - Service Number</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DateTime" type="dt:DATE19_TYPE">
+				<xs:annotation>
+					<xs:documentation>Significant date/time stamp</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!--  -->
+	<xs:simpleType name="TypeOfMovementType">
+		<xs:restriction base="st:STRING_TYPE">
+			<xs:enumeration value="Intended"/>
+			<xs:enumeration value="Expected"/>
+			<xs:enumeration value="Denied"/>
+			<xs:enumeration value="Cancelled"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="TravellerIdentityType">
+		<xs:annotation>
+			<xs:documentation>Contains details of a Traveller's Identity.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="FamilyName" type="st:STR64_TYPE">
+				<xs:annotation>
+					<xs:documentation>Traveller Family Name.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GivenNames" type="st:STR64_TYPE">
+				<xs:annotation>
+					<xs:documentation>Traveller's Given Names.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Gender" type="do:GENDER_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Traveller gender.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BirthDate" type="st:STR8_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Contains the Date of Birth of the traveller.  Format is:
+- YYYYMMDD for full date
+- YYYYMM for unknown day of month
+- YYYY for unknown month and day of month.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BirthCountry" type="do:ISO_COUNTRY_CODE_TYPE" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Country of Birth, of the traveller. (ISO/ICAO 3-character code)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BirthPlace" type="st:STR80_TYPE" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Place of birth</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BirthPlaceProvinceCode" type="st:STR2_TYPE" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Identifies the province within the Country of Birth.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Nationality" type="do:ISO_COUNTRY_CODE_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Nationality of the traveller. (ISO/ICAO 3-character code)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PrimaryAddress" type="do:AddressType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Traveller's Primary Address</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResidentCntryCode" type="do:ISO_COUNTRY_CODE_TYPE" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Traveller's country of residency.  (ISO/ICAO 3-character code)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TravelDocumentList" type="do:TravelDocumentsListType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The list of the traveller's travel documents.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="MovementDirectionType">
+		<xs:restriction base="st:STRING_TYPE">
+			<xs:enumeration value="In"/>
+			<xs:enumeration value="Out"/>
+			<xs:enumeration value="Domestic"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TypeOfTravelType">
+		<xs:restriction base="st:STRING_TYPE">
+			<xs:enumeration value="Normal">
+				<xs:annotation>
+					<xs:documentation>Normal arrival or departure.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Transit">
+				<xs:annotation>
+					<xs:documentation>A single flight on which the person arrives in and departs from the country without crossing the primary line.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Transfer">
+				<xs:annotation>
+					<xs:documentation>Person arrives in the country on one flight and departs on another flight without crossing the primary line.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="AddressType">
+		<xs:sequence>
+			<xs:element name="AddrCityName" type="st:STR35_TYPE" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Address City Name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AddrCntryCode" type="do:ISO_COUNTRY_CODE_TYPE" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Address Country Code. (ISO/ICAO 3-character code)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AddrPostcode" type="st:STR17_TYPE" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Address Postal Code</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AddrState" type="st:STR35_TYPE" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Address State</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AddrStateCode" type="st:STR9_TYPE" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Address State Code</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AddrStreetNameNo" type="st:STR200_TYPE" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Street address - includes house name/number and street name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="CarrierType">
+		<xs:restriction base="st:STRING_TYPE">
+			<xs:enumeration value="Air"/>
+			<xs:enumeration value="GeneralAviation"/>
+			<xs:enumeration value="Sea"/>
+			<xs:enumeration value="Bus"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Airline code 2 letters or 3 letters AN(3) -->
+	<!-- Airline code 3 letters AN(3) -->
+	<!-- Should also be expanded to accomodate for Sea and Land carriers-->
+	<xs:simpleType name="CarrierCodeType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(\w{2,3})"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Location Code, Alpha(5) -->
+	<!-- Supports: -->
+	<!-- IATA Airport Codes, Alpha(3) -->
+	<!-- ICAO Airport Codes, Alpha(4) -->
+	<!-- UN Location Codes, Alpha(5) -->
+	<xs:simpleType name="LocationCode">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([a-z,A-Z]{3,5})">
+				<xs:annotation>
+					<xs:appinfo>
+						<ext:default/>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+	<xs:complexType name="JourneyInformationType">
+		<xs:annotation>
+			<xs:documentation>Contains the details of the journey leg that the traveller is on.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="JourneyLegReference" type="nt:ReferenceIdType">
+				<xs:annotation>
+					<xs:documentation>Unique reference for this journey leg.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CarrierType" type="do:CarrierType">
+				<xs:annotation>
+					<xs:documentation>Air, General Aviation, Bus or Sea</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CarrierCode" type="do:CarrierCodeType">
+				<xs:annotation>
+					<xs:documentation>Unique identifier for the transportation Carrier</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ServiceNumber" type="do:ServiceNumberType">
+				<xs:annotation>
+					<xs:documentation>Unique identifier for the transportation
+Air - Flight number
+General Aviation - Aircraft Call Sign
+Sea - IMO number
+Land - Service Number</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ServiceName" type="do:ServiceNameType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Name of the transportation where applicable. E.g. vessel name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VesselRegistrationCountry" type="do:ISO_COUNTRY_CODE_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Country where the Vessel is registered - also referred to as Vessel Flag Country</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OriginPort" type="do:LocationCode">
+				<xs:annotation>
+					<xs:documentation>Location code for the origin of the journey.  For a multi-leg flight, this will be the departure point of the first leg.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DeparturePort" type="do:LocationCode">
+				<xs:annotation>
+					<xs:documentation>Location code of departure port for the transportation leg.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ScheduledDepDateTime" type="dt:DATE19_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Scheduled departure date and time for the transportation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RRDeparturePort" type="do:LocationCode" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Location code of the rerouted departure port for the transportation leg.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TransBorderPort" type="do:LocationCode" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Port where traveller crossed the border into the destination country</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ArrivalPort" type="do:LocationCode">
+				<xs:annotation>
+					<xs:documentation>Location code for the arrival of the transportation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ScheduledArrDateTime" type="dt:DATE19_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Scheduled arrival date and time for the transportation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RRArrivalPort" type="do:LocationCode" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Location code for the rerouted arrival port of the transportation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DestinationPort" type="do:LocationCode">
+				<xs:annotation>
+					<xs:documentation>Final destination of the transportation service</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ServiceClosedForCheckIn" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Boolean flag to indicate whether the transport service has closed for check in.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TravellerJourneyDetailsType">
+		<xs:annotation>
+			<xs:documentation>Contains details of the Travellers journey or transportation.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="TravellerType" type="do:TRAVELLER_TYPE">
+				<xs:annotation>
+					<xs:documentation>The type of traveller, e.g. passenger or crew</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TravellerSubType" type="do:TRAVELLER_SUB_TYPE" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Can be used to qualify the TravellerType above.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MovementDirection" type="do:MovementDirectionType">
+				<xs:annotation>
+					<xs:documentation>Direction of the movement. Can be In, Out or Domestic</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TypeOfTravel" type="do:TypeOfTravelType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Normal, Transit or Transfer</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PNRSource" type="st:STR3_TYPE" minOccurs="0"/>
+			<xs:element name="PNRLocator" type="st:STR10_TYPE" minOccurs="0"/>
+			<xs:element name="PassengerReference" type="st:STR25_TYPE" minOccurs="0"/>
+			<xs:element name="BoardPoint" type="do:LocationCode" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The location code where the traveller boards the transport. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OffPoint" type="do:LocationCode" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The location code where the traveller leaves the transport.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExpectedPort" type="do:LocationCode" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The location code where the traveller will typically clear customs and immigrational control </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SeatNumber" type="st:STR4_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Seat number allocated to the traveller upon check-in</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="RefDataStatusType">
+		<xs:restriction base="st:STRING_TYPE">
+			<xs:enumeration value="Valid">
+				<xs:annotation>
+					<xs:documentation>Data found and valid</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Expired">
+				<xs:annotation>
+					<xs:documentation>Data found and expired</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NotFound">
+				<xs:annotation>
+					<xs:documentation>Data not found</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="FoundInvalid">
+				<xs:annotation>
+					<xs:documentation>Data found and is invalid</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Unknown">
+				<xs:annotation>
+					<xs:documentation>Data status is unknown</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

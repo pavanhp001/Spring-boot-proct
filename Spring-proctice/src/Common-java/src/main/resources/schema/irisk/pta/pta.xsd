@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+	targetNamespace="permissionToAssess" xmlns:pta="permissionToAssess"
+	elementFormDefault="unqualified"
+	attributeFormDefault="unqualified"
+	jaxb:version="2.0"
+>
+
+	<xs:element name="permissionToAssess">
+		<xs:complexType>
+			<xs:all minOccurs="0">
+				<xs:element name="messageId" type="xs:string"/>
+				<xs:element name="source" type="pta:Source"/>
+				<xs:element name="sdiUser" type="xs:token" minOccurs="1"/>
+				<xs:element name="sdiPassword" type="xs:token" minOccurs="0"/>
+				<xs:element name="flightSegments" type="pta:IdList"/>
+				<xs:element name="traIds" type="pta:IdList"/>
+				<xs:element name="airport" type="pta:Airport" minOccurs="0" maxOccurs="1"/>
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="AssessTravellerRequest">
+		<xs:complexType>
+			<xs:all minOccurs="0">
+				<xs:element name="messageId" type="xs:string"/>
+				<xs:element name="source" type="pta:Source"/>
+				<xs:element name="flightSegment" type="xs:long"/>
+				<xs:element name="traId" type="xs:long"/>
+				<xs:element name="airport" type="pta:Airport" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="movementHit" minOccurs="0" maxOccurs="1">
+			        <xs:simpleType>
+			        	<xs:restriction base="xs:string">
+			            	<xs:enumeration value="T" />
+			            	<xs:enumeration value="F" />
+			          	</xs:restriction>
+			        </xs:simpleType>
+				</xs:element>
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:simpleType name="Airport">
+		<xs:restriction base="xs:token">
+			<xs:minLength value="1"/>
+      		<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="Source">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="UI" />
+			<xs:enumeration value="DAS" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="IdList">
+		<xs:sequence>
+			<xs:element name="id" type="xs:long" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

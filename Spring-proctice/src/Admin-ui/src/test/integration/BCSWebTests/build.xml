@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+
+<project name="BCSTest" default="init">
+
+	  <property file="${base.dir}/../Common-tools/base-build.properties" />
+	  <property file="test.properties" />
+	  <property file="${dd.output.file}" />
+	  <property name="webtest.home" value="${base.dir}/${webtest.dir}" />
+	  <import file="${webtest.home}/resources/webtest.xml" description="Import all functionalities for a full build"/>
+	  <property name="wt.testInWork" value="tests/allTests.xml"/>
+
+	  <property name="webtest.home.dir" value="${base.dir}" />
+	  <property name="wt.htmlReports.outputdir1" value="${webtest.home.dir}/${canoo.reports}" />
+	  <property name="wt.config.resultpath" value="${webtest.home.dir}/${canoo.reports}" />
+	  <property name="wt.resultpath" value="${webtest.home.dir}/${canoo.reports}" />
+
+	<target name="init">
+		<antcall target="wt.full" >
+			<param name="~wt.WebTest.dir" value="${base.dir}/${canoo.dir}"/>
+			<param name="webtest.home" value="${base.dir}/${webtest.dir}" />
+			<param name="wt.testInWork" value="tests/allTests.xml"/>
+			<param name="webtest.home.dir" value="${base.dir}" />
+			<param name="basedir" value="${base.dir}/${webtest.dir}" />
+			<param name="wt.htmlReports.outputdir1" value="${webtest.home.dir}/${canoo.reports}" />
+			<param name="wt.config.resultpath" value="${webtest.home.dir}/${canoo.reports}" />
+			<param name="wt.resultpath" value="${webtest.home.dir}/${canoo.reports}" />
+			<param name="wt.groovyTests.dir" value="${base.dir}/${webtest.dir}" />
+			<param name="test.host.name" value="${test.host.name}" />
+		</antcall>
+		
+	</target>
+
+</project>

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE form-validation PUBLIC
+    "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1//EN"
+    "http://jakarta.apache.org/commons/dtds/validator_1_1.dtd">
+
+<form-validation>
+    <formset>
+        <form name="adminUserSearchCommand">
+            <field property="requery" depends="RegEx">
+                <arg0 key="errors" />
+                <var>
+                    <var-name>regex</var-name>
+                    <var-value>[a-z]{0,5}</var-value>
+                </var>
+            </field>
+            <field property="pageNumber" depends="RegEx">
+                <arg0 key="errors" />
+                <var>
+                    <var-name>regex</var-name>
+                    <var-value>[0-9]{0,19}</var-value>
+                </var>
+            </field>
+            <field property="orderByColumn" depends="RegEx">
+                <arg0 key="errors" />
+                <var>
+                    <var-name>regex</var-name>
+                    <var-value>[a-zA-Z]{0,19}</var-value>
+                </var>
+            </field>
+            <field property="ascDesc" depends="RegEx">
+                <arg0 key="errors" />
+                <var>
+                    <var-name>regex</var-name>
+                    <var-value>(ASC|DESC)?</var-value>
+                </var>
+            </field>
+            <field property="totalRecordsRetrieved" depends="RegEx">
+                <arg0 key="errors" />
+                <var>
+                    <var-name>regex</var-name>
+                    <var-value>^[-]?[0-9]{0,19}</var-value>
+                </var>
+            </field>
+            <field property="user.username" depends="RegEx, maxlength">
+                <arg0 key="errors.invalid.userID" />
+                <var>
+                    <var-name>regex</var-name>
+                    <var-value>(^[a-zA-Z0-9]+([\-.][a-zA-Z0-9]+)?$)</var-value>
+                </var>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>35</var-value>
+                </var>
+            </field>
+            <field property="user.forename" depends="RegEx">
+                <arg0 key="errors.invalid.name.fore" />
+                <var>
+                    <var-name>regex</var-name>
+                    <var-value>(^[a-zA-Z\'\-\sàáèéìíòóùú]{1,35}$)</var-value>
+                </var>
+            </field>
+            <field property="user.lastname" depends="RegEx">
+                <arg0 key="errors.invalid.name.last" />
+                <var>
+                    <var-name>regex</var-name>
+                    <var-value>(^[a-zA-Z\'\-\sàáèéìíòóùú]{1,80}[\*]?$)</var-value>
+                </var>
+            </field>
+            
+            <field property="user.email" depends="email">
+                <arg0 key="errors.invalid.email" />
+            </field>
+            <field property="user.mobileNumber" depends="RegEx">
+                <arg0 key="errors.invalid.mobile" />
+                <var>
+                    <var-name>regex</var-name>
+                    <var-value>(^[0-9]{1,15}$)</var-value>
+                </var>
+            </field>
+            <field property="user.faxNumber" depends="RegEx">
+                <arg0 key="errors.invalid.fax" />
+                <var>
+                    <var-name>regex</var-name>
+                    <var-value>(^[0-9]{1,15}$)</var-value>
+                </var>
+            </field>
+            <field property="user.location" depends="RegEx">
+                <arg0 key="airport" />
+                <var>
+                    <var-name>regex</var-name>
+                    <var-value>(^[a-zA-Z]{3,4}$)</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="adminUserUpdateCommand">
+            <field property="user.username" depends="RegEx">
+                <arg0 key="errors.invalid.userID" />
+                <var>
+                    <var-name>regex</var-name>
+                    <var-value>(^[a-zA-Z0-9]+([\-.][a-zA-Z0-9]+)?$)</var-value>
+                </var>
+            </field>
+            <field property="user.forename" depends="required, RegEx">
+                <arg0 key="errors.invalid.name.fore" />
+                <var>
+                    <var-name>regex</var-name>
+                    <var-value>(^[a-zA-Z\'\-\sàáèéìíòóùú]{1,35}$)</var-value>
+                </var>
+            </field>
+            <field property="user.lastname" depends="required, RegEx">
+                <arg0 key="errors.invalid.name.last" />
+                <var>
+                    <var-name>regex</var-name>
+                    <var-value>([a-zA-Z\'\-\sàáèéìíòóùú]{1,80})?</var-value>
+                </var>
+            </field>
+            <field property="user.email" depends="required, email">
+                <arg0 key="errors.invalid.email" />
+            </field>
+            <field property="user.mobileNumber" depends="RegEx">
+                <arg0 key="errors.invalid.mobile" />
+                <var>
+                    <var-name>regex</var-name>
+                    <var-value>(^[0-9]{1,15}$)</var-value>
+                </var>
+            </field>
+            <field property="user.faxNumber" depends="RegEx">
+                <arg0 key="errors.invalid.fax" />
+                <var>
+                    <var-name>regex</var-name>
+                    <var-value>(^[0-9]{1,15}$)</var-value>
+                </var>
+            </field>
+            <field property="user.location" depends="RegEx">
+                <arg0 key="airport" />
+                <var>
+                    <var-name>regex</var-name>
+                    <var-value>(^[a-zA-Z]{3,4}$)</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="adminUserAddCommand">
+            <field property="user.username" depends="required, RegEx, maxlength, minlength">
+                <arg0 key="errors.invalid.userID" />
+                <var>
+                    <var-name>regex</var-name>
+                    <var-value>(^[a-zA-Z0-9]+([\-.][a-zA-Z0-9]+)?$)</var-value>
+                </var>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>35</var-value>
+                </var>
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>3</var-value>
+                </var>
+            </field>
+            <field property="user.forename" depends="required, RegEx">
+                <arg0 key="errors.invalid.name.fore" />
+                <var>
+                    <var-name>regex</var-name>
+                    <var-value>(^[a-zA-Z\'\-\sàáèéìíòóùú]{1,35}$)</var-value>
+                </var>
+            </field>
+            <field property="user.lastname" depends="required, RegEx">
+                <arg0 key="errors.invalid.name.last" />
+                <var>
+                    <var-name>regex</var-name>
+                    <var-value>([a-zA-Z\'\-\sàáèéìíòóùú]{1,80})?</var-value>
+                </var>
+            </field>
+            
+            <field property="user.email" depends="required, email">
+                <arg0 key="errors.invalid.email" />
+            </field>
+            <field property="user.mobileNumber" depends="RegEx">
+                <arg0 key="errors.invalid.mobile" />
+                <var>
+                    <var-name>regex</var-name>
+                    <var-value>(^[0-9]{1,15}$)</var-value>
+                </var>
+            </field>
+            <field property="user.faxNumber" depends="RegEx">
+                <arg0 key="errors.invalid.fax" />
+                <var>
+                    <var-name>regex</var-name>
+                    <var-value>(^[0-9]{1,15}$)</var-value>
+                </var>
+            </field>
+            <field property="user.location" depends="RegEx">
+                <arg0 key="airport" />
+                <var>
+                    <var-name>regex</var-name>
+                    <var-value>(^[a-zA-Z]{3,4}$)</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="adminChangePasswordCommand">
+            <field property="oldPassword" depends="required">
+                <arg0 key="password.old" />
+            </field>
+            <field property="newPassword" depends="required">
+                <arg0 key="password.new" />
+            </field>
+            <field property="confirmPassword" depends="required">
+                <arg0 key="password.confirm" />
+            </field>
+        </form>
+        <form name="adminUserProfileCommand">
+            <field property="user.username" depends="RegEx">
+                <arg0 key="username" />
+                <var>
+                    <var-name>regex</var-name>
+                    <var-value>(^[a-zA-Z0-9]+([\-.][a-zA-Z0-9]+)?$)</var-value>
+                </var>
+            </field>
+        </form>
+        <form name="userRoleDataCommand">
+            <field property="code" depends="required,RegEx">
+                <arg0 key="errors.invalid.user.role.code" />
+                <var>
+                    <var-name>regex</var-name>
+                    <var-value>[A-Z0-9]{0,10}</var-value>
+                </var>
+            </field> 
+            <field property="description" depends="required,RegEx">
+                <arg0 key="errors.invalid.description" />
+                <var>
+                    <var-name>regex</var-name>
+                    <var-value>[a-zA-Z0-9\'\-\s]{1,80}</var-value>
+                </var>
+            </field> 
+            <field property="descriptionLang" depends="required,RegEx">
+                <arg0 key="errors.invalid.description.lang" />
+                <var>
+                    <var-name>regex</var-name>
+                    <var-value>[\p{InArabic}0-9\'\-\s]{1,80}</var-value>
+                </var>
+            </field> 
+        </form>
+   </formset>
+</form-validation>

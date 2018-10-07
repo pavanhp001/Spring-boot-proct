@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ****************************************************************************
+ *                                                            *
+ * **************************************************************************
+-->
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <import resource="Common_Reports.xml"/>
+    <import resource="Common_Controllers.xml" />
+
+    <bean name="adminUserSearch.report" class="org.springframework.web.servlet.view.jasperreports.JasperReportsMultiFormatView" parent="baseReport">
+        <property name="url" value="/WEB-INF/classes/reports/adminUserSearch.jasper"/>
+    </bean>
+
+    <bean name="adminUserSearchRTL.report" class="org.springframework.web.servlet.view.jasperreports.JasperReportsMultiFormatView" parent="baseReport">
+        <property name="url" value="/WEB-INF/classes/reports/adminUserSearchRTL.jasper"/>
+    </bean>
+   
+</beans>

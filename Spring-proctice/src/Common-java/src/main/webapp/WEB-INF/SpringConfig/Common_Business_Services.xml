@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- **************************************************************************** 
+	*   * * ************************************************************************** -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+	
+	<bean id="jndiTemplate" class="abc.xyz.pts.bcs.common.jndi.BcsJndiTemplate" />
+
+	<bean id="emailService" class="abc.xyz.pts.bcs.common.mail.impl.EmailServiceImpl"
+		abstract="true">
+		<property name="encoding" value="utf-8" />
+		<property name="concurrentPropertyManager" ref="emailPropertiesManager" />
+		<property name="threadPoolSize" value="3" />
+		<property name="mailExceptionsIgnoreList" ref="mailExceptionsIgnoreList" />
+	</bean>
+
+	<!-- This bean is used to to hold the email properties to be used in conjunction 
+		with JavaMailSenderImpl -->
+	<bean id="emailPropertiesManager"
+		class="abc.xyz.pts.bcs.common.communication.impl.ConcurrentPropertyManager"
+		scope="singleton">
+		<constructor-arg>
+			<list>
+				<!-- To added new mail server config properties simply create another 
+					<props> like above. -->
+				<props>
+					<prop key="mail.smtp.connectiontimeout">${mailSender.timeout}</prop>
+					<prop key="mail.smtp.timeout">${mailSender.timeout}</prop>
+					<prop key="mail.host">${mailserver.host}</prop>
+				</props>
+			</list>
+		</constructor-arg>
+		<property name="passivationPeriod" value="${mailSender.passivation.period}" />
+	</bean>
+
+	<bean id="mailExceptionsIgnoreList" class="java.util.ArrayList"
+		scope="singleton">
+		<constructor-arg>
+			<list>
+				<value>javax.mail.SendFailedException: Invalid Addresses</value>
+			</list>
+		</constructor-arg>
+	</bean>	
+</beans>

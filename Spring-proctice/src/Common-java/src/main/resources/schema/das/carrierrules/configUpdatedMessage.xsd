@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+
+           	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	        xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+            jaxb:version="2.0"
+            xmlns:ext="http://tools.bms.pts.xyz.com/xjcplugin/markentities"
+            xmlns:ext2="http://tools.bms.pts.xyz.com/xjcplugin/markentities/entity"
+	 	    jaxb:extensionBindingPrefixes="xjc ext ext2"
+
+			targetNamespace="configUpdate"
+			xmlns:coup="configUpdate"
+			xmlns:ct="config-types"
+>
+
+	<!-- -->
+    <xs:annotation>
+       <xs:appinfo>
+          <jaxb:schemaBindings>
+           <jaxb:package name="com.xyz.pts.bms.idetectdas.model.generated.config"/>
+          </jaxb:schemaBindings>
+       </xs:appinfo>
+    </xs:annotation>
+	<!-- -->
+	<xs:import namespace="config-types" schemaLocation="config-types.xsd"/>
+	<xs:element name="ConfigurationUpdatedMessage" type="coup:ConfigurationUpdatedMessage"/>
+		
+	<xs:complexType name="ConfigurationUpdatedMessage">
+		<xs:annotation><xs:appinfo><ext:root/></xs:appinfo></xs:annotation>   
+		<xs:sequence>
+			<xs:element name="ConfigurationType" type="ct:CONFIGURATION_TYPE"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+
+</xs:schema>

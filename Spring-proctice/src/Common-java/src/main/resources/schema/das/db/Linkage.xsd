@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0"
+           elementFormDefault="unqualified"
+           attributeFormDefault="unqualified"	
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	       xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+           jaxb:version="2.0"
+           xmlns:ext="http://tools.bms.pts.xyz.com/xjcplugin/markentities"
+           xmlns:ext2="http://tools.bms.pts.xyz.com/xjcplugin/markentities/entity"
+		   jaxb:extensionBindingPrefixes="xjc ext ext2"
+		   
+           xmlns:lnk="lnk"
+           targetNamespace="lnk"
+
+           xmlns:st="string-types"
+		   xmlns:da="datetime-types"
+           xmlns:nu="numeric-types"
+           xmlns:do="domain-types"
+           xmlns:db="db-types"  >	
+  <!-- -->
+  <!-- -->
+  <xs:annotation>
+    <xs:appinfo>
+      <jaxb:schemaBindings>
+        <jaxb:package name="com.xyz.pts.bms.idetectdas.model.generated.output.idetectdb"/>
+      </jaxb:schemaBindings>
+            <jaxb:property>
+        <jaxb:javadoc>entity,violations,errorreporting</jaxb:javadoc>
+      </jaxb:property>
+      
+    </xs:appinfo>
+  </xs:annotation>
+  <!-- -->
+  <xs:import namespace="db-types" schemaLocation="idetectdb-types.xsd"/>
+  <xs:import namespace="string-types" schemaLocation="../common/string-types.xsd"/>
+  <xs:import namespace="datetime-types" schemaLocation="../common/datetime-types.xsd"/>
+  <xs:import namespace="numeric-types" schemaLocation="../common/numeric-types.xsd"/>
+  <xs:import namespace="domain-types" schemaLocation="../common/domain-types.xsd"/>
+  <!-- -->
+  <xs:element name="link" type="lnk:Linkage"/>
+   
+  <xs:complexType name="Linkage">
+    <xs:sequence>
+      <xs:element name="LinkageId" type="nu:PrimaryIdType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ApiStatus" type="db:ApiDataStatusType"/>
+      <xs:element name="DcsStatus" type="db:DataStatusType"/>
+      <xs:element name="PnrStatus" type="db:DataStatusType"/>
+      <xs:element name="ApiId" type="nu:PrimaryIdType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="NotPresentInLatestAPI" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="DcsId" type="nu:PrimaryIdType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PnrId" type="nu:PrimaryIdType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PnrNameIndex" type="nu:INT5_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ApiDcsPerc" type="db:PercentageType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ApiPnrPerc" type="db:PercentageType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="DcsPnrPerc" type="db:PercentageType" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
+

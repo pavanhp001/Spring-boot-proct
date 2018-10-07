@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	* **************************************************************************
+	*                                                            *
+	* **************************************************************************
+	* This code contains copyright information which is the proprietary property
+	* of xyz Application Solutions. No part of this code may be reproduced,
+	* stored or transmitted in any form without the prior written permission of
+	* xyz Application Solutions.
+	*
+	* Copyright xyz Application Solutions 2008
+	* All rights reserved.
+	*
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+	   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+	   http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+	   http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+
+	<bean id="pagingContextSource" class="org.springframework.ldap.pool.factory.MutablePoolingContextSource">
+	   <property name="contextSource" ref="contextSourceTarget" />
+	   <property name="dirContextValidator">
+	      <bean class="org.springframework.ldap.pool.validation.DefaultDirContextValidator" >
+	      	<property name="base" value="dc=pts,dc=xyz,dc=aero" />
+	      </bean>	   
+	   </property>
+	   <property name="maxTotal" value="1" />
+	   <property name="maxIdle" value="1"/>
+	   <property name="maxActive" value="1"/>
+	   <property name="minIdle" value="1"/>
+	   <property name="testOnBorrow" value="true"/>
+	   <property name="testWhileIdle" value="false"/>
+	   <property name="testOnReturn" value="false"/>
+	   <property name="whenExhaustedAction">
+	   		<util:constant static-field="org.apache.commons.pool.impl.GenericKeyedObjectPool.WHEN_EXHAUSTED_BLOCK" />
+	   </property>
+	</bean>
+	
+	<!-- this pool is used for all get operations. There are request controls added to the 
+	cached contexts that may upset update/delete operations. -->
+	<bean id="readOnlyContextSource" class="org.springframework.ldap.pool.factory.MutablePoolingContextSource">
+	   <property name="contextSource" ref="contextSourceTarget" />
+	   <property name="dirContextValidator">
+	      <bean class="org.springframework.ldap.pool.validation.DefaultDirContextValidator" >
+	      	<property name="base" value="dc=pts,dc=xyz,dc=aero" />
+	      </bean>
+	   </property>
+	   <property name="maxTotal" value="5" />
+	   <property name="maxIdle" value="2"/>
+	   <property name="maxActive" value="5"/>
+	   <property name="minIdle" value="1"/>
+	   <property name="testOnBorrow" value="true"/>
+	   <property name="testWhileIdle" value="false"/>
+	   <property name="testOnReturn" value="false"/>
+	   <property name="whenExhaustedAction">
+	   		<util:constant static-field="org.apache.commons.pool.impl.GenericKeyedObjectPool.WHEN_EXHAUSTED_BLOCK" />
+	   </property>
+	</bean>
+	
+	<bean id="contextSource" class="org.springframework.ldap.pool.factory.MutablePoolingContextSource">
+	   <property name="contextSource" ref="contextSourceTarget" />
+	   <property name="dirContextValidator">
+	      <bean class="org.springframework.ldap.pool.validation.DefaultDirContextValidator" >
+	      	<property name="base" value="dc=pts,dc=xyz,dc=aero" />
+	      </bean>	   
+	   </property>
+	   <property name="maxTotal" value="5" />
+	   <property name="maxIdle" value="2"/>
+	   <property name="maxActive" value="5"/>
+	   <property name="minIdle" value="1"/>
+	   <property name="testOnBorrow" value="true"/>
+	   <property name="testWhileIdle" value="false"/>
+	   <property name="testOnReturn" value="false"/>
+	   <property name="whenExhaustedAction">
+	   		<util:constant static-field="org.apache.commons.pool.impl.GenericKeyedObjectPool.WHEN_EXHAUSTED_BLOCK" />
+	   </property>
+	</bean>
+	
+	<bean id="contextSourceTarget"
+		class="org.springframework.ldap.core.support.LdapContextSource">
+		<property name="urls" value="${ldap.url} ${ldap.url2}" />
+		<property name="base" value="dc=pts,dc=xyz,dc=aero" />
+		<property name="userDn" value="${ldap.user}" />
+		<property name="password" value="${ldap.password}" />
+		<property name="pooled" value="false"/>
+            <property name="baseEnvironmentProperties">
+              <map>
+                <entry>
+                  <key>
+                    <value>com.sun.jndi.ldap.connect.timeout</value>
+                  </key>
+                  <value>${ldap.connect.timeout}</value>
+                </entry>
+              </map>
+            </property>
+	</bean>
+	
+	<bean id="cacheContextSource"
+		class="org.springframework.ldap.core.support.LdapContextSource">
+		<property name="urls" value="${ldap.url} ${ldap.url2}" />
+		<property name="base" value="dc=pts,dc=xyz,dc=aero" />
+		<property name="userDn" value="${ldap.user}" />
+		<property name="password" value="${ldap.password}" />
+		<property name="pooled" value="false"/>
+		<property name="dirObjectFactory">
+	         <null />
+	      </property>
+            <property name="baseEnvironmentProperties">
+              <map>
+                <entry>
+                  <key>
+                    <value>com.sun.jndi.ldap.connect.timeout</value>
+                  </key>
+                  <value>${ldap.connect.timeout}</value>
+                </entry>
+              </map>
+            </property>
+	</bean>
+	
+	<bean id="readOnlyLdapTemplate"
+		class="org.springframework.ldap.core.simple.SimpleLdapTemplate">
+		<constructor-arg ref="readOnlyContextSource" />
+	</bean>
+		
+</beans>

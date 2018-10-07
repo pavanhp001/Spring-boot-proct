@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			elementFormDefault="unqualified"
+			attributeFormDefault="unqualified"			
+
+           	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+            jaxb:version="2.0"
+            
+	        xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+
+            xmlns:ext="http://tools.bms.pts.xyz.com/xjcplugin/markentities"
+           xmlns:ext2="http://tools.bms.pts.xyz.com/xjcplugin/markentities/entity"
+		   jaxb:extensionBindingPrefixes="xjc ext ext2"
+            
+			targetNamespace="domain-types"
+			xmlns:do="domain-types"
+
+			xmlns:st="string-types"
+			xmlns:nu="numeric-types">
+	<!-- -->
+	<!-- -->
+  <xs:annotation>
+    <xs:appinfo>
+      <jaxb:schemaBindings>
+        <jaxb:package name="com.xyz.pts.bms.idetectdas.model.generated.output.common"/>
+      </jaxb:schemaBindings>
+      <jaxb:property>
+        <jaxb:javadoc>entity,violations,errorreporting</jaxb:javadoc>
+      </jaxb:property>
+    </xs:appinfo>
+  </xs:annotation>
+  <!-- -->
+ 	<!-- -->
+  <xs:import namespace="string-types" schemaLocation="string-types.xsd"/>
+  <xs:import namespace="numeric-types" schemaLocation="numeric-types.xsd"/>
+  <!-- -->
+  <!-- -->
+	<!-- Airline code 2 letters or 3 letters AN(3) -->
+	<!-- Airline code 3 letters AN(3) -->
+  <xs:simpleType name="CARRIER_CODE_TYPE">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(\w{2,3})">
+        <xs:annotation>
+          <xs:appinfo>
+            <ext:default/>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- -->
+	<!-- fare_basis.  AN(25) -->
+  <xs:simpleType name="FARE_BASE_TYPE">
+    <xs:restriction base="xs:string">
+      <xs:pattern value=".{0,25}">
+        <xs:annotation>
+          <xs:appinfo>
+            <ext:default/>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- -->
+	<!-- Flight Numbers support IATA and ICAO format - 4 or 5 characters -->
+  <xs:simpleType name="FLIGHT_NUMBER_TYPE">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(.{4,5})">
+        <xs:annotation>
+          <xs:appinfo>
+            <ext:default/>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- -->
+	
+	<!-- Airport Codes support IATA and ICAO format - 3 or 4 characters -->
+  <xs:simpleType name="AIRPORT_CODE_TYPE">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(.{3,4})">
+        <xs:annotation>
+          <xs:appinfo>
+            <ext:default/>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- IATA Country code, Alpha(2) -->
+  <xs:simpleType name="IATA_COUNTRY_CODE_TYPE">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="([a-z,A-Z]{2})">
+        <xs:annotation>
+          <xs:appinfo>
+            <ext:default/>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- -->
+	<!-- ISO 3166 Country code, Alpha(3) -->
+	<!-- -->	
+	<!-- -->
+  <xs:simpleType name="ISO_COUNTRY_CODE_TYPE">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(.{2,3})">
+        <xs:annotation>
+          <xs:appinfo>
+            <ext:default/>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- -->
+	<!-- IATA Airport code, Alpha(3) -->
+  <xs:simpleType name="IATA_AIRPORT_CODE_TYPE">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="([a-z,A-Z]{3})">
+        <xs:annotation>
+          <xs:appinfo>
+            <ext:default/>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- -->
+	<!-- -->
+		<!-- Travel Document Types -->
+  <xs:simpleType name="TRAVELDOC_TYPE">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="P">
+        <xs:annotation>
+          <xs:documentation>Passport</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="V">
+        <xs:annotation>
+          <xs:documentation>Visa</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="A">
+        <xs:annotation>
+          <xs:documentation>AlienReg</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="F">
+        <xs:annotation>
+          <xs:documentation>FacilDoc</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="M">
+        <xs:annotation>
+          <xs:documentation>MilitID</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="T">
+        <xs:annotation>
+          <xs:documentation>TravDoc</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="C">
+        <xs:annotation>
+          <xs:documentation>PermRes</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="U">
+        <xs:annotation>
+          <xs:appinfo>
+            <ext:default/>
+          </xs:appinfo>
+          <xs:documentation>Unknown</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- -->
+  <xs:simpleType name="GENDER_TYPE">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="M"/>
+      <xs:enumeration value="F"/>
+      <xs:enumeration value="U">
+        <xs:annotation>
+          <xs:appinfo>
+            <ext:default/>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- -->
+  <xs:simpleType name="STATUS_TYPE">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="PAX"/>
+      <xs:enumeration value="CRW"/>
+      <xs:enumeration value="ITP"/>
+      <xs:enumeration value="ITC"/>
+      <xs:enumeration value="">
+        <xs:annotation>
+          <xs:appinfo>
+            <ext:default/>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- -->
+  <xs:simpleType name="LINKAGE_TYPE">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="9"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- -->
+  <xs:simpleType name="TAG_TYPE">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="L"/>
+      <xs:enumeration value="T"/>
+      <xs:enumeration value="C"/>
+      <xs:enumeration value="M"/>
+      <xs:enumeration value="E"/>
+      <xs:enumeration value="I"/>
+      <xs:enumeration value="R"/>
+      <xs:enumeration value="A"/>
+      <xs:enumeration value="O"/>
+      <!-- Included for TCCI reg test -->
+      <xs:enumeration value="">
+        <xs:annotation>
+          <xs:appinfo>
+            <ext:default/>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- -->
+  <xs:simpleType name="TKT_STATUS_TYPE">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK"/>
+      <xs:enumeration value="WL"/>
+      <xs:enumeration value="SA"/>
+      <xs:enumeration value="OP"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- -->
+  <xs:simpleType name="ERRSEV_TYPE">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="I"/>
+      <xs:enumeration value="W"/>
+      <xs:enumeration value="E"/>
+      <xs:enumeration value="S"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- -->
+  <xs:complexType name="AMOUNT_TYPE">
+    <xs:sequence>
+      <xs:element name="currency" type="do:CURRENCY_TYPE" minOccurs="0"/>
+      <xs:element name="dollars" type="do:DOLLARS_TYPE" minOccurs="0"/>
+      <xs:element name="cents" type="do:CENTS_TYPE" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!-- -->
+  <xs:simpleType name="CURRENCY_TYPE">
+    <xs:restriction base="xs:string">
+      <xs:pattern value=".{0,3}">
+        <xs:annotation>
+          <xs:appinfo>
+            <ext:default/>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- -->
+  <xs:simpleType name="DOLLARS_TYPE">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <!-- -->
+  <xs:simpleType name="CENTS_TYPE">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <!-- -->
+  <xs:simpleType name="Codeshare_type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Parent"/>
+      <xs:enumeration value="Child"/>
+      <xs:enumeration value="NA">
+        <xs:annotation>
+          <xs:appinfo>
+            <ext:default/>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- -->
+  <!-- iDetect DB TRAVELLER_TYPE used in place of STATUS_TYPE -->
+  <xs:simpleType name="TRAVELLER_TYPE">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="U">
+        <xs:annotation>
+          <xs:appinfo>
+            <ext:default/>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="P"/>
+      <xs:enumeration value="C"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!--  Carrier Processing Information on data permitted for processing -->
+  <xs:complexType name="CARRIER_PROCESSING_INFO">
+    <xs:sequence>
+      <xs:element name="RuleId" type="nu:PrimaryIdType"/>
+      <xs:element name="BCSUserName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!-- xs:complexType name="IRISK_CARRIER_PROCESSING_INFO">
+    <xs:complexContent>
+      <xs:extension base="do:CARRIER_PROCESSING_INFO">
+        <xs:sequence>
+          <xs:element name="SDIUserName" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType-->
+  <!-- TravelDocumentList and TravelDocument complexTypes -->
+  <xs:complexType name="TravelDocumentsListType">
+    <xs:sequence>
+      <xs:element name="TravelDocumentList" type="do:TravelDocumentType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TravelDocumentType">
+    <xs:sequence>
+      <xs:element name="DocumentType" minOccurs="1" maxOccurs="1" type="do:TRAVELDOC_TYPE"/>
+      <xs:element name="DocumentNo" minOccurs="0" maxOccurs="1" type="st:STR35_TYPE"/>
+      <xs:element name="DocumentIssuePlace" minOccurs="0" maxOccurs="1" type="st:STR80_TYPE"/>
+      <xs:element name="DocumentProvince" minOccurs="0" maxOccurs="1" type="st:STR2_TYPE"/>
+      <xs:element name="DocumentIssueCountry" minOccurs="0" maxOccurs="1" type="do:ISO_COUNTRY_CODE_TYPE"/>
+      <xs:element name="DocumentNationality" minOccurs="0" maxOccurs="1" type="do:ISO_COUNTRY_CODE_TYPE"/>
+      <xs:element name="DocumentGender" minOccurs="1" maxOccurs="1" type="do:GENDER_TYPE"/>
+      <xs:element name="DocumentIssueDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="DocumentExpiryDate" type="xs:date" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="ApiTravelDocumentsListType">
+    <xs:sequence>
+      <xs:element name="TravelDocument" type="do:ApiTravelDocumentType" minOccurs="1" maxOccurs="2"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="ApiTravelDocumentType">
+    <xs:sequence>
+      <xs:element name="DocumentType" minOccurs="1" maxOccurs="1" type="do:TRAVELDOC_TYPE"/>
+      <xs:element name="DocumentNo" minOccurs="0" maxOccurs="1" type="st:STR35_TYPE"/>
+      <xs:element name="DocumentIssuePlace" minOccurs="0" maxOccurs="1" type="st:STR80_TYPE"/>
+      <xs:element name="DocumentProvince" minOccurs="0" maxOccurs="1" type="st:STR2_TYPE"/>
+      <xs:element name="DocumentIssueCountry" minOccurs="0" maxOccurs="1" type="do:ISO_COUNTRY_CODE_TYPE"/>
+      <xs:element name="DocumentIssueDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="DocumentExpiryDate" type="xs:date" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- Traveller Count -->
+  <xs:simpleType name="TravellerCountType">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="999"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+
+
+

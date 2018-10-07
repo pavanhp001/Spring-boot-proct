@@ -1,0 +1,17 @@
+<!DOCTYPE project SYSTEM "../../dtd/Project.dtd">
+
+<project default="logintest">
+	<target name="logintest">
+		<webtest name="Update User Details">
+			<config basepath="${canoo.config.basepath}" host="${canoo.config.host}" saveresponse="${canoo.config.saveresponse}" browser="${canoo.config.browser}" showhtmlparseroutput="${canoo.config.showhtmlparseroutput}"/>
+			&GoToViewUser;
+			&LoginADM;
+			&ViewUser;
+			&ClickEditButton;
+			<clickButton description="click the Save button" htmlId="btnUpdate"/>
+			<clickButton description="click the OK button" htmlId="btnUpdateUser"/>
+			<verifyText description="Check whether User Details gets updated" text="${user.details.updated.confirm}"/>
+			&Logout;
+ 		</webtest>
+	</target>
+</project>

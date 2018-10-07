@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" 
+xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
+jaxb:version="2.0" 
+targetNamespace="wiInputMsg"
+xmlns:wi="wiInputMsg" 
+xmlns:fls="fls-type"
+xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:annotation>
+  <xs:appinfo>
+    <jaxb:schemaBindings>
+      <jaxb:package name="abc.xyz.pts.bcs.irisk.mvo.wiinterface"/>
+    </jaxb:schemaBindings>
+    <jaxb:property>
+      <jaxb:javadoc>entity</jaxb:javadoc>
+    </jaxb:property>
+  </xs:appinfo>
+</xs:annotation>
+
+<xs:import namespace="fls-type" schemaLocation="../common/flightSegmentSummary.xsd"/>
+    <xs:element name="WI-Input-Msg">
+        <xs:annotation>
+            <xs:appinfo>
+                <jaxb:class name="WiInputMsg"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Message-id" type="xs:string" minOccurs="1" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:appinfo>
+                            <jaxb:property name="MessageId" />
+                        </xs:appinfo>
+                        <xs:documentation> Message Identifier</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="Inputs" type="wi:WiTravellerInput" minOccurs="1" maxOccurs="unbounded" />
+                <xs:element name="flightSegmentSummary" type="fls:FlightSegmentSummary" minOccurs="1" maxOccurs="1" />
+                <xs:element name="APRCReceivedTime" type="xs:long" minOccurs="1" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:documentation>
+                            Time (in millis) at which the message is received by
+                            Risk co-ordinator from AP.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="WiTravellerInput">
+        <xs:sequence>
+            <xs:element name="Unique-traveller-reference" type="xs:long" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <jaxb:property name="TraId" />
+                    </xs:appinfo>
+                    <xs:documentation>Identifier</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Forename" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        First or given name of flyer.
+                            US EDIFACT: Derived from EDIFACT field 3404 (PDT).
+                            UN EDIFACT: Derived from EDIFACT field 3036 (NADGR.4).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Surname" type="xs:string" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Last or family name of flyer.
+                            US EDIFACT: Derived from EDIFACT field 3404 (PDT).
+                            UN EDIFACT: Derived from EDIFACT field 3036 (NADGR.4).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Date-of-birth" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <jaxb:property name="BirthDate" />
+                    </xs:appinfo>
+                    <xs:documentation>
+                        Date of birth. Converted to ISO 8601 format (YYYY-MM-DD).
+                        US EDIFACT: Derived from EDIFACT field 2491 (PDT).
+                        UN EDIFACT: Derived from EDIFACT field 2380 (DTMGR.4).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="AlertMatchType" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <jaxb:property name="AlertMatchType" />
+                    </xs:appinfo>
+                    <xs:documentation>
+                        Alert Match Type.                        
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="BirthCountry" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <jaxb:property name="BirthCountry" />
+                    </xs:appinfo>
+                    <xs:documentation>
+                        Country of Birth of flyer.                        
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Place-of-birth" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <jaxb:property name="BirthPlace" />
+                    </xs:appinfo>
+                    <xs:documentation>
+                        Place of Birth of flyer.                        
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Gender" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Gender. Possible values are:
+                            M – male
+                            F – Female
+                            U - Unknown
+                    </xs:documentation>
+               </xs:annotation>
+            </xs:element>
+            <xs:element name="Nationality" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Nationality.
+                            US EDIFACT: Derived from EDIFACT field 3239 (PDT). 2 character ISO country code.
+                            UN EDIFACT: Derived from EDIFACT field 3225 (LOC GR.5).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+			<xs:element name="Movement-direction" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Direction of the movement. (In / Out)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+            <xs:element name="DocumentInputs" type="wi:WiDocumentInput" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="APRCReceivedTime" type="xs:long" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Time (in millis) at which the message is received by
+                        Risk co-ordinator from AP.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="WiDocumentInput">
+        <xs:sequence>
+            <xs:element name="Document-type" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <jaxb:property name="DocumentType" />
+                    </xs:appinfo>
+                    <xs:documentation>
+                        Document type.
+                            US EDIFACT: Derived from EDIFACT field 1194 (PDT). Values:
+                                Passport - when field = “P/”, or when field not recognised or when API version is 1.02
+                                Visa - when field = “V”
+                                AlienReg - when field = “A”
+                                FacilDoc - when field = “F”
+
+                            UN EDIFACT: Derived from EDIFACT field 1001 (DOCGR.5). Values:
+                                AlienReg - when field = “A”
+                                PermRes - when field = “C”
+                                FacilDoc – when field = “F”
+                                INSPass - when field = “I”
+                                Military - when field = “M”
+                                Passport – when field = “P”
+                                TravDoc - when field = “T”
+                                Visa - when field = “V”
+                                Unknown - when field not recognised
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Document-number" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <jaxb:property name="DocumentNumber" />
+                    </xs:appinfo>
+                    <xs:documentation>
+                        Document number.
+                            US EDIFACT: Derived from EDIFACT field 1194 (PDT) minus the document type information. Note that this field is optional in API v1.02. Note further that this field can be absent for transborder
+                            flights where the user has presented personal ID (such as driver’s license or birth certificate). Processing by iDetect is limited to permitting the non-declaration of this data in API v1.03-1.05
+                            UN EDIFACT: Derived from EDIFACT field 1004 (DOCGR.5 1st element).
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="DocumentIssueCountry" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <jaxb:property name="DocumentIssueCountry" />
+                    </xs:appinfo>
+                    <xs:documentation>
+                    Document Issue Country
+                     </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

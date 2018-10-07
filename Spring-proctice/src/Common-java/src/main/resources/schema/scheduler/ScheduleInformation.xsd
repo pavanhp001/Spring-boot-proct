@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" 
+xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
+jaxb:version="2.0" 
+xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:annotation>
+  <xs:appinfo>
+    <jaxb:schemaBindings>
+      <jaxb:package name="abc.xyz.pts.bcs.scheduler"/>
+    </jaxb:schemaBindings>
+    <jaxb:property>
+      <jaxb:javadoc>entity</jaxb:javadoc>
+    </jaxb:property>
+  </xs:appinfo>
+</xs:annotation>
+
+  <xs:element name="ScheduleInformation">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="PreScanID" type="xs:long" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="CreatedDateTime" type="xs:dateTime" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="FlightSegId" type="xs:long" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="NoOfBookings" type="xs:integer" maxOccurs="1" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  </xs:element>
+</xs:schema>

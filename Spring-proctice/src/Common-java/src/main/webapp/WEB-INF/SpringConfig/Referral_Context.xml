@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- **************************************************************************** 
+	*   * * ************************************************************************** -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<!-- referralNotifcationRequestSender configuration  -->
+	<!-- Connection factory for producing messages -->
+	<!--  to send to workflows -->
+	
+	<!-- Notification request message sender setup -->
+	<bean id="referralAddHitNotifcationRequestSender" class="abc.xyz.pts.bcs.common.messaging.JMSSender">
+		<property name="jmsTemplate" ref="referralNotifcationJmsTemplate" />
+		<property name="destination" ref="referralAddHitNotifcationRequestQueue" />
+	</bean>
+
+
+	<bean id="referralNotifcationRequestSender" class="abc.xyz.pts.bcs.common.messaging.JMSSender">
+		<property name="jmsTemplate" ref="referralNotifcationJmsTemplate" />
+		<property name="destination" ref="referralNotifcationRequestQueue" />
+	</bean>
+	
+	<bean id="referralNotifcationJmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="referralNotifcationCachedConnectionFactory" />
+		<property name="sessionTransacted" value="true" />
+	</bean>
+
+	<bean id="referralAddHitNotifcationRequestQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="${referral.workflows.addhit.request.queue.name}" />
+	</bean>
+
+	<bean id="referralNotifcationRequestQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="${referral.workflows.notification.request.queue.name}" />
+	</bean>
+
+	<bean id="referralNotifcationCachedConnectionFactory" class="org.springframework.jms.connection.CachingConnectionFactory" >
+		<property name="targetConnectionFactory">
+			<bean class="org.apache.activemq.ActiveMQConnectionFactory">
+				<property name="brokerURL">
+					<value>failover://(${workflows.broker.url})?randomize=false</value>
+				</property>
+			</bean>
+		</property>
+		<property name="reconnectOnException" value="true" />
+		<property name="sessionCacheSize" value="${referral.workflows.notification.sender.connections}" />
+	</bean>
+	
+	<bean id="referralNotificationService"
+		class="abc.xyz.pts.bcs.common.referral.workflows.notification.ReferralNotificationServiceImpl">
+		<property name="travellerDAO" ref="travellerDAO" />
+		<property name="referralNotifcationRequestSender" ref="referralNotifcationRequestSender" />
+		<property name="referralAddHitNotifcationRequestSender" ref="referralAddHitNotifcationRequestSender" />
+	</bean>
+
+	<bean id="referralStateService" class="abc.xyz.pts.bcs.common.referral.ReferralStateService">
+		<property name="referralService" ref="referralService" />
+        <property name="referralNotificationService" ref="referralNotificationService" />
+	</bean>    
+    
+	<bean id="referralService" class="abc.xyz.pts.bcs.common.referral.ReferralServiceImpl">
+		<property name="referralDAO" ref="referralDAO" />
+		<property name="prRecommendedActionDao" ref="prRecommendedActionDao" />
+		<property name="referralLogDAO" ref="referralLogDAO" />		
+		<property name="referralHitDAO" ref="referralHitDAO" />				
+		<property name="appHitScore" value="${app.ruleshit.hitscore}" />
+		<property name="appRecommendedActionCode" value="${app.ruleshit.recommendedactioncode}" />
+		<property name="appSeverityLevel" value="${app.ruleshit.severity}" />
+		<property name="maxSeverityLevel" value="${hit.max.serverity.level}" />
+		<property name="travellerDAO" ref="travellerDAO" />
+		<property name="flightSegmentsDAO" ref="flightSegmentsDAO" />
+		<property name="referralNotificationService" ref="referralNotificationService" />
+		<property name="systemAuditor" ref="systemAuditor" />
+	</bean>
+</beans>

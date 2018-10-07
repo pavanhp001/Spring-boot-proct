@@ -1,0 +1,9 @@
+<clickElement description="select first result" xpath="//td[@class='results'][1]" />
+
+<verifyElementText type="TD" htmlId="CANOOTESTUSER-name" text="CANOO TESTUSER"/>
+<verifyElementText type="INPUT" htmlId="username" text="CANOOTESTUSER"/>
+
+<clickButton description="click the Delete button" htmlId="btnDeleteUser"/>
+<clickButton description="click the OK button to verify" htmlId="btnPopDeleteUser"/>
+
+<verifyTitle description="Verify the title of the page" text="${search.user}"/>

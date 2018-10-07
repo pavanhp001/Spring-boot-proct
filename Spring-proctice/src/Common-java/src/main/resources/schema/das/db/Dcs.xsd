@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0"
+           elementFormDefault="unqualified"
+           attributeFormDefault="unqualified"	
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	       xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+           jaxb:version="2.0"
+           xmlns:ext="http://tools.bms.pts.xyz.com/xjcplugin/markentities"
+           xmlns:ext2="http://tools.bms.pts.xyz.com/xjcplugin/markentities/entity"
+		   jaxb:extensionBindingPrefixes="xjc ext ext2"
+           xmlns:dcs="dcs"
+           targetNamespace="dcs"
+           xmlns:st="string-types"
+		   xmlns:da="datetime-types"
+           xmlns:nu="numeric-types"
+           xmlns:do="domain-types"
+           xmlns:dbdcs="dbdcs">
+	<!-- -->
+	<!-- -->
+  <xs:annotation>
+    <xs:appinfo>
+      <jaxb:schemaBindings>
+        <jaxb:package name="com.xyz.pts.bms.idetectdas.model.generated.output.idetectdb"/>
+      </jaxb:schemaBindings>
+      <jaxb:property>
+        <jaxb:javadoc>entity,violations,errorreporting</jaxb:javadoc>
+      </jaxb:property>
+    </xs:appinfo>
+  </xs:annotation>
+  <!-- -->
+ 	<!-- -->
+  <xs:import namespace="dbdcs" schemaLocation="idetectdb-dcs-types.xsd"/>
+  <xs:import namespace="string-types" schemaLocation="../common/string-types.xsd"/>
+  <xs:import namespace="datetime-types" schemaLocation="../common/datetime-types.xsd"/>
+  <xs:import namespace="numeric-types" schemaLocation="../common/numeric-types.xsd"/>
+  <xs:import namespace="domain-types" schemaLocation="../common/domain-types.xsd"/>
+  <!-- -->
+  <xs:element name="Dcs" type="dcs:Dcs"/>
+  <xs:complexType name="Dcs">
+    <xs:sequence>
+      <xs:element name="DcsId" type="nu:PrimaryIdType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Forename" type="st:STR80_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Lastname" type="st:STR80_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="MiddleName"  type="st:STR80_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="GroupCode" type="st:STR4_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Gender" type="do:GENDER_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="PartyCnt" type="nu:INT2_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PartySlip" type="st:STR10_TYPE" minOccurs="0"/>
+      <xs:element name="SeatNo" type="st:STR4_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="CabinClass" type="st:STR2_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="RefNo" type="st:STR4_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="LineNo" type="st:STR3_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PartNo" type="st:STR3_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="AirposComments" type="st:STR80_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="AlternativeDestination" type="st:STR80_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Comments" type="st:STR80_TYPE" minOccurs="0"/>
+      <xs:element name="GeneralComments" type="st:STR80_TYPE" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="CheckinInfo" type="dbdcs:CheckinInfoType" minOccurs="0"/>
+      <xs:element name="JoiningDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="DepartureTax" type="st:STR80_TYPE" minOccurs="0"/>
+      <xs:element name="ExtraSeatNos" type="st:STR80_TYPE" minOccurs="0"/>
+      <xs:element name="FormalityComments" type="st:STR80_TYPE" minOccurs="0"/>
+      <xs:element name="SpecialMealComments" type="st:STR80_TYPE" minOccurs="0"/>
+      <xs:element name="PilComments" type="st:STR80_TYPE" minOccurs="0"/>
+      <xs:element name="GateComments" type="st:STR80_TYPE" minOccurs="0"/>
+      <xs:element name="PassengerInfo" type="dbdcs:PassengerInfoType" minOccurs="0"/>
+      <xs:element name="DocumentInfo" type="dbdcs:DocumentInfoType" minOccurs="0"/>
+      <xs:element name="InboundInfoList" type="dbdcs:InboundInfoListType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="OutboundList" type="dbdcs:OutboundInfoListType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="InfantInfoList" type="dbdcs:InfantInfoListType" minOccurs="0"/>
+      <xs:element name="UpgradeClassInfoList" type="dbdcs:UpgradeClassInfoListType" minOccurs="0"/>
+      <xs:element name="UpgradeType" type="st:STR3_TYPE" minOccurs="0"/>
+      <xs:element name="DowngradeClassInfoList" type="dbdcs:DowngradeClassInfoListType" minOccurs="0"/>
+      <xs:element name="DowngradeType" type="st:STR3_TYPE" minOccurs="0"/>
+      <xs:element name="PreAllocatedSetFlag" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="PreferredClass" type="st:STR2_TYPE" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="ProtectedSeatFlag" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="OnloadInfo" type="dbdcs:OnloadInfoType" minOccurs="0"/>
+      <xs:element name="StaffPriorityCode" type="st:STR20_TYPE" minOccurs="0"/>
+      <xs:element name="SubLoadAcceptedFlag" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="UnaccompaniedMinorFlag" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="BassinetFlag" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="MedicalComments" type="st:STR80_TYPE" minOccurs="0"/>
+      <xs:element name="ThroughCheckinFlag" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="StandbyNumber" type="st:STR4_TYPE" minOccurs="0"/>
+      <xs:element name="SecurityNumber" type="st:STR4_TYPE" minOccurs="0"/>
+      <xs:element name="BookingRefNumber" type="st:STR10_TYPE" minOccurs="0"/>
+      <xs:element name="HistoryComments" type="st:STR80_LIST_TYPE" minOccurs="0"/>
+      <xs:element name="ThroughCheckinSeatNos" type="st:STR80_TYPE" minOccurs="0"/>
+      <xs:element name="StaffFlag" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="NoRecFlag" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="FrequentFlyerList" type="dbdcs:FrequentFlyerListType" minOccurs="0"/>
+      <xs:element name="TicketInfo" type="dbdcs:TicketInfoType" minOccurs="0"/>
+      <xs:element name="BaggageInfo" type="dbdcs:BaggageInfoType" minOccurs="0"/>
+      <xs:element name="BaggageTagInfo" type="dbdcs:BaggageTagListType" minOccurs="0"/>
+      <xs:element name="CodeShareInfo" type="dbdcs:CodeShareInfoType" minOccurs="0"/>
+      <xs:element name="GuageChangeFlag" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="OldSeatNos" type="st:STR80_TYPE" minOccurs="0"/>
+      <xs:element name="LastAssociationFlag" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

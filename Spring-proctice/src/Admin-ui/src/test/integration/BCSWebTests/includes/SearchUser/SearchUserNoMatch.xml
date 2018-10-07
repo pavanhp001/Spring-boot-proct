@@ -1,0 +1,9 @@
+<setInputField description="set username" htmlId="username" value="NOMATCHTESTNOSUCHUSER"/>
+<setInputField description="set email" name="user.email" value="tamas.barak@xyz.aero"/>
+
+<clickButton description="click the Search button" htmlId="btnSearchForUsers"/>
+<sleep seconds="3"/>
+
+<not description="Confirm no search results are displayed">
+	<verifyText description="Confirm search results are displayed" text="searchResultsDiv" />
+</not>

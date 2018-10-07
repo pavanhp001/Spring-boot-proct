@@ -1,0 +1,15 @@
+<clickElement description="select first result" xpath="//td[@class='results'][1]" />
+
+<clickButton description="click the View button" htmlId="btnViewUser"/>
+<sleep seconds="3"/>
+
+<verifyTitle description="View User Profile Title should be seen" text="${view.user.profile}" />
+
+<clickButton description="click the Modify button" htmlId="btnUpdateUser"/>
+<sleep seconds="3"/>
+
+<verifyTitle description="Update User Title should be seen" text="${update.user}" />
+<setInputField description="set mobile number" name="user.mobileNumber" value="0123456789"/>
+
+<clickButton description="click the Update button" htmlId="btnUpdate"/>
+<clickButton description="click the OK button" htmlId="btnUpdateUser"/>

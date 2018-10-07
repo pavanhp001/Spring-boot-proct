@@ -1,0 +1,1 @@
+<verifyTitle description="View User Profile Title should be seen" text="${view.user.profile}" />

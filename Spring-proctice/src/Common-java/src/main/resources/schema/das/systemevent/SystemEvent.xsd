@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			elementFormDefault="qualified" 
+			attributeFormDefault="unqualified"
+           	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	        xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+            jaxb:version="2.0"
+            xmlns:ext="http://tools.bms.pts.xyz.com/xjcplugin/markentities"
+            jaxb:extensionBindingPrefixes="xjc ext"  >
+
+	<!-- -->
+    <xs:annotation>
+       <xs:appinfo>
+          <jaxb:schemaBindings>
+           <jaxb:package name="abc.xyz.das.italy.model.generated.output.systemevent"/>
+          </jaxb:schemaBindings>
+       </xs:appinfo>
+    </xs:annotation>
+	<!-- -->
+	<!-- -->
+	<xs:element name="SystemEvent" type="SystemEvent"/>
+	
+	<xs:complexType name="SystemEvent">
+		<xs:annotation><xs:appinfo><ext:root/></xs:appinfo></xs:annotation>            
+		<xs:sequence>	
+			<xs:element name="application" type="Application" minOccurs="1" maxOccurs="1" />
+			<xs:element name="messageId" type="MessageIdentifier" minOccurs="1" maxOccurs="1" />
+			<xs:element name="code" type="xs:int" minOccurs="1" maxOccurs="1" />
+			<xs:element name="eventTime" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="priority" type="Priority" minOccurs="1" maxOccurs="1" default="INFO"/>
+			<xs:element name="friId" type="xs:long" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="carrier" type="CarrierCode" minOccurs="0" maxOccurs="1" />
+			<xs:element name="flightNumber" type="FlightNumber" minOccurs="0" maxOccurs="1" />
+			<xs:element name="crewOnly" type="xs:boolean" minOccurs="0" maxOccurs="1"/>			
+			<xs:element name="departureDateTime" type="DepartureDateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="departureAirport" type="DepartureAirport" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="comment1" type="Comment" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="comment2" type="Comment" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="comment3" type="Comment" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="comment4" type="Comment" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="comment5" type="Comment" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="comment6" type="Comment" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="comment7" type="Comment" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="comment8" type="Comment" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="comment9" type="Comment" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="comment10" type="Comment" minOccurs="0" maxOccurs="1"/>
+	      </xs:sequence>	
+	</xs:complexType>
+	    	
+	<xs:simpleType name="Application">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="MS" />
+			<xs:enumeration value="DAS" />
+			<xs:enumeration value="IRISK" />
+			<xs:enumeration value="IDETECTDB" />
+		</xs:restriction>
+	</xs:simpleType>   		
+	<!-- -->
+	<xs:simpleType name="CarrierCode">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="6"/>
+       	</xs:restriction>
+	</xs:simpleType>
+
+    <xs:simpleType name="FlightNumber">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="8"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="DepartureDateTime">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="DepartureAirport">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="3"/>
+            <xs:maxLength value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+	<xs:simpleType name="Priority">
+     <xs:restriction base="xs:string">
+		<xs:enumeration value="INFO" />
+		<xs:enumeration value="WARNING" />
+		<xs:enumeration value="ERROR" />
+		<xs:enumeration value="FATAL" />
+      </xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="Comment">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="200"/>
+		</xs:restriction>
+	</xs:simpleType>	
+	
+	<xs:simpleType name="MessageIdentifier">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- -->
+					
+</xs:schema>

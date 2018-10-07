@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" jaxb:version="2.0" targetNamespace="http://xyz.aero/bcs/sdinsis/screenscrapping" xmlns:sdi="http://xyz.aero/bcs/sdinsis/screenscrapping" xmlns:irs="http://xyz.aero/irisk/sdinsis/types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:import namespace="http://xyz.aero/irisk/sdinsis/types" schemaLocation="irisk-sdinsis-types.xsd" />
+
+	<xs:element name="richiesta">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="SdiRequest" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="utente" type="irs:utente" minOccurs="1" maxOccurs="1">
+					<xs:annotation>
+						<xs:appinfo>
+							<jaxb:property name="User" />
+						</xs:appinfo>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="messagioId" type="irs:messagioIdType" minOccurs="1" maxOccurs="1">
+					<xs:annotation>
+						<xs:appinfo>
+							<jaxb:property name="MessageId" />
+						</xs:appinfo>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="listaViaggiatori" type="sdi:richiestaViaggiatore" minOccurs="1" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:appinfo>
+							<jaxb:property name="Requests" />
+						</xs:appinfo>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="richiestaViaggiatore">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="SdiTravellerRequest" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="numProgViaggiatore" type="irs:traIdType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="UtrId" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="timeStamp" type="xs:dateTime" minOccurs="1" maxOccurs="1" />
+			<xs:element name="cognome" type="irs:nomeType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="Surname" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="nome" type="irs:nomeType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="Forename" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dataNascita" type="irs:dataNascitaType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="BirthDate" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice minOccurs="0" maxOccurs="1">
+				<xs:element name="nazionalita" type="irs:nazionalitaType" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:appinfo>
+							<jaxb:property name="Nationality" />
+						</xs:appinfo>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="isoNazionalita" type="irs:isoCodiceNazionalitaType" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:appinfo>
+							<jaxb:property name="IsoNationality" />
+						</xs:appinfo>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+			<xs:element name="luogoNascita" type="irs:luogoNascitaType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="BirthPlace" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="siglaProvincia" type="irs:siglaProvinciaType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="BirthProvince" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="documenti" type="sdi:documento" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="Documents" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="documento">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="SdiDocumentRequest" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="tipo" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="DocumentType" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="descrizione" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="DocumentTypeDesc" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="numero" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="DocumentNumber" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice minOccurs="0" maxOccurs="1">
+				<xs:element name="codiceLuogoRilascio" type="xs:int" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:appinfo>
+							<jaxb:property name="DocumentIssueCountry" />
+						</xs:appinfo>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="isoCodiceLuogoRilascio" type="irs:isoCodicePaeseType" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:appinfo>
+							<jaxb:property name="IsoDocumentIssueCountry" />
+						</xs:appinfo>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+			<xs:element name="descrLuogoRilascio" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="DocumentIssueCity" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="siglaProvincia" type="irs:siglaProvinciaType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:appinfo>
+						<jaxb:property name="DocumentIssueProvince" />
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

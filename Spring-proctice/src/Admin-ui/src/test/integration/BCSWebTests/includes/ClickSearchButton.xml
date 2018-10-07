@@ -1,0 +1,2 @@
+<clickButton description="click the Serch button" htmlId="btnSearchForUsers"/>
+<sleep seconds="3"/>

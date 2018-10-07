@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- edited with XMLSpy v2011 rel. 3 (http://www.altova.com) by Richard Skobelski (xyz) -->
+
+           
+           <xs:schema version="1.0"
+           attributeFormDefault="unqualified"
+           elementFormDefault="unqualified"
+           
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+           xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+           jaxb:version="2.0"
+           xmlns:ext="http://tools.bms.pts.xyz.com/xjcplugin/markentities"
+           xmlns:ext2="http://tools.bms.pts.xyz.com/xjcplugin/markentities/entity"
+           jaxb:extensionBindingPrefixes="xjc ext ext2"
+
+           xmlns:nt="numeric-types" 
+           xmlns:st="string-types" 
+           xmlns:sy="system-types">
+           
+	<xs:import namespace="numeric-types" schemaLocation="../common/numeric-types.xsd"/>
+	<xs:import namespace="string-types" schemaLocation="../common/string-types.xsd"/>
+	<xs:import namespace="system-types" schemaLocation="../common/system-types.xsd"/>
+	<xs:annotation>
+		<xs:appinfo>
+			<jaxb:schemaBindings>
+				<jaxb:package name="abc.xyz.pts.bcs.samis.photointerface" />
+			</jaxb:schemaBindings>
+			<jaxb:property>
+				<jaxb:javadoc>entity</jaxb:javadoc>
+			</jaxb:property>
+		</xs:appinfo>
+	</xs:annotation>	
+	<xs:element name="GetPhotoResponse">
+		<xs:annotation>
+			<xs:documentation>Response element for the Photo Lookup</xs:documentation>
+		</xs:annotation>
+	<!-- -->
+	<xs:complexType>
+	    <xs:annotation>
+      <xs:appinfo>
+        <ext:root/>
+      </xs:appinfo>
+    </xs:annotation>
+		<xs:sequence>
+			<xs:element name="MessageId" type="nt:MSGID_TYPE">
+				<xs:annotation>
+					<xs:documentation>Message Identifier used to track the message</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RequestTimestamp" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Timestamp at which the corresponding request was created.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResponseTimestamp" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Timestamp at which this response was created.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PersonExternalId" type="st:STR20_TYPE">
+				<xs:annotation>
+					<xs:documentation>Traveller's Government Id, returned from response.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TravellerPhotograph" type="st:STRING_TYPE" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Traveller's Photograph, if found.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Exception" type="sy:ExceptionType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Identifies a system exception in the service.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+</xs:schema>

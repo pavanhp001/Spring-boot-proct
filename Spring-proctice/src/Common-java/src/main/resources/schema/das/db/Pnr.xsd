@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0"
+           elementFormDefault="unqualified"
+           attributeFormDefault="unqualified"	
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	       xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+           jaxb:version="2.0"
+           xmlns:ext="http://tools.bms.pts.xyz.com/xjcplugin/markentities"
+           xmlns:ext2="http://tools.bms.pts.xyz.com/xjcplugin/markentities/entity"
+		   jaxb:extensionBindingPrefixes="xjc ext ext2"
+           xmlns:pnr="pnr"
+           targetNamespace="pnr"
+           xmlns:st="string-types"
+		   xmlns:da="datetime-types"
+           xmlns:nu="numeric-types"
+           xmlns:do="domain-types"
+           xmlns:dbpnr="dbpnr" >
+
+	<!-- -->
+	<!-- -->
+    <xs:annotation>
+       <xs:appinfo>
+          <jaxb:schemaBindings>
+           <jaxb:package name="com.xyz.pts.bms.idetectdas.model.generated.output.idetectdb"/>
+          </jaxb:schemaBindings>
+          <jaxb:property>
+          	<jaxb:javadoc>entity,violations,errorreporting</jaxb:javadoc>
+          </jaxb:property>
+       </xs:appinfo>
+    </xs:annotation>
+	<!-- -->
+ 	<!-- -->
+ 	<xs:import namespace="dbpnr" schemaLocation="idetectdb-pnr-types.xsd"/>
+	<xs:import namespace="string-types" schemaLocation="../common/string-types.xsd"/>
+	<xs:import namespace="datetime-types" schemaLocation="../common/datetime-types.xsd"/>
+	<xs:import namespace="numeric-types" schemaLocation="../common/numeric-types.xsd"/>
+	<xs:import namespace="domain-types" schemaLocation="../common/domain-types.xsd"/>
+	<!-- -->
+	<xs:element name="Pnr" type="pnr:Pnr"/>
+
+	<xs:complexType name="Pnr">
+		<xs:sequence>
+			<xs:element name="PnrId" type="nu:PrimaryIdType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="BookingRefNumber" type="st:STR10_TYPE" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ProfileCity" type="st:STR10_TYPE" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TerminalCity" type="st:STR10_TYPE" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="AirlineCode" type="do:CARRIER_CODE_TYPE" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="BookingNameList" type="dbpnr:BookingNameListType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="GroupName" type="st:STR80_TYPE" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="BookingAgentId" type="st:STR20_TYPE" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="AgentIataCode" type="st:STR8_TYPE" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="McoText" type="st:STR80_TYPE" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="AgentInfo" type="dbpnr:AgentInfoType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="CustomerNumber" type="st:STR65_TYPE" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="FltbDescription" type="st:STR65_TYPE" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TicketedFlag" type="st:STR1_TYPE" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TravelDocuments" type="dbpnr:TravelDocumentsListType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TicketDetails" type="dbpnr:TicketingListType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="BookingSeatsDetails" type="dbpnr:BookingSeatListType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="PnrCancelledFlag" type="st:STR1_TYPE" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="CorpId" type="st:STR65_TYPE" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="DividedPnrLocatorsList" type="dbpnr:DividedPnrLocatorsListType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="PnrCreationDate" type="da:DATE10_TYPE" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ContactDetailsList" type="dbpnr:ContactDetailsListType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="PaymentInfo" type="dbpnr:PaymentInfoListType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="FrequentFlyerList" type="dbpnr:PnrFrequentFlyerListType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="BookingHistoryList" type="dbpnr:BookingHistoryListType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="SsrDetailList" type="dbpnr:SsrDetailListType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="OsiDetailList" type="dbpnr:OsiDetailListType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="RemarkList" type="dbpnr:RemarkListType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="SegmentList" type="dbpnr:SegmentListType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+		
+</xs:schema>
+

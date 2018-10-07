@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:aud="abc.xyz.pts.bcs.common.audit.messages"
+	targetNamespace="abc.xyz.pts.bcs.common.audit.messages"
+	xmlns:jxb="http://java.sun.com/xml/ns/jaxb" jxb:version="1.0">
+
+	<xs:annotation>
+		<xs:appinfo>
+		    <jxb:globalBindings>
+		      <jxb:javaType name="java.util.Date" xmlType="aud:AuditDateTime"
+		        parseMethod="abc.xyz.pts.bcs.common.audit.messages.DatatypeConverter.parseDateTime"
+		        printMethod="abc.xyz.pts.bcs.common.audit.messages.DatatypeConverter.printDateTime" />
+		    </jxb:globalBindings>
+			<jxb:schemaBindings>
+				<jxb:package name="abc.xyz.pts.bcs.common.audit.messages" />
+			</jxb:schemaBindings>
+		</xs:appinfo>
+	</xs:annotation>
+
+	<xs:element name="AuditEvent">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="userId" type="xs:string"/>
+				<xs:element name="employeeName" type="xs:string"/>
+				<xs:element name="createdDate" type="aud:AuditDateTime" minOccurs="1"/>
+				<xs:element name="name" type="xs:string" minOccurs="1"/>
+				<xs:element name="responseTime" type="xs:long" minOccurs="0"/>
+				<xs:element name="responseStatus" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="applicationName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="parameters" type="aud:AuditEventParameter" minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:simpleType name="AuditDateTime">
+		<xs:restriction base="xs:dateTime"></xs:restriction>
+	</xs:simpleType>
+
+	
+	<xs:complexType name="AuditEventParameter">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="value" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

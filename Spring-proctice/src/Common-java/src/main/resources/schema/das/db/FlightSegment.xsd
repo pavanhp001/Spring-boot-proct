@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" 
+			elementFormDefault="unqualified"
+			attributeFormDefault="unqualified"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	        xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+            jaxb:version="2.0"
+			xmlns:ext="http://tools.bms.pts.xyz.com/xjcplugin/markentities"
+			xmlns:ext2="http://tools.bms.pts.xyz.com/xjcplugin/markentities/entity"
+			jaxb:extensionBindingPrefixes="xjc ext ext2"
+			xmlns:st="string-types"
+			xmlns:nu="numeric-types"
+			xmlns:da="datetime-types"
+			xmlns:db="db-types"
+			xmlns:do="domain-types">
+
+  <!-- -->
+  <!-- -->
+  <xs:annotation>
+    <xs:appinfo>
+      <jaxb:schemaBindings>
+        <jaxb:package name="com.xyz.pts.bms.idetectdas.model.generated.output.idetectdb"/>
+      </jaxb:schemaBindings>
+      <jaxb:property>
+        <jaxb:javadoc>entity,violations,errorreporting</jaxb:javadoc>
+      </jaxb:property>
+    </xs:appinfo>
+  </xs:annotation>
+  <!--  -->
+  <xs:import namespace="db-types" schemaLocation="idetectdb-types.xsd"/>
+  <xs:import namespace="datetime-types" schemaLocation="../common/datetime-types.xsd"/>
+  <xs:import namespace="numeric-types" schemaLocation="../common/numeric-types.xsd"/>
+  <xs:import namespace="string-types" schemaLocation="../common/string-types.xsd"/>
+  <xs:import namespace="domain-types" schemaLocation="../common/domain-types.xsd"/>
+  <!-- Flight record type -->
+  <xs:element name="FlightSegment" type="FlightSegment"/>
+  <xs:complexType name="FlightSegment">
+    <xs:annotation>
+      <xs:appinfo>
+        <ext:root/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="FlightSegId" type="nu:PrimaryIdType"/>
+      <xs:element name="FlightId" type="nu:PrimaryIdType"/>
+      <xs:element name="SequenceNumber" type="nu:INT5_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="CreatedDateTime" type="da:DATE19_TYPE"/>
+      <xs:element name="SegmentOrder" type="nu:INT1_TYPE"/>
+      <xs:element name="NoOfSegments" minOccurs="1" maxOccurs="1" type="nu:INT1_TYPE"/>
+      <xs:element name="FlightRoute" type="st:STR45_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="FlightRoutesList" type="FlightRoutesList" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="OperCarrierCode" type="do:CARRIER_CODE_TYPE"/>
+      <xs:element name="OperFlightNo" type="do:FLIGHT_NUMBER_TYPE"/>
+      <xs:element name="OffBlockTime" type="da:DATE19_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ScheduledDepDateTime" type="da:DATE19_TYPE" minOccurs="1"/>
+      <xs:element name="EstimatedDepDateTime" type="da:DATE19_TYPE" minOccurs="0"/>
+      <xs:element name="ActualDepDateTime" type="da:DATE19_TYPE" minOccurs="0"/>
+      <xs:element name="ScheduledArrDateTime" type="da:DATE19_TYPE" minOccurs="0"/>
+      <xs:element name="EstimatedArrDateTime" type="da:DATE19_TYPE" minOccurs="0"/>
+      <xs:element name="ActualArrDateTime" type="da:DATE19_TYPE" minOccurs="0"/>
+      <xs:element name="OriginAirportCode" type="do:AIRPORT_CODE_TYPE" minOccurs="0"/>
+      <xs:element name="DepAirportCode" type="do:AIRPORT_CODE_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ArrAirportCode" type="do:AIRPORT_CODE_TYPE" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="RRDepAirportCode" type="do:AIRPORT_CODE_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="RRArrAirportCode" type="do:AIRPORT_CODE_TYPE" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="FlightType" type="db:FlightType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="FlightStatus" type="db:FlightStatusType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="FlightCodeShareList" type="db:FlightCodeShareList" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="PreScanId" type="nu:PrimaryIdType" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--  FlightRoutesList -->
+  <xs:complexType name="FlightRoutesList">
+    <xs:sequence>
+      <xs:element name="FlightRoute" type="FlightRouteType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!-- FlightRouteType definition -->
+  <xs:complexType name="FlightRouteType">
+    <xs:sequence>
+      <xs:element name="CarrierCode" type="do:CARRIER_CODE_TYPE" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="DepAirportCode" type="do:AIRPORT_CODE_TYPE" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ArrAirportCode" type="do:AIRPORT_CODE_TYPE" maxOccurs="1" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
+
